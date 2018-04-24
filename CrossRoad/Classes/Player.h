@@ -11,5 +11,5 @@ public:
 	void playerJumpStraight();
 	void playerJumpLeft();
 	void playerJumpRight();
-
+	Point getPlayerPoint();
 };

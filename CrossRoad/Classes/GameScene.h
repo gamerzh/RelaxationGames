@@ -34,6 +34,8 @@ private:
 	Player* player;
 	Vec2 preTouchPoint;
 	Gesture playerGesture;
+	Camera* playerCamera;
+	Vector<MapNode*> mapList;
 };
 
 #endif // __GAME_SCENE_H__

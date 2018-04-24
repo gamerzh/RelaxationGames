@@ -30,10 +30,8 @@ bool GameScene::init()
         return false;
     }
 
+	auto win = Director::getInstance()->getWinSize();
 	addTouchListener();
-
-    //auto rootNode = CSLoader::createNode("MainScene.csb");
-    //addChild(rootNode);
 
 	player = Player::create();
 	player->setPosition(300, 300);
@@ -45,11 +43,9 @@ bool GameScene::init()
 	addChild(map1);
 
 	//正交相机的使用
-	//auto win = Director::getInstance()->getWinSize();
-	//auto camera = Camera::createOrthographic(win.width * 1.0, win.height * 1.0, -1024, 1024);
-	//camera->setCameraFlag(CameraFlag::USER1);
-	//addChild(camera, 1);//添加到当前场景里
-	//camera->runAction(MoveTo::create(10, Vec2(camera->getPositionX(), camera->getPositionY() - win.height)));
+	//playerCamera = Camera::createOrthographic(win.width * 1.0, win.height * 1.0, -1024, 1024);
+	//playerCamera->setCameraFlag(CameraFlag::USER1);
+	//addChild(playerCamera, 1);//添加到当前场景里
 
     return true;
 }

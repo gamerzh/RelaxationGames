@@ -31,3 +31,7 @@ void Player::playerJumpRight() {
 	auto spwan = Spawn::create(turnRight, moveRight, NULL);
 	this->runAction(spwan);
 }
+
+Point Player::getPlayerPoint() {
+	return this->getPosition();
+}
