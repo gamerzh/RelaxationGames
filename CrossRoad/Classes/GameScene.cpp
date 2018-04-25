@@ -3,6 +3,7 @@
 #include "ui/CocosGUI.h"
 
 
+
 using namespace cocostudio::timeline;
 
 Scene* GameScene::createScene()
@@ -30,22 +31,26 @@ bool GameScene::init()
         return false;
     }
 
+
 	auto win = Director::getInstance()->getWinSize();
+	//正交相机的使用
+	playerCamera = Camera::createOrthographic(win.width * 1.0, win.height * 1.0, -1024, 1024);
+	playerCamera->setCameraFlag(CameraFlag::USER1);
+	playerCamera->setPosition(0,0);
+	addChild(playerCamera, 1);//添加到当前场景里
+
 	addTouchListener();
 
 	player = Player::create();
-	player->setPosition(300, 300);
+	player->setPosition(300, 220);
 	player->setCameraMask(2);
-	addChild(player);
+	addChild(player, 1);
 
-	auto map1 = MapNode::create(Point(320,200));
-	map1->setCameraMask(1);
-	addChild(map1);
+	mapLayer = MapLayer::create(playerCamera);
+	mapLayer->setCameraMask(2);
+	addChild(mapLayer);
 
-	//正交相机的使用
-	//playerCamera = Camera::createOrthographic(win.width * 1.0, win.height * 1.0, -1024, 1024);
-	//playerCamera->setCameraFlag(CameraFlag::USER1);
-	//addChild(playerCamera, 1);//添加到当前场景里
+	scheduleUpdate();
 
     return true;
 }
@@ -62,6 +67,7 @@ void GameScene::addTouchListener() {
 
 bool GameScene::onTouchBegan(Touch *touch, Event *event) {
 	preTouchPoint = touch->getLocation();
+	playerGesture = Gesture::straight;
 	return true;
 }
 
@@ -95,5 +101,27 @@ void GameScene::onTouchEnded(Touch* touch, Event* event) {
 		}
 	}
 
+}
 
+
+void GameScene::update(float dt) {
+	playerCamera->setPosition(playerCamera->getPositionX(),playerCamera->getPositionY()+0.25f);
+
+	for (auto var : mapLayer->getMapNodes()) {
+		if (var->getBoundingBox().intersectsRect(player->getBoundingBox())) {
+			if (var->getMapNodeType() != MapNodeType::type3) {
+				//玩家站在可靠的区域
+
+				//for (auto dan : var->getDangerObject()) {
+				//	log("Rect 1 = %f,%f,%f,%f", dan->getBoundingBox().getMinX(), dan->getBoundingBox().getMinY(),
+				//		dan->getBoundingBox().getMaxX(), dan->getBoundingBox().getMaxY());
+				//	/*log("Rect 2 = %f,%f,%f,%f", player->getBoundingBox().getMinX(), player->getBoundingBox().getMinY(),
+				//		player->getBoundingBox().getMaxX(), player->getBoundingBox().getMaxY());*/
+				//	if (dan->getBoundingBox().intersectsRect(player->getBoundingBox())) {
+				//	
+				//	}
+				//}
+			}
+		}
+	}
 }

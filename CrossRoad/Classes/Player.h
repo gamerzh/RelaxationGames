@@ -12,4 +12,6 @@ public:
 	void playerJumpLeft();
 	void playerJumpRight();
 	Point getPlayerPoint();
+private:
+	void update(float dt);
 };

@@ -3,7 +3,8 @@
 
 #include "cocos2d.h"
 #include "Player.h"
-#include "MapNode.h"
+#include "MapLayer.h"
+
 USING_NS_CC;
 
 class GameScene : public cocos2d::Layer
@@ -32,10 +33,12 @@ public:
 
 private:
 	Player* player;
+	MapLayer* mapLayer;
 	Vec2 preTouchPoint;
 	Gesture playerGesture;
 	Camera* playerCamera;
-	Vector<MapNode*> mapList;
+
+	void update(float dt);
 };
 
 #endif // __GAME_SCENE_H__

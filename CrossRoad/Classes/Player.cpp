@@ -4,8 +4,9 @@ bool Player :: init() {
 	if (!Sprite::init()) {
 		return false;
 	}
-	initWithFile("player_1.png");
-	setScale(0.3f);//²âÊÔÍ¼Æ¬Ëõ·Å±ÈÀý
+	initWithFile("player.png");
+	setScale(0.2f);
+	scheduleUpdate();
 	return true;
 }
 
@@ -35,3 +36,9 @@ void Player::playerJumpRight() {
 Point Player::getPlayerPoint() {
 	return this->getPosition();
 }
+
+
+void Player::update(float dt) {
+	
+}
+
