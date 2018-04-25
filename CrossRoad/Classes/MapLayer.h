@@ -12,7 +12,8 @@ private:
 	vector<MapNode*> mapList;
 	void createMap();
 	void checkMapInScene(float dt);
-	void createDangousObject();
+//    void createDangousObject(MapNode* var);
 	Camera* _camera;
 	int removeNodeNum = 0;
+    void update(float dt);
 };
