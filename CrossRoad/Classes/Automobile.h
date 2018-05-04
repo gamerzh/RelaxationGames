@@ -3,19 +3,25 @@
 USING_NS_CC;
 using namespace std;
 
-enum AutomobileType
-{
-	car1,
-	car2,
-	car3
-};
 
+
+//ÐÐÊ»ÎïÌå
 class Automobile : public Sprite {
 	
 public:
-	static Automobile* create(AutomobileType type,Point pos);
-	virtual bool init(AutomobileType type, Point pos);
+	static Automobile* create(Camera* camera ,int type,int direction , float speed, float interval,Point pos);
+	virtual bool init(Camera* camera,int type, int direction, float speed, float interval, Point pos);
+	vector<Sprite*> getCarList();
 private:
-	string  getFileNameByType(AutomobileType type);
-	string  getSpeedByType(AutomobileType type); 
+	Camera* camera;
+	float speed;
+	float interval;
+	float direction;
+	float time;
+	int automobileType;
+	Point postion;
+	vector<Sprite*> carList;
+	string  getFileNameByType(int type,int direction);
+	void drawCar(int type, int direction);
+	void update(float dt);
 };
