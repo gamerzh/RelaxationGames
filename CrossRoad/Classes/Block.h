@@ -10,4 +10,5 @@ public:
 	Rect getBlockCheckRect();
 private:
 	Size checkSize;
+	std::string getFileNameByType(int type);
 };

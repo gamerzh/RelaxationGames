@@ -1,5 +1,5 @@
 #include "Automobile.h"
-
+#include "MapNode.h"
 
 Automobile* Automobile::create(Camera* camera, int type, int direction, float speed, float interval, Point pos) {
 	auto automoblie = new Automobile();
@@ -24,8 +24,7 @@ bool Automobile::init(Camera* camera, int type, int direction, float speed, floa
 	this->time = random(1,3);
 	this->automobileType = type;
 	this->postion = pos;
-	setAnchorPoint(Point::ANCHOR_MIDDLE);
-	//setPosition(pos);
+	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	scheduleUpdate();
 	return true;
 }
@@ -51,14 +50,15 @@ string Automobile:: getFileNameByType(int type, int direction) {
 
 void Automobile::drawCar(int type, int direction) {
 	auto car = Sprite::create(getFileNameByType(type, direction));
+	car->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	car->setCameraMask(int(CameraFlag::USER1));
 	car->setScale(0.7f);
 	addChild(car);
 	if (direction == 1) {
-		car->setPosition(postion.x+car->getContentSize().width, postion.y+10);
+		car->setPosition(postion.x+car->getContentSize().width, floor(postion.y/default_tmx_height)*default_tmx_height+ default_tmx_height/6);
 	}
 	else {
-		car->setPosition(postion.x -car->getContentSize().width, postion.y+10);
+		car->setPosition(postion.x -car->getContentSize().width, floor(postion.y / default_tmx_height)*default_tmx_height + default_tmx_height/6);
 	}
 	carList.push_back(car);
 }
@@ -66,6 +66,7 @@ void Automobile::drawCar(int type, int direction) {
 vector<Sprite*> Automobile::getCarList() {
 	return carList;
 }
+
 
 void Automobile::update(float dt) {
 	if (time >= interval) {

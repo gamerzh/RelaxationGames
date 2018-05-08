@@ -2,6 +2,7 @@
 #include "GameOver.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "GeometryUtils.h"
 
 GameLayer* GameLayer::create(Camera* ca) {
 	auto mapLayer = new GameLayer();
@@ -25,7 +26,7 @@ bool GameLayer::init(Camera* ca) {
 	initGameMap();
 	playerGesture = Gesture::forward;
 	player = Player::create();
-	player->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
+	player->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	player->setPosition(mapList.at(0)->getHeroStartPos());
 	player->setCameraMask(int(CameraFlag::USER1));
 	addChild(player, PlayerZorder);
@@ -86,14 +87,16 @@ void GameLayer::addGameMap() {
 
 	for (auto woodInfo : node->getWoodInfoList())
 	{
-		createWood(woodInfo.type,woodInfo.position);
+		createWood(woodInfo.type, woodInfo.direction,woodInfo.speed,woodInfo.position);
 	}
 }
 
 void GameLayer::createHouseAndTree(int type,Size size, Point pos) {
 	int line = floor(pos.y / default_tmx_height);
 	auto tree = Block::create(type, size);
-	tree->setPosition(pos.x+(PLAYER_JUMP_OFFSET*line)%default_tmx_width,pos.y);
+	tree->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
+	tree->setPosition(floor(pos.x / default_tmx_width)*default_tmx_width + (PLAYER_JUMP_OFFSET*line)%default_tmx_width,
+		line*default_tmx_height + default_tmx_height/6);
 	addChild(tree, MaxZorder - line);
 	treeList.push_back(tree);
 }
@@ -106,12 +109,14 @@ void GameLayer::createAutomoblie(Camera* camera,int type, int direction, int spe
 	autoList.push_back(automoblie);
 }
 
-void GameLayer::createWood(int type, Point pos) {
-	auto wood = Wood::create(type);
-	wood->setPosition(pos);
+void GameLayer::createWood(int type,int dir,int speed, Point pos) {
+	auto wood = Wood::create(type, dir, speed);
+	wood->setPosition(pos.x, floor(pos.y / default_tmx_height)*default_tmx_height+ default_tmx_height/6);
 	addChild(wood, MaxZorder - floor(pos.y / default_tmx_height));
 	woodList.push_back(wood);
 }
+
+
 
 
 void GameLayer::addTouchListener() {
@@ -190,6 +195,8 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 		else {
+			cameraMoveY += default_tmx_height/4;
+			cameraMoveRight += PLAYER_JUMP_OFFSET;
 			player->playerJumpForward(treeList);
 		}
 		player->setZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));
@@ -206,32 +213,45 @@ void GameLayer::changeCameraMoveStep() {
 	//更具玩家和摄像机的距离调整步幅
 	if (cameraMoveRight > 0) {
 		if (player->getPositionX() - _camera->getPositionX() < 3* default_tmx_width) {
-			cameraMoveStep = 1.0;
+			cameraMoveStep = 1.2;
 			return;
 		}
 		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
-			cameraMoveStep = 2.0;
+			cameraMoveStep = 1.6;
 			return;
 		} else{
-			cameraMoveStep = 3.0;
+			cameraMoveStep = 2.0;
 			return;
 		}
 	}
 
 	if (cameraMoveLeft > 0) {
 		if (player->getPositionX() - _camera->getPositionX() < 3 * default_tmx_width) {
-			cameraMoveStep = 3.0;
-			return;
-		}
-		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
 			cameraMoveStep = 2.0;
 			return;
 		}
+		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
+			cameraMoveStep = 1.6;
+			return;
+		}
 		else {
-			cameraMoveStep = 1.0;
+			cameraMoveStep = 1.2;
 			return;
 		}
 	}
+}
+
+void GameLayer::moveCameraX() {
+	schedule([=](float dt) {
+		if (_camera->getPositionX() >= 0 && _camera->getPositionX() <= 10 * default_tmx_width) {
+			_camera->setPosition(_camera->getPositionX() + player->getSpeedX(), _camera->getPositionY());
+		}
+	},1.0f/60, SCHEDULE_CAMERA_X);
+}
+
+void GameLayer::cancelMoveCameraX() {
+	player->setSpeedX(0);
+	unschedule(SCHEDULE_CAMERA_X);
 }
 
 void GameLayer::update(float dt) {
@@ -240,7 +260,11 @@ void GameLayer::update(float dt) {
 	}
 	for (auto var : autoList) {
 		for (auto car : var->getCarList()) {
-			if (car->getBoundingBox().intersectsRect(player->getPlayerCheckRect())) {
+			Rect newRect = Rect(car->getBoundingBox().getMinX(), 
+				car->getBoundingBox().getMinY(), 
+				car->getBoundingBox().getMaxX()- car->getBoundingBox().getMinX(),
+				default_tmx_height);
+			if (GeometryUtils::intersectsRect(newRect, player->getPlayerCheckRect())) {
 				if (NULL == getChildByTag(100)) {
 					auto over = GameOver::create();
 					over->setTag(100);
@@ -253,14 +277,17 @@ void GameLayer::update(float dt) {
 	for (auto mymap:mapList)
 	{
 		auto water = mymap->getTMXWater();
-		if (water->getTileGIDAt(Vec2(17-floor(player->getPositionX()/default_tmx_width), 79-floor(player->getPositionY()/default_tmx_height)))) {
-			//玩家在木板上
+		//玩家在水面上
+		if (water->getTileGIDAt(Vec2(defult_tmx_x_num-1-floor(player->getPositionX()/default_tmx_width), defult_tmx_y_num-1-floor(player->getPositionY()/default_tmx_height)))) {
+
 			bool canLive = false;
 			for (auto wo : woodList)
 			{
-				if(wo->getBoundingBox().intersectsRect(player->getPlayerCheckRect())) {
+				if(GeometryUtils::intersectsRect(wo->getBoundingBox(), player->getPlayerCheckRect())) {
 					canLive = true;
 					player->setSpeedX(wo->getSpeedX());
+					moveCameraX();
+					playerStandOnWood = true;
 				}
 			}
 			if (!canLive) {
@@ -268,12 +295,33 @@ void GameLayer::update(float dt) {
 					auto over = GameOver::create();
 					over->setTag(100);
 					addChild(over);
+					//log("aaaaaaaaaaaaaaaa %f %f", player->getPositionY(), floor(player->getPositionX() / default_tmx_width));
+					//log("bbbbbbbbbbbbbbbb %f %f", player->getPositionY(),floor(player->getPositionY() / default_tmx_height));
+					
 				}
+			}
+		}
+		else {
+			if (playerStandOnWood) {
+				cancelMoveCameraX();
+				playerStandOnWood = false;
 			}
 		}
 	}
 	
 	changeCameraMoveStep();
+	if (cameraMoveY > 0) {
+		cameraMoveY -= 1;
+		if (_camera->getPositionX() > 0) {
+			_camera->setPosition(_camera->getPositionX(), _camera->getPositionY() +1);
+		}
+		else {
+			cameraMoveY = 0;
+		}
+	}
+	else {
+		cameraMoveY = 0;
+	}
 	if (cameraMoveLeft > 0) {
 		cameraMoveLeft -= cameraMoveStep;
 		if (_camera->getPositionX() > 0) {

@@ -70,11 +70,9 @@ TMXLayer* MapNode::getTMXWater() {
 	}
 }
 
+
 Point MapNode::getHeroStartPos() {
-	//TMXObjectGroup *objects = _tileMap->getObjectGroup("player");//获取对象层  
-	//ValueMap  playerPoint = objects->getObject("hero");//获取对象 
-	//return (Vec2(playerPoint["x"].asFloat(), playerPoint["y"].asFloat()));
-	return Vec2(default_tmx_width*9, 0);
+	return Vec2(default_tmx_width*9, default_tmx_height /6);
 }
 
 
@@ -104,8 +102,7 @@ vector<TMBlockInfo> MapNode::getBlockInfoList() {
 		TMBlockInfo info;
 		ValueMap tmin = var.asValueMap();
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
-		//log("Tree x = %f,y = %f",info.position.x,info.position.y);
-		info.type = 1;
+		info.type = tmin["type"].asInt();;
 		info.width = tmin["width"].asFloat();
 		info.height = tmin["height"].asFloat();
 		pointList.push_back(info);
@@ -122,8 +119,8 @@ vector<TMWoodInfo> MapNode::getWoodInfoList() {
 		ValueMap tmin = var.asValueMap();
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
 		info.type = 1;
-		//info.width = tmin["width"].asFloat();
-		//info.height = tmin["height"].asFloat();
+		info.direction = tmin["direction"].asInt();
+		info.speed = tmin["speed"].asFloat();
 		pointList.push_back(info);
 	}
 	return pointList;

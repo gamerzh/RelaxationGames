@@ -19,8 +19,7 @@ bool Block::init(int type, Size size)
 		return false;
 	}
 	this->checkSize = size;
-	initWithFile("tree_1.png");
-	setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
+	initWithFile(getFileNameByType(type));
 	return true;
 }
 
@@ -29,4 +28,26 @@ Rect Block::getBlockCheckRect() {
 	float x = this->getPositionX();
 	float y = this->getPositionY();
 	return Rect(x,y,checkSize.width,checkSize.height);
+}
+
+
+std::string Block::getFileNameByType(int type) {
+	switch (type)
+	{
+	case 1:
+		return "tree_1.png";
+	case 2:
+		return "tree_2.png";
+	case 3:
+		return "tree_2.png";
+	case 4:
+		return "tree_2.png";
+	case 5:
+		return "house_1.png";
+	case 6:
+		return "house_2.png";
+	default:
+		return "tree_1.png";
+	}
+
 }

@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "MapNode.h"
+#include "GeometryUtils.h"
 
 bool Player :: init() {
 	if (!Sprite::init()) {
@@ -7,6 +8,7 @@ bool Player :: init() {
 	}
 	hero = CSLoader::createNode("rw.csb");
 	hero->setScale(0.5f);
+	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	hero->setPosition(0,0);
 	addChild(hero);
 
@@ -19,14 +21,15 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
-		if (intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() + PLAYER_JUMP_OFFSET, box.getMinY() + default_tmx_height,
+		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() + PLAYER_JUMP_OFFSET, box.getMinY() + default_tmx_height,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
 			return false;
 		}
 	}
 	playPlayerTiaoYue();
-	auto moveBack = MoveTo::create(0.2f, Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET, this->getPosition().y + default_tmx_height));
-	this->runAction(moveBack);
+	//auto moveBack = MoveTo::create(0.1f, Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET, this->getPosition().y + default_tmx_height));
+	//this->runAction(moveBack);
+	this->setPosition(Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET, floor(this->getPosition().y/ default_tmx_height)*default_tmx_height + default_tmx_height+ default_tmx_height/6));
 	return true;
 }
 
@@ -35,7 +38,7 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
-		if (intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() - PLAYER_JUMP_OFFSET, box.getMinY() - default_tmx_height,
+		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() - PLAYER_JUMP_OFFSET, box.getMinY() - default_tmx_height,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
 			return false;
 		}
@@ -51,9 +54,9 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
-		if (intersectsRect(bloc->getBlockCheckRect(),Rect(box.getMinX() - default_tmx_width, box.getMinY(),
+		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(),Rect(box.getMinX() - default_tmx_width, box.getMinY(),
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
-			/*log("block Rect(%f,%f,%f,%f)",
+		/*	log("block Rect(%f,%f,%f,%f)",
 				bloc->getBlockCheckRect().getMinX(),
 				bloc->getBlockCheckRect().getMinY(),
 				bloc->getBlockCheckRect().getMaxX()- bloc->getBlockCheckRect().getMinX(),
@@ -79,7 +82,7 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
-		if (intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() + default_tmx_width, box.getMinY() ,
+		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() + default_tmx_width, box.getMinY() ,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
 			return false;
 		}
@@ -99,13 +102,7 @@ Rect Player::getPlayerCheckRect() {
 	return Rect(getPositionX(), getPositionY(),default_tmx_width,default_tmx_height);
 }
 
-bool Player::intersectsRect(const Rect& rect1,const Rect& rect2)
-{
-	return !(rect1.getMaxX() - rect2.getMinX() <= 5  ||
-		rect2.getMaxX() - rect1.getMinX() <=  5||
-		rect1.getMaxY()- rect2.getMinY() <= 5 ||
-		rect2.getMaxY()- rect1.getMinY() <= 5);
-}
+
 
 void Player::playPlayerJiYa() {
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
@@ -187,7 +184,13 @@ void Player::setSpeedX(float speed) {
 	this->speedX = speed;
 }
 
+float Player::getSpeedX() {
+	return this->speedX;
+}
+
 void Player::update(float dt) {
-	setPosition(getPositionX()+speedX,getPositionY());
+	if (getPositionX() + speedX < defult_tmx_x_num*default_tmx_width) {
+		setPosition(getPositionX() + speedX, getPositionY());
+	}
 }
 

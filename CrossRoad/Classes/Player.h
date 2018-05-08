@@ -25,6 +25,7 @@ public:
 	Point getPlayerPoint();
 	Rect getPlayerCheckRect();
 	void setSpeedX(float speed);//获得一个X方向上的速度
+	float getSpeedX();
 private:
 	float speedX = 0;
 	//void playPlayerHuiTan(std::function<void()> listener);
@@ -37,5 +38,5 @@ private:
 	void playPlayerTiaoYueBack();
 	void update(float dt);
 	Node* hero;
-	bool intersectsRect(const Rect& rect1,const Rect& rect2);
+
 };

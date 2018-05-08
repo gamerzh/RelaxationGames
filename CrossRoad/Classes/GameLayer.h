@@ -11,6 +11,7 @@ USING_NS_CC;
 //#define MapLayerZorder 10
 #define PlayerZorder 20
 #define MaxZorder 1000
+#define SCHEDULE_CAMERA_X "carema_move_x"
 
 enum Gesture
 {
@@ -30,7 +31,8 @@ public:
 	void onTouchEnded(Touch *touch, Event  *event) override;
 private:
 	bool needAddMap = false;
-	float cameraMoveStep = 1.0;
+	bool playerStandOnWood = false;
+	float cameraMoveStep = 1.2;
 	float cameraMoveLeft = 0;
 	float cameraMoveRight = 0;
 	float cameraMoveY = 0;
@@ -46,9 +48,12 @@ private:
 	void addGameMap();
 	void createAutomoblie(Camera* camera,int type, int direction, int speed, int interval, Point pos);
 	void createHouseAndTree(int type,Size size,Point pos);
-	void createWood(int type,Point pos);
+	void createWood(int type, int dir, int speed, Point pos);
 	void checkMapInScene(float dt);
     void update(float dt);
 	void updateTreeZorder();
 	void changeCameraMoveStep();
+	void moveCameraX();//在X轴上移动相机
+	void cancelMoveCameraX();
+	
 };
