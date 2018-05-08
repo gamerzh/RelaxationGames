@@ -10,3 +10,4 @@ CrossRoad/proj.android/obj/
 CrossRoad/proj.android/bin/
 CrossRoad/proj.android/gen/
 
+*.db
