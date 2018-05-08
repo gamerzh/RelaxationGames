@@ -1,4 +1,12 @@
-
 CrossRoad/cocos2d/
+CrossRoad/proj.win32/Debug.win32/
+CrossRoad/proj.win32/CrossRoad.VC.VC.opendb
+CrossRoad/proj.linux/
+CrossRoad/proj.android-studio/
+CrossRoad/proj.win8.1-universal/
+CrossRoad/proj.win10/
+CrossRoad/proj.android/assets
+CrossRoad/proj.android/obj/
+CrossRoad/proj.android/bin/
+CrossRoad/proj.android/gen/
 
-CrossRoad/proj.ios_mac/
