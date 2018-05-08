@@ -4,7 +4,7 @@ USING_NS_CC;
 using namespace std;
 
 #define defult_tmx_x_num 18
-#define defult_tmx_y_num 80
+#define defult_tmx_y_num 40
 #define default_tmx_width 80//默认的每一格TiledMap宽度
 #define default_tmx_height 74//默认的每一格TiledMap高度
 
@@ -19,7 +19,6 @@ struct TMCarInfo
 
 struct TMBlockInfo
 {
-	int type;
 	float width;
 	float height;
 	Point position;
@@ -29,33 +28,30 @@ struct TMWoodInfo
 {
 	int type;
 	int direction;
-	float speed;
+	float time;
 	Point position;
 };
 
-enum MapNodeType
+struct TMGoldInfo
 {
-	type1,
-	type2,
-	type3
+	int type;
+	Point pos;
+	Size size;
 };
 
 class MapNode : public Node {
  
 public:
-	static MapNode* create(MapNodeType type);
+	static MapNode* create(int type);
 	static int getTMXPerGradutaionLength();
-	virtual bool init(MapNodeType type);
-	TMXLayer* getTMXBackground();
-	TMXLayer* getTMXWater();
+	virtual bool init(int type);
 	Point getHeroStartPos();
 	vector<TMCarInfo> getEnemyInfoList();
 	vector<TMBlockInfo> getBlockInfoList();
 	vector<TMWoodInfo> getWoodInfoList();
-	CC_SYNTHESIZE(MapNodeType, mapNodeType, MapNodeType);
+	vector<TMGoldInfo> getGoldInfoList();
+	CC_SYNTHESIZE(int, mapNodeType, MapNodeType);
 private:
 	TMXTiledMap* _tileMap = NULL;
-	TMXLayer* background = NULL;
-	TMXLayer* block = NULL;
-	string  getFileNameByType(MapNodeType type);
+	string  getFileNameByType(int type);
 };

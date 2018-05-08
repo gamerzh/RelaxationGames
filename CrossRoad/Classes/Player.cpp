@@ -9,7 +9,7 @@ bool Player :: init() {
 	hero = CSLoader::createNode("rw.csb");
 	hero->setScale(0.5f);
 	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-	hero->setPosition(0,0);
+	hero->setPosition(0,PLAYER_OFFSET_Y);
 	addChild(hero);
 
 	scheduleUpdate();
@@ -21,15 +21,27 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
-		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() + PLAYER_JUMP_OFFSET, box.getMinY() + default_tmx_height,
-			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
+		auto checkBox = Rect(box.getMinX() + PLAYER_JUMP_OFFSET, box.getMinY() + default_tmx_height,
+			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY());
+		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), checkBox)) {
+			log("blockF Rect(%f,%f,%f,%f)",
+				bloc->getBlockCheckRect().getMinX(),
+				bloc->getBlockCheckRect().getMinY(),
+				bloc->getBlockCheckRect().getMaxX() - bloc->getBlockCheckRect().getMinX(),
+				bloc->getBlockCheckRect().getMaxY() - bloc->getBlockCheckRect().getMinY());
+
+			log("palyerF Rect(%f,%f,%f,%f)",
+				checkBox.getMinX(),
+				checkBox.getMinY(),
+				checkBox.getMaxX() - checkBox.getMinX(),
+				checkBox.getMaxY() - checkBox.getMinY());
 			return false;
 		}
 	}
 	playPlayerTiaoYue();
 	//auto moveBack = MoveTo::create(0.1f, Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET, this->getPosition().y + default_tmx_height));
 	//this->runAction(moveBack);
-	this->setPosition(Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET, floor(this->getPosition().y/ default_tmx_height)*default_tmx_height + default_tmx_height+ default_tmx_height/6));
+	this->setPosition(Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
 	return true;
 }
 
@@ -40,6 +52,17 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 		auto box = getPlayerCheckRect();
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() - PLAYER_JUMP_OFFSET, box.getMinY() - default_tmx_height,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
+			log("block Rect(%f,%f,%f,%f)",
+				bloc->getBlockCheckRect().getMinX(),
+				bloc->getBlockCheckRect().getMinY(),
+				bloc->getBlockCheckRect().getMaxX() - bloc->getBlockCheckRect().getMinX(),
+				bloc->getBlockCheckRect().getMaxY() - bloc->getBlockCheckRect().getMinY());
+
+			log("palyer Rect(%f,%f,%f,%f)",
+				box.getMinX(),
+				box.getMinY(),
+				box.getMaxX() - box.getMinX(),
+				box.getMaxY() - box.getMinY());
 			return false;
 		}
 	}
@@ -56,17 +79,17 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 		auto box = getPlayerCheckRect();
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(),Rect(box.getMinX() - default_tmx_width, box.getMinY(),
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
-		/*	log("block Rect(%f,%f,%f,%f)",
+			log("block Rect(%f,%f,%f,%f)",
 				bloc->getBlockCheckRect().getMinX(),
 				bloc->getBlockCheckRect().getMinY(),
 				bloc->getBlockCheckRect().getMaxX()- bloc->getBlockCheckRect().getMinX(),
 				bloc->getBlockCheckRect().getMaxY()- bloc->getBlockCheckRect().getMinY());
 
 			log("palyer Rect(%f,%f,%f,%f)",
-				box.getMinX() - default_tmx_width,
+				box.getMinX(),
 				box.getMinY(),
 				box.getMaxX() - box.getMinX(),
-				box.getMaxY() - box.getMinY());*/
+				box.getMaxY() - box.getMinY());
 			return false;
 		}
 	}
@@ -84,6 +107,17 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 		auto box = getPlayerCheckRect();
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() + default_tmx_width, box.getMinY() ,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
+			log("blockR Rect(%f,%f,%f,%f)",
+				bloc->getBlockCheckRect().getMinX(),
+				bloc->getBlockCheckRect().getMinY(),
+				bloc->getBlockCheckRect().getMaxX() - bloc->getBlockCheckRect().getMinX(),
+				bloc->getBlockCheckRect().getMaxY() - bloc->getBlockCheckRect().getMinY());
+
+			log("palyerR Rect(%f,%f,%f,%f)",
+				box.getMinX(),
+				box.getMinY(),
+				box.getMaxX() - box.getMinX(),
+				box.getMaxY() - box.getMinY());
 			return false;
 		}
 	}

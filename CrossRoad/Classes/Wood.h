@@ -7,13 +7,14 @@ class Wood : public Sprite
 {
 
 public:
-	static Wood* create(int type ,int direction, float speed);
-	virtual bool init(int type, int direction, float speed);
+	static Wood* create(int type ,int direction, float time);
+	virtual bool init(int type, int direction, float time);
 	float getSpeedX();
 private:
 	int woodType;
 	int woodDir;
-	float woodSpeed;
+	float woodTime;
+	float woodSpeed = 1;
 	void update(float dt);
 	std::string getFileNameByType(int type);
 };

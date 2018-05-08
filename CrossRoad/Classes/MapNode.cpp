@@ -1,6 +1,6 @@
 #include "MapNode.h"
 
-MapNode* MapNode::create(MapNodeType type) {
+MapNode* MapNode::create(int type) {
 	auto mapnode = new MapNode();
 	if (mapnode && mapnode->init(type)) {
 		mapnode->autorelease();
@@ -12,7 +12,7 @@ MapNode* MapNode::create(MapNodeType type) {
 	}
 }
 
-bool MapNode::init(MapNodeType type) {
+bool MapNode::init(int type) {
 	if (!Node::init()) {
 		return false;
 	}
@@ -26,8 +26,6 @@ bool MapNode::init(MapNodeType type) {
 			((SpriteBatchNode*)var)->getTexture()->setAntiAliasTexParameters();
 		}
 	}
-	//background = _tileMap->layerNamed("main");
-	block = _tileMap->layerNamed("water");
 	setContentSize(_tileMap->getContentSize());
 	return true;
 }
@@ -36,43 +34,18 @@ int MapNode::getTMXPerGradutaionLength() {
 	return default_tmx_width;
 }
 
-string  MapNode::getFileNameByType(MapNodeType type) {
-	switch (type)
-	{
-
-	case MapNodeType::type1:
-		return "001.tmx";
-	case MapNodeType::type2:
-		return "001.tmx";
-	case MapNodeType::type3:
-		return "001.tmx";
-	default:
-		return "001.tmx";
-	}
-}
-
-TMXLayer* MapNode::getTMXBackground() {
-	if (NULL != background) {
-		return background;
-	}
-	else {
-		return NULL;
-	}
-}
-
-
-TMXLayer* MapNode::getTMXWater() {
-	if (NULL != block) {
-		return block;
-	}
-	else {
-		return NULL;
-	}
+string  MapNode::getFileNameByType(int type) {
+	type = 0;
+	return  String::createWithFormat("game_%d.tmx", type)->_string;
 }
 
 
 Point MapNode::getHeroStartPos() {
-	return Vec2(default_tmx_width*9, default_tmx_height /6);
+	TMXObjectGroup *objects = _tileMap->getObjectGroup("man");
+	ValueMap objMap = objects->getObject("");
+	float x = objMap["x"].asFloat();
+	float y = objMap["y"].asFloat();
+	return Vec2(x, y);
 }
 
 
@@ -102,7 +75,6 @@ vector<TMBlockInfo> MapNode::getBlockInfoList() {
 		TMBlockInfo info;
 		ValueMap tmin = var.asValueMap();
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
-		info.type = tmin["type"].asInt();;
 		info.width = tmin["width"].asFloat();
 		info.height = tmin["height"].asFloat();
 		pointList.push_back(info);
@@ -111,17 +83,40 @@ vector<TMBlockInfo> MapNode::getBlockInfoList() {
 }
 
 vector<TMWoodInfo> MapNode::getWoodInfoList() {
-	vector<TMWoodInfo> pointList;
-	TMXObjectGroup *objects = _tileMap->getObjectGroup("block");
+	vector<TMWoodInfo> woodList;
+	TMXObjectGroup *objects = _tileMap->getObjectGroup("items");
 	ValueVector nodes = objects->getObjects();//获取对象列表
 	for (auto var : nodes) {
 		TMWoodInfo info;
 		ValueMap tmin = var.asValueMap();
+		info.type = tmin["type"].asInt();
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
-		info.type = 1;
-		info.direction = tmin["direction"].asInt();
-		info.speed = tmin["speed"].asFloat();
-		pointList.push_back(info);
+		if (tmin["type"].asInt() == 1 || tmin["type"].asInt() == 2) {
+			info.direction = tmin["direction"].asInt();
+			info.time = tmin["time"].asFloat();
+			woodList.push_back(info);
+		}
+		else if (tmin["type"].asInt() == 5) {
+			woodList.push_back(info);
+		}
+
 	}
-	return pointList;
+	return woodList;
+}
+
+
+vector<TMGoldInfo> MapNode::getGoldInfoList() {
+	vector<TMGoldInfo> goldList;
+	TMXObjectGroup *objects = _tileMap->getObjectGroup("items");
+	ValueVector nodes = objects->getObjects();//获取对象列表
+	for (auto var : nodes) {
+		TMGoldInfo info;
+		ValueMap tmin = var.asValueMap();
+		if (tmin["type"].asInt() == 3 || tmin["type"].asInt() == 4) {
+			info.type = tmin["type"].asInt();
+			info.pos = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
+			goldList.push_back(info);
+		}
+	}
+	return goldList;
 }

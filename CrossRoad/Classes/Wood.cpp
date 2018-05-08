@@ -1,10 +1,10 @@
 #include "Wood.h"
 #include "MapNode.h"
 
-Wood * Wood::create(int type, int direction, float speed)
+Wood * Wood::create(int type, int direction, float time)
 {
 	Wood* woo = new Wood();
-	if (woo && woo->init(type,direction,speed)) {
+	if (woo && woo->init(type,direction, time)) {
 		woo->autorelease();
 		return woo;
 	}
@@ -14,14 +14,14 @@ Wood * Wood::create(int type, int direction, float speed)
 	}
 }
 
-bool Wood::init(int type, int direction, float speed)
+bool Wood::init(int type, int direction, float time)
 {
 	if (!Sprite::init()) {
 		return false;
 	}
 	this->woodType = type;
 	this->woodDir = direction;
-	this->woodSpeed = speed;
+	this->woodTime = time;
 	if(woodDir == 2) {
 		this->woodSpeed = -1 * this->woodSpeed;
 	}
@@ -43,7 +43,12 @@ void Wood::update(float dt) {
 
 
 std::string Wood::getFileNameByType(int type) {
-	return "wood_1.png";
+	if (type == 1) {
+		return "wood_2.png";
+	}
+	else {
+		return "wood_1.png";
+	}
 }
 
 float Wood::getSpeedX() {

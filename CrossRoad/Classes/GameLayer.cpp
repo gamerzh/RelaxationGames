@@ -27,8 +27,10 @@ bool GameLayer::init(Camera* ca) {
 	playerGesture = Gesture::forward;
 	player = Player::create();
 	player->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-	player->setPosition(mapList.at(0)->getHeroStartPos());
+	auto playerPos = GeometryUtils::transitionPlayerVec2(mapList.at(0)->getHeroStartPos());
+	player->setPosition(playerPos.x, playerPos.y+ PLAYER_OFFSET_Y);
 	player->setCameraMask(int(CameraFlag::USER1));
+	log("HHHHHHH(%f,%f)", playerPos.x, playerPos.y);
 	addChild(player, PlayerZorder);
 	scheduleUpdate();
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
@@ -37,9 +39,7 @@ bool GameLayer::init(Camera* ca) {
 }
 
 void GameLayer::initGameMap() {
-	//for (int i = 0; i < 4; i++) {
 		addGameMap();
-	//}
 }
 
 void GameLayer::checkMapInScene(float dt) {
@@ -64,8 +64,8 @@ void GameLayer::checkMapInScene(float dt) {
 }
 
 void GameLayer::addGameMap() {
-	int ran = random(0,3);
-	auto node = MapNode::create(MapNodeType(ran));
+	int ran = random(0,2);
+	auto node = MapNode::create(ran);
 	if (mapList.size() == 0) {
 		node->setPosition(0, 0);
 	}
@@ -78,25 +78,24 @@ void GameLayer::addGameMap() {
 
 	//在地图上生成树木和屋子
 	for (auto treePos : node->getBlockInfoList()) {
-		createHouseAndTree(treePos.type,Size(treePos.width,treePos.height),treePos.position);
+		createHouseAndTree(Size(treePos.width,treePos.height),treePos.position);
 	}
 	//在地图上生成卡车
-	for (auto info : node->getEnemyInfoList()) {
-		createAutomoblie(_camera,info.type,info.direction,info.speed,info.interval,info.position);
+	/*for (auto info : node->getEnemyInfoList()) {
+		createAutomoblie(_camera, info.type, info.direction, info.speed, info.interval, info.position);
 	}
 
 	for (auto woodInfo : node->getWoodInfoList())
 	{
-		createWood(woodInfo.type, woodInfo.direction,woodInfo.speed,woodInfo.position);
-	}
+		createWood(woodInfo.type, woodInfo.direction,woodInfo.time,woodInfo.position);
+	}*/
 }
 
-void GameLayer::createHouseAndTree(int type,Size size, Point pos) {
+void GameLayer::createHouseAndTree(Size size, Point pos) {
 	int line = floor(pos.y / default_tmx_height);
-	auto tree = Block::create(type, size);
+	auto tree = Block::create(pos,size);
 	tree->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
-	tree->setPosition(floor(pos.x / default_tmx_width)*default_tmx_width + (PLAYER_JUMP_OFFSET*line)%default_tmx_width,
-		line*default_tmx_height + default_tmx_height/6);
+	tree->setPosition(pos);
 	addChild(tree, MaxZorder - line);
 	treeList.push_back(tree);
 }
@@ -109,8 +108,8 @@ void GameLayer::createAutomoblie(Camera* camera,int type, int direction, int spe
 	autoList.push_back(automoblie);
 }
 
-void GameLayer::createWood(int type,int dir,int speed, Point pos) {
-	auto wood = Wood::create(type, dir, speed);
+void GameLayer::createWood(int type,int dir,int time, Point pos) {
+	auto wood = Wood::create(type, dir, time);
 	wood->setPosition(pos.x, floor(pos.y / default_tmx_height)*default_tmx_height+ default_tmx_height/6);
 	addChild(wood, MaxZorder - floor(pos.y / default_tmx_height));
 	woodList.push_back(wood);
@@ -274,40 +273,39 @@ void GameLayer::update(float dt) {
 		}
 	}
 
-	for (auto mymap:mapList)
-	{
-		auto water = mymap->getTMXWater();
-		//玩家在水面上
-		if (water->getTileGIDAt(Vec2(defult_tmx_x_num-1-floor(player->getPositionX()/default_tmx_width), defult_tmx_y_num-1-floor(player->getPositionY()/default_tmx_height)))) {
+	//for (auto mymap:mapList)
+	//{
+	//	auto water = mymap->getTMXWater();
+	//	//玩家在水面上
+	//	if (water->getTileGIDAt(Vec2(defult_tmx_x_num-1-floor(player->getPositionX()/default_tmx_width), defult_tmx_y_num-1-floor(player->getPositionY()/default_tmx_height)))) {
 
-			bool canLive = false;
-			for (auto wo : woodList)
-			{
-				if(GeometryUtils::intersectsRect(wo->getBoundingBox(), player->getPlayerCheckRect())) {
-					canLive = true;
-					player->setSpeedX(wo->getSpeedX());
-					moveCameraX();
-					playerStandOnWood = true;
-				}
-			}
-			if (!canLive) {
-				if (NULL == getChildByTag(100)) {
-					auto over = GameOver::create();
-					over->setTag(100);
-					addChild(over);
-					//log("aaaaaaaaaaaaaaaa %f %f", player->getPositionY(), floor(player->getPositionX() / default_tmx_width));
-					//log("bbbbbbbbbbbbbbbb %f %f", player->getPositionY(),floor(player->getPositionY() / default_tmx_height));
-					
-				}
-			}
-		}
-		else {
-			if (playerStandOnWood) {
-				cancelMoveCameraX();
-				playerStandOnWood = false;
-			}
-		}
-	}
+	//		bool canLive = false;
+	//		for (auto wo : woodList)
+	//		{
+	//			if(GeometryUtils::intersectsRect(wo->getBoundingBox(), player->getPlayerCheckRect())) {
+	//				canLive = true;
+	//				player->setSpeedX(wo->getSpeedX());
+	//				moveCameraX();
+	//				playerStandOnWood = true;
+	//			}
+	//		}
+	//		if (!canLive) {
+	//			if (NULL == getChildByTag(100)) {
+	//				auto over = GameOver::create();
+	//				over->setTag(100);
+	//				addChild(over);
+	//				//log("aaaaaaaaaaaaaaaa %f %f", player->getPositionY(), floor(player->getPositionX() / default_tmx_width));
+	//				//log("bbbbbbbbbbbbbbbb %f %f", player->getPositionY(),floor(player->getPositionY() / default_tmx_height));
+	//			}
+	//		}
+	//	}
+	//	else {
+	//		if (playerStandOnWood) {
+	//			cancelMoveCameraX();
+	//			playerStandOnWood = false;
+	//		}
+	//	}
+	//}
 	
 	changeCameraMoveStep();
 	if (cameraMoveY > 0) {

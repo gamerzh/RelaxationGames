@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="18" height="40" tilewidth="80" tileheight="74" infinite="0" nextobjectid="157">
+ <tileset firstgid="1" name="road" tilewidth="80" tileheight="74" tilecount="360" columns="18">
+  <image source="road.png" width="1508" height="1480"/>
+ </tileset>
+ <tileset firstgid="361" name="sup" tilewidth="80" tileheight="74" tilecount="84" columns="7">
+  <image source="sup.png" width="560" height="888"/>
+ </tileset>
+ <layer name="main" width="18" height="40" opacity="0.9">
+  <data encoding="base64" compression="zlib">
+   eJzt1MVyFEAQANBd3OOuuGvcFXcnwZ0L7i4JDoGfwd3d9R9w1wOPf9jDViVV8w596erumZ5gIBBoRnNa0JJWtKYNbWlHezrQkU5EEEkU0cQQSxzxJJBIEsmkkEoa6WSQSWe60JVudKcHPelFb/rQl370ZwADGcRghpBFNjnkkkc+BRRSRDEllFJGORVUUkU1QxnGcEYwklGMZgxjGcd4JjCRSUxmClOZxnRmUEPt/zgopoZaZjKL2cxhLvOYzwIWsojFLGEpy4Lhl+eE3k5yitOc4SznOM8FLnKJy1zhKte4zg1ucovb3OEu97jPAx7yiMc84SnPeM4LXvKK12E45wgiiSKaGGKJI54EEkkimRRSSSOdDDJDWI/TtO+Bxrfvb9T0lne85wMf+cRnvvCVb3znBz/5xW/+8DcM+8oimxxyySOfAgopopgSSimjnAoqqaI62PSPNdY8y816BStZxWrWsJZ1rGcDG9nEZrawlW1sZwc72cVu9lBHPXvZx34OcJBDHOYIR2ngGMcDoXvPocoTbvcVbnn+Aff4CjI=
+  </data>
+ </layer>
+ <layer name="pro" width="18" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztzjENADAMBLEPfyJNUbYQsmWxpdsvAQBg06mkf7e2T5h4YAoB/w==
+  </data>
+ </layer>
+ <layer name="sup" width="18" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztVmELAUEQ3f25hAiREyFC903SXZIf4Ed6WybbNONub10hr6auvTePvffuZo35fTSsMU0br9OFRk/QyQK1R+CPvZ4jrlPUlemkBboz3J97nDOuD0KPtOZjjfsbxsmFHmmtDvDnear4u/x5XiL+v+bFLVBT80La46t9a15Ie4zZ9x/1I/T7oYHnXYKWY21dy6CfY/cOEE/Lt5ZBnmPi8fXQ9+zbwf0IyYjzgmYe+UF6ZTJCGs4Lmnl5gb8ayE8+86rOEj7zqkKaeZ+Ed5xZMqufWTS0wG2jOvap4TJD/hWdSQh98AaooZc710v+lc3RBLwENfX4rpf8K5ujBXhL1Coyg1v07FD7R+8dI9g4HQ==
+  </data>
+ </layer>
+ <objectgroup name="car">
+  <object id="13" x="10" y="111">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="14" x="10" y="703">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="2"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="15" x="12.6667" y="333">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="2"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="16" x="10" y="1147">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="2"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="17" x="10" y="1369">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="2"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" x="10" y="1295">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" x="10" y="1591">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="20" x="10" y="1887">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="21" x="10" y="2405">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="35" x="1430" y="37">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="36" x="1430" y="185">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="2"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="37" x="1430" y="259">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="38" x="1430" y="629">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="39" x="1430" y="1073">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="2"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="40" x="1430" y="1221">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="43" x="1430" y="2479">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="interval" value="3"/>
+    <property name="speed" value="1"/>
+    <property name="type" value="2"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup name="items">
+  <object id="136" x="1.57576" y="2513.98" width="238.5" height="74">
+   <properties>
+    <property name="direction" value="2"/>
+    <property name="time" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object id="137" x="797.333" y="2665.67" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="138" x="478.364" y="2146.33" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="139" x="397.333" y="1851" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="140" x="799.833" y="1184.33" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="141" x="479" y="1038" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="142" x="1040.67" y="223.727" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="143" x="960" y="75.6667" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="144" x="719.5" y="444" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="145" x="717.333" y="2591" width="80" height="74">
+   <properties>
+    <property name="type" value="5"/>
+   </properties>
+  </object>
+  <object id="146" x="482" y="2594" width="80" height="74">
+   <properties>
+    <property name="type" value="5"/>
+   </properties>
+  </object>
+  <object id="147" x="961" y="2592" width="80" height="74">
+   <properties>
+    <property name="type" value="5"/>
+   </properties>
+  </object>
+  <object id="148" x="242" y="1775" width="80" height="74">
+   <properties>
+    <property name="type" value="5"/>
+   </properties>
+  </object>
+  <object id="149" x="718" y="1777" width="80" height="74">
+   <properties>
+    <property name="type" value="5"/>
+   </properties>
+  </object>
+  <object id="150" x="1198.83" y="1775.83" width="80" height="74">
+   <properties>
+    <property name="type" value="5"/>
+   </properties>
+  </object>
+  <object id="151" x="640.485" y="888.212" width="80" height="74">
+   <properties>
+    <property name="type" value="4"/>
+   </properties>
+  </object>
+  <object id="155" x="12.6667" y="2660.67">
+   <properties>
+    <property name="type" value="6"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="156" x="10.3333" y="1849.67">
+   <properties>
+    <property name="type" value="6"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup name="man">
+  <object id="152" x="760" y="2775">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup name="tree">
+  <object id="47" x="80.364" y="2882.09" width="80" height="74"/>
+  <object id="49" x="160.5" y="2737.5" width="160" height="142"/>
+  <object id="50" x="0.5" y="2738.5" width="80" height="74"/>
+  <object id="51" x="79" y="2665" width="80" height="74"/>
+  <object id="53" x="318" y="2814" width="80" height="74"/>
+  <object id="58" x="1119.83" y="2147.67" width="80" height="74"/>
+  <object id="60" x="1280.83" y="2215.83" width="158.667" height="152.667"/>
+  <object id="62" x="1199.33" y="2071.67" width="80" height="74"/>
+  <object id="66" x="321.334" y="2070.33" width="80" height="74"/>
+  <object id="69" x="161.333" y="1701" width="80" height="74"/>
+  <object id="71" x="400.394" y="1625.15" width="80" height="74"/>
+  <object id="74" x="882" y="1479.67" width="80" height="74"/>
+  <object id="76" x="320" y="963" width="80" height="74"/>
+  <object id="77" x="801.333" y="962.667" width="80" height="74"/>
+  <object id="78" x="1039.33" y="517" width="80" height="74"/>
+  <object id="79" x="720" y="369.5" width="80" height="74"/>
+  <object id="80" x="240.667" y="444.33" width="158" height="145"/>
+  <object id="117" x="1124.33" y="2812.33" width="233.333" height="147.333"/>
+  <object id="123" x="399" y="2665" width="80" height="74"/>
+  <object id="124" x="-2.66667" y="2147" width="80" height="74"/>
+  <object id="125" x="161.333" y="2220.33" width="80" height="74"/>
+  <object id="126" x="476" y="1701.67" width="80" height="74"/>
+  <object id="127" x="638.667" y="1700.33" width="80" height="74"/>
+  <object id="128" x="960" y="1700.33" width="80" height="74"/>
+  <object id="129" x="1121.33" y="1627" width="80" height="74"/>
+  <object id="130" x="558" y="740.333" width="80" height="74"/>
+  <object id="131" x="798.667" y="813" width="80" height="74"/>
+  <object id="132" x="240" y="739" width="80" height="74"/>
+  <object id="133" x="1198.67" y="961.667" width="80" height="74"/>
+  <object id="134" x="640.5" y="518.5" width="80" height="74"/>
+  <object id="135" x="559.5" y="444" width="80" height="74"/>
+ </objectgroup>
+</map>

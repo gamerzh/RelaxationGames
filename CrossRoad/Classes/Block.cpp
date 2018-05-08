@@ -1,9 +1,10 @@
 #include "Block.h"
+#include "GeometryUtils.h"
 
-Block * Block::create(int type, Size size)
+Block * Block::create(Point pos, Size size)
 {
 	Block* ret = new Block();
-	if (ret && ret->init(type,size)) {
+	if (ret && ret->init(pos,size)) {
 		ret->autorelease();
 		return ret;
 	}
@@ -13,41 +14,21 @@ Block * Block::create(int type, Size size)
 	}
 }
 
-bool Block::init(int type, Size size)
+bool Block::init(Point pos, Size size)
 {
 	if (!Sprite::init()) {
 		return false;
 	}
+	this->pos = pos;
 	this->checkSize = size;
-	initWithFile(getFileNameByType(type));
+	setContentSize(size);
 	return true;
 }
 
 
 Rect Block::getBlockCheckRect() {
-	float x = this->getPositionX();
-	float y = this->getPositionY();
-	return Rect(x,y,checkSize.width,checkSize.height);
-}
-
-
-std::string Block::getFileNameByType(int type) {
-	switch (type)
-	{
-	case 1:
-		return "tree_1.png";
-	case 2:
-		return "tree_2.png";
-	case 3:
-		return "tree_2.png";
-	case 4:
-		return "tree_2.png";
-	case 5:
-		return "house_1.png";
-	case 6:
-		return "house_2.png";
-	default:
-		return "tree_1.png";
-	}
-
+	auto position = GeometryUtils::transitionObjectVec2(pos);
+	auto size = GeometryUtils::transitionObjectSize(checkSize);
+	//log("Tree Rect = %.1f,%.1f,%.1f,%.1f", position.x, position.y, size.width,size.height);
+	return Rect(position.x, position.y, size.width, size.height);
 }
