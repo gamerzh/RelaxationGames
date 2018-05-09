@@ -78,7 +78,7 @@ void GameLayer::addGameMap() {
 
 	//在地图上生成树木和屋子
 	for (auto treePos : node->getBlockInfoList()) {
-		createHouseAndTree(Size(treePos.width,treePos.height),treePos.position);
+		createHouseAndTree(treePos.type,Size(treePos.width,treePos.height),treePos.position);
 	}
 	//在地图上生成卡车
 	for (auto info : node->getEnemyInfoList()) {
@@ -91,11 +91,10 @@ void GameLayer::addGameMap() {
 	}
 }
 
-void GameLayer::createHouseAndTree(Size size, Point pos) {
+void GameLayer::createHouseAndTree(int type,Size size, Point pos) {
 	int line = floor(pos.y / default_tmx_height);
-	auto tree = Block::create(pos,size);
-	tree->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
-	tree->setPosition(pos);
+	auto tree = Block::create(type,pos,size);
+	tree->setPosition(GeometryUtils::transitionObjectVec2(pos));
 	addChild(tree, MaxZorder - line);
 	treeList.push_back(tree);
 }

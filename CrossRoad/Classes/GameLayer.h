@@ -47,7 +47,7 @@ private:
 	void initGameMap();
 	void addGameMap();
 	void createAutomoblie(Camera* camera,int type, int direction, int speed, int interval, Point pos);
-	void createHouseAndTree(Size size,Point pos);
+	void createHouseAndTree(int type, Size size,Point pos);
 	void createWood(int type, int dir, int speed, Point pos);
 	void checkMapInScene(float dt);
     void update(float dt);

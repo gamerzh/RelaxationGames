@@ -37,7 +37,7 @@ int MapNode::getTMXPerGradutaionLength() {
 }
 
 string  MapNode::getFileNameByType(int type) {
-	type = 2;
+	type = 4;
 	return  String::createWithFormat("game_%d.tmx", type)->_string;
 }
 
@@ -79,6 +79,7 @@ vector<TMBlockInfo> MapNode::getBlockInfoList() {
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
 		info.width = tmin["width"].asFloat();
 		info.height = tmin["height"].asFloat();
+		info.type = tmin["type"].asInt();
 		pointList.push_back(info);
 	}
 	return pointList;

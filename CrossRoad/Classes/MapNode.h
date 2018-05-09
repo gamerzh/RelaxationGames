@@ -24,6 +24,16 @@ enum DirectionType
 	move_rigth
 };
 
+enum TreeType {
+	tree_1 =1,
+	tree_2,
+	tree_3,
+	tree_4,
+	house_1,//4¸ñ
+	house_2,//6¸ñ
+	stone
+};
+
 struct TMCarInfo
 {
 	int type;
@@ -35,6 +45,7 @@ struct TMCarInfo
 
 struct TMBlockInfo
 {
+	int type;
 	float width;
 	float height;
 	Point position;
