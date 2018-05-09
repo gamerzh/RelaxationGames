@@ -55,10 +55,10 @@ void Automobile::drawCar(int type, int direction) {
 	car->setScale(0.7f);
 	addChild(car);
 	if (direction == 1) {
-		car->setPosition(postion.x+car->getContentSize().width, floor(postion.y/default_tmx_height)*default_tmx_height+ default_tmx_height/6);
+		car->setPosition(postion.x+car->getContentSize().width, floor(postion.y/default_tmx_height)*default_tmx_height+ default_tmx_height / 8);
 	}
 	else {
-		car->setPosition(postion.x -car->getContentSize().width, floor(postion.y / default_tmx_height)*default_tmx_height + default_tmx_height/6);
+		car->setPosition(postion.x -car->getContentSize().width, floor(postion.y / default_tmx_height)*default_tmx_height + default_tmx_height / 8);
 	}
 	carList.push_back(car);
 }

@@ -30,7 +30,7 @@ bool GameLayer::init(Camera* ca) {
 	auto playerPos = GeometryUtils::transitionPlayerVec2(mapList.at(0)->getHeroStartPos());
 	player->setPosition(playerPos.x, playerPos.y+ PLAYER_OFFSET_Y);
 	player->setCameraMask(int(CameraFlag::USER1));
-	log("HHHHHHH(%f,%f)", playerPos.x, playerPos.y);
+	//log("HHHHHHH(%f,%f)", playerPos.x, playerPos.y);
 	addChild(player, PlayerZorder);
 	scheduleUpdate();
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
@@ -81,14 +81,14 @@ void GameLayer::addGameMap() {
 		createHouseAndTree(Size(treePos.width,treePos.height),treePos.position);
 	}
 	//在地图上生成卡车
-	/*for (auto info : node->getEnemyInfoList()) {
+	for (auto info : node->getEnemyInfoList()) {
 		createAutomoblie(_camera, info.type, info.direction, info.speed, info.interval, info.position);
 	}
 
 	for (auto woodInfo : node->getWoodInfoList())
 	{
 		createWood(woodInfo.type, woodInfo.direction,woodInfo.time,woodInfo.position);
-	}*/
+	}
 }
 
 void GameLayer::createHouseAndTree(Size size, Point pos) {

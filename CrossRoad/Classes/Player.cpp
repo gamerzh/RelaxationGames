@@ -9,7 +9,7 @@ bool Player :: init() {
 	hero = CSLoader::createNode("rw.csb");
 	hero->setScale(0.5f);
 	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-	hero->setPosition(0,PLAYER_OFFSET_Y);
+	hero->setPosition(0,default_tmx_height/3);
 	addChild(hero);
 
 	scheduleUpdate();
