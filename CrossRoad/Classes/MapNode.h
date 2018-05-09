@@ -12,7 +12,8 @@ enum WoodType
 {
 	wood_short = 1,
 	wood_long = 2,
-	leaf = 5
+	leaf = 5,
+	water
 };
 
 enum DirectionType
@@ -63,6 +64,7 @@ public:
 	vector<TMBlockInfo> getBlockInfoList();
 	vector<TMWoodInfo> getWoodInfoList();
 	vector<TMGoldInfo> getGoldInfoList();
+	vector<int> getWaterLineNumber();
 	CC_SYNTHESIZE(int, mapNodeType, MapNodeType);
 private:
 	TMXTiledMap* _tileMap = NULL;

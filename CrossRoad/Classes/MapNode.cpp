@@ -125,3 +125,19 @@ vector<TMGoldInfo> MapNode::getGoldInfoList() {
 	}
 	return goldList;
 }
+
+//返回水面在地图上的逻辑行数
+vector<int> MapNode::getWaterLineNumber() {
+	vector<int> waterList;
+	TMXObjectGroup *objects = _tileMap->getObjectGroup("items");
+	ValueVector nodes = objects->getObjects();//获取对象列表
+	for (auto var : nodes) {
+		TMGoldInfo info;
+		ValueMap tmin = var.asValueMap();
+		if (tmin["type"].asInt() == WoodType::water) {
+			float line = floor(tmin["y"].asFloat()/default_tmx_height);
+			waterList.push_back(line);
+		}
+	}
+	return waterList;
+}
