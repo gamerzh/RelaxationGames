@@ -9,7 +9,7 @@ bool Player :: init() {
 	hero = CSLoader::createNode("rw.csb");
 	hero->setScale(0.5f);
 	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-	hero->setPosition(0,default_tmx_height/3);
+	hero->setPosition(default_tmx_width/2,default_tmx_height/3);
 	addChild(hero);
 
 	scheduleUpdate();
@@ -39,9 +39,8 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYue();
-	//auto moveBack = MoveTo::create(0.1f, Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET, this->getPosition().y + default_tmx_height));
-	//this->runAction(moveBack);
 	this->setPosition(Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
+	log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	return true;
 }
 
@@ -67,8 +66,7 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueBack();
-	auto moveBack = MoveTo::create(0.2f, Vec2(this->getPosition().x - PLAYER_JUMP_OFFSET, this->getPosition().y - default_tmx_height));
-	this->runAction(moveBack);
+	this->setPosition(Vec2(this->getPosition().x - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
 	return true;
 }
 
@@ -144,12 +142,6 @@ void Player::playPlayerJiYa() {
 	hero->runAction(playerTimeLine);
 }
 
-//void Player::playPlayerHuiTan(std::function<void()> listener) {
-//	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
-//	playerTimeLine->play("huitan", false);
-//	playerTimeLine->setLastFrameCallFunc(listener);
-//	hero->runAction(playerTimeLine);
-//}
 
 void Player::playPlayerTiaoYue() {
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
@@ -163,12 +155,6 @@ void Player::playPlayerJiYaLeft() {
 	hero->runAction(playerTimeLine);
 }
 
-//void Player::playPlayerHuiTanLeft(std::function<void()> listener) {
-//	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
-//	playerTimeLine->play("huitanzuo", false);
-//	playerTimeLine->setLastFrameCallFunc(listener);
-//	hero->runAction(playerTimeLine);
-//}
 
 void Player::playPlayerTiaoYueLeft() {
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
@@ -182,12 +168,6 @@ void Player::playPlayerJiYaRight() {
 	hero->runAction(playerTimeLine);
 }
 
-//void Player::playPlayerHuiTanRight(std::function<void()> listener) {
-//	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
-//	playerTimeLine->play("huitanyou", false);
-//	playerTimeLine->setLastFrameCallFunc(listener);
-//	hero->runAction(playerTimeLine);
-//}
 
 void Player::playPlayerTiaoYueRight() {
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
@@ -200,13 +180,6 @@ void Player::playPlayerJiYaBack() {
 	playerTimeLine->play("jyqian", false);
 	hero->runAction(playerTimeLine);
 }
-
-//void Player::playPlayerHuiTanBack(std::function<void()> listener) {
-//	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
-//	playerTimeLine->play("huitanqian", false);
-//	playerTimeLine->setLastFrameCallFunc(listener);
-//	hero->runAction(playerTimeLine);
-//}
 
 void Player::playPlayerTiaoYueBack() {
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");

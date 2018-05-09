@@ -8,11 +8,13 @@ using namespace std;
 #define default_tmx_width 80//默认的每一格TiledMap宽度
 #define default_tmx_height 74//默认的每一格TiledMap高度
 
-enum WoodType
+enum ObjectType
 {
 	wood_short = 1,
-	wood_long = 2,
-	leaf = 5,
+	wood_long ,
+	gold,
+	light,
+	leaf,
 	water
 };
 

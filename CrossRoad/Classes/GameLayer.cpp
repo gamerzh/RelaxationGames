@@ -28,10 +28,10 @@ bool GameLayer::init(Camera* ca) {
 	player = Player::create();
 	player->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	auto playerPos = GeometryUtils::transitionPlayerVec2(mapList.at(0)->getHeroStartPos());
-	player->setPosition(playerPos.x, playerPos.y+ PLAYER_OFFSET_Y);
+	player->setPosition(playerPos.x, playerPos.y);
 	player->setCameraMask(int(CameraFlag::USER1));
-	//log("HHHHHHH(%f,%f)", playerPos.x, playerPos.y);
-	addChild(player, PlayerZorder);
+	//log("Player postion = (%.1f,%.1f)", playerPos.x, playerPos.y);
+	addChild(player, MaxZorder);
 	scheduleUpdate();
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
@@ -113,6 +113,8 @@ void GameLayer::createWood(int type,int dir,int time, Point pos) {
 	wood->setPosition(GeometryUtils::transitionObjectVec2(pos));
 	addChild(wood, MaxZorder - round(pos.y / default_tmx_height));
 	woodList.push_back(wood);
+	//log("Wood position %.1f,%.1f", wood->getPositionX(),wood->getPositionY());
+	log("Wood Zorder = %d", wood->getZOrder());
 }
 
 
@@ -176,8 +178,6 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 					cameraMoveRight = 0;
 				}
 			}
-			
-
 		}
 		else if (playerGesture == Gesture::right) {
 			if (player->getPositionX() < default_tmx_width*17){
@@ -197,8 +197,10 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			cameraMoveY += default_tmx_height/4;
 			cameraMoveRight += PLAYER_JUMP_OFFSET;
 			player->playerJumpForward(treeList);
+
 		}
 		player->setZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));
+		log("Player Zorder %d", player->getZOrder());
 	}
 
 }
@@ -273,39 +275,42 @@ void GameLayer::update(float dt) {
 		}
 	}
 
-	//for (auto mymap:mapList)
-	//{
-	//	auto water = mymap->getTMXWater();
-	//	//玩家在水面上
-	//	if (water->getTileGIDAt(Vec2(defult_tmx_x_num-1-floor(player->getPositionX()/default_tmx_width), defult_tmx_y_num-1-floor(player->getPositionY()/default_tmx_height)))) {
+	
+	auto playerLine = floor(player->getPositionY() / default_tmx_height);
+	for (auto mymap:mapList)
+	{
+		auto water = mymap->getWaterLineNumber();
+		for (auto line: water)
+		{
+			//玩家在水面上
+			if (playerLine == line) {
 
-	//		bool canLive = false;
-	//		for (auto wo : woodList)
-	//		{
-	//			if(GeometryUtils::intersectsRect(wo->getBoundingBox(), player->getPlayerCheckRect())) {
-	//				canLive = true;
-	//				player->setSpeedX(wo->getSpeedX());
-	//				moveCameraX();
-	//				playerStandOnWood = true;
-	//			}
-	//		}
-	//		if (!canLive) {
-	//			if (NULL == getChildByTag(100)) {
-	//				auto over = GameOver::create();
-	//				over->setTag(100);
-	//				addChild(over);
-	//				//log("aaaaaaaaaaaaaaaa %f %f", player->getPositionY(), floor(player->getPositionX() / default_tmx_width));
-	//				//log("bbbbbbbbbbbbbbbb %f %f", player->getPositionY(),floor(player->getPositionY() / default_tmx_height));
-	//			}
-	//		}
-	//	}
-	//	else {
-	//		if (playerStandOnWood) {
-	//			cancelMoveCameraX();
-	//			playerStandOnWood = false;
-	//		}
-	//	}
-	//}
+				bool canLive = false;
+				for (auto wo : woodList)
+				{
+					if (GeometryUtils::intersectsRect(wo->getBoundingBox(), player->getPlayerCheckRect())) {
+						canLive = true;
+						player->setSpeedX(wo->getSpeedX());
+						moveCameraX();
+						playerStandOnWood = true;
+					}
+				}
+				if (!canLive) {
+					if (NULL == getChildByTag(100)) {
+						auto over = GameOver::create();
+						over->setTag(100);
+						addChild(over);
+					}
+				}
+			}
+			else {
+				if (playerStandOnWood) {
+					cancelMoveCameraX();
+					playerStandOnWood = false;
+				}
+			}
+		}
+	}
 	
 	changeCameraMoveStep();
 	if (cameraMoveY > 0) {

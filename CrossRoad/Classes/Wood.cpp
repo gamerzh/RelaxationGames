@@ -31,11 +31,10 @@ bool Wood::init(int type, int direction, float time)
 
 //  1代表短模板 2代表长木板 3代表金币 4代表火车提示灯 5代表荷叶
 std::string Wood::getFileNameByType(int type) {
-	if (type == WoodType::wood_long) {
+	if (type == ObjectType::wood_long) {
 		return "wood_2.png";
 	}
-	else if(type == WoodType::leaf){
-	   
+	else if(type == ObjectType::leaf){
 		return "leaf.png";
 	}
 	else {
@@ -45,7 +44,7 @@ std::string Wood::getFileNameByType(int type) {
 
 
 float Wood::getSpeedX() {
-	if (woodType != WoodType::leaf) {
+	if (woodType != ObjectType::leaf) {
 		if (woodDir == DirectionType::move_left) {
 			this->woodSpeed = -1;
 		}

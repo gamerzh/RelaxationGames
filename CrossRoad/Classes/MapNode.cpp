@@ -93,8 +93,8 @@ vector<TMWoodInfo> MapNode::getWoodInfoList() {
 		ValueMap tmin = var.asValueMap();
 		info.type = tmin["type"].asInt();
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
-		if (tmin["type"].asInt() == WoodType::wood_short || tmin["type"].asInt() == WoodType::wood_short || tmin["type"].asInt() == WoodType::leaf) {
-			if (tmin["type"].asInt() == WoodType::leaf) {
+		if (tmin["type"].asInt() == ObjectType::wood_short || tmin["type"].asInt() == ObjectType::wood_short || tmin["type"].asInt() == ObjectType::leaf) {
+			if (tmin["type"].asInt() == ObjectType::leaf) {
 				info.direction = 0;
 				info.time = 0;
 			}
@@ -117,7 +117,7 @@ vector<TMGoldInfo> MapNode::getGoldInfoList() {
 	for (auto var : nodes) {
 		TMGoldInfo info;
 		ValueMap tmin = var.asValueMap();
-		if (tmin["type"].asInt() == 3 || tmin["type"].asInt() == 4) {
+		if (tmin["type"].asInt() == ObjectType::gold || tmin["type"].asInt() == ObjectType::light) {
 			info.type = tmin["type"].asInt();
 			info.pos = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
 			goldList.push_back(info);
@@ -134,7 +134,7 @@ vector<int> MapNode::getWaterLineNumber() {
 	for (auto var : nodes) {
 		TMGoldInfo info;
 		ValueMap tmin = var.asValueMap();
-		if (tmin["type"].asInt() == WoodType::water) {
+		if (tmin["type"].asInt() == ObjectType::water) {
 			float line = floor(tmin["y"].asFloat()/default_tmx_height);
 			waterList.push_back(line);
 		}
