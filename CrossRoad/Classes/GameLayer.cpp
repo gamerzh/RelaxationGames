@@ -104,14 +104,14 @@ void GameLayer::createAutomoblie(Camera* camera,int type, int direction, int spe
 	//需要更具MapNode的情况来产生汽车
 	auto automoblie = Automobile::create(camera,type, direction, speed, interval, pos);
 	automoblie->setCameraMask(int(CameraFlag::USER1));
-	addChild(automoblie, MaxZorder - floor(pos.y / default_tmx_height));
+	addChild(automoblie, MaxZorder - round(pos.y / default_tmx_height));
 	autoList.push_back(automoblie);
 }
 
 void GameLayer::createWood(int type,int dir,int time, Point pos) {
 	auto wood = Wood::create(type, dir, time);
-	wood->setPosition(pos.x, floor(pos.y / default_tmx_height)*default_tmx_height+ default_tmx_height/6);
-	addChild(wood, MaxZorder - floor(pos.y / default_tmx_height));
+	wood->setPosition(GeometryUtils::transitionObjectVec2(pos));
+	addChild(wood, MaxZorder - round(pos.y / default_tmx_height));
 	woodList.push_back(wood);
 }
 

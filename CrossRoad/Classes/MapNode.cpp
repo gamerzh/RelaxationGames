@@ -1,5 +1,7 @@
 #include "MapNode.h"
 
+
+
 MapNode* MapNode::create(int type) {
 	auto mapnode = new MapNode();
 	if (mapnode && mapnode->init(type)) {
@@ -91,15 +93,18 @@ vector<TMWoodInfo> MapNode::getWoodInfoList() {
 		ValueMap tmin = var.asValueMap();
 		info.type = tmin["type"].asInt();
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
-		if (tmin["type"].asInt() == 1 || tmin["type"].asInt() == 2) {
-			info.direction = tmin["direction"].asInt();
-			info.time = tmin["time"].asFloat();
+		if (tmin["type"].asInt() == WoodType::wood_short || tmin["type"].asInt() == WoodType::wood_short || tmin["type"].asInt() == WoodType::leaf) {
+			if (tmin["type"].asInt() == WoodType::leaf) {
+				info.direction = 0;
+				info.time = 0;
+			}
+			else
+			{
+				info.direction = tmin["direction"].asInt();
+				info.time = tmin["time"].asFloat();
+			}
 			woodList.push_back(info);
 		}
-		else if (tmin["type"].asInt() == 5) {
-			woodList.push_back(info);
-		}
-
 	}
 	return woodList;
 }

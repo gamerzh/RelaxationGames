@@ -13,8 +13,8 @@ public:
 private:
 	int woodType;
 	int woodDir;
-	float woodTime;
-	float woodSpeed = 1;
+	float woodTime = 0;
+	float woodSpeed = 0;
 	void update(float dt);
 	std::string getFileNameByType(int type);
 };
