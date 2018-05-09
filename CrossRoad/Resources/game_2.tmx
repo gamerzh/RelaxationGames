@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="18" height="40" tilewidth="80" tileheight="74" infinite="0" nextobjectid="157">
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="18" height="40" tilewidth="80" tileheight="74" infinite="0" nextobjectid="158">
  <tileset firstgid="1" name="road" tilewidth="80" tileheight="74" tilecount="360" columns="18">
   <image source="road.png" width="1508" height="1480"/>
  </tileset>
@@ -250,13 +250,19 @@
     <property name="type" value="4"/>
    </properties>
   </object>
-  <object id="155" x="12.6667" y="2660.67">
+  <object id="155" x="24.6667" y="2656.67">
    <properties>
     <property name="type" value="6"/>
    </properties>
    <point/>
   </object>
-  <object id="156" x="10.3333" y="1849.67">
+  <object id="156" x="29.3333" y="1838.67">
+   <properties>
+    <property name="type" value="6"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="157" x="361.667" y="2571.67">
    <properties>
     <property name="type" value="6"/>
    </properties>
