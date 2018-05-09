@@ -37,9 +37,21 @@ string Automobile:: getFileNameByType(int type, int direction) {
 	{
 		return "car_2.png";
 	}
-	else if (type == 2 && direction == 1)
+	else if (type == 2 && direction == 2)
 	{
-		return "car_2.png";
+		return "car_3.png";
+	}
+	else if (type == 2 && direction ==1)
+	{
+		return "car_4.png";
+	}
+	else if (type == 3 && direction == 2)
+	{
+		return "car_5.png";
+	}
+	else if (type == 3 && direction == 1)
+	{
+		return "car_6.png";
 	}
 	else {
 		return "car_1.png";
