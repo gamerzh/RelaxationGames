@@ -61,7 +61,12 @@ struct TMWoodInfo
 
 struct TMGoldInfo
 {
-	int type;
+	Point pos;
+	Size size;
+};
+
+struct TMLightInfo
+{
 	Point pos;
 	Size size;
 };
@@ -77,6 +82,7 @@ public:
 	vector<TMBlockInfo> getBlockInfoList();
 	vector<TMWoodInfo> getWoodInfoList();
 	vector<TMGoldInfo> getGoldInfoList();
+	vector<TMLightInfo> getLightInfoList();
 	vector<int> getWaterLineNumber();
 	CC_SYNTHESIZE(int, mapNodeType, MapNodeType);
 private:

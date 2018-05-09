@@ -118,14 +118,29 @@ vector<TMGoldInfo> MapNode::getGoldInfoList() {
 	for (auto var : nodes) {
 		TMGoldInfo info;
 		ValueMap tmin = var.asValueMap();
-		if (tmin["type"].asInt() == ObjectType::gold || tmin["type"].asInt() == ObjectType::light) {
-			info.type = tmin["type"].asInt();
+		if (tmin["type"].asInt() == ObjectType::gold ) {
 			info.pos = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
 			goldList.push_back(info);
 		}
 	}
 	return goldList;
 }
+
+vector<TMLightInfo> MapNode::getLightInfoList() {
+	vector<TMLightInfo> lightList;
+	TMXObjectGroup *objects = _tileMap->getObjectGroup("items");
+	ValueVector nodes = objects->getObjects();//获取对象列表
+	for (auto var : nodes) {
+		TMLightInfo info;
+		ValueMap tmin = var.asValueMap();
+		if ( tmin["type"].asInt() == ObjectType::light) {
+			info.pos = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
+			lightList.push_back(info);
+		}
+	}
+	return lightList;
+}
+
 
 //返回水面在地图上的逻辑行数
 vector<int> MapNode::getWaterLineNumber() {
