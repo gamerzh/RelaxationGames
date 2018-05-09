@@ -94,7 +94,7 @@ void GameLayer::addGameMap() {
 void GameLayer::createHouseAndTree(int type,Size size, Point pos) {
 	int line = floor(pos.y / default_tmx_height);
 	auto tree = Block::create(type,pos,size);
-	tree->setPosition(GeometryUtils::transitionObjectVec2(pos));
+	tree->setPosition(GeometryUtils::transitionObjectVec2(pos).x, GeometryUtils::transitionObjectVec2(pos).y+default_tmx_height/5);
 	addChild(tree, MaxZorder - line);
 	treeList.push_back(tree);
 }
