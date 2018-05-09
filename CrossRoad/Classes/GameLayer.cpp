@@ -255,6 +255,15 @@ void GameLayer::cancelMoveCameraX() {
 	unschedule(SCHEDULE_CAMERA_X);
 }
 
+void GameLayer::showGameOver() {
+	player->playerGoDie();
+	if (NULL == getChildByTag(100)) {
+		auto over = GameOver::create();
+		over->setTag(100);
+		addChild(over);
+	}
+}
+
 void GameLayer::update(float dt) {
 	if (mapList.size() == 0) {
 		return;
@@ -266,11 +275,7 @@ void GameLayer::update(float dt) {
 				car->getBoundingBox().getMaxX()- car->getBoundingBox().getMinX(),
 				default_tmx_height);
 			if (GeometryUtils::intersectsRect(newRect, player->getPlayerCheckRect())) {
-				if (NULL == getChildByTag(100)) {
-					auto over = GameOver::create();
-					over->setTag(100);
-					addChild(over);
-				}
+				showGameOver();
 			}
 		}
 	}
@@ -296,11 +301,7 @@ void GameLayer::update(float dt) {
 					}
 				}
 				if (!canLive) {
-					if (NULL == getChildByTag(100)) {
-						auto over = GameOver::create();
-						over->setTag(100);
-						addChild(over);
-					}
+					showGameOver();
 				}
 			}
 			else {

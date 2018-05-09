@@ -55,5 +55,6 @@ private:
 	void changeCameraMoveStep();
 	void moveCameraX();//在X轴上移动相机
 	void cancelMoveCameraX();
+	void showGameOver();
 	
 };

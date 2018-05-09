@@ -27,15 +27,12 @@ public:
 	Rect getPlayerCheckRect();
 	void setSpeedX(float speed);//获得一个X方向上的速度
 	float getSpeedX();
+	void playerGoDie();
 private:
 	float speedX = 0;
-	//void playPlayerHuiTan(std::function<void()> listener);
 	void playPlayerTiaoYue();
-	//void playPlayerHuiTanLeft(std::function<void()> listener);
 	void playPlayerTiaoYueLeft();
-	//void playPlayerHuiTanRight(std::function<void()> listener);
 	void playPlayerTiaoYueRight();
-	//void playPlayerHuiTanBack(std::function<void()> listener);
 	void playPlayerTiaoYueBack();
 	void update(float dt);
 	Node* hero;

@@ -201,3 +201,12 @@ void Player::update(float dt) {
 	}
 }
 
+void Player::playerGoDie() {
+	hero->setVisible(false);
+	auto die = Sprite::create("player_die.png");
+	die->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+	die->setPosition(0, 0);
+	die->setCameraMask(int(CameraFlag::USER1));
+	addChild(die,2);
+}
+
