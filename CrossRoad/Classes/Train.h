@@ -13,7 +13,7 @@ private:
 	Camera* _camera;
 	int dir = 0;
 	float speed = 30;
-	float trainInterval = 10;
+	float trainInterval = 0;
 	float passTime = 0;
 	Point position;
 	Sprite* myTrain = nullptr;
