@@ -64,7 +64,7 @@ void GameLayer::checkMapInScene(float dt) {
 }
 
 void GameLayer::addGameMap() {
-	int ran = random(0,2);
+	int ran = random(0,7);
 	auto node = MapNode::create(ran);
 	if (mapList.size() == 0) {
 		node->setPosition(0, 0);
@@ -94,8 +94,8 @@ void GameLayer::addGameMap() {
 		createGold(goldInfo.pos);
 	}
 	//Éú³É»ð³µ
-	for (auto trainInfo : node->getLightInfoList()) {
-		createTrain(GeometryUtils::transitionObjectVec2(trainInfo.pos));
+	for (auto lightInfo : node->getLightInfoList()) {
+		createTrain(lightInfo.pos);
 	}
 	
 }
@@ -133,16 +133,13 @@ void GameLayer::createGold(Point position) {
 	goldList.push_back(goldIcon);
 }
 
+
 void GameLayer::createTrain(Point position) {
-	int dir = random(0, 1);
+	
 	//log("random dir %d", dir);
-	auto train = Train::create(dir, position);
-	if (dir == 0) {
-		train->setPosition(_camera->getPositionX()-2000, position.y);
-	}
-	else {
-		train->setPosition(_camera->getPositionX()+2000, position.y);
-	}
+	auto train = Train::create(_camera,position);
+	train->setPosition(GeometryUtils::transitionObjectVec2(position));
+	train->setCameraMask(int(CameraFlag::USER1));
 	addChild(train, MaxZorder - round(position.y / default_tmx_height));
 	trainList.push_back(train);
 }
@@ -319,13 +316,13 @@ void GameLayer::update(float dt) {
 		}
 	}
 
-	for (auto tra : trainList)
-	{
-		if (GeometryUtils::intersectsRect(tra->getBoundingBox(), player->getPlayerCheckRect())) {
-			showGameOver();
-		}
-	}
-	
+	//for (auto tra : trainList)
+	//{
+	//	if (GeometryUtils::intersectsRect(tra->getBoundingBox(), player->getPlayerCheckRect())) {
+	//		showGameOver();
+	//	}
+	//}
+	//
 	auto playerLine = floor(player->getPositionY() / default_tmx_height);
 	for (auto mymap:mapList)
 	{
