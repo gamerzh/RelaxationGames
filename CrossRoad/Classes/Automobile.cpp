@@ -18,10 +18,10 @@ bool Automobile::init(Camera* camera, int type, int direction, float speed, floa
 		return false;
 	}
 	this->camera = camera;
-	this->speed = speed*3;
+	this->speed = speed;
 	this->direction = direction;
-	this->interval = interval*2;
-	this->time = random(1,3);
+	this->interval = interval;
+	this->time = random(0,5);
 	this->automobileType = type;
 	this->postion = pos;
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);

@@ -5,7 +5,10 @@ USING_NS_CC;
 
 class Train : public Sprite
 {
-	virtual bool init();
-	CREATE_FUNC(Train);
-
+public:
+	static Train* create(int dir,Point pos);
+	virtual bool init(int dir, Point pos);
+private:
+	void update(float dt);
+	float speed = 30;
 };

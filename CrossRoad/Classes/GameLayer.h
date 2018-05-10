@@ -6,7 +6,7 @@
 #include "Block.h"
 #include "Wood.h"
 #include "GoldIcon.h"
-
+#include "Train.h"
 USING_NS_CC;
 
 //#define MapLayerZorder 10
@@ -52,6 +52,7 @@ private:
 	void createHouseAndTree(int type, Size size,Point pos);
 	void createWood(int type, int dir, int speed, Point pos);
 	void createGold(Point position);
+	void createTrain(Point position);
 	void checkMapInScene(float dt);
     void update(float dt);
 	void updateTreeZorder();

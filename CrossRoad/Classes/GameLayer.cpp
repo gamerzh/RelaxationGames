@@ -93,6 +93,11 @@ void GameLayer::addGameMap() {
 	for (auto goldInfo : node->getGoldInfoList()) {
 		createGold(goldInfo.pos);
 	}
+	//Éú³É»ð³µ
+	for (auto trainInfo : node->getLightInfoList()) {
+		createTrain(GeometryUtils::transitionObjectVec2(trainInfo.pos));
+	}
+	
 }
 
 void GameLayer::createHouseAndTree(int type,Size size, Point pos) {
@@ -124,8 +129,21 @@ void GameLayer::createWood(int type,int dir,int time, Point pos) {
 void GameLayer::createGold(Point position) {
 	auto goldIcon = GoldIcon::create();
 	goldIcon->setPosition(GeometryUtils::transitionObjectVec2(position));
-	addChild(goldIcon);
+	addChild(goldIcon, MaxZorder - round(position.y / default_tmx_height));
 	goldList.push_back(goldIcon);
+}
+
+void GameLayer::createTrain(Point position) {
+	int dir = random(0, 1);
+	//log("random dir %d", dir);
+	auto train = Train::create(dir);
+	if (dir == 0) {
+		train->setPosition(_camera->getPositionX()-2000, position.y);
+	}
+	else {
+		train->setPosition(_camera->getPositionX()+2000, position.y);
+	}
+	addChild(train, MaxZorder - round(position.y / default_tmx_height));
 }
 
 void GameLayer::addTouchListener() {
@@ -141,7 +159,7 @@ bool GameLayer::onTouchBegan(Touch *touch, Event *event) {
 	preTouchPoint = touch->getLocation();
 	if (playerGesture == Gesture::left) {
 		player->playPlayerJiYaLeft();
-	}
+	} 
 	else if (playerGesture == Gesture::right) {
 		player->playPlayerJiYaRight();
 	}
