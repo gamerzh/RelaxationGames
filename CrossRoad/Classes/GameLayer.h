@@ -5,6 +5,7 @@
 #include "Automobile.h"
 #include "Block.h"
 #include "Wood.h"
+#include "GoldIcon.h"
 
 USING_NS_CC;
 
@@ -44,11 +45,13 @@ private:
 	vector<Automobile*> autoList;
 	vector<Wood*> woodList;
 	vector<Block*> treeList;
+	vector<GoldIcon*> goldList;
 	void initGameMap();
 	void addGameMap();
 	void createAutomoblie(Camera* camera,int type, int direction, int speed, int interval, Point pos);
 	void createHouseAndTree(int type, Size size,Point pos);
 	void createWood(int type, int dir, int speed, Point pos);
+	void createGold(Point position);
 	void checkMapInScene(float dt);
     void update(float dt);
 	void updateTreeZorder();

@@ -1,8 +1,8 @@
 #include "GameLayer.h"
 #include "GameOver.h"
+#include "GeometryUtils.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "GeometryUtils.h"
 
 GameLayer* GameLayer::create(Camera* ca) {
 	auto mapLayer = new GameLayer();
@@ -84,10 +84,14 @@ void GameLayer::addGameMap() {
 	for (auto info : node->getEnemyInfoList()) {
 		createAutomoblie(_camera, info.type, info.direction, info.speed, info.interval, info.position);
 	}
-
+	//生成木板和荷叶
 	for (auto woodInfo : node->getWoodInfoList())
 	{
 		createWood(woodInfo.type, woodInfo.direction,woodInfo.time,woodInfo.position);
+	}
+	//生成金币
+	for (auto goldInfo : node->getGoldInfoList()) {
+		createGold(goldInfo.pos);
 	}
 }
 
@@ -117,8 +121,12 @@ void GameLayer::createWood(int type,int dir,int time, Point pos) {
 	//log("Wood Zorder = %d", wood->getZOrder());
 }
 
-
-
+void GameLayer::createGold(Point position) {
+	auto goldIcon = GoldIcon::create();
+	goldIcon->setPosition(GeometryUtils::transitionObjectVec2(position));
+	addChild(goldIcon);
+	goldList.push_back(goldIcon);
+}
 
 void GameLayer::addTouchListener() {
 	auto touchListener = EventListenerTouchOneByOne::create();
@@ -201,6 +209,18 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		}
 		player->setZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", player->getZOrder());
+		//检查玩家是否碰到了金币
+		/*for (auto myGold : goldList) {
+			
+		}*/
+		vector<GoldIcon*>::iterator it;
+		for (it = goldList.begin(); it != goldList.end(); ++it) {
+			GoldIcon* myGold = *it;
+			if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
+				it = goldList.erase(it);
+				myGold->removeFromParent();
+			}
+		}
 	}
 
 }

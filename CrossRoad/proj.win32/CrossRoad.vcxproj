@@ -151,8 +151,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\GameOver.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\GeometryUtils.cpp" />
+    <ClCompile Include="..\Classes\GoldIcon.cpp" />
     <ClCompile Include="..\Classes\MapNode.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
+    <ClCompile Include="..\Classes\Train.h.cpp" />
     <ClCompile Include="..\Classes\Wood.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -164,8 +166,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\GameOver.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\GeometryUtils.h" />
+    <ClInclude Include="..\Classes\GoldIcon.h" />
     <ClInclude Include="..\Classes\MapNode.h" />
     <ClInclude Include="..\Classes\Player.h" />
+    <ClInclude Include="..\Classes\Train.h" />
     <ClInclude Include="..\Classes\Wood.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
