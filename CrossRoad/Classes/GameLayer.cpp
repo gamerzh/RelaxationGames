@@ -46,17 +46,19 @@ void GameLayer::checkMapInScene(float dt) {
 	if (mapList.size() == 0) {
 		return;
 	}
+	auto win = Director::getInstance()->getWinSize();
 	vector<MapNode*>::iterator it;
 	for (it = mapList.begin(); it != mapList.end(); it++)
 	{
 		auto node = *it;
-		if (_camera->getPositionY() > node->getPositionY() + node->getContentSize().height) {
+		if ((int)_camera->getPositionY() % (int)(defult_tmx_y_num * default_tmx_height) >= defult_tmx_y_num * default_tmx_height-win.height) {
 			it = mapList.erase(it);
 			node->removeFromParent();
 			needAddMap = true;
 		}
 		if (needAddMap) {
-			//addGameMap();
+			log("添加新地图");
+			addGameMap();
 			needAddMap = false;
 		}
 
@@ -226,9 +228,6 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		player->setZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", player->getZOrder());
 		//检查玩家是否碰到了金币
-		/*for (auto myGold : goldList) {
-
-		}*/
 		vector<GoldIcon*>::iterator it;
 		for (it = goldList.begin(); it != goldList.end(); ++it) {
 			GoldIcon* myGold = *it;
