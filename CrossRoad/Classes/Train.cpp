@@ -45,6 +45,13 @@ bool Train::init(Camera* _camera,Point pos) {
 	return true;
 }
 
+Rect Train::getTrainObjectBox(){
+	return Rect(myTrain->getBoundingBox().getMinX() + getPositionX(),
+		myTrain->getBoundingBox().getMinY()+getPositionY(), 
+		myTrain->getBoundingBox().getMaxX()- myTrain->getBoundingBox().getMinX(),
+		myTrain->getBoundingBox().getMaxY()- myTrain->getBoundingBox().getMinY());
+}
+
 void Train::moveTrain(CallFunc* call) {
 	auto win = Director::getInstance()->getWinSize();
 	if (dir == 0) {

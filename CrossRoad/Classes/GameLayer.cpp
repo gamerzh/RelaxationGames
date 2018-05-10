@@ -39,7 +39,7 @@ bool GameLayer::init(Camera* ca) {
 }
 
 void GameLayer::initGameMap() {
-		addGameMap();
+	addGameMap();
 }
 
 void GameLayer::checkMapInScene(float dt) {
@@ -64,7 +64,7 @@ void GameLayer::checkMapInScene(float dt) {
 }
 
 void GameLayer::addGameMap() {
-	int ran = random(0,7);
+	int ran = random(0, 7);
 	auto node = MapNode::create(ran);
 	if (mapList.size() == 0) {
 		node->setPosition(0, 0);
@@ -78,7 +78,7 @@ void GameLayer::addGameMap() {
 
 	//在地图上生成树木和屋子
 	for (auto treePos : node->getBlockInfoList()) {
-		createHouseAndTree(treePos.type,Size(treePos.width,treePos.height),treePos.position);
+		createHouseAndTree(treePos.type, Size(treePos.width, treePos.height), treePos.position);
 	}
 	//在地图上生成卡车
 	for (auto info : node->getEnemyInfoList()) {
@@ -87,7 +87,7 @@ void GameLayer::addGameMap() {
 	//生成木板和荷叶
 	for (auto woodInfo : node->getWoodInfoList())
 	{
-		createWood(woodInfo.type, woodInfo.direction,woodInfo.time,woodInfo.position);
+		createWood(woodInfo.type, woodInfo.direction, woodInfo.time, woodInfo.position);
 	}
 	//生成金币
 	for (auto goldInfo : node->getGoldInfoList()) {
@@ -97,27 +97,27 @@ void GameLayer::addGameMap() {
 	for (auto lightInfo : node->getLightInfoList()) {
 		createTrain(lightInfo.pos);
 	}
-	
+
 }
 
-void GameLayer::createHouseAndTree(int type,Size size, Point pos) {
+void GameLayer::createHouseAndTree(int type, Size size, Point pos) {
 	int line = floor(pos.y / default_tmx_height);
-	auto tree = Block::create(type,pos,size);
-	tree->setPosition(GeometryUtils::transitionObjectVec2(pos).x, GeometryUtils::transitionObjectVec2(pos).y+default_tmx_height/5);
+	auto tree = Block::create(type, pos, size);
+	tree->setPosition(GeometryUtils::transitionObjectVec2(pos).x, GeometryUtils::transitionObjectVec2(pos).y + default_tmx_height / 5);
 	addChild(tree, MaxZorder - line);
 	treeList.push_back(tree);
 }
 
-void GameLayer::createAutomoblie(Camera* camera,int type, int direction, int speed, int interval, Point pos) {
+void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int speed, int interval, Point pos) {
 	//需要更具MapNode的情况来产生汽车
-	auto automoblie = Automobile::create(camera,type, direction, speed, interval, pos);
+	auto automoblie = Automobile::create(camera, type, direction, speed, interval, pos);
 	automoblie->setCameraMask(int(CameraFlag::USER1));
 	addChild(automoblie, MaxZorder - floor(pos.y / default_tmx_height));
 	autoList.push_back(automoblie);
 	log("Automobile Zorder %d", automoblie->getZOrder());
 }
 
-void GameLayer::createWood(int type,int dir,int time, Point pos) {
+void GameLayer::createWood(int type, int dir, int time, Point pos) {
 	auto wood = Wood::create(type, dir, time);
 	wood->setPosition(GeometryUtils::transitionObjectVec2(pos));
 	addChild(wood, MaxZorder - round(pos.y / default_tmx_height));
@@ -135,9 +135,9 @@ void GameLayer::createGold(Point position) {
 
 
 void GameLayer::createTrain(Point position) {
-	
+
 	//log("random dir %d", dir);
-	auto train = Train::create(_camera,position);
+	auto train = Train::create(_camera, position);
 	train->setPosition(GeometryUtils::transitionObjectVec2(position));
 	train->setCameraMask(int(CameraFlag::USER1));
 	addChild(train, MaxZorder - round(position.y / default_tmx_height));
@@ -157,7 +157,7 @@ bool GameLayer::onTouchBegan(Touch *touch, Event *event) {
 	preTouchPoint = touch->getLocation();
 	if (playerGesture == Gesture::left) {
 		player->playPlayerJiYaLeft();
-	} 
+	}
 	else if (playerGesture == Gesture::right) {
 		player->playPlayerJiYaRight();
 	}
@@ -187,7 +187,7 @@ void GameLayer::onTouchMoved(Touch* touch, Event* event) {
 	else {
 		playerGesture = Gesture::forward;
 	}
-	
+
 }
 
 
@@ -204,8 +204,8 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 		else if (playerGesture == Gesture::right) {
-			if (player->getPositionX() < default_tmx_width*17){
-				if (player->playerJumpRight(treeList) ){
+			if (player->getPositionX() < default_tmx_width * 17) {
+				if (player->playerJumpRight(treeList)) {
 					cameraMoveRight += default_tmx_width;
 					cameraMoveLeft = 0;
 				}
@@ -218,7 +218,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 		else {
-			cameraMoveY += default_tmx_height/4;
+			cameraMoveY += default_tmx_height / 4;
 			cameraMoveRight += PLAYER_JUMP_OFFSET;
 			player->playerJumpForward(treeList);
 
@@ -227,7 +227,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		log("Player Zorder %d", player->getZOrder());
 		//检查玩家是否碰到了金币
 		/*for (auto myGold : goldList) {
-			
+
 		}*/
 		vector<GoldIcon*>::iterator it;
 		for (it = goldList.begin(); it != goldList.end(); ++it) {
@@ -249,14 +249,15 @@ void GameLayer::updateTreeZorder() {
 void GameLayer::changeCameraMoveStep() {
 	//更具玩家和摄像机的距离调整步幅
 	if (cameraMoveRight > 0) {
-		if (player->getPositionX() - _camera->getPositionX() < 3* default_tmx_width) {
+		if (player->getPositionX() - _camera->getPositionX() < 3 * default_tmx_width) {
 			cameraMoveStep = 1.2;
 			return;
 		}
 		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
 			cameraMoveStep = 1.6;
 			return;
-		} else{
+		}
+		else {
 			cameraMoveStep = 2.0;
 			return;
 		}
@@ -283,7 +284,7 @@ void GameLayer::moveCameraX() {
 		if (_camera->getPositionX() >= 0 && _camera->getPositionX() <= 10 * default_tmx_width) {
 			_camera->setPosition(_camera->getPositionX() + player->getSpeedX(), _camera->getPositionY());
 		}
-	},1.0f/60, SCHEDULE_CAMERA_X);
+	}, 1.0f / 60, SCHEDULE_CAMERA_X);
 }
 
 void GameLayer::cancelMoveCameraX() {
@@ -306,9 +307,9 @@ void GameLayer::update(float dt) {
 	}
 	for (auto var : autoList) {
 		for (auto car : var->getCarList()) {
-			Rect newRect = Rect(car->getBoundingBox().getMinX(), 
-				car->getBoundingBox().getMinY(), 
-				car->getBoundingBox().getMaxX()- car->getBoundingBox().getMinX(),
+			Rect newRect = Rect(car->getBoundingBox().getMinX(),
+				car->getBoundingBox().getMinY(),
+				car->getBoundingBox().getMaxX() - car->getBoundingBox().getMinX(),
 				default_tmx_height);
 			if (GeometryUtils::intersectsRect(newRect, player->getPlayerCheckRect())) {
 				showGameOver();
@@ -316,18 +317,28 @@ void GameLayer::update(float dt) {
 		}
 	}
 
-	//for (auto tra : trainList)
-	//{
-	//	if (GeometryUtils::intersectsRect(tra->getBoundingBox(), player->getPlayerCheckRect())) {
-	//		showGameOver();
-	//	}
-	//}
-	//
+	for (auto tra : trainList)
+	{
+
+		if (GeometryUtils::intersectsRect(tra->getTrainObjectBox(), player->getPlayerCheckRect())) {
+			showGameOver();
+		}
+		//auto train = tra->getTrainObject();
+		//if (train != nullptr) {
+			/*log("Train Rect(%.1f,%.1f,%.1f,%.1f)",
+				train->getBoundingBox().getMinX(),
+				train->getBoundingBox().getMinY(),
+				train->getBoundingBox().getMaxX() - train->getBoundingBox().getMinX(),
+				train->getBoundingBox().getMaxY() - train->getBoundingBox().getMinY());*/
+
+				//}
+	}
+
 	auto playerLine = floor(player->getPositionY() / default_tmx_height);
-	for (auto mymap:mapList)
+	for (auto mymap : mapList)
 	{
 		auto water = mymap->getWaterLineNumber();
-		for (auto line: water)
+		for (auto line : water)
 		{
 			//玩家在水面上
 			if (playerLine == line) {
@@ -354,12 +365,12 @@ void GameLayer::update(float dt) {
 			}
 		}
 	}
-	
+
 	changeCameraMoveStep();
 	if (cameraMoveY > 0) {
 		cameraMoveY -= 1;
 		if (_camera->getPositionX() > 0) {
-			_camera->setPosition(_camera->getPositionX(), _camera->getPositionY() +1);
+			_camera->setPosition(_camera->getPositionX(), _camera->getPositionY() + 1);
 		}
 		else {
 			cameraMoveY = 0;

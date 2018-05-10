@@ -8,6 +8,7 @@ class Train : public Sprite
 public:
 	static Train* create(Camera* _camera, Point pos);
 	virtual bool init(Camera* _camera,Point pos);
+	Rect getTrainObjectBox();
 private:
 	Camera* _camera;
 	int dir = 0;
@@ -15,7 +16,7 @@ private:
 	float trainInterval = 10;
 	float passTime = 0;
 	Point position;
-	Sprite* myTrain;
+	Sprite* myTrain = nullptr;
 	void trainLightAnim(CallFunc* call);
 	void update(float dt);
 	void moveTrain(CallFunc* call);
