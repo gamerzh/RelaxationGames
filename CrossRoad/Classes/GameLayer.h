@@ -46,6 +46,7 @@ private:
 	vector<Wood*> woodList;
 	vector<Block*> treeList;
 	vector<GoldIcon*> goldList;
+	vector<Train*> trainList;
 	void initGameMap();
 	void addGameMap();
 	void createAutomoblie(Camera* camera,int type, int direction, int speed, int interval, Point pos);

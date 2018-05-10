@@ -136,7 +136,7 @@ void GameLayer::createGold(Point position) {
 void GameLayer::createTrain(Point position) {
 	int dir = random(0, 1);
 	//log("random dir %d", dir);
-	auto train = Train::create(dir);
+	auto train = Train::create(dir, position);
 	if (dir == 0) {
 		train->setPosition(_camera->getPositionX()-2000, position.y);
 	}
@@ -144,6 +144,7 @@ void GameLayer::createTrain(Point position) {
 		train->setPosition(_camera->getPositionX()+2000, position.y);
 	}
 	addChild(train, MaxZorder - round(position.y / default_tmx_height));
+	trainList.push_back(train);
 }
 
 void GameLayer::addTouchListener() {
@@ -318,6 +319,12 @@ void GameLayer::update(float dt) {
 		}
 	}
 
+	for (auto tra : trainList)
+	{
+		if (GeometryUtils::intersectsRect(tra->getBoundingBox(), player->getPlayerCheckRect())) {
+			showGameOver();
+		}
+	}
 	
 	auto playerLine = floor(player->getPositionY() / default_tmx_height);
 	for (auto mymap:mapList)
