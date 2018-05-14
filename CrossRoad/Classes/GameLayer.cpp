@@ -131,7 +131,7 @@ void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int sp
 }
 
 void GameLayer::createWood(int type, int dir, int time, Point pos) {
-	auto wood = Wood::create(type, dir, time);
+	auto wood = Wood::create(_camera ,type, dir, time);
 	wood->setPosition(GeometryUtils::transitionObjectVec2(pos, used_map_node));
 	wood->setCameraMask(int(CameraFlag::USER1));
 	addChild(wood, MaxZorder - round(pos.y / default_tmx_height));

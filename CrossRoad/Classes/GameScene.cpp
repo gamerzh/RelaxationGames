@@ -42,6 +42,11 @@ bool GameScene::init()
 	mapLayer->setCameraMask(2);
 	addChild(mapLayer);
 
+	auto men = MenuItemImage::create("pause.png", "pause.png", CC_CALLBACK_0(GameScene::pauseMove,this));
+	auto menu = Menu::create(men,NULL);
+	menu->setPosition(win.width - men->getContentSize().width, win.height - men->getContentSize().height);
+	addChild(menu);
+
 	scheduleUpdate();
 
     return true;
@@ -51,5 +56,11 @@ bool GameScene::init()
 
 
 void GameScene::update(float dt) {
-	playerCamera->setPosition(playerCamera->getPositionX(),playerCamera->getPositionY()+0.25f);
+	if (allowMove) {
+		playerCamera->setPosition(playerCamera->getPositionX(), playerCamera->getPositionY() + 1.25f);
+	}
+}
+
+void GameScene::pauseMove() {
+	allowMove = !allowMove;
 }

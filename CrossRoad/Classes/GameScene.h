@@ -19,6 +19,8 @@ public:
     CREATE_FUNC(GameScene);
 
 private:
+	bool allowMove = true;
+	void pauseMove();
 	GameLayer* mapLayer;
 	Camera* playerCamera;
 	void update(float dt);

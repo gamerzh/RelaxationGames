@@ -1,10 +1,10 @@
 #include "Wood.h"
 #include "MapNode.h"
 
-Wood * Wood::create(int type, int direction, float time)
+Wood * Wood::create(Camera* ca, int type, int direction, float time)
 {
 	Wood* woo = new Wood();
-	if (woo && woo->init(type,direction, time)) {
+	if (woo && woo->init(ca,type,direction, time)) {
 		woo->autorelease();
 		return woo;
 	}
@@ -14,7 +14,7 @@ Wood * Wood::create(int type, int direction, float time)
 	}
 }
 
-bool Wood::init(int type, int direction, float time)
+bool Wood::init(Camera* ca, int type, int direction, float time)
 {
 	if (!Sprite::init()) {
 		return false;
@@ -22,6 +22,7 @@ bool Wood::init(int type, int direction, float time)
 	this->woodType = type;
 	this->woodDir = direction;
 	this->woodTime = time;
+	this->myCamera = ca;
 	initWithFile(getFileNameByType(type));
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	scheduleUpdate();
@@ -31,6 +32,7 @@ bool Wood::init(int type, int direction, float time)
 
 //  1代表短模板 2代表长木板 3代表金币 4代表火车提示灯 5代表荷叶
 std::string Wood::getFileNameByType(int type) {
+	log("HHHHHHHHH %d", type);
 	if (type == ObjectType::wood_long) {
 		return "wood_2.png";
 	}
@@ -60,4 +62,15 @@ float Wood::getSpeedX() {
 
 void Wood::update(float dt) {
 	this->setPosition(this->getPositionX() + getSpeedX(), this->getPositionY());
+		if (woodDir == DirectionType::move_left) {
+			if (this->getPositionX() + this->getContentSize().width < myCamera->getPositionX()) {
+			
+				this->setPosition(myCamera->getPositionX() + win.width + this->getContentSize().width, this->getPositionY());
+			}
+		}
+		else {
+			if (this->getPositionX()  > myCamera->getPositionX() + win.width+ this->getContentSize().width) {
+				this->setPosition(myCamera->getPositionX() - this->getContentSize().width, this->getPositionY());
+			}
+		}
 }

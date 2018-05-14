@@ -94,7 +94,7 @@ vector<TMWoodInfo> MapNode::getWoodInfoList() {
 		ValueMap tmin = var.asValueMap();
 		info.type = tmin["type"].asInt();
 		info.position = Vec2(tmin["x"].asFloat(), tmin["y"].asFloat());
-		if (tmin["type"].asInt() == ObjectType::wood_short || tmin["type"].asInt() == ObjectType::wood_short || tmin["type"].asInt() == ObjectType::leaf) {
+		if (tmin["type"].asInt() == ObjectType::wood_short || tmin["type"].asInt() == ObjectType::wood_long || tmin["type"].asInt() == ObjectType::leaf) {
 			if (tmin["type"].asInt() == ObjectType::leaf) {
 				info.direction = 0;
 				info.time = 0;

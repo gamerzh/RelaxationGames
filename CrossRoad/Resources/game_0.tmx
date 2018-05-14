@@ -162,7 +162,7 @@
     <property name="type" value="1"/>
    </properties>
   </object>
-  <object id="161" x="480" y="1257.22" width="559.091" height="75.5541">
+  <object id="161" x="479" y="1262.22" width="559.091" height="64.5541">
    <properties>
     <property name="direction" value="1"/>
     <property name="time" value="1"/>
