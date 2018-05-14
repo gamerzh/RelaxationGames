@@ -19,7 +19,7 @@ bool Train::init(Camera* _camera,Point pos) {
 		return false;
 	}
 	this->_camera = _camera;
-	int time = random(2, 5);
+	int time = random(2, 8);
 	this->trainInterval = time;
 	initWithFile("light_1.png");
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
