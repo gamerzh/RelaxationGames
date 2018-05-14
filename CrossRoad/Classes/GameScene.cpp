@@ -31,7 +31,7 @@ bool GameScene::init()
         return false;
     }
 
-	auto win = Director::getInstance()->getWinSize();
+
 	//正交相机的使用
 	playerCamera = Camera::createOrthographic(win.width * 1.0, win.height * 1.0, -1024, 1024);
 	playerCamera->setCameraFlag(CameraFlag::USER1);
@@ -44,7 +44,7 @@ bool GameScene::init()
 
 	auto men = MenuItemImage::create("pause.png", "pause.png", CC_CALLBACK_0(GameScene::pauseMove,this));
 	auto menu = Menu::create(men,NULL);
-	menu->setPosition(win.width - men->getContentSize().width, win.height - men->getContentSize().height);
+	menu->setPosition( men->getContentSize().width*0.7, win.height - men->getContentSize().height*0.7);
 	addChild(menu);
 
 	scheduleUpdate();
@@ -52,15 +52,17 @@ bool GameScene::init()
     return true;
 }
 
-
+void GameScene::pauseMove() {
+	allowMove = !allowMove;
+	auto black = LayerColor::create(Color4B(0, 0, 0, 204), win.width, win.height);
+	black->setTag(1024);
+	addChild(black);
+}
 
 
 void GameScene::update(float dt) {
 	if (allowMove) {
-		playerCamera->setPosition(playerCamera->getPositionX(), playerCamera->getPositionY() + 1.25f);
+		playerCamera->setPosition(playerCamera->getPositionX(), playerCamera->getPositionY() + 1.0f);
 	}
 }
 
-void GameScene::pauseMove() {
-	allowMove = !allowMove;
-}

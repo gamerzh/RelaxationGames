@@ -66,11 +66,12 @@ void Automobile::drawCar(int type, int direction) {
 	car->setCameraMask(int(CameraFlag::USER1));
 	car->setScale(0.7f);
 	addChild(car);
+	auto win = Director::getInstance()->getWinSize();
 	if (direction == 1) {
-		car->setPosition(postion.x+car->getContentSize().width, floor(postion.y/default_tmx_height)*default_tmx_height+ default_tmx_height / 8);
+		car->setPosition(camera->getPositionX()+ win.width +car->getContentSize().width, floor(postion.y/default_tmx_height)*default_tmx_height+ default_tmx_height / 8);
 	}
 	else {
-		car->setPosition(postion.x -car->getContentSize().width, floor(postion.y / default_tmx_height)*default_tmx_height + default_tmx_height / 8);
+		car->setPosition(camera->getPositionX() -car->getContentSize().width, floor(postion.y / default_tmx_height)*default_tmx_height + default_tmx_height / 8);
 	}
 	carList.push_back(car);
 }

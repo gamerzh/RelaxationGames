@@ -19,6 +19,7 @@ public:
     CREATE_FUNC(GameScene);
 
 private:
+	Size win = Director::getInstance()->getWinSize();
 	bool allowMove = true;
 	void pauseMove();
 	GameLayer* mapLayer;

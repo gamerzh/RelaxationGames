@@ -31,6 +31,7 @@ public:
 	void onTouchMoved(Touch *touch, Event  *event) override;
 	void onTouchEnded(Touch *touch, Event  *event) override;
 private:
+	Size win = Director::getInstance()->getWinSize();
 	int used_map_node = 0;
 	bool needAddMap = false;
 	bool playerStandOnWood = false;
@@ -62,5 +63,4 @@ private:
 	void moveCameraX();//在X轴上移动相机
 	void cancelMoveCameraX();
 	void showGameOver();
-	
 };

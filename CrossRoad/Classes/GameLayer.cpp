@@ -22,7 +22,6 @@ bool GameLayer::init(Camera* ca) {
 	}
 	auto win = Director::getInstance()->getWinSize();
 	_camera = ca;
-
 	initGameMap();
 	playerGesture = Gesture::forward;
 	player = Player::create();
@@ -37,6 +36,7 @@ bool GameLayer::init(Camera* ca) {
 	addTouchListener();
 	return true;
 }
+
 
 void GameLayer::initGameMap() {
 	addGameMap();
