@@ -7,7 +7,7 @@ class  Block : public Sprite
 public:
 	static Block* create(int type ,Point pos, Size size);
 	virtual bool init(int type,Point pos,Size size);
-	Rect getBlockCheckRect();
+	Rect getBlockCheckRect(int index);
 private:
 	Point pos;
 	Size checkSize;

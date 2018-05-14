@@ -27,7 +27,7 @@ bool GameLayer::init(Camera* ca) {
 	playerGesture = Gesture::forward;
 	player = Player::create();
 	player->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-	auto playerPos = GeometryUtils::transitionPlayerVec2(mapList.at(0)->getHeroStartPos());
+	auto playerPos = GeometryUtils::transitionPlayerVec2(mapList.at(0)->getHeroStartPos(), used_map_node);
 	player->setPosition(playerPos.x, playerPos.y);
 	player->setCameraMask(int(CameraFlag::USER1));
 	//log("Player postion = (%.1f,%.1f)", playerPos.x, playerPos.y);
@@ -48,35 +48,43 @@ void GameLayer::checkMapInScene(float dt) {
 	}
 	auto win = Director::getInstance()->getWinSize();
 	vector<MapNode*>::iterator it;
-	for (it = mapList.begin(); it != mapList.end(); it++)
+	for (it = mapList.begin(); it != mapList.end(); )
 	{
 		auto node = *it;
-		if ((int)_camera->getPositionY() % (int)(defult_tmx_y_num * default_tmx_height) >= defult_tmx_y_num * default_tmx_height-win.height) {
-			it = mapList.erase(it);
-			node->removeFromParent();
+		if (_camera->getPositionY() >= used_map_node*defult_tmx_y_num * default_tmx_height - win.height && !node->getPrepareToRecycle()) {
+			node->setPrepareToRecycle(true);
 			needAddMap = true;
 		}
-		if (needAddMap) {
-			log("添加新地图");
-			addGameMap();
-			needAddMap = false;
+		if (_camera->getPositionY() >used_map_node*defult_tmx_y_num * default_tmx_height + win.height) {
+			it = mapList.erase(it);
+			node->removeFromParent();
+		}
+		
+		else {
+			++it;
 		}
 
+	}
+	if (needAddMap) {
+		log("add new map");
+		addGameMap();
+		needAddMap = false;
 	}
 }
 
 void GameLayer::addGameMap() {
 	int ran = random(0, 7);
 	auto node = MapNode::create(ran);
-	if (mapList.size() == 0) {
+	if (mapList.size() == 0 && used_map_node == 0) {
 		node->setPosition(0, 0);
 	}
 	else {
-		node->setPosition(0, mapList.at(mapList.size() - 1)->getPositionY() + mapList.at(mapList.size() - 1)->getContentSize().height);
+		node->setPosition(0, used_map_node*defult_tmx_y_num * default_tmx_height);
 	}
 	node->setCameraMask(int(CameraFlag::USER1));
 	addChild(node);
 	mapList.push_back(node);
+	++used_map_node;
 
 	//生成金币
 	for (auto goldInfo : node->getGoldInfoList()) {
@@ -107,7 +115,8 @@ void GameLayer::addGameMap() {
 void GameLayer::createHouseAndTree(int type, Size size, Point pos) {
 	int line = floor(pos.y / default_tmx_height);
 	auto tree = Block::create(type, pos, size);
-	tree->setPosition(GeometryUtils::transitionObjectVec2(pos).x, GeometryUtils::transitionObjectVec2(pos).y + default_tmx_height / 5);
+	tree->setCameraMask(int(CameraFlag::USER1));
+	tree->setPosition(GeometryUtils::transitionObjectVec2(pos, used_map_node).x, GeometryUtils::transitionObjectVec2(pos, used_map_node).y + default_tmx_height / 5);
 	addChild(tree, MaxZorder - line);
 	treeList.push_back(tree);
 }
@@ -118,12 +127,13 @@ void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int sp
 	automoblie->setCameraMask(int(CameraFlag::USER1));
 	addChild(automoblie, MaxZorder - floor(pos.y / default_tmx_height));
 	autoList.push_back(automoblie);
-	log("Automobile Zorder %d", automoblie->getZOrder());
+	//log("Automobile Zorder %d", automoblie->getZOrder());
 }
 
 void GameLayer::createWood(int type, int dir, int time, Point pos) {
 	auto wood = Wood::create(type, dir, time);
-	wood->setPosition(GeometryUtils::transitionObjectVec2(pos));
+	wood->setPosition(GeometryUtils::transitionObjectVec2(pos, used_map_node));
+	wood->setCameraMask(int(CameraFlag::USER1));
 	addChild(wood, MaxZorder - round(pos.y / default_tmx_height));
 	woodList.push_back(wood);
 	//log("Wood position %.1f,%.1f", wood->getPositionX(),wood->getPositionY());
@@ -132,7 +142,8 @@ void GameLayer::createWood(int type, int dir, int time, Point pos) {
 
 void GameLayer::createGold(Point position) {
 	auto goldIcon = GoldIcon::create();
-	goldIcon->setPosition(GeometryUtils::transitionObjectVec2(position));
+	goldIcon->setPosition(GeometryUtils::transitionObjectVec2(position, used_map_node));
+	goldIcon->setCameraMask(int(CameraFlag::USER1));
 	addChild(goldIcon, MaxZorder - round(position.y / default_tmx_height));
 	goldList.push_back(goldIcon);
 }
@@ -142,7 +153,7 @@ void GameLayer::createTrain(Point position) {
 
 	//log("random dir %d", dir);
 	auto train = Train::create(_camera, position);
-	train->setPosition(GeometryUtils::transitionObjectVec2(position));
+	train->setPosition(GeometryUtils::transitionObjectVec2(position, used_map_node));
 	train->setCameraMask(int(CameraFlag::USER1));
 	addChild(train, MaxZorder - round(position.y / default_tmx_height));
 	trainList.push_back(train);
@@ -201,7 +212,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		if (playerGesture == Gesture::left) {
 
 			if (player->getPositionX() > default_tmx_width) {
-				if (player->playerJumpLeft(treeList)) {
+				if (player->playerJumpLeft(treeList,used_map_node)) {
 					cameraMoveLeft += default_tmx_width;
 					cameraMoveRight = 0;
 				}
@@ -209,7 +220,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		}
 		else if (playerGesture == Gesture::right) {
 			if (player->getPositionX() < default_tmx_width * 17) {
-				if (player->playerJumpRight(treeList)) {
+				if (player->playerJumpRight(treeList, used_map_node)) {
 					cameraMoveRight += default_tmx_width;
 					cameraMoveLeft = 0;
 				}
@@ -218,13 +229,13 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		}
 		else if (playerGesture == Gesture::backwards) {
 			if (player->getPositionY() >= _camera->getPositionY() + default_tmx_height) {
-				player->playerJumpBackwards(treeList);
+				player->playerJumpBackwards(treeList, used_map_node);
 			}
 		}
 		else {
 			cameraMoveY += default_tmx_height / 4;
 			cameraMoveRight += PLAYER_JUMP_OFFSET;
-			player->playerJumpForward(treeList);
+			player->playerJumpForward(treeList, used_map_node);
 
 		}
 		player->setZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));

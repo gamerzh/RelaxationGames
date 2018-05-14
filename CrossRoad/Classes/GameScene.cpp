@@ -51,5 +51,5 @@ bool GameScene::init()
 
 
 void GameScene::update(float dt) {
-	playerCamera->setPosition(playerCamera->getPositionX(),playerCamera->getPositionY()+0.25f);
+	playerCamera->setPosition(playerCamera->getPositionX(),playerCamera->getPositionY()+5.25f);
 }

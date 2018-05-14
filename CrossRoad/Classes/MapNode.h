@@ -85,7 +85,10 @@ public:
 	vector<TMLightInfo> getLightInfoList();
 	vector<int> getWaterLineNumber();
 	CC_SYNTHESIZE(int, mapNodeType, MapNodeType);
+	bool getPrepareToRecycle();
+	void setPrepareToRecycle(bool pre);
 private:
+	bool prepareToRecycle = false;
 	TMXTiledMap* _tileMap = NULL;
 	string  getFileNameByType(int type);
 };

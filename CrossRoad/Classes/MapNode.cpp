@@ -156,3 +156,13 @@ vector<int> MapNode::getWaterLineNumber() {
 	}
 	return waterList;
 }
+
+
+bool MapNode::getPrepareToRecycle() {
+	return prepareToRecycle;
+}
+
+
+void MapNode::setPrepareToRecycle(bool pre) {
+	this->prepareToRecycle = pre;
+}

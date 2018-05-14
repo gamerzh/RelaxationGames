@@ -29,8 +29,8 @@ bool Block::init(int type, Point pos, Size size)
 }
 
 
-Rect Block::getBlockCheckRect() {
-	auto position = GeometryUtils::transitionObjectVec2(pos);
+Rect Block::getBlockCheckRect(int index) {
+	auto position = GeometryUtils::transitionObjectVec2(pos,index);
 	auto size = GeometryUtils::transitionObjectSize(checkSize);
 	//log("Tree Rect = %.1f,%.1f,%.1f,%.1f", position.x, position.y, size.width,size.height);
 	return Rect(position.x, position.y, size.width, size.height);

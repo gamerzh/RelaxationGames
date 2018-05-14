@@ -31,6 +31,7 @@ public:
 	void onTouchMoved(Touch *touch, Event  *event) override;
 	void onTouchEnded(Touch *touch, Event  *event) override;
 private:
+	int used_map_node = 0;
 	bool needAddMap = false;
 	bool playerStandOnWood = false;
 	float cameraMoveStep = 1.2;
