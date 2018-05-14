@@ -92,8 +92,7 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueLeft();
-	auto moveLeft = MoveTo::create(0.2f, Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y));
-	this->runAction(moveLeft);
+	this->setPosition(Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y));
 	return true;
 }
 
@@ -120,8 +119,7 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueRight();
-	auto moveRight = MoveTo::create(0.2f, Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y));
-	this->runAction(moveRight);
+	this->setPosition(Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y));
 	return true;
 }
 
