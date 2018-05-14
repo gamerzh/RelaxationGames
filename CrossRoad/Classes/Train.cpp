@@ -1,5 +1,5 @@
 #include "Train.h"
-
+#include "MapNode.h"
 
 Train* Train::create(Camera* _camera,Point pos) {
 	auto tra = new Train();
@@ -19,7 +19,7 @@ bool Train::init(Camera* _camera,Point pos) {
 		return false;
 	}
 	this->_camera = _camera;
-	int time = random(0, 5);
+	int time = random(2, 5);
 	this->trainInterval = time;
 	initWithFile("light_1.png");
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
@@ -49,7 +49,7 @@ Rect Train::getTrainObjectBox(){
 	return Rect(myTrain->getBoundingBox().getMinX() + getPositionX(),
 		myTrain->getBoundingBox().getMinY()+getPositionY(), 
 		myTrain->getBoundingBox().getMaxX()- myTrain->getBoundingBox().getMinX(),
-		myTrain->getBoundingBox().getMaxY()- myTrain->getBoundingBox().getMinY());
+		default_tmx_height);
 }
 
 void Train::moveTrain(CallFunc* call) {
