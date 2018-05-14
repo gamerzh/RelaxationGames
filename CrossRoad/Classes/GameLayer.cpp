@@ -78,6 +78,11 @@ void GameLayer::addGameMap() {
 	addChild(node);
 	mapList.push_back(node);
 
+	//生成金币
+	for (auto goldInfo : node->getGoldInfoList()) {
+		createGold(goldInfo.pos);
+	}
+
 	//在地图上生成树木和屋子
 	for (auto treePos : node->getBlockInfoList()) {
 		createHouseAndTree(treePos.type, Size(treePos.width, treePos.height), treePos.position);
@@ -91,10 +96,7 @@ void GameLayer::addGameMap() {
 	{
 		createWood(woodInfo.type, woodInfo.direction, woodInfo.time, woodInfo.position);
 	}
-	//生成金币
-	for (auto goldInfo : node->getGoldInfoList()) {
-		createGold(goldInfo.pos);
-	}
+
 	//生成火车
 	for (auto lightInfo : node->getLightInfoList()) {
 		createTrain(lightInfo.pos);
@@ -293,6 +295,7 @@ void GameLayer::cancelMoveCameraX() {
 
 void GameLayer::showGameOver() {
 	player->playerGoDie();
+	player->setZOrder(player->getZOrder() - PlayerZorder);//死亡后图层下降
 	if (NULL == getChildByTag(100)) {
 		auto over = GameOver::create();
 		over->setTag(100);
