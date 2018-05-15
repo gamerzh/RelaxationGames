@@ -32,7 +32,7 @@ bool Wood::init(Camera* ca, int type, int direction, float time)
 
 //  1代表短模板 2代表长木板 3代表金币 4代表火车提示灯 5代表荷叶
 std::string Wood::getFileNameByType(int type) {
-	log("HHHHHHHHH %d", type);
+	//log("HHHHHHHHH %d", type);
 	if (type == ObjectType::wood_long) {
 		return "wood_2.png";
 	}

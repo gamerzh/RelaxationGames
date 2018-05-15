@@ -9,6 +9,7 @@ public:
 	CREATE_FUNC(StartScene);
 private:
 	void loadView();
-	void showChangView();
 	void startGame();
+	void soundManage();
+	void changePlayerModle();
 };

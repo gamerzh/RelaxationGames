@@ -2,12 +2,13 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-class SelectScene : public Layer {
+class LoadScene : public Layer {
 public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
-	CREATE_FUNC(SelectScene);
+	CREATE_FUNC(LoadScene);
 private:
 	void loadView();
+	void showChangView();
 	void startGame();
 };
