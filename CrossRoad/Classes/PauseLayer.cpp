@@ -1,6 +1,7 @@
 #include "PauseLayer.h"
 #include "GameScene.h"
 #include "GameStatus.h"
+#include "StartScene.h"
 
 bool PauseLayer::init() {
 	if (!Layer::init()) {
@@ -32,7 +33,7 @@ void PauseLayer::initView() {
 
 
 void PauseLayer::goBackHome() {
-	//TODO
+	Director::getInstance()->replaceScene(StartScene::createScene());
 }
 
 

@@ -7,5 +7,7 @@ class GameOver : public Layer {
 public:
 	virtual bool init();
 	CREATE_FUNC(GameOver);
-	void closeView();
+private:
+	void continueGame();
+	void goLoading();
 };

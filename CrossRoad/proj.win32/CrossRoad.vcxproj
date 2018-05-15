@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\GameStatus.cpp" />
     <ClCompile Include="..\Classes\GeometryUtils.cpp" />
     <ClCompile Include="..\Classes\GoldIcon.cpp" />
+    <ClCompile Include="..\Classes\StartScene.cpp" />
     <ClCompile Include="..\Classes\MapNode.cpp" />
     <ClCompile Include="..\Classes\PauseLayer.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
@@ -171,6 +172,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\GameStatus.h" />
     <ClInclude Include="..\Classes\GeometryUtils.h" />
     <ClInclude Include="..\Classes\GoldIcon.h" />
+    <ClInclude Include="..\Classes\StartScene.h" />
     <ClInclude Include="..\Classes\MapNode.h" />
     <ClInclude Include="..\Classes\PauseLayer.h" />
     <ClInclude Include="..\Classes\Player.h" />
