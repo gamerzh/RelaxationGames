@@ -2,15 +2,15 @@
 #include"cocos2d.h"
 USING_NS_CC;
 
-class Userdata {
+class UserData {
 public:
-	static const Userdata* getInstance();
+	static  UserData* getInstance();
 
 	int getPlayerGoldNum();
 	void setPlayerGoldNum(int num);
 
 private:
-	static const Userdata* m_instance;
-	Userdata() {}
+	static  UserData* m_instance;
+	UserData() {}
 };
 

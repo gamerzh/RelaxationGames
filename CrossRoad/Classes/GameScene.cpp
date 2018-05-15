@@ -1,5 +1,7 @@
 #include "GameScene.h"
 #include "PauseLayer.h"
+#include "GameStatus.h"
+#include "UserData.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -32,6 +34,7 @@ bool GameScene::init()
         return false;
     }
 
+	initView();
 
 	//正交相机的使用
 	playerCamera = Camera::createOrthographic(win.width * 1.0, win.height * 1.0, -1024, 1024);
@@ -43,14 +46,36 @@ bool GameScene::init()
 	mapLayer->setCameraMask(2);
 	addChild(mapLayer);
 
-	auto men = MenuItemImage::create("pause.png", "pause.png", CC_CALLBACK_0(GameScene::pauseMove,this));
-	auto menu = Menu::create(men,NULL);
-	menu->setPosition( men->getContentSize().width*0.7, win.height - men->getContentSize().height*0.7);
-	addChild(menu);
 
 	scheduleUpdate();
 
     return true;
+}
+
+void GameScene::initView() {
+	auto men = MenuItemImage::create("pause.png", "pause.png", CC_CALLBACK_0(GameScene::pauseMove, this));
+	auto menu = Menu::create(men, NULL);
+	menu->setPosition(men->getContentSize().width*0.7,
+		win.height - men->getContentSize().height*0.7);
+	addChild(menu);
+
+	auto stepNum = LabelAtlas::create(String::createWithFormat("%d", GameStatus::getInstance()->getScore())->_string, "step_num.png", 56, 55, '0');
+	stepNum->setAnchorPoint(Point::ANCHOR_MIDDLE);
+	stepNum->setPosition(win.width/2 - stepNum->getContentSize().width/2,
+		win.height - stepNum->getContentSize().height/2*1.4);
+	addChild(stepNum);
+
+
+	auto goldNum = LabelAtlas::create(String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum())->_string, "c_num.png", 51, 55, '0');
+	goldNum->setAnchorPoint(Point::ANCHOR_MIDDLE);
+	goldNum->setPosition(win.width - goldNum->getContentSize().width/2*1.1, 
+		win.height - goldNum->getContentSize().height/2*1.4);
+	addChild(goldNum);
+	auto icon = Sprite::create("icon_c.png");
+	icon->setPosition(win.width - icon->getContentSize().width/2*1.1 - goldNum->getContentSize().width*1.1,
+		win.height - icon->getContentSize().height*1.35);
+	addChild(icon);
+
 }
 
 void GameScene::pauseMove() {

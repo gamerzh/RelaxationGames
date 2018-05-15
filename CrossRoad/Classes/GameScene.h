@@ -21,9 +21,10 @@ public:
 private:
 	Size win = Director::getInstance()->getWinSize();
 	bool allowMove = true;
-	void pauseMove();
 	GameLayer* mapLayer;
 	Camera* playerCamera;
+	void initView();
+	void pauseMove();
 	void update(float dt);
 };
 
