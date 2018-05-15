@@ -2,6 +2,7 @@
 #include "GameOver.h"
 #include "GeometryUtils.h"
 #include "GameStatus.h"
+#include "UserData.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -252,6 +253,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
 				it = goldList.erase(it);
 				myGold->removeFromParent();
+				UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum()+10);
 			}
 		}
 	}

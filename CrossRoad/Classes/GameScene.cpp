@@ -68,13 +68,14 @@ void GameScene::initView() {
 
 
 	auto goldNum = LabelAtlas::create(String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum())->_string, "c_num.png", 51, 55, '0');
-	goldNum->setAnchorPoint(Point::ANCHOR_MIDDLE);
-	goldNum->setPosition(win.width - goldNum->getContentSize().width/2*1.1, 
+	goldNum->setAnchorPoint(Point::ANCHOR_MIDDLE_RIGHT);
+	goldNum->setPosition(win.width - 10, 
 		win.height - goldNum->getContentSize().height/2*1.4);
 	goldNum->setTag(1025);
 	addChild(goldNum);
 	auto icon = Sprite::create("icon_c.png");
-	icon->setPosition(win.width - icon->getContentSize().width/2*1.1 - goldNum->getContentSize().width*1.1,
+	icon->setAnchorPoint(Point::ANCHOR_MIDDLE_RIGHT);
+	icon->setPosition(win.width- goldNum->getContentSize().width,
 		win.height - icon->getContentSize().height*1.35);
 	addChild(icon);
 
