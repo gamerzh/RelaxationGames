@@ -9,6 +9,14 @@ using namespace std;
 #define PLAYER_JUMP_OFFSET 17//每次向前跳跃x方向偏移量17
 #define  PLAYER_OFFSET_Y  0 //玩家在一个单元格里的偏移量
 
+enum PlayerMod
+{
+	mode_1,
+	mode_2,
+	mode_3,
+	mode_4
+};
+
 //玩家类,支持多种皮肤和特性
 class Player : public cocos2d::Sprite {
 public:

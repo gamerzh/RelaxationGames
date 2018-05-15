@@ -8,9 +8,14 @@ public:
 
 	int getPlayerGoldNum();
 	void setPlayerGoldNum(int num);
+	std::string getCurrentMod();
+	void setCurrentMod(std::string msg);
+	std::vector<std::string> getPlayerMod();
+	void addPlayerMod(std::string msg);
 
 private:
 	static  UserData* m_instance;
-	UserData() {}
+	UserData() {};
+	std::vector<std::string> split(std::string str, std::string pattern);
 };
 

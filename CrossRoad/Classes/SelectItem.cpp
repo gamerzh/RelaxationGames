@@ -2,7 +2,7 @@
 
 SelectItem* SelectItem::create(int type) {
 	auto ret = new SelectItem();
-	if (ret && ret->init()) {
+	if (ret && ret->init(type)) {
 		ret->autorelease();
 		return ret;
 	}
@@ -12,11 +12,12 @@ SelectItem* SelectItem::create(int type) {
 	}
 }
 
-bool SelectItem::init() {
+bool SelectItem::init(int type) {
 	if (!Node::init()) {
 		return false;
 	}
 
+	this->type = type;
 	auto win = Director::getInstance()->getWinSize();
 
 	auto box = Sprite::create("skin_box.png");
@@ -36,11 +37,11 @@ bool SelectItem::init() {
 	hint->setPosition(win.width *0.26, 10);
 	addChild(hint);
 
-	auto btn = MenuItemImage::create("btn_kong.png", "btn_kong.png", CC_CALLBACK_0(SelectItem::useModle, this));
-	btn->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-	auto boxMenu = Menu::create(btn, NULL);
-	boxMenu->setPosition(win.width*0.58,50);
-	addChild(boxMenu);
+	//auto btn = MenuItemImage::create("btn_kong.png", "btn_kong.png", CC_CALLBACK_0(SelectItem::useModle, this));
+	//btn->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+	//auto boxMenu = Menu::create(btn, NULL);
+	//boxMenu->setPosition(win.width*0.58,50);
+	//addChild(boxMenu);
 
 	return  true;
 }

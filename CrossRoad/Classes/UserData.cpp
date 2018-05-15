@@ -15,3 +15,43 @@ int UserData::getPlayerGoldNum() {
 void UserData::setPlayerGoldNum(int num) {
 	UserDefault::getInstance()->setIntegerForKey("user_gold", num);
 }
+
+std::string UserData::getCurrentMod() {
+	return UserDefault::getInstance()->getStringForKey("user_mod", "");
+}
+
+void UserData::setCurrentMod(std::string msg) {
+	UserDefault::getInstance()->setStringForKey("user_mod", msg);
+}
+
+std::vector<std::string> UserData::getPlayerMod() {
+	std::vector<std::string> playerMods;
+	auto mods = UserDefault::getInstance()->getStringForKey("user_mod_lsit","");
+	playerMods = split(mods,",");
+	return playerMods;
+}
+void UserData::addPlayerMod(std::string msg) {
+	auto mods = UserDefault::getInstance()->getStringForKey("user_mod_lsit", "");
+	auto newMods = mods + "," + msg;
+	UserDefault::getInstance()->setStringForKey("user_mod_lsit", newMods);
+}
+
+std::vector<std::string> UserData::split(std::string str, std::string pattern)
+{
+	std::string::size_type pos;
+	std::vector<std::string> result;
+	str += pattern;
+	int size = str.size();
+
+	for (int i = 0; i < size; i++)
+	{
+		pos = str.find(pattern, i);
+		if (pos < size)
+		{
+			std::string s = str.substr(i, pos - i);
+			result.push_back(s);
+			i = pos + pattern.size() - 1;
+		}
+	}
+	return result;
+}

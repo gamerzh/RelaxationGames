@@ -27,7 +27,7 @@ void SelectLayer::loadView() {
 
 	for (int i = 0; i < 4; i++)
 	{
-		SelectItem* item = SelectItem::create(1);
+		SelectItem* item = SelectItem::create(i);
 		item->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 		item->setPosition(win.width/10, win.height*0.675- win.height*0.168*i);
 		addChild(item);
