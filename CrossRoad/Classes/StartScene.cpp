@@ -1,6 +1,7 @@
 #include "StartScene.h"
 #include "GameScene.h"
 #include "UserData.h"
+#include "SelectLayer.h"
 
 Scene* StartScene::createScene()
 {
@@ -75,5 +76,6 @@ void StartScene::soundManage() {
 
 
 void StartScene::changePlayerModle() {
-
+	auto lau = SelectLayer::create();
+	addChild(lau);
 }
