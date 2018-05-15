@@ -1,4 +1,5 @@
 #include "GameScene.h"
+#include "PauseLayer.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -53,10 +54,13 @@ bool GameScene::init()
 }
 
 void GameScene::pauseMove() {
-	allowMove = !allowMove;
-	auto black = LayerColor::create(Color4B(0, 0, 0, 204), win.width, win.height);
-	black->setTag(1024);
-	addChild(black);
+	allowMove = false;
+	PauseLayer* laye = PauseLayer::create();
+	addChild(laye);
+}
+
+void GameScene::continueMove() {
+	allowMove = true;
 }
 
 
