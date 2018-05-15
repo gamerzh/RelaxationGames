@@ -8,10 +8,29 @@ GameStatus* GameStatus::getInstance()
 	return m_instance;
 }
 
+void GameStatus::plusStepNum() {
+	this->stepNum = this->stepNum +1;
+	if (this->stepNum > this->socore) {
+		this->socore = this->stepNum;
+	}
+}
+
+void GameStatus::minusStepNum() {
+	this->stepNum = this->stepNum - 1;
+}
+
 int GameStatus::getScore() {
 	return this->socore;
 }
 
 void GameStatus::setScore(int soc) {
 	this->socore = soc;
+}
+
+bool GameStatus::getGameStatus() {
+	return this->paused;
+}
+
+void GameStatus::setGameStatus(bool p) {
+	this->paused = p;
 }

@@ -1,5 +1,6 @@
 #include "PauseLayer.h"
 #include "GameScene.h"
+#include "GameStatus.h"
 
 bool PauseLayer::init() {
 	if (!Layer::init()) {
@@ -41,6 +42,6 @@ void PauseLayer::gameResart() {
 
 
 void PauseLayer::continueGame() {
-	((GameScene*)getParent())->continueMove();
+	GameStatus::getInstance()->setGameStatus(true);
 	removeFromParent();
 }

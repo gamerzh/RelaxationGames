@@ -1,6 +1,7 @@
 #include "GameLayer.h"
 #include "GameOver.h"
 #include "GeometryUtils.h"
+#include "GameStatus.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -229,13 +230,17 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		}
 		else if (playerGesture == Gesture::backwards) {
 			if (player->getPositionY() >= _camera->getPositionY() + default_tmx_height) {
-				player->playerJumpBackwards(treeList, used_map_node);
+				if (player->playerJumpBackwards(treeList, used_map_node)) {
+					GameStatus::getInstance()->minusStepNum();
+				}
 			}
 		}
 		else {
 			cameraMoveY += default_tmx_height / 4;
 			cameraMoveRight += PLAYER_JUMP_OFFSET;
-			player->playerJumpForward(treeList, used_map_node);
+			if (player->playerJumpForward(treeList, used_map_node)) {
+				GameStatus::getInstance()->plusStepNum();
+			}
 
 		}
 		player->setZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));

@@ -61,6 +61,7 @@ void GameScene::initView() {
 
 	auto stepNum = LabelAtlas::create(String::createWithFormat("%d", GameStatus::getInstance()->getScore())->_string, "step_num.png", 56, 55, '0');
 	stepNum->setAnchorPoint(Point::ANCHOR_MIDDLE);
+	stepNum->setTag(1024);
 	stepNum->setPosition(win.width/2 - stepNum->getContentSize().width/2,
 		win.height - stepNum->getContentSize().height/2*1.4);
 	addChild(stepNum);
@@ -70,6 +71,7 @@ void GameScene::initView() {
 	goldNum->setAnchorPoint(Point::ANCHOR_MIDDLE);
 	goldNum->setPosition(win.width - goldNum->getContentSize().width/2*1.1, 
 		win.height - goldNum->getContentSize().height/2*1.4);
+	goldNum->setTag(1025);
 	addChild(goldNum);
 	auto icon = Sprite::create("icon_c.png");
 	icon->setPosition(win.width - icon->getContentSize().width/2*1.1 - goldNum->getContentSize().width*1.1,
@@ -79,19 +81,25 @@ void GameScene::initView() {
 }
 
 void GameScene::pauseMove() {
-	allowMove = false;
+	GameStatus::getInstance()->setGameStatus(false);
 	PauseLayer* laye = PauseLayer::create();
 	addChild(laye);
 }
 
-void GameScene::continueMove() {
-	allowMove = true;
-}
+//void GameScene::continueMove() {
+//	allowMove = true;
+//}
 
 
 void GameScene::update(float dt) {
-	if (allowMove) {
+	if (GameStatus::getInstance()->getGameStatus()) {
 		playerCamera->setPosition(playerCamera->getPositionX(), playerCamera->getPositionY() + 1.0f);
+		if (NULL != getChildByTag(1024)) {
+			((LabelAtlas*)getChildByTag(1024))->setString(String::createWithFormat("%d", GameStatus::getInstance()->getScore())->_string);
+		}
+		if (NULL != getChildByTag(1025)) {
+			((LabelAtlas*)getChildByTag(1025))->setString(String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum())->_string);
+		}
 	}
 }
 

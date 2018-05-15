@@ -17,10 +17,9 @@ public:
     virtual bool init();
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
-	void continueMove();
 private:
 	Size win = Director::getInstance()->getWinSize();
-	bool allowMove = true;
+	//bool allowMove = true;
 	GameLayer* mapLayer;
 	Camera* playerCamera;
 	void initView();
