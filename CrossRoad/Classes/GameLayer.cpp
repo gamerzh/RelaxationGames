@@ -101,19 +101,19 @@ void GameLayer::addGameMap() {
 		createHouseAndTree(treePos.type, Size(treePos.width, treePos.height), treePos.position);
 	}
 	////在地图上生成卡车
-	//for (auto info : node->getEnemyInfoList()) {
-	//	createAutomoblie(_camera, info.type, info.direction, info.speed, info.interval, info.position);
-	//}
-	////生成木板和荷叶
-	//for (auto woodInfo : node->getWoodInfoList())
-	//{
-	//	createWood(woodInfo.type, woodInfo.direction, woodInfo.time, woodInfo.position);
-	//}
+	for (auto info : node->getEnemyInfoList()) {
+		createAutomoblie(_camera, info.type, info.direction, info.speed, info.interval, info.position);
+	}
+	//生成木板和荷叶
+	for (auto woodInfo : node->getWoodInfoList())
+	{
+		createWood(woodInfo.type, woodInfo.direction, woodInfo.time, woodInfo.position);
+	}
 
 	////生成火车
-	//for (auto lightInfo : node->getLightInfoList()) {
-	//	createTrain(lightInfo.pos);
-	//}
+	for (auto lightInfo : node->getLightInfoList()) {
+		createTrain(lightInfo.pos);
+	}
 
 }
 
@@ -131,6 +131,7 @@ void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int sp
 	//需要更具MapNode的情况来产生汽车
 	auto automoblie = Automobile::create(camera, type, direction, speed, interval, pos);
 	automoblie->setCameraMask(int(CameraFlag::USER1));
+	automoblie->setMapIndex(used_map_node);
 	addChild(automoblie, MaxZorder - floor(pos.y / default_tmx_height));
 	autoList.push_back(automoblie);
 	//log("Automobile Zorder %d", automoblie->getZOrder());
@@ -379,7 +380,7 @@ void GameLayer::update(float dt) {
 					}
 				}
 				if (!canLive) {
-					//showGameOver();
+					showGameOver();
 				}
 			}
 			else {
