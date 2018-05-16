@@ -4,10 +4,10 @@
 
 bool GeometryUtils::intersectsRect(const Rect& rect1, const Rect& rect2)
 {
-	return !(rect1.getMaxX() - rect2.getMinX() <= 20 ||
-		rect2.getMaxX() - rect1.getMinX() <= 20 ||
-		rect1.getMaxY() - rect2.getMinY() <= 20 ||
-		rect2.getMaxY() - rect1.getMinY() <= 20);
+	return !(rect1.getMaxX() - rect2.getMinX() <= PLAYER_JUMP_OFFSET ||
+		rect2.getMaxX() - rect1.getMinX() <= PLAYER_JUMP_OFFSET ||
+		rect1.getMaxY() - rect2.getMinY() <= PLAYER_JUMP_OFFSET ||
+		rect2.getMaxY() - rect1.getMinY() <= PLAYER_JUMP_OFFSET);
 }
 
 Vec2 GeometryUtils::transitionPlayerVec2(Vec2 vec) {
