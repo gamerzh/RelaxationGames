@@ -94,7 +94,7 @@ void GameScene::pauseMove() {
 
 void GameScene::update(float dt) {
 	if (GameStatus::getInstance()->getGameStatus()) {
-		playerCamera->setPosition(playerCamera->getPositionX(), playerCamera->getPositionY() + 1.0f);
+		playerCamera->setPosition(playerCamera->getPositionX(), playerCamera->getPositionY() + 0.5f);
 		if (NULL != getChildByTag(1024)) {
 			((LabelAtlas*)getChildByTag(1024))->setString(String::createWithFormat("%d", GameStatus::getInstance()->getScore())->_string);
 		}
