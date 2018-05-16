@@ -300,7 +300,7 @@ void GameLayer::changeCameraMoveStep() {
 
 void GameLayer::moveCameraX() {
 	schedule([=](float dt) {
-		if (_camera->getPositionX() >= 0 && _camera->getPositionX() <= 10 * default_tmx_width) {
+		if (_camera->getPositionX() >= 0 && _camera->getPositionX() <= 9 * default_tmx_width) {
 			_camera->setPosition(_camera->getPositionX() + player->getSpeedX(), _camera->getPositionY());
 		}
 	}, 1.0f / 60, SCHEDULE_CAMERA_X);
@@ -413,7 +413,7 @@ void GameLayer::update(float dt) {
 	}
 	if (cameraMoveRight > 0) {
 		cameraMoveRight -= cameraMoveStep;
-		if (_camera->getPositionX() < default_tmx_width * 10) {
+		if (_camera->getPositionX() < default_tmx_width * 9) {
 			_camera->setPosition(_camera->getPositionX() + cameraMoveStep, _camera->getPositionY());
 		}
 		else {
