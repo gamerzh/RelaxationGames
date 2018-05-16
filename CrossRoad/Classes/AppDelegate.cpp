@@ -26,12 +26,22 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
-    if(!glview) {
-        glview = GLViewImpl::createWithRect("HelloCpp", Rect(0, 0, 360, 640));
-        director->setOpenGLView(glview);
-    }
-
-    director->getOpenGLView()->setDesignResolutionSize(720, 1280, ResolutionPolicy::SHOW_ALL);
+	if (!glview) {
+		glview = GLViewImpl::create("Road");
+		director->setOpenGLView(glview);
+	}
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	glview->setFrameSize(360, 640);
+	glview->setDesignResolutionSize(720, 1280, ResolutionPolicy::EXACT_FIT);
+#endif
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_MAC)
+	glview->setFrameSize(540, 960);
+	glview->setDesignResolutionSize(720, 1280, ResolutionPolicy::EXACT_FIT);
+#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	glview->setDesignResolutionSize(720, 1280, ResolutionPolicy::EXACT_FIT);
+#endif
 
     // turn on display FPS
     director->setDisplayStats(true);

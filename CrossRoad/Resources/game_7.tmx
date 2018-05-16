@@ -25,8 +25,8 @@
   <object id="15" x="12.6667" y="333">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="2"/>
-    <property name="speed" value="2"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="2"/>
    </properties>
    <point/>
@@ -34,8 +34,8 @@
   <object id="17" x="10" y="1369">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="2"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="1"/>
    </properties>
    <point/>
@@ -43,8 +43,8 @@
   <object id="18" x="1402" y="1455">
    <properties>
     <property name="direction" value="1"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="5"/>
+    <property name="speed" value="2"/>
     <property name="type" value="1"/>
    </properties>
    <point/>
@@ -52,8 +52,8 @@
   <object id="19" x="10" y="1591">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="1"/>
    </properties>
    <point/>
@@ -61,8 +61,8 @@
   <object id="20" x="21.9394" y="2047.61">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="5"/>
+    <property name="speed" value="2"/>
     <property name="type" value="2"/>
    </properties>
    <point/>
@@ -70,8 +70,8 @@
   <object id="21" x="10" y="2261.61">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="1"/>
    </properties>
    <point/>
@@ -79,8 +79,8 @@
   <object id="22" x="21" y="2134.82">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="2"/>
    </properties>
    <point/>
@@ -88,8 +88,8 @@
   <object id="41" x="1430" y="1961">
    <properties>
     <property name="direction" value="1"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="2"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="2"/>
    </properties>
    <point/>
@@ -97,8 +97,8 @@
   <object id="43" x="1420.91" y="2339.61">
    <properties>
     <property name="direction" value="1"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="2"/>
    </properties>
    <point/>
@@ -106,8 +106,8 @@
   <object id="123" x="1410.58" y="1672.7">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="1"/>
    </properties>
    <point/>
@@ -115,8 +115,8 @@
   <object id="124" x="1408" y="1749">
    <properties>
     <property name="direction" value="2"/>
-    <property name="interval" value="3"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="4"/>
+    <property name="speed" value="3"/>
     <property name="type" value="2"/>
    </properties>
    <point/>

@@ -1,5 +1,6 @@
 #include "Automobile.h"
 #include "MapNode.h"
+#include "GeometryUtils.h"
 
 Automobile* Automobile::create(Camera* camera, int type, int direction, float speed, float interval, Point pos) {
 	auto automoblie = new Automobile();
@@ -18,16 +19,19 @@ bool Automobile::init(Camera* camera, int type, int direction, float speed, floa
 		return false;
 	}
 	this->camera = camera;
-	this->speed = speed;
+	this->speed = speed*GeometryUtils::randomFloat(1.0, 1.5);
 	this->direction = direction;
-	this->interval = interval;
-	this->time = random(0,5);
+	this->interval = interval*GeometryUtils::randomFloat(1,2);//间隔时间有点短,改地图配置太麻烦
+	int min = floor(interval);
+	this->time = GeometryUtils::randomFloat(min, 1.5*min);
 	this->automobileType = type;
 	this->postion = pos;
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	scheduleUpdate();
 	return true;
 }
+
+
 
 string Automobile:: getFileNameByType(int type, int direction) {
 	if (type == 1 && direction == 2) {
@@ -83,7 +87,7 @@ vector<Sprite*> Automobile::getCarList() {
 
 void Automobile::update(float dt) {
 	if (time >= interval) {
-		time = 0;
+		time = time- interval;
 		drawCar(automobileType, direction);
 	}
 	else {

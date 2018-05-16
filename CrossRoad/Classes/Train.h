@@ -12,7 +12,7 @@ public:
 private:
 	Camera* _camera;
 	int dir = 0;
-	float speed = 35;
+	float speed = 50;
 	float trainInterval = 0;
 	float passTime = 0;
 	Point position;

@@ -37,7 +37,7 @@ int MapNode::getTMXPerGradutaionLength() {
 }
 
 string  MapNode::getFileNameByType(int type) {
-	type = 2;
+	type = 4;
 	return  String::createWithFormat("game_%d.tmx", type)->_string;
 }
 

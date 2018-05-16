@@ -1,5 +1,6 @@
 #include "Wood.h"
 #include "MapNode.h"
+#include "GeometryUtils.h"
 
 Wood * Wood::create(Camera* ca, int type, int direction, float time)
 {
@@ -48,10 +49,10 @@ std::string Wood::getFileNameByType(int type) {
 float Wood::getSpeedX() {
 	if (woodType != ObjectType::leaf) {
 		if (woodDir == DirectionType::move_left) {
-			this->woodSpeed = -1;
+			this->woodSpeed = -GeometryUtils::randomFloat(1,2);
 		}
 		else {
-			this->woodSpeed = 1;
+			this->woodSpeed = GeometryUtils::randomFloat(1,2);
 		}
 	}
 	else {

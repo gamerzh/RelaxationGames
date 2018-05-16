@@ -30,3 +30,10 @@ Size GeometryUtils::transitionObjectSize(Size checkSize) {
 	float height = round(checkSize.height / default_tmx_height)*default_tmx_height;
 	return Size(width,height);
 }
+
+float GeometryUtils::randomFloat(float a, float b) {
+	float random = ((float)rand()) / (float)RAND_MAX;
+	float diff = b - a;
+	float r = random * diff;
+	return a + r;
+}

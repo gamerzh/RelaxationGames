@@ -23,5 +23,6 @@ private:
 	vector<Sprite*> carList;
 	string  getFileNameByType(int type,int direction);
 	void drawCar(int type, int direction);
+	
 	void update(float dt);
 };

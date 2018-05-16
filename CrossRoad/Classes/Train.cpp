@@ -55,11 +55,11 @@ Rect Train::getTrainObjectBox(){
 void Train::moveTrain(CallFunc* call) {
 	auto win = Director::getInstance()->getWinSize();
 	if (dir == 0) {
-		auto move = MoveTo::create(3, Vec2(win.width  + myTrain->getContentSize().width, myTrain->getPositionY()));
+		auto move = MoveTo::create(1.5f, Vec2(win.width  + myTrain->getContentSize().width, myTrain->getPositionY()));
 		myTrain->runAction(Sequence::create(move->clone(), call, NULL));
 	}
 	else {
-		auto move = MoveTo::create(3, Vec2(- myTrain->getContentSize().width, myTrain->getPositionY()));
+		auto move = MoveTo::create(1.5f, Vec2(- myTrain->getContentSize().width, myTrain->getPositionY()));
 		myTrain->runAction(Sequence::create(move->clone(), call, NULL));
 	}
 }
