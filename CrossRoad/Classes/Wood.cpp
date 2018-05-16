@@ -5,7 +5,7 @@
 Wood * Wood::create(Camera* ca, int type, int direction, float time)
 {
 	Wood* woo = new Wood();
-	if (woo && woo->init(ca,type,direction, time)) {
+	if (woo && woo->init(ca, type, direction, time)) {
 		woo->autorelease();
 		return woo;
 	}
@@ -38,7 +38,7 @@ std::string Wood::getFileNameByType(int type) {
 	if (type == ObjectType::wood_long) {
 		return "wood_2.png";
 	}
-	else if(type == ObjectType::leaf){
+	else if (type == ObjectType::leaf) {
 		return "leaf.png";
 	}
 	else {
@@ -65,16 +65,18 @@ float Wood::getSpeedX() {
 }
 
 void Wood::update(float dt) {
-	this->setPosition(this->getPositionX() + getSpeedX(), this->getPositionY());
+	if (woodType != ObjectType::leaf) {
+		this->setPosition(this->getPositionX() + getSpeedX(), this->getPositionY());
 		if (woodDir == DirectionType::move_left) {
 			if (this->getPositionX() + this->getContentSize().width < myCamera->getPositionX()) {
-			
+
 				this->setPosition(myCamera->getPositionX() + win.width + this->getContentSize().width, this->getPositionY());
 			}
 		}
 		else {
-			if (this->getPositionX()  > myCamera->getPositionX() + win.width+ this->getContentSize().width) {
+			if (this->getPositionX() > myCamera->getPositionX() + win.width + this->getContentSize().width) {
 				this->setPosition(myCamera->getPositionX() - this->getContentSize().width, this->getPositionY());
 			}
 		}
+	}
 }

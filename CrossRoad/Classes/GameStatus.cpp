@@ -19,6 +19,11 @@ void GameStatus::minusStepNum() {
 	this->stepNum = this->stepNum - 1;
 }
 
+void GameStatus::cleanScore() {
+	this->stepNum = 0;
+	this->socore = 0;
+}
+
 int GameStatus::getScore() {
 	return this->socore;
 }

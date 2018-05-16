@@ -314,17 +314,17 @@
     <property name="type" value="6"/>
    </properties>
   </object>
-  <object id="163" x="1280.33" y="2219.33" width="159.5" height="148.5">
+  <object id="163" x="1290.33" y="2227.33" width="141.5" height="136.5">
    <properties>
     <property name="type" value="5"/>
    </properties>
   </object>
-  <object id="164" x="1120.32" y="2146.5" width="80" height="74">
+  <object id="164" x="1128.32" y="2142.5" width="68" height="68">
    <properties>
     <property name="type" value="3"/>
    </properties>
   </object>
-  <object id="165" x="1200.11" y="2071.55" width="80" height="74">
+  <object id="165" x="1206.11" y="2075.55" width="70" height="62">
    <properties>
     <property name="type" value="3"/>
    </properties>
@@ -409,7 +409,7 @@
     <property name="type" value="7"/>
    </properties>
   </object>
-  <object id="182" x="241.333" y="443.667" width="158" height="147.333">
+  <object id="182" x="253.333" y="449.667" width="134" height="133.333">
    <properties>
     <property name="type" value="5"/>
    </properties>

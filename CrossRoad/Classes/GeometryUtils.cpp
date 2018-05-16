@@ -4,10 +4,10 @@
 
 bool GeometryUtils::intersectsRect(const Rect& rect1, const Rect& rect2)
 {
-	return !(rect1.getMaxX() - rect2.getMinX() <= default_tmx_width / 8 ||
-		rect2.getMaxX() - rect1.getMinX() <= default_tmx_width / 8 ||
-		rect1.getMaxY() - rect2.getMinY() <= default_tmx_height / 8 ||
-		rect2.getMaxY() - rect1.getMinY() <= default_tmx_height / 8);
+	return !(rect1.getMaxX() - rect2.getMinX() <= 20 ||
+		rect2.getMaxX() - rect1.getMinX() <= 20 ||
+		rect1.getMaxY() - rect2.getMinY() <= 20 ||
+		rect2.getMaxY() - rect1.getMinY() <= 20);
 }
 
 Vec2 GeometryUtils::transitionPlayerVec2(Vec2 vec) {
@@ -28,7 +28,7 @@ Vec2 GeometryUtils::transitionObjectVec2(Vec2 vec, int index) {
 Size GeometryUtils::transitionObjectSize(Size checkSize) {
 	float width = round(checkSize.width / default_tmx_width)*default_tmx_width;
 	float height = round(checkSize.height / default_tmx_height)*default_tmx_height;
-	return Size(width,height);
+	return Size(width*0.85,height*0.85);
 }
 
 float GeometryUtils::randomFloat(float a, float b) {

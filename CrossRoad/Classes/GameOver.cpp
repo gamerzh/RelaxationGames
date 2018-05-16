@@ -48,6 +48,7 @@ bool GameOver::init() {
 }
 
 void GameOver::continueGame() {
+	GameStatus::getInstance()->cleanScore();
 	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
 	Director::getInstance()->replaceScene(GameScene::createScene());
 }

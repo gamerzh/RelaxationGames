@@ -41,9 +41,9 @@ bool GameLayer::init(Camera* ca) {
 
 
 void GameLayer::initGameMap() {
-	for (int i = 0; i < 2; i++) {
+	//for (int i = 0; i < 2; i++) {
 		addGameMap();
-	}
+	//}
 }
 
 void GameLayer::checkMapInScene(float dt) {
@@ -70,8 +70,8 @@ void GameLayer::checkMapInScene(float dt) {
 
 	}
 	if (needAddMap) {
-		log("add new map");
-		//addGameMap();
+		//log("add new map");
+		addGameMap();
 		needAddMap = false;
 	}
 }
@@ -129,19 +129,21 @@ void GameLayer::createHouseAndTree(int type, Size size, Point pos) {
 
 void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int speed, int interval, Point pos) {
 	//需要更具MapNode的情况来产生汽车
+	auto line = floor(pos.y / default_tmx_height) + (used_map_node - 1)*defult_tmx_y_num;
 	auto automoblie = Automobile::create(camera, type, direction, speed, interval, pos);
 	automoblie->setCameraMask(int(CameraFlag::USER1));
 	automoblie->setMapIndex(used_map_node);
-	addChild(automoblie, MaxZorder - floor(pos.y / default_tmx_height));
+	addChild(automoblie, MaxZorder - line);
 	autoList.push_back(automoblie);
 	//log("Automobile Zorder %d", automoblie->getZOrder());
 }
 
 void GameLayer::createWood(int type, int dir, int time, Point pos) {
+	auto line = round(pos.y / default_tmx_height) + (used_map_node - 1)*defult_tmx_y_num;
 	auto wood = Wood::create(_camera, type, dir, time);
 	wood->setPosition(GeometryUtils::transitionObjectVec2(pos, used_map_node));
 	wood->setCameraMask(int(CameraFlag::USER1));
-	addChild(wood, MaxZorder - round(pos.y / default_tmx_height));
+	addChild(wood, MaxZorder - line);
 	woodList.push_back(wood);
 	//log("Wood position %.1f,%.1f", wood->getPositionX(),wood->getPositionY());
 	//log("Wood Zorder = %d", wood->getZOrder());
@@ -318,13 +320,13 @@ void GameLayer::cancelMoveCameraX() {
 }
 
 void GameLayer::showGameOver() {
-	player->playerGoDie();
-	player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
-	if (NULL == getChildByTag(100)) {
-		auto over = GameOver::create();
-		over->setTag(100);
-		addChild(over);
-	}
+	//player->playerGoDie();
+	//player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
+	//if (NULL == getChildByTag(100)) {
+	//	auto over = GameOver::create();
+	//	over->setTag(100);
+	//	addChild(over);
+	//}
 }
 
 void GameLayer::update(float dt) {
@@ -332,7 +334,8 @@ void GameLayer::update(float dt) {
 		return;
 	}
 	for (auto var : autoList) {
-		for (auto car : var->getCarList()) {
+		for (auto car : var->getCarList()) { 
+
 			Rect newRect = Rect(car->getBoundingBox().getMinX(),
 				car->getBoundingBox().getMinY(),
 				car->getBoundingBox().getMaxX() - car->getBoundingBox().getMinX(),

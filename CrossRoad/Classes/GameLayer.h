@@ -11,7 +11,7 @@ USING_NS_CC;
 
 //#define MapLayerZorder 10
 #define PlayerZorder 2
-#define MaxZorder 1000
+#define MaxZorder 5000
 #define SCHEDULE_CAMERA_X "carema_move_x"
 
 enum Gesture

@@ -7,6 +7,7 @@ class GameStatus {
 public:
 	static  GameStatus* getInstance();
 	int getScore();
+	void cleanScore();
 	void plusStepNum();
 	void minusStepNum();
 	bool getGameStatus();
