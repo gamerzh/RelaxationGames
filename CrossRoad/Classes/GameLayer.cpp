@@ -320,13 +320,13 @@ void GameLayer::cancelMoveCameraX() {
 }
 
 void GameLayer::showGameOver() {
-	//player->playerGoDie();
-	//player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
-	//if (NULL == getChildByTag(100)) {
-	//	auto over = GameOver::create();
-	//	over->setTag(100);
-	//	addChild(over);
-	//}
+	player->playerGoDie();
+	player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
+	if (NULL == getChildByTag(100)) {
+		auto over = GameOver::create();
+		over->setTag(100);
+		addChild(over);
+	}
 }
 
 void GameLayer::update(float dt) {

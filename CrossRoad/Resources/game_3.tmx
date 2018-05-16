@@ -239,17 +239,17 @@
     <property name="type" value="5"/>
    </properties>
   </object>
-  <object id="148" x="242" y="1775" width="80" height="74">
+  <object id="148" x="320" y="1775" width="80" height="74">
    <properties>
     <property name="type" value="5"/>
    </properties>
   </object>
-  <object id="149" x="718" y="1777" width="80" height="74">
+  <object id="149" x="800" y="1775" width="80" height="74">
    <properties>
     <property name="type" value="5"/>
    </properties>
   </object>
-  <object id="150" x="1198.83" y="1775.83" width="80" height="74">
+  <object id="150" x="1122.83" y="1775.83" width="80" height="74">
    <properties>
     <property name="type" value="5"/>
    </properties>
