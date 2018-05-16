@@ -313,7 +313,7 @@ void GameLayer::cancelMoveCameraX() {
 
 void GameLayer::showGameOver() {
 	player->playerGoDie();
-	player->setZOrder(player->getZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
+	player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
 	if (NULL == getChildByTag(100)) {
 		auto over = GameOver::create();
 		over->setTag(100);
