@@ -171,14 +171,14 @@
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="CrossRoad.null.31159645" name="CrossRoad"/>
+		<project id="RoadHero.null.31159645" name="RoadHero"/>
 	</storageModule>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Default">
-			<resource resourceType="PROJECT" workspacePath="/CrossRoad"/>
+			<resource resourceType="PROJECT" workspacePath="/RoadHero"/>
 		</configuration>
 		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/CrossRoad"/>
+			<resource resourceType="PROJECT" workspacePath="/RoadHero"/>
 		</configuration>
 	</storageModule>
 </cproject>

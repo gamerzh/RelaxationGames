@@ -24,7 +24,7 @@ bool LoadScene::init()
 
 void LoadScene::loadView() {
 	auto win = Director::getInstance()->getWinSize();
-	auto loadbg = Sprite::create("loading.jpg");
+	auto loadbg = Sprite::create("start_game.jpg");
 	loadbg->setPosition(win.width / 2, win.height / 2);
 	addChild(loadbg);
 
