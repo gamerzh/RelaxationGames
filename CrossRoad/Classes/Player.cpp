@@ -24,17 +24,17 @@ bool Player::playerJumpForward(vector<Block*> blocks, int mapIndex) {
 		auto checkBox = Rect(box.getMinX() + PLAYER_JUMP_OFFSET, box.getMinY() + default_tmx_height,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY());
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(mapIndex), checkBox)) {
-			log("blockF Rect(%f,%f,%f,%f)",
-				bloc->getBlockCheckRect(mapIndex).getMinX(),
-				bloc->getBlockCheckRect(mapIndex).getMinY(),
-				bloc->getBlockCheckRect(mapIndex).getMaxX() - bloc->getBlockCheckRect(mapIndex).getMinX(),
-				bloc->getBlockCheckRect(mapIndex).getMaxY() - bloc->getBlockCheckRect(mapIndex).getMinY());
+			//log("blockF Rect(%f,%f,%f,%f)",
+			//	bloc->getBlockCheckRect(mapIndex).getMinX(),
+			//	bloc->getBlockCheckRect(mapIndex).getMinY(),
+			//	bloc->getBlockCheckRect(mapIndex).getMaxX() - bloc->getBlockCheckRect(mapIndex).getMinX(),
+			//	bloc->getBlockCheckRect(mapIndex).getMaxY() - bloc->getBlockCheckRect(mapIndex).getMinY());
 
-			log("palyerF Rect(%f,%f,%f,%f)",
-				checkBox.getMinX(),
-				checkBox.getMinY(),
-				checkBox.getMaxX() - checkBox.getMinX(),
-				checkBox.getMaxY() - checkBox.getMinY());
+			//log("palyerF Rect(%f,%f,%f,%f)",
+			//	checkBox.getMinX(),
+			//	checkBox.getMinY(),
+			//	checkBox.getMaxX() - checkBox.getMinX(),
+			//	checkBox.getMaxY() - checkBox.getMinY());
 			return false;
 		}
 	}
@@ -51,17 +51,17 @@ bool Player::playerJumpBackwards(vector<Block*> blocks, int mapIndex) {
 		auto box = getPlayerCheckRect();
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(mapIndex), Rect(box.getMinX() - PLAYER_JUMP_OFFSET, box.getMinY() - default_tmx_height,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
-			log("block Rect(%f,%f,%f,%f)",
-				bloc->getBlockCheckRect(mapIndex).getMinX(),
-				bloc->getBlockCheckRect(mapIndex).getMinY(),
-				bloc->getBlockCheckRect(mapIndex).getMaxX() - bloc->getBlockCheckRect(mapIndex).getMinX(),
-				bloc->getBlockCheckRect(mapIndex).getMaxY() - bloc->getBlockCheckRect(mapIndex).getMinY());
+			//log("block Rect(%f,%f,%f,%f)",
+			//	bloc->getBlockCheckRect(mapIndex).getMinX(),
+			//	bloc->getBlockCheckRect(mapIndex).getMinY(),
+			//	bloc->getBlockCheckRect(mapIndex).getMaxX() - bloc->getBlockCheckRect(mapIndex).getMinX(),
+			//	bloc->getBlockCheckRect(mapIndex).getMaxY() - bloc->getBlockCheckRect(mapIndex).getMinY());
 
-			log("palyer Rect(%f,%f,%f,%f)",
-				box.getMinX(),
-				box.getMinY(),
-				box.getMaxX() - box.getMinX(),
-				box.getMaxY() - box.getMinY());
+			//log("palyer Rect(%f,%f,%f,%f)",
+			//	box.getMinX(),
+			//	box.getMinY(),
+			//	box.getMaxX() - box.getMinX(),
+			//	box.getMaxY() - box.getMinY());
 			return false;
 		}
 	}
@@ -77,17 +77,17 @@ bool Player::playerJumpLeft(vector<Block*> blocks, int mapIndex) {
 		auto box = getPlayerCheckRect();
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(mapIndex),Rect(box.getMinX() - default_tmx_width, box.getMinY(),
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
-			log("block Rect(%f,%f,%f,%f)",
-				bloc->getBlockCheckRect(mapIndex).getMinX(),
-				bloc->getBlockCheckRect(mapIndex).getMinY(),
-				bloc->getBlockCheckRect(mapIndex).getMaxX()- bloc->getBlockCheckRect(mapIndex).getMinX(),
-				bloc->getBlockCheckRect(mapIndex).getMaxY()- bloc->getBlockCheckRect(mapIndex).getMinY());
+			//log("block Rect(%f,%f,%f,%f)",
+			//	bloc->getBlockCheckRect(mapIndex).getMinX(),
+			//	bloc->getBlockCheckRect(mapIndex).getMinY(),
+			//	bloc->getBlockCheckRect(mapIndex).getMaxX()- bloc->getBlockCheckRect(mapIndex).getMinX(),
+			//	bloc->getBlockCheckRect(mapIndex).getMaxY()- bloc->getBlockCheckRect(mapIndex).getMinY());
 
-			log("palyer Rect(%f,%f,%f,%f)",
-				box.getMinX(),
-				box.getMinY(),
-				box.getMaxX() - box.getMinX(),
-				box.getMaxY() - box.getMinY());
+			//log("palyer Rect(%f,%f,%f,%f)",
+			//	box.getMinX(),
+			//	box.getMinY(),
+			//	box.getMaxX() - box.getMinX(),
+			//	box.getMaxY() - box.getMinY());
 			return false;
 		}
 	}
@@ -104,7 +104,7 @@ bool Player::playerJumpRight(vector<Block*> blocks, int mapIndex) {
 		auto box = getPlayerCheckRect();
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(mapIndex), Rect(box.getMinX() + default_tmx_width, box.getMinY() ,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
-			log("blockR Rect(%f,%f,%f,%f)",
+			/*log("blockR Rect(%f,%f,%f,%f)",
 				bloc->getBlockCheckRect(mapIndex).getMinX(),
 				bloc->getBlockCheckRect(mapIndex).getMinY(),
 				bloc->getBlockCheckRect(mapIndex).getMaxX() - bloc->getBlockCheckRect(mapIndex).getMinX(),
@@ -114,7 +114,7 @@ bool Player::playerJumpRight(vector<Block*> blocks, int mapIndex) {
 				box.getMinX(),
 				box.getMinY(),
 				box.getMaxX() - box.getMinX(),
-				box.getMaxY() - box.getMinY());
+				box.getMaxY() - box.getMinY());*/
 			return false;
 		}
 	}
