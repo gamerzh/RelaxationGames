@@ -17,7 +17,7 @@ void UserData::setPlayerGoldNum(int num) {
 }
 
 std::string UserData::getCurrentMod() {
-	return UserDefault::getInstance()->getStringForKey("user_mod", "");
+	return UserDefault::getInstance()->getStringForKey("user_mod", "0");
 }
 
 void UserData::setCurrentMod(std::string msg) {
@@ -26,12 +26,15 @@ void UserData::setCurrentMod(std::string msg) {
 
 std::vector<std::string> UserData::getPlayerMod() {
 	std::vector<std::string> playerMods;
-	auto mods = UserDefault::getInstance()->getStringForKey("user_mod_lsit","");
+	auto mods = UserDefault::getInstance()->getStringForKey("user_mod_lsit","0");
 	playerMods = split(mods,",");
 	return playerMods;
 }
 void UserData::addPlayerMod(std::string msg) {
-	auto mods = UserDefault::getInstance()->getStringForKey("user_mod_lsit", "");
+	if (msg == "" && msg.size() == 0) {
+		return;
+	}
+	auto mods = UserDefault::getInstance()->getStringForKey("user_mod_lsit", "0");
 	auto newMods = mods + "," + msg;
 	UserDefault::getInstance()->setStringForKey("user_mod_lsit", newMods);
 }

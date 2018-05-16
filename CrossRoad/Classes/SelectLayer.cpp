@@ -16,6 +16,11 @@ void SelectLayer::loadView() {
 	auto black = LayerColor::create(Color4B(0, 0, 0, 150), win.width, win.height);
 	addChild(black);
 
+	auto swa = MenuItem::create();
+	swa->setContentSize(Size(win.width, win.height));
+	auto swam = Menu::create(swa, NULL);
+	addChild(swam);
+
 	auto bg = Sprite::create("skin_box_bg.png");
 	bg->setPosition(win.width/2, win.height/2);
 	addChild(bg);
