@@ -244,8 +244,8 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 
 		}
-		player->setZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));
-		log("Player Zorder %d", player->getZOrder());
+		player->setLocalZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));
+		log("Player Zorder %d", player->getLocalZOrder());
 		//检查玩家是否碰到了金币
 		vector<GoldIcon*>::iterator it;
 		for (it = goldList.begin(); it != goldList.end(); ++it) {
