@@ -360,6 +360,7 @@ void GameLayer::update(float dt) {
 	}
 
 	auto playerLine = floor(player->getPositionY() / default_tmx_height);
+	playerInWaterRect = false;
 	for (auto mymap : mapList)
 	{
 		auto water = mymap->getWaterLineNumber();
@@ -367,7 +368,7 @@ void GameLayer::update(float dt) {
 		{
 			//玩家在水面上
 			if (playerLine == line) {
-
+				playerInWaterRect = true;
 				bool canLive = false;
 				for (auto wo : woodList)
 				{
@@ -376,20 +377,15 @@ void GameLayer::update(float dt) {
 						//log("wood speed = %f", wo->getSpeedX());
 						player->setSpeedX(wo->getSpeedX());
 						moveCameraX();
-						playerStandOnWood = true;
 					}
 				}
 				if (!canLive) {
 					showGameOver();
 				}
 			}
-			else {
-				if (playerStandOnWood) {
-					cancelMoveCameraX();
-					playerStandOnWood = false;
-				}
-
-			}
+		}
+		if (!playerInWaterRect) {
+			cancelMoveCameraX();
 		}
 	}
 

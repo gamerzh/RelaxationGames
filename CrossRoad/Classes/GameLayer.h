@@ -34,7 +34,8 @@ private:
 	Size win = Director::getInstance()->getWinSize();
 	int used_map_node = 0;
 	bool needAddMap = false;
-	bool playerStandOnWood = false;
+	//bool playerStandOnWood = false;
+	bool playerInWaterRect = false;
 	float cameraMoveStep = 1.2;
 	float cameraMoveLeft = 0;
 	float cameraMoveRight = 0;

@@ -1,6 +1,8 @@
 #include "GameOver.h"
 #include "GameScene.h"
 #include "StartScene.h"
+#include "UserData.h"
+#include "GameStatus.h"
 
 bool GameOver::init() {
 	if (!Layer::init()) {
@@ -20,12 +22,12 @@ bool GameOver::init() {
 	box->setPosition(win.width / 2, win.height / 2);
 	addChild(box);
 
-	auto prideGold = LabelAtlas::create("1234", "num_yellow.png", 16, 24, '0');
+	auto prideGold = LabelAtlas::create(String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum())->_string, "num_yellow.png", 16, 24, '0');
 	prideGold->setAnchorPoint(Point::ANCHOR_MIDDLE);
 	prideGold->setPosition(win.width * 0.52, win.height*0.555f);
 	addChild(prideGold);
 
-	auto step = LabelAtlas::create("1234", "num_white.png", 16, 24, '0');
+	auto step = LabelAtlas::create(String::createWithFormat("%d",GameStatus::getInstance()->getScore())->_string, "num_white.png", 16, 24, '0');
 	step->setAnchorPoint(Point::ANCHOR_MIDDLE);
 	step->setPosition(win.width * 0.52, win.height*0.50f);
 	addChild(step);
