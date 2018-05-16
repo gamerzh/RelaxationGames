@@ -23,10 +23,10 @@ public:
 	CREATE_FUNC(Player);
 	virtual bool init();
 	//Íæ¼Ò²Ù×÷
-	bool playerJumpForward(vector<Block*> blocks,int mapIndex);
-	bool playerJumpBackwards(vector<Block*> blocks, int mapIndex);
-	bool playerJumpLeft(vector<Block*> blocks, int mapIndex);
-	bool playerJumpRight(vector<Block*> blocks, int mapIndex);
+	bool playerJumpForward(vector<Block*> blocks);
+	bool playerJumpBackwards(vector<Block*> blocks);
+	bool playerJumpLeft(vector<Block*> blocks);
+	bool playerJumpRight(vector<Block*> blocks);
 	void playPlayerJiYa();
 	void playPlayerJiYaLeft();
 	void playPlayerJiYaRight();

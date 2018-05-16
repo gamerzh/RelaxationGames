@@ -24,6 +24,7 @@ bool Wood::init(Camera* ca, int type, int direction, float time)
 	this->woodDir = direction;
 	this->woodTime = time;
 	this->myCamera = ca;
+	initSpeed();
 	initWithFile(getFileNameByType(type));
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	scheduleUpdate();
@@ -45,19 +46,21 @@ std::string Wood::getFileNameByType(int type) {
 	}
 }
 
-
-float Wood::getSpeedX() {
+void Wood::initSpeed() {
 	if (woodType != ObjectType::leaf) {
 		if (woodDir == DirectionType::move_left) {
-			this->woodSpeed = -GeometryUtils::randomFloat(1,2);
+			this->woodSpeed = -GeometryUtils::randomFloat(1, 2);
 		}
 		else {
-			this->woodSpeed = GeometryUtils::randomFloat(1,2);
+			this->woodSpeed = GeometryUtils::randomFloat(1, 2);
 		}
 	}
 	else {
 		this->woodSpeed = 0;//荷叶不具备移动的能力
 	}
+}
+
+float Wood::getSpeedX() {
 	return this->woodSpeed;
 }
 

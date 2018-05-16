@@ -17,6 +17,7 @@ private:
 	int woodDir;
 	float woodTime = 0;
 	float woodSpeed = 0;
+	void initSpeed();
 	void update(float dt);
 	std::string getFileNameByType(int type);
 };

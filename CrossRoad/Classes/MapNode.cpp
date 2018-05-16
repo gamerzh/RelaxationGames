@@ -150,7 +150,7 @@ vector<int> MapNode::getWaterLineNumber() {
 		TMGoldInfo info;
 		ValueMap tmin = var.asValueMap();
 		if (tmin["type"].asInt() == ObjectType::water) {
-			float line = floor(tmin["y"].asFloat()/default_tmx_height);
+			float line = floor(tmin["y"].asFloat()/default_tmx_height)+floor(getPositionY() / default_tmx_height);
 			waterList.push_back(line);
 		}
 	}
