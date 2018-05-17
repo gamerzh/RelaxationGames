@@ -16,11 +16,21 @@ Audio* Audio::getInstance(){
 
 void Audio::init(){
     setMusicId(-999);
+	AudioEngine::preload("audio/main.mp3");
+	AudioEngine::preload("audio/light.mp3");
+	AudioEngine::preload("audio/train.mp3");
+	AudioEngine::preload("audio/car.mp3");
+	AudioEngine::preload("audio/jump.mp3");
+	AudioEngine::preload("audio/hit.mp3");
+	AudioEngine::preload("audio/water.mp3");
+	AudioEngine::preload("audio/gold.mp3");
+	AudioEngine::preload("audio/hawk.mp3");
+	AudioEngine::preload("audio/board.mp3");
 }
 
 void Audio::playBGM(){
- /*   int id = AudioEngine::play2d("audio/main.mp3",true, UserData::getInstance()->getMusicStatus());
-	setMusicId(id);*/
+    int id = AudioEngine::play2d("audio/main.mp3",true, UserData::getInstance()->getMusicStatus()*0.6);
+	setMusicId(id);
 }
 
 
@@ -62,11 +72,11 @@ void Audio::playSoundBoard() {
 
 void Audio::controllSound(bool open) {
 	if (open) {
-		//AudioEngine::setVolume(getMusicId(),soundValue);
+		AudioEngine::setVolume(getMusicId(),soundValue);
 		UserData::getInstance()->setMusicStatus(1.0f);
 	}
 	else {
-		//AudioEngine::setVolume(getMusicId(), 0);
+		AudioEngine::setVolume(getMusicId(), 0);
 		UserData::getInstance()->setMusicStatus(0);
 	}
 }

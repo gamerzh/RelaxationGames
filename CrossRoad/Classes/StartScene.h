@@ -12,4 +12,5 @@ private:
 	void startGame();
 	void soundManage(Ref* ref);
 	void changePlayerModle();
+	void updateSound(MenuItemImage* imge);
 };

@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "UserData.h"
 #include "SelectLayer.h"
+#include "Audio.h"
 
 Scene* StartScene::createScene()
 {
@@ -48,6 +49,7 @@ void StartScene::loadView() {
 
 	//sound
 	auto sound = MenuItemImage::create("sound_on.png", "sound_on.png", CC_CALLBACK_1(StartScene::soundManage, this));
+	updateSound(sound);
 	sound->setAnchorPoint(Point::ANCHOR_TOP_LEFT);
 	auto soundMenu = Menu::create(sound, NULL);
 	soundMenu->setPosition(0, win.height);
@@ -76,8 +78,12 @@ void StartScene::startGame() {
 }
 
 void StartScene::soundManage(Ref* ref) {
-	UserData::getInstance()->setMusicStatus(!UserData::getInstance()->getMusicStatus());
+	Audio::getInstance()->controllSound(!UserData::getInstance()->getMusicStatus());
 	MenuItemImage* imge = (MenuItemImage*)ref;
+	updateSound(imge);
+}
+
+void StartScene::updateSound(MenuItemImage* imge) {
 	if (UserData::getInstance()->getMusicStatus()) {
 		imge->setNormalImage(Sprite::create("sound_on.png"));
 		imge->setSelectedImage(Sprite::create("sound_on.png"));
