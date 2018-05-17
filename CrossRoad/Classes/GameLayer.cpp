@@ -256,7 +256,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 		else {
-			cameraMoveY += default_tmx_height / 2;
+			cameraMoveY += default_tmx_height*0.6;
 			cameraMoveRight += PLAYER_JUMP_OFFSET;
 			if (player->playerJumpForward(treeList)) {
 				GameStatus::getInstance()->plusStepNum();
@@ -290,32 +290,42 @@ void GameLayer::updateTreeZorder() {
 
 void GameLayer::changeCameraMoveStep() {
 	//更具玩家和摄像机的距离调整步幅
+	if (cameraMoveY > 2 * default_tmx_height) {
+		cameraMoveStepY = 3;
+	}
+	else if (cameraMoveY > 4 * default_tmx_height) {
+		cameraMoveStepY = 6;
+	}
+	else {
+		cameraMoveStepY = 1;
+	}
+
 	if (cameraMoveRight > 0) {
 		if (player->getPositionX() - _camera->getPositionX() < 3 * default_tmx_width) {
-			cameraMoveStep = 1.2;
+			cameraMoveStepX = 1.2;
 			return;
 		}
 		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
-			cameraMoveStep = 1.6;
+			cameraMoveStepX = 1.6;
 			return;
 		}
 		else {
-			cameraMoveStep = 2.0;
+			cameraMoveStepX = 2.0;
 			return;
 		}
 	}
 
 	if (cameraMoveLeft > 0) {
 		if (player->getPositionX() - _camera->getPositionX() < 3 * default_tmx_width) {
-			cameraMoveStep = 2.0;
+			cameraMoveStepX = 2.0;
 			return;
 		}
 		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
-			cameraMoveStep = 1.6;
+			cameraMoveStepX = 1.6;
 			return;
 		}
 		else {
-			cameraMoveStep = 1.2;
+			cameraMoveStepX = 1.2;
 			return;
 		}
 	}
@@ -450,9 +460,9 @@ void GameLayer::update(float dt) {
 
 	changeCameraMoveStep();
 	if (cameraMoveY > 0) {
-		cameraMoveY -= 1;
+		cameraMoveY -= cameraMoveStepY;
 		if (_camera->getPositionX() > 0) {
-			_camera->setPosition(_camera->getPositionX(), _camera->getPositionY() + 1);
+			_camera->setPosition(_camera->getPositionX(), _camera->getPositionY() + cameraMoveStepY);
 		}
 		else {
 			cameraMoveY = 0;
@@ -462,9 +472,9 @@ void GameLayer::update(float dt) {
 		cameraMoveY = 0;
 	}
 	if (cameraMoveLeft > 0) {
-		cameraMoveLeft -= cameraMoveStep;
+		cameraMoveLeft -= cameraMoveStepX;
 		if (_camera->getPositionX() > 0) {
-			_camera->setPosition(_camera->getPositionX() - cameraMoveStep, _camera->getPositionY());
+			_camera->setPosition(_camera->getPositionX() - cameraMoveStepX, _camera->getPositionY());
 		}
 		else {
 			cameraMoveLeft = 0;
@@ -474,9 +484,9 @@ void GameLayer::update(float dt) {
 		cameraMoveLeft = 0;
 	}
 	if (cameraMoveRight > 0) {
-		cameraMoveRight -= cameraMoveStep;
+		cameraMoveRight -= cameraMoveStepX;
 		if (_camera->getPositionX() < default_tmx_width * 9) {
-			_camera->setPosition(_camera->getPositionX() + cameraMoveStep, _camera->getPositionY());
+			_camera->setPosition(_camera->getPositionX() + cameraMoveStepX, _camera->getPositionY());
 		}
 		else {
 			cameraMoveRight = 0;

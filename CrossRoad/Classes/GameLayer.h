@@ -36,10 +36,11 @@ private:
 	bool needAddMap = false;
 	bool isShowGameOver = false;
 	bool playerInWaterRect = false;
-	float cameraMoveStep = 1.2;
+	float cameraMoveStepX = 1.2;
 	float cameraMoveLeft = 0;
 	float cameraMoveRight = 0;
 	float cameraMoveY = 0;
+	float cameraMoveStepY = 1.0;
 	float playerStayTime = 0;
 	Camera* _camera;
 	Vec2 preTouchPoint;
