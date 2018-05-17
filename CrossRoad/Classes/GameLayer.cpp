@@ -256,7 +256,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 		else {
-			cameraMoveY += default_tmx_height / 4;
+			cameraMoveY += default_tmx_height / 2;
 			cameraMoveRight += PLAYER_JUMP_OFFSET;
 			if (player->playerJumpForward(treeList)) {
 				GameStatus::getInstance()->plusStepNum();
@@ -338,7 +338,7 @@ void GameLayer::cancelMoveCameraX() {
 void GameLayer::hawkKillPlayer() {
 	auto hawk = Sprite::create("hawk.png");
 	hawk->setCameraMask(int(CameraFlag::USER1));
-	hawk->setPosition(Vec2(player->getPositionX(),win.height+100));
+	hawk->setPosition(Vec2(player->getPositionX(), player->getPositionY()+win.height));
 	addChild(hawk,MaxZorder);
 	//setp1 hawk ·ÉÏòÍæ¼Ò
 	auto step_1 = MoveTo::create(2,player->getPosition());
