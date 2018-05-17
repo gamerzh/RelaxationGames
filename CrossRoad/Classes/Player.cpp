@@ -12,10 +12,11 @@ bool Player :: init() {
 	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	hero->setPosition(default_tmx_width/2,default_tmx_height/3);
 	addChild(hero);
-
 	scheduleUpdate();
 	return true;
 }
+
+
 
 bool Player::playerJumpForward(vector<Block*> blocks) {
 
@@ -40,7 +41,9 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYue();
-	this->setPosition(Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
+	int line = this->getPositionY() / default_tmx_height;
+	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
+	this->setPosition(Vec2(posx+(line*PLAYER_JUMP_OFFSET)%default_tmx_width+ PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
 	log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	Audio::getInstance()->playSoundJump();
 	return true;
@@ -68,7 +71,9 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueBack();
-	this->setPosition(Vec2(this->getPosition().x - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
+	int line = this->getPositionY() / default_tmx_height;
+	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
+	this->setPosition(Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
