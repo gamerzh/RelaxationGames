@@ -108,7 +108,7 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 		auto box = getPlayerCheckRect();
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), Rect(box.getMinX() + default_tmx_width, box.getMinY() ,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY()))) {
-			log("blockR Rect(%f,%f,%f,%f)",
+		/*	log("blockR Rect(%f,%f,%f,%f)",
 				bloc->getBlockCheckRect().getMinX(),
 				bloc->getBlockCheckRect().getMinY(),
 				bloc->getBlockCheckRect().getMaxX() - bloc->getBlockCheckRect().getMinX(),
@@ -118,7 +118,7 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 				box.getMinX(),
 				box.getMinY(),
 				box.getMaxX() - box.getMinX(),
-				box.getMaxY() - box.getMinY());
+				box.getMaxY() - box.getMinY());*/
 			return false;
 		}
 	}

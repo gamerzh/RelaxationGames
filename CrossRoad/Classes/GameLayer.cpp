@@ -181,6 +181,9 @@ void GameLayer::addTouchListener() {
 
 
 bool GameLayer::onTouchBegan(Touch *touch, Event *event) {
+	if (isShowGameOver) {
+		return true;
+	}
 	preTouchPoint = touch->getLocation();
 	if (playerGesture == Gesture::left) {
 		player->playPlayerJiYaLeft();
@@ -199,6 +202,9 @@ bool GameLayer::onTouchBegan(Touch *touch, Event *event) {
 
 
 void GameLayer::onTouchMoved(Touch* touch, Event* event) {
+	if (isShowGameOver) {
+		return;
+	}
 	if (touch->getLocation().x > preTouchPoint.x && touch->getLocation().x - preTouchPoint.x > 10
 		&& abs(touch->getLocation().y - preTouchPoint.y) / abs(touch->getLocation().x - preTouchPoint.x) < 1) {
 		playerGesture = Gesture::right;
@@ -219,6 +225,9 @@ void GameLayer::onTouchMoved(Touch* touch, Event* event) {
 
 
 void GameLayer::onTouchEnded(Touch* touch, Event* event) {
+	if (isShowGameOver) {
+		return;
+	}
 	//对于操作指法的判定,向左滑动,向右滑动,双击
 	if (NULL != player) {
 		if (playerGesture == Gesture::left) {
@@ -251,6 +260,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			cameraMoveRight += PLAYER_JUMP_OFFSET;
 			if (player->playerJumpForward(treeList)) {
 				GameStatus::getInstance()->plusStepNum();
+				playerStayTime = 0;
 			}
 
 		}
@@ -325,25 +335,55 @@ void GameLayer::cancelMoveCameraX() {
 	unschedule(SCHEDULE_CAMERA_X);
 }
 
+void GameLayer::hawkKillPlayer() {
+	auto hawk = Sprite::create("hawk.png");
+	hawk->setCameraMask(int(CameraFlag::USER1));
+	hawk->setPosition(Vec2(player->getPositionX(),win.height+100));
+	addChild(hawk,MaxZorder);
+	//setp1 hawk 飞向玩家
+	auto step_1 = MoveTo::create(2,player->getPosition());
+	//玩家和老鹰一起飞走
+	auto step_2 = MoveTo::create(1, Vec2(player->getPositionX(), -win.height/2));
+	hawk->runAction(Sequence::create(step_1, CallFunc::create([=]() {
+		player->runAction(step_2->clone());
+	}), step_2,NULL));
+}
+
 void GameLayer::showGameOver(int type) {
-	if (NULL == getChildByTag(100)) {
+	if (!isShowGameOver) {
+		isShowGameOver = true;
+		float delay = 0;
 		if (type == 1) {
 			Audio::getInstance()->playSoundWater();
 		}
+		else if (type == 2) {
+			delay = 3;
+			Audio::getInstance()->playSoundHawk();
+			hawkKillPlayer();
+		}
 		else {
 			Audio::getInstance()->playSoundHit();
+			player->playerGoDie();
+			player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
 		}
-		player->playerGoDie();
-		player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
-		auto over = GameOver::create();
-		over->setTag(100);
-		addChild(over);
+
+		if (NULL == getChildByTag(100)) {
+			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
+				auto over = GameOver::create();
+				over->setTag(100);
+				addChild(over);
+			}), NULL));
+		}
 	}
 }
 
 void GameLayer::update(float dt) {
 	if (mapList.size() == 0) {
 		return;
+	}
+	playerStayTime += dt;
+	if (playerStayTime > 10) {
+		showGameOver(2);
 	}
 	for (auto var : autoList) {
 		for (auto car : var->getCarList()) { 

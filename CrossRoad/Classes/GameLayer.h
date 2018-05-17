@@ -34,12 +34,13 @@ private:
 	Size win = Director::getInstance()->getWinSize();
 	int used_map_node = 0;
 	bool needAddMap = false;
-	//bool playerStandOnWood = false;
+	bool isShowGameOver = false;
 	bool playerInWaterRect = false;
 	float cameraMoveStep = 1.2;
 	float cameraMoveLeft = 0;
 	float cameraMoveRight = 0;
 	float cameraMoveY = 0;
+	float playerStayTime = 0;
 	Camera* _camera;
 	Vec2 preTouchPoint;
 	Gesture playerGesture;
@@ -64,4 +65,5 @@ private:
 	void moveCameraX();//在X轴上移动相机
 	void cancelMoveCameraX();
 	void showGameOver(int type);
+	void hawkKillPlayer();
 };
