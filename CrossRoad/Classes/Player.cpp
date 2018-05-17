@@ -227,7 +227,10 @@ void Player::playerGoWater() {
 	node->setPosition(hero->getPosition());
 	addChild(node);
 	auto waterHua = CSLoader::createTimeline("biaoxue.csb");
-	waterHua->play("bx", false);
+	waterHua->play("bx", false); 
 	node->runAction(waterHua);
+	node->runAction(Sequence::create(DelayTime::create(0.5f), CallFunc::create([=]() {
+		node->setVisible(false);
+	}),NULL));
 }
 
