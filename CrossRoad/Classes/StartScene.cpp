@@ -30,7 +30,7 @@ void StartScene::loadView() {
 	auto black = LayerColor::create(Color4B(255, 255, 255, 100), win.width, win.height);
 	addChild(black);
 
-	auto box = Sprite::create("player_box.png");
+	auto box = Sprite::create("player_box.jpg");
 	box->setPosition(win.width / 2, win.height / 2);
 	addChild(box);
 
@@ -47,7 +47,7 @@ void StartScene::loadView() {
 	addChild(cangeMenu);
 
 	//sound
-	auto sound = MenuItemImage::create("sound.png", "sound.png", CC_CALLBACK_0(StartScene::soundManage, this));
+	auto sound = MenuItemImage::create("sound_on.png", "sound_on.png", CC_CALLBACK_1(StartScene::soundManage, this));
 	sound->setAnchorPoint(Point::ANCHOR_TOP_LEFT);
 	auto soundMenu = Menu::create(sound, NULL);
 	soundMenu->setPosition(0, win.height);
@@ -59,19 +59,33 @@ void StartScene::loadView() {
 	goldbg->setPosition(win.width / 2, win.height);
 	addChild(goldbg);
 	//num_white
-	auto goldnum = LabelAtlas::create(String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum())->_string, "num_white.png", 16, 24, '0');
+	auto number = String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum()) ->_string;
+	auto goldnum = LabelAtlas::create(number, "gold_num_small.png", 41, 40, '0');
 	goldnum->setAnchorPoint(Point::ANCHOR_MIDDLE);
-	goldnum->setPosition(win.width / 2, win.height*0.97);
+	float offset = 3.2 * number.size();
+	goldnum->setPosition(win.width / 2+ offset, win.height*0.97);
 	addChild(goldnum);
+
+	auto playerMod = Sprite::create("player_mod_0.png");
+	playerMod->setPosition(win.width / 2, win.height / 2);
+	addChild(playerMod);
 }
 
 void StartScene::startGame() {
 	Director::getInstance()->replaceScene(GameScene::createScene());
 }
 
-void StartScene::soundManage() {
-
-
+void StartScene::soundManage(Ref* ref) {
+	UserData::getInstance()->setMusicStatus(!UserData::getInstance()->getMusicStatus());
+	MenuItemImage* imge = (MenuItemImage*)ref;
+	if (UserData::getInstance()->getMusicStatus()) {
+		imge->setNormalImage(Sprite::create("sound_on.png"));
+		imge->setSelectedImage(Sprite::create("sound_on.png"));
+	}
+	else {
+		imge->setNormalImage(Sprite::create("sound_off.png"));
+		imge->setSelectedImage(Sprite::create("sound_off.png"));
+	}
 }
 
 

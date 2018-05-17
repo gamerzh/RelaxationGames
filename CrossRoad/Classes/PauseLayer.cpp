@@ -26,7 +26,7 @@ void PauseLayer::initView() {
 	auto restart = MenuItemImage::create("start_re.png", "start_re.png", CC_CALLBACK_0(PauseLayer::gameResart, this));
 	auto conti = MenuItemImage::create("play_continue.png", "play_continue.png", CC_CALLBACK_0(PauseLayer::continueGame, this));
 	auto boxMenu = Menu::create(goBack, restart, conti,NULL);
-	boxMenu->alignItemsVerticallyWithPadding(win.height / 8);
+	boxMenu->alignItemsVerticallyWithPadding(win.height / 15);
 	boxMenu->setPosition(win.width / 2, win.height / 2);
 	addChild(boxMenu);
 }

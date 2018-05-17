@@ -37,8 +37,8 @@ bool GameOver::init() {
 	extraGold->setPosition(win.width * 0.52, win.height*0.445f);
 	addChild(extraGold);
 
-	auto goback = MenuItemImage::create("go_to_load.png", "go_to_load.png", CC_CALLBACK_0(GameOver::goLoading, this));
-	auto resultCon = MenuItemImage::create("result_continue.png", "result_continue.png", CC_CALLBACK_0(GameOver::continueGame, this));
+	auto goback = MenuItemImage::create("go_lobby.png", "go_lobby.png", CC_CALLBACK_0(GameOver::goLoading, this));
+	auto resultCon = MenuItemImage::create("over_con.png", "over_con.png", CC_CALLBACK_0(GameOver::continueGame, this));
 	auto closeMenu = Menu::create(goback, resultCon, NULL);
 	closeMenu->alignItemsHorizontallyWithPadding(100);
 	closeMenu->setPosition(win.width / 2, win.height*0.36f);

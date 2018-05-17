@@ -12,7 +12,8 @@ public:
 	void setCurrentMod(std::string msg);
 	std::vector<std::string> getPlayerMod();
 	void addPlayerMod(std::string msg);
-
+	float getMusicStatus();
+	void setMusicStatus(float open);
 private:
 	static  UserData* m_instance;
 	UserData() {};

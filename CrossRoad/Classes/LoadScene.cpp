@@ -1,5 +1,6 @@
 #include "LoadScene.h"
 #include "StartScene.h"
+#include "Audio.h"
 
 Scene* LoadScene::createScene()
 {
@@ -19,6 +20,7 @@ bool LoadScene::init()
 		return false;
 	}
 	loadView();
+	Audio::getInstance()->playBGM();
 	return true;
 }
 
@@ -27,8 +29,6 @@ void LoadScene::loadView() {
 	auto loadbg = Sprite::create("start_game.jpg");
 	loadbg->setPosition(win.width / 2, win.height / 2);
 	addChild(loadbg);
-
-	
 
 	//2秒后显示主界面
 	auto node = Node::create();

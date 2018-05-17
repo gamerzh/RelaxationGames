@@ -1,7 +1,10 @@
 #include "AppDelegate.h"
 #include "LoadScene.h"
+#include "Audio.h"
+#include "audio/include/AudioEngine.h"
 
 USING_NS_CC;
+using namespace experimental;
 
 AppDelegate::AppDelegate() {
 
@@ -40,6 +43,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #endif
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+	log("WinSize width = %f heigth = %f", visibleSize.width,visibleSize.height);
 	glview->setDesignResolutionSize(720, 1280, ResolutionPolicy::EXACT_FIT);
 #endif
 
@@ -62,7 +66,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
-
+	AudioEngine::pauseAll();
     // if you use SimpleAudioEngine, it must be pause
     // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
@@ -70,7 +74,7 @@ void AppDelegate::applicationDidEnterBackground() {
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
-
+	AudioEngine::resumeAll();
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

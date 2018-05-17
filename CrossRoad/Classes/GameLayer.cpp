@@ -3,6 +3,7 @@
 #include "GeometryUtils.h"
 #include "GameStatus.h"
 #include "UserData.h"
+#include "Audio.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -36,6 +37,7 @@ bool GameLayer::init(Camera* ca) {
 	scheduleUpdate();
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
+	Audio::getInstance()->playSoundCar();
 	return true;
 }
 
@@ -263,6 +265,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 					it = goldList.erase(it);
 					myGold->removeFromParent();
 					UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
+					Audio::getInstance()->playSoundGold();
 				}
 			}
 		}
@@ -322,14 +325,20 @@ void GameLayer::cancelMoveCameraX() {
 	unschedule(SCHEDULE_CAMERA_X);
 }
 
-void GameLayer::showGameOver() {
-	//player->playerGoDie();
-	//player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
-	//if (NULL == getChildByTag(100)) {
-	//	auto over = GameOver::create();
-	//	over->setTag(100);
-	//	addChild(over);
-	//}
+void GameLayer::showGameOver(int type) {
+	if (NULL == getChildByTag(100)) {
+		if (type == 1) {
+			Audio::getInstance()->playSoundWater();
+		}
+		else {
+			Audio::getInstance()->playSoundHit();
+		}
+		player->playerGoDie();
+		player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
+		auto over = GameOver::create();
+		over->setTag(100);
+		addChild(over);
+	}
 }
 
 void GameLayer::update(float dt) {
@@ -344,7 +353,7 @@ void GameLayer::update(float dt) {
 				car->getBoundingBox().getMaxX() - car->getBoundingBox().getMinX(),
 				default_tmx_height);
 			if (GeometryUtils::intersectsRect(newRect, player->getPlayerCheckRect())) {
-				showGameOver();
+				showGameOver(0);
 			}
 		}
 	}
@@ -353,7 +362,7 @@ void GameLayer::update(float dt) {
 	{
 
 		if (GeometryUtils::intersectsRect(tra->getTrainObjectBox(), player->getPlayerCheckRect())) {
-			showGameOver();
+			showGameOver(0);
 		}
 		//auto train = tra->getTrainObject();
 		//if (train != nullptr) {
@@ -381,13 +390,14 @@ void GameLayer::update(float dt) {
 					if (GeometryUtils::intersectsRect(wo->getBoundingBox(), player->getPlayerCheckRect())) {
 						canLive = true;
 						//log("wood speed = %f", wo->getSpeedX());
+						//Audio::getInstance()->playSoundBoard();
 						player->setSpeedX(wo->getSpeedX());
 						player->setPlayerOnWood(true);
 						moveCameraX();
 					}
 				}
 				if (!canLive) {
-					showGameOver();
+					showGameOver(1);
 				}
 			}
 		}

@@ -10,6 +10,6 @@ public:
 private:
 	void loadView();
 	void startGame();
-	void soundManage();
+	void soundManage(Ref* ref);
 	void changePlayerModle();
 };

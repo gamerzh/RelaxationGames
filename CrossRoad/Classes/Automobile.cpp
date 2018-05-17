@@ -1,6 +1,7 @@
 #include "Automobile.h"
 #include "MapNode.h"
 #include "GeometryUtils.h"
+#include "Audio.h"
 
 Automobile* Automobile::create(Camera* camera, int type, int direction, float speed, float interval, Point pos) {
 	auto automoblie = new Automobile();

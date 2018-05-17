@@ -1,5 +1,6 @@
 #include "Train.h"
 #include "MapNode.h"
+#include "Audio.h"
 
 Train* Train::create(Camera* _camera,Point pos) {
 	auto tra = new Train();
@@ -62,6 +63,7 @@ void Train::moveTrain(CallFunc* call) {
 		auto move = MoveTo::create(1.5f, Vec2(- myTrain->getContentSize().width, myTrain->getPositionY()));
 		myTrain->runAction(Sequence::create(move->clone(), call, NULL));
 	}
+	//Audio::getInstance()->playSoundTrain();
 }
 
 void Train::trainLightAnim(CallFunc* call) {

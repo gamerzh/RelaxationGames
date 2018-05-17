@@ -39,6 +39,16 @@ void UserData::addPlayerMod(std::string msg) {
 	UserDefault::getInstance()->setStringForKey("user_mod_lsit", newMods);
 }
 
+
+float UserData::getMusicStatus() {
+	return UserDefault::getInstance()->getFloatForKey("music_status", 1.0);
+}
+
+
+void UserData::setMusicStatus(float open) {
+	UserDefault::getInstance()->setFloatForKey("music_status", open);
+}
+
 std::vector<std::string> UserData::split(std::string str, std::string pattern)
 {
 	std::string::size_type pos;
