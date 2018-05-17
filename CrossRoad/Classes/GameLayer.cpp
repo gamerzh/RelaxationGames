@@ -256,12 +256,14 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		log("Player Zorder %d", player->getLocalZOrder());
 		//检查玩家是否碰到了金币
 		vector<GoldIcon*>::iterator it;
-		for (it = goldList.begin(); it != goldList.end(); ++it) {
-			GoldIcon* myGold = *it;
-			if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
-				it = goldList.erase(it);
-				myGold->removeFromParent();
-				UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
+		if (goldList.size() != 0) {
+			for (it = goldList.begin(); it != goldList.end(); ++it) {
+				GoldIcon* myGold = *it;
+				if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
+					it = goldList.erase(it);
+					myGold->removeFromParent();
+					UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
+				}
 			}
 		}
 	}
@@ -316,17 +318,18 @@ void GameLayer::moveCameraX() {
 
 void GameLayer::cancelMoveCameraX() {
 	player->setSpeedX(0);
+	player->setPlayerOnWood(false);
 	unschedule(SCHEDULE_CAMERA_X);
 }
 
 void GameLayer::showGameOver() {
-	player->playerGoDie();
-	player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
-	if (NULL == getChildByTag(100)) {
-		auto over = GameOver::create();
-		over->setTag(100);
-		addChild(over);
-	}
+	//player->playerGoDie();
+	//player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
+	//if (NULL == getChildByTag(100)) {
+	//	auto over = GameOver::create();
+	//	over->setTag(100);
+	//	addChild(over);
+	//}
 }
 
 void GameLayer::update(float dt) {
@@ -379,6 +382,7 @@ void GameLayer::update(float dt) {
 						canLive = true;
 						//log("wood speed = %f", wo->getSpeedX());
 						player->setSpeedX(wo->getSpeedX());
+						player->setPlayerOnWood(true);
 						moveCameraX();
 					}
 				}

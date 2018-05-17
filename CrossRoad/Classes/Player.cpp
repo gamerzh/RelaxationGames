@@ -24,22 +24,22 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 		auto checkBox = Rect(box.getMinX() + PLAYER_JUMP_OFFSET, box.getMinY() + default_tmx_height,
 			box.getMaxX() - box.getMinX(), box.getMaxY() - box.getMinY());
 		if (GeometryUtils::intersectsRect(bloc->getBlockCheckRect(), checkBox)) {
-			log("blockF Rect(%f,%f,%f,%f)",
-				bloc->getBlockCheckRect().getMinX(),
-				bloc->getBlockCheckRect().getMinY(),
-				bloc->getBlockCheckRect().getMaxX() - bloc->getBlockCheckRect().getMinX(),
-				bloc->getBlockCheckRect().getMaxY() - bloc->getBlockCheckRect().getMinY());
+			//log("blockF Rect(%f,%f,%f,%f)",
+			//	bloc->getBlockCheckRect().getMinX(),
+			//	bloc->getBlockCheckRect().getMinY(),
+			//	bloc->getBlockCheckRect().getMaxX() - bloc->getBlockCheckRect().getMinX(),
+			//	bloc->getBlockCheckRect().getMaxY() - bloc->getBlockCheckRect().getMinY());
 
-			log("palyerF Rect(%f,%f,%f,%f)",
-				checkBox.getMinX(),
-				checkBox.getMinY(),
-				checkBox.getMaxX() - checkBox.getMinX(),
-				checkBox.getMaxY() - checkBox.getMinY());
+			//log("palyerF Rect(%f,%f,%f,%f)",
+			//	checkBox.getMinX(),
+			//	checkBox.getMinY(),
+			//	checkBox.getMaxX() - checkBox.getMinX(),
+			//	checkBox.getMaxY() - checkBox.getMinY());
 			return false;
 		}
 	}
 	playPlayerTiaoYue();
-	this->setPosition(Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
+	this->setPosition(Vec2(round(this->getPosition().x / default_tmx_width)*default_tmx_width+ PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
 	log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	return true;
 }
@@ -66,7 +66,7 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueBack();
-	this->setPosition(Vec2(this->getPosition().x - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
+	this->setPosition(Vec2(round(this->getPosition().x / default_tmx_width)*default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
 	return true;
 }
 
