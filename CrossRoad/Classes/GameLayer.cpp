@@ -184,6 +184,9 @@ bool GameLayer::onTouchBegan(Touch *touch, Event *event) {
 	if (isShowGameOver) {
 		return true;
 	}
+	if (!allowJump) {
+		return true;
+	}
 	preTouchPoint = touch->getLocation();
 	if (playerGesture == Gesture::left) {
 		player->playPlayerJiYaLeft();
@@ -197,12 +200,16 @@ bool GameLayer::onTouchBegan(Touch *touch, Event *event) {
 	else if (playerGesture == Gesture::backwards) {
 		player->playPlayerJiYaBack();
 	}
+	playerGesture = Gesture::forward;
 	return true;
 }
 
 
 void GameLayer::onTouchMoved(Touch* touch, Event* event) {
 	if (isShowGameOver) {
+		return;
+	}
+	if (!allowJump) {
 		return;
 	}
 	if (touch->getLocation().x > preTouchPoint.x && touch->getLocation().x - preTouchPoint.x > 10
@@ -228,6 +235,10 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 	if (isShowGameOver) {
 		return;
 	}
+	if (!allowJump) {
+		return;
+	}
+
 	//对于操作指法的判定,向左滑动,向右滑动,双击
 	if (NULL != player) {
 		if (playerGesture == Gesture::left) {
@@ -280,7 +291,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 	}
-
+	allowJump = false;
 }
 
 void GameLayer::updateTreeZorder() {
@@ -390,6 +401,14 @@ void GameLayer::showGameOver(int type) {
 }
 
 void GameLayer::update(float dt) {
+	if (!allowJump) {
+		jumpInterval += dt;
+		if (jumpInterval >= 0.25) {
+			jumpInterval = 0;
+			allowJump = true;
+		}
+	}
+
 	if (mapList.size() == 0) {
 		return;
 	}

@@ -46,6 +46,7 @@ void StartScene::loadView() {
 	auto cangeMenu = Menu::create(change, NULL);
 	cangeMenu->setPosition(win.width * 0.85, win.height *0.78);
 	addChild(cangeMenu);
+	cangeMenu->setVisible(false);
 
 	//sound
 	auto sound = MenuItemImage::create("sound_on.png", "sound_on.png", CC_CALLBACK_1(StartScene::soundManage, this));

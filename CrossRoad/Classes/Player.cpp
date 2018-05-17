@@ -43,7 +43,9 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 	playPlayerTiaoYue();
 	int line = this->getPositionY() / default_tmx_height;
 	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
-	this->setPosition(Vec2(posx+(line*PLAYER_JUMP_OFFSET)%default_tmx_width+ PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
+	//this->setPosition();
+	auto nextPos = Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width + PLAYER_JUMP_OFFSET, this->getPositionY() + default_tmx_height);
+	this->runAction(MoveTo::create(0.25, nextPos));
 	log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	Audio::getInstance()->playSoundJump();
 	return true;
@@ -73,7 +75,8 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 	playPlayerTiaoYueBack();
 	int line = this->getPositionY() / default_tmx_height;
 	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
-	this->setPosition(Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
+	auto nextPos = Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height);
+	this->runAction(MoveTo::create(0.25, nextPos));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
@@ -100,7 +103,8 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueLeft();
-	this->setPosition(Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y));
+	auto nextPos = Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y);
+	this->runAction(MoveTo::create(0.25, nextPos));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
@@ -128,7 +132,8 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueRight();
-	this->setPosition(Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y));
+	auto nextPos = Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y);
+	this->runAction(MoveTo::create(0.25, nextPos));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
@@ -152,6 +157,7 @@ void Player::playPlayerJiYa() {
 
 
 void Player::playPlayerTiaoYue() {
+	hero->stopAllActions();
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
 	playerTimeLine->play("tiaoyue", false);
 	hero->runAction(playerTimeLine);
@@ -165,6 +171,7 @@ void Player::playPlayerJiYaLeft() {
 
 
 void Player::playPlayerTiaoYueLeft() {
+	hero->stopAllActions();
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
 	playerTimeLine->play("tiaoyuezuo", false);
 	hero->runAction(playerTimeLine);
@@ -178,6 +185,7 @@ void Player::playPlayerJiYaRight() {
 
 
 void Player::playPlayerTiaoYueRight() {
+	hero->stopAllActions();
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
 	playerTimeLine->play("tiaoyueyou", false);
 	hero->runAction(playerTimeLine);
@@ -190,6 +198,7 @@ void Player::playPlayerJiYaBack() {
 }
 
 void Player::playPlayerTiaoYueBack() {
+	hero->stopAllActions();
 	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
 	playerTimeLine->play("tiaoyueqian", false);
 	hero->runAction(playerTimeLine);
