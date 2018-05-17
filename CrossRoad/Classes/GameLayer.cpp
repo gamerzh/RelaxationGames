@@ -354,7 +354,9 @@ void GameLayer::showGameOver(int type) {
 		isShowGameOver = true;
 		float delay = 0;
 		if (type == 1) {
+			delay = 1.0;
 			Audio::getInstance()->playSoundWater();
+			player->playerGoWater();
 		}
 		else if (type == 2) {
 			delay = 3;

@@ -213,3 +213,16 @@ void Player::playerGoDie() {
 	addChild(die,2);
 }
 
+void Player::playerGoWater() {
+	hero->setVisible(false);
+	auto node = CSLoader::createNode("biaoxue.csb");
+	node->setCameraMask((int)CameraFlag::USER1);
+	node->setScale(0.3);
+	node->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+	node->setPosition(hero->getPosition());
+	addChild(node);
+	auto waterHua = CSLoader::createTimeline("biaoxue.csb");
+	waterHua->play("bx", false);
+	node->runAction(waterHua);
+}
+

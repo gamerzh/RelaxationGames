@@ -36,6 +36,7 @@ public:
 	void setSpeedX(float speed);//获得一个X方向上的速度
 	float getSpeedX();
 	void playerGoDie();
+	void playerGoWater();
 	CC_SYNTHESIZE(bool, playerOnWood, PlayerOnWood);
 private:
 	float speedX = 0;
