@@ -26,13 +26,13 @@ bool SelectItem::init(int type) {
 	box->setPosition(win.width/20, 0);
 	addChild(box);
 
-	auto name = Label::createWithSystemFont("HHHHHH", "arial", 40);
+	auto name = Label::createWithSystemFont("Super Man", "arial", 40);
 	name->setColor(Color3B(0,0,0));
 	name->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	name->setPosition(win.width*0.26, 80);
 	addChild(name);
 
-	auto hint = Label::createWithSystemFont("HHHHHH", "arial", 20);
+	auto hint = Label::createWithSystemFont("I'll destory the world", "arial", 20);
 	hint->setColor(Color3B(0, 0, 0));
 	hint->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	hint->setPosition(win.width *0.26, 10);
@@ -69,6 +69,7 @@ bool SelectItem::init(int type) {
 	else {
 		//显示金额
 		auto gol = Label::createWithSystemFont(String::createWithFormat("%d G", getPriceByType(this->type))->_string,"arial",30);
+		gol->setTag(1026);
 		gol->setAnchorPoint(Point::ANCHOR_MIDDLE);
 		gol->setPosition(win.width*0.67, 75);
 		addChild(gol);
@@ -99,6 +100,9 @@ void SelectItem::useModle() {
 			auto curr = String::createWithFormat("%d", this->type)->_string;
 			UserData::getInstance()->addPlayerMod(curr);
 			UserData::getInstance()->setCurrentMod(curr);
+			if (NULL != getChildByTag(1026)) {
+				getChildByTag(1026)->setVisible(false);
+			}
 		}
 		else {
 			//TODO 弹出购买金币的计费点

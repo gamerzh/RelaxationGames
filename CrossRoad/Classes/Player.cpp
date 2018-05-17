@@ -40,7 +40,7 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYue();
-	this->setPosition(Vec2(round(this->getPosition().x / default_tmx_width)*default_tmx_width+ PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
+	this->setPosition(Vec2(this->getPosition().x + PLAYER_JUMP_OFFSET,this->getPositionY()+ default_tmx_height));
 	log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	Audio::getInstance()->playSoundJump();
 	return true;
@@ -68,7 +68,7 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueBack();
-	this->setPosition(Vec2(round(this->getPosition().x / default_tmx_width)*default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
+	this->setPosition(Vec2(this->getPosition().x - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }

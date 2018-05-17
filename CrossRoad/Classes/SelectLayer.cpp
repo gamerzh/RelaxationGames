@@ -30,7 +30,7 @@ void SelectLayer::loadView() {
 	closeMenu->setPosition(win.width * 0.85, win.height * 0.84);
 	addChild(closeMenu);
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		SelectItem* item = SelectItem::create(i);
 		item->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
