@@ -42,11 +42,28 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYue();
-	int line = this->getPositionY() / default_tmx_height;
-	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
-	//this->setPosition();
-	auto nextPos = Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width + PLAYER_JUMP_OFFSET, this->getPositionY() + default_tmx_height);
-	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos),CallFunc::create([=]() {
+	//猪脚没有发生任何偏移的位置
+	auto target = Vec2(this->getPositionX()+PLAYER_JUMP_OFFSET, this->getPositionY() + default_tmx_height);
+	//假设猪脚发生过偏移,计算出猪脚的偏移量
+	offset_path = ((int)offset_path) % default_tmx_width;
+	if (offset_path > 0) {
+		if (offset_path < default_tmx_width / 2) {
+			target = Vec2(target.x - offset_path, target.y);
+		}
+		else {
+			target = Vec2(target.x - offset_path+default_tmx_width, target.y);
+		}
+	}
+	else if (offset_path < 0) {
+		if (abs(offset_path) < default_tmx_width / 2) {
+			target = Vec2(target.x + abs(offset_path), target.y);
+		}
+		else {
+			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
+		}
+	}
+	offset_path = 0;
+	this->runAction(Sequence::create(MoveTo::create(0.25, target),CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
@@ -77,10 +94,28 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueBack();
-	int line = this->getPositionY() / default_tmx_height;
-	auto posx = round(this->getPosition().x / default_tmx_width)*default_tmx_width;
-	auto nextPos = Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height);
-	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos), CallFunc::create([=]() {
+	//猪脚没有发生任何偏移的位置
+	auto target = Vec2(this->getPositionX() - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height);
+	//假设猪脚发生过偏移,计算出猪脚的偏移量
+	offset_path = ((int)offset_path)%default_tmx_width;
+	if (offset_path > 0) {
+		if (offset_path < default_tmx_width / 2) {
+			target = Vec2(target.x - offset_path, target.y);
+		}
+		else {
+			target = Vec2(target.x - offset_path + default_tmx_width, target.y);
+		}
+	}
+	else if (offset_path < 0) {
+		if (abs(offset_path) < default_tmx_width / 2) {
+			target = Vec2(target.x + abs(offset_path), target.y);
+		}
+		else {
+			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
+		}
+	}
+	offset_path = 0;
+	this->runAction(Sequence::create(MoveTo::create(0.25, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
@@ -218,6 +253,9 @@ void Player::playPlayerTiaoYueBack() {
 }
 
 void Player::setSpeedX(float speed) {
+	if (speed == 0) {
+		offset_path = 0;
+	}
 	this->speedX = speed;
 }
 
@@ -228,6 +266,7 @@ float Player::getSpeedX() {
 void Player::update(float dt) {
 	if (getPositionX() + speedX < defult_tmx_x_num*default_tmx_width) {
 		setPosition(getPositionX() + speedX, getPositionY());
+		offset_path += speedX;
 	}
 }
 

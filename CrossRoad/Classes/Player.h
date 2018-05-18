@@ -39,6 +39,7 @@ public:
 	void playerGoWater();
 	CC_SYNTHESIZE(bool, playerOnWood, PlayerOnWood);
 private:
+	float offset_path = 0;
 	float speedX = 0;
 	void playPlayerTiaoYue();
 	void playPlayerTiaoYueLeft();
