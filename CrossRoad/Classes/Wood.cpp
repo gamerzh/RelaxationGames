@@ -2,10 +2,10 @@
 #include "MapNode.h"
 #include "GeometryUtils.h"
 
-Wood * Wood::create(Camera* ca, int type, int direction, float time)
+Wood * Wood::create(Camera* ca, int type, int direction, float time, Point position)
 {
 	Wood* woo = new Wood();
-	if (woo && woo->init(ca, type, direction, time)) {
+	if (woo && woo->init(ca, type, direction, time, position)) {
 		woo->autorelease();
 		return woo;
 	}
@@ -15,17 +15,19 @@ Wood * Wood::create(Camera* ca, int type, int direction, float time)
 	}
 }
 
-bool Wood::init(Camera* ca, int type, int direction, float time)
+bool Wood::init(Camera* ca, int type, int direction, float time, Point position)
 {
 	if (!Sprite::init()) {
 		return false;
 	}
+	this->position = position;
 	this->woodType = type;
 	this->woodDir = direction;
-	this->woodTime = time;
+	this->woodTime = time * 3;
 	this->myCamera = ca;
+	passtime = woodTime;
 	initSpeed();
-	initWithFile(getFileNameByType(type));
+	//initWithFile(getFileNameByType(type));
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	scheduleUpdate();
 	return true;
@@ -64,19 +66,62 @@ float Wood::getSpeedX() {
 	return this->woodSpeed;
 }
 
-void Wood::update(float dt) {
-	if (woodType != ObjectType::leaf) {
-		this->setPosition(this->getPositionX() + getSpeedX(), this->getPositionY());
-		if (woodDir == DirectionType::move_left) {
-			if (this->getPositionX() + this->getContentSize().width < myCamera->getPositionX()) {
 
-				this->setPosition(myCamera->getPositionX() + win.width + this->getContentSize().width, this->getPositionY());
-			}
+
+void Wood::drawWoods() {
+	auto win = Director::getInstance()->getWinSize();
+	auto car = Sprite::create(getFileNameByType(woodType));
+	car->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+	car->setCameraMask(int(CameraFlag::USER1));
+	car->setPosition(GeometryUtils::transitionObjectVec2(position, getMapIndex()).x,
+		GeometryUtils::transitionObjectVec2(position, getMapIndex()).y + default_tmx_height / 10);
+	addChild(car);
+	if (woodType != ObjectType::leaf) {
+		if (woodDir == DirectionType::move_left) {
+			car->setPosition(myCamera->getPositionX() + win.width + car->getContentSize().width, (floor(position.y / default_tmx_height) + (getMapIndex() - 1)*defult_tmx_y_num)*default_tmx_height + default_tmx_height / 8);
 		}
 		else {
-			if (this->getPositionX() > myCamera->getPositionX() + win.width + this->getContentSize().width) {
-				this->setPosition(myCamera->getPositionX() - this->getContentSize().width, this->getPositionY());
-			}
+			car->setPosition(myCamera->getPositionX() - car->getContentSize().width, (floor(position.y / default_tmx_height) + (getMapIndex() - 1)*defult_tmx_y_num)*default_tmx_height + default_tmx_height / 8);
 		}
 	}
+	boardList.push_back(car);
+}
+
+
+std::vector<Sprite*> Wood::getBoardList() {
+	return boardList;
+}
+
+void Wood::update(float dt) {
+	if (passtime >= woodTime) {
+		passtime = passtime - woodTime;
+		drawWoods();
+	}
+	else {
+		if (woodType != ObjectType::leaf) {
+			passtime += dt;
+		}
+	}
+
+	for (auto woo : boardList)
+	{
+		if (woodType != ObjectType::leaf) {
+			woo->setPosition(woo->getPositionX() + getSpeedX(), woo->getPositionY());
+		}
+	}
+
+	vector<Sprite*>::iterator it;
+	for (it = boardList.begin(); it != boardList.end();) {
+		Sprite* car = *it;
+		if ((woodDir == DirectionType::move_left && car->getPositionX() < myCamera->getPositionX() - car->getContentSize().width)
+			|| (woodDir == DirectionType::move_rigth && car->getPositionX() > myCamera->getPositionX() + win.width + car->getContentSize().width)) {
+			it = boardList.erase(it);
+			car->removeFromParent();
+		}
+		else
+		{
+			it++;
+		}
+	}
+
 }

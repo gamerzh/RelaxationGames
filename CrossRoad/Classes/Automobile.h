@@ -16,8 +16,8 @@ public:
 private:
 	Camera* camera;
 	float speed;
-	float interval;
 	float direction;
+	float interval;
 	float time;
 	int automobileType;
 	Point postion;

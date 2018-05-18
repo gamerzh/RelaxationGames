@@ -142,10 +142,9 @@ void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int sp
 
 void GameLayer::createWood(int type, int dir, int time, Point pos) {
 	auto line = round(pos.y / default_tmx_height) + (used_map_node - 1)*defult_tmx_y_num;
-	auto wood = Wood::create(_camera, type, dir, time);
-	wood->setPosition(GeometryUtils::transitionObjectVec2(pos, used_map_node).x, 
-		GeometryUtils::transitionObjectVec2(pos, used_map_node).y + default_tmx_height / 10);
+	auto wood = Wood::create(_camera, type, dir, time,pos);
 	wood->setCameraMask(int(CameraFlag::USER1));
+	wood->setMapIndex(used_map_node);
 	addChild(wood, MaxZorder - line);
 	woodList.push_back(wood);
 	//log("Wood position %.1f,%.1f", wood->getPositionX(),wood->getPositionY());
@@ -460,13 +459,15 @@ void GameLayer::update(float dt) {
 				bool canLive = false;
 				for (auto wo : woodList)
 				{
-					if (GeometryUtils::intersectsRect(wo->getBoundingBox(), player->getPlayerCheckRect())) {
-						canLive = true;
-						//log("wood speed = %f", wo->getSpeedX());
-						//Audio::getInstance()->playSoundBoard();
-						player->setSpeedX(wo->getSpeedX());
-						player->setPlayerOnWood(true);
-						moveCameraX();
+					for (auto board: wo->getBoardList()) {
+						if (GeometryUtils::intersectsRect(board->getBoundingBox(), player->getPlayerCheckRect())) {
+							canLive = true;
+							//log("wood speed = %f", wo->getSpeedX());
+							//Audio::getInstance()->playSoundBoard();
+							player->setSpeedX(wo->getSpeedX());
+							player->setPlayerOnWood(true);
+							moveCameraX();
+						}
 					}
 				}
 				if (!canLive) {
