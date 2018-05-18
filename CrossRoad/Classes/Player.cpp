@@ -2,6 +2,7 @@
 #include "MapNode.h"
 #include "GeometryUtils.h"
 #include "Audio.h"
+#include "GameLayer.h"
 
 bool Player :: init() {
 	if (!Sprite::init()) {
@@ -45,7 +46,10 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
 	//this->setPosition();
 	auto nextPos = Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width + PLAYER_JUMP_OFFSET, this->getPositionY() + default_tmx_height);
-	this->runAction(MoveTo::create(0.25, nextPos));
+	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos),CallFunc::create([=]() {
+		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
+		log("Player Zorder %d", this->getLocalZOrder());
+	}), NULL));
 	log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	Audio::getInstance()->playSoundJump();
 	return true;
@@ -76,7 +80,10 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 	int line = this->getPositionY() / default_tmx_height;
 	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
 	auto nextPos = Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height);
-	this->runAction(MoveTo::create(0.25, nextPos));
+	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos), CallFunc::create([=]() {
+		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
+		log("Player Zorder %d", this->getLocalZOrder());
+	}), NULL));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
@@ -104,7 +111,10 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueLeft();
 	auto nextPos = Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y);
-	this->runAction(MoveTo::create(0.25, nextPos));
+	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos), CallFunc::create([=]() {
+		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
+		log("Player Zorder %d", this->getLocalZOrder());
+	}), NULL));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
@@ -133,7 +143,10 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueRight();
 	auto nextPos = Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y);
-	this->runAction(MoveTo::create(0.25, nextPos));
+	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos), CallFunc::create([=]() {
+		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
+		log("Player Zorder %d", this->getLocalZOrder());
+	}), NULL));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }

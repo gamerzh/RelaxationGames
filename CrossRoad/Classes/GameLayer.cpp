@@ -44,7 +44,7 @@ bool GameLayer::init(Camera* ca) {
 
 void GameLayer::initGameMap() {
 	//for (int i = 0; i < 2; i++) {
-		addGameMap();
+	addGameMap();
 	//}
 }
 
@@ -120,7 +120,7 @@ void GameLayer::addGameMap() {
 }
 
 void GameLayer::createHouseAndTree(int type, Size size, Point pos) {
-	int line = floor(pos.y / default_tmx_height)+(used_map_node-1)*defult_tmx_y_num;
+	int line = floor(pos.y / default_tmx_height) + (used_map_node - 1)*defult_tmx_y_num;
 	auto tree = Block::create(type, pos, size);
 	tree->setMapIndex(used_map_node);
 	tree->setCameraMask(int(CameraFlag::USER1));
@@ -143,7 +143,8 @@ void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int sp
 void GameLayer::createWood(int type, int dir, int time, Point pos) {
 	auto line = round(pos.y / default_tmx_height) + (used_map_node - 1)*defult_tmx_y_num;
 	auto wood = Wood::create(_camera, type, dir, time);
-	wood->setPosition(GeometryUtils::transitionObjectVec2(pos, used_map_node));
+	wood->setPosition(GeometryUtils::transitionObjectVec2(pos, used_map_node).x, 
+		GeometryUtils::transitionObjectVec2(pos, used_map_node).y + default_tmx_height / 10);
 	wood->setCameraMask(int(CameraFlag::USER1));
 	addChild(wood, MaxZorder - line);
 	woodList.push_back(wood);
@@ -275,15 +276,19 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 
 		}
-		player->setLocalZOrder(MaxZorder - floor(player->getPositionY() / default_tmx_height));
-		log("Player Zorder %d", player->getLocalZOrder());
+
 		//检查玩家是否碰到了金币
 		vector<GoldIcon*>::iterator it;
 		if (goldList.size() != 0) {
 			for (it = goldList.begin(); it != goldList.end(); ++it) {
 				GoldIcon* myGold = *it;
 				if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
-					it = goldList.erase(it);
+					if (goldList.size() == 1) {
+						goldList.clear();
+					}
+					else {
+						it = goldList.erase(it);
+					}
 					myGold->removeFromParent();
 					UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
 					Audio::getInstance()->playSoundGold();
@@ -359,15 +364,15 @@ void GameLayer::cancelMoveCameraX() {
 void GameLayer::hawkKillPlayer() {
 	auto hawk = Sprite::create("hawk.png");
 	hawk->setCameraMask(int(CameraFlag::USER1));
-	hawk->setPosition(Vec2(player->getPositionX(), player->getPositionY()+win.height));
-	addChild(hawk,MaxZorder);
+	hawk->setPosition(Vec2(player->getPositionX(), player->getPositionY() + win.height));
+	addChild(hawk, MaxZorder);
 	//setp1 hawk 飞向玩家
-	auto step_1 = MoveTo::create(2,player->getPosition());
+	auto step_1 = MoveTo::create(2, player->getPosition());
 	//玩家和老鹰一起飞走
-	auto step_2 = MoveTo::create(1, Vec2(player->getPositionX(), -win.height/2));
+	auto step_2 = MoveTo::create(1, Vec2(player->getPositionX(), -win.height / 2));
 	hawk->runAction(Sequence::create(step_1, CallFunc::create([=]() {
 		player->runAction(step_2->clone());
-	}), step_2,NULL));
+	}), step_2, NULL));
 }
 
 void GameLayer::showGameOver(int type) {
@@ -417,7 +422,7 @@ void GameLayer::update(float dt) {
 		showGameOver(2);
 	}
 	for (auto var : autoList) {
-		for (auto car : var->getCarList()) { 
+		for (auto car : var->getCarList()) {
 
 			Rect newRect = Rect(car->getBoundingBox().getMinX(),
 				car->getBoundingBox().getMinY(),
@@ -445,7 +450,7 @@ void GameLayer::update(float dt) {
 				//}
 	}
 
-	auto playerLine = floor(player->getPositionY() / default_tmx_height);
+	auto playerLine = round(player->getPositionY() / default_tmx_height);
 	playerInWaterRect = false;
 	for (auto mymap : mapList)
 	{
@@ -453,6 +458,7 @@ void GameLayer::update(float dt) {
 		for (auto line : water)
 		{
 			//玩家在水面上
+			//log("KKKKKKKKKKK %d", line);
 			if (playerLine == line) {
 				playerInWaterRect = true;
 				bool canLive = false;
