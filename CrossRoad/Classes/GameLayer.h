@@ -43,7 +43,7 @@ private:
 	float cameraMoveStepY = 1.0;
 	float playerStayTime = 0;
 	bool allowJump = true;
-	float jumpInterval = 0.25f;
+	float jumpInterval = 0.3f;
 	Camera* _camera;
 	Vec2 preTouchPoint;
 	Gesture playerGesture;

@@ -23,7 +23,7 @@ bool Wood::init(Camera* ca, int type, int direction, float time, Point position)
 	this->position = position;
 	this->woodType = type;
 	this->woodDir = direction;
-	this->woodTime = time * GeometryUtils::randomFloat(1,2);
+	this->woodTime = time * GeometryUtils::randomFloat(1.2,1.5);
 	this->myCamera = ca;
 	passtime = woodTime;
 	initSpeed();
@@ -51,10 +51,10 @@ std::string Wood::getFileNameByType(int type) {
 void Wood::initSpeed() {
 	if (woodType != ObjectType::leaf) {
 		if (woodDir == DirectionType::move_left) {
-			this->woodSpeed = -GeometryUtils::randomFloat(1, 2);
+			this->woodSpeed = -GeometryUtils::randomFloat(1.5, 2);
 		}
 		else {
-			this->woodSpeed = GeometryUtils::randomFloat(1, 2);
+			this->woodSpeed = GeometryUtils::randomFloat(1.5, 2);
 		}
 	}
 	else {

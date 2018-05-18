@@ -275,7 +275,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 
 		}
-
+		allowJump = false;
 		//检查玩家是否碰到了金币
 		vector<GoldIcon*>::iterator it;
 		if (goldList.size() != 0) {
@@ -291,7 +291,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 	}
-	allowJump = false;
+
 }
 
 void GameLayer::updateTreeZorder() {
@@ -403,7 +403,7 @@ void GameLayer::showGameOver(int type) {
 void GameLayer::update(float dt) {
 	if (!allowJump) {
 		jumpInterval += dt;
-		if (jumpInterval >= 0.25) {
+		if (jumpInterval >= 0.3) {
 			jumpInterval = 0;
 			allowJump = true;
 		}
