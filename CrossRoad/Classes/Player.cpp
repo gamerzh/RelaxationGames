@@ -145,8 +145,26 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueLeft();
-	auto nextPos = Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y);
-	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos), CallFunc::create([=]() {
+	auto target = Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y);
+	offset_path = ((int)offset_path) % default_tmx_width;
+	if (offset_path > 0) {
+		if (offset_path < default_tmx_width / 2) {
+			target = Vec2(target.x - offset_path, target.y);
+		}
+		else {
+			target = Vec2(target.x - offset_path + default_tmx_width, target.y);
+		}
+	}
+	else if (offset_path < 0) {
+		if (abs(offset_path) < default_tmx_width / 2) {
+			target = Vec2(target.x + abs(offset_path), target.y);
+		}
+		else {
+			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
+		}
+	}
+	offset_path = 0;
+	this->runAction(Sequence::create(MoveTo::create(0.25, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
@@ -177,8 +195,26 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYueRight();
-	auto nextPos = Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y);
-	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos), CallFunc::create([=]() {
+	auto target = Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y);
+	offset_path = ((int)offset_path) % default_tmx_width;
+	if (offset_path > 0) {
+		if (offset_path < default_tmx_width / 2) {
+			target = Vec2(target.x - offset_path, target.y);
+		}
+		else {
+			target = Vec2(target.x - offset_path + default_tmx_width, target.y);
+		}
+	}
+	else if (offset_path < 0) {
+		if (abs(offset_path) < default_tmx_width / 2) {
+			target = Vec2(target.x + abs(offset_path), target.y);
+		}
+		else {
+			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
+		}
+	}
+	offset_path = 0;
+	this->runAction(Sequence::create(MoveTo::create(0.25, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
