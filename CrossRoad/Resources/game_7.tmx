@@ -171,14 +171,14 @@
   <object id="175" x="880" y="666" width="238.5" height="74">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>
   <object id="176" x="320" y="740" width="238.5" height="74">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>
@@ -240,14 +240,14 @@
   <object id="188" x="720" y="2590" width="547.591" height="74">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="5"/>
     <property name="type" value="2"/>
    </properties>
   </object>
   <object id="189" x="320" y="2664" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>

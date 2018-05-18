@@ -453,26 +453,27 @@ void GameLayer::update(float dt) {
 		for (auto line : water)
 		{
 			//玩家在水面上
-			//log("KKKKKKKKKKK %d", line);
 			if (playerLine == line) {
 				playerInWaterRect = true;
-				bool canLive = false;
-				for (auto wo : woodList)
-				{
-					for (auto board: wo->getBoardList()) {
-						if (GeometryUtils::intersectsRect(board->getBoundingBox(), player->getPlayerCheckRect())) {
-							canLive = true;
-							//log("wood speed = %f", wo->getSpeedX());
-							//Audio::getInstance()->playSoundBoard();
-							player->setSpeedX(wo->getSpeedX());
-							player->setPlayerOnWood(true);
-							moveCameraX();
-						}
+			}
+		}
+		if (playerInWaterRect) {
+			bool canLive = false;
+			for (auto wo : woodList)
+			{
+				for (auto board : wo->getBoardList()) {
+					if (GeometryUtils::intersectsRect(board->getBoundingBox(), player->getPlayerCheckRect())) {
+						canLive = true;
+						//log("wood speed = %f", wo->getSpeedX());
+						//Audio::getInstance()->playSoundBoard();
+						player->setSpeedX(wo->getSpeedX());
+						player->setPlayerOnWood(true);
+						moveCameraX();
 					}
 				}
-				if (!canLive) {
-					showGameOver(1);
-				}
+			}
+			if (!canLive) {
+				showGameOver(1);
 			}
 		}
 		if (!playerInWaterRect) {

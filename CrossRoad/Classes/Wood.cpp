@@ -23,7 +23,7 @@ bool Wood::init(Camera* ca, int type, int direction, float time, Point position)
 	this->position = position;
 	this->woodType = type;
 	this->woodDir = direction;
-	this->woodTime = time * 3;
+	this->woodTime = time * GeometryUtils::randomFloat(1,2);
 	this->myCamera = ca;
 	passtime = woodTime;
 	initSpeed();
@@ -69,7 +69,6 @@ float Wood::getSpeedX() {
 
 
 void Wood::drawWoods() {
-	auto win = Director::getInstance()->getWinSize();
 	auto car = Sprite::create(getFileNameByType(woodType));
 	car->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	car->setCameraMask(int(CameraFlag::USER1));

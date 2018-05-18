@@ -182,42 +182,42 @@
   <object id="169" x="0" y="1554" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>
   <object id="170" x="0" y="1776" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>
   <object id="171" x="880" y="1628" width="547.591" height="74">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="5"/>
     <property name="type" value="2"/>
    </properties>
   </object>
   <object id="173" x="0" y="1702" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>
   <object id="174" x="880" y="1850" width="547.591" height="74">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="5"/>
     <property name="type" value="2"/>
    </properties>
   </object>
   <object id="175" x="0" y="1924" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>

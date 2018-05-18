@@ -181,14 +181,14 @@
   <object id="163" x="82.0833" y="2072.33" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>
   <object id="164" x="1192.87" y="1108.45" width="238.5" height="74">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>

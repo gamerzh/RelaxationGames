@@ -151,21 +151,21 @@
   <object id="158" x="240" y="1184" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>
   <object id="159" x="720" y="1332" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
+    <property name="time" value="4"/>
     <property name="type" value="1"/>
    </properties>
   </object>
   <object id="161" x="479" y="1262.22" width="559.091" height="64.5541">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="5"/>
     <property name="type" value="2"/>
    </properties>
   </object>

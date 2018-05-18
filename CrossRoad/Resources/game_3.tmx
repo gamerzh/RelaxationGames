@@ -180,7 +180,7 @@
   <object id="136" x="1.57576" y="2513.98" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="2"/>
+    <property name="time" value="3"/>
     <property name="type" value="1"/>
    </properties>
   </object>

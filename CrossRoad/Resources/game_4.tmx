@@ -186,25 +186,25 @@
    </properties>
    <point/>
   </object>
-  <object id="139" x="7.35601" y="1027.73" width="238.5" height="74">
+  <object id="139" x="4.35601" y="1028.73" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
     <property name="time" value="1"/>
     <property name="type" value="1"/>
    </properties>
   </object>
-  <object id="140" x="886.144" y="954.998" width="547.591" height="74">
+  <object id="140" x="886.144" y="960.998" width="547.591" height="74">
    <properties>
     <property name="direction" value="1"/>
-    <property name="time" value="1"/>
+    <property name="time" value="4"/>
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="141" x="6.26511" y="882.271" width="238.5" height="74">
+  <object id="141" x="4.26511" y="886.271" width="238.5" height="74">
    <properties>
     <property name="direction" value="2"/>
-    <property name="time" value="1"/>
-    <property name="type" value="1"/>
+    <property name="time" value="3"/>
+    <property name="type" value="3"/>
    </properties>
   </object>
   <object id="173" x="756" y="1034">
