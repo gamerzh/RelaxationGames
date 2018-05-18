@@ -92,15 +92,20 @@ std::vector<Sprite*> Wood::getBoardList() {
 }
 
 void Wood::update(float dt) {
-	if (passtime >= woodTime) {
-		passtime = passtime - woodTime;
+	if (woodTime == 0) {
 		drawWoods();
+		woodTime = -1;
 	}
-	else {
-		if (woodType != ObjectType::leaf) {
+	else if(woodTime > 0){
+		if (passtime >= woodTime) {
+			passtime = passtime - woodTime;
+			drawWoods();
+		}
+		else {
 			passtime += dt;
 		}
 	}
+	
 
 	for (auto woo : boardList)
 	{
