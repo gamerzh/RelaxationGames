@@ -70,8 +70,8 @@
   <object id="35" x="1430" y="37">
    <properties>
     <property name="direction" value="1"/>
-    <property name="interval" value="6"/>
-    <property name="speed" value="1"/>
+    <property name="interval" value="8"/>
+    <property name="speed" value="2"/>
     <property name="type" value="2"/>
    </properties>
    <point/>

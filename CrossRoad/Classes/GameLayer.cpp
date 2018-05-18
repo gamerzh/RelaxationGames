@@ -283,15 +283,11 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			for (it = goldList.begin(); it != goldList.end(); ++it) {
 				GoldIcon* myGold = *it;
 				if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
-					if (goldList.size() == 1) {
-						goldList.clear();
-					}
-					else {
-						it = goldList.erase(it);
-					}
+					it = goldList.erase(it);
 					myGold->removeFromParent();
 					UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
 					Audio::getInstance()->playSoundGold();
+					return;
 				}
 			}
 		}
