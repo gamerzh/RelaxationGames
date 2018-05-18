@@ -13,3 +13,4 @@ CrossRoad/proj.android/gen/
 *.db
 *.opendb
 CrossRoad/bin/
+CrossRoad/proj.win32/Release.win32/
