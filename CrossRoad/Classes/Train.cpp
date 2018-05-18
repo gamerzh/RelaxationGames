@@ -20,7 +20,7 @@ bool Train::init(Camera* _camera,Point pos) {
 		return false;
 	}
 	this->_camera = _camera;
-	int time = random(2, 8);
+	int time = random(3, 8);
 	this->trainInterval = time;
 	initWithFile("light_1.png");
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
@@ -68,7 +68,7 @@ void Train::moveTrain(CallFunc* call) {
 
 void Train::trainLightAnim(CallFunc* call) {
 	auto animation = Animation::create();
-	for (int i = 1; i <= 4; i++)
+	for (int i = 1; i <= 5; i++)
 	{
 
 		std::string imageName = StringUtils::format("light_%d.png", i);

@@ -78,7 +78,7 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueBack();
 	int line = this->getPositionY() / default_tmx_height;
-	auto posx = floor(this->getPosition().x / default_tmx_width)*default_tmx_width;
+	auto posx = round(this->getPosition().x / default_tmx_width)*default_tmx_width;
 	auto nextPos = Vec2(posx + (line*PLAYER_JUMP_OFFSET) % default_tmx_width - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height);
 	this->runAction(Sequence::create(MoveTo::create(0.25, nextPos), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));

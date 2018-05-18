@@ -367,9 +367,9 @@ void GameLayer::hawkKillPlayer() {
 	hawk->setPosition(Vec2(player->getPositionX(), player->getPositionY() + win.height));
 	addChild(hawk, MaxZorder);
 	//setp1 hawk 飞向玩家
-	auto step_1 = MoveTo::create(2, player->getPosition());
+	auto step_1 = MoveTo::create(1, player->getPosition());
 	//玩家和老鹰一起飞走
-	auto step_2 = MoveTo::create(1, Vec2(player->getPositionX(), -win.height / 2));
+	auto step_2 = MoveTo::create(0.5f, Vec2(player->getPositionX(), -win.height / 2));
 	hawk->runAction(Sequence::create(step_1, CallFunc::create([=]() {
 		player->runAction(step_2->clone());
 	}), step_2, NULL));
