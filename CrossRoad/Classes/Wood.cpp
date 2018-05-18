@@ -51,10 +51,10 @@ std::string Wood::getFileNameByType(int type) {
 void Wood::initSpeed() {
 	if (woodType != ObjectType::leaf) {
 		if (woodDir == DirectionType::move_left) {
-			this->woodSpeed = -GeometryUtils::randomFloat(1.5, 2);
+			this->woodSpeed = -2;
 		}
 		else {
-			this->woodSpeed = GeometryUtils::randomFloat(1.5, 2);
+			this->woodSpeed = 2;
 		}
 	}
 	else {

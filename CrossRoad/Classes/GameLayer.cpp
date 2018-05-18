@@ -403,7 +403,7 @@ void GameLayer::showGameOver(int type) {
 void GameLayer::update(float dt) {
 	if (!allowJump) {
 		jumpInterval += dt;
-		if (jumpInterval >= 0.3) {
+		if (jumpInterval >= 0.30) {
 			jumpInterval = 0;
 			allowJump = true;
 		}
@@ -446,7 +446,7 @@ void GameLayer::update(float dt) {
 	}
 
 	auto playerLine = round(player->getPositionY() / default_tmx_height);
-	playerInWaterRect = false;
+	auto playerInWaterRect = false;
 	for (auto mymap : mapList)
 	{
 		auto water = mymap->getWaterLineNumber();

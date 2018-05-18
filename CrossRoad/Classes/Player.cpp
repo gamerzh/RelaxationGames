@@ -42,32 +42,21 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 		}
 	}
 	playPlayerTiaoYue();
-	//猪脚没有发生任何偏移的位置
-	auto target = Vec2(this->getPositionX()+PLAYER_JUMP_OFFSET, this->getPositionY() + default_tmx_height);
-	//假设猪脚发生过偏移,计算出猪脚的偏移量
-	offset_path = ((int)offset_path) % default_tmx_width;
-	if (offset_path > 0) {
-		if (offset_path < default_tmx_width / 2) {
-			target = Vec2(target.x - offset_path, target.y);
-		}
-		else {
-			target = Vec2(target.x - offset_path+default_tmx_width, target.y);
-		}
+	auto target = Vec2(this->getPositionX() ,this->getPositionY());
+	if (playerOnWood) {
+		float x = floor(target.x / default_tmx_width)*default_tmx_width +
+			(int)(floor(target.y / default_tmx_height)*PLAYER_JUMP_OFFSET) % default_tmx_width;
+		target = Vec2(x+ PLAYER_JUMP_OFFSET, target.y + default_tmx_height);
 	}
-	else if (offset_path < 0) {
-		if (abs(offset_path) < default_tmx_width / 2) {
-			target = Vec2(target.x + abs(offset_path), target.y);
-		}
-		else {
-			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
-		}
+	else {
+		target = Vec2(target.x + PLAYER_JUMP_OFFSET, target.y + default_tmx_height);
 	}
-	offset_path = 0;
-	this->runAction(Sequence::create(MoveTo::create(0.25, target),CallFunc::create([=]() {
+	//log("aaaaa target %.1f,%.1f", target.x,target.y);
+	this->runAction(Sequence::create(MoveTo::create(0.20, target),CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
-		log("Player Zorder %d", this->getLocalZOrder());
+		//log("Player Zorder %d", this->getLocalZOrder());
+		log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	}), NULL));
-	log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
@@ -95,27 +84,16 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueBack();
 	//猪脚没有发生任何偏移的位置
-	auto target = Vec2(this->getPositionX() - PLAYER_JUMP_OFFSET, this->getPositionY() - default_tmx_height);
-	//假设猪脚发生过偏移,计算出猪脚的偏移量
-	offset_path = ((int)offset_path)%default_tmx_width;
-	if (offset_path > 0) {
-		if (offset_path < default_tmx_width / 2) {
-			target = Vec2(target.x - offset_path, target.y);
-		}
-		else {
-			target = Vec2(target.x - offset_path + default_tmx_width, target.y);
-		}
+	auto target = Vec2(this->getPositionX(), this->getPositionY());
+	if (playerOnWood) {
+		float x = floor(target.x / default_tmx_width)*default_tmx_width +
+			(int)(floor(target.y / default_tmx_height)*PLAYER_JUMP_OFFSET) % default_tmx_width;
+		target = Vec2(x + PLAYER_JUMP_OFFSET, target.y + default_tmx_height);
 	}
-	else if (offset_path < 0) {
-		if (abs(offset_path) < default_tmx_width / 2) {
-			target = Vec2(target.x + abs(offset_path), target.y);
-		}
-		else {
-			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
-		}
+	else {
+		target = Vec2(target.x - PLAYER_JUMP_OFFSET, target.y - default_tmx_height);
 	}
-	offset_path = 0;
-	this->runAction(Sequence::create(MoveTo::create(0.25, target), CallFunc::create([=]() {
+	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
@@ -146,7 +124,7 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueLeft();
 	auto target = Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y);
-	offset_path = ((int)offset_path) % default_tmx_width;
+	/*offset_path = ((int)offset_path) % default_tmx_width;
 	if (offset_path > 0) {
 		if (offset_path < default_tmx_width / 2) {
 			target = Vec2(target.x - offset_path, target.y);
@@ -163,8 +141,8 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
 		}
 	}
-	offset_path = 0;
-	this->runAction(Sequence::create(MoveTo::create(0.25, target), CallFunc::create([=]() {
+	offset_path = 0;*/
+	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
@@ -196,25 +174,25 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueRight();
 	auto target = Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y);
-	offset_path = ((int)offset_path) % default_tmx_width;
-	if (offset_path > 0) {
-		if (offset_path < default_tmx_width / 2) {
-			target = Vec2(target.x - offset_path, target.y);
-		}
-		else {
-			target = Vec2(target.x - offset_path + default_tmx_width, target.y);
-		}
-	}
-	else if (offset_path < 0) {
-		if (abs(offset_path) < default_tmx_width / 2) {
-			target = Vec2(target.x + abs(offset_path), target.y);
-		}
-		else {
-			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
-		}
-	}
-	offset_path = 0;
-	this->runAction(Sequence::create(MoveTo::create(0.25, target), CallFunc::create([=]() {
+	//offset_path = ((int)offset_path) % default_tmx_width;
+	//if (offset_path > 0) {
+	//	if (offset_path < default_tmx_width / 2) {
+	//		target = Vec2(target.x - offset_path, target.y);
+	//	}
+	//	else {
+	//		target = Vec2(target.x - offset_path + default_tmx_width, target.y);
+	//	}
+	//}
+	//else if (offset_path < 0) {
+	//	if (abs(offset_path) < default_tmx_width / 2) {
+	//		target = Vec2(target.x + abs(offset_path), target.y);
+	//	}
+	//	else {
+	//		target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
+	//	}
+	//}
+	//offset_path = 0;
+	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));

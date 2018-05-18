@@ -35,7 +35,7 @@ private:
 	int used_map_node = 0;
 	bool needAddMap = false;
 	bool isShowGameOver = false;
-	bool playerInWaterRect = false;
+	//bool playerInWaterRect = false;
 	float cameraMoveStepX = 1.2;
 	float cameraMoveLeft = 0;
 	float cameraMoveRight = 0;
@@ -43,7 +43,7 @@ private:
 	float cameraMoveStepY = 1.0;
 	float playerStayTime = 0;
 	bool allowJump = true;
-	float jumpInterval = 0.3f;
+	float jumpInterval = 0.30f;
 	Camera* _camera;
 	Vec2 preTouchPoint;
 	Gesture playerGesture;
