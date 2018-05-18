@@ -267,29 +267,18 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			}
 		}
 		else {
-			cameraMoveY += default_tmx_height*0.6;
-			cameraMoveRight += PLAYER_JUMP_OFFSET;
-			if (player->playerJumpForward(treeList)) {
-				GameStatus::getInstance()->plusStepNum();
-				playerStayTime = 0;
-			}
+
+			//if (player->getPositionX() < default_tmx_width * 17) {
+				cameraMoveY += default_tmx_height*0.6;
+				cameraMoveRight += PLAYER_JUMP_OFFSET;
+				if (player->playerJumpForward(treeList)) {
+					GameStatus::getInstance()->plusStepNum();
+					playerStayTime = 0;
+				}
+			//}
 
 		}
 		allowJump = false;
-		//检查玩家是否碰到了金币
-		vector<GoldIcon*>::iterator it;
-		if (goldList.size() != 0) {
-			for (it = goldList.begin(); it != goldList.end(); ++it) {
-				GoldIcon* myGold = *it;
-				if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
-					it = goldList.erase(it);
-					myGold->removeFromParent();
-					UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
-					Audio::getInstance()->playSoundGold();
-					return;
-				}
-			}
-		}
 	}
 
 }
@@ -344,7 +333,7 @@ void GameLayer::changeCameraMoveStep() {
 
 void GameLayer::moveCameraX() {
 	schedule([=](float dt) {
-		if (_camera->getPositionX() >= 0 && _camera->getPositionX() <= 9 * default_tmx_width) {
+		if (_camera->getPositionX() >= 0 && _camera->getPositionX() < 9 * default_tmx_width) {
 			_camera->setPosition(_camera->getPositionX() + player->getSpeedX(), _camera->getPositionY());
 		}
 	}, 1.0f / 60, SCHEDULE_CAMERA_X);
@@ -371,33 +360,33 @@ void GameLayer::hawkKillPlayer() {
 }
 
 void GameLayer::showGameOver(int type) {
-	if (!isShowGameOver) {
-		isShowGameOver = true;
-		float delay = 0;
-		if (type == 1) {
-			delay = 1.0;
-			Audio::getInstance()->playSoundWater();
-			player->playerGoWater();
-		}
-		else if (type == 2) {
-			delay = 3;
-			Audio::getInstance()->playSoundHawk();
-			hawkKillPlayer();
-		}
-		else {
-			Audio::getInstance()->playSoundHit();
-			player->playerGoDie();
-			player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
-		}
+	//if (!isShowGameOver) {
+	//	isShowGameOver = true;
+	//	float delay = 0;
+	//	if (type == 1) {
+	//		delay = 1.0;
+	//		Audio::getInstance()->playSoundWater();
+	//		player->playerGoWater();
+	//	}
+	//	else if (type == 2) {
+	//		delay = 3;
+	//		Audio::getInstance()->playSoundHawk();
+	//		hawkKillPlayer();
+	//	}
+	//	else {
+	//		Audio::getInstance()->playSoundHit();
+	//		player->playerGoDie();
+	//		player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//死亡后图层下降
+	//	}
 
-		if (NULL == getChildByTag(100)) {
-			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
-				auto over = GameOver::create();
-				over->setTag(100);
-				addChild(over);
-			}), NULL));
-		}
-	}
+	//	if (NULL == getChildByTag(100)) {
+	//		this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
+	//			auto over = GameOver::create();
+	//			over->setTag(100);
+	//			addChild(over);
+	//		}), NULL));
+	//	}
+	//}
 }
 
 void GameLayer::update(float dt) {
@@ -517,5 +506,20 @@ void GameLayer::update(float dt) {
 	}
 	else {
 		cameraMoveRight = 0;
+	}
+
+	//检查玩家是否碰到了金币
+	vector<GoldIcon*>::iterator it;
+	if (goldList.size() != 0) {
+		for (it = goldList.begin(); it != goldList.end(); ++it) {
+			GoldIcon* myGold = *it;
+			if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
+				it = goldList.erase(it);
+				myGold->removeFromParent();
+				UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
+				Audio::getInstance()->playSoundGold();
+				return;
+			}
+		}
 	}
 }

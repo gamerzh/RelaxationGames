@@ -9,7 +9,7 @@ bool Player :: init() {
 		return false;
 	}
 	hero = CSLoader::createNode("rw.csb");
-	hero->setScale(0.5f);
+	hero->setScale(0.4f);
 	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	hero->setPosition(default_tmx_width/2,default_tmx_height/3);
 	addChild(hero);

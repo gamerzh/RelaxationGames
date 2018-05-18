@@ -20,11 +20,11 @@ bool Automobile::init(Camera* camera, int type, int direction, float speed, floa
 		return false;
 	}
 	this->camera = camera;
-	this->speed = speed*GeometryUtils::randomFloat(1.0, 1.5);
+	this->speed = speed*GeometryUtils::randomFloat(1.2, 1.5);
 	this->direction = direction;
-	this->interval = interval*GeometryUtils::randomFloat(1,2);//间隔时间有点短,改地图配置太麻烦
+	this->interval = interval*GeometryUtils::randomFloat(2,2.5);//间隔时间有点短,改地图配置太麻烦
 	int min = floor(interval);
-	this->time = GeometryUtils::randomFloat(min, 1.5*min);
+	this->time = GeometryUtils::randomFloat(min, 1.2*min);
 	this->automobileType = type;
 	this->postion = pos;
 	setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);

@@ -204,7 +204,7 @@
    <properties>
     <property name="direction" value="2"/>
     <property name="time" value="4"/>
-    <property name="type" value="3"/>
+    <property name="type" value="1"/>
    </properties>
   </object>
   <object id="173" x="756" y="1034">

@@ -1,7 +1,7 @@
 #include "PauseLayer.h"
 #include "GameScene.h"
 #include "GameStatus.h"
-#include "LoadScene.h"
+#include "StartScene.h"
 
 bool PauseLayer::init() {
 	if (!Layer::init()) {
@@ -24,7 +24,7 @@ void PauseLayer::initView() {
 
 	auto goBack = MenuItemImage::create("go_home.png","go_home.png",CC_CALLBACK_0(PauseLayer::goBackHome,this));
 	auto restart = MenuItemImage::create("start_re.png", "start_re.png", CC_CALLBACK_0(PauseLayer::gameResart, this));
-	auto conti = MenuItemImage::create("play_continue.png", "play_continue.png", CC_CALLBACK_0(PauseLayer::continueGame, this));
+	auto conti = MenuItemImage::create("result_continue.png", "result_continue.png", CC_CALLBACK_0(PauseLayer::continueGame, this));
 	auto boxMenu = Menu::create(goBack, restart, conti,NULL);
 	boxMenu->alignItemsVerticallyWithPadding(win.height / 15);
 	boxMenu->setPosition(win.width / 2, win.height / 2);
@@ -33,11 +33,17 @@ void PauseLayer::initView() {
 
 
 void PauseLayer::goBackHome() {
-	Director::getInstance()->replaceScene(LoadScene::createScene());
+	GameStatus::getInstance()->cleanScore();
+	GameStatus::getInstance()->setGameStatus(true);
+	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
+	Director::getInstance()->replaceScene(StartScene::createScene());
 }
 
 
 void PauseLayer::gameResart() {
+	GameStatus::getInstance()->cleanScore();
+	GameStatus::getInstance()->setGameStatus(true);
+	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
 	Director::getInstance()->replaceScene(GameScene::createScene());
 }
 
