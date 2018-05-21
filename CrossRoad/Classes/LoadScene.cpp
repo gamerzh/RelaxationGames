@@ -30,6 +30,21 @@ void LoadScene::loadView() {
 	loadbg->setPosition(win.width / 2, win.height / 2);
 	addChild(loadbg);
 
+	auto bg = Sprite::create("progress_bg.png");
+	bg->setPosition(win.width / 2, win.height / 8);
+	addChild(bg);
+
+	auto content = Sprite::create("progress.png");
+	auto timer = ProgressTimer::create(content);
+	timer->setPosition(win.width / 2, win.height / 8);
+	timer->setPercentage(0);
+	timer->setMidpoint(Vec2(0, 1));
+	timer->setBarChangeRate(Point(1, 0));
+	timer->setType(ProgressTimer::Type::BAR);
+	addChild(timer);
+	auto progress = ProgressFromTo::create(1.5f, 0, 100);
+	timer->runAction(progress);
+
 	//2秒后显示主界面
 	auto node = Node::create();
 	addChild(node);
