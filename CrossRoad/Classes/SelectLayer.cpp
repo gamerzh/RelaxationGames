@@ -1,6 +1,7 @@
 #include "SelectLayer.h"
 #include "SelectItem.h" 
 
+
 bool SelectLayer::init() {
 	if (!Layer::init()) {
 		return false;
@@ -43,3 +44,4 @@ void SelectLayer::loadView() {
 void SelectLayer::closeView() {
 	removeFromParent();
 }
+

@@ -1,6 +1,7 @@
 #include "GuideLayer.h"
 #include "UserData.h"
 #include "GameStatus.h"
+#include "Dream.h"
 
 bool GuideLayer::init() {
 	if (!Layer::init()) {
@@ -32,5 +33,8 @@ bool GuideLayer::init() {
 void GuideLayer::closeView() {
 	UserData::getInstance()->setShowGuide(true);
 	GameStatus::getInstance()->setGameStatus(true);
+	Dream::getInstance()->requestEvent(4);	//开始执行dream代码
+	//不论结果,玩家获得100金币
+	UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 100);
 	removeFromParent();
 }

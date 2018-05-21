@@ -4,6 +4,7 @@
 #include "GameStatus.h"
 #include "UserData.h"
 #include "Audio.h"
+#include "DreamNode.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -38,6 +39,9 @@ bool GameLayer::init(Camera* ca) {
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
 	Audio::getInstance()->playSoundCar();
+	auto kaiju = DreamNode::create(5,Vec2(_camera->getPositionX()+win.width/2,win.height/2));
+	kaiju->setCameraMask(int(CameraFlag::USER1));
+	addChild(kaiju, MaxZorder);
 	return true;
 }
 
@@ -378,14 +382,19 @@ void GameLayer::showGameOver(int type) {
 			player->playerGoDie();
 			player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
 		}
-
-		if (NULL == getChildByTag(100)) {
+		if (NULL == getChildByTag(99)) {
+			auto dreamAlive = DreamNode::create(7, Vec2(_camera->getPositionX() + win.width / 2, _camera->getPositionY() + win.height / 2));
+			dreamAlive->setCameraMask((int)CameraFlag::USER1);
+			dreamAlive->setTag(99);
+			addChild(dreamAlive,MaxZorder);
+		}
+		/*if (NULL == getChildByTag(100)) {
 			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
 				auto over = GameOver::create();
 				over->setTag(100);
 				addChild(over);
 			}), NULL));
-		}
+		}*/
 	}
 }
 
@@ -520,6 +529,16 @@ void GameLayer::update(float dt) {
 				Audio::getInstance()->playSoundGold();
 				return;
 			}
+		}
+	}
+
+	randomPassTime += dt;
+	if (randomPassTime > randomPrideTime) {
+		randomPassTime = 0;
+		if (NULL == getChildByTag(521)) {
+			auto pride = DreamNode::create(6,Vec2(win.width/2,win.height/2));
+			pride->setTag(521);
+			addChild(pride);
 		}
 	}
 }

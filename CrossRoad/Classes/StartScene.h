@@ -13,4 +13,7 @@ private:
 	void soundManage(Ref* ref);
 	void changePlayerModle();
 	void updateSound(MenuItemImage* imge);
+	void showDreamLogin();
+	void showDreamDay();
+	void showDreamHappy();
 };

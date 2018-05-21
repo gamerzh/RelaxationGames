@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "UserData.h"
 #include "SelectLayer.h"
+#include "DreamNode.h"
 #include "Audio.h"
 
 Scene* StartScene::createScene()
@@ -72,6 +73,9 @@ void StartScene::loadView() {
 	auto playerMod = Sprite::create("player_mod_0.png");
 	playerMod->setPosition(win.width / 2, win.height / 2);
 	addChild(playerMod);
+	showDreamHappy();
+	showDreamDay();
+	showDreamLogin();
 }
 
 void StartScene::startGame() {
@@ -99,4 +103,21 @@ void StartScene::updateSound(MenuItemImage* imge) {
 void StartScene::changePlayerModle() {
 	auto lau = SelectLayer::create();
 	addChild(lau);
+}
+
+void StartScene::showDreamLogin() {
+	auto win = Director::getInstance()->getWinSize();
+	auto login = DreamNode::create(1,Vec2(win.width/2,win.height/2));
+	addChild(login);
+}
+
+
+void StartScene::showDreamDay() {
+	auto win = Director::getInstance()->getWinSize();
+	auto login = DreamNode::create(2, Vec2(win.width / 2, win.height / 2));
+	addChild(login);
+}
+
+void StartScene::showDreamHappy() {
+	//отй╬в╙ел
 }
