@@ -54,7 +54,7 @@ bool UserData::getShowgGuide() {
 }
 
 void UserData::setShowGuide(bool show) {
-	UserDefault::getInstance()->getBoolForKey("show_guide", show);
+	UserDefault::getInstance()->setBoolForKey("show_guide", show);
 }
 
 std::vector<std::string> UserData::split(std::string str, std::string pattern)

@@ -30,6 +30,11 @@ void LoadScene::loadView() {
 	loadbg->setPosition(win.width / 2, win.height / 2);
 	addChild(loadbg);
 
+	//loading.png
+	auto text = Sprite::create("loading.png");
+	text->setPosition(win.width / 2, win.height / 6);
+	addChild(text);
+
 	auto bg = Sprite::create("progress_bg.png");
 	bg->setPosition(win.width / 2, win.height / 8);
 	addChild(bg);

@@ -32,23 +32,23 @@ import android.os.Bundle;
 
 public class AppActivity extends Cocos2dxActivity {
 	
+	public  final String TAG = AppActivity.this.getLocalClassName();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
 	
 	public static void exit(){
-		//退出接口
+		
 	}
 	
 	
 	public static void dream(int dreamId){
-		//实现梦想
 		
 	}
 	
 	public static void recordDream(String dreamName,String dreamAction){
-		//记录梦想
 		
 	}
 }

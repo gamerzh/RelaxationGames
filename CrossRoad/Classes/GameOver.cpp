@@ -3,6 +3,7 @@
 #include "StartScene.h"
 #include "UserData.h"
 #include "GameStatus.h"
+#include "Dream.h"
 
 bool GameOver::init() {
 	if (!Layer::init()) {

@@ -7,7 +7,7 @@ class Dream : public Ref
 {
 public:
 	static Dream* getInstance();
-	void requestEvent(std::string dreamId);
+	void requestEvent(int dreamId);
 	void recordEvent(std::string dreamId, std::string action);
 	void quitGame();
 	const char* getJniPath();
