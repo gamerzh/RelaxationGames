@@ -28,5 +28,28 @@ package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.os.Bundle;
+
 public class AppActivity extends Cocos2dxActivity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+	public static void exit(){
+		//退出接口
+	}
+	
+	
+	public static void dream(int dreamId){
+		//实现梦想
+		
+	}
+	
+	public static void recordDream(String dreamName,String dreamAction){
+		//记录梦想
+		
+	}
 }
+
