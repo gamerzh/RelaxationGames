@@ -14,6 +14,8 @@ public:
 	void addPlayerMod(std::string msg);
 	float getMusicStatus();
 	void setMusicStatus(float open);
+	bool getShowgGuide();
+	void setShowGuide(bool show);
 private:
 	static  UserData* m_instance;
 	UserData() {};

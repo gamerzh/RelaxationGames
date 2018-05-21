@@ -49,6 +49,14 @@ void UserData::setMusicStatus(float open) {
 	UserDefault::getInstance()->setFloatForKey("music_status", open);
 }
 
+bool UserData::getShowgGuide() {
+	return UserDefault::getInstance()->getBoolForKey("show_guide", false);
+}
+
+void UserData::setShowGuide(bool show) {
+	UserDefault::getInstance()->getBoolForKey("show_guide", show);
+}
+
 std::vector<std::string> UserData::split(std::string str, std::string pattern)
 {
 	std::string::size_type pos;

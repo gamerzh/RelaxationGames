@@ -360,33 +360,33 @@ void GameLayer::hawkKillPlayer() {
 }
 
 void GameLayer::showGameOver(int type) {
-	//if (!isShowGameOver) {
-	//	isShowGameOver = true;
-	//	float delay = 0;
-	//	if (type == 1) {
-	//		delay = 1.0;
-	//		Audio::getInstance()->playSoundWater();
-	//		player->playerGoWater();
-	//	}
-	//	else if (type == 2) {
-	//		delay = 3;
-	//		Audio::getInstance()->playSoundHawk();
-	//		hawkKillPlayer();
-	//	}
-	//	else {
-	//		Audio::getInstance()->playSoundHit();
-	//		player->playerGoDie();
-	//		player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
-	//	}
+	if (!isShowGameOver) {
+		isShowGameOver = true;
+		float delay = 0;
+		if (type == 1) {
+			delay = 1.0;
+			Audio::getInstance()->playSoundWater();
+			player->playerGoWater();
+		}
+		else if (type == 2) {
+			delay = 3;
+			Audio::getInstance()->playSoundHawk();
+			hawkKillPlayer();
+		}
+		else {
+			Audio::getInstance()->playSoundHit();
+			player->playerGoDie();
+			player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
+		}
 
-	//	if (NULL == getChildByTag(100)) {
-	//		this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
-	//			auto over = GameOver::create();
-	//			over->setTag(100);
-	//			addChild(over);
-	//		}), NULL));
-	//	}
-	//}
+		if (NULL == getChildByTag(100)) {
+			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
+				auto over = GameOver::create();
+				over->setTag(100);
+				addChild(over);
+			}), NULL));
+		}
+	}
 }
 
 void GameLayer::update(float dt) {

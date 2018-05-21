@@ -2,6 +2,7 @@
 #include "PauseLayer.h"
 #include "GameStatus.h"
 #include "UserData.h"
+#include "GuideLayer.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -43,9 +44,14 @@ bool GameScene::init()
 	addChild(playerCamera, 1);//添加到当前场景里
 
 	mapLayer = GameLayer::create(playerCamera);
-	mapLayer->setCameraMask(2);
+	mapLayer->setCameraMask((int)CameraFlag::USER1);
 	addChild(mapLayer);
 
+	if (!UserData::getInstance()->getShowgGuide()) {
+		GameStatus::getInstance()->setGameStatus(false);
+		auto guide = GuideLayer::create();
+		addChild(guide);
+	}
 
 	scheduleUpdate();
 
