@@ -39,7 +39,7 @@ bool GameLayer::init(Camera* ca) {
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
 	Audio::getInstance()->playSoundCar();
-	auto kaiju = DreamNode::create(5,Vec2(_camera->getPositionX()+win.width/2,win.height/2));
+	auto kaiju = DreamNode::create(5, Vec2(_camera->getPositionX() + win.width / 2, win.height / 2));
 	kaiju->setCameraMask(int(CameraFlag::USER1));
 	addChild(kaiju, MaxZorder);
 	return true;
@@ -146,7 +146,7 @@ void GameLayer::createAutomoblie(Camera* camera, int type, int direction, int sp
 
 void GameLayer::createWood(int type, int dir, int time, Point pos) {
 	auto line = round(pos.y / default_tmx_height) + (used_map_node - 1)*defult_tmx_y_num;
-	auto wood = Wood::create(_camera, type, dir, time,pos);
+	auto wood = Wood::create(_camera, type, dir, time, pos);
 	wood->setCameraMask(int(CameraFlag::USER1));
 	wood->setMapIndex(used_map_node);
 	addChild(wood, MaxZorder - line);
@@ -273,12 +273,12 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		else {
 
 			//if (player->getPositionX() < default_tmx_width * 17) {
-				cameraMoveY += default_tmx_height*0.6;
-				cameraMoveRight += PLAYER_JUMP_OFFSET;
-				if (player->playerJumpForward(treeList)) {
-					GameStatus::getInstance()->plusStepNum();
-					playerStayTime = 0;
-				}
+			cameraMoveY += default_tmx_height*0.6;
+			cameraMoveRight += PLAYER_JUMP_OFFSET;
+			if (player->playerJumpForward(treeList)) {
+				GameStatus::getInstance()->plusStepNum();
+				playerStayTime = 0;
+			}
 			//}
 
 		}
@@ -364,6 +364,9 @@ void GameLayer::hawkKillPlayer() {
 }
 
 void GameLayer::showGameOver(int type) {
+	if (GameStatus::getInstance()->getInvincible()) {
+		return;
+	}
 	if (!isShowGameOver) {
 		isShowGameOver = true;
 		float delay = 0;
@@ -383,18 +386,14 @@ void GameLayer::showGameOver(int type) {
 			player->setLocalZOrder(player->getLocalZOrder() - PlayerZorder);//ËÀÍöºóÍ¼²ãÏÂ½µ
 		}
 		if (NULL == getChildByTag(99)) {
-			auto dreamAlive = DreamNode::create(7, Vec2(_camera->getPositionX() + win.width / 2, _camera->getPositionY() + win.height / 2));
-			dreamAlive->setCameraMask((int)CameraFlag::USER1);
-			dreamAlive->setTag(99);
-			addChild(dreamAlive,MaxZorder);
-		}
-		/*if (NULL == getChildByTag(100)) {
 			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
-				auto over = GameOver::create();
-				over->setTag(100);
-				addChild(over);
+				auto dreamAlive = DreamNode::create(7, Vec2(_camera->getPositionX() + win.width / 2, _camera->getPositionY() + win.height / 2));
+				dreamAlive->setCameraMask((int)CameraFlag::USER1);
+				dreamAlive->setTag(99);
+				addChild(dreamAlive, MaxZorder);
 			}), NULL));
-		}*/
+		}
+
 	}
 }
 
@@ -406,6 +405,12 @@ void GameLayer::update(float dt) {
 			allowJump = true;
 		}
 	}
+
+	if (GameStatus::getInstance()->getInvincible() == true) {
+		isShowGameOver = false;
+		player->playerInvincible();
+	}
+
 
 	if (mapList.size() == 0) {
 		return;
@@ -433,14 +438,6 @@ void GameLayer::update(float dt) {
 		if (GeometryUtils::intersectsRect(tra->getTrainObjectBox(), player->getPlayerCheckRect())) {
 			showGameOver(0);
 		}
-		//auto train = tra->getTrainObject();
-		//if (train != nullptr) {
-			/*log("Train Rect(%.1f,%.1f,%.1f,%.1f)",
-				train->getBoundingBox().getMinX(),
-				train->getBoundingBox().getMinY(),
-				train->getBoundingBox().getMaxX() - train->getBoundingBox().getMinX(),
-				train->getBoundingBox().getMaxY() - train->getBoundingBox().getMinY());*/
-				//}
 	}
 
 	auto playerLine = round(player->getPositionY() / default_tmx_height);
@@ -532,11 +529,19 @@ void GameLayer::update(float dt) {
 		}
 	}
 
+	if (GameStatus::getInstance()->getInvincible()) {
+		invincibleTime -= dt;
+		if (invincibleTime < 0) {
+			GameStatus::getInstance()->setInvincible(false);
+			invincibleTime = 10;
+		}
+	}
+
 	randomPassTime += dt;
 	if (randomPassTime > randomPrideTime) {
 		randomPassTime = 0;
 		if (NULL == getChildByTag(521)) {
-			auto pride = DreamNode::create(6,Vec2(win.width/2,win.height/2));
+			auto pride = DreamNode::create(6, Vec2(win.width / 2, win.height / 2));
 			pride->setTag(521);
 			addChild(pride);
 		}

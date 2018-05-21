@@ -23,6 +23,7 @@ bool StartScene::init()
 		return false;
 	}
 	loadView();
+	scheduleUpdate();
 	return true;
 }
 
@@ -63,11 +64,12 @@ void StartScene::loadView() {
 	goldbg->setPosition(win.width / 2, win.height);
 	addChild(goldbg);
 	//num_white
-	auto number = String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum()) ->_string;
+	auto number = String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum())->_string;
 	auto goldnum = LabelAtlas::create(number, "gold_num_small.png", 41, 40, '0');
 	goldnum->setAnchorPoint(Point::ANCHOR_MIDDLE);
+	goldnum->setTag(555);
 	float offset = 3.2 * number.size();
-	goldnum->setPosition(win.width / 2+ offset, win.height*0.97);
+	goldnum->setPosition(win.width / 2 + offset, win.height*0.97);
 	addChild(goldnum);
 
 	auto playerMod = Sprite::create("player_mod_0.png");
@@ -76,6 +78,23 @@ void StartScene::loadView() {
 	showDreamHappy();
 	showDreamDay();
 	showDreamLogin();
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyReleased = [=](EventKeyboard::KeyCode code, Event * e) {
+		switch (code)
+		{
+		case cocos2d::EventKeyboard::KeyCode::KEY_NONE:
+			break;
+		case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
+			DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
+			addChild(nod);
+		}
+														break;
+
+		default:
+			break;
+		}
+	};
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 void StartScene::startGame() {
@@ -107,7 +126,7 @@ void StartScene::changePlayerModle() {
 
 void StartScene::showDreamLogin() {
 	auto win = Director::getInstance()->getWinSize();
-	auto login = DreamNode::create(1,Vec2(win.width/2,win.height/2));
+	auto login = DreamNode::create(1, Vec2(win.width / 2, win.height / 2));
 	addChild(login);
 }
 
@@ -120,4 +139,13 @@ void StartScene::showDreamDay() {
 
 void StartScene::showDreamHappy() {
 	//ÏÔÊ¾×ªÅÌ
+	auto win = Director::getInstance()->getWinSize();
+	auto login = DreamNode::create(3, Vec2(win.width / 2, win.height / 2));
+	addChild(login);
+}
+
+void StartScene::update(float dt) {
+	if (NULL != getChildByTag(555)) {
+		((LabelAtlas*)getChildByTag(555))->setString(String::createWithFormat("%d", UserData::getInstance()->getPlayerGoldNum())->_string);
+	}
 }

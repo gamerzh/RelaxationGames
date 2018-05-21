@@ -37,6 +37,7 @@ public:
 	float getSpeedX();
 	void playerGoDie();
 	void playerGoWater();
+	void playerInvincible();
 	CC_SYNTHESIZE(bool, playerOnWood, PlayerOnWood);
 private:
 	float offset_path = 0;

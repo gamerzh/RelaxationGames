@@ -52,6 +52,8 @@ void GameOver::continueGame() {
 	GameStatus::getInstance()->cleanScore();
 	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
 	Director::getInstance()->replaceScene(GameScene::createScene());
+	UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
+	Dream::getInstance()->requestEvent(8);
 }
 
 void GameOver::goLoading() {

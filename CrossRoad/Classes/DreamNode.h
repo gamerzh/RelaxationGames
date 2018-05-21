@@ -12,4 +12,5 @@ private:
 	std::string getButtonById(int dreamId);
 	void doActionById();
 	void closeView();
+	void startPride();
 };

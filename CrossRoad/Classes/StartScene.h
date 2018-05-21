@@ -16,4 +16,5 @@ private:
 	void showDreamLogin();
 	void showDreamDay();
 	void showDreamHappy();
+	void update(float dt);
 };

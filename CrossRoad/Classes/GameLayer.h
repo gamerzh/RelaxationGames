@@ -45,6 +45,7 @@ private:
 	float jumpInterval = 0.30f;
 	const float randomPrideTime = 25;
 	float  randomPassTime = 0;
+	float invincibleTime = 10;
 	Camera* _camera;
 	Vec2 preTouchPoint;
 	Gesture playerGesture;

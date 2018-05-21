@@ -288,6 +288,7 @@ void Player::playerGoDie() {
 	hero->setVisible(false);
 	auto die = Sprite::create("player_die.png");
 	die->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+	die->setTag(901);
 	die->setPosition(0, 0);
 	die->setCameraMask(int(CameraFlag::USER1));
 	addChild(die,2);
@@ -307,5 +308,12 @@ void Player::playerGoWater() {
 	node->runAction(Sequence::create(DelayTime::create(0.5f), CallFunc::create([=]() {
 		node->setVisible(false);
 	}),NULL));
+}
+
+void Player::playerInvincible() {
+	hero->setVisible(true);
+	if (NULL != getChildByTag(901)) {
+		getChildByTag(901)->removeFromParent();
+	}
 }
 

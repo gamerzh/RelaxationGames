@@ -39,3 +39,12 @@ bool GameStatus::getGameStatus() {
 void GameStatus::setGameStatus(bool p) {
 	this->paused = p;
 }
+
+bool GameStatus::getInvincible() {
+	return this->invincible;
+}
+
+
+void GameStatus::setInvincible(bool p) {
+	this->invincible = p;
+}
