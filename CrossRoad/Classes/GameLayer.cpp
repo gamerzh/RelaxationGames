@@ -273,7 +273,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 
 			//if (player->getPositionX() < default_tmx_width * 17) {
 			cameraMoveY += default_tmx_height*0.72;
-			cameraMoveRight += PLAYER_JUMP_OFFSET;
+			cameraMoveRight += PLAYER_JUMP_OFFSET*0.5;
 			if (player->playerJumpForward(treeList)) {
 				GameStatus::getInstance()->plusStepNum();
 				playerStayTime = 0;
