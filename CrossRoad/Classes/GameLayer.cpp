@@ -5,6 +5,7 @@
 #include "UserData.h"
 #include "Audio.h"
 #include "DreamNode.h"
+#include "Dream.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -39,9 +40,11 @@ bool GameLayer::init(Camera* ca) {
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
 	Audio::getInstance()->playSoundCar();
-	auto kaiju = DreamNode::create(5, Vec2(_camera->getPositionX() + win.width / 2, win.height / 2));
-	kaiju->setCameraMask(int(CameraFlag::USER1));
-	addChild(kaiju, MaxZorder);
+	if (GOV_CHECK_VERSION) {
+		auto kaiju = DreamNode::create(5, Vec2(_camera->getPositionX() + win.width / 2, win.height / 2));
+		kaiju->setCameraMask(int(CameraFlag::USER1));
+		addChild(kaiju, MaxZorder);
+	}
 	return true;
 }
 

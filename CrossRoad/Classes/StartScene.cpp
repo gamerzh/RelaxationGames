@@ -77,7 +77,10 @@ void StartScene::loadView() {
 	auto playerMod = Sprite::create("player_mod_0.png");
 	playerMod->setPosition(win.width / 2, win.height / 2);
 	addChild(playerMod);
-	showDreamLogin();
+	if (GOV_CHECK_VERSION) {
+		showDreamLogin();
+	}
+
 	Dream::getInstance()->recordEvent(main_show, main_show);
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyReleased = [=](EventKeyboard::KeyCode code, Event * e) {
@@ -86,8 +89,10 @@ void StartScene::loadView() {
 		case cocos2d::EventKeyboard::KeyCode::KEY_NONE:
 			break;
 		case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
-			DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
-			addChild(nod);
+			if (GOV_CHECK_VERSION) {
+				DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
+				addChild(nod);
+			}
 		}
 														break;
 

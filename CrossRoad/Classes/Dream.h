@@ -3,6 +3,8 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
+#define GOV_CHECK_VERSION  1 //正常版本1,审核版本0
+
 class Dream : public Ref
 {
 public:

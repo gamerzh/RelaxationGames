@@ -7,6 +7,8 @@ public:
 	static DreamNode* create(int dreamId,Vec2 pos);
 	virtual bool init(int dreamId, Vec2 pos);
 private:
+	bool isHavePride = false;
+	Vec2 position;
 	CC_SYNTHESIZE(int,dreamId,DreamId);
 	std::string getContentById(int dreamId);
 	std::string getButtonById(int dreamId);

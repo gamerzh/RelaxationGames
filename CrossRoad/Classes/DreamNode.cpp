@@ -1,9 +1,10 @@
 #include "DreamNode.h"
 #include "UserData.h"
 #include "Dream.h"
+#include "DreamEvent.h"
 #include "GameStatus.h"
 #include "GameOver.h"
-#include "DreamEvent.h"
+#include "DreamConfirm.h"
 
 DreamNode* DreamNode::create(int dreamId, Vec2 pos) {
 	DreamNode* ret = new DreamNode();
@@ -22,11 +23,19 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 	if (!Node::init()) {
 		return false;
 	}
-	auto win = Director::getInstance()->getWinSize();
+	position = pos;
 	setDreamId(dreamId);
+
+	auto win = Director::getInstance()->getWinSize();
 	auto bg = Sprite::create("black_a.png");
 	bg->setPosition(pos);
 	addChild(bg);
+
+	auto mm = Sprite::create("jxb.png");
+	mm->setAnchorPoint(Vec2(0, 0));
+	mm->setOpacity(35);
+	mm->setPosition(pos.x-360,pos.y-640);
+	addChild(mm);
 
 	Director::getInstance()->pause();
 
@@ -35,9 +44,10 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		content->setPosition(pos);
 		addChild(content);
 
-
+		auto quan = MenuItem::create(CC_CALLBACK_0(DreamNode::doActionById, this));
+		quan->setContentSize(Size(win.width, win.height));
 		auto button = MenuItemImage::create(getButtonById(dreamId), getButtonById(dreamId), CC_CALLBACK_0(DreamNode::doActionById, this));
-		auto menu = Menu::create(button, NULL);
+		auto menu = Menu::create(quan,button, NULL);
 		menu->setPosition(pos.x, pos.y - 300);
 		addChild(menu);
 
@@ -58,9 +68,11 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		turntable->setPosition(pos);
 		addChild(turntable);
 
+		auto quan = MenuItem::create(CC_CALLBACK_0(DreamNode::startPride, this));
+		quan->setContentSize(Size(win.width, win.height));
 		auto start = MenuItemImage::create("zhuanpan_btn.png", "zhuanpan_btn.png", CC_CALLBACK_0(DreamNode::startPride, this));
 		start->setAnchorPoint(Point::ANCHOR_MIDDLE);
-		auto startMenu = Menu::create(start, NULL);
+		auto startMenu = Menu::create(quan,start, NULL);
 		startMenu->setPosition(pos.x, pos.y + 30);
 		addChild(startMenu);
 
@@ -120,19 +132,34 @@ void DreamNode::doActionById() {
 		Dream::getInstance()->recordEvent(jfd_5_pay, jfd_5_pay);
 		GameStatus::getInstance()->setDoubleScore(true);
 		Dream::getInstance()->requestEvent(getDreamId());
+	
 	}
 	else if (getDreamId() == 6) {
 		//无敌
-		Dream::getInstance()->recordEvent(jfd_6_pay, jfd_6_pay);
-		GameStatus::getInstance()->setInvincible(true);
-		Dream::getInstance()->requestEvent(getDreamId());
+		if (GOV_CHECK_VERSION) {
+			Dream::getInstance()->recordEvent(jfd_6_pay, jfd_6_pay);
+			GameStatus::getInstance()->setInvincible(true);
+			Dream::getInstance()->requestEvent(getDreamId());
+		}
+		else {
+			auto infi = DreamConfirm::create(6, Vec2(win.width / 2, win.height / 2));
+			//infi->setCameraMask((int)CameraFlag::USER1);
+			getParent()->addChild(infi);
+		}
 	}
 	else if (getDreamId() == 7) {
 		//复活和无敌
-		Dream::getInstance()->recordEvent(jfd_7_pay, jfd_7_pay);
-		GameStatus::getInstance()->setInvincible(true);
-		GameStatus::getInstance()->setResurgence(true);
-		Dream::getInstance()->requestEvent(getDreamId());
+		if (GOV_CHECK_VERSION) {
+			Dream::getInstance()->recordEvent(jfd_7_pay, jfd_7_pay);
+			GameStatus::getInstance()->setInvincible(true);
+			GameStatus::getInstance()->setResurgence(true);
+			Dream::getInstance()->requestEvent(getDreamId());
+		}
+		else {
+			auto infi = DreamConfirm::create(7, Vec2(win.width / 2, win.height / 2));
+			//infi->setCameraMask((int)CameraFlag::USER1);
+			getParent()->addChild(infi);
+		}
 	}
 	else if (getDreamId() == 9) {
 		Dream::getInstance()->recordEvent(jfd_9_pay, jfd_9_pay);
@@ -148,7 +175,8 @@ void DreamNode::doActionById() {
 }
 
 void DreamNode::startPride() {
-	if (NULL != getChildByTag(1024)) {
+	if (NULL != getChildByTag(1024) && !isHavePride) {
+		isHavePride = true;
 		auto spr = (Sprite*)getChildByTag(1024);
 		auto step1 = RotateTo::create(2, 360 * 10);
 		auto repe = Repeat::create(step1, CC_REPEAT_FOREVER);
