@@ -87,6 +87,9 @@
     <ClCompile Include="..\Classes\DreamConfirm.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\DreamCallback.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -165,6 +168,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\DreamConfirm.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamCallback.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

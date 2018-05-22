@@ -20,6 +20,7 @@ bool DreamConfirm::init(int dreamId, Vec2 pos) {
 		return false;
 	}
 	Director::getInstance()->pause();
+
 	dream_id = dreamId;
 	auto win = Director::getInstance()->getWinSize();
 

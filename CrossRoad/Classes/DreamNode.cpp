@@ -58,10 +58,9 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		addChild(closeMenu);
 	}
 	else {
-		auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
-		auto closeMenu = Menu::create(close, NULL);
-		closeMenu->setPosition(pos.x + 300, pos.y + 400);
-		addChild(closeMenu);
+		Director::getInstance()->resume();
+
+
 
 		auto turntable = Sprite::create("zhuanpan.png");
 		turntable->setTag(1024);
@@ -75,6 +74,11 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		auto startMenu = Menu::create(quan,start, NULL);
 		startMenu->setPosition(pos.x, pos.y + 30);
 		addChild(startMenu);
+
+		auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
+		auto closeMenu = Menu::create(close, NULL);
+		closeMenu->setPosition(pos.x + 300, pos.y + 400);
+		addChild(closeMenu);
 
 	}
 
@@ -110,6 +114,7 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 void DreamNode::doActionById() {
 	//开始执行dream代码
+	Director::getInstance()->resume();
 	auto win = Director::getInstance()->getWinSize();
 	if (getDreamId() == 1 ) {
 		//玩家金币加100
@@ -170,7 +175,6 @@ void DreamNode::doActionById() {
 		Dream::getInstance()->recordEvent(jfd_10_pay, jfd_10_pay);
 		Dream::getInstance()->quitGame();
 	}
-	Director::getInstance()->resume();
 	removeFromParent();
 }
 
@@ -210,8 +214,8 @@ void DreamNode::startPride() {
 }
 
 void DreamNode::closeView() {
-	auto win = Director::getInstance()->getWinSize();
 	Director::getInstance()->resume();
+	auto win = Director::getInstance()->getWinSize();
 	if (getDreamId() == 1) {
 		Dream::getInstance()->recordEvent(jfd_1_close, jfd_1_close);
 		auto login = DreamNode::create(2, Vec2(win.width / 2, win.height / 2));
@@ -291,7 +295,7 @@ std::string DreamNode::getButtonById(int dreamId) {
 	case 9:
 		return "dream_btn_1.png";
 	case 10:
-		return "dream_8.png";
+		return "dream_btn_1.png";
 	default:
 		return "dream_btn_1.png";
 	}

@@ -12,6 +12,7 @@ public:
 	void requestEvent(int dreamId);
 	void recordEvent(std::string dreamId, std::string action);
 	void quitGame();
+	void getDreamTimes();
 	const char* getJniPath();
 private:
 	std::string _jniPath;

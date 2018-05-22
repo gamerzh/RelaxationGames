@@ -58,3 +58,15 @@ void Dream::quitGame() {
 	}
 #endif
 }
+
+void Dream::getDreamTimes() {
+	log("getDreamTimes getDreamTimes getDreamTimes");
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	JniMethodInfo methodInfo;
+	auto path = String::createWithFormat("%s%s", JAVA_SRC, "");
+	bool isHave = JniHelper::getStaticMethodInfo(methodInfo, path->getCString(), "getDreamTime", "()V");
+	if (isHave) {
+		JniHelper::getEnv()->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+	}
+#endif
+}

@@ -149,6 +149,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Automobile.cpp" />
     <ClCompile Include="..\Classes\Block.cpp" />
     <ClCompile Include="..\Classes\Dream.cpp" />
+    <ClCompile Include="..\Classes\DreamCallback.cpp" />
     <ClCompile Include="..\Classes\DreamConfirm.cpp" />
     <ClCompile Include="..\Classes\DreamNode.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
@@ -176,6 +177,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Automobile.h" />
     <ClInclude Include="..\Classes\Block.h" />
     <ClInclude Include="..\Classes\Dream.h" />
+    <ClInclude Include="..\Classes\DreamCallback.h" />
     <ClInclude Include="..\Classes\DreamConfirm.h" />
     <ClInclude Include="..\Classes\DreamEvent.h" />
     <ClInclude Include="..\Classes\DreamNode.h" />

@@ -37,12 +37,23 @@ public class AppActivity extends Cocos2dxActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 	}
+	
+	@Override
+		protected void onResume() {
+			// TODO Auto-generated method stub
+			super.onResume();
+		}
 	
 	public static void exit(){
 		
 	}
 	
+	
+	public static void getDreamTime(){
+		JniDreamCallbackHelper.dreamCallBack(1, 1);
+	}
 	
 	public static void dream(int dreamId){
 		

@@ -131,6 +131,7 @@ void StartScene::changePlayerModle() {
 }
 
 void StartScene::showDreamLogin() {
+	Dream::getInstance()->getDreamTimes();
 	auto win = Director::getInstance()->getWinSize();
 	auto login = DreamNode::create(1, Vec2(win.width / 2, win.height / 2));
 	addChild(login);
