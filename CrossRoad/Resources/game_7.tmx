@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="18" height="40" tilewidth="80" tileheight="74" infinite="0" nextobjectid="191">
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="18" height="40" tilewidth="80" tileheight="74" infinite="0" nextobjectid="197">
  <tileset firstgid="1" name="road" tilewidth="80" tileheight="74" tilecount="360" columns="18">
   <image source="road.png" width="1508" height="1480"/>
  </tileset>
@@ -212,7 +212,7 @@
     <property name="type" value="3"/>
    </properties>
   </object>
-  <object id="183" x="1040" y="1258" width="80" height="74">
+  <object id="183" x="1280" y="1258" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
@@ -227,12 +227,12 @@
     <property name="type" value="3"/>
    </properties>
   </object>
-  <object id="186" x="800" y="74" width="80" height="74">
+  <object id="186" x="1360" y="222" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
   </object>
-  <object id="187" x="480" y="222" width="80" height="74">
+  <object id="187" x="1200" y="222" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
@@ -249,6 +249,16 @@
     <property name="direction" value="2"/>
     <property name="time" value="3.8"/>
     <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object id="194" x="1360" y="1036" width="80" height="74">
+   <properties>
+    <property name="type" value="7"/>
+   </properties>
+  </object>
+  <object id="195" x="1120" y="814" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
    </properties>
   </object>
  </objectgroup>
@@ -303,9 +313,9 @@
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="135" x="1040" y="2516" width="80" height="74">
+  <object id="135" x="1360" y="2368" width="80" height="74">
    <properties>
-    <property name="type" value="2"/>
+    <property name="type" value="3"/>
    </properties>
   </object>
   <object id="136" x="1280" y="2442" width="80" height="74">
@@ -323,17 +333,17 @@
     <property name="type" value="3"/>
    </properties>
   </object>
-  <object id="140" x="1040" y="2146" width="80" height="74">
+  <object id="140" x="1360" y="2146" width="80" height="74">
    <properties>
     <property name="type" value="4"/>
    </properties>
   </object>
-  <object id="141" x="960" y="1850" width="80" height="74">
+  <object id="141" x="1360" y="1850" width="80" height="74">
    <properties>
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="142" x="1120" y="1776" width="80" height="74">
+  <object id="142" x="1280" y="1776" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
@@ -353,17 +363,17 @@
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="146" x="720" y="1480" width="80" height="74">
+  <object id="146" x="1360" y="1480" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
   </object>
-  <object id="147" x="1280" y="1258" width="80" height="74">
+  <object id="147" x="1360" y="1184" width="80" height="74">
    <properties>
     <property name="type" value="1"/>
    </properties>
   </object>
-  <object id="148" x="1120" y="1036" width="80" height="74">
+  <object id="148" x="1360" y="814" width="80" height="74">
    <properties>
     <property name="type" value="2"/>
    </properties>
@@ -373,12 +383,12 @@
     <property name="type" value="4"/>
    </properties>
   </object>
-  <object id="150" x="1040" y="962" width="80" height="74">
+  <object id="150" x="1203.64" y="889.273" width="80" height="74">
    <properties>
     <property name="type" value="1"/>
    </properties>
   </object>
-  <object id="151" x="960" y="962" width="80" height="74">
+  <object id="151" x="1360" y="962" width="80" height="74">
    <properties>
     <property name="type" value="1"/>
    </properties>
@@ -423,17 +433,17 @@
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="161" x="960" y="444" width="80" height="74">
+  <object id="161" x="1200" y="370" width="80" height="74">
    <properties>
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="162" x="1120" y="370" width="80" height="74">
+  <object id="162" x="1360" y="444" width="80" height="74">
    <properties>
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="163" x="1120" y="518" width="80" height="74">
+  <object id="163" x="1120" y="444" width="80" height="74">
    <properties>
     <property name="type" value="2"/>
    </properties>
@@ -443,14 +453,34 @@
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="165" x="1280" y="222" width="80" height="74">
+  <object id="165" x="1360" y="74" width="80" height="74">
    <properties>
     <property name="type" value="1"/>
    </properties>
   </object>
-  <object id="166" x="1120" y="148" width="80" height="74">
+  <object id="166" x="1280" y="148" width="80" height="74">
    <properties>
     <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object id="191" x="1280" y="2812" width="80" height="74">
+   <properties>
+    <property name="type" value="4"/>
+   </properties>
+  </object>
+  <object id="192" x="1360" y="2886" width="80" height="74">
+   <properties>
+    <property name="type" value="4"/>
+   </properties>
+  </object>
+  <object id="193" x="1360" y="2516" width="80" height="74">
+   <properties>
+    <property name="type" value="4"/>
+   </properties>
+  </object>
+  <object id="196" x="1200" y="518" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
    </properties>
   </object>
  </objectgroup>

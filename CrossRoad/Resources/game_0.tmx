@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="18" height="40" tilewidth="80" tileheight="74" infinite="0" nextobjectid="175">
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="18" height="40" tilewidth="80" tileheight="74" infinite="0" nextobjectid="189">
  <tileset firstgid="1" name="road" tilewidth="80" tileheight="74" tilecount="360" columns="18">
   <image source="road.png" width="1508" height="1480"/>
  </tileset>
@@ -187,7 +187,7 @@
    </properties>
    <point/>
   </object>
-  <object id="165" x="720" y="2590" width="80" height="74">
+  <object id="165" x="880" y="2590" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
@@ -197,7 +197,7 @@
     <property name="type" value="3"/>
    </properties>
   </object>
-  <object id="167" x="880" y="1776" width="80" height="74">
+  <object id="167" x="1120" y="1776" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
@@ -218,6 +218,21 @@
    </properties>
   </object>
   <object id="171" x="720" y="0" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="176" x="1200" y="2442" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="183" x="1200" y="1036" width="80" height="74">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="188" x="1200" y="74" width="80" height="74">
    <properties>
     <property name="type" value="3"/>
    </properties>
@@ -264,7 +279,7 @@
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="136" x="1200" y="2294" width="80" height="74">
+  <object id="136" x="1360" y="2294" width="80" height="74">
    <properties>
     <property name="type" value="2"/>
    </properties>
@@ -304,7 +319,7 @@
     <property name="type" value="2"/>
    </properties>
   </object>
-  <object id="144" x="1280" y="1924" width="80" height="74">
+  <object id="144" x="1280" y="1998" width="80" height="74">
    <properties>
     <property name="type" value="2"/>
    </properties>
@@ -374,7 +389,7 @@
     <property name="type" value="5"/>
    </properties>
   </object>
-  <object id="173" x="960" y="2812" width="240.425" height="148.533">
+  <object id="173" x="960" y="2664" width="240.425" height="148.533">
    <properties>
     <property name="type" value="6"/>
    </properties>
@@ -382,6 +397,56 @@
   <object id="174" x="1200" y="2738" width="240.425" height="148.533">
    <properties>
     <property name="type" value="6"/>
+   </properties>
+  </object>
+  <object id="177" x="1360" y="2442" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="178" x="1200" y="1998" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="179" x="960" y="1850" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="180" x="1280" y="1480" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="181" x="1200" y="1406" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="182" x="1360" y="1406" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="184" x="1200" y="518" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="185" x="1120" y="444" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="186" x="1360" y="518" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
+   </properties>
+  </object>
+  <object id="187" x="1280" y="148" width="80" height="74">
+   <properties>
+    <property name="type" value="2"/>
    </properties>
   </object>
  </objectgroup>
