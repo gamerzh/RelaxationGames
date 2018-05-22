@@ -93,7 +93,6 @@ void GameLayer::addGameMap() {
 	}
 	node->setCameraMask(int(CameraFlag::USER1));
 	addChild(node);
-	//log("HHHHHHHHHHH %f,%f", node->getPositionX(),node->getPositionY());
 	mapList.push_back(node);
 	++used_map_node;
 
@@ -295,13 +294,13 @@ void GameLayer::updateTreeZorder() {
 void GameLayer::changeCameraMoveStep() {
 	//更具玩家和摄像机的距离调整步幅
 	if (cameraMoveY > 2 * default_tmx_height) {
-		cameraMoveStepY = 6;
+		cameraMoveStepY = 4;
 	}
 	else if (cameraMoveY > 4 * default_tmx_height) {
-		cameraMoveStepY = 9;
+		cameraMoveStepY = 8;
 	}
 	else {
-		cameraMoveStepY = 3;
+		cameraMoveStepY = 2;
 	}
 
 	if (cameraMoveRight > 0) {
@@ -398,6 +397,72 @@ void GameLayer::showGameOver(int type) {
 	}
 }
 
+
+void GameLayer::recycleResource() {
+	//回收树木
+	vector<Block*>::iterator tree;
+	for (tree = treeList.begin(); tree != treeList.end(); ) {
+		auto tre = *tree;
+		if (tre->getPositionY() < _camera->getPositionY() - default_tmx_height * 3) {
+			tree = treeList.erase(tree);
+			tre->removeFromParent();
+		}
+		else {
+			++tree;
+		}
+	}
+
+	//回收金币
+	vector<GoldIcon*>::iterator goldIt;
+	for (goldIt = goldList.begin(); goldIt != goldList.end(); ) {
+		auto god = *goldIt;
+		if (god->getPositionY() < _camera->getPositionY() - default_tmx_height * 3) {
+			goldIt = goldList.erase(goldIt);
+			god->removeFromParent();
+		}
+		else {
+			++goldIt;
+		}
+	}
+
+	//回收卡车
+	vector<Automobile*>::iterator carIt;
+	for (carIt = autoList.begin(); carIt != autoList.end(); ) {
+		Automobile* car = *carIt;
+		if (car->getCarList().size()>0 && car->getCarList().at(0)->getPositionY() < _camera->getPositionY() - default_tmx_height * 3) {
+			carIt = autoList.erase(carIt);
+			car->removeFromParent();
+		}
+		else {
+			++carIt;
+		}
+	}
+	//回收木板和荷叶
+	vector<Wood*>::iterator woodIt;
+	for (woodIt = woodList.begin(); woodIt != woodList.end(); ) {
+		Wood* woo = *woodIt;
+		if (woo->getBoardList().size()>0 &&  woo->getBoardList().at(0)->getPositionY() < _camera->getPositionY() - default_tmx_height * 3) {
+			woodIt = woodList.erase(woodIt);
+			woo->removeFromParent();
+		}
+		else {
+			++woodIt;
+		}
+	}
+	//回收火车
+	vector<Train*>::iterator trainIt;
+	for (trainIt = trainList.begin(); trainIt != trainList.end(); ) {
+		auto tra = *trainIt;
+		if (tra->getPositionY() < _camera->getPositionY() - default_tmx_height * 3) {
+			trainIt = trainList.erase(trainIt);
+			tra->removeFromParent();
+		}
+		else {
+			++trainIt;
+		}
+	}
+}
+
 void GameLayer::update(float dt) {
 	if (!allowJump) {
 		jumpInterval += dt;
@@ -415,6 +480,7 @@ void GameLayer::update(float dt) {
 				_camera->getPositionY() + default_tmx_height*3)));
 		}
 		if (playerInWaterRect) {
+			player->setResurgence(true);
 			auto leaf = Sprite::create("leaf.png");
 			leaf->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 			auto vec = GeometryUtils::transitionObjectVec2(Vec2(player->getPosition().x,
@@ -422,7 +488,6 @@ void GameLayer::update(float dt) {
 			leaf->setPosition(vec.x, vec.y+ default_tmx_height / 10);
 			leaf->setCameraMask((int)CameraFlag::USER1);
 			addChild(leaf);
-			player->setResurgence(true);
 		}
 		GameStatus::getInstance()->setResurgence(false);
 	}
@@ -565,4 +630,6 @@ void GameLayer::update(float dt) {
 			addChild(pride);
 		}
 	}
+
+	recycleResource();
 }

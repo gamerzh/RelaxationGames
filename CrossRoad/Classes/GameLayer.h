@@ -40,7 +40,7 @@ private:
 	float cameraMoveLeft = 0;
 	float cameraMoveRight = 0;
 	float cameraMoveY = 0;
-	float cameraMoveStepY = 3.0;
+	float cameraMoveStepY = 2.0;
 	float playerStayTime = 0;
 	bool allowJump = true;
 	float jumpInterval = 0.30f;
@@ -72,4 +72,5 @@ private:
 	void cancelMoveCameraX();
 	void showGameOver(int type);
 	void hawkKillPlayer();
+	void recycleResource();
 };
