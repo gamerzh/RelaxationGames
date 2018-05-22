@@ -9,7 +9,7 @@ bool Player :: init() {
 		return false;
 	}
 	setResurgence(false);
-	hero = CSLoader::createNode("rw.csb");
+	hero = CSLoader::createNode("hero.csb");
 	hero->setScale(0.4f);
 	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	hero->setPosition(default_tmx_width/2,default_tmx_height/3);
@@ -218,7 +218,7 @@ Rect Player::getPlayerCheckRect() {
 
 
 void Player::playPlayerJiYa() {
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("jiya", false);
 	hero->runAction(playerTimeLine);
 }
@@ -226,13 +226,13 @@ void Player::playPlayerJiYa() {
 
 void Player::playPlayerTiaoYue() {
 	hero->stopAllActions();
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("tiaoyue", false);
 	hero->runAction(playerTimeLine);
 }
 
 void Player::playPlayerJiYaLeft() {
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("jiyazuo", false);
 	hero->runAction(playerTimeLine);
 }
@@ -240,13 +240,13 @@ void Player::playPlayerJiYaLeft() {
 
 void Player::playPlayerTiaoYueLeft() {
 	hero->stopAllActions();
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("tiaoyuezuo", false);
 	hero->runAction(playerTimeLine);
 }
 
 void Player::playPlayerJiYaRight() {
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("jiyayou", false);
 	hero->runAction(playerTimeLine);
 }
@@ -254,20 +254,20 @@ void Player::playPlayerJiYaRight() {
 
 void Player::playPlayerTiaoYueRight() {
 	hero->stopAllActions();
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("tiaoyueyou", false);
 	hero->runAction(playerTimeLine);
 }
 
 void Player::playPlayerJiYaBack() {
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("jyqian", false);
 	hero->runAction(playerTimeLine);
 }
 
 void Player::playPlayerTiaoYueBack() {
 	hero->stopAllActions();
-	auto playerTimeLine = CSLoader::createTimeline("rw.csb");
+	auto playerTimeLine = CSLoader::createTimeline("hero.csb");
 	playerTimeLine->play("tiaoyueqian", false);
 	hero->runAction(playerTimeLine);
 }
@@ -302,13 +302,13 @@ void Player::playerGoDie() {
 
 void Player::playerGoWater() {
 	hero->setVisible(false);
-	auto node = CSLoader::createNode("biaoxue.csb");
+	auto node = CSLoader::createNode("shuihua.csb");
 	node->setCameraMask((int)CameraFlag::USER1);
 	node->setScale(0.3);
 	node->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	node->setPosition(hero->getPosition());
 	addChild(node);
-	auto waterHua = CSLoader::createTimeline("biaoxue.csb");
+	auto waterHua = CSLoader::createTimeline("shuihua.csb");
 	waterHua->play("bx", false); 
 	node->runAction(waterHua);
 	node->runAction(Sequence::create(DelayTime::create(0.5f), CallFunc::create([=]() {
