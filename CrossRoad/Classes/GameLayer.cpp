@@ -295,13 +295,13 @@ void GameLayer::updateTreeZorder() {
 void GameLayer::changeCameraMoveStep() {
 	//更具玩家和摄像机的距离调整步幅
 	if (cameraMoveY > 2 * default_tmx_height) {
-		cameraMoveStepY = 3;
-	}
-	else if (cameraMoveY > 4 * default_tmx_height) {
 		cameraMoveStepY = 6;
 	}
+	else if (cameraMoveY > 4 * default_tmx_height) {
+		cameraMoveStepY = 9;
+	}
 	else {
-		cameraMoveStepY = 1;
+		cameraMoveStepY = 3;
 	}
 
 	if (cameraMoveRight > 0) {
@@ -419,7 +419,7 @@ void GameLayer::update(float dt) {
 			leaf->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 			auto vec = GeometryUtils::transitionObjectVec2(Vec2(player->getPosition().x,
 				player->getPosition().y), used_map_node);
-			leaf->setPosition(vec.x- default_tmx_width, vec.y+ default_tmx_height / 10);
+			leaf->setPosition(vec.x, vec.y+ default_tmx_height / 10);
 			leaf->setCameraMask((int)CameraFlag::USER1);
 			addChild(leaf);
 			player->setResurgence(true);

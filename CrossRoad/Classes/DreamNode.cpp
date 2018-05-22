@@ -98,17 +98,22 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 void DreamNode::doActionById() {
 	//开始执行dream代码
-	
+	auto win = Director::getInstance()->getWinSize();
 	if (getDreamId() == 1 ) {
 		//玩家金币加100
 		Dream::getInstance()->recordEvent(jfd_1_pay, jfd_1_pay);
 		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 		Dream::getInstance()->requestEvent(getDreamId());
+
+		auto login = DreamNode::create(2, Vec2(win.width / 2, win.height / 2));
+		getParent()->addChild(login);
 	}
 	else if (getDreamId() == 2) {
 		Dream::getInstance()->recordEvent(jfd_2_pay, jfd_2_pay);
 		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 		Dream::getInstance()->requestEvent(getDreamId());
+		auto login = DreamNode::create(3, Vec2(win.width / 2, win.height / 2));
+		getParent()->addChild(login);
 	}
 	else if (getDreamId() == 5) {
 		// 双倍道具
@@ -177,12 +182,17 @@ void DreamNode::startPride() {
 }
 
 void DreamNode::closeView() {
+	auto win = Director::getInstance()->getWinSize();
 	Director::getInstance()->resume();
 	if (getDreamId() == 1) {
 		Dream::getInstance()->recordEvent(jfd_1_close, jfd_1_close);
+		auto login = DreamNode::create(2, Vec2(win.width / 2, win.height / 2));
+		getParent()->addChild(login);
 	}
 	else if (getDreamId() == 2) {
 		Dream::getInstance()->recordEvent(jfd_2_close, jfd_2_close);
+		auto login = DreamNode::create(3, Vec2(win.width / 2, win.height / 2));
+		getParent()->addChild(login);
 	}
 	else if (getDreamId() == 3) {
 		Dream::getInstance()->recordEvent(jfd_3_close, jfd_3_close);

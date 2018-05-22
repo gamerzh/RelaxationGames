@@ -40,7 +40,7 @@ private:
 	float cameraMoveLeft = 0;
 	float cameraMoveRight = 0;
 	float cameraMoveY = 0;
-	float cameraMoveStepY = 1.0;
+	float cameraMoveStepY = 3.0;
 	float playerStayTime = 0;
 	bool allowJump = true;
 	float jumpInterval = 0.30f;

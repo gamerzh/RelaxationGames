@@ -77,8 +77,6 @@ void StartScene::loadView() {
 	auto playerMod = Sprite::create("player_mod_0.png");
 	playerMod->setPosition(win.width / 2, win.height / 2);
 	addChild(playerMod);
-	showDreamHappy();
-	showDreamDay();
 	showDreamLogin();
 	Dream::getInstance()->recordEvent(main_show, main_show);
 	auto listener = EventListenerKeyboard::create();
