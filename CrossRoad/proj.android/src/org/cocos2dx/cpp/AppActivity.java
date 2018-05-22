@@ -32,7 +32,7 @@ import android.os.Bundle;
 
 public class AppActivity extends Cocos2dxActivity {
 	
-	public  final String TAG = AppActivity.this.getLocalClassName();
+//	public  final String TAG = AppActivity.this.getLocalClassName();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

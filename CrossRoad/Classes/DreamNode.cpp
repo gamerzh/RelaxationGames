@@ -167,7 +167,9 @@ void DreamNode::startPride() {
 			Director::getInstance()->resume();
 			UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 			Dream::getInstance()->requestEvent(getDreamId());
-			removeFromParent();
+			this->runAction(Sequence::create(DelayTime::create(1.5), CallFunc::create([=]() {
+				removeFromParent();
+			}), NULL));
 		}), NULL);
 		nod->runAction(seq);
 	}
@@ -244,7 +246,7 @@ std::string DreamNode::getButtonById(int dreamId) {
 	case 5:
 		return "dream_btn_1.png";
 	case 6:
-		return "dream_btn_2.png";
+		return "dream_btn_3.png";
 	case 7:
 		return "dream_btn_7.png";
 	case 9:
