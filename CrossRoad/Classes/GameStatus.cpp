@@ -57,3 +57,10 @@ void GameStatus::setDoubleScore(bool d) {
 	this->isdouble = d;
 }
 
+bool GameStatus::getResurgence() {
+	return this->resurgence;
+}
+
+void GameStatus::setResurgence(bool r) {
+	this->resurgence = r;
+}

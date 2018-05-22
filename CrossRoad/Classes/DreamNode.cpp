@@ -126,6 +126,7 @@ void DreamNode::doActionById() {
 		//¸´»îºÍÎÞµÐ
 		Dream::getInstance()->recordEvent(jfd_7_pay, jfd_7_pay);
 		GameStatus::getInstance()->setInvincible(true);
+		GameStatus::getInstance()->setResurgence(true);
 		Dream::getInstance()->requestEvent(getDreamId());
 	}
 	else if (getDreamId() == 9) {

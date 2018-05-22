@@ -8,6 +8,7 @@ bool Player :: init() {
 	if (!Sprite::init()) {
 		return false;
 	}
+	setResurgence(false);
 	hero = CSLoader::createNode("rw.csb");
 	hero->setScale(0.4f);
 	hero->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
@@ -20,7 +21,7 @@ bool Player :: init() {
 
 
 bool Player::playerJumpForward(vector<Block*> blocks) {
-
+	
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
@@ -55,6 +56,7 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 	this->runAction(Sequence::create(MoveTo::create(0.20, target),CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		//log("Player Zorder %d", this->getLocalZOrder());
+		setResurgence(false);
 		log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
 	}), NULL));
 	Audio::getInstance()->playSoundJump();
@@ -62,7 +64,7 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 }
 
 bool Player::playerJumpBackwards(vector<Block*> blocks) {
-
+	
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
@@ -95,6 +97,7 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 	}
 	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
+		setResurgence(false);
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
 	Audio::getInstance()->playSoundJump();
@@ -103,6 +106,7 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 
 
 bool Player::playerJumpLeft(vector<Block*> blocks) {
+	
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
@@ -144,6 +148,7 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 	offset_path = 0;*/
 	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
+		setResurgence(false);
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
 	Audio::getInstance()->playSoundJump();
@@ -152,7 +157,7 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 
 
 bool Player::playerJumpRight(vector<Block*> blocks) {
-
+	
 	for (auto bloc : blocks)
 	{
 		auto box = getPlayerCheckRect();
@@ -194,6 +199,7 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 	//offset_path = 0;
 	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
+		setResurgence(false);
 		log("Player Zorder %d", this->getLocalZOrder());
 	}), NULL));
 	Audio::getInstance()->playSoundJump();
@@ -278,7 +284,7 @@ float Player::getSpeedX() {
 }
 
 void Player::update(float dt) {
-	if (getPositionX() + speedX < defult_tmx_x_num*default_tmx_width) {
+	if (getPositionX() + speedX < defult_tmx_x_num*default_tmx_width && !getResurgence()) {
 		setPosition(getPositionX() + speedX, getPositionY());
 		offset_path += speedX;
 	}
@@ -310,7 +316,7 @@ void Player::playerGoWater() {
 	}),NULL));
 }
 
-void Player::playerInvincible() {
+void Player::playerResurgence() {
 	hero->setVisible(true);
 	if (NULL != getChildByTag(901)) {
 		getChildByTag(901)->removeFromParent();

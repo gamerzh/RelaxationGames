@@ -15,6 +15,8 @@ public:
 	bool getInvincible();
 	void setInvincible(bool p);
 	void setDoubleScore(bool d);
+	bool getResurgence();
+	void setResurgence(bool r);
 private:
 	static  GameStatus* m_instance;
 	GameStatus() {}
@@ -23,6 +25,7 @@ private:
 	int doubleScore = 0;
 	bool paused = true;
 	bool invincible = false;
+	bool resurgence = false;
 	bool isdouble = false;
 	void setScore(int soc);
 };

@@ -364,7 +364,7 @@ void GameLayer::hawkKillPlayer() {
 }
 
 void GameLayer::showGameOver(int type) {
-	if (GameStatus::getInstance()->getInvincible()) {
+	if (GameStatus::getInstance()->getInvincible() && type == 0) {
 		return;
 	}
 	if (!isShowGameOver) {
@@ -406,10 +406,25 @@ void GameLayer::update(float dt) {
 			allowJump = true;
 		}
 	}
-
-	if (GameStatus::getInstance()->getInvincible() == true) {
+	//Íæ¼Ò¸´»î
+	if (GameStatus::getInstance()->getResurgence()) {
 		isShowGameOver = false;
-		player->playerInvincible();
+		player->playerResurgence();
+		if (player->getPositionY() < _camera->getPositionY()-default_tmx_height) {
+			player->setPosition(GeometryUtils::transitionPlayerVec2(Vec2(_camera->getPositionX()+default_tmx_width*4, 
+				_camera->getPositionY() + default_tmx_height*3)));
+		}
+		if (playerInWaterRect) {
+			auto leaf = Sprite::create("leaf.png");
+			leaf->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+			auto vec = GeometryUtils::transitionObjectVec2(Vec2(player->getPosition().x,
+				player->getPosition().y), used_map_node);
+			leaf->setPosition(vec.x- default_tmx_width, vec.y+ default_tmx_height / 10);
+			leaf->setCameraMask((int)CameraFlag::USER1);
+			addChild(leaf);
+			player->setResurgence(true);
+		}
+		GameStatus::getInstance()->setResurgence(false);
 	}
 
 
@@ -419,6 +434,7 @@ void GameLayer::update(float dt) {
 	playerStayTime += dt;
 	if (playerStayTime > 10) {
 		showGameOver(2);
+		playerStayTime = 0;
 	}
 	if (player->getPositionY() < _camera->getPositionY()-default_tmx_height) {
 		showGameOver(2);
@@ -438,14 +454,13 @@ void GameLayer::update(float dt) {
 
 	for (auto tra : trainList)
 	{
-
 		if (GeometryUtils::intersectsRect(tra->getTrainObjectBox(), player->getPlayerCheckRect())) {
 			showGameOver(0);
 		}
 	}
 
 	auto playerLine = round(player->getPositionY() / default_tmx_height);
-	auto playerInWaterRect = false;
+	playerInWaterRect = false;
 	for (auto mymap : mapList)
 	{
 		auto water = mymap->getWaterLineNumber();
@@ -471,7 +486,7 @@ void GameLayer::update(float dt) {
 					}
 				}
 			}
-			if (!canLive) {
+			if (!canLive && !player->getResurgence()) {
 				showGameOver(1);
 			}
 		}
