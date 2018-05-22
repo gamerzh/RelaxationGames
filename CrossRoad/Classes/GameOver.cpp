@@ -4,6 +4,7 @@
 #include "UserData.h"
 #include "GameStatus.h"
 #include "Dream.h"
+#include "DreamEvent.h"
 
 bool GameOver::init() {
 	if (!Layer::init()) {
@@ -44,6 +45,7 @@ bool GameOver::init() {
 	closeMenu->alignItemsHorizontallyWithPadding(100);
 	closeMenu->setPosition(win.width / 2, win.height*0.36f);
 	addChild(closeMenu);
+	Dream::getInstance()->recordEvent(success_show, success_show);
 
 	return true;
 }

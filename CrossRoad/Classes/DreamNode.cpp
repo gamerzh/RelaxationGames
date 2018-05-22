@@ -3,6 +3,7 @@
 #include "Dream.h"
 #include "GameStatus.h"
 #include "GameOver.h"
+#include "DreamEvent.h"
 
 DreamNode* DreamNode::create(int dreamId, Vec2 pos) {
 	DreamNode* ret = new DreamNode();
@@ -65,8 +66,30 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 	}
 
-
-
+	if (getDreamId() == 1) {
+		Dream::getInstance()->recordEvent(jfd_1_show, jfd_1_show);
+	}
+	else if (getDreamId() == 2) {
+		Dream::getInstance()->recordEvent(jfd_2_show, jfd_2_show);
+	}
+	else if (getDreamId() == 3) {
+		Dream::getInstance()->recordEvent(jfd_3_show, jfd_3_show);
+	}
+	else if (getDreamId() == 5) {
+		Dream::getInstance()->recordEvent(jfd_5_show, jfd_5_show);
+	}
+	else if (getDreamId() == 6) {
+		Dream::getInstance()->recordEvent(jfd_6_show, jfd_6_show);
+	}
+	else if (getDreamId() == 7) {
+		Dream::getInstance()->recordEvent(jfd_7_show, jfd_7_show);
+	}
+	else if (getDreamId() == 9) {
+		Dream::getInstance()->recordEvent(jfd_9_show, jfd_9_show);
+	}
+	else if (getDreamId() == 10) {
+		Dream::getInstance()->recordEvent(jfd_10_show, jfd_10_show);
+	}
 
 
 	return true;
@@ -76,27 +99,42 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 void DreamNode::doActionById() {
 	//开始执行dream代码
 	
-	if (getDreamId() == 1 || getDreamId() == 2) {
+	if (getDreamId() == 1 ) {
 		//玩家金币加100
+		Dream::getInstance()->recordEvent(jfd_1_pay, jfd_1_pay);
+		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
+		Dream::getInstance()->requestEvent(getDreamId());
+	}
+	else if (getDreamId() == 2) {
+		Dream::getInstance()->recordEvent(jfd_2_pay, jfd_2_pay);
 		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 		Dream::getInstance()->requestEvent(getDreamId());
 	}
 	else if (getDreamId() == 5) {
 		// 双倍道具
+		Dream::getInstance()->recordEvent(jfd_5_pay, jfd_5_pay);
 		GameStatus::getInstance()->setDoubleScore(true);
 		Dream::getInstance()->requestEvent(getDreamId());
 	}
 	else if (getDreamId() == 6) {
 		//无敌
+		Dream::getInstance()->recordEvent(jfd_6_pay, jfd_6_pay);
 		GameStatus::getInstance()->setInvincible(true);
 		Dream::getInstance()->requestEvent(getDreamId());
 	}
 	else if (getDreamId() == 7) {
 		//复活和无敌
+		Dream::getInstance()->recordEvent(jfd_7_pay, jfd_7_pay);
 		GameStatus::getInstance()->setInvincible(true);
 		Dream::getInstance()->requestEvent(getDreamId());
 	}
+	else if (getDreamId() == 9) {
+		Dream::getInstance()->recordEvent(jfd_9_pay, jfd_9_pay);
+		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
+		Dream::getInstance()->requestEvent(getDreamId());
+	}
 	else if (getDreamId() == 10) {
+		Dream::getInstance()->recordEvent(jfd_10_pay, jfd_10_pay);
 		Dream::getInstance()->quitGame();
 	}
 	Director::getInstance()->resume();
@@ -125,6 +163,7 @@ void DreamNode::startPride() {
 			}
 			spr->setRotation(result);
 			//玩家金币加100
+			Dream::getInstance()->recordEvent(jfd_3_pay, jfd_3_pay);
 			Director::getInstance()->resume();
 			UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 			Dream::getInstance()->requestEvent(getDreamId());
@@ -136,13 +175,33 @@ void DreamNode::startPride() {
 
 void DreamNode::closeView() {
 	Director::getInstance()->resume();
-	if (getDreamId() == 7) {
+	if (getDreamId() == 1) {
+		Dream::getInstance()->recordEvent(jfd_1_close, jfd_1_close);
+	}
+	else if (getDreamId() == 2) {
+		Dream::getInstance()->recordEvent(jfd_2_close, jfd_2_close);
+	}
+	else if (getDreamId() == 3) {
+		Dream::getInstance()->recordEvent(jfd_3_close, jfd_3_close);
+	}
+	else if (getDreamId() == 5) {
+		Dream::getInstance()->recordEvent(jfd_5_close, jfd_5_close);
+	}
+	else if (getDreamId() == 6) {
+		Dream::getInstance()->recordEvent(jfd_6_close, jfd_6_close);
+	}
+	else if (getDreamId() == 7) {
 		//复活和无敌
+		Dream::getInstance()->recordEvent(jfd_7_close, jfd_7_close);
 		auto over = GameOver::create();
 		over->setTag(100);
 		getParent()->addChild(over);
 	}
+	else if (getDreamId() == 9) {
+		Dream::getInstance()->recordEvent(jfd_9_close, jfd_9_close);
+	}
 	else if (getDreamId() == 10) {
+		Dream::getInstance()->recordEvent(jfd_10_close, jfd_10_close);
 		Director::getInstance()->end();
 	}
 	removeFromParent();

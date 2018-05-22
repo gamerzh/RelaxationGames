@@ -4,6 +4,7 @@
 #include "SelectLayer.h"
 #include "DreamNode.h"
 #include "Audio.h"
+#include "Dream.h"
 
 Scene* StartScene::createScene()
 {
@@ -78,6 +79,7 @@ void StartScene::loadView() {
 	showDreamHappy();
 	showDreamDay();
 	showDreamLogin();
+	Dream::getInstance()->recordEvent(main_show, main_show);
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyReleased = [=](EventKeyboard::KeyCode code, Event * e) {
 		switch (code)

@@ -175,6 +175,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Automobile.h" />
     <ClInclude Include="..\Classes\Block.h" />
     <ClInclude Include="..\Classes\Dream.h" />
+    <ClInclude Include="..\Classes\DreamEvent.h" />
     <ClInclude Include="..\Classes\DreamNode.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameOver.h" />

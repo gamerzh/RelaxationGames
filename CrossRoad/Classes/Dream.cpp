@@ -1,4 +1,5 @@
 #include "Dream.h"
+#include "DreamEvent.h"
 #define JAVA_SRC getJniPath()
 
 Dream* Dream::_instance = 0;
