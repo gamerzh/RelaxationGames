@@ -420,6 +420,9 @@ void GameLayer::update(float dt) {
 	if (playerStayTime > 10) {
 		showGameOver(2);
 	}
+	if (player->getPositionY() < _camera->getPositionY()-default_tmx_height) {
+		showGameOver(2);
+	}
 	for (auto var : autoList) {
 		for (auto car : var->getCarList()) {
 

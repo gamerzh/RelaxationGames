@@ -5,6 +5,7 @@
 #include "DreamNode.h"
 #include "Audio.h"
 #include "Dream.h"
+#include "DreamEvent.h"
 
 Scene* StartScene::createScene()
 {
