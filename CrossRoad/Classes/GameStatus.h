@@ -14,13 +14,16 @@ public:
 	void setGameStatus(bool p);
 	bool getInvincible();
 	void setInvincible(bool p);
+	void setDoubleScore(bool d);
 private:
 	static  GameStatus* m_instance;
 	GameStatus() {}
 	int stepNum = 0;
 	int socore = 0;
+	int doubleScore = 0;
 	bool paused = true;
 	bool invincible = false;
+	bool isdouble = false;
 	void setScore(int soc);
 };
 

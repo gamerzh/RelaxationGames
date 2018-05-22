@@ -368,6 +368,7 @@ void GameLayer::showGameOver(int type) {
 		return;
 	}
 	if (!isShowGameOver) {
+		GameStatus::getInstance()->setDoubleScore(false);
 		isShowGameOver = true;
 		float delay = 0;
 		if (type == 1) {

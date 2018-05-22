@@ -83,6 +83,7 @@ void DreamNode::doActionById() {
 	}
 	else if (getDreamId() == 5) {
 		// Ë«±¶µÀ¾ß
+		GameStatus::getInstance()->setDoubleScore(true);
 		Dream::getInstance()->requestEvent(getDreamId());
 	}
 	else if (getDreamId() == 6) {

@@ -12,6 +12,9 @@ void GameStatus::plusStepNum() {
 	this->stepNum = this->stepNum +1;
 	if (this->stepNum > this->socore) {
 		this->socore = this->stepNum;
+		if (this->isdouble) {
+			doubleScore = socore;
+		}
 	}
 }
 
@@ -22,10 +25,11 @@ void GameStatus::minusStepNum() {
 void GameStatus::cleanScore() {
 	this->stepNum = 0;
 	this->socore = 0;
+	this->doubleScore = 0;
 }
 
 int GameStatus::getScore() {
-	return this->socore;
+	return this->socore+this->doubleScore;
 }
 
 void GameStatus::setScore(int soc) {
@@ -48,3 +52,8 @@ bool GameStatus::getInvincible() {
 void GameStatus::setInvincible(bool p) {
 	this->invincible = p;
 }
+
+void GameStatus::setDoubleScore(bool d) {
+	this->isdouble = d;
+}
+
