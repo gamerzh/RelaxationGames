@@ -33,8 +33,8 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 	auto mm = Sprite::create("jxb.png");
 	mm->setAnchorPoint(Vec2(0, 0));
-	mm->setOpacity(35);
-	mm->setPosition(pos.x-360,pos.y-640);
+	mm->setOpacity(40);
+	mm->setPosition(pos.x-355,pos.y-635);
 	addChild(mm);
 
 	Director::getInstance()->pause();
@@ -50,17 +50,9 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		auto menu = Menu::create(quan,button, NULL);
 		menu->setPosition(pos.x, pos.y - 300);
 		addChild(menu);
-
-
-		auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
-		auto closeMenu = Menu::create(close, NULL);
-		closeMenu->setPosition(pos.x + 245, pos.y + 270);
-		addChild(closeMenu);
 	}
 	else {
 		Director::getInstance()->resume();
-
-
 
 		auto turntable = Sprite::create("zhuanpan.png");
 		turntable->setTag(1024);
@@ -75,12 +67,12 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		startMenu->setPosition(pos.x, pos.y + 30);
 		addChild(startMenu);
 
-		auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
-		auto closeMenu = Menu::create(close, NULL);
-		closeMenu->setPosition(pos.x + 300, pos.y + 400);
-		addChild(closeMenu);
-
 	}
+
+	auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
+	auto closeMenu = Menu::create(close, NULL);
+	closeMenu->setPosition(pos.x + 260, pos.y + 300);
+	addChild(closeMenu);
 
 	if (getDreamId() == 1) {
 		Dream::getInstance()->recordEvent(jfd_1_show, jfd_1_show);
