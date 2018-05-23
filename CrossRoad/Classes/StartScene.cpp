@@ -79,7 +79,7 @@ void StartScene::loadView() {
 	auto playerMod = Sprite::create("player_mod_0.png");
 	playerMod->setPosition(win.width / 2, win.height / 2);
 	addChild(playerMod);
-	if (!UserData::getInstance()->getDreamTimes()) {
+	if (!Dream::getInstance()->getGameDreamTimes()) {
 		showDreamLogin();
 	}
 
@@ -91,7 +91,7 @@ void StartScene::loadView() {
 		case cocos2d::EventKeyboard::KeyCode::KEY_NONE:
 			break;
 		case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
-			if (!UserData::getInstance()->getDreamTimes()) {
+			if (!Dream::getInstance()->getGameDreamTimes()) {
 				if (NULL == getChildByTag(1025)) {
 					DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
 					nod->setTag(1025);

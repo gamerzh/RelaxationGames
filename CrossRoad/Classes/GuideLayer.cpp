@@ -23,7 +23,7 @@ bool GuideLayer::init() {
 	guide->setPosition(win.width/2,win.height/2);
 	addChild(guide);
 
-	if (!UserData::getInstance()->getDreamTimes()) {
+	if (!Dream::getInstance()->getGameDreamTimes()) {
 		auto mm = Sprite::create("jxb.png");
 		mm->setAnchorPoint(Vec2(0, 0));
 		mm->setOpacity(40);
@@ -42,7 +42,7 @@ bool GuideLayer::init() {
 void GuideLayer::closeView() {
 	UserData::getInstance()->setShowGuide(true);
 	GameStatus::getInstance()->setGameStatus(true);
-	if (!UserData::getInstance()->getDreamTimes()) {
+	if (!Dream::getInstance()->getGameDreamTimes()) {
 		Dream::getInstance()->requestEvent(4);	//开始执行dream代码
 		UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 100);
 	}

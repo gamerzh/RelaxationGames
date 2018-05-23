@@ -42,7 +42,7 @@ bool GameOver::init() {
 	extraGold->setPosition(win.width * 0.52, win.height*0.445f);
 	addChild(extraGold);
 
-	if (!UserData::getInstance()->getDreamTimes()) {
+	if (!Dream::getInstance()->getGameDreamTimes()) {
 		auto mm = Sprite::create("jxb.png");
 		mm->setAnchorPoint(Vec2(0, 0));
 		mm->setOpacity(40);
@@ -64,7 +64,7 @@ bool GameOver::init() {
 void GameOver::continueGame() {
 	GameStatus::getInstance()->cleanScore();
 	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
-	if (!UserData::getInstance()->getDreamTimes()) {
+	if (!Dream::getInstance()->getGameDreamTimes()) {
 		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 		Dream::getInstance()->requestEvent(8);
 	}
@@ -73,7 +73,7 @@ void GameOver::continueGame() {
 }
 
 void GameOver::goLoading() {
-	if (!UserData::getInstance()->getDreamTimes()) {
+	if (!Dream::getInstance()->getGameDreamTimes()) {
 		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 		Dream::getInstance()->requestEvent(8);
 	}

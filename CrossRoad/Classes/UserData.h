@@ -16,8 +16,8 @@ public:
 	void setMusicStatus(float open);
 	bool getShowgGuide();
 	void setShowGuide(bool show);
-	bool getDreamTimes();
-	void setDreamTimes(bool times);
+	//bool getDreamTimes();
+	//void setDreamTimes(bool times);
 private:
 	static  UserData* m_instance;
 	UserData() {};

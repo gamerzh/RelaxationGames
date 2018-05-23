@@ -60,19 +60,15 @@ void Dream::quitGame() {
 #endif
 }
 
-void Dream::getGameDreamTimes() {
+bool Dream::getGameDreamTimes() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	JniMethodInfo methodInfo;
 	auto path = String::createWithFormat("%s%s", JAVA_SRC, "");
 	bool isHave = JniHelper::getStaticMethodInfo(methodInfo, path->getCString(), "getDreamTime", "()Z");
 	if (isHave) {
 		jboolean result = JniHelper::getEnv()->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID);
-		if ((bool)result) {
-			UserData::getInstance()->setDreamTimes(true);
-		}
-		else {
-			UserData::getInstance()->setDreamTimes(false);
-		}
+		return (bool)result;
 	}
 #endif
+	return false;
 }

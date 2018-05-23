@@ -49,7 +49,7 @@ bool GameLayer::init(Camera* ca) {
 		addChild(guide, MaxZorder);
 	}
 	else {
-		if (!UserData::getInstance()->getDreamTimes()) {
+		if (!Dream::getInstance()->getGameDreamTimes()) {
 			auto kaiju = DreamNode::create(5, Vec2(win.width, win.height / 2));
 			addChild(kaiju, MaxZorder);
 		}

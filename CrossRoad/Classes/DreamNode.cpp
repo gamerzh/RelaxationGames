@@ -54,7 +54,7 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		auto menu = Menu::create(button, NULL);
 		menu->setPosition(pos.x, pos.y - 300);
 		addChild(menu);
-		if (UserData::getInstance()->getDreamTimes()) {
+		if (Dream::getInstance()->getGameDreamTimes()) {
 			quan->setEnabled(false);
 			mm->setVisible(false);
 			auto cancel = MenuItemImage::create("cancel.png", "cancel.png", CC_CALLBACK_0(DreamNode::closeView, this));
@@ -79,7 +79,7 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		addChild(startMenu);
 
 	}
-	if (!UserData::getInstance()->getDreamTimes()) {
+	if (!Dream::getInstance()->getGameDreamTimes()) {
 		auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
 		auto closeMenu = Menu::create(close, NULL);
 		closeMenu->setPosition(pos.x + 260, pos.y + 300);
@@ -145,7 +145,7 @@ void DreamNode::doActionById() {
 	}
 	else if (getDreamId() == 6) {
 		//无敌
-		if (!UserData::getInstance()->getDreamTimes()) {
+		if (!Dream::getInstance()->getGameDreamTimes()) {
 			Dream::getInstance()->recordEvent(jfd_6_pay, jfd_6_pay);
 			GameStatus::getInstance()->setInvincible(true);
 			Dream::getInstance()->requestEvent(getDreamId());
@@ -158,7 +158,7 @@ void DreamNode::doActionById() {
 	}
 	else if (getDreamId() == 7) {
 		//复活和无敌
-		if (!UserData::getInstance()->getDreamTimes()) {
+		if (!Dream::getInstance()->getGameDreamTimes()) {
 			Dream::getInstance()->recordEvent(jfd_7_pay, jfd_7_pay);
 			GameStatus::getInstance()->setInvincible(true);
 			GameStatus::getInstance()->setResurgence(true);
@@ -270,7 +270,7 @@ std::string DreamNode::getContentById(int dreamId) {
 		return "dream_4.png";
 	case 6:
 	{
-		if (!UserData::getInstance()->getDreamTimes()) {
+		if (!Dream::getInstance()->getGameDreamTimes()) {
 			return "dream_6.png";
 		}
 		else {
@@ -279,7 +279,7 @@ std::string DreamNode::getContentById(int dreamId) {
 	}
 		
 	case 7:
-		if (!UserData::getInstance()->getDreamTimes()) {
+		if (!Dream::getInstance()->getGameDreamTimes()) {
 			return "dream_7.png";
 		}
 		else {
@@ -298,14 +298,14 @@ std::string DreamNode::getButtonById(int dreamId) {
 	switch (dreamId)
 	{
 	case 6:
-		if (!UserData::getInstance()->getDreamTimes()) {
+		if (!Dream::getInstance()->getGameDreamTimes()) {
 			return "dream_btn_1.png";
 		}
 		else {
 			return "gou.png";
 		}
 	case 7:
-		if (!UserData::getInstance()->getDreamTimes()) {
+		if (!Dream::getInstance()->getGameDreamTimes()) {
 			return "dream_btn_1.png";
 		}
 		else {
