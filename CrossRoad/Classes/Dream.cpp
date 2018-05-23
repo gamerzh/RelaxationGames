@@ -60,7 +60,7 @@ void Dream::quitGame() {
 #endif
 }
 
-void Dream::getDreamTimes() {
+void Dream::getGameDreamTimes() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	JniMethodInfo methodInfo;
 	auto path = String::createWithFormat("%s%s", JAVA_SRC, "");

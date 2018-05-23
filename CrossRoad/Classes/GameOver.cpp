@@ -42,11 +42,13 @@ bool GameOver::init() {
 	extraGold->setPosition(win.width * 0.52, win.height*0.445f);
 	addChild(extraGold);
 
-	auto mm = Sprite::create("jxb.png");
-	mm->setAnchorPoint(Vec2(0, 0));
-	mm->setOpacity(40);
-	mm->setPosition(win.width / 2 - 355, win.height / 2 - 635);
-	addChild(mm);
+	if (!UserData::getInstance()->getDreamTimes()) {
+		auto mm = Sprite::create("jxb.png");
+		mm->setAnchorPoint(Vec2(0, 0));
+		mm->setOpacity(40);
+		mm->setPosition(win.width / 2 - 355, win.height / 2 - 635);
+		addChild(mm);
+	}
 
 	auto goback = MenuItemImage::create("go_lobby.png", "go_lobby.png", CC_CALLBACK_0(GameOver::goLoading, this));
 	auto resultCon = MenuItemImage::create("over_con.png", "over_con.png", CC_CALLBACK_0(GameOver::continueGame, this));

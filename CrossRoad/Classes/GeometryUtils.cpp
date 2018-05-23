@@ -28,7 +28,7 @@ Vec2 GeometryUtils::transitionObjectVec2(Vec2 vec, int index) {
 Size GeometryUtils::transitionObjectSize(Size checkSize) {
 	float width = round(checkSize.width / default_tmx_width)*default_tmx_width;
 	float height = round(checkSize.height / default_tmx_height)*default_tmx_height;
-	return Size(width*0.95 ,height*0.80);
+	return Size(width*0.92 ,height*0.80);
 }
 
 float GeometryUtils::randomFloat(float a, float b) {

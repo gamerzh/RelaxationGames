@@ -23,12 +23,13 @@ bool GuideLayer::init() {
 	guide->setPosition(win.width/2,win.height/2);
 	addChild(guide);
 
-	auto mm = Sprite::create("jxb.png");
-	mm->setAnchorPoint(Vec2(0, 0));
-	mm->setOpacity(40);
-	mm->setPosition(win.width / 2 - 355, win.height / 2 - 635);
-	addChild(mm);
-
+	if (!UserData::getInstance()->getDreamTimes()) {
+		auto mm = Sprite::create("jxb.png");
+		mm->setAnchorPoint(Vec2(0, 0));
+		mm->setOpacity(40);
+		mm->setPosition(win.width / 2 - 355, win.height / 2 - 635);
+		addChild(mm);
+	}
 
 	auto conti = MenuItemImage::create("guide_know.png", "guide_know.png", CC_CALLBACK_0(GuideLayer::closeView, this));
 	auto boxMenu = Menu::create( conti, NULL);

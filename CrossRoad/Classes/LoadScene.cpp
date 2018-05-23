@@ -23,7 +23,7 @@ bool LoadScene::init()
 	}
 	loadView();
 	Audio::getInstance()->playBGM();
-	Dream::getInstance()->getDreamTimes();
+	Dream::getInstance()->getGameDreamTimes();
 	return true;
 }
 

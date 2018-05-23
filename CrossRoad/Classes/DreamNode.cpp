@@ -79,11 +79,12 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 		addChild(startMenu);
 
 	}
-
-	auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
-	auto closeMenu = Menu::create(close, NULL);
-	closeMenu->setPosition(pos.x + 260, pos.y + 300);
-	addChild(closeMenu,2);
+	if (!UserData::getInstance()->getDreamTimes()) {
+		auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
+		auto closeMenu = Menu::create(close, NULL);
+		closeMenu->setPosition(pos.x + 260, pos.y + 300);
+		addChild(closeMenu, 2);
+	}
 
 	if (getDreamId() == 1) {
 		Dream::getInstance()->recordEvent(jfd_1_show, jfd_1_show);
