@@ -53,7 +53,7 @@ bool GameOver::init() {
 void GameOver::continueGame() {
 	GameStatus::getInstance()->cleanScore();
 	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
-	if (GOV_CHECK_VERSION) {
+	if (!UserData::getInstance()->getDreamTimes()) {
 		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 		Dream::getInstance()->requestEvent(8);
 	}

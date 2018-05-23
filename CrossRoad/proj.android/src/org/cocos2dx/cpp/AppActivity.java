@@ -51,8 +51,8 @@ public class AppActivity extends Cocos2dxActivity {
 	}
 	
 	
-	public static void getDreamTime(){
-		JniDreamCallbackHelper.dreamCallBack(1, 1);
+	public static boolean getDreamTime(){
+         return false;
 	}
 	
 	public static void dream(int dreamId){

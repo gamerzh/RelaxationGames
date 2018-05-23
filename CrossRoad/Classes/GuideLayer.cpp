@@ -34,7 +34,7 @@ bool GuideLayer::init() {
 void GuideLayer::closeView() {
 	UserData::getInstance()->setShowGuide(true);
 	GameStatus::getInstance()->setGameStatus(true);
-	if (GOV_CHECK_VERSION) {
+	if (!UserData::getInstance()->getDreamTimes()) {
 		Dream::getInstance()->requestEvent(4);	//开始执行dream代码
 		UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 100);
 	}

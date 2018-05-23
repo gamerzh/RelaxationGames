@@ -77,7 +77,7 @@ void StartScene::loadView() {
 	auto playerMod = Sprite::create("player_mod_0.png");
 	playerMod->setPosition(win.width / 2, win.height / 2);
 	addChild(playerMod);
-	if (GOV_CHECK_VERSION) {
+	if (!UserData::getInstance()->getDreamTimes()) {
 		showDreamLogin();
 	}
 
@@ -89,7 +89,7 @@ void StartScene::loadView() {
 		case cocos2d::EventKeyboard::KeyCode::KEY_NONE:
 			break;
 		case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
-			if (GOV_CHECK_VERSION) {
+			if (!UserData::getInstance()->getDreamTimes()) {
 				DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
 				addChild(nod);
 			}
@@ -131,7 +131,6 @@ void StartScene::changePlayerModle() {
 }
 
 void StartScene::showDreamLogin() {
-	Dream::getInstance()->getDreamTimes();
 	auto win = Director::getInstance()->getWinSize();
 	auto login = DreamNode::create(1, Vec2(win.width / 2, win.height / 2));
 	addChild(login);

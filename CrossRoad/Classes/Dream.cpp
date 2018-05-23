@@ -1,5 +1,6 @@
 #include "Dream.h"
 #include "DreamEvent.h"
+#include "UserData.h"
 #define JAVA_SRC getJniPath()
 
 Dream* Dream::_instance = 0;
@@ -35,7 +36,7 @@ void Dream::requestEvent(int dreamId) {
 #endif
 }
 
-void Dream::recordEvent(std::string dreamId, std::string action){
+void Dream::recordEvent(std::string dreamId, std::string action) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	JniMethodInfo methodInfo;
 	auto path = String::createWithFormat("%s%s", JAVA_SRC, "");
@@ -60,13 +61,18 @@ void Dream::quitGame() {
 }
 
 void Dream::getDreamTimes() {
-	log("getDreamTimes getDreamTimes getDreamTimes");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	JniMethodInfo methodInfo;
 	auto path = String::createWithFormat("%s%s", JAVA_SRC, "");
-	bool isHave = JniHelper::getStaticMethodInfo(methodInfo, path->getCString(), "getDreamTime", "()V");
+	bool isHave = JniHelper::getStaticMethodInfo(methodInfo, path->getCString(), "getDreamTime", "()Z");
 	if (isHave) {
-		JniHelper::getEnv()->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+		bool result = JniHelper::getEnv()->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID);
+		if (result) {
+			UserData::getInstance()->setDreamTimes(true);
+		}
+		else {
+			UserData::getInstance()->setDreamTimes(false);
+		}
 	}
 #endif
 }

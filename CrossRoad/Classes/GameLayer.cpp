@@ -40,7 +40,7 @@ bool GameLayer::init(Camera* ca) {
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
 	Audio::getInstance()->playSoundCar();
-	if (GOV_CHECK_VERSION) {
+	if (!UserData::getInstance()->getDreamTimes()) {
 		auto kaiju = DreamNode::create(5, Vec2(_camera->getPositionX() + win.width / 2, win.height / 2));
 		kaiju->setCameraMask(int(CameraFlag::USER1));
 		addChild(kaiju, MaxZorder);

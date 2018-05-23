@@ -57,6 +57,14 @@ void UserData::setShowGuide(bool show) {
 	UserDefault::getInstance()->setBoolForKey("show_guide", show);
 }
 
+bool UserData::getDreamTimes() {
+	return UserDefault::getInstance()->getBoolForKey("dream_times", false);
+}
+
+void UserData::setDreamTimes(bool times) {
+	UserDefault::getInstance()->setBoolForKey("dream_times", times);
+}
+
 std::vector<std::string> UserData::split(std::string str, std::string pattern)
 {
 	std::string::size_type pos;

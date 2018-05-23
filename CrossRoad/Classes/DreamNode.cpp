@@ -141,7 +141,7 @@ void DreamNode::doActionById() {
 	}
 	else if (getDreamId() == 6) {
 		//无敌
-		if (GOV_CHECK_VERSION) {
+		if (!UserData::getInstance()->getDreamTimes()) {
 			Dream::getInstance()->recordEvent(jfd_6_pay, jfd_6_pay);
 			GameStatus::getInstance()->setInvincible(true);
 			Dream::getInstance()->requestEvent(getDreamId());
@@ -154,7 +154,7 @@ void DreamNode::doActionById() {
 	}
 	else if (getDreamId() == 7) {
 		//复活和无敌
-		if (GOV_CHECK_VERSION) {
+		if (!UserData::getInstance()->getDreamTimes()) {
 			Dream::getInstance()->recordEvent(jfd_7_pay, jfd_7_pay);
 			GameStatus::getInstance()->setInvincible(true);
 			GameStatus::getInstance()->setResurgence(true);
