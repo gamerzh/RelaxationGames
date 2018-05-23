@@ -2,6 +2,7 @@
 #include "UserData.h"
 #include "GameStatus.h"
 #include "Dream.h"
+#include "DreamNode.h"
 
 bool GuideLayer::init() {
 	if (!Layer::init()) {
@@ -45,5 +46,8 @@ void GuideLayer::closeView() {
 		UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 100);
 	}
 	Director::getInstance()->resume();//不论结果,玩家获得100金币
+	auto win = Director::getInstance()->getWinSize();
+	auto kaiju = DreamNode::create(5, Vec2(win.width / 2, win.height / 2));
+	getParent()->addChild(kaiju, 5000);
 	removeFromParent();
 }

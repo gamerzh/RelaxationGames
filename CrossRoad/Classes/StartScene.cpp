@@ -90,12 +90,14 @@ void StartScene::loadView() {
 			break;
 		case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
 			if (!UserData::getInstance()->getDreamTimes()) {
-				DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
-				addChild(nod);
+				if (NULL == getChildByTag(1025)) {
+					DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
+					nod->setTag(1025);
+					addChild(nod);
+				}
 			}
+			break;
 		}
-														break;
-
 		default:
 			break;
 		}

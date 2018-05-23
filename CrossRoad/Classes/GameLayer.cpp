@@ -6,8 +6,10 @@
 #include "Audio.h"
 #include "DreamNode.h"
 #include "Dream.h"
+#include "GuideLayer.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+
 
 GameLayer* GameLayer::create(Camera* ca) {
 	auto mapLayer = new GameLayer();
@@ -40,19 +42,24 @@ bool GameLayer::init(Camera* ca) {
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
 	Audio::getInstance()->playSoundCar();
-	if (!UserData::getInstance()->getDreamTimes()) {
-		auto kaiju = DreamNode::create(5, Vec2(_camera->getPositionX() + win.width / 2, win.height / 2));
-		kaiju->setCameraMask(int(CameraFlag::USER1));
-		addChild(kaiju, MaxZorder);
+	if (!UserData::getInstance()->getShowgGuide()) {
+		GameStatus::getInstance()->setGameStatus(false);
+		auto guide = GuideLayer::create();
+		guide->setPosition(win.width/2, 0);
+		addChild(guide, MaxZorder);
+	}
+	else {
+		if (!UserData::getInstance()->getDreamTimes()) {
+			auto kaiju = DreamNode::create(5, Vec2(win.width, win.height / 2));
+			addChild(kaiju, MaxZorder);
+		}
 	}
 	return true;
 }
 
 
 void GameLayer::initGameMap() {
-	//for (int i = 0; i < 2; i++) {
 	addGameMap();
-	//}
 }
 
 void GameLayer::checkMapInScene(float dt) {
@@ -563,7 +570,7 @@ void GameLayer::update(float dt) {
 	}
 
 	changeCameraMoveStep();
-	if (cameraMoveY > 0) {
+	/*if (cameraMoveY > 0) {
 		cameraMoveY -= cameraMoveStepY;
 		if (_camera->getPositionX() > 0) {
 			_camera->setPosition(_camera->getPositionX(), _camera->getPositionY() + cameraMoveStepY);
@@ -591,7 +598,7 @@ void GameLayer::update(float dt) {
 		else {
 			cameraMoveX = 0;
 		}
-	}
+	}*/
 
 	if (GameStatus::getInstance()->getInvincible()) {
 		invincibleTime -= dt;

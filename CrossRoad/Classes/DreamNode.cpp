@@ -83,7 +83,7 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 	auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
 	auto closeMenu = Menu::create(close, NULL);
 	closeMenu->setPosition(pos.x + 260, pos.y + 300);
-	addChild(closeMenu);
+	addChild(closeMenu,2);
 
 	if (getDreamId() == 1) {
 		Dream::getInstance()->recordEvent(jfd_1_show, jfd_1_show);
@@ -176,7 +176,7 @@ void DreamNode::doActionById() {
 	}
 	else if (getDreamId() == 10) {
 		Dream::getInstance()->recordEvent(jfd_10_pay, jfd_10_pay);
-		Dream::getInstance()->quitGame();
+		Dream::getInstance()->requestEvent(getDreamId());
 	}
 	removeFromParent();
 }
@@ -250,7 +250,7 @@ void DreamNode::closeView() {
 	}
 	else if (getDreamId() == 10) {
 		Dream::getInstance()->recordEvent(jfd_10_close, jfd_10_close);
-		Director::getInstance()->end();
+		Dream::getInstance()->quitGame();
 	}
 	removeFromParent();
 }
@@ -296,32 +296,20 @@ std::string DreamNode::getContentById(int dreamId) {
 std::string DreamNode::getButtonById(int dreamId) {
 	switch (dreamId)
 	{
-	case 1:
-		return "dream_btn_1.png";
-	case 2:
-		return "dream_btn_1.png";
-	case 3:
-		return "dream_btn_3.png";
-	case 5:
-		return "dream_btn_1.png";
 	case 6:
 		if (!UserData::getInstance()->getDreamTimes()) {
-			return "dream_btn_3.png";
+			return "dream_btn_1.png";
 		}
 		else {
 			return "gou.png";
 		}
 	case 7:
 		if (!UserData::getInstance()->getDreamTimes()) {
-			return "dream_btn_7.png";
+			return "dream_btn_1.png";
 		}
 		else {
 			return "gou.png";
 		}
-	case 9:
-		return "dream_btn_1.png";
-	case 10:
-		return "dream_btn_1.png";
 	default:
 		return "dream_btn_1.png";
 	}
