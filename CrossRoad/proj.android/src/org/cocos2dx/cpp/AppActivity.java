@@ -29,6 +29,7 @@ package org.cocos2dx.cpp;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 public class AppActivity extends Cocos2dxActivity {
 	
@@ -52,6 +53,7 @@ public class AppActivity extends Cocos2dxActivity {
 	
 	
 	public static boolean getDreamTime(){
+		Log.e("HHH", "HHH");
          return true;
 	}
 	

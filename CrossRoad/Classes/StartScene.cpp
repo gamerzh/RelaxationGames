@@ -32,6 +32,8 @@ bool StartScene::init()
 void StartScene::loadView() {
 	auto win = Director::getInstance()->getWinSize();
 
+	Dream::getInstance()->getDreamTimes();
+
 	auto black = LayerColor::create(Color4B(255, 255, 255, 100), win.width, win.height);
 	addChild(black);
 

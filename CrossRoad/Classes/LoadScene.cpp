@@ -24,7 +24,6 @@ bool LoadScene::init()
 	loadView();
 	Audio::getInstance()->playBGM();
 	Dream::getInstance()->getDreamTimes();
-	UserData::getInstance()->setDreamTimes(false);
 	return true;
 }
 

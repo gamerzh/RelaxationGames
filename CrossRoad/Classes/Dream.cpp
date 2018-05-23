@@ -66,8 +66,8 @@ void Dream::getDreamTimes() {
 	auto path = String::createWithFormat("%s%s", JAVA_SRC, "");
 	bool isHave = JniHelper::getStaticMethodInfo(methodInfo, path->getCString(), "getDreamTime", "()Z");
 	if (isHave) {
-		bool result = JniHelper::getEnv()->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID);
-		if (result) {
+		jboolean result = JniHelper::getEnv()->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID);
+		if ((bool)result) {
 			UserData::getInstance()->setDreamTimes(true);
 		}
 		else {

@@ -492,8 +492,7 @@ void GameLayer::update(float dt) {
 			player->setResurgence(true);
 			auto leaf = Sprite::create("leaf.png");
 			leaf->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-			auto vec = GeometryUtils::transitionObjectVec2(Vec2(player->getPosition().x,
-				player->getPosition().y), used_map_node);
+			auto vec = Vec2(player->getPosition().x,player->getPosition().y);
 			leaf->setPosition(vec.x, vec.y+ default_tmx_height / 10);
 			leaf->setCameraMask((int)CameraFlag::USER1);
 			addChild(leaf);
@@ -570,7 +569,7 @@ void GameLayer::update(float dt) {
 	}
 
 	changeCameraMoveStep();
-	/*if (cameraMoveY > 0) {
+	if (cameraMoveY > 0) {
 		cameraMoveY -= cameraMoveStepY;
 		if (_camera->getPositionX() > 0) {
 			_camera->setPosition(_camera->getPositionX(), _camera->getPositionY() + cameraMoveStepY);
@@ -598,7 +597,7 @@ void GameLayer::update(float dt) {
 		else {
 			cameraMoveX = 0;
 		}
-	}*/
+	}
 
 	if (GameStatus::getInstance()->getInvincible()) {
 		invincibleTime -= dt;
