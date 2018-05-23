@@ -251,23 +251,16 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			if (player->getPositionX() > default_tmx_width) {
 				auto jmpResult = player->playerJumpLeft(treeList, CallFunc::create([=]() {
 					goldPickCheck();
+					cameraMoveX -= default_tmx_width;
 				}));
-				if (jmpResult) {
-					cameraMoveLeft += default_tmx_width;
-					cameraMoveRight = 0;
-					_camera->runAction(Sequence::create(DelayTime::create(0.5), Follow::create(player), NULL));
-				}
 			}
 		}
 		else if (playerGesture == Gesture::right) {
 			if (player->getPositionX() < default_tmx_width * 17) {
 				auto jmpResult = player->playerJumpRight(treeList, CallFunc::create([=]() {
 					goldPickCheck();
+					cameraMoveX += default_tmx_width;
 				}));
-				if (jmpResult) {
-					cameraMoveRight += default_tmx_width;
-					cameraMoveLeft = 0;
-				}
 			}
 
 		}
@@ -285,7 +278,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			auto jmpResult = player->playerJumpForward(treeList, CallFunc::create([=]() {
 				goldPickCheck();
 				cameraMoveY += default_tmx_height*0.72;
-				cameraMoveRight += PLAYER_JUMP_OFFSET;
+				cameraMoveX += PLAYER_JUMP_OFFSET;
 			}));
 			if (jmpResult) {
 				GameStatus::getInstance()->plusStepNum();
@@ -310,7 +303,7 @@ void GameLayer::changeCameraMoveStep() {
 		cameraMoveStepY = 2;
 	}
 
-	if (cameraMoveRight > 0) {
+	if (abs(cameraMoveX) > 0) {
 		if (player->getPositionX() - _camera->getPositionX() < 3 * default_tmx_width) {
 			cameraMoveStepX = 1.2;
 			return;
@@ -321,21 +314,6 @@ void GameLayer::changeCameraMoveStep() {
 		}
 		else {
 			cameraMoveStepX = 2.0;
-			return;
-		}
-	}
-
-	if (cameraMoveLeft > 0) {
-		if (player->getPositionX() - _camera->getPositionX() < 3 * default_tmx_width) {
-			cameraMoveStepX = 2.0;
-			return;
-		}
-		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
-			cameraMoveStepX = 1.6;
-			return;
-		}
-		else {
-			cameraMoveStepX = 1.2;
 			return;
 		}
 	}
@@ -597,29 +575,22 @@ void GameLayer::update(float dt) {
 	else {
 		cameraMoveY = 0;
 	}
-	if (cameraMoveLeft > 0) {
-		cameraMoveLeft -= cameraMoveStepX;
-		if (_camera->getPositionX() > 0) {
+	if (cameraMoveX < 0) {
+		cameraMoveX += cameraMoveStepX;
+		if (_camera->getPositionX() > 0 && cameraMoveX <0) {
 			_camera->setPosition(_camera->getPositionX() - cameraMoveStepX, _camera->getPositionY());
 		}
 		else {
-			cameraMoveLeft = 0;
+			cameraMoveX = 0;
 		}
-	}
-	else {
-		cameraMoveLeft = 0;
-	}
-	if (cameraMoveRight > 0) {
-		cameraMoveRight -= cameraMoveStepX;
-		if (_camera->getPositionX() < default_tmx_width * 9) {
+	}else {
+		cameraMoveX -= cameraMoveStepX;
+		if (_camera->getPositionX() < default_tmx_width * 9 && cameraMoveX > 0) {
 			_camera->setPosition(_camera->getPositionX() + cameraMoveStepX, _camera->getPositionY());
 		}
 		else {
-			cameraMoveRight = 0;
+			cameraMoveX = 0;
 		}
-	}
-	else {
-		cameraMoveRight = 0;
 	}
 
 	if (GameStatus::getInstance()->getInvincible()) {

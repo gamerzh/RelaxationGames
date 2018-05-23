@@ -37,8 +37,7 @@ private:
 	bool isShowGameOver = false;
 	bool playerInWaterRect = false;
 	float cameraMoveStepX = 1.2;
-	float cameraMoveLeft = 0;
-	float cameraMoveRight = 0;
+	float cameraMoveX= 0;
 	float cameraMoveY = 0;
 	float cameraMoveStepY = 2.0;
 	float playerStayTime = 0;
