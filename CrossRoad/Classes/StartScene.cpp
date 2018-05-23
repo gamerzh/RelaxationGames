@@ -95,7 +95,7 @@ void StartScene::loadView() {
 				if (NULL == getChildByTag(1025)) {
 					DreamNode* nod = DreamNode::create(10, Vec2(win.width / 2, win.height / 2));
 					nod->setTag(1025);
-					addChild(nod);
+					addChild(nod,10000);
 				}
 			}
 			break;
