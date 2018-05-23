@@ -23,10 +23,10 @@ public:
 	CREATE_FUNC(Player);
 	virtual bool init();
 	//Íæ¼Ò²Ù×÷
-	bool playerJumpForward(vector<Block*> blocks);
-	bool playerJumpBackwards(vector<Block*> blocks);
-	bool playerJumpLeft(vector<Block*> blocks);
-	bool playerJumpRight(vector<Block*> blocks);
+	bool playerJumpForward(vector<Block*> blocks,CallFunc* func = nullptr);
+	bool playerJumpBackwards(vector<Block*> blocks, CallFunc* func = nullptr);
+	bool playerJumpLeft(vector<Block*> blocks, CallFunc* func = nullptr);
+	bool playerJumpRight(vector<Block*> blocks, CallFunc* func = nullptr);
 	void playPlayerJiYa();
 	void playPlayerJiYaLeft();
 	void playPlayerJiYaRight();

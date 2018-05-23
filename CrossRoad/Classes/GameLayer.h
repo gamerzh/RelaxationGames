@@ -66,11 +66,11 @@ private:
 	void createTrain(Point position);
 	void checkMapInScene(float dt);
     void update(float dt);
-	void updateTreeZorder();
 	void changeCameraMoveStep();
 	void moveCameraX();//在X轴上移动相机
 	void cancelMoveCameraX();
 	void showGameOver(int type);
 	void hawkKillPlayer();
+	void goldPickCheck();
 	void recycleResource();
 };

@@ -248,17 +248,23 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 	//对于操作指法的判定,向左滑动,向右滑动,双击
 	if (NULL != player) {
 		if (playerGesture == Gesture::left) {
-
 			if (player->getPositionX() > default_tmx_width) {
-				if (player->playerJumpLeft(treeList)) {
+				auto jmpResult = player->playerJumpLeft(treeList, CallFunc::create([=]() {
+					goldPickCheck();
+				}));
+				if (jmpResult) {
 					cameraMoveLeft += default_tmx_width;
 					cameraMoveRight = 0;
+					_camera->runAction(Sequence::create(DelayTime::create(0.5), Follow::create(player), NULL));
 				}
 			}
 		}
 		else if (playerGesture == Gesture::right) {
 			if (player->getPositionX() < default_tmx_width * 17) {
-				if (player->playerJumpRight(treeList)) {
+				auto jmpResult = player->playerJumpRight(treeList, CallFunc::create([=]() {
+					goldPickCheck();
+				}));
+				if (jmpResult) {
 					cameraMoveRight += default_tmx_width;
 					cameraMoveLeft = 0;
 				}
@@ -267,30 +273,28 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		}
 		else if (playerGesture == Gesture::backwards) {
 			if (player->getPositionY() >= _camera->getPositionY() + default_tmx_height) {
-				if (player->playerJumpBackwards(treeList)) {
+				auto jmpResult = player->playerJumpBackwards(treeList, CallFunc::create([=]() {
+					goldPickCheck();
+				}));
+				if (jmpResult) {
 					GameStatus::getInstance()->minusStepNum();
 				}
 			}
 		}
 		else {
-
-			//if (player->getPositionX() < default_tmx_width * 17) {
-			cameraMoveY += default_tmx_height*0.72;
-			cameraMoveRight += PLAYER_JUMP_OFFSET*0.5;
-			if (player->playerJumpForward(treeList)) {
+			auto jmpResult = player->playerJumpForward(treeList, CallFunc::create([=]() {
+				goldPickCheck();
+				cameraMoveY += default_tmx_height*0.72;
+				cameraMoveRight += PLAYER_JUMP_OFFSET;
+			}));
+			if (jmpResult) {
 				GameStatus::getInstance()->plusStepNum();
 				playerStayTime = 0;
 			}
-			//}
-
 		}
 		allowJump = false;
 	}
 
-}
-
-void GameLayer::updateTreeZorder() {
-	//TODO
 }
 
 
@@ -400,6 +404,23 @@ void GameLayer::showGameOver(int type) {
 	}
 }
 
+
+void GameLayer::goldPickCheck() {
+	//检查玩家是否碰到了金币
+	vector<GoldIcon*>::iterator it;
+	if (goldList.size() != 0) {
+		for (it = goldList.begin(); it != goldList.end(); ++it) {
+			GoldIcon* myGold = *it;
+			if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
+				it = goldList.erase(it);
+				myGold->removeFromParent();
+				UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
+				Audio::getInstance()->playSoundGold();
+				return;
+			}
+		}
+	}
+}
 
 void GameLayer::recycleResource() {
 	//回收树木
@@ -599,21 +620,6 @@ void GameLayer::update(float dt) {
 	}
 	else {
 		cameraMoveRight = 0;
-	}
-
-	//检查玩家是否碰到了金币
-	vector<GoldIcon*>::iterator it;
-	if (goldList.size() != 0) {
-		for (it = goldList.begin(); it != goldList.end(); ++it) {
-			GoldIcon* myGold = *it;
-			if (GeometryUtils::intersectsRect(myGold->getBoundingBox(), player->getPlayerCheckRect())) {
-				it = goldList.erase(it);
-				myGold->removeFromParent();
-				UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 10);
-				Audio::getInstance()->playSoundGold();
-				return;
-			}
-		}
 	}
 
 	if (GameStatus::getInstance()->getInvincible()) {

@@ -20,7 +20,7 @@ bool Player :: init() {
 
 
 
-bool Player::playerJumpForward(vector<Block*> blocks) {
+bool Player::playerJumpForward(vector<Block*> blocks, CallFunc* func) {
 	
 	for (auto bloc : blocks)
 	{
@@ -52,18 +52,17 @@ bool Player::playerJumpForward(vector<Block*> blocks) {
 	else {
 		target = Vec2(target.x + PLAYER_JUMP_OFFSET, target.y + default_tmx_height);
 	}
-	//log("aaaaa target %.1f,%.1f", target.x,target.y);
 	this->runAction(Sequence::create(MoveTo::create(0.20, target),CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		//log("Player Zorder %d", this->getLocalZOrder());
 		setResurgence(false);
 		log("Player postion = (%.1f,%.1f)", getPosition().x, getPosition().y);
-	}), NULL));
+	}), func,NULL));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
 
-bool Player::playerJumpBackwards(vector<Block*> blocks) {
+bool Player::playerJumpBackwards(vector<Block*> blocks, CallFunc* func) {
 	
 	for (auto bloc : blocks)
 	{
@@ -99,13 +98,13 @@ bool Player::playerJumpBackwards(vector<Block*> blocks) {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		setResurgence(false);
 		log("Player Zorder %d", this->getLocalZOrder());
-	}), NULL));
+	}), func, NULL));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
 
 
-bool Player::playerJumpLeft(vector<Block*> blocks) {
+bool Player::playerJumpLeft(vector<Block*> blocks, CallFunc* func) {
 	
 	for (auto bloc : blocks)
 	{
@@ -128,35 +127,17 @@ bool Player::playerJumpLeft(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueLeft();
 	auto target = Vec2(this->getPosition().x - default_tmx_width, this->getPosition().y);
-	/*offset_path = ((int)offset_path) % default_tmx_width;
-	if (offset_path > 0) {
-		if (offset_path < default_tmx_width / 2) {
-			target = Vec2(target.x - offset_path, target.y);
-		}
-		else {
-			target = Vec2(target.x - offset_path + default_tmx_width, target.y);
-		}
-	}
-	else if (offset_path < 0) {
-		if (abs(offset_path) < default_tmx_width / 2) {
-			target = Vec2(target.x + abs(offset_path), target.y);
-		}
-		else {
-			target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
-		}
-	}
-	offset_path = 0;*/
 	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		setResurgence(false);
 		log("Player Zorder %d", this->getLocalZOrder());
-	}), NULL));
+	}), func,NULL));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
 
 
-bool Player::playerJumpRight(vector<Block*> blocks) {
+bool Player::playerJumpRight(vector<Block*> blocks, CallFunc* func) {
 	
 	for (auto bloc : blocks)
 	{
@@ -179,29 +160,11 @@ bool Player::playerJumpRight(vector<Block*> blocks) {
 	}
 	playPlayerTiaoYueRight();
 	auto target = Vec2(this->getPosition().x + default_tmx_width, this->getPosition().y);
-	//offset_path = ((int)offset_path) % default_tmx_width;
-	//if (offset_path > 0) {
-	//	if (offset_path < default_tmx_width / 2) {
-	//		target = Vec2(target.x - offset_path, target.y);
-	//	}
-	//	else {
-	//		target = Vec2(target.x - offset_path + default_tmx_width, target.y);
-	//	}
-	//}
-	//else if (offset_path < 0) {
-	//	if (abs(offset_path) < default_tmx_width / 2) {
-	//		target = Vec2(target.x + abs(offset_path), target.y);
-	//	}
-	//	else {
-	//		target = Vec2(target.x + abs(offset_path) - default_tmx_width, target.y);
-	//	}
-	//}
-	//offset_path = 0;
 	this->runAction(Sequence::create(MoveTo::create(0.20, target), CallFunc::create([=]() {
 		this->setLocalZOrder(MaxZorder - floor(this->getPositionY() / default_tmx_height));
 		setResurgence(false);
 		log("Player Zorder %d", this->getLocalZOrder());
-	}), NULL));
+	}), func, NULL));
 	Audio::getInstance()->playSoundJump();
 	return true;
 }
