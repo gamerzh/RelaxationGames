@@ -46,10 +46,21 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 		auto quan = MenuItem::create(CC_CALLBACK_0(DreamNode::doActionById, this));
 		quan->setContentSize(Size(win.width, win.height));
+		auto quanMenu = Menu::create(quan, NULL);
+		quanMenu->setPosition(pos.x, pos.y);
+		addChild(quanMenu);
+
 		auto button = MenuItemImage::create(getButtonById(dreamId), getButtonById(dreamId), CC_CALLBACK_0(DreamNode::doActionById, this));
-		auto menu = Menu::create(quan,button, NULL);
+		auto menu = Menu::create(button, NULL);
 		menu->setPosition(pos.x, pos.y - 300);
 		addChild(menu);
+		if (UserData::getInstance()->getDreamTimes()) {
+			quan->setEnabled(false);
+			mm->setVisible(false);
+			auto cancel = MenuItemImage::create("cancel.png", "cancel.png", CC_CALLBACK_0(DreamNode::closeView, this));
+			menu->addChild(cancel);
+			menu->alignItemsHorizontallyWithPadding(30);
+		}
 	}
 	else {
 		Director::getInstance()->resume();
@@ -257,9 +268,22 @@ std::string DreamNode::getContentById(int dreamId) {
 	case 5:
 		return "dream_4.png";
 	case 6:
-		return "dream_6.png";
+	{
+		if (!UserData::getInstance()->getDreamTimes()) {
+			return "dream_6.png";
+		}
+		else {
+			return "shenmi_second.png";
+		}
+	}
+		
 	case 7:
-		return "dream_7.png";
+		if (!UserData::getInstance()->getDreamTimes()) {
+			return "dream_7.png";
+		}
+		else {
+			return "fuhuo_second.png";
+		}
 	case 9:
 		return "dream_8.png";
 	case 10:
@@ -281,9 +305,19 @@ std::string DreamNode::getButtonById(int dreamId) {
 	case 5:
 		return "dream_btn_1.png";
 	case 6:
-		return "dream_btn_3.png";
+		if (!UserData::getInstance()->getDreamTimes()) {
+			return "dream_btn_3.png";
+		}
+		else {
+			return "gou.png";
+		}
 	case 7:
-		return "dream_btn_7.png";
+		if (!UserData::getInstance()->getDreamTimes()) {
+			return "dream_btn_7.png";
+		}
+		else {
+			return "gou.png";
+		}
 	case 9:
 		return "dream_btn_1.png";
 	case 10:

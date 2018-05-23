@@ -2,6 +2,7 @@
 #include "StartScene.h"
 #include "Audio.h"
 #include "Dream.h"
+#include "UserData.h"
 
 Scene* LoadScene::createScene()
 {
@@ -23,6 +24,7 @@ bool LoadScene::init()
 	loadView();
 	Audio::getInstance()->playBGM();
 	Dream::getInstance()->getDreamTimes();
+	UserData::getInstance()->setDreamTimes(false);
 	return true;
 }
 

@@ -10,6 +10,9 @@ bool GameOver::init() {
 	if (!Layer::init()) {
 		return false;
 	}
+
+	Director::getInstance()->pause();
+
 	auto win = Director::getInstance()->getWinSize();
 
 	auto swa = MenuItem::create();
@@ -39,6 +42,12 @@ bool GameOver::init() {
 	extraGold->setPosition(win.width * 0.52, win.height*0.445f);
 	addChild(extraGold);
 
+	auto mm = Sprite::create("jxb.png");
+	mm->setAnchorPoint(Vec2(0, 0));
+	mm->setOpacity(40);
+	mm->setPosition(win.width / 2 - 355, win.height / 2 - 635);
+	addChild(mm);
+
 	auto goback = MenuItemImage::create("go_lobby.png", "go_lobby.png", CC_CALLBACK_0(GameOver::goLoading, this));
 	auto resultCon = MenuItemImage::create("over_con.png", "over_con.png", CC_CALLBACK_0(GameOver::continueGame, this));
 	auto closeMenu = Menu::create(goback, resultCon, NULL);
@@ -57,9 +66,15 @@ void GameOver::continueGame() {
 		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
 		Dream::getInstance()->requestEvent(8);
 	}
+	Director::getInstance()->resume();
 	Director::getInstance()->replaceScene(GameScene::createScene());
 }
 
 void GameOver::goLoading() {
+	if (!UserData::getInstance()->getDreamTimes()) {
+		UserData::getInstance()->setPlayerGoldNum(100 + UserData::getInstance()->getPlayerGoldNum());
+		Dream::getInstance()->requestEvent(8);
+	}
+	Director::getInstance()->resume();
 	Director::getInstance()->replaceScene(StartScene::createScene());
 }

@@ -52,7 +52,7 @@ public class AppActivity extends Cocos2dxActivity {
 	
 	
 	public static boolean getDreamTime(){
-         return false;
+         return true;
 	}
 	
 	public static void dream(int dreamId){

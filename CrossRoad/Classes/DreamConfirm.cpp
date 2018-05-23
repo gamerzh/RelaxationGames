@@ -2,6 +2,7 @@
 #include "Dream.h"
 #include "DreamEvent.h"
 #include "GameStatus.h"
+#include "GameOver.h"
 
 DreamConfirm* DreamConfirm::create(int dreamId, Vec2 pos) {
 	DreamConfirm* ret = new DreamConfirm();
@@ -40,8 +41,10 @@ bool DreamConfirm::init(int dreamId, Vec2 pos) {
 	addChild(cont);
 
 	auto confirm = MenuItemImage::create("gou.png", "gou.png", CC_CALLBACK_0(DreamConfirm::confirmDream, this));
-	auto confirmMenu = Menu::create(confirm, NULL);
+	auto cancel = MenuItemImage::create("cancel.png", "cancel.png", CC_CALLBACK_0(DreamConfirm::closeView, this));
+	auto confirmMenu = Menu::create(confirm, cancel, NULL);
 	confirmMenu->setPosition(pos.x,pos.y-200);
+	confirmMenu->alignItemsHorizontallyWithPadding(30);
 	addChild(confirmMenu);
 
 	return true;
@@ -63,4 +66,10 @@ void DreamConfirm::confirmDream() {
 	}
 	Director::getInstance()->resume();
 	removeFromParent();
+}
+
+void DreamConfirm::closeView() {
+	auto over = GameOver::create();
+	over->setTag(100);
+	addChild(over);
 }

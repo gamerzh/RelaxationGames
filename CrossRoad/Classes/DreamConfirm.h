@@ -9,4 +9,5 @@ public:
 private:
 	int dream_id = 0;
 	void confirmDream();
+	void closeView();
 };
