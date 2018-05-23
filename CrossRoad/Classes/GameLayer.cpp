@@ -38,6 +38,7 @@ bool GameLayer::init(Camera* ca) {
 	player->setCameraMask(int(CameraFlag::USER1));
 	log("Player postion = (%.1f,%.1f)", playerPos.x, playerPos.y);
 	addChild(player, MaxZorder);
+
 	scheduleUpdate();
 	schedule(schedule_selector(GameLayer::checkMapInScene), 0.1f);
 	addTouchListener();
@@ -258,7 +259,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			if (player->getPositionX() > default_tmx_width) {
 				auto jmpResult = player->playerJumpLeft(treeList, CallFunc::create([=]() {
 					goldPickCheck();
-					cameraMoveX -= default_tmx_width;
+					//cameraMoveX -= default_tmx_width;
 				}));
 			}
 		}
@@ -266,7 +267,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 			if (player->getPositionX() < default_tmx_width * 17) {
 				auto jmpResult = player->playerJumpRight(treeList, CallFunc::create([=]() {
 					goldPickCheck();
-					cameraMoveX += default_tmx_width;
+					//cameraMoveX += default_tmx_width;
 				}));
 			}
 
@@ -284,8 +285,8 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 		else {
 			auto jmpResult = player->playerJumpForward(treeList, CallFunc::create([=]() {
 				goldPickCheck();
-				cameraMoveY += default_tmx_height*0.72;
-				cameraMoveX += PLAYER_JUMP_OFFSET;
+				//cameraMoveY += default_tmx_height*0.72;
+				//cameraMoveX += PLAYER_JUMP_OFFSET;
 			}));
 			if (jmpResult) {
 				GameStatus::getInstance()->plusStepNum();
@@ -298,47 +299,7 @@ void GameLayer::onTouchEnded(Touch* touch, Event* event) {
 }
 
 
-void GameLayer::changeCameraMoveStep() {
-	//更具玩家和摄像机的距离调整步幅
-	if (cameraMoveY > 2 * default_tmx_height) {
-		cameraMoveStepY = 4;
-	}
-	else if (cameraMoveY > 4 * default_tmx_height) {
-		cameraMoveStepY = 8;
-	}
-	else {
-		cameraMoveStepY = 2;
-	}
 
-	if (abs(cameraMoveX) > 0) {
-		if (player->getPositionX() - _camera->getPositionX() < 3 * default_tmx_width) {
-			cameraMoveStepX = 1.2;
-			return;
-		}
-		else if (player->getPositionX() - _camera->getPositionX() < 6 * default_tmx_width) {
-			cameraMoveStepX = 1.6;
-			return;
-		}
-		else {
-			cameraMoveStepX = 2.0;
-			return;
-		}
-	}
-}
-
-void GameLayer::moveCameraX() {
-	schedule([=](float dt) {
-		if (_camera->getPositionX() >= 0 && _camera->getPositionX() < 9 * default_tmx_width) {
-			_camera->setPosition(_camera->getPositionX() + player->getSpeedX(), _camera->getPositionY());
-		}
-	}, 1.0f / 60, SCHEDULE_CAMERA_X);
-}
-
-void GameLayer::cancelMoveCameraX() {
-	player->setSpeedX(0);
-	player->setPlayerOnWood(false);
-	unschedule(SCHEDULE_CAMERA_X);
-}
 
 void GameLayer::hawkKillPlayer() {
 	auto hawk = Sprite::create("hawk.png");
@@ -472,6 +433,54 @@ void GameLayer::recycleResource() {
 	}
 }
 
+void GameLayer::cameraMoveCheck() {
+	cruentPlayerOffsetX = player->getPositionX() - _camera->getPositionX();
+	cruentPlayerOffsetY = player->getPositionY() - _camera->getPositionY();
+	cameraMoveX = cruentPlayerOffsetX - originalPlayerOffsetX;
+	cameraMoveY = cruentPlayerOffsetY - originalPlayerOffsetY;
+	log("YYYYYYYY = %.1f,%.1f", cameraMoveX, cameraMoveY);
+}
+
+void GameLayer::changeCameraMoveStep() {
+	//更具玩家和摄像机的距离调整步幅
+	if (cameraMoveY > 2 * default_tmx_height) {
+		cameraMoveStepY = 4;
+	}
+	else if (cameraMoveY > 4 * default_tmx_height) {
+		cameraMoveStepY = 8;
+	}
+	else {
+		cameraMoveStepY = 2;
+	}
+
+	if (abs(cameraMoveX) > 0) {
+		if (player->getPositionX() - _camera->getPositionX() > 3 * default_tmx_width) {
+			cameraMoveStepX = 4;
+		}
+		else if (player->getPositionX() - _camera->getPositionX() > 6 * default_tmx_width) {
+			cameraMoveStepX = 8;
+		}
+		else {
+			cameraMoveStepX = 2;
+		}
+	}
+}
+
+void GameLayer::moveCameraX() {
+	//schedule([=](float dt) {
+	//	if (_camera->getPositionX() >= 0 && _camera->getPositionX() < 9 * default_tmx_width) {
+	//		_camera->setPosition(_camera->getPositionX() + player->getSpeedX(), _camera->getPositionY());
+	//	}
+	//}, 1.0f / 60, SCHEDULE_CAMERA_X);
+}
+
+void GameLayer::cancelMoveCameraX() {
+	player->setSpeedX(0);
+	player->setPlayerOnWood(false);
+	//unschedule(SCHEDULE_CAMERA_X);
+}
+
+
 void GameLayer::update(float dt) {
 	if (!allowJump) {
 		jumpInterval += dt;
@@ -568,6 +577,17 @@ void GameLayer::update(float dt) {
 		}
 	}
 
+
+	randomPassTime += dt;
+	if (randomPassTime > randomPrideTime) {
+		randomPassTime = 0;
+		if (NULL == getChildByTag(521)) {
+			auto pride = DreamNode::create(6, Vec2(win.width / 2, win.height / 2));
+			pride->setTag(521);
+			addChild(pride);
+		}
+	}
+	cameraMoveCheck();
 	changeCameraMoveStep();
 	if (cameraMoveY > 0) {
 		cameraMoveY -= cameraMoveStepY;
@@ -583,19 +603,14 @@ void GameLayer::update(float dt) {
 	}
 	if (cameraMoveX < 0) {
 		cameraMoveX += cameraMoveStepX;
-		if (_camera->getPositionX() > 0 && cameraMoveX <0) {
+		if (_camera->getPositionX() > 0 && cameraMoveX < -8) {
 			_camera->setPosition(_camera->getPositionX() - cameraMoveStepX, _camera->getPositionY());
 		}
-		else {
-			cameraMoveX = 0;
-		}
-	}else {
+	}
+	else {
 		cameraMoveX -= cameraMoveStepX;
-		if (_camera->getPositionX() < default_tmx_width * 9 && cameraMoveX > 0) {
+		if (_camera->getPositionX() < default_tmx_width * 9 && cameraMoveX > 8) {
 			_camera->setPosition(_camera->getPositionX() + cameraMoveStepX, _camera->getPositionY());
-		}
-		else {
-			cameraMoveX = 0;
 		}
 	}
 
@@ -606,16 +621,5 @@ void GameLayer::update(float dt) {
 			invincibleTime = 10;
 		}
 	}
-
-	randomPassTime += dt;
-	if (randomPassTime > randomPrideTime) {
-		randomPassTime = 0;
-		if (NULL == getChildByTag(521)) {
-			auto pride = DreamNode::create(6, Vec2(win.width / 2, win.height / 2));
-			pride->setTag(521);
-			addChild(pride);
-		}
-	}
-
 	recycleResource();
 }

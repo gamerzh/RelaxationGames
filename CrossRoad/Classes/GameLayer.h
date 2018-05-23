@@ -36,9 +36,13 @@ private:
 	bool needAddMap = false;
 	bool isShowGameOver = false;
 	bool playerInWaterRect = false;
-	float cameraMoveStepX = 1.2;
+	const float originalPlayerOffsetX = default_tmx_width*4.5;
+	const float originalPlayerOffsetY = default_tmx_height*4;
+	float cruentPlayerOffsetX = 0;
+	float cruentPlayerOffsetY = 0;
 	float cameraMoveX= 0;
 	float cameraMoveY = 0;
+	float cameraMoveStepX = 1.2;
 	float cameraMoveStepY = 2.0;
 	float playerStayTime = 0;
 	bool allowJump = true;
@@ -56,6 +60,7 @@ private:
 	vector<Block*> treeList;
 	vector<GoldIcon*> goldList;
 	vector<Train*> trainList;
+	void cameraMoveCheck();
 	void initGameMap();
 	void addGameMap();
 	void createAutomoblie(Camera* camera,int type, int direction, int speed, int interval, Point pos);
