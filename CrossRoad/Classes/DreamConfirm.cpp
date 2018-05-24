@@ -69,7 +69,13 @@ void DreamConfirm::confirmDream() {
 }
 
 void DreamConfirm::closeView() {
-	auto over = GameOver::create();
-	over->setTag(100);
-	addChild(over);
+	if (dream_id == 7) {
+		auto over = GameOver::create();
+		over->setTag(100);
+		addChild(over);
+	}
+	else {
+		Director::getInstance()->resume();
+		removeFromParent();
+	}
 }
