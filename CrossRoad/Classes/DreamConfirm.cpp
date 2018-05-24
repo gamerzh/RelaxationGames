@@ -30,6 +30,12 @@ bool DreamConfirm::init(int dreamId, Vec2 pos) {
 	bg->setPosition(pos);
 	addChild(bg);
 
+
+	auto swa = MenuItem::create();
+	swa->setContentSize(Size(win.width, win.height));
+	auto swam = Menu::create(swa, NULL);
+	addChild(swam);
+
 	auto cont = Sprite::create();
 	if (dreamId == 6) {
 		cont->setTexture("shengmi_2.png");

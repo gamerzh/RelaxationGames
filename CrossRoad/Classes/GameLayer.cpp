@@ -340,8 +340,7 @@ void GameLayer::showGameOver(int type) {
 		}
 		if (NULL == getChildByTag(99)) {
 			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=]() {
-				auto dreamAlive = DreamNode::create(7, Vec2(_camera->getPositionX() + win.width / 2, _camera->getPositionY() + win.height / 2));
-				dreamAlive->setCameraMask((int)CameraFlag::USER1);
+				auto dreamAlive = DreamNode::create(7, Vec2( win.width / 2, win.height / 2));
 				dreamAlive->setTag(99);
 				addChild(dreamAlive, MaxZorder);
 			}), NULL));
@@ -438,7 +437,7 @@ void GameLayer::cameraMoveCheck() {
 	cruentPlayerOffsetY = player->getPositionY() - _camera->getPositionY();
 	cameraMoveX = cruentPlayerOffsetX - originalPlayerOffsetX;
 	cameraMoveY = cruentPlayerOffsetY - originalPlayerOffsetY;
-	log("YYYYYYYY = %.1f,%.1f", cameraMoveX, cameraMoveY);
+	//log("YYYYYYYY = %.1f,%.1f", cameraMoveX, cameraMoveY);
 }
 
 void GameLayer::changeCameraMoveStep() {
@@ -580,11 +579,11 @@ void GameLayer::update(float dt) {
 
 	randomPassTime += dt;
 	if (randomPassTime > randomPrideTime) {
-		randomPassTime = 0;
-		if (NULL == getChildByTag(521)) {
+		if (NULL == getChildByTag(99)) {
 			auto pride = DreamNode::create(6, Vec2(win.width / 2, win.height / 2));
-			pride->setTag(521);
+			pride->setTag(99);
 			addChild(pride);
+			randomPassTime = 0;
 		}
 	}
 	cameraMoveCheck();

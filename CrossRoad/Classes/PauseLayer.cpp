@@ -33,6 +33,7 @@ void PauseLayer::initView() {
 
 
 void PauseLayer::goBackHome() {
+	Director::getInstance()->resume();
 	GameStatus::getInstance()->cleanScore();
 	GameStatus::getInstance()->setGameStatus(true);
 	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
@@ -41,6 +42,7 @@ void PauseLayer::goBackHome() {
 
 
 void PauseLayer::gameResart() {
+	Director::getInstance()->resume();
 	GameStatus::getInstance()->cleanScore();
 	GameStatus::getInstance()->setGameStatus(true);
 	((GameScene*)getParent())->cleanup();//GameScene跳转到GameScene会有卡顿,清理后更流畅
@@ -49,6 +51,7 @@ void PauseLayer::gameResart() {
 
 
 void PauseLayer::continueGame() {
+	Director::getInstance()->resume();
 	GameStatus::getInstance()->setGameStatus(true);
 	removeFromParent();
 }

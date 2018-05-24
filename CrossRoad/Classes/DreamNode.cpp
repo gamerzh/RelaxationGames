@@ -31,6 +31,12 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 	bg->setPosition(pos);
 	addChild(bg);
 
+
+	auto swa = MenuItem::create();
+	swa->setContentSize(Size(win.width, win.height));
+	auto swam = Menu::create(swa, NULL);
+	addChild(swam);
+
 	auto mm = Sprite::create("jxb.png");
 	mm->setAnchorPoint(Vec2(0, 0));
 	mm->setOpacity(40);
