@@ -98,6 +98,9 @@ void StartScene::loadView() {
 					addChild(nod,10000);
 				}
 			}
+			else {
+				Dream::getInstance()->quitGame();
+			}
 			break;
 		}
 		default:

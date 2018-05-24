@@ -53,7 +53,6 @@ public class AppActivity extends Cocos2dxActivity {
 	
 	
 	public static boolean getDreamTime(){
-		Log.e("HHH", "HHH");
          return true;
 	}
 	

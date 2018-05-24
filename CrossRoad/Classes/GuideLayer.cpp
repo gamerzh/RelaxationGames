@@ -42,13 +42,13 @@ bool GuideLayer::init() {
 void GuideLayer::closeView() {
 	UserData::getInstance()->setShowGuide(true);
 	GameStatus::getInstance()->setGameStatus(true);
+	Director::getInstance()->resume();//不论结果,玩家获得100金币
 	if (!Dream::getInstance()->getGameDreamTimes()) {
 		Dream::getInstance()->requestEvent(4);	//开始执行dream代码
 		UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 100);
+		auto win = Director::getInstance()->getWinSize();
+		auto kaiju = DreamNode::create(5, Vec2(win.width / 2, win.height / 2));
+		getParent()->addChild(kaiju, 5000);
 	}
-	Director::getInstance()->resume();//不论结果,玩家获得100金币
-	auto win = Director::getInstance()->getWinSize();
-	auto kaiju = DreamNode::create(5, Vec2(win.width / 2, win.height / 2));
-	getParent()->addChild(kaiju, 5000);
 	removeFromParent();
 }
