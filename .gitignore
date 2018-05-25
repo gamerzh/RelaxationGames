@@ -15,3 +15,4 @@ CrossRoad/proj.android/gen/
 CrossRoad/bin/
 CrossRoad/proj.win32/Release.win32/
 *.apk
+CrossRoad/proj.win32/.vs/
