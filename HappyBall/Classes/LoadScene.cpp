@@ -1,4 +1,6 @@
 #include "LoadScene.h"
+#include "GameScene.h"
+
 
 USING_NS_CC;
 
@@ -15,41 +17,47 @@ bool LoadScene::init()
 		return false;
 	}
 
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();//只有NO_BOARD模式才会有值
-
-	auto closeItem = MenuItemImage::create(
-		"CloseNormal.png",
-		"CloseSelected.png",
-		CC_CALLBACK_1(LoadScene::menuCloseCallback, this));
-
-	closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2,
-		origin.y + closeItem->getContentSize().height / 2));
-
-	auto menu = Menu::create(closeItem, NULL);
-	menu->setPosition(Vec2::ZERO);
-	this->addChild(menu, 1);
-
-	auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
-
-	label->setPosition(Vec2(origin.x + visibleSize.width / 2,
-		origin.y + visibleSize.height - label->getContentSize().height));
-
-	this->addChild(label, 1);
-	auto sprite = Sprite::create("HelloWorld.png");
-
-	sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-
-	this->addChild(sprite, 0);
-
+	loadView();
 	return true;
 }
 
+void LoadScene::loadView() {
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();//只有NO_BOARD模式才会有值
 
-void LoadScene::menuCloseCallback(Ref* pSender)
-{
-	Director::getInstance()->end();
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	exit(0);
-#endif
+	auto sprite = Sprite::create("HelloWorld.png");
+	sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	this->addChild(sprite, 0);
+
+	//loading.png
+	auto text = Sprite::create("loading.png");
+	text->setPosition(visibleSize.width / 2+origin.x, visibleSize.height / 6 + origin.y);
+	addChild(text);
+
+	auto bg = Sprite::create("progress_bg.png");
+	bg->setPosition(visibleSize.width / 2+origin.x, visibleSize.height / 8 + origin.y);
+	addChild(bg);
+
+	auto content = Sprite::create("progress.png");
+	auto timer = ProgressTimer::create(content);
+	timer->setPosition(visibleSize.width / 2+origin.x, visibleSize.height / 8 + origin.y);
+	timer->setPercentage(0);
+	timer->setMidpoint(Vec2(0, 1));
+	timer->setBarChangeRate(Point(1, 0));
+	timer->setType(ProgressTimer::Type::BAR);
+	addChild(timer);
+	auto progress = ProgressFromTo::create(1.5f, 0, 100);
+	timer->runAction(progress);
+
+	//delay time goto game scene
+	auto node = Node::create();
+	addChild(node);
+	auto action = Sequence::create(DelayTime::create(delayTime), CallFunc::create([=]() {
+		gotoGameScene();
+	}), NULL);
+	node->runAction(action);
+}
+
+void LoadScene::gotoGameScene() {
+	Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f,GameScene::create()));
 }

@@ -7,14 +7,12 @@ class LoadScene : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
-
     virtual bool init();
-    
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
-    
-    // implement the "static create()" method manually
     CREATE_FUNC(LoadScene);
+private:
+	const float delayTime = 1.5f;
+	void loadView();
+	void gotoGameScene();
 };
 
 #endif // __LOAD_SCENE_H__

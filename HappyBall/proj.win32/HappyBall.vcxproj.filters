@@ -16,6 +16,21 @@
     <Filter Include="src\game">
       <UniqueIdentifier>{9638ce83-689d-4fb7-a9d4-7aa7b5bd8c4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\audio">
+      <UniqueIdentifier>{091c2fde-96bf-4438-81e6-82241797fc69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\user">
+      <UniqueIdentifier>{4718adb1-581a-473d-bca9-85fba5e7b3dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{b507c274-911a-41c3-b8d4-8a4a38307af2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\dream">
+      <UniqueIdentifier>{c72f665b-240f-44e7-8773-bbb17783d5ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\result">
+      <UniqueIdentifier>{cd7dc25f-bf28-446f-8a3c-88798a5771c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,6 +45,33 @@
     <ClCompile Include="..\Classes\GameScene.cpp">
       <Filter>src\game</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Audio.cpp">
+      <Filter>src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UserData.cpp">
+      <Filter>src\user</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StringTools.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStatus.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dream.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamCallback.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResultLayer.cpp">
+      <Filter>src\result</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResultScene.cpp">
+      <Filter>src\result</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -43,6 +85,39 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GameScene.h">
       <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLayer.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Audio.h">
+      <Filter>src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AudioConfig.h">
+      <Filter>src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UserData.h">
+      <Filter>src\user</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StringTools.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStatus.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dream.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamCallback.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamEvent.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResultLayer.h">
+      <Filter>src\result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResultScene.h">
+      <Filter>src\result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
