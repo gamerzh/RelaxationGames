@@ -8,8 +8,10 @@ public:
     static Audio* getInstance();
     void init();
     void playBGM();
+	void vibrate();//Υπ¶―;
 private:
     static Audio* m_instance;
 	void preloadFiles();
+	
 };
 #endif

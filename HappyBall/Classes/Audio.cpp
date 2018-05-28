@@ -29,4 +29,8 @@ void Audio::preloadFiles() {
 	AudioEngine::preload(MUSIC_CLICK);
 }
 
+void Audio::vibrate() {
+	Device::vibrate(0.5f);
+}
+
 

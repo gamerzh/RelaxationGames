@@ -50,6 +50,7 @@ void AppDelegate::initGLContextAttrs()
 // don't modify or remove this function
 static int register_all_packages()
 {
+	FileUtils::getInstance()->addSearchPath("res");
     return 0; //flag for packages manager
 }
 
