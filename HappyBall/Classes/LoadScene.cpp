@@ -23,7 +23,7 @@ bool LoadScene::init()
 
 void LoadScene::loadView() {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();//只有NO_BOARD模式才会有值
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();//只有NO_BOARD模式才会有值;
 
 	auto sprite = Sprite::create("HelloWorld.png");
 	sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
