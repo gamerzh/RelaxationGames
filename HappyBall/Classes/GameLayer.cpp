@@ -10,7 +10,7 @@ bool GameLayer::init() {
 	}
 
 
-	auto black = LayerColor::create(Color4B(200, 200, 200, 204), 720, 1280);
+	auto black = LayerColor::create(Color4B(100, 100, 255, 255), 720, 1280);
 	addChild(black);
 
 	//auto hero = CSLoader::createNode("Node.csb");
@@ -26,6 +26,8 @@ bool GameLayer::init() {
 		PhysicsMaterial(1.0f, 1.0f, 0));
 	physicsBody->setDynamic(true);
 	physicsBody->setGravityEnable(true);
+	physicsBody->setCategoryBitmask(0x02);    // 0010
+	//physicsBody->setCollisionBitmask(0x01);   // 0001
 	//create a sprite
 	auto sprite = Sprite::create("HelloWorld.png");
 	sprite->setScale(0.2f);
@@ -34,12 +36,24 @@ bool GameLayer::init() {
 	//apply physicsBody to the sprite
 	sprite->addComponent(physicsBody);
 
-	//auto node = Node::create();
-	//addChild(node);
-	//auto action = Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
-	//	Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
-	//}), NULL);
-	//node->runAction(action);
+	auto contactListener = EventListenerPhysicsContact::create();
+	contactListener->onContactBegin = CC_CALLBACK_1(GameLayer::onContactBegin, this);
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
 
+	return true;
+}
+
+
+bool GameLayer::onContactBegin(PhysicsContact& contact){
+
+	auto nodeA = contact.getShapeA()->getBody()->getNode();
+	auto nodeB = contact.getShapeB()->getBody()->getNode();
+	log("AAAAAAAAAAAAA");
+	if (nodeA && nodeB)
+	{
+		log("AAAAAAAAAAAAA");
+	}
+
+	//bodies can collide
 	return true;
 }
