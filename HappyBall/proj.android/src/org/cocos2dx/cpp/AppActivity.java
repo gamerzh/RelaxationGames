@@ -29,4 +29,20 @@ package org.cocos2dx.cpp;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 public class AppActivity extends Cocos2dxActivity {
+	
+	public static void exit(){
+		
+	}
+	
+	public static boolean getDreamTime(){
+         return true;
+	}
+	
+	public static void dream(int dreamId){
+		
+	}
+	
+	public static void recordDream(String dreamName,String dreamAction){
+		
+	}
 }
