@@ -72,6 +72,10 @@
     <ClCompile Include="..\Classes\ResultScene.cpp">
       <Filter>src\result</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Hero.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Brick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -118,6 +122,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ResultScene.h">
       <Filter>src\result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Brick.h">
+      <Filter>src\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

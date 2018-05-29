@@ -6,5 +6,8 @@ public:
 	virtual bool init();
 	CREATE_FUNC(GameLayer);
 private:
+	void addEdgeToGame();
+	void addHeroToGame();
+	void addBrickToGame();
     bool onContactBegin(cocos2d::PhysicsContact& contact);
 };
