@@ -16,7 +16,7 @@ public:
 	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event  *event) override;
 private:
 	cocos2d::Size win = cocos2d::Director::getInstance()->getVisibleSize();
-	std::vector<Brick*> brickVector;//×©¿é
+	std::vector<Brick*> brickVector;//×©¿é +- 
 	cocos2d::Vec2 preTouchPosition;
 	void addHeroToGame();
 	void createBrick();

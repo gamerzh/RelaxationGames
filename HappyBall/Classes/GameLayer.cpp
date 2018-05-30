@@ -56,7 +56,8 @@ bool GameLayer::onTouchBegan(Touch *touch, Event  *event) {
 
 void GameLayer::onTouchMoved(Touch *touch, Event  *event) {
 	auto curpos = touch->getLocation();
-	int index = (curpos.x - preTouchPosition.x) / win.width * BRICK_ANIM_NUM/2;
+	//auto prepos = touch->getPreviousLocation();
+	int index = round((curpos.x - preTouchPosition.x) / win.width * BRICK_ANIM_NUM);
 	if (NULL != getChildByTag(1002)) {
 		auto br = (Brick*)getChildByTag(1002);
 		int fin = br->getFrameIndex() - index;
@@ -66,6 +67,7 @@ void GameLayer::onTouchMoved(Touch *touch, Event  *event) {
 		}
 		br->setFrameIndex(fin % BRICK_ANIM_NUM);
 	}
+	preTouchPosition = touch->getLocation();
 }
 
 
