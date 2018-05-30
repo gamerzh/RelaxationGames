@@ -1,5 +1,6 @@
 #pragma once
 #include "cocos2d.h"
+#include "Brick.h"
 
 class GameLayer : public cocos2d::Layer {
 public:
@@ -10,8 +11,8 @@ public:
 	void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event  *event) override;
 	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event  *event) override;
 private:
-	//void addEdgeToGame();
+	std::vector<Brick> brickVector;//×©¿é
 	void addHeroToGame();
-	void addBrickToGame();
-    //bool onContactBegin(cocos2d::PhysicsContact& contact);
+	void createBrick();
+	void recycleBrick();
 };

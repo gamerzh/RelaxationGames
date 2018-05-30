@@ -13,7 +13,6 @@ bool GameScene::init() {
 
 void GameScene::onEnter() {
 	Scene::onEnter();
-	//addPhysicsToScene();
 }
 
 void GameScene::addLayerToScene() {
