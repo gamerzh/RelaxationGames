@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.cocos2dx.RoadHero"
+      package="com.hp.ball"
       android:versionCode="1"
       android:versionName="1.0"
       android:installLocation="auto">
@@ -13,11 +13,11 @@
 					 
         <!-- Tell Cocos2dxActivity the name of our .so -->
         <meta-data android:name="android.app.lib_name"
-	              android:value="cocos2dcpp" />
+                   android:value="MyGame" />
 
         <activity android:name="org.cocos2dx.cpp.AppActivity"
                   android:label="@string/app_name"
-                  android:screenOrientation="portrait"
+                  android:screenOrientation="landscape"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="orientation|keyboardHidden|screenSize">
 
