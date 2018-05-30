@@ -3,7 +3,7 @@
 USING_NS_CC;
 
 bool GameScene::init() {
-	if (!Scene::initWithPhysics()) {
+	if (!Scene::init()) {
 		return false;
 	}
 	
@@ -13,7 +13,7 @@ bool GameScene::init() {
 
 void GameScene::onEnter() {
 	Scene::onEnter();
-	addPhysicsToScene();
+	//addPhysicsToScene();
 }
 
 void GameScene::addLayerToScene() {
