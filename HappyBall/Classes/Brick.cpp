@@ -19,7 +19,7 @@ void Brick::loadBrickFile() {
 	//physicsBody->setGravityEnable(false);
 	//myBrick->addComponent(physicsBody);
 	auto brick = CSLoader::createNode("Node.csb");
-	brick->setPosition(360, 300);
+	brick->setPosition(0, 0);
 	this->addChild(brick);
 	heroTimeLine = CSLoader::createTimeline("Node.csb");
 	heroTimeLine->play("rotate", false);
