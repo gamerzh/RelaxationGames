@@ -5,10 +5,11 @@
 
 class Brick : public cocos2d::Sprite {
 public:
-	virtual bool init();
-	CREATE_FUNC(Brick);
+	static Brick* create(int frame = 0);
+	virtual bool init(int frame = 0);
 	void setFrameIndex(int current);
 	int getFrameIndex();
+	cocos2d::Rect getCollisionRect();
 private:
 	cocostudio::timeline::ActionTimeline* heroTimeLine;
 	void loadBrickFile();

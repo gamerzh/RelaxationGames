@@ -1,6 +1,6 @@
 #include "GameLayer.h"
 #include "ResultScene.h"
-#include "Hero.h"
+
 
 USING_NS_CC;
 
@@ -13,19 +13,20 @@ bool GameLayer::init() {
 	createBrick();
 	addHeroToGame();
 	addTouchListener();
+	scheduleUpdate();
 	return true;
 }
 
 void GameLayer::addHeroToGame() {
-	auto hero = Hero::create();
-	addChild(hero);
+	hero = Hero::create();
+	hero->setPosition(360, 1280);
+	addChild(hero, BRICK_START_ZORDER);
 }
 
 void GameLayer::createBrick() {
 	for (int i=0;i<5;i++)
 	{
-		auto brick = Brick::create();
-		brick->setTag(1000 + i);
+		auto brick = Brick::create(random(0, BRICK_ANIM_NUM));
 		brick->setPosition(360, 1280 - BRICK_HEIGHT * i );
 		addChild(brick, BRICK_START_ZORDER -i );
 		brickVector.push_back(brick);
@@ -58,14 +59,13 @@ void GameLayer::onTouchMoved(Touch *touch, Event  *event) {
 	auto curpos = touch->getLocation();
 	//auto prepos = touch->getPreviousLocation();
 	int index = round((curpos.x - preTouchPosition.x) / win.width * BRICK_ANIM_NUM);
-	if (NULL != getChildByTag(1002)) {
-		auto br = (Brick*)getChildByTag(1002);
-		int fin = br->getFrameIndex() - index;
-		while (fin<0)
+	for (auto var : brickVector) {
+		int fin = var->getFrameIndex() - index;
+		while (fin < 0)
 		{
 			fin += BRICK_ANIM_NUM;
 		}
-		br->setFrameIndex(fin % BRICK_ANIM_NUM);
+		var->setFrameIndex(fin % BRICK_ANIM_NUM);
 	}
 	preTouchPosition = touch->getLocation();
 }
@@ -73,4 +73,16 @@ void GameLayer::onTouchMoved(Touch *touch, Event  *event) {
 
 void GameLayer::onTouchEnded(Touch *touch, Event  *event) {
 
+}
+
+
+void GameLayer::update(float dt) {
+	//Åö×²¼ì²â
+	for (auto brick : brickVector) {
+		if (nullptr != hero) {
+			if (hero->getBoundingBox().intersectsRect(brick->getCollisionRect())) {
+				hero->flipSpeedY();
+			}
+		}
+	}
 }

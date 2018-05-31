@@ -5,20 +5,25 @@ bool Hero::init() {
 	if (!Sprite::init()) {
 		return false;
 	}
-	addPhysicsHero();
+	this->speed_y = SPEED_Y;
+	initWithFile("HelloWorld.png");
+	setScale(0.2f);
+	scheduleUpdate();
 	return true;
 }
 
 void Hero::addPhysicsHero() {
-	//auto physicsBody = PhysicsBody::createCircle(HERO_BALL_RADIUS,
-	//	PhysicsMaterial(1.0f, 1.0f, 0));
-	//physicsBody->setDynamic(true);
-	//physicsBody->setGravityEnable(true);
-	//physicsBody->setCategoryBitmask(0x02);    // 0010
-	//physicsBody->setCollisionBitmask(0x01);   // 0001
-	//hero->addComponent(physicsBody);
 	auto hero = Sprite::create("HelloWorld.png");
 	hero->setScale(0.2f);
 	hero->setPosition(360, 640);
 	addChild(hero);
+}
+
+void Hero::flipSpeedY(){
+	speed_y = speed_y * -1;
+}
+
+void Hero::update(float dt) {
+	float py = getPositionY();
+	this->setPositionY(py-speed_y);
 }

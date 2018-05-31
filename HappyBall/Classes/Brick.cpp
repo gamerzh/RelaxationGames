@@ -1,35 +1,43 @@
 #include "Brick.h"
 USING_NS_CC;
 
-bool Brick::init()
+
+Brick* Brick::create(int frame) {
+	auto brick = new Brick();
+	if (brick && brick->init(frame)) {
+		brick->autorelease();
+		return brick;
+	}
+	else {
+		CC_SAFE_DELETE(brick);
+		return nullptr;
+	}
+}
+
+bool Brick::init(int frame)
 {
 	if (!Sprite::init()) {
 		return false;
 	}
 	loadBrickFile();
+	setFrameIndex(frame);
 	scheduleUpdate();
 	return true;
 }
 
 void Brick::loadBrickFile() {
-	//auto myBrick = brick->getChildByName("kk_2")->getChildByName("llk_3_0");
-	//auto brickCol = myBrick->getColor();
-	//auto physicsBody = PhysicsBody::createBox(myBrick->getContentSize(), PhysicsMaterial(1.0f, 1.0f, 0));
-	//physicsBody->setDynamic(false);
-	//physicsBody->setGravityEnable(false);
-	//myBrick->addComponent(physicsBody);
 	auto brick = CSLoader::createNode("Node.csb");
 	brick->setPosition(0, 0);
+	brick->setTag(15);
 	this->addChild(brick);
 	heroTimeLine = CSLoader::createTimeline("Node.csb");
 	heroTimeLine->play("rotate", false);
 	brick->runAction(heroTimeLine);
-	setFrameIndex(0);
 }
 
 
 void Brick::update(float dt){
-	//log("AAAAAAAAAAAAAAA %d", heroTimeLine->getCurrentFrame());
+	
 }
 
 
@@ -39,4 +47,12 @@ void Brick::setFrameIndex(int current) {
 
 int Brick::getFrameIndex() {
 	return heroTimeLine->getCurrentFrame();
+}
+
+Rect Brick::getCollisionRect() {
+	if (NULL != getChildByTag(15)) {
+		auto node = getChildByTag(15)->getChildByName("kk_2")->getChildByName("llk_3_0");
+		return node->getBoundingBox();
+	}
+	return Rect();
 }
