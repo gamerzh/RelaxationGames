@@ -10,6 +10,8 @@ proj.android/assets
 proj.android/obj/
 proj.android/bin/
 proj.android/gen/
+proj.android/libs/armeabi-v7a/gdb.setup
+proj.android/libs/armeabi-v7a/gdbserver
 bin/
 *.db
 *.opendb
