@@ -14,7 +14,7 @@ public:
 	virtual bool init(int frame = 0);
 	void setFrameIndex(int current);
 	int getFrameIndex();
-	cocos2d::Rect getCollisionRect();
+	//cocos2d::Rect getCollisionRect();
 	AngeleRange getOutAngle();//获取去往下一层的角度
 	std::vector<AngeleRange> getOutAnglesByFrameIndex(int index);
 	std::vector<AngeleRange> getDangousAnglesByFrameIndex(int index);

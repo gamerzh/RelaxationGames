@@ -3,7 +3,7 @@
 #include "Brick.h"
 #include "Hero.h"
 
-#define BRICK_HEIGHT  320
+#define BRICK_HEIGHT  240
 #define BRICK_ANIM_NUM 40
 #define BRICK_START_ZORDER  5000
 

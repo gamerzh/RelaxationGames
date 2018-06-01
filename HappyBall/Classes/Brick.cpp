@@ -49,13 +49,13 @@ int Brick::getFrameIndex() {
 	return heroTimeLine->getCurrentFrame();
 }
 
-Rect Brick::getCollisionRect() {
-	if (NULL != getChildByTag(15)) {
-		auto node = (Sprite*)(getChildByTag(15)->getChildByName("kk_2")->getChildByName("llk_3_0"));
-		return node->getBoundingBox();
-	}
-	return Rect();
-}
+//Rect Brick::getCollisionRect() {
+//	if (NULL != getChildByTag(15)) {
+//		auto node = (Sprite*)(getChildByTag(15)->getChildByName("kk_2")->getChildByName("llk_3_0"));
+//		return node->getBoundingBox();
+//	}
+//	return Rect();
+//}
 
 
 std::vector<AngeleRange> Brick::getOutAnglesByFrameIndex(int dex) {
@@ -68,7 +68,7 @@ std::vector<AngeleRange> Brick::getOutAnglesByFrameIndex(int dex) {
 	return outList;
 }
 
-std::vector<AngeleRange> getDangousAnglesByFrameIndex(int index) {
+std::vector<AngeleRange> Brick::getDangousAnglesByFrameIndex(int index) {
 	std::vector<AngeleRange> outList;
 	return outList;
 }
