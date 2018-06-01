@@ -1,6 +1,6 @@
 #include "GameLayer.h"
 #include "ResultScene.h"
-
+#include "GeometryTools.h"
 
 USING_NS_CC;
 
@@ -24,12 +24,15 @@ void GameLayer::addHeroToGame() {
 }
 
 void GameLayer::createBrick() {
-	for (int i=0;i<5;i++)
+	for (int i=0;i<1;i++)
 	{
-		auto brick = Brick::create(random(0, BRICK_ANIM_NUM));
-		brick->setPosition(360, 1280 - BRICK_HEIGHT * i );
+		//random(0, BRICK_ANIM_NUM)
+		auto brick = Brick::create(0);
+		brick->setPosition(360, 720 - BRICK_HEIGHT * i );
 		addChild(brick, BRICK_START_ZORDER -i );
 		brickVector.push_back(brick);
+		auto node = GeometryTools::drawCollisionCircle(Vec2(360,760),96);
+		addChild(node, BRICK_START_ZORDER);
 	}
 
 }
@@ -76,12 +79,24 @@ void GameLayer::onTouchEnded(Touch *touch, Event  *event) {
 }
 
 
+
+
 void GameLayer::update(float dt) {
 	//Åö×²¼ì²â
+	if (nullptr == hero) {
+		return;
+	}
+
 	for (auto brick : brickVector) {
-		if (nullptr != hero) {
-			if (hero->getBoundingBox().intersectsRect(brick->getCollisionRect())) {
-				hero->flipSpeedY();
+		for (auto ang : brick->getOutAnglesByFrameIndex(brick->getFrameIndex())) {
+			log("brick frame = %d", brick->getFrameIndex());
+			if (GeometryTools::angleCollision(brick->getOutAngle(), ang)) {
+				log("ang = (%d,%d)", ang.startAngle,ang.endAngle);
+			}
+			else {
+				if (hero->getPositionY() < 720 && hero->getPositionY()>700) {
+					hero->flipSpeedY();
+				}
 			}
 		}
 	}

@@ -76,6 +76,9 @@
       <Filter>src\game</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Brick.cpp" />
+    <ClCompile Include="..\Classes\GeometryTools.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -128,6 +131,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Brick.h">
       <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GeometryTools.h">
+      <Filter>src\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

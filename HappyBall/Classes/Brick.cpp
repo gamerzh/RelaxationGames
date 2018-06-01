@@ -1,4 +1,6 @@
 #include "Brick.h"
+#include "GameLayer.h"
+#include "GeometryTools.h"
 USING_NS_CC;
 
 
@@ -33,12 +35,10 @@ void Brick::loadBrickFile() {
 	heroTimeLine = CSLoader::createTimeline("Node.csb");
 	heroTimeLine->play("rotate", false);
 	brick->runAction(heroTimeLine);
-}
-
-
-void Brick::update(float dt){
 	
 }
+
+
 
 
 void Brick::setFrameIndex(int current) {
@@ -51,8 +51,38 @@ int Brick::getFrameIndex() {
 
 Rect Brick::getCollisionRect() {
 	if (NULL != getChildByTag(15)) {
-		auto node = getChildByTag(15)->getChildByName("kk_2")->getChildByName("llk_3_0");
+		auto node = (Sprite*)(getChildByTag(15)->getChildByName("kk_2")->getChildByName("llk_3_0"));
 		return node->getBoundingBox();
 	}
 	return Rect();
 }
+
+
+std::vector<AngeleRange> Brick::getOutAnglesByFrameIndex(int dex) {
+	std::vector<AngeleRange> outList;
+	int offset = dex * (360 / BRICK_ANIM_NUM);
+	AngeleRange angle;
+	angle.startAngle = (270 + offset) % 360;
+	angle.endAngle = (270 + 360 / CIRCLE_DIVISION_NUMBER + offset)%360;
+	outList.push_back(angle);
+	return outList;
+}
+
+std::vector<AngeleRange> getDangousAnglesByFrameIndex(int index) {
+	std::vector<AngeleRange> outList;
+	return outList;
+}
+
+
+AngeleRange Brick::getOutAngle() {
+	AngeleRange angle;
+	angle.startAngle =  180 - 180 / CIRCLE_DIVISION_NUMBER;
+	angle.endAngle = 180 + 180 / CIRCLE_DIVISION_NUMBER;
+	return angle;
+}
+
+void Brick::update(float dt) {
+	//GeometryTools::drawCollisionBox(this, getCollisionRect());
+}
+
+

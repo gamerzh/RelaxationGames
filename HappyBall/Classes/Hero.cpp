@@ -26,4 +26,13 @@ void Hero::flipSpeedY(){
 void Hero::update(float dt) {
 	float py = getPositionY();
 	this->setPositionY(py-speed_y);
+	if (speed_y < 0) {
+		if (moveupPath < 100) {
+			moveupPath += abs(speed_y);
+		}
+		else {
+			moveupPath = 0;
+			flipSpeedY();
+		}	
+	}
 }
