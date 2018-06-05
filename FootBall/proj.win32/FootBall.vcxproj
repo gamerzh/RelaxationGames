@@ -148,12 +148,36 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Audio.cpp" />
+    <ClCompile Include="..\Classes\Dream.cpp" />
+    <ClCompile Include="..\Classes\DreamCallback.cpp" />
+    <ClCompile Include="..\Classes\GameLayer.cpp" />
+    <ClCompile Include="..\Classes\GameScene.cpp" />
+    <ClCompile Include="..\Classes\GameStatus.cpp" />
     <ClCompile Include="..\Classes\LoadScene.cpp" />
+    <ClCompile Include="..\Classes\ResultLayer.cpp" />
+    <ClCompile Include="..\Classes\ResultScene.cpp" />
+    <ClCompile Include="..\Classes\Rocker.cpp" />
+    <ClCompile Include="..\Classes\StringTools.cpp" />
+    <ClCompile Include="..\Classes\UserData.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Audio.h" />
+    <ClInclude Include="..\Classes\AudioConfig.h" />
+    <ClInclude Include="..\Classes\Dream.h" />
+    <ClInclude Include="..\Classes\DreamCallback.h" />
+    <ClInclude Include="..\Classes\DreamEvent.h" />
+    <ClInclude Include="..\Classes\GameLayer.h" />
+    <ClInclude Include="..\Classes\GameScene.h" />
+    <ClInclude Include="..\Classes\GameStatus.h" />
     <ClInclude Include="..\Classes\LoadScene.h" />
+    <ClInclude Include="..\Classes\ResultLayer.h" />
+    <ClInclude Include="..\Classes\ResultScene.h" />
+    <ClInclude Include="..\Classes\Rocker.h" />
+    <ClInclude Include="..\Classes\StringTools.h" />
+    <ClInclude Include="..\Classes\UserData.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
