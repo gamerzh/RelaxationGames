@@ -19,14 +19,15 @@ bool Rocker::init(Vec2 pos)
 		return false;
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Sprite *h_bg = Sprite::createWithSpriteFrameName("Direction_bc.png");
+
+	Sprite *h_bg = Sprite::create("rocker_bc.png");
 	h_bg->setAnchorPoint(Vec2(0.5, 0.5));
 	h_bg->setPosition(pos);
 	h_bg->setVisible(false);
 	h_bg->setScale(visibleSize.width / 960 + 0.1);
 	addChild(h_bg, 0, ROCKER_NACKGROUMD_TAG);
 
-	Sprite *h_rocker = Sprite::createWithSpriteFrameName("Direction_bt.png");
+	Sprite *h_rocker = Sprite::create("rocker_bt.png");
 	h_rocker->setAnchorPoint(Vec2(0.5, 0.5));
 	h_rocker->setPosition(pos);
 	h_rocker->setVisible(false);

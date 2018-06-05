@@ -60,9 +60,6 @@
     <ClCompile Include="..\Classes\StringTools.cpp">
       <Filter>src\tools</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Rocker.cpp">
-      <Filter>src\tools</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Dream.cpp">
       <Filter>src\dream</Filter>
     </ClCompile>
@@ -75,15 +72,15 @@
     <ClCompile Include="..\Classes\Audio.cpp">
       <Filter>src\audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Rocker.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\UserData.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LoadScene.h">
@@ -107,9 +104,6 @@
     <ClInclude Include="..\Classes\StringTools.h">
       <Filter>src\tools</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Rocker.h">
-      <Filter>src\tools</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Dream.h">
       <Filter>src\dream</Filter>
     </ClInclude>
@@ -124,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AudioConfig.h">
       <Filter>src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UserData.h">
+      <Filter>src\user</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Rocker.h">
+      <Filter>src\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
