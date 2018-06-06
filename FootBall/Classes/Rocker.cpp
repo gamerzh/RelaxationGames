@@ -35,7 +35,7 @@ bool Rocker::init(Vec2 pos)
 	addChild(h_rocker, 0, ROCKER_CONTENT_TAG);
 
 	//中间
-	rockerAngle = 4.f;
+	rockerAngle = 0;
 	//移动半径
 	rockerRad = h_bg->getContentSize().width / 2;
 	bgCenter = pos;
@@ -63,10 +63,10 @@ void Rocker::closeRocker(bool isVisible)
 	Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(this);
 	if (!isVisible)
 	{
-		Sprite* bg = (Sprite*)getChildByTag(ROCKER_NACKGROUMD_TAG);
+		auto bg = (Sprite*)getChildByTag(ROCKER_NACKGROUMD_TAG);
 		bg->setVisible(false);
 
-		Sprite* rk = (Sprite*)getChildByTag(ROCKER_CONTENT_TAG);
+		auto rk = (Sprite*)getChildByTag(ROCKER_CONTENT_TAG);
 		rk->setVisible(false);
 	}
 }
@@ -75,10 +75,9 @@ bool Rocker::onTouchBegan(Touch* pTouch, Event* pEvent)
 {
 	//判断触点是否在摇杆上，如果在的话则进行控制摇杆
 	Vec2 point = pTouch->getLocation();
-	Sprite* rod = (Sprite*)getChildByTag(ROCKER_NACKGROUMD_TAG);
+	auto rod = (Sprite*)getChildByTag(ROCKER_NACKGROUMD_TAG);
 	if (rod->getBoundingBox().containsPoint(point))
 	{
-		//log("U get it , pos is ( %d,  %d)", point.x, point.y);
 		return true;
 	}
 	return false;
@@ -87,25 +86,25 @@ bool Rocker::onTouchBegan(Touch* pTouch, Event* pEvent)
 void Rocker::onTouchMoved(Touch* touch, Event* event)
 {
 	Vec2 pos = touch->getLocation();
-	Sprite* rocker = (Sprite*)getChildByTag(ROCKER_CONTENT_TAG);
-
-	float angle = getAngle(bgCenter, pos);
+	auto rocker = (Sprite*)getChildByTag(ROCKER_CONTENT_TAG);
+	float angle = calculateAngle(bgCenter, pos);
 	int length = sqrt(pow((bgCenter.x - pos.x), 2) + pow((bgCenter.y - pos.y), 2));
-	if (length > rockerRad - 20)
-		rocker->setPosition(getAnglePos(rockerRad - 20, angle) + bgCenter);
-	else
+	if (length > rockerRad - 20) {
+		rocker->setPosition(getPosByAngle(rockerRad - 20, angle) + bgCenter);
+	}else{
 		rocker->setPosition(pos);
+	}
 	rockerAngle = angle;
 }
 
 void Rocker::onTouchEnded(Touch*, Event*)
 {
-	rockerAngle = 4.0f;		//做一个标记值
-	Sprite* rocker = (Sprite*)getChildByTag(ROCKER_CONTENT_TAG);
+	rockerAngle = 0;
+	auto rocker = (Sprite*)getChildByTag(ROCKER_CONTENT_TAG);
 	rocker->runAction(MoveTo::create(0.1f, bgCenter));
 }
 
-float Rocker::getAngle(Vec2 pos1, Vec2 pos2)
+float Rocker::calculateAngle(Vec2 pos1, Vec2 pos2)
 {
 	float p1x = pos1.x;
 	float p1y = pos1.y;
@@ -118,14 +117,18 @@ float Rocker::getAngle(Vec2 pos1, Vec2 pos2)
 	//通过余弦获得角度
 	float angle = acos(cosValue);
 	//当触摸点在第三四象限的时候，要取反
-	if (p2y < p1y)
+	if (p2y < p1y) {
 		angle = -angle;
+	}
 	return angle;
 }
 
-Vec2 Rocker::getAnglePos(float rad, float angle)
+Vec2 Rocker::getPosByAngle(float rad, float angle)
 {
 	return Vec2(rad*cos(angle), rad*sin(angle));
 }
 
+float Rocker::getRockerAngle() {
+	return rockerAngle;
+}
 

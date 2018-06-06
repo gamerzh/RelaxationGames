@@ -6,17 +6,17 @@
 
 class Rocker :public cocos2d::Node {
 public:
-	//初始摇杆背景图片，杆的图片，图片的中心位置
-	static Rocker* create(cocos2d::Vec2 pos);
-	bool init(cocos2d::Vec2 pos);
+	static Rocker* create(cocos2d::Vec2 pos);	
+	bool init(cocos2d::Vec2 pos);//初始摇杆中心位置
 	void openRocker();//开启摇杆
-	void closeRocker(bool isVisible);	//关闭摇杆  isVisible是否隐藏显示
+	void closeRocker(bool isVisible);//关闭摇杆
+	float getRockerAngle();//返回摇杆的角度
 private:
 	float rockerAngle;//摇杆的状态
 	float rockerRad;//摇杆范围
 	cocos2d::Vec2 bgCenter;	//摇杆背景图的中心
-	cocos2d::Vec2 getAnglePos(float r, float angle);//根据角度和半径获得坐标
-	float getAngle(cocos2d::Vec2 pos1, cocos2d::Vec2 pos2);	//得到两点间的角度
+	cocos2d::Vec2 getPosByAngle(float r, float angle);//根据角度和半径获得坐标
+	float calculateAngle(cocos2d::Vec2 pos1, cocos2d::Vec2 pos2);//得到两点间的角度
 	bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
 	void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
