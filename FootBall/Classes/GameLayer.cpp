@@ -1,6 +1,7 @@
 #include "GameLayer.h"
 #include "ResultScene.h"
 #include "Rocker.h"
+#include "Ball.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -9,12 +10,25 @@ bool GameLayer::init() {
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
-	auto black = LayerColor::create(Color4B(200, 200, 200, 204), visibleSize.width, visibleSize.height);
-	addChild(black);
-
-	auto roc = Rocker::create(Vec2(200, 200));
+	auto roc = Rocker::create(Vec2(visibleSize.width / 6, visibleSize.height / 5));
 	roc->openRocker();
 	addChild(roc);
+
+	auto black = Sprite::create("green.jpg");
+	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+	black->setPosition(0, 0);
+	black->setCameraMask((int)CameraFlag::USER1);
+	addChild(black,-1);
+
+	auto playerCamera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1024, -1024);
+	playerCamera->setCameraFlag(CameraFlag::USER1);
+	playerCamera->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+	addChild(playerCamera);//添加到当前场景里
+
+	auto ball = Ball::create(playerCamera);
+	ball->setPosition(playerCamera->getPositionX()+visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
+	ball->setCameraMask((int)CameraFlag::USER1);
+	addChild(ball);
 
 	auto node = Node::create();
 	addChild(node);
