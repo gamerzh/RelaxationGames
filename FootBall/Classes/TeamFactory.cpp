@@ -14,8 +14,15 @@ TeamFactory* TeamFactory::getInstance()
 	return m_instance;
 }
 
-std::vector<FootManTeam> TeamFactory::getFootManTeamVector() {
 
+std::vector<FootManTeam*> TeamFactory::getFootManTeamVector() {
+	if (footTeamVec.size == 0) {
+		for (int i = 0; i < getFootManTeamPropertyVector().size(); i++) {
+			auto team = new  FootManTeam();
+			footTeamVec.push_back(team);
+		}
+	}
+	return footTeamVec;
 }
 
 std::vector<FootManTeamProperty> TeamFactory::getFootManTeamPropertyVector() {
