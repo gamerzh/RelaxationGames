@@ -70,5 +70,5 @@ bool Dream::getGameDreamTimes() {
 		return (bool)result;
 	}
 #endif
-	return true;
+	return false;
 }

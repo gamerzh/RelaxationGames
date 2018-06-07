@@ -152,9 +152,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Ball.cpp" />
     <ClCompile Include="..\Classes\Dream.cpp" />
     <ClCompile Include="..\Classes\DreamCallback.cpp" />
+    <ClCompile Include="..\Classes\FootMan.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\GameStatus.cpp" />
+    <ClCompile Include="..\Classes\Hero.cpp" />
     <ClCompile Include="..\Classes\LoadScene.cpp" />
     <ClCompile Include="..\Classes\ResultLayer.cpp" />
     <ClCompile Include="..\Classes\ResultScene.cpp" />
@@ -171,9 +173,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Dream.h" />
     <ClInclude Include="..\Classes\DreamCallback.h" />
     <ClInclude Include="..\Classes\DreamEvent.h" />
+    <ClInclude Include="..\Classes\FootMan.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\GameStatus.h" />
+    <ClInclude Include="..\Classes\Hero.h" />
     <ClInclude Include="..\Classes\LoadScene.h" />
     <ClInclude Include="..\Classes\ResultLayer.h" />
     <ClInclude Include="..\Classes\ResultScene.h" />

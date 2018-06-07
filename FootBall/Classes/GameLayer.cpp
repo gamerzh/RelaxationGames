@@ -2,6 +2,7 @@
 #include "ResultScene.h"
 #include "Rocker.h"
 #include "Ball.h"
+#include "FootMan.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -29,6 +30,11 @@ bool GameLayer::init() {
 	ball->setPosition(playerCamera->getPositionX()+visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
 	ball->setCameraMask((int)CameraFlag::USER1);
 	addChild(ball);
+
+	auto footMan = FootMan::create();
+	footMan->setPosition(playerCamera->getPositionX() + visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
+	footMan->setCameraMask((int)CameraFlag::USER1);
+	addChild(footMan);
 
 	auto node = Node::create();
 	addChild(node);

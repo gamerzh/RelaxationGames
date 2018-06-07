@@ -81,6 +81,12 @@
     <ClCompile Include="..\Classes\Ball.cpp">
       <Filter>src\game</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\FootMan.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Hero.cpp">
+      <Filter>src\game\player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -133,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Ball.h">
       <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FootMan.h">
+      <Filter>src\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>src\game\player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

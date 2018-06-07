@@ -52,6 +52,9 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 		auto quan = MenuItem::create(CC_CALLBACK_0(DreamNode::doActionById, this));
 		quan->setContentSize(Size(win.width, win.height));
+		if (SHARPNESS_VERSION == 1) {
+			quan->setEnabled(false);
+		}
 		auto quanMenu = Menu::create(quan, NULL);
 		quanMenu->setPosition(pos.x, pos.y);
 		addChild(quanMenu);
@@ -78,6 +81,9 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 		auto quan = MenuItem::create(CC_CALLBACK_0(DreamNode::startPride, this));
 		quan->setContentSize(Size(win.width, win.height));
+		if (SHARPNESS_VERSION == 1) {
+			quan->setEnabled(false);
+		}
 		auto start = MenuItemImage::create("zhuanpan_btn.png", "zhuanpan_btn.png", CC_CALLBACK_0(DreamNode::startPride, this));
 		start->setAnchorPoint(Point::ANCHOR_MIDDLE);
 		auto startMenu = Menu::create(quan,start, NULL);
@@ -86,7 +92,14 @@ bool DreamNode::init(int dreamId, Vec2 pos) {
 
 	}
 	if (!Dream::getInstance()->getGameDreamTimes()) {
-		auto close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
+		MenuItemImage* close = nullptr;
+		if (SHARPNESS_VERSION == 0) {
+			close = MenuItemImage::create("dream_btn_c.png", "dream_btn_c.png", CC_CALLBACK_0(DreamNode::closeView, this));
+		}
+		else {
+			close = MenuItemImage::create("dream_btn_c2.png", "dream_btn_c2.png", CC_CALLBACK_0(DreamNode::closeView, this));
+			close->setOpacity(100);
+		}
 		auto closeMenu = Menu::create(close, NULL);
 		closeMenu->setPosition(pos.x + 260, pos.y + 300);
 		addChild(closeMenu, 2);

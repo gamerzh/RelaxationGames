@@ -25,8 +25,8 @@ bool Ball::init(Camera* camera) {
 }
 
 void Ball::update(float dt) {
-	if (nullptr != this->myCamera) {
-		this->myCamera->setPosition(this->myCamera->getPositionX() + 5, this->myCamera->getPositionY());
-	}
-	this->setPosition(this->getPositionX()+5,this->getPositionY());
+	//if (nullptr != this->myCamera) {
+	//	this->myCamera->setPosition(this->myCamera->getPositionX() + 5, this->myCamera->getPositionY());
+	//}
+	//this->setPosition(this->getPositionX()+5,this->getPositionY());
 }
