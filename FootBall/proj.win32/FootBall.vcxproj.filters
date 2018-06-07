@@ -34,6 +34,9 @@
     <Filter Include="src\game\player">
       <UniqueIdentifier>{b6a917c9-d4f1-428e-a042-78cd5d990679}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game\team">
+      <UniqueIdentifier>{c98854dc-6d65-4def-a48c-61050febdf2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -84,8 +87,11 @@
     <ClCompile Include="..\Classes\FootMan.cpp">
       <Filter>src\game\player</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Hero.cpp">
-      <Filter>src\game\player</Filter>
+    <ClCompile Include="..\Classes\FootManTeam.cpp">
+      <Filter>src\game\team</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TeamFactory.cpp">
+      <Filter>src\game\team</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,8 +149,11 @@
     <ClInclude Include="..\Classes\FootMan.h">
       <Filter>src\game\player</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Hero.h">
-      <Filter>src\game\player</Filter>
+    <ClInclude Include="..\Classes\FootManTeam.h">
+      <Filter>src\game\team</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TeamFactory.h">
+      <Filter>src\game\team</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

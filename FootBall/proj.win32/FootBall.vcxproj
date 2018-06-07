@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -153,15 +153,16 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Dream.cpp" />
     <ClCompile Include="..\Classes\DreamCallback.cpp" />
     <ClCompile Include="..\Classes\FootMan.cpp" />
+    <ClCompile Include="..\Classes\FootManTeam.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\GameStatus.cpp" />
-    <ClCompile Include="..\Classes\Hero.cpp" />
     <ClCompile Include="..\Classes\LoadScene.cpp" />
     <ClCompile Include="..\Classes\ResultLayer.cpp" />
     <ClCompile Include="..\Classes\ResultScene.cpp" />
     <ClCompile Include="..\Classes\Rocker.cpp" />
     <ClCompile Include="..\Classes\StringTools.cpp" />
+    <ClCompile Include="..\Classes\TeamFactory.cpp" />
     <ClCompile Include="..\Classes\UserData.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -174,15 +175,16 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DreamCallback.h" />
     <ClInclude Include="..\Classes\DreamEvent.h" />
     <ClInclude Include="..\Classes\FootMan.h" />
+    <ClInclude Include="..\Classes\FootManTeam.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\GameStatus.h" />
-    <ClInclude Include="..\Classes\Hero.h" />
     <ClInclude Include="..\Classes\LoadScene.h" />
     <ClInclude Include="..\Classes\ResultLayer.h" />
     <ClInclude Include="..\Classes\ResultScene.h" />
     <ClInclude Include="..\Classes\Rocker.h" />
     <ClInclude Include="..\Classes\StringTools.h" />
+    <ClInclude Include="..\Classes\TeamFactory.h" />
     <ClInclude Include="..\Classes\UserData.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
