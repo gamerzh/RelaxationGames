@@ -1,8 +1,24 @@
 {
     "team":[
-       {"teamId":1},
-       {"teamId":2},
-       {"teamId":3},
-       {"teamId":4}
+       {"teamId":1,"teamName":"a","teamBanner":"",
+        "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0},
+            {"footImage":"","name":"","runSpeed":10,"skillType":0},
+            {"footImage":"","name":"","runSpeed":10,"skillType":0}]
+        },
+       {"teamId":2,"teamName":"a","teamBanner":"",
+        "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0},
+        {"footImage":"","name":"","runSpeed":10,"skillType":0},
+        {"footImage":"","name":"","runSpeed":10,"skillType":0}]
+        },
+       {"teamId":3,"teamName":"a","teamBanner":"",
+        "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0},
+        {"footImage":"","name":"","runSpeed":10,"skillType":0},
+        {"footImage":"","name":"","runSpeed":10,"skillType":0}]
+        },
+       {"teamId":4,"teamName":"a","teamBanner":"",
+        "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0},
+        {"footImage":"","name":"","runSpeed":10,"skillType":0},
+        {"footImage":"","name":"","runSpeed":10,"skillType":0}]
+        }
     ]
 }
