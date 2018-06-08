@@ -12,4 +12,5 @@ public:
 	void setMenuCallback(const cocos2d::ccMenuCallback& back);
 private:
 	cocos2d::MenuItemImage* img;
+	void showAllTeams();
 };

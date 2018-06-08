@@ -25,9 +25,9 @@ class TeamFactory : public cocos2d::Ref {
 public:
 	static  TeamFactory* getInstance();
 	std::vector<FootManTeam*> getFootManTeamVector();
-	std::vector<FootManTeamProperty> getFootManTeamPropertyVector();//球队信息列表
 private:
 	static  TeamFactory* m_instance;
 	TeamFactory() {};
 	std::vector<FootManTeam*> footTeamVec;
+	std::vector<FootManTeamProperty> getFootManTeamPropertyVector();//球队信息列表
 };

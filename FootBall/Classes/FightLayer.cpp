@@ -1,4 +1,5 @@
 #include "FightLayer.h"
+#include "TeamFactory.h"
 USING_NS_CC;
 
 //FightLayer* FightLayer::create()
@@ -27,11 +28,22 @@ bool FightLayer::init() {
 	menu->setPosition(visibleSize.width/2,visibleSize.height/6);
 	addChild(menu);
 
+	showAllTeams();
+
 	return true;
 }
 
 void FightLayer::setMenuCallback(const cocos2d::ccMenuCallback& back) {
 	if (nullptr != img) {
 		img->setCallback(back);
+	}
+}
+
+void FightLayer:: showAllTeams() {
+	std::vector<FootManTeam*> teams = TeamFactory::getInstance()->getFootManTeamVector();
+	for (int i = 0; i < teams.size();i++) {
+		auto chec = Sprite::create("play-square-o.png");
+		chec->setPosition(400 + i * 150, 360);
+		addChild(chec);
 	}
 }
