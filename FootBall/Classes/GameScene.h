@@ -7,4 +7,5 @@ public:
 	CREATE_FUNC(GameScene);
 private:
 	void addLayerToScene();
+	void startFootBall();//¿ªÊ¼
 };

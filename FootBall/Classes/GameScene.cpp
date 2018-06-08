@@ -1,5 +1,6 @@
 #include "GameScene.h"
 #include "GameLayer.h"
+#include "FightLayer.h"
 USING_NS_CC;
 
 bool GameScene::init() {
@@ -11,7 +12,18 @@ bool GameScene::init() {
 }
 
 void GameScene::addLayerToScene() {
+	auto fightLayer = FightLayer::create();
+	addChild(fightLayer);
+	fightLayer->setMenuCallback([=](Ref* ref) {
+		startFootBall();
+		fightLayer->removeFromParent();
+	});
+}
+
+
+void GameScene::startFootBall() {
+	
 	//add game layer to scene
 	auto gameLayer = GameLayer::create();
-	addChild(gameLayer);
+	addChild(gameLayer,2);
 }
