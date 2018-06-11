@@ -1,5 +1,6 @@
 #include "FightLayer.h"
 #include "TeamFactory.h"
+#include "GameStatus.h"
 USING_NS_CC;
 
 //FightLayer* FightLayer::create()
@@ -29,6 +30,9 @@ bool FightLayer::init() {
 	addChild(menu);
 
 	showAllTeams();
+	
+	GameStatus::getInstance()->setPlayerTeamId(1);
+	GameStatus::getInstance()->setComputerTeamId(2);
 
 	return true;
 }

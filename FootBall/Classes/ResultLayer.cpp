@@ -6,9 +6,10 @@ bool ResultLayer::init() {
 		return false;
 	}
 
-
-	auto black = LayerColor::create(Color4B(255, 100, 100, 255), 720, 1280);
+	auto black = LayerColor::create(Color4B(255, 100, 100, 255), 1280, 720);
 	addChild(black);
+
+
 
 	return true;
 }

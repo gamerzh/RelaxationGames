@@ -17,8 +17,9 @@ TeamFactory* TeamFactory::getInstance()
 
 std::vector<FootManTeam*> TeamFactory::getFootManTeamVector() {
 	if (footTeamVec.size() == 0) {
-		for (int i = 0; i < getFootManTeamPropertyVector().size(); i++) {
-			auto team = new  FootManTeam();
+		std::vector<FootManTeamProperty> propertyVec = getFootManTeamPropertyVector();
+		for (auto var : propertyVec) {
+			auto team =   FootManTeam::create(var.teamId, var.footManVec);
 			footTeamVec.push_back(team);
 		}
 	}

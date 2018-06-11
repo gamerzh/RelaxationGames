@@ -1,8 +1,9 @@
 #include "GameLayer.h"
-#include "ResultScene.h"
 #include "Rocker.h"
 #include "Ball.h"
-#include "FootMan.h"
+#include "ResultScene.h"
+#include "TeamFactory.h"
+#include "GameStatus.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -32,22 +33,40 @@ bool GameLayer::init() {
 	ball->setCameraMask((int)CameraFlag::USER1);
 	addChild(ball);
 
-	auto footMan = FootMan::create();
-	footMan->setPosition(playerCamera->getPositionX() + visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
-	footMan->setCameraMask((int)CameraFlag::USER1);
-	footMan->setTag(1025);
-	addChild(footMan);
+	//auto footMan = FootMan::create();
+	//footMan->setPosition(playerCamera->getPositionX() + visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
+	//footMan->setCameraMask((int)CameraFlag::USER1);
+	//footMan->setTag(1025);
+	//addChild(footMan);
+
+
+	auto showtime = Label::createWithSystemFont(StringUtils::format("%.1f",gameTime),"arial",40);
+	showtime->setTag(100);
+	showtime->setColor(Color3B::WHITE);
+	showtime->setPosition(visibleSize.width/2, visibleSize.height-40);
+	addChild(showtime);
+	
+	//上半场玩家在左边场地
+	currentPlayerTeamId = getFootManTeamById(GameStatus::getInstance()->getPlayerTeamId());
+	//设置玩家队伍的守门员
+
+	//随机分布玩家队伍的球员
+
+	currentComputerTeamId = getFootManTeamById(GameStatus::getInstance()->getComputerTeamId());
 
 	scheduleUpdate();
 
-	//auto node = Node::create();
-	//addChild(node);
-	//auto action = Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
-	//	//Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
-	//}), NULL);
-	//node->runAction(action);
-
 	return true;
+}
+
+FootManTeam* GameLayer::getFootManTeamById(int id) {
+	std::vector<FootManTeam*> team = TeamFactory::getInstance()->getFootManTeamVector();
+	for (auto var : team) {
+		if (var->getTeamId() == id) {
+			return var;
+		}
+	}
+	return nullptr;
 }
 
 void GameLayer::update(float dt) {
@@ -57,6 +76,20 @@ void GameLayer::update(float dt) {
 		if (angle != 0) {
 			//玩家正在操控球员
 			((FootMan*)getChildByTag(1025))->setFootManAngle(angle);
+		}
+	}
+	passTime += dt;
+	if (passTime > timestep) {
+		gameTime -= timestep;
+		passTime -= timestep;
+		if (gameTime > 0) {
+			if (NULL != getChildByTag(100)) {
+				((Label*)getChildByTag(100))->setString(StringUtils::format("%.1f", gameTime));
+			}
+		}
+		else {
+			this->pause();
+			Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
 		}
 	}
 }
