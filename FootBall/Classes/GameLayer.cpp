@@ -12,6 +12,7 @@ bool GameLayer::init() {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	auto roc = Rocker::create(Vec2(visibleSize.width / 6, visibleSize.height / 5));
+	roc->setTag(1024);
 	roc->openRocker();
 	addChild(roc);
 
@@ -34,14 +35,28 @@ bool GameLayer::init() {
 	auto footMan = FootMan::create();
 	footMan->setPosition(playerCamera->getPositionX() + visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
 	footMan->setCameraMask((int)CameraFlag::USER1);
+	footMan->setTag(1025);
 	addChild(footMan);
 
-	auto node = Node::create();
-	addChild(node);
-	auto action = Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
-		//Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
-	}), NULL);
-	node->runAction(action);
+	scheduleUpdate();
+
+	//auto node = Node::create();
+	//addChild(node);
+	//auto action = Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
+	//	//Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
+	//}), NULL);
+	//node->runAction(action);
 
 	return true;
+}
+
+void GameLayer::update(float dt) {
+	//在游戏场景中会有6个球员,玩家可以控制离球最近的那个
+	if (nullptr != getChildByTag(1024)) {
+		auto angle = ((Rocker*)getChildByTag(1024))->getRockerAngle();
+		if (angle != 0) {
+			//玩家正在操控球员
+			((FootMan*)getChildByTag(1025))->setFootManAngle(angle);
+		}
+	}
 }

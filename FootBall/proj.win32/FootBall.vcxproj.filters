@@ -31,9 +31,6 @@
     <Filter Include="src\audio">
       <UniqueIdentifier>{1d1db8a1-eedf-4131-ac47-6f6e9cbbbded}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\game\player">
-      <UniqueIdentifier>{b6a917c9-d4f1-428e-a042-78cd5d990679}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\game\team">
       <UniqueIdentifier>{c98854dc-6d65-4def-a48c-61050febdf2b}</UniqueIdentifier>
     </Filter>
@@ -87,9 +84,6 @@
     <ClCompile Include="..\Classes\Audio.cpp">
       <Filter>src\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\FootMan.cpp">
-      <Filter>src\game\player</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\FootManTeam.cpp">
       <Filter>src\game\team</Filter>
     </ClCompile>
@@ -104,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Rocker.cpp">
       <Filter>src\game\rocker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FootMan.cpp">
+      <Filter>src\game\team</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +149,6 @@
     <ClInclude Include="..\Classes\UserData.h">
       <Filter>src\user</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\FootMan.h">
-      <Filter>src\game\player</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\FootManTeam.h">
       <Filter>src\game\team</Filter>
     </ClInclude>
@@ -169,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Rocker.h">
       <Filter>src\game\rocker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FootMan.h">
+      <Filter>src\game\team</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

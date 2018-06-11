@@ -95,6 +95,7 @@ void Rocker::onTouchMoved(Touch* touch, Event* event)
 		rocker->setPosition(pos);
 	}
 	rockerAngle = angle;
+	//log("rockerAngle %f", sin(CC_DEGREES_TO_RADIANS(30)));
 }
 
 void Rocker::onTouchEnded(Touch*, Event*)

@@ -25,8 +25,10 @@ bool FootMan::init(cocos2d::Camera* camera) {
 
 void FootMan::setFootManAngle(float angle) {
 	//玩家操控摇杆,人物才会移动
-	if (angle > 0) {
-
+	if (angle != 0) {
+		//log("setFootManAngle %f,%f,%f", angle, cos(angle), sin(angle));
+		Vec2 curPos = this->getPosition();
+		this->setPosition(curPos.x+cos(angle)*5,curPos.y+sin(angle)*5);
 	}
 }
 
