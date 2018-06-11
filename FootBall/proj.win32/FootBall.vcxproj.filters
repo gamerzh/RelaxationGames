@@ -40,6 +40,12 @@
     <Filter Include="src\game\fight">
       <UniqueIdentifier>{adbdda27-9c5e-48d0-ac0b-3443fca190c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game\ball">
+      <UniqueIdentifier>{5c43f5f7-4b58-4c95-96a4-8508eb9bad3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\rocker">
+      <UniqueIdentifier>{235874c5-db16-43c1-acdd-85dc5e15c725}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,12 +87,6 @@
     <ClCompile Include="..\Classes\Audio.cpp">
       <Filter>src\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Rocker.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Ball.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\FootMan.cpp">
       <Filter>src\game\player</Filter>
     </ClCompile>
@@ -98,6 +98,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\FightLayer.cpp">
       <Filter>src\game\fight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Ball.cpp">
+      <Filter>src\game\ball</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Rocker.cpp">
+      <Filter>src\game\rocker</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,12 +152,6 @@
     <ClInclude Include="..\Classes\UserData.h">
       <Filter>src\user</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Rocker.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Ball.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\FootMan.h">
       <Filter>src\game\player</Filter>
     </ClInclude>
@@ -163,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\FightLayer.h">
       <Filter>src\game\fight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Ball.h">
+      <Filter>src\game\ball</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Rocker.h">
+      <Filter>src\game\rocker</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
