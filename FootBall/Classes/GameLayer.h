@@ -14,4 +14,5 @@ private:
 	FootManTeam* currentComputerTeam = nullptr;
 	void update(float dt);
 	FootManTeam* getFootManTeamById(int id);
+	std::vector<FootManTeamProperty> getFootManTeamPropertyVector();//球队信息列表
 };

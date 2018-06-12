@@ -9,7 +9,5 @@ bool ResultLayer::init() {
 	auto black = LayerColor::create(Color4B(255, 100, 100, 255), 1280, 720);
 	addChild(black);
 
-
-
 	return true;
 }

@@ -2,10 +2,10 @@
 USING_NS_CC;
 using namespace std;
 
-FootManTeam* FootManTeam::create(int teamId, std::vector<FootManProperty> provec)
+FootManTeam* FootManTeam::create(FootManTeamProperty teampro)
 {
 	FootManTeam *ret = new FootManTeam();
-	if (ret && ret->init(teamId, provec))
+	if (ret && ret->init(teampro))
 	{
 		ret->autorelease();
 		return ret;
@@ -14,13 +14,16 @@ FootManTeam* FootManTeam::create(int teamId, std::vector<FootManProperty> provec
 	return nullptr;
 }
 
-bool FootManTeam::init(int teamId, std::vector<FootManProperty> provec) {
-	this->teamId = teamId;
-	createFootMan(provec);
+bool FootManTeam::init(FootManTeamProperty teampro) {
+	if (!Layer::init()) {
+		return false;
+	}
+	this->teamId = teampro.teamId;
+	createFootMan(teampro.footManVec);
 	return true;
 }
 
-
+ 
 int FootManTeam::getTeamId() {
 	return this->teamId;
 }

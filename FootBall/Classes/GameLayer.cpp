@@ -2,7 +2,6 @@
 #include "Rocker.h"
 #include "Ball.h"
 #include "ResultScene.h"
-#include "TeamFactory.h"
 #include "GameStatus.h"
 USING_NS_CC;
 
@@ -29,16 +28,9 @@ bool GameLayer::init() {
 	addChild(playerCamera);//添加到当前场景里
 
 	auto ball = Ball::create(playerCamera);
-	ball->setPosition(playerCamera->getPositionX()+visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
+	ball->setPosition(1280, 720);
 	ball->setCameraMask((int)CameraFlag::USER1);
 	addChild(ball);
-
-	//auto footMan = FootMan::create();
-	//footMan->setPosition(playerCamera->getPositionX() + visibleSize.width / 2, playerCamera->getPositionY() + visibleSize.height / 2);
-	//footMan->setCameraMask((int)CameraFlag::USER1);
-	//footMan->setTag(1025);
-	//addChild(footMan);
-
 
 	auto showtime = Label::createWithSystemFont(StringUtils::format("%.1f",gameTime),"arial",40);
 	showtime->setTag(100);
@@ -48,14 +40,23 @@ bool GameLayer::init() {
 	
 	//上半场玩家在左边场地
 	currentPlayerTeam = getFootManTeamById(GameStatus::getInstance()->getPlayerTeamId());
+	currentPlayerTeam->setCameraMask((int)CameraFlag::USER1);
 	addChild(currentPlayerTeam);
-	//设置玩家队伍的守门员
-
-	//随机分布玩家队伍的球员
-
+	//随机分布玩家队伍的球员,设置玩家队伍的守门员
+	for (auto goal : currentPlayerTeam->getAllFootMan()) {
+		goal->setCameraMask((int)CameraFlag::USER1);
+		//if (goal->isGoalkeeper()) {
+		//	//goal->setPosition(100, 720);
+		//}
+		//else {
+		//	//分布在己方半
+		//	goal->setPosition(1280, 720);
+		//	goal->getPosition();
+		//}
+		goal->setPosition(1280, 720);
+	}
 	currentComputerTeam = getFootManTeamById(GameStatus::getInstance()->getComputerTeamId());
 	addChild(currentComputerTeam);
-
 	scheduleUpdate();
 
 	return true;
@@ -69,6 +70,49 @@ FootManTeam* GameLayer::getFootManTeamById(int id) {
 		}
 	}
 	return nullptr;
+}
+
+std::vector<FootManTeamProperty> GameLayer::getFootManTeamPropertyVector() {
+	std::vector<FootManTeamProperty> footManTeamPropertyVec;
+	//解析json,获取战队数据
+	std::string data = FileUtils::getInstance()->getStringFromFile("team.json");
+	if (NULL != data.c_str() && data.compare("")) {
+		rapidjson::Document _mDoc;
+		_mDoc.Parse<0>(data.c_str());
+		if (!_mDoc.HasParseError() && _mDoc.IsObject()) {
+			if (_mDoc.HasMember("team")) {
+				const rapidjson::Value &team = _mDoc["team"];
+				for (int i = 0; i < team.Capacity(); i++) {
+					const rapidjson::Value &tempteam = team[i];
+					FootManTeamProperty property;
+					if (tempteam.HasMember("teamId")) {
+						property.teamId = tempteam["teamId"].GetInt();
+					}
+					if (tempteam.HasMember("teamName")) {
+						property.teamName = tempteam["teamName"].GetString();
+					}
+					if (tempteam.HasMember("teamBanner")) {
+						property.teamBanner = tempteam["teamBanner"].GetString();
+					}
+					if (tempteam.HasMember("footManVec")) {
+						const rapidjson::Value &footVec = tempteam["footManVec"];
+						for (int j = 0; j < footVec.Capacity(); j++)
+						{
+							const rapidjson::Value &tempfoot = footVec[j];
+							FootManProperty manProperty;
+							manProperty.name = tempfoot["name"].GetString();
+							manProperty.footImage = tempfoot["footImage"].GetString();
+							manProperty.runSpeed = tempfoot["runSpeed"].GetInt();
+							manProperty.skillType = tempfoot["skillType"].GetInt();
+							property.footManVec.push_back(manProperty);
+						}
+					}
+					footManTeamPropertyVec.push_back(property);
+				}
+			}
+		}
+	}
+	return footManTeamPropertyVec;
 }
 
 void GameLayer::update(float dt) {

@@ -15,7 +15,6 @@ USING_NS_CC;
 //	return nullptr;
 //}
 
-
 bool FightLayer::init() {
 	if (!Layer::init()) {
 		return false;

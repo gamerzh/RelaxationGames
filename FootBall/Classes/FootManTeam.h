@@ -1,11 +1,12 @@
 #pragma once
 #include "cocos2d.h"
 #include "FootMan.h"
+#include "TeamInfoFactory.h"
 
-class FootManTeam : public cocos2d::Node {
+class FootManTeam : public cocos2d::Layer {
 public:
-	static FootManTeam* create(int teamId,std::vector<FootManProperty> provec);
-	virtual bool init(int teamId, std::vector<FootManProperty> provec);
+	static FootManTeam* create(FootManTeamProperty teampro);
+	virtual bool init(FootManTeamProperty teampro);
 	int getTeamId();
 	std::vector<FootMan*> getAllFootMan();
 private:

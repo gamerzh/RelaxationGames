@@ -16,6 +16,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 	if (!Node::init()) {
 		return false;
 	}
+	this->goalkeeper = property.goalkeeper;
 	auto people = Sprite::create("timg.jpg");
 	people->setAnchorPoint(Point::ANCHOR_MIDDLE);
 	people->setPosition(0, 0);
@@ -39,4 +40,8 @@ void FootMan::setSlideTackle() {
 
 void FootMan::setShoot() {
 
+}
+
+bool FootMan::isGoalkeeper() {
+	return goalkeeper;
 }
