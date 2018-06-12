@@ -67,6 +67,10 @@ bool GameLayer::init() {
 	return true;
 }
 
+float GameLayer::calculateDistance() {
+
+}
+
 void GameLayer::update(float dt) {
 	//在游戏场景中会有6个球员,玩家可以控制离球最近的那个
 	if (nullptr != getChildByTag(1024)) {

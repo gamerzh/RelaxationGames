@@ -15,5 +15,6 @@ private:
 	FootManTeamProperty currentComputerTeamProperty;
 	std::vector<FootMan*> currentPlayerTeam;
 	std::vector<FootMan*> currentComputerTeam;
+	float calculateDistance();
 	void update(float dt);
 };
