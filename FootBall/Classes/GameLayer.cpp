@@ -47,12 +47,14 @@ bool GameLayer::init() {
 	addChild(showtime);
 	
 	//上半场玩家在左边场地
-	currentPlayerTeamId = getFootManTeamById(GameStatus::getInstance()->getPlayerTeamId());
+	currentPlayerTeam = getFootManTeamById(GameStatus::getInstance()->getPlayerTeamId());
+	addChild(currentPlayerTeam);
 	//设置玩家队伍的守门员
 
 	//随机分布玩家队伍的球员
 
-	currentComputerTeamId = getFootManTeamById(GameStatus::getInstance()->getComputerTeamId());
+	currentComputerTeam = getFootManTeamById(GameStatus::getInstance()->getComputerTeamId());
+	addChild(currentComputerTeam);
 
 	scheduleUpdate();
 
@@ -75,7 +77,7 @@ void GameLayer::update(float dt) {
 		auto angle = ((Rocker*)getChildByTag(1024))->getRockerAngle();
 		if (angle != 0) {
 			//玩家正在操控球员
-			((FootMan*)getChildByTag(1025))->setFootManAngle(angle);
+			//((FootMan*)getChildByTag(1025))->setFootManAngle(angle);
 		}
 	}
 	passTime += dt;

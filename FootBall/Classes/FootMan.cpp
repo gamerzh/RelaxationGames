@@ -1,9 +1,9 @@
 #include "FootMan.h"
 USING_NS_CC;
 
-FootMan* FootMan :: create(cocos2d::Camera* camera) {
+FootMan* FootMan :: create(FootManProperty property, cocos2d::Camera* camera) {
 	FootMan *ret = new FootMan();
-	if (ret && ret->init(camera))
+	if (ret && ret->init(property,camera))
 	{
 		ret->autorelease();
 		return ret;
@@ -12,7 +12,7 @@ FootMan* FootMan :: create(cocos2d::Camera* camera) {
 	return nullptr;
 }
 
-bool FootMan::init(cocos2d::Camera* camera) {
+bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 	if (!Node::init()) {
 		return false;
 	}

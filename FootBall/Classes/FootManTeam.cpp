@@ -31,7 +31,8 @@ std::vector<FootMan*> FootManTeam::getAllFootMan() {
 
 void FootManTeam::createFootMan(std::vector<FootManProperty> provec) {
 	for (auto var : provec) {
-		auto man = FootMan::create();
+		auto man = FootMan::create(var);
+		addChild(man);
 		footManVec.push_back(man);
 	}
 }

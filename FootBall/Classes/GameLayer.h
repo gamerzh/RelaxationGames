@@ -10,8 +10,8 @@ private:
 	float gameTime = 60;//”Œœ∑ ±º‰
 	float passTime = 0;
 	const float timestep = 0.1f;
-	FootManTeam* currentPlayerTeamId = nullptr;
-	FootManTeam* currentComputerTeamId = nullptr;
+	FootManTeam* currentPlayerTeam = nullptr;
+	FootManTeam* currentComputerTeam = nullptr;
 	void update(float dt);
 	FootManTeam* getFootManTeamById(int id);
 };
