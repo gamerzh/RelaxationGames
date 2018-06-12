@@ -28,7 +28,7 @@ bool GameLayer::init() {
 	addChild(playerCamera);//添加到当前场景里
 
 	auto ball = Ball::create(playerCamera);
-	ball->setPosition(1280, 720);
+	ball->setPosition(1280, 800);
 	ball->setCameraMask((int)CameraFlag::USER1);
 	addChild(ball);
 
@@ -40,7 +40,8 @@ bool GameLayer::init() {
 	
 	//上半场玩家在左边场地
 	currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getPlayerTeamId());
-	for (auto var1 : currentPlayerTeamProperty.footManVec) {
+	for (int i = 0; i < currentPlayerTeamProperty.footManVec.size();i++) {
+		auto var1 = currentPlayerTeamProperty.footManVec.at(i);
 		auto foot1 = FootMan::create(var1);
 		foot1->setCameraMask((int)CameraFlag::USER1);
 		addChild(foot1);
@@ -48,7 +49,7 @@ bool GameLayer::init() {
 			foot1->setPosition(100, 720);
 		}
 		else {
-			foot1->setPosition(1280, 720);
+			foot1->setPosition(1280-i*200, 720);
 		}
 		currentPlayerTeam.push_back(foot1);
 	}
