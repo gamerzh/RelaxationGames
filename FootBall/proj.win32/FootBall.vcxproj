@@ -154,7 +154,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DreamCallback.cpp" />
     <ClCompile Include="..\Classes\FightLayer.cpp" />
     <ClCompile Include="..\Classes\FootMan.cpp" />
-    <ClCompile Include="..\Classes\FootManTeam.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\GameStatus.cpp" />
@@ -163,7 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ResultScene.cpp" />
     <ClCompile Include="..\Classes\Rocker.cpp" />
     <ClCompile Include="..\Classes\StringTools.cpp" />
-    <ClCompile Include="..\Classes\TeamFactory.cpp" />
+    <ClCompile Include="..\Classes\TeamInfoFactory.cpp" />
     <ClCompile Include="..\Classes\UserData.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -177,7 +176,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DreamEvent.h" />
     <ClInclude Include="..\Classes\FightLayer.h" />
     <ClInclude Include="..\Classes\FootMan.h" />
-    <ClInclude Include="..\Classes\FootManTeam.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\GameStatus.h" />
@@ -186,7 +184,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ResultScene.h" />
     <ClInclude Include="..\Classes\Rocker.h" />
     <ClInclude Include="..\Classes\StringTools.h" />
-    <ClInclude Include="..\Classes\TeamFactory.h" />
+    <ClInclude Include="..\Classes\TeamInfoFactory.h" />
     <ClInclude Include="..\Classes\UserData.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

@@ -20,13 +20,13 @@ struct FootManTeamProperty {
 };
 
 
-class TeamFactory : public cocos2d::Ref {
+class TeamInfoFactory : public cocos2d::Ref {
 public:
-	static  TeamFactory* getInstance();
+	static  TeamInfoFactory* getInstance();
 	FootManTeamProperty getTeamPropertyById(int teamId);
-private:
-	static  TeamFactory* m_instance;
-	TeamFactory() {};
-	std::vector<FootManTeamProperty> footManTeamPropertyVec;
 	std::vector<FootManTeamProperty> getFootManTeamPropertyVector();//球队信息列表
+private:
+	static  TeamInfoFactory* m_instance;
+	TeamInfoFactory() {};
+	std::vector<FootManTeamProperty> footManTeamPropertyVec;
 };

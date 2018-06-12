@@ -84,12 +84,6 @@
     <ClCompile Include="..\Classes\Audio.cpp">
       <Filter>src\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\FootManTeam.cpp">
-      <Filter>src\game\team</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\TeamFactory.cpp">
-      <Filter>src\game\team</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\FightLayer.cpp">
       <Filter>src\game\fight</Filter>
     </ClCompile>
@@ -100,6 +94,9 @@
       <Filter>src\game\rocker</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\FootMan.cpp">
+      <Filter>src\game\team</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TeamInfoFactory.cpp">
       <Filter>src\game\team</Filter>
     </ClCompile>
   </ItemGroup>
@@ -149,12 +146,6 @@
     <ClInclude Include="..\Classes\UserData.h">
       <Filter>src\user</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\FootManTeam.h">
-      <Filter>src\game\team</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\TeamFactory.h">
-      <Filter>src\game\team</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\FightLayer.h">
       <Filter>src\game\fight</Filter>
     </ClInclude>
@@ -165,6 +156,9 @@
       <Filter>src\game\rocker</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\FootMan.h">
+      <Filter>src\game\team</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TeamInfoFactory.h">
       <Filter>src\game\team</Filter>
     </ClInclude>
   </ItemGroup>

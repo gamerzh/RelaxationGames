@@ -1,5 +1,5 @@
 #include "FightLayer.h"
-#include "TeamFactory.h"
+#include "TeamInfoFactory.h"
 #include "GameStatus.h"
 USING_NS_CC;
 
@@ -43,8 +43,7 @@ void FightLayer::setMenuCallback(const cocos2d::ccMenuCallback& back) {
 }
 
 void FightLayer:: showAllTeams() {
-	std::vector<FootManTeam*> teams = TeamFactory::getInstance()->getFootManTeamVector();
-	for (int i = 0; i < teams.size();i++) {
+	for (int i = 0; i < TeamInfoFactory::getInstance()->getFootManTeamPropertyVector().size();i++) {
 		auto chec = Sprite::create("play-square-o.png");
 		chec->setPosition(400 + i * 150, 360);
 		addChild(chec);

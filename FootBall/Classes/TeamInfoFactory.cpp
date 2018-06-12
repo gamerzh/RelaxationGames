@@ -7,15 +7,15 @@ using namespace std;
 
 #define RETURN_IF(cond)    if((cond)) return
 
-TeamFactory * TeamFactory::m_instance = new TeamFactory();
+TeamInfoFactory * TeamInfoFactory::m_instance = new TeamInfoFactory();
 
-TeamFactory* TeamFactory::getInstance()
+TeamInfoFactory* TeamInfoFactory::getInstance()
 {
 	return m_instance;
 }
 
 
-std::vector<FootManTeamProperty> TeamFactory::getFootManTeamPropertyVector() {
+std::vector<FootManTeamProperty> TeamInfoFactory::getFootManTeamPropertyVector() {
 	if (footManTeamPropertyVec.size() == 0) {
 		//解析json,获取战队数据
 		string data = FileUtils::getInstance()->getStringFromFile("team.json");
@@ -43,6 +43,7 @@ std::vector<FootManTeamProperty> TeamFactory::getFootManTeamPropertyVector() {
 							{
 								const rapidjson::Value &tempfoot = footVec[j];
 								FootManProperty manProperty;
+								manProperty.goalkeeper = tempfoot["goalkeeper"].GetBool();
 								manProperty.name = tempfoot["name"].GetString();
 								manProperty.footImage = tempfoot["footImage"].GetString();
 								manProperty.runSpeed = tempfoot["runSpeed"].GetInt();
@@ -59,7 +60,7 @@ std::vector<FootManTeamProperty> TeamFactory::getFootManTeamPropertyVector() {
 	return footManTeamPropertyVec;
 }
 
-FootManTeamProperty TeamFactory::getTeamPropertyById(int teamId) {
+FootManTeamProperty TeamInfoFactory::getTeamPropertyById(int teamId) {
 	for (auto var : getFootManTeamPropertyVector()) {
 		if (var.teamId == teamId) {
 			return var;

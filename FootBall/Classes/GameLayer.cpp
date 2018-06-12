@@ -39,80 +39,31 @@ bool GameLayer::init() {
 	addChild(showtime);
 	
 	//上半场玩家在左边场地
-	currentPlayerTeam = getFootManTeamById(GameStatus::getInstance()->getPlayerTeamId());
-	currentPlayerTeam->setCameraMask((int)CameraFlag::USER1);
-	addChild(currentPlayerTeam);
-	//随机分布玩家队伍的球员,设置玩家队伍的守门员
-	for (auto goal : currentPlayerTeam->getAllFootMan()) {
-		goal->setCameraMask((int)CameraFlag::USER1);
-		//if (goal->isGoalkeeper()) {
-		//	//goal->setPosition(100, 720);
-		//}
-		//else {
-		//	//分布在己方半
-		//	goal->setPosition(1280, 720);
-		//	goal->getPosition();
-		//}
-		goal->setPosition(1280, 720);
+	currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getPlayerTeamId());
+	for (auto var1 : currentPlayerTeamProperty.footManVec) {
+		auto foot1 = FootMan::create(var1);
+		foot1->setCameraMask((int)CameraFlag::USER1);
+		addChild(foot1);
+		if (var1.goalkeeper) {
+			foot1->setPosition(100, 720);
+		}
+		else {
+			foot1->setPosition(1280, 720);
+		}
+		currentPlayerTeam.push_back(foot1);
 	}
-	currentComputerTeam = getFootManTeamById(GameStatus::getInstance()->getComputerTeamId());
-	addChild(currentComputerTeam);
+
+	currentComputerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getComputerTeamId());
+	for (auto var2 : currentPlayerTeamProperty.footManVec) {
+		auto foot2 = FootMan::create(var2);
+		foot2->setCameraMask((int)CameraFlag::USER1);
+		addChild(foot2);
+		currentPlayerTeam.push_back(foot2);
+	}
+
 	scheduleUpdate();
 
 	return true;
-}
-
-FootManTeam* GameLayer::getFootManTeamById(int id) {
-	std::vector<FootManTeam*> team = TeamFactory::getInstance()->getFootManTeamVector();
-	for (auto var : team) {
-		if (var->getTeamId() == id) {
-			return var;
-		}
-	}
-	return nullptr;
-}
-
-std::vector<FootManTeamProperty> GameLayer::getFootManTeamPropertyVector() {
-	std::vector<FootManTeamProperty> footManTeamPropertyVec;
-	//解析json,获取战队数据
-	std::string data = FileUtils::getInstance()->getStringFromFile("team.json");
-	if (NULL != data.c_str() && data.compare("")) {
-		rapidjson::Document _mDoc;
-		_mDoc.Parse<0>(data.c_str());
-		if (!_mDoc.HasParseError() && _mDoc.IsObject()) {
-			if (_mDoc.HasMember("team")) {
-				const rapidjson::Value &team = _mDoc["team"];
-				for (int i = 0; i < team.Capacity(); i++) {
-					const rapidjson::Value &tempteam = team[i];
-					FootManTeamProperty property;
-					if (tempteam.HasMember("teamId")) {
-						property.teamId = tempteam["teamId"].GetInt();
-					}
-					if (tempteam.HasMember("teamName")) {
-						property.teamName = tempteam["teamName"].GetString();
-					}
-					if (tempteam.HasMember("teamBanner")) {
-						property.teamBanner = tempteam["teamBanner"].GetString();
-					}
-					if (tempteam.HasMember("footManVec")) {
-						const rapidjson::Value &footVec = tempteam["footManVec"];
-						for (int j = 0; j < footVec.Capacity(); j++)
-						{
-							const rapidjson::Value &tempfoot = footVec[j];
-							FootManProperty manProperty;
-							manProperty.name = tempfoot["name"].GetString();
-							manProperty.footImage = tempfoot["footImage"].GetString();
-							manProperty.runSpeed = tempfoot["runSpeed"].GetInt();
-							manProperty.skillType = tempfoot["skillType"].GetInt();
-							property.footManVec.push_back(manProperty);
-						}
-					}
-					footManTeamPropertyVec.push_back(property);
-				}
-			}
-		}
-	}
-	return footManTeamPropertyVec;
 }
 
 void GameLayer::update(float dt) {
