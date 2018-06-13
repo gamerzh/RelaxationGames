@@ -24,9 +24,23 @@ bool Ball::init(Camera* camera) {
 	return true;
 }
 
+int Ball::getBallState() {
+	return this->ballState;
+}
+
+void Ball::setBallState(int state) {
+	this->ballState = state;
+}
+
+
+void Ball::setOwnerMan(FootMan* owern) {
+	setBallState(ball_is_ower);
+	this->ballOwner = owern;
+}
+
 void Ball::update(float dt) {
-	//if (nullptr != this->myCamera) {
-	//	this->myCamera->setPosition(this->myCamera->getPositionX() + 5, this->myCamera->getPositionY());
-	//}
-	//this->setPosition(this->getPositionX()+5,this->getPositionY());
+	//足球被球员带着运动
+	if (getBallState() == ball_is_ower) {
+		this->setPosition(ballOwner->getPosition());
+	}
 }

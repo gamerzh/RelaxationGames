@@ -5,6 +5,7 @@
 #include "FootMan.h"
 #include "TeamInfoFactory.h"
 
+
 class GameLayer : public cocos2d::Layer {
 public:
 	virtual bool init();
@@ -20,5 +21,6 @@ private:
 	std::vector<FootMan*> currentPlayerTeam;
 	std::vector<FootMan*> currentComputerTeam;
 	float calculateDistance(cocos2d::Vec2 p1,cocos2d::Vec2 p2);
+	void ballFindOwner();
 	void update(float dt);
 };

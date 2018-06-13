@@ -28,7 +28,7 @@ bool GameLayer::init() {
 	footBall = Ball::create(playerCamera);
 	footBall->setPosition(1280, 800);
 	footBall->setCameraMask((int)CameraFlag::USER1);
-	addChild(footBall);
+	addChild(footBall,100);
 
 	auto showtime = Label::createWithSystemFont(StringUtils::format("%.1f",gameTime),"arial",40);
 	showtime->setTag(100);
@@ -65,11 +65,38 @@ bool GameLayer::init() {
 	return true;
 }
 
+
+void GameLayer::ballFindOwner() {
+	//遍历所有球员,当球员和球达到要求距离后,球被球员拥有，其他球员无法获得球权]
+	std::vector<FootMan*> alternativeMan;
+	for (auto var1 : currentPlayerTeam) {
+		float dis = calculateDistance(var1->getPosition(),footBall->getPosition());
+		if (dis < owner_ball_max_dis) {
+			alternativeMan.push_back(var1);
+		}
+	}
+	for (auto var2 : currentComputerTeam) {
+		float dis = calculateDistance(var2->getPosition(), footBall->getPosition());
+		if (dis < owner_ball_max_dis) {
+			alternativeMan.push_back(var2);
+		}
+	}
+	//随机选择一个球员获取球权
+	if (alternativeMan.size() == 0) {
+		return;
+	}
+	int area = alternativeMan.size();
+	footBall->setOwnerMan(alternativeMan.at(random(0,area-1)));
+}
+
 float GameLayer::calculateDistance(Vec2 p1, Vec2 p2) {
 	return sqrt(pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2));
 }
 
 void GameLayer::update(float dt) {
+	if (footBall->getBallState() == ball_is_free) {
+		ballFindOwner();
+	}
 	//在游戏场景中会有6个球员,玩家可以控制己方离球最近的那个
 	FootMan* controlMan = nullptr;
 	int min = INT_FAST32_MAX;
@@ -81,7 +108,7 @@ void GameLayer::update(float dt) {
 		}
 	}
 	if (nullptr != controlMan && nullptr != heroRocker) {
-		auto angle = heroRocker->getRockerAngle();
+		auto angle = heroRocker->getRockerAngle();                                 
 		if (angle != 0) {
 			//玩家正在操控球员
 			controlMan->setFootManAngle(angle);
