@@ -1,8 +1,7 @@
 #include "GameLayer.h"
-#include "Rocker.h"
-#include "Ball.h"
 #include "ResultScene.h"
 #include "GameStatus.h"
+#include "math.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -11,10 +10,9 @@ bool GameLayer::init() {
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
-	auto roc = Rocker::create(Vec2(visibleSize.width / 6, visibleSize.height / 5));
-	roc->setTag(1024);
-	roc->openRocker();
-	addChild(roc);
+	heroRocker = Rocker::create(Vec2(visibleSize.width / 6, visibleSize.height / 5));
+	heroRocker->openRocker();
+	addChild(heroRocker);
 
 	auto black = Sprite::create("green.jpg");
 	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
@@ -27,10 +25,10 @@ bool GameLayer::init() {
 	playerCamera->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
 	addChild(playerCamera);//添加到当前场景里
 
-	auto ball = Ball::create(playerCamera);
-	ball->setPosition(1280, 800);
-	ball->setCameraMask((int)CameraFlag::USER1);
-	addChild(ball);
+	footBall = Ball::create(playerCamera);
+	footBall->setPosition(1280, 800);
+	footBall->setCameraMask((int)CameraFlag::USER1);
+	addChild(footBall);
 
 	auto showtime = Label::createWithSystemFont(StringUtils::format("%.1f",gameTime),"arial",40);
 	showtime->setTag(100);
@@ -67,17 +65,26 @@ bool GameLayer::init() {
 	return true;
 }
 
-float GameLayer::calculateDistance() {
-
+float GameLayer::calculateDistance(Vec2 p1, Vec2 p2) {
+	return sqrt(pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2));
 }
 
 void GameLayer::update(float dt) {
-	//在游戏场景中会有6个球员,玩家可以控制离球最近的那个
-	if (nullptr != getChildByTag(1024)) {
-		auto angle = ((Rocker*)getChildByTag(1024))->getRockerAngle();
+	//在游戏场景中会有6个球员,玩家可以控制己方离球最近的那个
+	FootMan* controlMan = nullptr;
+	int min = INT_FAST32_MAX;
+	for (auto mine : currentPlayerTeam) {
+		auto dis = calculateDistance(footBall->getPosition(), mine->getPosition());
+		if (dis < min) {
+			controlMan = mine;
+			min = dis;
+		}
+	}
+	if (nullptr != controlMan && nullptr != heroRocker) {
+		auto angle = heroRocker->getRockerAngle();
 		if (angle != 0) {
 			//玩家正在操控球员
-			//((FootMan*)getChildByTag(1025))->setFootManAngle(angle);
+			controlMan->setFootManAngle(angle);
 		}
 	}
 	passTime += dt;
