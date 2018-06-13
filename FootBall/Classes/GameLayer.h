@@ -21,6 +21,9 @@ private:
 	std::vector<FootMan*> currentPlayerTeam;
 	std::vector<FootMan*> currentComputerTeam;
 	float calculateDistance(cocos2d::Vec2 p1,cocos2d::Vec2 p2);
+	void passAndTackle();//¥´«Ú∫Õ«¿∂œ
+	void shoot();//…‰√≈
 	void ballFindOwner();
+	void loadGameLayerUI();
 	void update(float dt);
 };

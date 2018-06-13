@@ -60,11 +60,34 @@ bool GameLayer::init() {
 		currentPlayerTeam.push_back(foot2);
 	}
 
+
+	loadGameLayerUI();
+
 	scheduleUpdate();
 
 	return true;
 }
 
+
+void GameLayer::loadGameLayerUI() {
+	auto btn1 = MenuItemImage::create("btn_bg.png","btn_bg.png",CC_CALLBACK_0(GameLayer::passAndTackle,this));
+	auto btn2 = MenuItemImage::create("btn_bg.png", "btn_bg.png", CC_CALLBACK_0(GameLayer::shoot, this));
+	auto menu = Menu::create(btn1, btn2, NULL);
+	menu->alignItemsHorizontallyWithPadding(50);
+	menu->setPosition(1100, 150);
+	addChild(menu);
+}
+
+
+void GameLayer::passAndTackle() {
+	//传球逻辑
+
+	//抢断逻辑
+}
+
+void GameLayer::shoot() {
+	//射门逻辑
+}
 
 void GameLayer::ballFindOwner() {
 	//遍历所有球员,当球员和球达到要求距离后,球被球员拥有，其他球员无法获得球权]
