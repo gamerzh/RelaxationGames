@@ -20,6 +20,7 @@ private:
 	FootManTeamProperty currentComputerTeamProperty;
 	std::vector<FootMan*> currentPlayerTeam;
 	std::vector<FootMan*> currentComputerTeam;
+	FootMan* currentFootMan = nullptr;
 	float calculateDistance(cocos2d::Vec2 p1,cocos2d::Vec2 p2);
 	void passAndTackle();//¥´«Ú∫Õ«¿∂œ
 	void shoot();//…‰√≈

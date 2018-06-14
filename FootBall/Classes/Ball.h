@@ -10,10 +10,11 @@ class Ball : public cocos2d::Sprite
 {
 public:
 	static Ball* create(cocos2d::Camera* camera);
-	virtual bool init(cocos2d::Camera* camera);
+	virtual bool init(cocos2d::Camera* camera); 
 	int getBallState();
 	void setBallState(int state);
 	void setOwnerMan(FootMan* owern);
+	FootMan* getOwerMan();
 private:
 	cocos2d::Camera* myCamera = nullptr;
 	FootMan* ballOwner = nullptr;

@@ -81,7 +81,7 @@ void GameLayer::loadGameLayerUI() {
 
 void GameLayer::passAndTackle() {
 	//´«ÇòÂß¼­
-
+	//if(footBall->getOwerMan() == )
 	//ÇÀ¶ÏÂß¼­
 }
 
@@ -130,6 +130,7 @@ void GameLayer::update(float dt) {
 			min = dis;
 		}
 	}
+	currentFootMan = controlMan;
 	if (nullptr != controlMan && nullptr != heroRocker) {
 		auto angle = heroRocker->getRockerAngle();                                 
 		if (angle != 0) {

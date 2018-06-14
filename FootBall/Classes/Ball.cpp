@@ -33,6 +33,10 @@ void Ball::setBallState(int state) {
 }
 
 
+FootMan* Ball::getOwerMan() {
+	return this->ballOwner;
+}
+
 void Ball::setOwnerMan(FootMan* owern) {
 	setBallState(ball_is_ower);
 	this->ballOwner = owern;

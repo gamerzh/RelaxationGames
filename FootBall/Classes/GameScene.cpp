@@ -22,7 +22,6 @@ void GameScene::addLayerToScene() {
 
 
 void GameScene::startFootBall() {
-	
 	//add game layer to scene
 	auto gameLayer = GameLayer::create();
 	addChild(gameLayer,2);
