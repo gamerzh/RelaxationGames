@@ -11,8 +11,8 @@ bool GameLayer::init() {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	heroRocker = Rocker::create(Vec2(visibleSize.width / 6, visibleSize.height / 5));
+ 	addChild(heroRocker);
 	heroRocker->openRocker();
-	addChild(heroRocker);
 
 	auto black = Sprite::create("green.jpg");
 	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
