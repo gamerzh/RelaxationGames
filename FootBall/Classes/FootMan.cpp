@@ -21,6 +21,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 	people->setAnchorPoint(Point::ANCHOR_MIDDLE);
 	people->setPosition(0, 0);
 	addChild(people);
+	scheduleUpdate();
 	return true;
 }
 
@@ -33,15 +34,34 @@ void FootMan::setFootManAngle(float angle) {
 	}
 }
 
-void FootMan::setSlideTackle() {
+void FootMan::doSlideTackle() {
 
 }
 
 
-void FootMan::setShoot() {
+void FootMan::doShoot() {
 
 }
 
 bool FootMan::isGoalkeeper() {
 	return goalkeeper;
+}
+
+bool FootMan::isLootBall() {
+	if (nullptr == footBall) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+void FootMan::setFootManLootBall(Ball* ball) {
+	this->footBall = ball;
+}
+
+void FootMan::update(float dt) {
+	if (nullptr != this->footBall) {
+		footBall->setPosition(this->getPosition());
+	}
 }

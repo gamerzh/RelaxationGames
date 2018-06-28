@@ -89,7 +89,7 @@ void GameLayer::shoot() {
 	//射门逻辑
 }
 
-void GameLayer::ballFindOwner() {
+void GameLayer::manLootBall() {
 	//遍历所有球员,当球员和球达到要求距离后,球被球员拥有，其他球员无法获得球权]
 	std::vector<FootMan*> alternativeMan;
 	for (auto var1 : currentPlayerTeam) {
@@ -109,16 +109,17 @@ void GameLayer::ballFindOwner() {
 		return;
 	}
 	int area = alternativeMan.size();
-	footBall->setOwnerMan(alternativeMan.at(random(0,area-1)));
+	//footBall->setOwnerMan(alternativeMan.at(random(0,area-1)));
+	alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
 }
 
-float GameLayer::calculateDistance(Vec2 p1, Vec2 p2) {
+float GameLayer::calculateDistance(Vec2 p1, Vec2 p2) {  
 	return sqrt(pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2));
 }
 
 void GameLayer::update(float dt) {
 	if (footBall->getBallState() == ball_is_free) {
-		ballFindOwner();
+		manLootBall();
 	}
 	//在游戏场景中会有6个球员,玩家可以控制己方离球最近的那个
 	FootMan* controlMan = nullptr;

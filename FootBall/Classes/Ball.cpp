@@ -33,22 +33,22 @@ void Ball::setBallState(int state) {
 }
 
 
-FootMan* Ball::getOwerMan() {
-	return this->ballOwner;
-}
-
-void Ball::setOwnerMan(FootMan* owern) {
-	setBallState(ball_is_ower);
-	this->ballOwner = owern;
-}
-
 void Ball::setBallShoot(int  speed) {
 	setBallState(ball_is_free);
 }
 
+//FootMan* Ball::getOwerMan() {
+//	return this->ballOwner;
+//}
+//
+//void Ball::setOwnerMan(FootMan* owern) {
+//	setBallState(ball_is_ower);
+//	this->ballOwner = owern;
+//}
+
 void Ball::update(float dt) {
 	//足球被球员带着运动
-	if (getBallState() == ball_is_ower) {
-		this->setPosition(ballOwner->getPosition());
-	}
+	//if (getBallState() == ball_is_ower) {
+	//	this->setPosition(ballOwner->getPosition());
+	//}
 }

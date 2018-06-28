@@ -24,7 +24,7 @@ private:
 	float calculateDistance(cocos2d::Vec2 p1,cocos2d::Vec2 p2);
 	void passAndTackle();//传球和抢断
 	void shoot();//射门
-	void ballFindOwner();
+	void manLootBall();//球员争抢足球
 	void loadGameLayerUI();
 	void update(float dt);
 };
