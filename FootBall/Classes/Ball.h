@@ -12,12 +12,13 @@ public:
 	static Ball* create(cocos2d::Camera* camera);
 	virtual bool init(cocos2d::Camera* camera); 
 	int getBallState();
-	void setBallState(int state);
+	void setBallShoot(int  speed);//±»¿ª³ö
 	void setOwnerMan(FootMan* owern);
 	FootMan* getOwerMan();
 private:
 	cocos2d::Camera* myCamera = nullptr;
 	FootMan* ballOwner = nullptr;
 	void update(float dt);
+	void setBallState(int state);
 	int ballState = ball_is_free;//
 };

@@ -42,6 +42,10 @@ void Ball::setOwnerMan(FootMan* owern) {
 	this->ballOwner = owern;
 }
 
+void Ball::setBallShoot(int  speed) {
+	setBallState(ball_is_free);
+}
+
 void Ball::update(float dt) {
 	//足球被球员带着运动
 	if (getBallState() == ball_is_ower) {
