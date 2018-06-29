@@ -24,20 +24,20 @@ bool Rocker::init(Vec2 pos)
 	h_bg->setAnchorPoint(Vec2(0.5, 0.5));
 	h_bg->setPosition(pos);
 	h_bg->setVisible(false);
-	h_bg->setScale(visibleSize.width / 960 + 0.1);
+	//h_bg->setScale(visibleSize.width / 960 + 0.1);
 	addChild(h_bg, 0, ROCKER_NACKGROUMD_TAG);
 
 	Sprite *h_rocker = Sprite::create("rocker_bt.png");
 	h_rocker->setAnchorPoint(Vec2(0.5, 0.5));
 	h_rocker->setPosition(pos);
 	h_rocker->setVisible(false);
-	h_rocker->setScale(visibleSize.width / 960 + 0.1);
+	//h_rocker->setScale(visibleSize.width / 960 + 0.1);
 	addChild(h_rocker, 0, ROCKER_CONTENT_TAG);
 
 	//ÖÐ¼ä
 	rockerAngle = 0;
 	//ÒÆ¶¯°ë¾¶
-	rockerRad = h_bg->getContentSize().width / 2;
+	rockerRad = h_bg->getContentSize().width *0.3;
 	bgCenter = pos;
 	return true;
 }

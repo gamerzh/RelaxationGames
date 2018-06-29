@@ -25,6 +25,7 @@ private:
 	void passAndTackle();//传球和抢断
 	void shoot();//射门
 	void manLootBall();//球员争抢足球
+	void speedMan();
 	void loadGameLayerUI();
 	void update(float dt);
 };

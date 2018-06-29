@@ -10,11 +10,11 @@ bool GameLayer::init() {
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
-	heroRocker = Rocker::create(Vec2(visibleSize.width / 6, visibleSize.height / 5));
+	heroRocker = Rocker::create(Vec2(visibleSize.width / 7, visibleSize.height / 5));
  	addChild(heroRocker);
 	heroRocker->openRocker();
 
-	auto black = Sprite::create("green.jpg");
+	auto black = Sprite::create("green.png");
 	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	black->setPosition(0, 0);
 	black->setCameraMask((int)CameraFlag::USER1);
@@ -70,11 +70,14 @@ bool GameLayer::init() {
 
 
 void GameLayer::loadGameLayerUI() {
-	auto btn1 = MenuItemImage::create("btn_bg.png","btn_bg.png",CC_CALLBACK_0(GameLayer::passAndTackle,this));
-	auto btn2 = MenuItemImage::create("btn_bg.png", "btn_bg.png", CC_CALLBACK_0(GameLayer::shoot, this));
-	auto menu = Menu::create(btn1, btn2, NULL);
-	menu->alignItemsHorizontallyWithPadding(50);
-	menu->setPosition(1100, 150);
+	auto btn1 = MenuItemImage::create("pass_ball_1.png","pass_ball_2.png",CC_CALLBACK_0(GameLayer::passAndTackle,this));
+	auto btn2 = MenuItemImage::create("shoot_ball_1.png", "shoot_ball_2.png", CC_CALLBACK_0(GameLayer::shoot, this));
+	auto btn3 = MenuItemImage::create("speed_ball_1.png", "speed_ball_2.png", CC_CALLBACK_0(GameLayer::speedMan, this));
+	auto menu = Menu::create(btn1, btn2, btn3, NULL);
+	btn1->setPosition(1050, 80);
+	btn2->setPosition(1160, 200);
+	btn3->setPosition(1200, 360);
+	menu->setPosition(0,0);
 	addChild(menu);
 }
 
@@ -87,6 +90,10 @@ void GameLayer::passAndTackle() {
 
 void GameLayer::shoot() {
 	//…‰√≈¬ﬂº≠
+}
+
+void GameLayer::speedMan() {
+
 }
 
 void GameLayer::manLootBall() {
