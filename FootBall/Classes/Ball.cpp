@@ -51,4 +51,5 @@ void Ball::update(float dt) {
 	//if (getBallState() == ball_is_ower) {
 	//	this->setPosition(ballOwner->getPosition());
 	//}
+	this->myCamera->setPosition(this->getPositionX()-720,this->getPositionY()-360);
 }

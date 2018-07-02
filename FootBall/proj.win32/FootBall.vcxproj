@@ -161,6 +161,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ResultLayer.cpp" />
     <ClCompile Include="..\Classes\ResultScene.cpp" />
     <ClCompile Include="..\Classes\Rocker.cpp" />
+    <ClCompile Include="..\Classes\Setting.cpp" />
     <ClCompile Include="..\Classes\StringTools.cpp" />
     <ClCompile Include="..\Classes\TeamInfoFactory.cpp" />
     <ClCompile Include="..\Classes\UserData.cpp" />
@@ -183,6 +184,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ResultLayer.h" />
     <ClInclude Include="..\Classes\ResultScene.h" />
     <ClInclude Include="..\Classes\Rocker.h" />
+    <ClInclude Include="..\Classes\Setting.h" />
     <ClInclude Include="..\Classes\StringTools.h" />
     <ClInclude Include="..\Classes\TeamInfoFactory.h" />
     <ClInclude Include="..\Classes\UserData.h" />

@@ -43,6 +43,9 @@
     <Filter Include="src\game\rocker">
       <UniqueIdentifier>{235874c5-db16-43c1-acdd-85dc5e15c725}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game\setting">
+      <UniqueIdentifier>{3da3f012-034f-4597-b6ee-9dccbe76c16a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -98,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\TeamInfoFactory.cpp">
       <Filter>src\game\team</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Setting.cpp">
+      <Filter>src\game\setting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\TeamInfoFactory.h">
       <Filter>src\game\team</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Setting.h">
+      <Filter>src\game\setting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

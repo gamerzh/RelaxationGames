@@ -2,6 +2,7 @@
 #include "ResultScene.h"
 #include "GameStatus.h"
 #include "math.h"
+#include "Setting.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -9,6 +10,9 @@ bool GameLayer::init() {
 		return false;
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	auto set = Setting::create();
+	addChild(set, 100);
 
 	heroRocker = Rocker::create(Vec2(visibleSize.width / 7, visibleSize.height / 5));
  	addChild(heroRocker);
@@ -20,7 +24,7 @@ bool GameLayer::init() {
 	black->setCameraMask((int)CameraFlag::USER1);
 	addChild(black,-1);
 
-	auto playerCamera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1024, -1024);
+	playerCamera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1024, -1024);
 	playerCamera->setCameraFlag(CameraFlag::USER1);
 	playerCamera->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
 	addChild(playerCamera);//添加到当前场景里
@@ -30,11 +34,7 @@ bool GameLayer::init() {
 	footBall->setCameraMask((int)CameraFlag::USER1);
 	addChild(footBall,100);
 
-	auto showtime = Label::createWithSystemFont(StringUtils::format("%.1f",gameTime),"arial",40);
-	showtime->setTag(100);
-	showtime->setColor(Color3B::WHITE);
-	showtime->setPosition(visibleSize.width/2, visibleSize.height-40);
-	addChild(showtime);
+
 	
 	//上半场玩家在左边场地
 	currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getPlayerTeamId());
@@ -146,18 +146,5 @@ void GameLayer::update(float dt) {
 			controlMan->setFootManAngle(angle);
 		}
 	}
-	passTime += dt;
-	if (passTime > timestep) {
-		gameTime -= timestep;
-		passTime -= timestep;
-		if (gameTime > 0) {
-			if (NULL != getChildByTag(100)) {
-				((Label*)getChildByTag(100))->setString(StringUtils::format("%.1f", gameTime));
-			}
-		}
-		else {
-			this->pause();
-			Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
-		}
-	}
+
 }
