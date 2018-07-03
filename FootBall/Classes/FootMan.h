@@ -5,6 +5,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
+#define ANIMATION_SCALE_RATE 0.4
 
 class FootMan : public cocos2d::Node {
 public:
@@ -16,12 +17,18 @@ public:
 	bool isGoalkeeper();
 	bool isLootBall();
 	void setFootManLootBall(Ball* ball);
+	void playFootManRun();
+	void playFootManTackle();
+
 private:
+	cocos2d::Node* playerCsb;
 	Ball * footBall = nullptr;//球员的持球
 	cocos2d::Camera* ball_camera = nullptr;
 	float runSpeed = 0;//角色的奔跑速度
 	std::string foot_man_img;
 	int foot_man_skill_type = 0;
 	bool goalkeeper = false;
+	void moveRight();
+	void moveLeft();
 	void update(float dt);
 };

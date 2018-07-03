@@ -17,12 +17,37 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 		return false;
 	}
 	this->goalkeeper = property.goalkeeper;
-	auto person = CSLoader::createNode("rw1.csb");
-	person->setScale(0.4f);
-	person->setPosition(0, 0);
-	this->addChild(person);
+	playerCsb = CSLoader::createNode("rw1.csb");
+	playerCsb->setScale(ANIMATION_SCALE_RATE);
+	playerCsb->setPosition(0, 0);
+	this->addChild(playerCsb);
 	scheduleUpdate();
+	playFootManRun();
 	return true;
+}
+
+void FootMan::playFootManRun() {
+	playerCsb->stopAllActions();
+	auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+	heroTimeLine->play("animation0", true);
+	playerCsb->runAction(heroTimeLine);
+}
+
+void FootMan::playFootManTackle() {
+	playerCsb->stopAllActions();
+	auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+	heroTimeLine->play("animation4", false);
+	playerCsb->runAction(heroTimeLine);
+}
+
+void FootMan::moveRight() {
+	playerCsb->setScaleX(ANIMATION_SCALE_RATE);
+
+}
+
+
+void FootMan::moveLeft() {
+	playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1);
 }
 
 void FootMan::setFootManAngle(float angle) {
@@ -30,6 +55,12 @@ void FootMan::setFootManAngle(float angle) {
 	if (angle != 0) {
 		//log("setFootManAngle %f,%f,%f", angle, cos(angle), sin(angle));
 		Vec2 curPos = this->getPosition();
+		if (cos(angle) < 0) {
+			moveLeft();
+		}
+		else {
+			moveRight();
+		}
 		this->setPosition(curPos.x+cos(angle)*5,curPos.y+sin(angle)*5);
 	}
 }
