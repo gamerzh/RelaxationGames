@@ -14,7 +14,7 @@ bool GameLayer::init() {
 	auto set = Setting::create();
 	addChild(set, 100);
 
-	heroRocker = Rocker::create(Vec2(visibleSize.width / 7, visibleSize.height / 5));
+	heroRocker = Rocker::create(Vec2(visibleSize.width / 8, visibleSize.height / 5));
  	addChild(heroRocker);
 	heroRocker->openRocker();
 
@@ -74,9 +74,9 @@ void GameLayer::loadGameLayerUI() {
 	auto btn2 = MenuItemImage::create("shoot_ball_1.png", "shoot_ball_2.png", CC_CALLBACK_0(GameLayer::shoot, this));
 	auto btn3 = MenuItemImage::create("speed_ball_1.png", "speed_ball_2.png", CC_CALLBACK_0(GameLayer::speedMan, this));
 	auto menu = Menu::create(btn1, btn2, btn3, NULL);
-	btn1->setPosition(1050, 80);
-	btn2->setPosition(1160, 200);
-	btn3->setPosition(1200, 360);
+	btn1->setPosition(1070, 80);
+	btn2->setPosition(1160, 190);
+	btn3->setPosition(1190, 320);
 	menu->setPosition(0,0);
 	addChild(menu);
 }

@@ -71,7 +71,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	glview->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
 #endif
 	// turn on display FPS
-	//director->setDisplayStats(true);
+	director->setDisplayStats(true);
 
 	register_all_packages();
 	// create a scene. it's an autorelease object
