@@ -22,33 +22,10 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 	playerCsb->setPosition(0, 0);
 	this->addChild(playerCsb);
 	scheduleUpdate();
-	playFootManRun();
 	return true;
 }
 
-void FootMan::playFootManRun() {
-	playerCsb->stopAllActions();
-	auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
-	heroTimeLine->play("animation0", true);
-	playerCsb->runAction(heroTimeLine);
-}
 
-void FootMan::playFootManTackle() {
-	playerCsb->stopAllActions();
-	auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
-	heroTimeLine->play("animation4", false);
-	playerCsb->runAction(heroTimeLine);
-}
-
-void FootMan::moveRight() {
-	playerCsb->setScaleX(ANIMATION_SCALE_RATE);
-
-}
-
-
-void FootMan::moveLeft() {
-	playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1);
-}
 
 void FootMan::setFootManAngle(float angle) {
 	//玩家操控摇杆,人物才会移动
@@ -89,6 +66,30 @@ bool FootMan::isLootBall() {
 
 void FootMan::setFootManLootBall(Ball* ball) {
 	this->footBall = ball;
+}
+
+
+void FootMan::playFootManRun() {
+	playerCsb->stopAllActions();
+	auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+	heroTimeLine->play("animation0", true);
+	playerCsb->runAction(heroTimeLine);
+}
+
+void FootMan::playFootManTackle() {
+	playerCsb->stopAllActions();
+	auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+	heroTimeLine->play("animation4", false);
+	playerCsb->runAction(heroTimeLine);
+}
+
+void FootMan::moveRight() {
+	playerCsb->setScaleX(ANIMATION_SCALE_RATE);
+}
+
+
+void FootMan::moveLeft() {
+	playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1);
 }
 
 void FootMan::update(float dt) {

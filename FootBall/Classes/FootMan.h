@@ -17,8 +17,6 @@ public:
 	bool isGoalkeeper();
 	bool isLootBall();
 	void setFootManLootBall(Ball* ball);
-	void playFootManRun();
-	void playFootManTackle();
 
 private:
 	cocos2d::Node* playerCsb;
@@ -30,5 +28,7 @@ private:
 	bool goalkeeper = false;
 	void moveRight();
 	void moveLeft();
+	void playFootManRun();
+	void playFootManTackle();
 	void update(float dt);
 };
