@@ -1,7 +1,9 @@
 #pragma once
 #include "cocos2d.h"
-#include "TeamInfoFactory.h"
 #include "Ball.h"
+#include "TeamInfoFactory.h"
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
 
 
 class FootMan : public cocos2d::Node {
