@@ -1,4 +1,5 @@
 #include "FootMan.h"
+#include "GlobalProperty.h"
 USING_NS_CC;
 
 FootMan* FootMan :: create(FootManProperty property, cocos2d::Camera* camera) {
@@ -26,7 +27,37 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 	return true;
 }
 
+float FootMan::getPositionXByYLeft(float y) {
+	Vec2 p1 = Vec2(175,90);
+	Vec2 p2 = Vec2(245, 1215);
+	float k = (p2.y - p1.y) / (p2.x - p1.x);
+	return y / k + p1.x+25;
+}
 
+float FootMan::getPositionXByYRight(float y) {
+	Vec2 p1 = Vec2(1975, 90);
+	Vec2 p2 = Vec2(1875, 1210);
+	float k = (p2.y - p1.y) / (p2.x - p1.x);
+	return y / k + p1.x - 30;
+}
+
+Point FootMan::moveInSafeRect(Point pos) {
+	if (pos.y < football_field_offset_bottom) {
+		pos.y = football_field_offset_bottom;
+	}
+	else if (pos.y > football_field_height- football_field_offset_top) {
+		pos.y = football_field_height- football_field_offset_top;
+	}
+	//球场的范围是个四边形,x方向是不规律的
+
+	if (pos.x < getPositionXByYLeft(pos.y)) {
+		pos.x = getPositionXByYLeft(pos.y);
+	}
+	else if (pos.x > getPositionXByYRight(pos.y)) {
+		pos.x = getPositionXByYRight(pos.y);
+	}
+	return pos;
+}
 
 void FootMan::setFootManAngle(float angle) {
 	//玩家操控摇杆,人物才会移动
@@ -39,7 +70,8 @@ void FootMan::setFootManAngle(float angle) {
 		else {
 			moveRight();
 		}
-		this->setPosition(curPos.x+cos(angle)*5,curPos.y+sin(angle)*5);
+		auto vec = Vec2(curPos.x + cos(angle) * 5, curPos.y + sin(angle) * 5);
+		this->setPosition(moveInSafeRect(vec));
 	}
 }
 

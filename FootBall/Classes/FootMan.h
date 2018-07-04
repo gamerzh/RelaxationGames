@@ -20,6 +20,7 @@ public:
 	void setTargetPosition(cocos2d::Vec2 pos);
 	cocos2d::Point getTargetPosition();
 private:
+	cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
 	cocos2d::Point targetPosition;
 	cocos2d::Node* playerCsb;
 	Ball * footBall = nullptr;//球员的持球
@@ -27,6 +28,9 @@ private:
 	float runSpeed = 0;//角色的奔跑速度
 	std::string foot_man_img;
 	int foot_man_skill_type = 0;
+	cocos2d::Point moveInSafeRect(cocos2d::Point pos);
+	float getPositionXByYLeft(float y);
+	float getPositionXByYRight(float y);
 	bool goalkeeper = false;
 	void moveRight();
 	void moveLeft();

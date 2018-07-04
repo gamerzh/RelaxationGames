@@ -170,6 +170,9 @@
     <ClInclude Include="..\Classes\Setting.h">
       <Filter>src\game\setting</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\GlobalProperty.h">
+      <Filter>src\tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

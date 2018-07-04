@@ -1,4 +1,5 @@
 #include "Ball.h"
+#include "GlobalProperty.h"
 USING_NS_CC;
 
 
@@ -51,10 +52,10 @@ Point Ball::cameraMoveInRect(Point pos) {
 	auto size = Director::getInstance()->getVisibleSize();
 	pos = Vec2(pos.x - size.width / 2, pos.y - size.height / 2);//球的坐标转化为摄像机的坐标
 
-	if (pos.x <0) {
+	if (pos.x < 0) {
 		pos.x = 0;
 	}
-	else if (pos.x > football_field_width-size.width) {
+	else if (pos.x > football_field_width - size.width) {
 		pos.x = football_field_width - size.width;
 	}
 	if (pos.y < 0) {
@@ -63,12 +64,10 @@ Point Ball::cameraMoveInRect(Point pos) {
 	else if (pos.y > football_field_height - size.height) {
 		pos.y = football_field_height - size.height;
 	}
-	
+
 	return pos;
 }
 
 void Ball::update(float dt) {
-
 	this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
-
 }
