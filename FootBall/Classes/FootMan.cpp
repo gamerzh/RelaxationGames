@@ -21,6 +21,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 	playerCsb->setScale(ANIMATION_SCALE_RATE);
 	playerCsb->setPosition(0, 0);
 	this->addChild(playerCsb);
+	playFootManRun();
 	scheduleUpdate();
 	return true;
 }
@@ -43,12 +44,13 @@ void FootMan::setFootManAngle(float angle) {
 }
 
 void FootMan::doSlideTackle() {
-
+	playFootManTackle();
 }
 
 
 void FootMan::doShoot() {
-
+	this->footBall = nullptr;
+	playFootManShoot();
 }
 
 bool FootMan::isGoalkeeper() {
@@ -83,6 +85,23 @@ void FootMan::playFootManTackle() {
 	playerCsb->runAction(heroTimeLine);
 }
 
+
+void FootMan::playFootManShoot() {
+	playerCsb->stopAllActions();
+	auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+	heroTimeLine->play("animation1", false);
+	playerCsb->runAction(heroTimeLine);
+}
+
+void FootMan::setTargetPosition(Vec2 pos) {
+	this->targetPosition = pos;
+}
+
+
+Point FootMan::getTargetPosition() {
+	return this->targetPosition;
+}
+
 void FootMan::moveRight() {
 	playerCsb->setScaleX(ANIMATION_SCALE_RATE);
 }
@@ -95,5 +114,6 @@ void FootMan::moveLeft() {
 void FootMan::update(float dt) {
 	if (nullptr != this->footBall) {
 		footBall->setPosition(this->getPosition());
+		//log("XXXXXXXXXX = (%f,%f)",this->getPositionX(),this->getPositionY());
 	}
 }

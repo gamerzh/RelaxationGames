@@ -11,7 +11,6 @@ public:
 	virtual bool init();
 	CREATE_FUNC(GameLayer);
 private:
-
 	Ball* footBall = nullptr;
 	Rocker* heroRocker = nullptr;
 	cocos2d::Camera* playerCamera;

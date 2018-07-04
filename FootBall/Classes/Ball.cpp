@@ -46,10 +46,29 @@ void Ball::setBallShoot(int  speed) {
 //	this->ballOwner = owern;
 //}
 
+Point Ball::cameraMoveInRect(Point pos) {
+	//限定摄像机跟随的范围
+	auto size = Director::getInstance()->getVisibleSize();
+	pos = Vec2(pos.x - size.width / 2, pos.y - size.height / 2);//球的坐标转化为摄像机的坐标
+
+	if (pos.x <0) {
+		pos.x = 0;
+	}
+	else if (pos.x > football_field_width-size.width) {
+		pos.x = football_field_width - size.width;
+	}
+	if (pos.y < 0) {
+		pos.y = 0;
+	}
+	else if (pos.y > football_field_height - size.height) {
+		pos.y = football_field_height - size.height;
+	}
+	
+	return pos;
+}
+
 void Ball::update(float dt) {
-	//足球被球员带着运动
-	//if (getBallState() == ball_is_ower) {
-	//	this->setPosition(ballOwner->getPosition());
-	//}
-	this->myCamera->setPosition(this->getPositionX()-720,this->getPositionY()-360);
+
+	this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
+
 }

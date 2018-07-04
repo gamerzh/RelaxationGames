@@ -44,26 +44,28 @@ bool GameLayer::init() {
 		foot1->setCameraMask((int)CameraFlag::USER1);
 		addChild(foot1);
 		if (var1.goalkeeper) {
-			foot1->setPosition(100, 720);
+			foot1->setPosition(300, 720);
 		}
 		else {
 			foot1->setPosition(1280-i*200, 720);
 		}
+		foot1->setTargetPosition(Vec2(150,720));
 		currentPlayerTeam.push_back(foot1);
 	}
 
 	currentComputerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getComputerTeamId());
-	for (auto var2 : currentPlayerTeamProperty.footManVec) {
-		auto foot2 = FootMan::create(var2);
-		foot2->setCameraMask((int)CameraFlag::USER1);
-		addChild(foot2);
-		currentPlayerTeam.push_back(foot2);
-	}
+	//for (auto var2 : currentPlayerTeamProperty.footManVec) {
+	//	auto foot2 = FootMan::create(var2);
+	//	foot2->setCameraMask((int)CameraFlag::USER1);
+	//	addChild(foot2);
+	//	currentPlayerTeam.push_back(foot2);
+	//}
 
 
 	loadGameLayerUI();
 
 	scheduleUpdate();
+
 
 	return true;
 }
@@ -86,9 +88,21 @@ void GameLayer::passAndTackle() {
 	//´«ÇòÂß¼­
 	//if(footBall->getOwerMan() == )
 	//ÇÀ¶ÏÂß¼­
+	if (NULL != currentFootMan) {
+		currentFootMan->doSlideTackle();
+	}
 }
 
 void GameLayer::shoot() {
+	//ÉäÃÅÂß¼­
+	if (NULL != currentFootMan) {
+		currentFootMan->doShoot();
+		Point pos = currentFootMan->getTargetPosition();
+		log("shoot target pos = (%f,%f)",pos.x,pos.y);
+		//footBall->setPosition(pos);
+		footBall->runAction(MoveTo::create(5, pos));
+		//Scheduler
+	}
 	//ÉäÃÅÂß¼­
 }
 

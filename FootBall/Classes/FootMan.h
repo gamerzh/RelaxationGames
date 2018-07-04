@@ -17,8 +17,10 @@ public:
 	bool isGoalkeeper();
 	bool isLootBall();
 	void setFootManLootBall(Ball* ball);
-
+	void setTargetPosition(cocos2d::Vec2 pos);
+	cocos2d::Point getTargetPosition();
 private:
+	cocos2d::Point targetPosition;
 	cocos2d::Node* playerCsb;
 	Ball * footBall = nullptr;//ÇòÔ±µÄ³ÖÇò
 	cocos2d::Camera* ball_camera = nullptr;
@@ -30,5 +32,6 @@ private:
 	void moveLeft();
 	void playFootManRun();
 	void playFootManTackle();
+	void playFootManShoot();
 	void update(float dt);
 };

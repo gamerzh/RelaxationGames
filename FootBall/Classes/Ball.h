@@ -4,6 +4,8 @@
 #define ball_is_free 0 //球可以被球员获得
 #define ball_is_ower 1 //球在其中一个球员手里
 #define owner_ball_max_dis 50 //获取球权的最大距离
+#define football_field_width 2100
+#define football_field_height 1360
 
 class Ball : public cocos2d::Sprite
 {
@@ -20,4 +22,5 @@ private:
 	void update(float dt);
 	void setBallState(int state);
 	int ballState = ball_is_free;//
+	cocos2d::Point cameraMoveInRect(cocos2d::Point pos);
 };
