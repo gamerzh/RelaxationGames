@@ -21,6 +21,7 @@ bool Ball::init(Camera* camera) {
 	}
 	this->myCamera = camera;
 	initWithFile("ball.png");
+	setScale(0.4);
 	scheduleUpdate();
 	return true;
 }

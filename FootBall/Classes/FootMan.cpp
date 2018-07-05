@@ -133,19 +133,22 @@ void FootMan::setTargetPosition(Vec2 pos) {
 Point FootMan::getTargetPosition() {
 	return this->targetPosition;
 }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 void FootMan::moveRight() {
 	playerCsb->setScaleX(ANIMATION_SCALE_RATE);
 }
 
 
 void FootMan::moveLeft() {
-	playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1);
+	playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1); 
 }
 
 void FootMan::update(float dt) {
 	if (nullptr != this->footBall) {
-		footBall->setPosition(this->getPosition());
-		//log("XXXXXXXXXX = (%f,%f)",this->getPositionX(),this->getPositionY());
-	}
+		auto set = football_offset_x;
+		if (playerCsb->getScaleX() < 0) {                         
+			set = set * -1;
+		}
+		footBall->setPosition(this->getPositionX() + set,this->getPositionY()+ football_offset_y);
+	} 
 }
