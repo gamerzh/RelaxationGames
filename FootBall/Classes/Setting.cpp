@@ -1,5 +1,6 @@
 #include "Setting.h"
 #include "ResultScene.h"
+#include "PauseLayer.h"
 USING_NS_CC;
 
 bool Setting::init() {
@@ -104,7 +105,8 @@ void Setting::showTeamScore(int teamId) {
 }
 
 void Setting::pauseGame() {
-
+	auto pau = PauseLayer::create();
+	addChild(pau);
 
 }
 

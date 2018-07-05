@@ -46,6 +46,9 @@
     <Filter Include="src\game\setting">
       <UniqueIdentifier>{3da3f012-034f-4597-b6ee-9dccbe76c16a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\game\pause">
+      <UniqueIdentifier>{82567e4e-2418-43eb-a196-4136a6308ea9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Setting.cpp">
       <Filter>src\game\setting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PauseLayer.cpp">
+      <Filter>src\game\pause</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GlobalProperty.h">
       <Filter>src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PauseLayer.h">
+      <Filter>src\game\pause</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

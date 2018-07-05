@@ -25,13 +25,13 @@ void LoadScene::loadView() {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();//只有NO_BOARD模式才会有值
 
-	//auto sprite = Sprite::create("HelloWorld.png");
-	//sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-	//this->addChild(sprite, 0);
+	auto sprite = Sprite::create("load_bg.png");
+	sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	this->addChild(sprite, 0);
 
 	//loading.png
 	auto text = Sprite::create("loading.png");
-	text->setPosition(visibleSize.width / 2+origin.x, visibleSize.height / 6 + origin.y);
+	text->setPosition(visibleSize.width / 2+origin.x, visibleSize.height / 2 +50);
 	addChild(text);
 
 	auto bg = Sprite::create("progress_bg.png");
@@ -40,7 +40,7 @@ void LoadScene::loadView() {
 
 	auto content = Sprite::create("progress.png");
 	auto timer = ProgressTimer::create(content);
-	timer->setPosition(visibleSize.width / 2+origin.x, visibleSize.height / 8 + origin.y);
+	timer->setPosition(visibleSize.width / 2+origin.x+2, visibleSize.height / 8 + 5);
 	timer->setPercentage(0);
 	timer->setMidpoint(Vec2(0, 1));
 	timer->setBarChangeRate(Point(1, 0));
