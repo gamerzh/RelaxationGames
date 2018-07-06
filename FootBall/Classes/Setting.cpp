@@ -1,5 +1,5 @@
 #include "Setting.h"
-#include "ResultScene.h"
+#include "ResultLayer.h"
 #include "PauseLayer.h"
 USING_NS_CC;
 
@@ -124,7 +124,8 @@ void Setting::update(float dt) {
 		}
 		else {
 			this->pause();
-			Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
+			auto layer = ResultLayer::create(true);
+			addChild(layer);
 		}
 	}
 }

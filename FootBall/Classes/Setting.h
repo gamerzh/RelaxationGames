@@ -8,7 +8,7 @@ public:
 	CREATE_FUNC(Setting);
 private:
 	cocos2d::MenuItemToggle * musicItemToggle;
-	float gameTime = 60;//游戏时间
+	float gameTime = 5;//游戏时间
 	float passTime = 0;
 	const float timestep = 0.1f;
 	void loadView();

@@ -1,5 +1,4 @@
 #include "GameLayer.h"
-#include "ResultScene.h"
 #include "GameStatus.h"
 #include "math.h"
 #include "Setting.h"

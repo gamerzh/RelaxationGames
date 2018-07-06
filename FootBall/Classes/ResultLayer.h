@@ -3,6 +3,6 @@
 
 class ResultLayer : public cocos2d::Layer {
 public:
-	virtual bool init();
-	CREATE_FUNC(ResultLayer);
+	static ResultLayer* create(bool win);
+	virtual bool init(bool win);
 };
