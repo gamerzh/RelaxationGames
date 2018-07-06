@@ -158,10 +158,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\GameStatus.cpp" />
     <ClCompile Include="..\Classes\LoadScene.cpp" />
+    <ClCompile Include="..\Classes\LobbyScene.cpp" />
     <ClCompile Include="..\Classes\PauseLayer.cpp" />
     <ClCompile Include="..\Classes\ResultLayer.cpp" />
     <ClCompile Include="..\Classes\Rocker.cpp" />
     <ClCompile Include="..\Classes\Setting.cpp" />
+    <ClCompile Include="..\Classes\StartLayer.cpp" />
     <ClCompile Include="..\Classes\StringTools.cpp" />
     <ClCompile Include="..\Classes\TeamInfoFactory.cpp" />
     <ClCompile Include="..\Classes\UserData.cpp" />
@@ -182,10 +184,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\GameStatus.h" />
     <ClInclude Include="..\Classes\GlobalProperty.h" />
     <ClInclude Include="..\Classes\LoadScene.h" />
+    <ClInclude Include="..\Classes\LobbyScene.h" />
     <ClInclude Include="..\Classes\PauseLayer.h" />
     <ClInclude Include="..\Classes\ResultLayer.h" />
     <ClInclude Include="..\Classes\Rocker.h" />
     <ClInclude Include="..\Classes\Setting.h" />
+    <ClInclude Include="..\Classes\StartLayer.h" />
     <ClInclude Include="..\Classes\StringTools.h" />
     <ClInclude Include="..\Classes\TeamInfoFactory.h" />
     <ClInclude Include="..\Classes\UserData.h" />

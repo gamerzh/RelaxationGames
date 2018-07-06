@@ -52,6 +52,9 @@
     <Filter Include="src\game\status">
       <UniqueIdentifier>{ec8be674-ec85-4833-a2c7-a53d0b62a88e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\lobby">
+      <UniqueIdentifier>{dce3c814-a625-494e-bfda-d6119583a7ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -110,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\GameStatus.cpp">
       <Filter>src\game\status</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LobbyScene.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StartLayer.cpp">
+      <Filter>src\lobby</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +187,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GameStatus.h">
       <Filter>src\game\status</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LobbyScene.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StartLayer.h">
+      <Filter>src\lobby</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

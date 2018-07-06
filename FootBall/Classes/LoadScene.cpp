@@ -1,5 +1,5 @@
 #include "LoadScene.h"
-#include "GameScene.h"
+#include "LobbyScene.h"
 
 
 USING_NS_CC;
@@ -59,5 +59,5 @@ void LoadScene::loadView() {
 }
 
 void LoadScene::gotoGameScene() {
-	Director::getInstance()->replaceScene(TransitionMoveInT::create(0.5f,GameScene::create()));
+	Director::getInstance()->replaceScene(TransitionMoveInT::create(0.5f, LobbyScene::create()));
 }
