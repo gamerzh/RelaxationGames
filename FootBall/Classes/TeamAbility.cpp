@@ -63,6 +63,7 @@ std::string TeamAbility::getFileNameByType(TeamAbilityType type) {
 
 int TeamAbility::getLevelByType(TeamAbilityType type) {
 	//玩家购买的能力等级
+	return 0;
 }
 
 

@@ -112,11 +112,15 @@ void LobbyLayer::loadTeamView() {
 	teamLayer = Layer::create();
 	teamLayer->setVisible(false);
 	addChild(teamLayer);
-	for (int i = 0; i < 3; i++) {
-		auto box = TeamAbility::create(i,0,0);
-		box->setPosition(460+280*i,310);
-		teamLayer->addChild(box);
-	}
+	auto box1 = TeamAbility::create(TeamAbilityType::speed);
+	box1->setPosition(460 , 310);
+	teamLayer->addChild(box1);
+	auto box2 = TeamAbility::create(TeamAbilityType::shoot);
+	box2->setPosition(460 + 280, 310);
+	teamLayer->addChild(box2);
+	auto box3 = TeamAbility::create(TeamAbilityType::energy);
+	box3->setPosition(460 + 280 * 2, 310);
+	teamLayer->addChild(box3);
 }
 
 void LobbyLayer::loadPipeView(Node* node, int index) {
