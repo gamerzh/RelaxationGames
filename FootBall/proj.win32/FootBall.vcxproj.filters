@@ -120,6 +120,12 @@
     <ClCompile Include="..\Classes\StartLayer.cpp">
       <Filter>src\lobby</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\LobbyLayer.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TeamAbility.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -192,6 +198,12 @@
       <Filter>src\lobby</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\StartLayer.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LobbyLayer.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TeamAbility.h">
       <Filter>src\lobby</Filter>
     </ClInclude>
   </ItemGroup>
