@@ -19,12 +19,29 @@ bool LobbyLayer::init() {
 	box2->setPosition(visibileSize.width / 2 + 100, visibileSize.height / 2 - 50);
 	addChild(box2);
 
+	auto soundSelected = MenuItemImage::create("white_sound_on.png", "white_sound_on.png");
+	auto soundNormal = MenuItemImage::create("white_sound_off.png", "white_sound_off.png");
+	auto sound = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::controlSound, this),
+		soundSelected, soundNormal, NULL);
+	auto menu = Menu::create(sound,NULL);
+	menu->setPosition(1240, 690);
+	addChild(menu);
+
+	auto number = LabelAtlas::create("111","sz2.png",16,24,'0');
+	number->setAnchorPoint(Point::ANCHOR_MIDDLE_RIGHT);
+	number->setPosition(330,690);
+	addChild(number);
+
 	loadButtonView();
 	loadWorldCupView();
 	loadMasterVupView();
 	loadTeamView();
 
 	return true;
+}
+
+void LobbyLayer::controlSound(cocos2d::Ref* ref) {
+
 }
 
 
@@ -96,7 +113,11 @@ void LobbyLayer::loadWorldCupView() {
 	loadPipeView(worldLayer,2);
 }
 
-void LobbyLayer::selectWorldCupLevel(Ref* ref) {
+void LobbyLayer::selectCupLevel(Ref* ref) {
+
+}
+
+void LobbyLayer::startGame(cocos2d::Ref* ref) {
 
 }
 
@@ -156,7 +177,7 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 
 	auto level1Selected = MenuItemImage::create("yuxuan_1_1.png", "yuxuan_1_1.png");
 	auto level1Normal = MenuItemImage::create("yuxuan_1_2.png", "yuxuan_1_2.png");
-	auto level1 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectWorldCupLevel, this),
+	auto level1 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
 		level1Selected, level1Normal, NULL);
 	level1->setTag(101);
 	level1->setPosition(400, 445);
@@ -164,7 +185,7 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	auto level2Selected = MenuItemImage::create("yuxuan_2_1.png", "yuxuan_2_1.png", "yuxuan_2_3.png");
 	auto level2Normal = MenuItemImage::create("yuxuan_2_2.png", "yuxuan_2_2.png", "yuxuan_2_3.png");
 	//auto level2Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
-	auto level2 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectWorldCupLevel, this),
+	auto level2 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
 		level2Selected, level2Normal, NULL);
 	level2->setTag(102);
 	level2->setPosition(485, 285);
@@ -173,7 +194,7 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	auto level3Selected = MenuItemImage::create("yuxuan_3_1.png", "yuxuan_3_1.png", "yuxuan_3_3.png");
 	auto level3Normal = MenuItemImage::create("yuxuan_3_2.png", "yuxuan_3_2.png", "yuxuan_3_3.png");
 	//auto level3Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
-	auto level3 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectWorldCupLevel, this),
+	auto level3 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
 		level3Selected, level3Normal, NULL);
 	level3->setTag(103);
 	level3->setPosition(655, 385);
@@ -182,7 +203,7 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	auto level4Selected = MenuItemImage::create("yuxuan_4_1.png", "yuxuan_4_1.png", "yuxuan_4_3.png");
 	auto level4Normal = MenuItemImage::create("yuxuan_4_2.png", "yuxuan_4_2.png", "yuxuan_4_3.png");
 	//auto level4Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
-	auto level4 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectWorldCupLevel, this),
+	auto level4 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
 		level4Selected, level4Normal, NULL);
 	level4->setTag(104);
 	level4->setPosition(690, 160);
@@ -191,7 +212,7 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	auto level5Selected = MenuItemImage::create("yuxuan_5_1.png", "yuxuan_5_1.png", "yuxuan_5_3.png");
 	auto level5Normal = MenuItemImage::create("yuxuan_5_2.png", "yuxuan_5_2.png", "yuxuan_5_3.png");
 	//auto level5Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
-	auto level5 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectWorldCupLevel, this),
+	auto level5 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
 		level5Selected, level5Normal, NULL);
 	level5->setTag(105);
 	level5->setPosition(850, 430);
@@ -200,7 +221,7 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	auto level6Selected = MenuItemImage::create("yuxuan_6_1.png", "yuxuan_6_1.png", "yuxuan_6_3.png");
 	auto level6Normal = MenuItemImage::create("yuxuan_6_2.png", "yuxuan_6_2.png", "yuxuan_6_3.png");
 	//auto level6Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
-	auto level6 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectWorldCupLevel, this),
+	auto level6 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
 		level6Selected, level6Normal, NULL);
 	level6->setTag(106);
 	level6->setPosition(955, 220);
@@ -209,7 +230,7 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	auto level7Selected = MenuItemImage::create("yuxuan_7_1.png", "yuxuan_7_1.png", "yuxuan_7_3.png");
 	auto level7Normal = MenuItemImage::create("yuxuan_7_2.png", "yuxuan_7_2.png", "yuxuan_7_3.png");
 	//auto level7Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
-	auto level7 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectWorldCupLevel, this),
+	auto level7 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
 		level7Selected, level7Normal, NULL);
 	level7->setTag(107);
 	level7->setPosition(1110, 470);
@@ -218,6 +239,11 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	auto menu = Menu::create(level1, level2, level3, level4, level5, level6, level7, NULL);
 	menu->setPosition(0, 0);
 	node->addChild(menu);
+
+	auto game = MenuItemImage::create("start_game_blue.png","start_game_blue.png", CC_CALLBACK_1(LobbyLayer::startGame,this));
+	auto gm = Menu::create(game,NULL);
+	gm->setPosition(1100,85);
+	addChild(gm);
 
 	for (int i = 1; i <= index; i++) {
 		((Sprite*)node->getChildByTag(200 + i))->setTexture(StringUtils::format("pipe_%d_1.png",i));
