@@ -40,13 +40,13 @@ void LoadScene::loadView() {
 
 	auto content = Sprite::create("progress.png");
 	auto timer = ProgressTimer::create(content);
-	timer->setPosition(visibleSize.width / 2+origin.x+2, visibleSize.height / 8 + 5);
+	timer->setPosition(visibleSize.width / 2+2, visibleSize.height / 8 + 5);
 	timer->setPercentage(0);
 	timer->setMidpoint(Vec2(0, 1));
 	timer->setBarChangeRate(Point(1, 0));
 	timer->setType(ProgressTimer::Type::BAR);
 	addChild(timer);
-	auto progress = ProgressFromTo::create(1.5f, 0, 100);
+	auto progress = ProgressFromTo::create(1.2f, 0, 100);
 	timer->runAction(progress);
 
 	//delay time goto game scene

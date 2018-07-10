@@ -13,7 +13,9 @@ public:
 	static TeamAbility* create(TeamAbilityType type);
 	virtual bool init(TeamAbilityType type);
 private:
+	TeamAbilityType teamAbilityType;
 	void getPropLevel();
+	void updatePropLevel(TeamAbilityType type);
 	std::string getFileNameByType(TeamAbilityType type);
 	int getLevelByType(TeamAbilityType type);
 	int getPriceByType(TeamAbilityType type);

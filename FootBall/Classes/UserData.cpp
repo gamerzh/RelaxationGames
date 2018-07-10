@@ -58,3 +58,27 @@ void UserData::setShowGuide(bool show) {
 	UserDefault::getInstance()->setBoolForKey("show_guide", show);
 }
 
+int UserData::getTeamSpeedLevel() {
+	return UserDefault::getInstance()->getIntegerForKey("team_speed", 0);
+}
+
+void UserData::setTeamSpeedLevel(int level) {
+	UserDefault::getInstance()->setIntegerForKey("team_speed", level);
+}
+
+
+int UserData::getTeamShootLevel() {
+	return UserDefault::getInstance()->getIntegerForKey("team_shoot", 0);
+}
+
+void UserData::setTeamShootLevel(int level) {
+	UserDefault::getInstance()->setIntegerForKey("team_shoot", level);
+}
+
+int UserData::getTeamEnergyLevel() {
+	return UserDefault::getInstance()->getIntegerForKey("team_energy", 0);
+}
+
+void UserData::setTeamEnergyLevel(int level) {
+	UserDefault::getInstance()->setIntegerForKey("team_energy", level);
+}

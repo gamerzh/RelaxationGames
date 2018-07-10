@@ -31,9 +31,6 @@
     <Filter Include="src\game\team">
       <UniqueIdentifier>{c98854dc-6d65-4def-a48c-61050febdf2b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\game\fight">
-      <UniqueIdentifier>{adbdda27-9c5e-48d0-ac0b-3443fca190c8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\game\ball">
       <UniqueIdentifier>{5c43f5f7-4b58-4c95-96a4-8508eb9bad3f}</UniqueIdentifier>
     </Filter>
@@ -86,9 +83,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Audio.cpp">
       <Filter>src\audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\FightLayer.cpp">
-      <Filter>src\game\fight</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Ball.cpp">
       <Filter>src\game\ball</Filter>
@@ -163,9 +157,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\UserData.h">
       <Filter>src\user</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\FightLayer.h">
-      <Filter>src\game\fight</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Ball.h">
       <Filter>src\game\ball</Filter>

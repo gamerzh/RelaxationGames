@@ -21,6 +21,15 @@ public:
 	bool getShowgGuide();
 	void setShowGuide(bool show);
 
+	int getTeamSpeedLevel();
+	void setTeamSpeedLevel(int level);
+
+	int getTeamShootLevel();
+	void setTeamShootLevel(int level);
+
+	int getTeamEnergyLevel();
+	void setTeamEnergyLevel(int level);
+
 private:
 	static  UserData* m_instance;
 	UserData() {};

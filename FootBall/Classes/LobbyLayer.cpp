@@ -1,5 +1,7 @@
 #include "LobbyLayer.h"
 #include "TeamAbility.h"
+#include "UserData.h"
+#include "GameScene.h"
 USING_NS_CC;
 
 bool LobbyLayer::init() {
@@ -27,7 +29,7 @@ bool LobbyLayer::init() {
 	menu->setPosition(1240, 690);
 	addChild(menu);
 
-	auto number = LabelAtlas::create("111","sz2.png",16,24,'0');
+	auto number = LabelAtlas::create(StringUtils::format("%d",UserData::getInstance()->getPlayerGoldNum()),"sz2.png",16,24,'0');
 	number->setAnchorPoint(Point::ANCHOR_MIDDLE_RIGHT);
 	number->setPosition(330,690);
 	addChild(number);
@@ -110,7 +112,7 @@ void LobbyLayer::teamMenuCallBack(cocos2d::Ref* ref) {
 void LobbyLayer::loadWorldCupView() {
 	worldLayer = Layer::create();
 	addChild(worldLayer);
-	loadPipeView(worldLayer,2);
+	loadPipeView(worldLayer,0);
 }
 
 void LobbyLayer::selectCupLevel(Ref* ref) {
@@ -118,7 +120,7 @@ void LobbyLayer::selectCupLevel(Ref* ref) {
 }
 
 void LobbyLayer::startGame(cocos2d::Ref* ref) {
-
+	Director::getInstance()->replaceScene(GameScene::create());
 }
 
 
@@ -126,7 +128,7 @@ void LobbyLayer::loadMasterVupView() {
 	masterLayer = Layer::create();
 	masterLayer->setVisible(false);
 	addChild(masterLayer);
-	loadPipeView(masterLayer, 1);
+	loadPipeView(masterLayer, 0);
 }
 
 void LobbyLayer::loadTeamView() {
@@ -134,18 +136,18 @@ void LobbyLayer::loadTeamView() {
 	teamLayer->setVisible(false);
 	addChild(teamLayer);
 	auto box1 = TeamAbility::create(TeamAbilityType::speed);
-	box1->setPosition(460 , 310);
+	box1->setPosition(460 , 320);
 	teamLayer->addChild(box1);
 	auto box2 = TeamAbility::create(TeamAbilityType::shoot);
-	box2->setPosition(460 + 280, 310);
+	box2->setPosition(460 + 280, 320);
 	teamLayer->addChild(box2);
 	auto box3 = TeamAbility::create(TeamAbilityType::energy);
-	box3->setPosition(460 + 280 * 2, 310);
+	box3->setPosition(460 + 280 * 2, 320);
 	teamLayer->addChild(box3);
 }
 
 void LobbyLayer::loadPipeView(Node* node, int index) {
-	auto pipe1 = Sprite::create("pipe_1_1.png");
+	auto pipe1 = Sprite::create("pipe_1_2.png");
 	pipe1->setPosition(440,365);
 	pipe1->setTag(201);
 	node->addChild(pipe1);
