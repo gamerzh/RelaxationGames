@@ -13,6 +13,8 @@ bool GameLayer::init() {
 
 	GameStatus::getInstance()->setPlayerTeamId(1);
 
+	createFootballFild();//»æÖÆ³¡µØ
+
 	auto set = Setting::create();
 	addChild(set, 100);
 
@@ -20,11 +22,7 @@ bool GameLayer::init() {
  	addChild(heroRocker);
 	heroRocker->openRocker();
 
-	auto black = Sprite::create("green.png");
-	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
-	black->setPosition(0, 0);
-	black->setCameraMask((int)CameraFlag::USER1);
-	addChild(black,-1);
+	
 
 	playerCamera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1024, -1024);
 	playerCamera->setCameraFlag(CameraFlag::USER1);
@@ -34,7 +32,7 @@ bool GameLayer::init() {
 	footBall = Ball::create(playerCamera);
 	footBall->setPosition(1280, 800);
 	footBall->setCameraMask((int)CameraFlag::USER1);
-	addChild(footBall,100);
+	addChild(footBall, FOOTBALL_LOCAL_ZORDER);
 
 
 	
@@ -44,7 +42,7 @@ bool GameLayer::init() {
 		auto var1 = currentPlayerTeamProperty.footManVec.at(i);
 		auto foot1 = FootMan::create(var1);
 		foot1->setCameraMask((int)CameraFlag::USER1);
-		addChild(foot1);
+		addChild(foot1, FOOTBALL_LOCAL_ZORDER);
 		if (var1.goalkeeper) {
 			foot1->setPosition(300, 720);
 		}
@@ -59,7 +57,7 @@ bool GameLayer::init() {
 	for (auto var2 : currentPlayerTeamProperty.footManVec) {
 		auto foot2 = FootMan::create(var2);
 		foot2->setCameraMask((int)CameraFlag::USER1);
-		addChild(foot2);
+		addChild(foot2, FOOTBALL_LOCAL_ZORDER);
 		currentPlayerTeam.push_back(foot2);
 	}
 
@@ -72,6 +70,24 @@ bool GameLayer::init() {
 	node->setCameraMask((int)CameraFlag::USER1);
 	addChild(node);
 	return true;
+}
+
+void GameLayer::createFootballFild() {
+	auto black = Sprite::create("green.png");
+	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+	black->setPosition(0, 0);
+	black->setCameraMask((int)CameraFlag::USER1);
+	addChild(black, FOOTBALL_LOCAL_ZORDER-1);
+
+	auto leftGoal = Sprite::create("door_left.png");
+	leftGoal->setPosition(145,750);
+	leftGoal->setCameraMask((int)CameraFlag::USER1);
+	addChild(leftGoal, FOOTBALL_LOCAL_ZORDER+1);
+
+	auto rightGoal = Sprite::create("door_right.png");
+	rightGoal->setCameraMask((int)CameraFlag::USER1);
+	rightGoal->setPosition(1990, 750);
+	addChild(rightGoal, FOOTBALL_LOCAL_ZORDER + 1);
 }
 
 

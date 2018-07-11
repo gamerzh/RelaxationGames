@@ -5,12 +5,14 @@
 #include "FootMan.h"
 #include "TeamInfoFactory.h"
 
+#define FOOTBALL_LOCAL_ZORDER 10
 
 class GameLayer : public cocos2d::Layer {
 public:
 	virtual bool init();
 	CREATE_FUNC(GameLayer);
 private:
+	void createFootballFild();//»æÖÆ×ãÇò³¡
 	Ball* footBall = nullptr;
 	Rocker* heroRocker = nullptr;
 	cocos2d::Camera* playerCamera;
