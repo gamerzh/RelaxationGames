@@ -15,14 +15,11 @@ bool GameLayer::init() {
 
 	createFootballFild();//绘制场地
 
-	auto set = Setting::create();
-	addChild(set, 100);
+	createFootBallTeam();//添加球员
 
 	heroRocker = Rocker::create(Vec2(visibleSize.width / 8, visibleSize.height / 5));
- 	addChild(heroRocker);
+	addChild(heroRocker);
 	heroRocker->openRocker();
-
-	
 
 	playerCamera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1024, -1024);
 	playerCamera->setCameraFlag(CameraFlag::USER1);
@@ -34,46 +31,14 @@ bool GameLayer::init() {
 	footBall->setCameraMask((int)CameraFlag::USER1);
 	addChild(footBall, FOOTBALL_LOCAL_ZORDER);
 
-
-	
-	//上半场玩家在左边场地
-	currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getPlayerTeamId());
-	for (int i = 0; i < currentPlayerTeamProperty.footManVec.size();i++) {
-		auto var1 = currentPlayerTeamProperty.footManVec.at(i);
-		auto foot1 = FootMan::create(var1);
-		foot1->setCameraMask((int)CameraFlag::USER1);
-		addChild(foot1, FOOTBALL_LOCAL_ZORDER);
-		if (var1.goalkeeper) {
-			foot1->setPosition(300, 720);
-		}
-		else {
-			foot1->setPosition(1280-i*200, 720);
-		}
-		foot1->setTargetPosition(Vec2(150,720));
-		currentPlayerTeam.push_back(foot1);
-	}
-
-	currentComputerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getComputerTeamId());
-	for (auto var2 : currentPlayerTeamProperty.footManVec) {
-		auto foot2 = FootMan::create(var2);
-		foot2->setCameraMask((int)CameraFlag::USER1);
-		addChild(foot2, FOOTBALL_LOCAL_ZORDER);
-		currentPlayerTeam.push_back(foot2);
-	}
-
-
 	loadGameLayerUI();
 
 	scheduleUpdate();
-
-	auto node = GeometryTools::drawCollisionBox(Rect(1920,520,100,330));
-	node->setCameraMask((int)CameraFlag::USER1);
-	addChild(node);
 	return true;
 }
 
 void GameLayer::createFootballFild() {
-	auto black = Sprite::create("green.png");
+	auto black = Sprite::create("green.jpg");
 	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
 	black->setPosition(0, 0);
 	black->setCameraMask((int)CameraFlag::USER1);
@@ -90,6 +55,33 @@ void GameLayer::createFootballFild() {
 	addChild(rightGoal, FOOTBALL_LOCAL_ZORDER + 1);
 }
 
+void GameLayer::createFootBallTeam() {
+	//上半场玩家在左边场地
+	currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getPlayerTeamId());
+	for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
+		auto var1 = currentPlayerTeamProperty.footManVec.at(i);
+		auto foot1 = FootMan::create(var1);
+		foot1->setCameraMask((int)CameraFlag::USER1);
+		addChild(foot1, FOOTBALL_MAN_ZORDER);
+		if (var1.goalkeeper) {
+			foot1->setPosition(300, 720);
+		}
+		else {
+			foot1->setPosition(1280 - i * 200, 720);
+		}
+		foot1->setTargetPosition(Vec2(150, 720));
+		currentPlayerTeam.push_back(foot1);
+	}
+
+	currentComputerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getComputerTeamId());
+	for (auto var2 : currentPlayerTeamProperty.footManVec) {
+		auto foot2 = FootMan::create(var2);
+		foot2->setCameraMask((int)CameraFlag::USER1);
+		addChild(foot2, FOOTBALL_MAN_ZORDER);
+		currentPlayerTeam.push_back(foot2);
+	}
+}
+
 
 void GameLayer::loadGameLayerUI() {
 	auto btn1 = MenuItemImage::create("pass_ball_1.png","pass_ball_2.png",CC_CALLBACK_0(GameLayer::passAndTackle,this));
@@ -101,6 +93,8 @@ void GameLayer::loadGameLayerUI() {
 	btn3->setPosition(1190, 320);
 	menu->setPosition(0,0);
 	addChild(menu);
+	auto set = Setting::create();
+	addChild(set, 100);
 }
 
 

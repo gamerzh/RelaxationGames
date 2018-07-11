@@ -13,6 +13,7 @@ public:
 	CREATE_FUNC(GameLayer);
 private:
 	void createFootballFild();//绘制足球场
+	void createFootBallTeam();//添加2个队伍
 	Ball* footBall = nullptr;
 	Rocker* heroRocker = nullptr;
 	cocos2d::Camera* playerCamera;

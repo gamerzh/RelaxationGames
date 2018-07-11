@@ -6,6 +6,7 @@
 #include "ui/CocosGUI.h"
 
 #define ANIMATION_SCALE_RATE 0.4
+#define FOOTBALL_MAN_ZORDER 5000
 
 class FootMan : public cocos2d::Node {
 public:
@@ -37,5 +38,7 @@ private:
 	void playFootManRun();
 	void playFootManTackle();
 	void playFootManShoot();
+	void playFootManStand();	
+	void updateFootManZorder();
 	void update(float dt);
 };
