@@ -39,14 +39,14 @@ void Ball::setBallShoot(int  speed) {
 	setBallState(ball_is_free);
 }
 
-//FootMan* Ball::getOwerMan() {
-//	return this->ballOwner;
-//}
-//
-//void Ball::setOwnerMan(FootMan* owern) {
-//	setBallState(ball_is_ower);
-//	this->ballOwner = owern;
-//}
+FootMan* Ball::getOwerMan() {
+	return this->ballOwner;
+}
+
+void Ball::setOwnerMan(FootMan* owern) {
+	setBallState(ball_is_ower);
+	this->ballOwner = owern;
+}
 
 Point Ball::cameraMoveInRect(Point pos) {
 	//限定摄像机跟随的范围

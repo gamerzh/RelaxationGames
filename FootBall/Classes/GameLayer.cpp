@@ -132,7 +132,7 @@ void GameLayer::manLootBall() {
 	}
 	int area = alternativeMan.size();
 	//footBall->setOwnerMan(alternativeMan.at(random(0,area-1)));
-	alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
+	//alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
 }
 
 float GameLayer::calculateDistance(Vec2 p1, Vec2 p2) {  

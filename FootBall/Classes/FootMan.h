@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-#include "Ball.h"
+//#include "Ball.h"
 #include "TeamInfoFactory.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
@@ -15,15 +15,15 @@ public:
 	void doSlideTackle();//滑铲和传球
 	void doShoot();//射门
 	bool isGoalkeeper();
-	bool isLootBall();
-	void setFootManLootBall(Ball* ball);
+	//bool isLootBall();
+	//void setFootManLootBall(Ball* ball);
 	void setTargetPosition(cocos2d::Vec2 pos);
 	cocos2d::Point getTargetPosition();
 private:
 	cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
 	cocos2d::Point targetPosition;
 	cocos2d::Node* playerCsb;
-	Ball * footBall = nullptr;//球员的持球
+	//Ball * footBall = nullptr;//球员的持球
 	cocos2d::Camera* ball_camera = nullptr;
 	float runSpeed = 0;//角色的奔跑速度
 	std::string foot_man_img;

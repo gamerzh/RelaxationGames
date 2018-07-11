@@ -81,7 +81,7 @@ void FootMan::doSlideTackle() {
 
 
 void FootMan::doShoot() {
-	this->footBall = nullptr;
+	//this->footBall = nullptr;
 	playFootManShoot();
 }
 
@@ -89,18 +89,18 @@ bool FootMan::isGoalkeeper() {
 	return goalkeeper;
 }
 
-bool FootMan::isLootBall() {
-	if (nullptr == footBall) {
-		return false;
-	}
-	else {
-		return true;
-	}
-}
+//bool FootMan::isLootBall() {
+	//if (nullptr == footBall) {
+	//	return false;
+	//}
+	//else {
+	//	return true;
+	//}
+//}
 
-void FootMan::setFootManLootBall(Ball* ball) {
-	this->footBall = ball;
-}
+//void FootMan::setFootManLootBall(Ball* ball) {
+//	this->footBall = ball;
+//}
 
 
 void FootMan::playFootManRun() {
@@ -144,11 +144,11 @@ void FootMan::moveLeft() {
 }
 
 void FootMan::update(float dt) {
-	if (nullptr != this->footBall) {
+	/*if (nullptr != this->footBall) {
 		auto set = football_offset_x;
 		if (playerCsb->getScaleX() < 0) {                         
 			set = set * -1;
 		}
 		footBall->setPosition(this->getPositionX() + set,this->getPositionY()+ football_offset_y);
-	} 
+	} */
 }
