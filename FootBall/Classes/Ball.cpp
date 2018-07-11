@@ -70,9 +70,29 @@ Point Ball::cameraMoveInRect(Point pos) {
 	return pos;
 }
 
+bool Ball::checkBallInGoal() {
+	if (goalLeft.containsPoint(this->getPosition()) ) {
+		char* buf = const_cast<char*>("left");
+		Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+		return true;
+	}
+	else if (goalRight.containsPoint(this->getPosition())) {
+		char* buf = const_cast<char*>("right");
+		Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 void Ball::update(float dt) {
 	if (NULL != this->ballOwner) {
 		this->setPosition(this->ballOwner->getPosition());
 	}
 	this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
+	if (checkBallInGoal()) {
+		//向游戏场景发出进球的消息
+		this->setPosition(100, 700);
+	}
 }

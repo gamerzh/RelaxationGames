@@ -8,6 +8,8 @@
 #define football_offset_x 60
 #define football_offset_y 20
 
+#define foot_ball_in_goal "foot_ball_in_goal"
+
 //class GlobalProperty : public cocos2d::Ref{
 //public:
 //	const  cocos2d::Rect goalLeft = cocos2d::Rect(115, 520, 100, 330);//×ó±ßÇòÃÅ

@@ -22,11 +22,15 @@ private:
 	std::vector<FootMan*> currentPlayerTeam;
 	std::vector<FootMan*> currentComputerTeam;
 	FootMan* currentFootMan = nullptr;
+	void onEnter();
+	void onExit();
 	float calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2);
 	void passAndTackle();//传球和抢断
 	void shoot();//射门
 	void manLootBall();//球员争抢足球
 	void speedMan();
 	void loadGameLayerUI();
+	void addCustomEvent();
+	void removeCustomEvent();
 	void update(float dt);
 };

@@ -25,4 +25,5 @@ private:
 	void setBallState(int state);
 	int ballState = ball_is_free;//
 	cocos2d::Point cameraMoveInRect(cocos2d::Point pos);
+	bool checkBallInGoal();//检查求是否在球门里
 };

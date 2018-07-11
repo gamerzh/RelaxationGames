@@ -2,6 +2,7 @@
 #include "GameStatus.h"
 #include "math.h"
 #include "Setting.h"
+#include "GlobalProperty.h"
 #include "GeometryTools.h"
 USING_NS_CC;
 
@@ -36,6 +37,9 @@ bool GameLayer::init() {
 	scheduleUpdate();
 	return true;
 }
+
+
+
 
 void GameLayer::createFootballFild() {
 	auto black = Sprite::create("green.jpg");
@@ -175,4 +179,26 @@ void GameLayer::update(float dt) {
 		}
 	}
 
+}
+
+void GameLayer::onEnter() {
+	Layer::onEnter();
+	addCustomEvent();
+}
+
+
+void GameLayer::onExit() {
+	Layer::onExit();
+
+}
+
+void GameLayer::addCustomEvent() {
+	auto footballInGoal = EventListenerCustom::create(foot_ball_in_goal, [=](EventCustom* event) {
+		log("AAAAAAAAAAAAAAAAAAAAAA");
+	});
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
+}
+
+void GameLayer::removeCustomEvent() {
+	Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_in_goal);
 }
