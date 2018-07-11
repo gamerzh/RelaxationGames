@@ -10,6 +10,8 @@ bool GameLayer::init() {
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
+	GameStatus::getInstance()->setPlayerTeamId(1);
+
 	auto set = Setting::create();
 	addChild(set, 100);
 
@@ -53,12 +55,12 @@ bool GameLayer::init() {
 	}
 
 	currentComputerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getComputerTeamId());
-	//for (auto var2 : currentPlayerTeamProperty.footManVec) {
-	//	auto foot2 = FootMan::create(var2);
-	//	foot2->setCameraMask((int)CameraFlag::USER1);
-	//	addChild(foot2);
-	//	currentPlayerTeam.push_back(foot2);
-	//}
+	for (auto var2 : currentPlayerTeamProperty.footManVec) {
+		auto foot2 = FootMan::create(var2);
+		foot2->setCameraMask((int)CameraFlag::USER1);
+		addChild(foot2);
+		currentPlayerTeam.push_back(foot2);
+	}
 
 
 	loadGameLayerUI();

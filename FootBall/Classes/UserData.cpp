@@ -82,3 +82,19 @@ int UserData::getTeamEnergyLevel() {
 void UserData::setTeamEnergyLevel(int level) {
 	UserDefault::getInstance()->setIntegerForKey("team_energy", level);
 }
+
+int UserData::getWorldCupLevel() {
+	return UserDefault::getInstance()->getIntegerForKey("world_level", 0);
+}
+
+void UserData::setWorldCupLevel() {
+	UserDefault::getInstance()->setIntegerForKey("world_level", 0);
+}
+
+int UserData::getMasterCupLevel() {
+	return UserDefault::getInstance()->getIntegerForKey("master_level", 0);
+}
+
+void UserData::setMasterCupLevel() {
+	UserDefault::getInstance()->setIntegerForKey("master_level", 0);
+}
