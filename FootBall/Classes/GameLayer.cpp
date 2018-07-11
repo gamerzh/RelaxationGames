@@ -2,6 +2,7 @@
 #include "GameStatus.h"
 #include "math.h"
 #include "Setting.h"
+#include "GeometryTools.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -67,7 +68,9 @@ bool GameLayer::init() {
 
 	scheduleUpdate();
 
-
+	auto node = GeometryTools::drawCollisionBox(Rect(1920,520,100,330));
+	node->setCameraMask((int)CameraFlag::USER1);
+	addChild(node);
 	return true;
 }
 
@@ -131,7 +134,7 @@ void GameLayer::manLootBall() {
 		return;
 	}
 	int area = alternativeMan.size();
-	//footBall->setOwnerMan(alternativeMan.at(random(0,area-1)));
+	footBall->setOwnerMan(alternativeMan.at(random(0,area-1)));
 	//alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
 }
 

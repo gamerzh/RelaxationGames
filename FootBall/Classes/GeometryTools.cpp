@@ -10,11 +10,13 @@ DrawNode* GeometryTools::drawCollisionBox(Rect rect) {
 	DrawNode* drawNode = DrawNode::create();
 	Vec2 point[4];
 	point[0] = Vec2(rect.getMinX(), rect.getMinY());
-	point[1] = Vec2(rect.getMinX(), rect.getMaxY());
-	point[2] = Vec2(rect.getMaxX(), rect.getMinY());
-	point[3] = Vec2(rect.getMaxX(), rect.getMaxY());
+	point[1] = Vec2(rect.getMaxX(), rect.getMinY());
+	point[2] = Vec2(rect.getMaxX(), rect.getMaxY());
+	point[3] = Vec2(rect.getMinX(), rect.getMaxY());
+
 	//Ìî³äÑÕÉ«£ºColor4F(1, 0, 0, 0), Í¸Ã÷
 	//ÂÖÀªÑÕÉ«£ºColor4F(0, 1, 0, 1), ÂÌÉ«
+	//drawNode->drawRect(point[0], point[1], point[2], point[3], Color4F(1, 0, 0, 1));
 	drawNode->drawPolygon(point, 4, Color4F(1, 0, 0, 1), 1, Color4F(0, 1, 0, 1));
 	return drawNode;
 }

@@ -1,5 +1,6 @@
 #include "Ball.h"
 #include "GlobalProperty.h"
+#include "GeometryTools.h"
 USING_NS_CC;
 
 
@@ -70,5 +71,8 @@ Point Ball::cameraMoveInRect(Point pos) {
 }
 
 void Ball::update(float dt) {
+	if (NULL != this->ballOwner) {
+		this->setPosition(this->ballOwner->getPosition());
+	}
 	this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
 }

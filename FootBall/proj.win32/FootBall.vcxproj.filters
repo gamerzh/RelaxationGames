@@ -120,6 +120,9 @@
     <ClCompile Include="..\Classes\TeamAbility.cpp">
       <Filter>src\lobby</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GeometryTools.cpp">
+      <Filter>src\tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\TeamAbility.h">
       <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GeometryTools.h">
+      <Filter>src\tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

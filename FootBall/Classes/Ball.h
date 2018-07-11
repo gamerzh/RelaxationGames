@@ -17,6 +17,8 @@ public:
 	void setOwnerMan(FootMan* owern);
 	FootMan* getOwerMan();
 private:
+	const  cocos2d::Rect goalLeft = cocos2d::Rect(115, 520, 100, 330);//◊Û±ﬂ«Ú√≈
+	const  cocos2d::Rect goalRight = cocos2d::Rect(1920, 520, 100, 330);//”“±ﬂ«Ú√≈
 	cocos2d::Camera* myCamera = nullptr;
 	FootMan* ballOwner = nullptr;
 	void update(float dt);
