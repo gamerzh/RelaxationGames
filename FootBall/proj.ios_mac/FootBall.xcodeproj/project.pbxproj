@@ -292,6 +292,10 @@
 		D246EF0B20F629B300AD0860 /* chen.png in Resources */ = {isa = PBXBuildFile; fileRef = D246EE4620F629B200AD0860 /* chen.png */; };
 		D246EF0C20F629B300AD0860 /* pipe_1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D246EE4720F629B200AD0860 /* pipe_1_1.png */; };
 		D246EF0D20F629B300AD0860 /* pipe_1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D246EE4720F629B200AD0860 /* pipe_1_1.png */; };
+		D246EF1620F62EF600AD0860 /* DreamSecond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */; };
+		D246EF1720F62EF600AD0860 /* DreamSecond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */; };
+		D246EF1820F62EF600AD0860 /* DreamLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF1320F62EF600AD0860 /* DreamLayer.cpp */; };
+		D246EF1920F62EF600AD0860 /* DreamLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF1320F62EF600AD0860 /* DreamLayer.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -328,6 +332,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
+		};
+		D246EF1120F62EF600AD0860 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -524,6 +535,10 @@
 		D246EE4520F629B200AD0860 /* start_game_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_game_blue.png; sourceTree = "<group>"; };
 		D246EE4620F629B200AD0860 /* chen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chen.png; sourceTree = "<group>"; };
 		D246EE4720F629B200AD0860 /* pipe_1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipe_1_1.png; sourceTree = "<group>"; };
+		D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DreamSecond.cpp; sourceTree = "<group>"; };
+		D246EF1320F62EF600AD0860 /* DreamLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DreamLayer.cpp; sourceTree = "<group>"; };
+		D246EF1420F62EF600AD0860 /* DreamLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamLayer.h; sourceTree = "<group>"; };
+		D246EF1520F62EF600AD0860 /* DreamSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamSecond.h; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -605,6 +620,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				D246EF1220F62EF600AD0860 /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -773,6 +789,10 @@
 				D246EDB820F6297B00AD0860 /* DreamCallback.h */,
 				D246ED9E20F6297900AD0860 /* DreamEvent.h */,
 				D246EDB120F6297B00AD0860 /* FootMan.cpp */,
+				D246EF1320F62EF600AD0860 /* DreamLayer.cpp */,
+				D246EF1420F62EF600AD0860 /* DreamLayer.h */,
+				D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */,
+				D246EF1520F62EF600AD0860 /* DreamSecond.h */,
 				D246ED9920F6297900AD0860 /* FootMan.h */,
 				D246EDA320F6297A00AD0860 /* GameLayer.cpp */,
 				D246EDAE20F6297B00AD0860 /* GameLayer.h */,
@@ -945,6 +965,13 @@
 			fileType = archive.ar;
 			path = "libcocos2d iOS.a";
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D246EF1220F62EF600AD0860 /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = D246EF1120F62EF600AD0860 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1197,9 +1224,11 @@
 				D246EDCD20F6297B00AD0860 /* Dream.cpp in Sources */,
 				D246EDCB20F6297B00AD0860 /* UserData.cpp in Sources */,
 				D246EDCF20F6297B00AD0860 /* GameLayer.cpp in Sources */,
+				D246EF1620F62EF600AD0860 /* DreamSecond.cpp in Sources */,
 				D246EDC520F6297B00AD0860 /* Setting.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				D246EDDD20F6297B00AD0860 /* Ball.cpp in Sources */,
+				D246EF1820F62EF600AD0860 /* DreamLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				D246EDE320F6297B00AD0860 /* GeometryTools.cpp in Sources */,
 				D246EDC720F6297B00AD0860 /* PauseLayer.cpp in Sources */,
@@ -1224,7 +1253,9 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				D246EDC020F6297B00AD0860 /* LobbyScene.cpp in Sources */,
 				D246EDD820F6297B00AD0860 /* TeamAbility.cpp in Sources */,
+				D246EF1920F62EF600AD0860 /* DreamLayer.cpp in Sources */,
 				D246EDE420F6297B00AD0860 /* GeometryTools.cpp in Sources */,
+				D246EF1720F62EF600AD0860 /* DreamSecond.cpp in Sources */,
 				D246EDDE20F6297B00AD0860 /* Ball.cpp in Sources */,
 				D246EDDA20F6297B00AD0860 /* DreamCallback.cpp in Sources */,
 				D246EDDC20F6297B00AD0860 /* Rocker.cpp in Sources */,
