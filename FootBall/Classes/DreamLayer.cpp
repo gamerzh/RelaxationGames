@@ -120,15 +120,15 @@ void DreamLayer::doConfirmEvent(Ref* ref) {
 	}
 	else if (id == 5) {
 		//双倍
-		GameStatus::getInstance()->setDoubleScore(true);
+//        GameStatus::getInstance()->setDoubleScore(true);
 	}
 	else if (id == 6) {
 		//无敌
-		GameStatus::getInstance()->setInvincible(true);
+//        GameStatus::getInstance()->setInvincible(true);
 	}
 	else if (id == 7) {
 		//复活
-		GameStatus::getInstance()->setResurgence(true);
+//        GameStatus::getInstance()->setResurgence(true);
 	}
 	removeFromParent();
 }
@@ -146,7 +146,7 @@ void DreamLayer::closeView(Ref* ref) {
 	}
 	else if (id == 7) {
 		//复活
-		((GameLayer*)getParent())->showGameOver();
+//        ((GameLayer*)getParent())->showGameOver();
 	}
 	removeFromParent();
 }
@@ -162,7 +162,7 @@ void DreamLayer::closeSecondView(Ref* ref) {
 	int id = tem->getTag();
 	if (id == 7) {
 		//复活
-		((GameLayer*)getParent())->showGameOver();
+//        ((GameLayer*)getParent())->showGameOver();
 	}
 	removeFromParent();
 }
