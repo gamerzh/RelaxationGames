@@ -38,6 +38,8 @@ void Ball::setBallState(int state) {
 
 void Ball::setBallShoot(int  speed) {
 	setBallState(ball_is_free);
+	this->ballOwner = NULL;
+	//向球门以球员给的速度移动
 }
 
 FootMan* Ball::getOwerMan() {

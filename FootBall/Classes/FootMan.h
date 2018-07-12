@@ -16,10 +16,11 @@ public:
 	void doSlideTackle();//»¬²ùºÍ´«Çò
 	void doShoot();//ÉäÃÅ
 	bool isGoalkeeper();
+	float getShootSpeed();
 	//bool isLootBall();
 	//void setFootManLootBall(Ball* ball);
-	void setTargetPosition(cocos2d::Vec2 pos);
-	cocos2d::Point getTargetPosition();
+	//void setTargetPosition(cocos2d::Vec2 pos);
+	//cocos2d::Point getTargetPosition();
 private:
 	cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
 	cocos2d::Point targetPosition;

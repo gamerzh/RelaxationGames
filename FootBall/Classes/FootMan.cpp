@@ -132,14 +132,18 @@ void FootMan::playFootManStand() {
 	playerCsb->runAction(heroTimeLine);
 }
 
-void FootMan::setTargetPosition(Vec2 pos) {
-	this->targetPosition = pos;
+float FootMan::getShootSpeed() {
+	return 10;
 }
 
+//void FootMan::setTargetPosition(Vec2 pos) {
+//	this->targetPosition = pos;
+//}
 
-Point FootMan::getTargetPosition() {
-	return this->targetPosition;
-}
+
+//Point FootMan::getTargetPosition() {
+//	return this->targetPosition;
+//}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 void FootMan::moveRight() {
 	playerCsb->setScaleX(ANIMATION_SCALE_RATE);
