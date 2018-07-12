@@ -21,7 +21,8 @@ private:
 	FootManTeamProperty currentComputerTeamProperty;
 	std::vector<FootMan*> currentPlayerTeam;
 	std::vector<FootMan*> currentComputerTeam;
-	FootMan* currentFootMan = nullptr;
+	FootMan* currentFootMan = nullptr;//玩家控制的球员
+	FootMan* currentControlFootMan = nullptr;//当前控球的队员
 	void onEnter();
 	void onExit();
 	float calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2);

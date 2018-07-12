@@ -117,8 +117,8 @@ void GameLayer::shoot() {
 		currentFootMan->doShoot();
 		Point pos = currentFootMan->getTargetPosition();
 		log("shoot target pos = (%f,%f)",pos.x,pos.y);
-		//footBall->setPosition(pos);
-		footBall->runAction(MoveTo::create(5, pos));
+		footBall->setPosition(pos);
+		//footBall->runAction(MoveTo::create(0, Vec2(150,720)));
 		//Scheduler
 	}
 	//ÉäÃÅÂß¼­
@@ -148,7 +148,9 @@ void GameLayer::manLootBall() {
 		return;
 	}
 	int area = alternativeMan.size();
-	footBall->setOwnerMan(alternativeMan.at(random(0,area-1)));
+	auto man = alternativeMan.at(random(0, area - 1));
+	footBall->setOwnerMan(man);
+	currentControlFootMan = man
 	//alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
 }
 
