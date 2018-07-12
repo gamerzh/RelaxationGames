@@ -123,6 +123,12 @@
     <ClCompile Include="..\Classes\GeometryTools.cpp">
       <Filter>src\tools</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\DreamLayer.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamSecond.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -202,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GeometryTools.h">
       <Filter>src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamLayer.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamSecond.h">
+      <Filter>src\dream</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

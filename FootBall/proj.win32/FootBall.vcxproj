@@ -152,6 +152,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Ball.cpp" />
     <ClCompile Include="..\Classes\Dream.cpp" />
     <ClCompile Include="..\Classes\DreamCallback.cpp" />
+    <ClCompile Include="..\Classes\DreamLayer.cpp" />
+    <ClCompile Include="..\Classes\DreamSecond.cpp" />
     <ClCompile Include="..\Classes\FootMan.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
@@ -179,6 +181,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Dream.h" />
     <ClInclude Include="..\Classes\DreamCallback.h" />
     <ClInclude Include="..\Classes\DreamEvent.h" />
+    <ClInclude Include="..\Classes\DreamLayer.h" />
+    <ClInclude Include="..\Classes\DreamSecond.h" />
     <ClInclude Include="..\Classes\FootMan.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameScene.h" />

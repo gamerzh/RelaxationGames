@@ -57,7 +57,7 @@ void Dream::quitGame() {
 	auto path = String::createWithFormat("%s%s", JAVA_SRC, "");
 	bool isHave = JniHelper::getStaticMethodInfo(methodInfo, path->getCString(), "exit", "()V");
 	if (isHave) {
-		JniHelper::getEnv()->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+		JniHelper::getEnv()->CallStaticStringMethod(methodInfo.classID, methodInfo.methodID);
 	}
 #endif
 }

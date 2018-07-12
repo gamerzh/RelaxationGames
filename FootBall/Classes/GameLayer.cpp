@@ -194,7 +194,7 @@ void GameLayer::onExit() {
 
 void GameLayer::addCustomEvent() {
 	auto footballInGoal = EventListenerCustom::create(foot_ball_in_goal, [=](EventCustom* event) {
-		log("AAAAAAAAAAAAAAAAAAAAAA");
+		//log("AAAAAAAAAAAAAAAAAAAAAA");
 	});
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
 }
