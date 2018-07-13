@@ -41,5 +41,6 @@ private:
 	void playFootManShoot();
 	void playFootManStand();	
 	void updateFootManZorder();
+	void showDebugInfo();
 	void update(float dt);
 };

@@ -6,7 +6,8 @@ USING_NS_CC;
 FootballTeam* FootballTeam::create(int teamId) {
 	auto team = new FootballTeam();
 	if (team && team->init(teamId)) {
-		team->autorelease();
+		//team->autorelease();
+		//team->retain();//添加一次计数,不会因为没有添加到场景被回收
 		return team;
 	}
 	else {
@@ -32,4 +33,18 @@ std::vector<FootMan*> FootballTeam::getFootManVector() {
 		footManVector.push_back(foot1);
 	}
 	return footManVector;
+}
+
+void FootballTeam::setTeamInLeftField(bool b) {
+	this->teamInLeftField = b;
+}
+
+std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
+	std::vector<Vec2> left;
+	return left;
+}
+
+std::vector<Vec2> FootballTeam::getRightFieldVec2() {
+	std::vector<Vec2> right;
+	return right;
 }

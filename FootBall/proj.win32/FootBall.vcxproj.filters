@@ -129,6 +129,9 @@
     <ClCompile Include="..\Classes\DreamSecond.cpp">
       <Filter>src\dream</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\FootballTeam.cpp">
+      <Filter>src\game\team</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\DreamSecond.h">
       <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FootballTeam.h">
+      <Filter>src\game\team</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

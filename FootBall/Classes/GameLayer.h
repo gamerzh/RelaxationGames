@@ -14,16 +14,18 @@ public:
 	CREATE_FUNC(GameLayer);
 private:
 	void createFootballFild();//绘制足球场
-	//void createFootBallTeam();//添加2个队伍
+	void createFootBallTeam();//添加2个队伍
 	Ball* footBall = nullptr;
 	Rocker* heroRocker = nullptr;
 	cocos2d::Camera* playerCamera;
 	//FootManTeamProperty currentPlayerTeamProperty;
 	//FootManTeamProperty currentComputerTeamProperty;
-	//std::vector<FootMan*> currentPlayerTeam;
-	//std::vector<FootMan*> currentComputerTeam;
+	std::vector<FootMan*> currentPlayerTeam;
+	std::vector<FootMan*> currentComputerTeam;
 	//FootMan* currentFootMan = nullptr;//玩家控制的球员
 	//FootMan* currentControlFootMan = nullptr;//当前控球的队员
+	FootballTeam* playerTeam;//玩家控制的队伍
+	FootballTeam* computerTeam;//系统控制的队伍
 	void onEnter();
 	void onExit();
 	float calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2);

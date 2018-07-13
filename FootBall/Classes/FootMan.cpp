@@ -24,6 +24,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
 	this->addChild(playerCsb);
 	playFootManStand();
 	scheduleUpdate();
+	showDebugInfo();
 	return true;
 }
 
@@ -167,4 +168,14 @@ void FootMan::update(float dt) {
 		footBall->setPosition(this->getPositionX() + set,this->getPositionY()+ football_offset_y);
 	} */
 	updateFootManZorder();
+	if (NULL != getChildByTag(1000)) {
+		((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));
+	}
+}
+
+void FootMan::showDebugInfo() {
+	auto lable = Label::create(StringUtils::format("(%.1f,%.1f)",this->getPositionX(),this->getPositionY()), "arial", 30);
+	lable->setTag(1000);
+	lable->setPosition(0,0);
+	addChild(lable);
 }

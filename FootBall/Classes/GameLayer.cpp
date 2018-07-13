@@ -17,7 +17,7 @@ bool GameLayer::init() {
 
 	createFootballFild();//绘制场地
 
-	//createFootBallTeam();//添加球员
+	createFootBallTeam();//添加球员
 
 	heroRocker = Rocker::create(Vec2(visibleSize.width / 8, visibleSize.height / 5));
 	addChild(heroRocker);
@@ -60,32 +60,21 @@ void GameLayer::createFootballFild() {
 	addChild(rightGoal, FOOTBALL_LOCAL_ZORDER + 1);
 }
 
-//void GameLayer::createFootBallTeam() {
-//	//上半场玩家在左边场地
-//	currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getPlayerTeamId());
-//	for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
-//		auto var1 = currentPlayerTeamProperty.footManVec.at(i);
-//		auto foot1 = FootMan::create(var1);
-//		foot1->setCameraMask((int)CameraFlag::USER1);
-//		addChild(foot1, FOOTBALL_MAN_ZORDER);
-//		if (var1.goalkeeper) {
-//			foot1->setPosition(300, 720);
-//		}
-//		else {
-//			foot1->setPosition(1280 - i * 200, 720);
-//		}
-//		//foot1->setTargetPosition(Vec2(150, 720));
-//		currentPlayerTeam.push_back(foot1);
-//	}
-//
-//	currentComputerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(GameStatus::getInstance()->getComputerTeamId());
-//	for (auto var2 : currentPlayerTeamProperty.footManVec) {
-//		auto foot2 = FootMan::create(var2);
-//		foot2->setCameraMask((int)CameraFlag::USER1);
-//		addChild(foot2, FOOTBALL_MAN_ZORDER);
-//		currentPlayerTeam.push_back(foot2);
-//	}
-//}
+void GameLayer::createFootBallTeam() {
+	//创建玩家的队伍
+	playerTeam = FootballTeam::create(1);
+	currentPlayerTeam = playerTeam->getFootManVector();
+	//添加球员到场地上
+	for (auto var: currentPlayerTeam)
+	{
+		addChild(var);
+	}
+
+	//创建AI的队伍
+	//computerTeam = FootballTeam::create(1);
+	//currentComputerTeam = computerTeam->getFootManVector();
+	//添加球员到场地上
+}
 
 
 void GameLayer::loadGameLayerUI() {
@@ -163,14 +152,14 @@ void GameLayer::update(float dt) {
 	//在游戏场景中会有6个球员,玩家可以控制己方离球最近的那个
 	FootMan* controlMan = nullptr;
 	int min = INT_FAST32_MAX;
-	/*for (auto mine : currentPlayerTeam) {
+	for (auto mine : currentPlayerTeam) {
 		auto dis = calculateDistance(footBall->getPosition(), mine->getPosition());
 		if (dis < min) {
 			controlMan = mine;
 			min = dis;
 		}
 	}
-	currentFootMan = controlMan;*/
+	//currentFootMan = controlMan;
 	if (nullptr != controlMan && nullptr != heroRocker) {
 		auto angle = heroRocker->getRockerAngle();                                 
 		if (angle != 0) {
