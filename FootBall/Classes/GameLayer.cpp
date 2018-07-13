@@ -117,26 +117,26 @@ void GameLayer::speedMan() {
 
 void GameLayer::manLootBall() {
 	//遍历所有球员,当球员和球达到要求距离后,球被球员拥有，其他球员无法获得球权]
-	//std::vector<FootMan*> alternativeMan;
-	//for (auto var1 : currentPlayerTeam) {
-	//	float dis = calculateDistance(var1->getPosition(),footBall->getPosition());
-	//	if (dis < owner_ball_max_dis) {
-	//		alternativeMan.push_back(var1);
-	//	}
-	//}
+	std::vector<FootMan*> alternativeMan;
+	for (auto var1 : currentPlayerTeam) {
+		float dis = calculateDistance(var1->getPosition(),footBall->getPosition());
+		if (dis < owner_ball_max_dis) {
+			alternativeMan.push_back(var1);
+		}
+	}
 	//for (auto var2 : currentComputerTeam) {
 	//	float dis = calculateDistance(var2->getPosition(), footBall->getPosition());
 	//	if (dis < owner_ball_max_dis) {
 	//		alternativeMan.push_back(var2);
 	//	}
 	//}
-	////随机选择一个球员获取球权
-	//if (alternativeMan.size() == 0) {
-	//	return;
-	//}
-	//int area = alternativeMan.size();
-	//auto man = alternativeMan.at(random(0, area - 1));
-	//footBall->setOwnerMan(man);
+	//随机选择一个球员获取球权
+	if (alternativeMan.size() == 0) {
+		return;
+	}
+	int area = alternativeMan.size();
+	auto man = alternativeMan.at(random(0, area - 1));
+	footBall->setOwnerMan(man);
 	//currentControlFootMan = man;
 	//alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
 }
