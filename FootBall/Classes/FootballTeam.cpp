@@ -41,6 +41,9 @@ void FootballTeam::setTeamInLeftField(bool b) {
 
 std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
 	std::vector<Vec2> left;
+    left.push_back(Vec2(1000,675));
+     left.push_back(Vec2(710,850));
+    left.push_back(Vec2(710,850));
 	return left;
 }
 

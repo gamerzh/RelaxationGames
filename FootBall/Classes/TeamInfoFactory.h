@@ -13,10 +13,10 @@ struct FootManProperty {
 };
 
 struct FootManTeamProperty {
-	int teamId;//球队编号
-	std::string teamName;//球队名称
-	std::string teamBanner;//球队旗帜
-	std::vector<FootManProperty> footManVec;//队员属性列表
+	int teamId;
+	std::string teamName;
+	std::string teamBanner;
+	std::vector<FootManProperty> footManVec;
 };
 
 
@@ -24,7 +24,7 @@ class TeamInfoFactory : public cocos2d::Ref {
 public:
 	static  TeamInfoFactory* getInstance();
 	FootManTeamProperty getTeamPropertyById(int teamId);
-	std::vector<FootManTeamProperty> getFootManTeamPropertyVector();//球队信息列表
+	std::vector<FootManTeamProperty> getFootManTeamPropertyVector();
 private:
 	static  TeamInfoFactory* m_instance;
 	TeamInfoFactory() {};
