@@ -102,10 +102,8 @@ std::string DreamLayer::getFileNameById(int id) {
 void DreamLayer::doConfirmEvent(Ref* ref) {
 	MenuItem* tem = (MenuItem*)ref;
 	int id = tem->getTag();
-	//按照编号处理
 	Dream::getInstance()->requestEvent(id);
 	if (id == 1) {
-		//玩家确认金币加100
 		UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum()+100);
 		auto node = DreamLayer::create(2);
 		getParent()->addChild(node);
@@ -119,15 +117,12 @@ void DreamLayer::doConfirmEvent(Ref* ref) {
 		UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 100);
 	}
 	else if (id == 5) {
-		//双倍
 //        GameStatus::getInstance()->setDoubleScore(true);
 	}
 	else if (id == 6) {
-		//无敌
 //        GameStatus::getInstance()->setInvincible(true);
 	}
 	else if (id == 7) {
-		//复活
 //        GameStatus::getInstance()->setResurgence(true);
 	}
 	removeFromParent();
@@ -145,7 +140,6 @@ void DreamLayer::closeView(Ref* ref) {
 		getParent()->addChild(node);
 	}
 	else if (id == 7) {
-		//复活
 //        ((GameLayer*)getParent())->showGameOver();
 	}
 	removeFromParent();
@@ -161,7 +155,6 @@ void DreamLayer::closeSecondView(Ref* ref) {
 	MenuItemImage* tem = (MenuItemImage*)ref;
 	int id = tem->getTag();
 	if (id == 7) {
-		//复活
 //        ((GameLayer*)getParent())->showGameOver();
 	}
 	removeFromParent();

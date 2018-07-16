@@ -7,8 +7,8 @@ public:
 	static Dream* getInstance();
 	void requestEvent(int dreamId);
 	void recordEvent(std::string dreamId, std::string action);
-	void quitGame();//退出弹框;
-	bool getDreamTimes();//是否是2次
+	void quitGame();
+	bool getDreamTimes();
 	const char* getJniPath();
 private:
 	std::string _jniPath;

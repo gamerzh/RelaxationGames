@@ -17,7 +17,6 @@ TeamInfoFactory* TeamInfoFactory::getInstance()
 
 std::vector<FootManTeamProperty> TeamInfoFactory::getFootManTeamPropertyVector() {
 	if (footManTeamPropertyVec.size() == 0) {
-		//解析json,获取战队数据
 		string data = FileUtils::getInstance()->getStringFromFile("team.json");
 		if (NULL != data.c_str() && data.compare("")) {
 			rapidjson::Document _mDoc;
