@@ -296,6 +296,8 @@
 		D246EF1720F62EF600AD0860 /* DreamSecond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */; };
 		D246EF1820F62EF600AD0860 /* DreamLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF1320F62EF600AD0860 /* DreamLayer.cpp */; };
 		D246EF1920F62EF600AD0860 /* DreamLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF1320F62EF600AD0860 /* DreamLayer.cpp */; };
+		D2E3B0C320FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
+		D2E3B0C420FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -539,6 +541,8 @@
 		D246EF1320F62EF600AD0860 /* DreamLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DreamLayer.cpp; sourceTree = "<group>"; };
 		D246EF1420F62EF600AD0860 /* DreamLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamLayer.h; sourceTree = "<group>"; };
 		D246EF1520F62EF600AD0860 /* DreamSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamSecond.h; sourceTree = "<group>"; };
+		D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballTeam.h; sourceTree = "<group>"; };
+		D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FootballTeam.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -983,6 +987,8 @@
 		D2E3B0C020FC36AF00F9A8F3 /* team */ = {
 			isa = PBXGroup;
 			children = (
+				D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */,
+				D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */,
 				D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */,
 				D246EDA020F6297A00AD0860 /* TeamInfoFactory.h */,
 				D246EDB120F6297B00AD0860 /* FootMan.cpp */,
@@ -1334,6 +1340,7 @@
 				D246EDE120F6297B00AD0860 /* LoadScene.cpp in Sources */,
 				D246EDBD20F6297B00AD0860 /* GameStatus.cpp in Sources */,
 				D246EDCD20F6297B00AD0860 /* Dream.cpp in Sources */,
+				D2E3B0C320FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */,
 				D246EDCB20F6297B00AD0860 /* UserData.cpp in Sources */,
 				D246EDCF20F6297B00AD0860 /* GameLayer.cpp in Sources */,
 				D246EF1620F62EF600AD0860 /* DreamSecond.cpp in Sources */,
@@ -1378,6 +1385,7 @@
 				D246EDCA20F6297B00AD0860 /* ResultLayer.cpp in Sources */,
 				D246EDD620F6297B00AD0860 /* StringTools.cpp in Sources */,
 				D246EDD020F6297B00AD0860 /* GameLayer.cpp in Sources */,
+				D2E3B0C420FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */,
 				D246EDBC20F6297B00AD0860 /* StartLayer.cpp in Sources */,
 				D246EDC220F6297B00AD0860 /* GameScene.cpp in Sources */,
 				D246EDE220F6297B00AD0860 /* LoadScene.cpp in Sources */,
