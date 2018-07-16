@@ -778,55 +778,13 @@
 			children = (
 				D246EDA520F6297A00AD0860 /* AppDelegate.cpp */,
 				D246ED9020F6297900AD0860 /* AppDelegate.h */,
-				D246EDA720F6297A00AD0860 /* Audio.cpp */,
-				D246EDA820F6297A00AD0860 /* Audio.h */,
-				D246EDA920F6297A00AD0860 /* AudioConfig.h */,
-				D246EDB020F6297B00AD0860 /* Ball.cpp */,
-				D246ED9720F6297900AD0860 /* Ball.h */,
-				D246EDA220F6297A00AD0860 /* Dream.cpp */,
-				D246EDA620F6297A00AD0860 /* Dream.h */,
-				D246EDAD20F6297B00AD0860 /* DreamCallback.cpp */,
-				D246EDB820F6297B00AD0860 /* DreamCallback.h */,
-				D246ED9E20F6297900AD0860 /* DreamEvent.h */,
-				D246EDB120F6297B00AD0860 /* FootMan.cpp */,
-				D246EF1320F62EF600AD0860 /* DreamLayer.cpp */,
-				D246EF1420F62EF600AD0860 /* DreamLayer.h */,
-				D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */,
-				D246EF1520F62EF600AD0860 /* DreamSecond.h */,
-				D246ED9920F6297900AD0860 /* FootMan.h */,
-				D246EDA320F6297A00AD0860 /* GameLayer.cpp */,
-				D246EDAE20F6297B00AD0860 /* GameLayer.h */,
-				D246ED8F20F6297900AD0860 /* GameScene.cpp */,
-				D246ED8D20F6297900AD0860 /* GameScene.h */,
-				D246ED8C20F6297900AD0860 /* GameStatus.cpp */,
-				D246EDB320F6297B00AD0860 /* GameStatus.h */,
-				D246EDB720F6297B00AD0860 /* GeometryTools.cpp */,
-				D246ED9F20F6297900AD0860 /* GeometryTools.h */,
-				D246ED9120F6297900AD0860 /* GlobalProperty.h */,
-				D246EDB620F6297B00AD0860 /* LoadScene.cpp */,
-				D246EDA120F6297A00AD0860 /* LoadScene.h */,
-				D246ED9220F6297900AD0860 /* LobbyLayer.cpp */,
-				D246EDB220F6297B00AD0860 /* LobbyLayer.h */,
-				D246ED8E20F6297900AD0860 /* LobbyScene.cpp */,
-				D246ED9320F6297900AD0860 /* LobbyScene.h */,
-				D246ED9620F6297900AD0860 /* PauseLayer.cpp */,
-				D246EDB420F6297B00AD0860 /* PauseLayer.h */,
-				D246ED9820F6297900AD0860 /* ResultLayer.cpp */,
-				D246ED9420F6297900AD0860 /* ResultLayer.h */,
-				D246EDAF20F6297B00AD0860 /* Rocker.cpp */,
-				D246EDA420F6297A00AD0860 /* Rocker.h */,
-				D246ED9520F6297900AD0860 /* Setting.cpp */,
-				D246ED9A20F6297900AD0860 /* Setting.h */,
-				D246ED8B20F6297900AD0860 /* StartLayer.cpp */,
-				D246EDB520F6297B00AD0860 /* StartLayer.h */,
-				D246EDAB20F6297A00AD0860 /* StringTools.cpp */,
-				D246EDAA20F6297A00AD0860 /* StringTools.h */,
-				D246EDAC20F6297B00AD0860 /* TeamAbility.cpp */,
-				D246ED9B20F6297900AD0860 /* TeamAbility.h */,
-				D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */,
-				D246EDA020F6297A00AD0860 /* TeamInfoFactory.h */,
-				D246ED9D20F6297900AD0860 /* UserData.cpp */,
-				D246ED9C20F6297900AD0860 /* UserData.h */,
+				D2E3B0B220FC357B00F9A8F3 /* audio */,
+				D2E3B0B320FC358700F9A8F3 /* dream */,
+				D2E3B0B420FC358D00F9A8F3 /* game */,
+				D2E3B0B520FC359B00F9A8F3 /* load */,
+				D2E3B0B720FC35A700F9A8F3 /* lobby */,
+				D2E3B0B820FC35AF00F9A8F3 /* tools */,
+				D2E3B0B920FC35F300F9A8F3 /* user */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -878,6 +836,160 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		D2E3B0B220FC357B00F9A8F3 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				D246EDA920F6297A00AD0860 /* AudioConfig.h */,
+				D246EDA720F6297A00AD0860 /* Audio.cpp */,
+				D246EDA820F6297A00AD0860 /* Audio.h */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		D2E3B0B320FC358700F9A8F3 /* dream */ = {
+			isa = PBXGroup;
+			children = (
+				D246EDA220F6297A00AD0860 /* Dream.cpp */,
+				D246EDA620F6297A00AD0860 /* Dream.h */,
+				D246EDAD20F6297B00AD0860 /* DreamCallback.cpp */,
+				D246EDB820F6297B00AD0860 /* DreamCallback.h */,
+				D246ED9E20F6297900AD0860 /* DreamEvent.h */,
+				D246EF1320F62EF600AD0860 /* DreamLayer.cpp */,
+				D246EF1420F62EF600AD0860 /* DreamLayer.h */,
+				D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */,
+				D246EF1520F62EF600AD0860 /* DreamSecond.h */,
+			);
+			name = dream;
+			sourceTree = "<group>";
+		};
+		D2E3B0B420FC358D00F9A8F3 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				D2E3B0C020FC36AF00F9A8F3 /* team */,
+				D2E3B0BF20FC36A700F9A8F3 /* status */,
+				D2E3B0BE20FC369D00F9A8F3 /* setting */,
+				D2E3B0BD20FC369600F9A8F3 /* rocker */,
+				D2E3B0BC20FC368F00F9A8F3 /* result */,
+				D2E3B0BB20FC368900F9A8F3 /* pause */,
+				D2E3B0BA20FC368000F9A8F3 /* ball */,
+				D246EDA320F6297A00AD0860 /* GameLayer.cpp */,
+				D246EDAE20F6297B00AD0860 /* GameLayer.h */,
+				D246ED8F20F6297900AD0860 /* GameScene.cpp */,
+				D246ED8D20F6297900AD0860 /* GameScene.h */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		D2E3B0B520FC359B00F9A8F3 /* load */ = {
+			isa = PBXGroup;
+			children = (
+				D246EDB620F6297B00AD0860 /* LoadScene.cpp */,
+				D246EDA120F6297A00AD0860 /* LoadScene.h */,
+			);
+			name = load;
+			sourceTree = "<group>";
+		};
+		D2E3B0B720FC35A700F9A8F3 /* lobby */ = {
+			isa = PBXGroup;
+			children = (
+				D246ED8B20F6297900AD0860 /* StartLayer.cpp */,
+				D246EDB520F6297B00AD0860 /* StartLayer.h */,
+				D246EDAC20F6297B00AD0860 /* TeamAbility.cpp */,
+				D246ED9B20F6297900AD0860 /* TeamAbility.h */,
+				D246ED9220F6297900AD0860 /* LobbyLayer.cpp */,
+				D246EDB220F6297B00AD0860 /* LobbyLayer.h */,
+				D246ED8E20F6297900AD0860 /* LobbyScene.cpp */,
+				D246ED9320F6297900AD0860 /* LobbyScene.h */,
+			);
+			name = lobby;
+			sourceTree = "<group>";
+		};
+		D2E3B0B820FC35AF00F9A8F3 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				D246EDB720F6297B00AD0860 /* GeometryTools.cpp */,
+				D246ED9F20F6297900AD0860 /* GeometryTools.h */,
+				D246ED9120F6297900AD0860 /* GlobalProperty.h */,
+				D246EDAB20F6297A00AD0860 /* StringTools.cpp */,
+				D246EDAA20F6297A00AD0860 /* StringTools.h */,
+			);
+			name = tools;
+			sourceTree = "<group>";
+		};
+		D2E3B0B920FC35F300F9A8F3 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				D246ED9D20F6297900AD0860 /* UserData.cpp */,
+				D246ED9C20F6297900AD0860 /* UserData.h */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
+		D2E3B0BA20FC368000F9A8F3 /* ball */ = {
+			isa = PBXGroup;
+			children = (
+				D246EDB020F6297B00AD0860 /* Ball.cpp */,
+				D246ED9720F6297900AD0860 /* Ball.h */,
+			);
+			name = ball;
+			sourceTree = "<group>";
+		};
+		D2E3B0BB20FC368900F9A8F3 /* pause */ = {
+			isa = PBXGroup;
+			children = (
+				D246ED9620F6297900AD0860 /* PauseLayer.cpp */,
+				D246EDB420F6297B00AD0860 /* PauseLayer.h */,
+			);
+			name = pause;
+			sourceTree = "<group>";
+		};
+		D2E3B0BC20FC368F00F9A8F3 /* result */ = {
+			isa = PBXGroup;
+			children = (
+				D246ED9820F6297900AD0860 /* ResultLayer.cpp */,
+				D246ED9420F6297900AD0860 /* ResultLayer.h */,
+			);
+			name = result;
+			sourceTree = "<group>";
+		};
+		D2E3B0BD20FC369600F9A8F3 /* rocker */ = {
+			isa = PBXGroup;
+			children = (
+				D246EDAF20F6297B00AD0860 /* Rocker.cpp */,
+				D246EDA420F6297A00AD0860 /* Rocker.h */,
+			);
+			name = rocker;
+			sourceTree = "<group>";
+		};
+		D2E3B0BE20FC369D00F9A8F3 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				D246ED9520F6297900AD0860 /* Setting.cpp */,
+				D246ED9A20F6297900AD0860 /* Setting.h */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
+		D2E3B0BF20FC36A700F9A8F3 /* status */ = {
+			isa = PBXGroup;
+			children = (
+				D246ED8C20F6297900AD0860 /* GameStatus.cpp */,
+				D246EDB320F6297B00AD0860 /* GameStatus.h */,
+			);
+			name = status;
+			sourceTree = "<group>";
+		};
+		D2E3B0C020FC36AF00F9A8F3 /* team */ = {
+			isa = PBXGroup;
+			children = (
+				D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */,
+				D246EDA020F6297A00AD0860 /* TeamInfoFactory.h */,
+				D246EDB120F6297B00AD0860 /* FootMan.cpp */,
+				D246ED9920F6297900AD0860 /* FootMan.h */,
+			);
+			name = team;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
