@@ -26,11 +26,13 @@ public:
 	float getShootSpeed();
     void moveRight();
     void moveLeft();
+    void changeFootManState(FootManState state);
 private:
 	cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
 	cocos2d::Point targetPosition;
 	cocos2d::Node* playerCsb;
 	cocos2d::Camera* ball_camera = nullptr;
+//    FootManState manState = FootManState::waiting;
 	float runSpeed = 0;
 	std::string foot_man_img;
 	int foot_man_skill_type = 0;

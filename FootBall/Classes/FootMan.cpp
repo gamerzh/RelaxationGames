@@ -114,7 +114,7 @@ void FootMan::playFootManShoot() {
 void FootMan::playFootManStand() {
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
-    heroTimeLine->play("animation2", false);
+    heroTimeLine->play("animation2", true);
     playerCsb->runAction(heroTimeLine);
 }
 
@@ -142,6 +142,12 @@ void FootMan::moveLeft() {
 
 void FootMan::updateFootManZorder() {
     this->setLocalZOrder(FOOTBALL_MAN_ZORDER - (int)this->getPositionY());
+}
+
+void FootMan::changeFootManState(FootManState state){
+    if(state == FootManState::waiting){
+        playFootManStand();
+    }
 }
 
 void FootMan::update(float dt) {

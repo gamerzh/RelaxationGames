@@ -39,9 +39,6 @@ bool GameLayer::init() {
 	return true;
 }
 
-
-
-
 void GameLayer::createFootballFild() {
 	auto black = Sprite::create("green.jpg");
 	black->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
@@ -66,6 +63,7 @@ void GameLayer::createFootBallTeam() {
 	for (auto var: currentPlayerTeam)
 	{
         var->setCameraMask((int)CameraFlag::USER1);
+        var->changeFootManState(FootManState::waiting);
 		addChild(var);
 	}
     computerTeam = FootballTeam::create(1,false);
@@ -73,6 +71,7 @@ void GameLayer::createFootBallTeam() {
     for (auto var2: currentComputerTeam)
     {
         var2->setCameraMask((int)CameraFlag::USER1);
+         var2->changeFootManState(FootManState::waiting);
         addChild(var2);
     }
 }
@@ -133,7 +132,6 @@ void GameLayer::manLootBall() {
 	int area = alternativeMan.size();
 	auto man = alternativeMan.at(random(0, area - 1));
 	footBall->setOwnerMan(man);
-//    don't update it again
 	//currentControlFootMan = man;
 	//alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
 }

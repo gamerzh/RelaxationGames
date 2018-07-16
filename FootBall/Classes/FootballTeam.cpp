@@ -59,7 +59,7 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
     std::vector<Vec2> right;
     right.push_back(Vec2(1200,675));
     right.push_back(Vec2(1500,850));
-    right.push_back(Vec2(1500,850));
+    right.push_back(Vec2(1500,350));
     right.push_back(Vec2(1700,675));
     return right;
 }
