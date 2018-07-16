@@ -29,7 +29,7 @@ bool GameLayer::init() {
 	addChild(playerCamera);
 
 	footBall = Ball::create(playerCamera);
-	footBall->setPosition(1280, 800);
+	footBall->setPosition(1080, 680);
 	footBall->setCameraMask((int)CameraFlag::USER1);
 	addChild(footBall, FOOTBALL_LOCAL_ZORDER);
 
@@ -68,8 +68,13 @@ void GameLayer::createFootBallTeam() {
         var->setCameraMask((int)CameraFlag::USER1);
 		addChild(var);
 	}
-	//computerTeam = FootballTeam::create(1,false);
-	//currentComputerTeam = computerTeam->getFootManVector();
+    computerTeam = FootballTeam::create(1,false);
+    currentComputerTeam = computerTeam->getFootManVector();
+    for (auto var2: currentComputerTeam)
+    {
+        var2->setCameraMask((int)CameraFlag::USER1);
+        addChild(var2);
+    }
 }
 
 

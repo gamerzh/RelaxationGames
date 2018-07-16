@@ -2,7 +2,6 @@
 #include"cocos2d.h"
 USING_NS_CC;
 
-//ÓÎÏ·ÁÙÊ±×´Ì¬¼ÇÂ¼
 class GameStatus {
 public:
 	static  GameStatus* getInstance();

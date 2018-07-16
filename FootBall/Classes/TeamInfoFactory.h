@@ -1,9 +1,6 @@
 #pragma once
 #include "cocos2d.h"
 
-/*
-◊„«Ú∂”≈‰÷√–≈œ¢
-*/
 struct FootManProperty {
 	std::string footImage;
 	std::string name;
