@@ -51,7 +51,7 @@ std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
     left.push_back(Vec2(1000,675));
     left.push_back(Vec2(710,850));
     left.push_back(Vec2(710,350));
-    left.push_back(Vec2(400,675));
+//    left.push_back(Vec2(400,675));
     return left;
 }
 
@@ -60,6 +60,6 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
     right.push_back(Vec2(1200,675));
     right.push_back(Vec2(1500,850));
     right.push_back(Vec2(1500,350));
-    right.push_back(Vec2(1700,675));
+//    right.push_back(Vec2(1700,675));
     return right;
 }

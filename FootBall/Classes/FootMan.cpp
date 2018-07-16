@@ -17,6 +17,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
     if (!Node::init()) {
         return false;
     }
+    this->manState = FootManState::waiting;
     this->goalkeeper = property.goalkeeper;
     playerCsb = CSLoader::createNode("rw1.csb");
     playerCsb->setScale(ANIMATION_SCALE_RATE);
@@ -122,15 +123,6 @@ float FootMan::getShootSpeed() {
     return 10;
 }
 
-//void FootMan::setTargetPosition(Vec2 pos) {
-//	this->targetPosition = pos;
-//}
-
-
-//Point FootMan::getTargetPosition() {
-//	return this->targetPosition;
-//}
-
 void FootMan::moveRight() {
     playerCsb->setScaleX(ANIMATION_SCALE_RATE);
 }
@@ -144,9 +136,16 @@ void FootMan::updateFootManZorder() {
     this->setLocalZOrder(FOOTBALL_MAN_ZORDER - (int)this->getPositionY());
 }
 
+FootManState FootMan::getFootManState(){
+    return this->manState;
+}
+
 void FootMan::changeFootManState(FootManState state){
+    this->manState = state;
     if(state == FootManState::waiting){
         playFootManStand();
+    }else if(state == FootManState::running){
+        playFootManRun();
     }
 }
 

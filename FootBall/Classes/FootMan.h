@@ -26,13 +26,14 @@ public:
 	float getShootSpeed();
     void moveRight();
     void moveLeft();
+    FootManState getFootManState();
     void changeFootManState(FootManState state);
 private:
 	cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
 	cocos2d::Point targetPosition;
 	cocos2d::Node* playerCsb;
 	cocos2d::Camera* ball_camera = nullptr;
-//    FootManState manState = FootManState::waiting;
+    FootManState manState;
 	float runSpeed = 0;
 	std::string foot_man_img;
 	int foot_man_skill_type = 0;
@@ -40,11 +41,11 @@ private:
 	float getPositionXByYLeft(float y);
 	float getPositionXByYRight(float y);
 	bool goalkeeper = false;
-	void playFootManRun();
-	void playFootManTackle();
-	void playFootManShoot();
-	void playFootManStand();	
 	void updateFootManZorder();
 	void showDebugInfo();
 	void update(float dt);
+    void playFootManRun();
+    void playFootManTackle();
+    void playFootManShoot();
+    void playFootManStand();
 };

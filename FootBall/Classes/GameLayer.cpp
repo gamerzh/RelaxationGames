@@ -157,6 +157,9 @@ void GameLayer::update(float dt) {
 	if (nullptr != controlMan && nullptr != heroRocker) {
 		auto angle = heroRocker->getRockerAngle();                                 
 		if (angle != 0) {
+            if(controlMan->getFootManState() != FootManState::running){
+                controlMan->changeFootManState(FootManState::running);
+            }
 			controlMan->setFootManAngle(angle);
 		}
 	}
