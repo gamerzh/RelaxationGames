@@ -61,14 +61,14 @@ void GameLayer::createFootballFild() {
 }
 
 void GameLayer::createFootBallTeam() {
-	playerTeam = FootballTeam::create(1);
+	playerTeam = FootballTeam::create(1,true);
 	currentPlayerTeam = playerTeam->getFootManVector();
 	for (auto var: currentPlayerTeam)
 	{
         var->setCameraMask((int)CameraFlag::USER1);
 		addChild(var);
 	}
-	//computerTeam = FootballTeam::create(1);
+	//computerTeam = FootballTeam::create(1,false);
 	//currentComputerTeam = computerTeam->getFootManVector();
 }
 

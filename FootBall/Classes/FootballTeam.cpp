@@ -3,9 +3,9 @@
 USING_NS_CC;
 
 
-FootballTeam* FootballTeam::create(int teamId) {
+FootballTeam* FootballTeam::create(int teamId,bool teamInLeftField) {
 	auto team = new FootballTeam();
-	if (team && team->init(teamId)) {
+	if (team && team->init(teamId,teamInLeftField)) {
 		//team->autorelease();
 		//team->retain();
 		return team;
@@ -16,10 +16,11 @@ FootballTeam* FootballTeam::create(int teamId) {
 	}
 }
 
-bool FootballTeam::init(int teamid) {
+bool FootballTeam::init(int teamid,bool teamInLeftField) {
 	if (!Node::init()) {
 		return false;
 	}
+    this->teamInLeftField = teamInLeftField;
 	this->teamId = teamid;
 	return true;
 }
@@ -30,6 +31,9 @@ std::vector<FootMan*> FootballTeam::getFootManVector() {
 	for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
 		auto var1 = currentPlayerTeamProperty.footManVec.at(i);
 		auto foot1 = FootMan::create(var1);
+        if(teamInLeftField){
+            foot1->setPosition(getLeftFieldVec2().at(i)); 
+        }
 		footManVector.push_back(foot1);
 	}
 	return footManVector;
@@ -42,12 +46,17 @@ void FootballTeam::setTeamInLeftField(bool b) {
 std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
 	std::vector<Vec2> left;
     left.push_back(Vec2(1000,675));
-     left.push_back(Vec2(710,850));
     left.push_back(Vec2(710,850));
+    left.push_back(Vec2(710,350));
+    left.push_back(Vec2(400,675));
 	return left;
 }
 
 std::vector<Vec2> FootballTeam::getRightFieldVec2() {
 	std::vector<Vec2> right;
+    right.push_back(Vec2(1100,675));
+    right.push_back(Vec2(1500,850));
+    right.push_back(Vec2(1500,850));
+    right.push_back(Vec2(1700,675));
 	return right;
 }
