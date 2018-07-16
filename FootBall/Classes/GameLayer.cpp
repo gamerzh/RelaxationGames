@@ -15,9 +15,9 @@ bool GameLayer::init() {
 
 	GameStatus::getInstance()->setPlayerTeamId(1);
 
-	createFootballFild();//绘制场地
+	createFootballFild();
 
-	createFootBallTeam();//添加球员
+	createFootBallTeam();
 
 	heroRocker = Rocker::create(Vec2(visibleSize.width / 8, visibleSize.height / 5));
 	addChild(heroRocker);
@@ -26,7 +26,7 @@ bool GameLayer::init() {
 	playerCamera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1024, -1024);
 	playerCamera->setCameraFlag(CameraFlag::USER1);
 	playerCamera->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
-	addChild(playerCamera);//添加到当前场景里
+	addChild(playerCamera);
 
 	footBall = Ball::create(playerCamera);
 	footBall->setPosition(1280, 800);
@@ -61,19 +61,15 @@ void GameLayer::createFootballFild() {
 }
 
 void GameLayer::createFootBallTeam() {
-	//创建玩家的队伍
 	playerTeam = FootballTeam::create(1);
 	currentPlayerTeam = playerTeam->getFootManVector();
-	//添加球员到场地上
 	for (auto var: currentPlayerTeam)
 	{
+        var->setCameraMask((int)CameraFlag::USER1);
 		addChild(var);
 	}
-
-	//创建AI的队伍
 	//computerTeam = FootballTeam::create(1);
 	//currentComputerTeam = computerTeam->getFootManVector();
-	//添加球员到场地上
 }
 
 
@@ -93,22 +89,18 @@ void GameLayer::loadGameLayerUI() {
 
 
 void GameLayer::passAndTackle() {
-	//传球逻辑
 	//if(footBall->getOwerMan() == )
-	//抢断逻辑
 	//if (NULL != currentFootMan) {
 	//	currentFootMan->doSlideTackle();
 	//}
 }
 
 void GameLayer::shoot() {
-	//射门逻辑
 	//if (currentControlFootMan == currentFootMan) {
 	//	footBall->setBallShoot(currentFootMan->getShootSpeed());
 	//	currentFootMan->doShoot();
 	//	//Point pos = currentFootMan->getTargetPosition();
 	//}
-	//射门逻辑
 }
 
 void GameLayer::speedMan() {
@@ -116,8 +108,8 @@ void GameLayer::speedMan() {
 }
 
 void GameLayer::manLootBall() {
-	//遍历所有球员,当球员和球达到要求距离后,球被球员拥有，其他球员无法获得球权]
 	std::vector<FootMan*> alternativeMan;
+//     log("AAAAAAAAAAA %f,%f",footBall->getPosition().x,footBall->getPosition().y);
 	for (auto var1 : currentPlayerTeam) {
 		float dis = calculateDistance(var1->getPosition(),footBall->getPosition());
 		if (dis < owner_ball_max_dis) {
@@ -130,13 +122,13 @@ void GameLayer::manLootBall() {
 	//		alternativeMan.push_back(var2);
 	//	}
 	//}
-	//随机选择一个球员获取球权
 	if (alternativeMan.size() == 0) {
 		return;
 	}
 	int area = alternativeMan.size();
 	auto man = alternativeMan.at(random(0, area - 1));
 	footBall->setOwnerMan(man);
+//    don't update it again
 	//currentControlFootMan = man;
 	//alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
 }
@@ -149,7 +141,6 @@ void GameLayer::update(float dt) {
 	if (footBall->getBallState() == ball_is_free) {
 		manLootBall();
 	}
-	//在游戏场景中会有6个球员,玩家可以控制己方离球最近的那个
 	FootMan* controlMan = nullptr;
 	int min = INT_FAST32_MAX;
 	for (auto mine : currentPlayerTeam) {
@@ -163,7 +154,6 @@ void GameLayer::update(float dt) {
 	if (nullptr != controlMan && nullptr != heroRocker) {
 		auto angle = heroRocker->getRockerAngle();                                 
 		if (angle != 0) {
-			//玩家正在操控球员
 			controlMan->setFootManAngle(angle);
 		}
 	}

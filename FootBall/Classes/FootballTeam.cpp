@@ -7,7 +7,7 @@ FootballTeam* FootballTeam::create(int teamId) {
 	auto team = new FootballTeam();
 	if (team && team->init(teamId)) {
 		//team->autorelease();
-		//team->retain();//添加一次计数,不会因为没有添加到场景被回收
+		//team->retain();
 		return team;
 	}
 	else {
