@@ -39,7 +39,6 @@ void Ball::setBallState(int state) {
 void Ball::setBallShoot(int  speed) {
 	setBallState(ball_is_free);
 	this->ballOwner = NULL;
-	//向球门以球员给的速度移动
 }
 
 FootMan* Ball::getOwerMan() {
@@ -52,7 +51,6 @@ void Ball::setOwnerMan(FootMan* owern) {
 }
 
 Point Ball::cameraMoveInRect(Point pos) {
-	//限定摄像机跟随的范围
 	auto size = Director::getInstance()->getVisibleSize();
 	pos = Vec2(pos.x - size.width / 2, pos.y - size.height / 2);//球的坐标转化为摄像机的坐标
 
@@ -94,7 +92,6 @@ void Ball::update(float dt) {
 	}
 	this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
 	if (checkBallInGoal()) {
-		//向游戏场景发出进球的消息
 		this->setPosition(100, 700);
 	}
 }

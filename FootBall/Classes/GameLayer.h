@@ -22,6 +22,8 @@ private:
 	std::vector<FootMan*> currentComputerTeam;
 	FootballTeam* playerTeam;
 	FootballTeam* computerTeam;
+    FootMan* currentControlFootMan;
+//    FootMan* currentFootMan;
 	void onEnter();
 	void onExit();
 	float calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2);

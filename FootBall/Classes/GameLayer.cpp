@@ -100,11 +100,10 @@ void GameLayer::passAndTackle() {
 }
 
 void GameLayer::shoot() {
-	//if (currentControlFootMan == currentFootMan) {
-	//	footBall->setBallShoot(currentFootMan->getShootSpeed());
-	//	currentFootMan->doShoot();
-	//	//Point pos = currentFootMan->getTargetPosition();
-	//}
+    currentControlFootMan->doShoot();
+    if(currentControlFootMan == footBall->getOwerMan()){
+         footBall->setBallShoot(currentControlFootMan->getShootSpeed());
+    }
 }
 
 void GameLayer::speedMan() {
@@ -132,8 +131,7 @@ void GameLayer::manLootBall() {
 	int area = alternativeMan.size();
 	auto man = alternativeMan.at(random(0, area - 1));
 	footBall->setOwnerMan(man);
-	//currentControlFootMan = man;
-	//alternativeMan.at(random(0, area - 1))->setFootManLootBall(footBall);
+    currentControlFootMan = man;
 }
 
 float GameLayer::calculateDistance(Vec2 p1, Vec2 p2) {  
@@ -153,7 +151,6 @@ void GameLayer::update(float dt) {
 			min = dis;
 		}
 	}
-	//currentFootMan = controlMan;
 	if (nullptr != controlMan && nullptr != heroRocker) {
 		auto angle = heroRocker->getRockerAngle();                                 
 		if (angle != 0) {

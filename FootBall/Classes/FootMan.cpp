@@ -91,6 +91,7 @@ bool FootMan::isGoalkeeper() {
 
 
 void FootMan::playFootManRun() {
+    this->manState = FootManState::running;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
     heroTimeLine->play("animation0", true);
@@ -98,6 +99,7 @@ void FootMan::playFootManRun() {
 }
 
 void FootMan::playFootManTackle() {
+    this->manState = FootManState::tackle;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
     heroTimeLine->play("animation4", false);
@@ -106,6 +108,7 @@ void FootMan::playFootManTackle() {
 
 
 void FootMan::playFootManShoot() {
+    this->manState = FootManState::shoot;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
     heroTimeLine->play("animation1", false);
@@ -113,6 +116,7 @@ void FootMan::playFootManShoot() {
 }
 
 void FootMan::playFootManStand() {
+    this->manState = FootManState::waiting;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
     heroTimeLine->play("animation2", true);
