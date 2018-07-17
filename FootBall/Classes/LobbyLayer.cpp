@@ -112,7 +112,7 @@ void LobbyLayer::teamMenuCallBack(cocos2d::Ref* ref) {
 void LobbyLayer::loadWorldCupView() {
 	worldLayer = Layer::create();
 	addChild(worldLayer);
-	loadPipeView(worldLayer,0);
+	loadPipeView(worldLayer,0,true);
 }
 
 void LobbyLayer::selectCupLevel(Ref* ref) {
@@ -128,7 +128,7 @@ void LobbyLayer::loadMasterVupView() {
 	masterLayer = Layer::create();
 	masterLayer->setVisible(false);
 	addChild(masterLayer);
-	loadPipeView(masterLayer, 0);
+	loadPipeView(masterLayer, 0,false);
 }
 
 void LobbyLayer::loadTeamView() {
@@ -146,7 +146,7 @@ void LobbyLayer::loadTeamView() {
 	teamLayer->addChild(box3);
 }
 
-void LobbyLayer::loadPipeView(Node* node, int index) {
+void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
 	auto pipe1 = Sprite::create("pipe_1_2.png");
 	pipe1->setPosition(440,365);
 	pipe1->setTag(201);
@@ -229,15 +229,19 @@ void LobbyLayer::loadPipeView(Node* node, int index) {
 	level6->setPosition(955, 220);
 	level6->setEnabled(false);
 
-	auto level7Selected = MenuItemImage::create("yuxuan_7_1.png", "yuxuan_7_1.png", "yuxuan_7_3.png");
-	auto level7Normal = MenuItemImage::create("yuxuan_7_2.png", "yuxuan_7_2.png", "yuxuan_7_3.png");
-	//auto level7Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
-	auto level7 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
-		level7Selected, level7Normal, NULL);
-	level7->setTag(107);
-	level7->setPosition(1110, 470);
-	level7->setEnabled(false);
-
+    auto level7Selected = MenuItemImage::create("yuxuan_7_1.png", "yuxuan_7_1.png", "yuxuan_7_3.png");
+    auto level7Normal = MenuItemImage::create("yuxuan_7_2.png", "yuxuan_7_2.png", "yuxuan_7_3.png");
+    auto level7 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
+                                                     level7Selected, level7Normal, NULL);
+    level7->setTag(107);
+    level7->setPosition(1110, 470);
+    level7->setEnabled(false);
+    if(!worldcup){
+        level7Selected->setNormalImage(Sprite::create("yuxuan_7_1_b.png"));
+        level7Selected->setSelectedImage(Sprite::create("yuxuan_7_1_b.png"));
+        level7Normal->setNormalImage(Sprite::create("yuxuan_7_2_b.png"));
+        level7Normal->setSelectedImage(Sprite::create("yuxuan_7_2_b.png"));
+    }
 	auto menu = Menu::create(level1, level2, level3, level4, level5, level6, level7, NULL);
 	menu->setPosition(0, 0);
 	node->addChild(menu);
