@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameLayer.cpp"
-            timestampString = "553486724.818329"
+            timestampString = "553505682.747743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "GameLayer::calculateDistance(Vec2 p1, Vec2 p2)"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "GameLayer::manLootBall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -59,6 +59,7 @@ void GameLayer::createFootballFild() {
 
 void GameLayer::createFootBallTeam() {
 	playerTeam = FootballTeam::create(1,true);
+    addChild(playerTeam,FOOTBALL_LOCAL_ZORDER*2);
 	currentPlayerTeam = playerTeam->getFootManVector();
 	for (auto var: currentPlayerTeam)
 	{
@@ -67,6 +68,7 @@ void GameLayer::createFootBallTeam() {
 		addChild(var);
 	}
     computerTeam = FootballTeam::create(1,false);
+    addChild(computerTeam,FOOTBALL_LOCAL_ZORDER*2);
     currentComputerTeam = computerTeam->getFootManVector();
     for (auto var2: currentComputerTeam)
     {
