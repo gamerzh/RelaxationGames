@@ -25,7 +25,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
     this->addChild(playerCsb);
     playFootManStand();
     scheduleUpdate();
-    showDebugInfo();
+//    showDebugInfo();
     return true;
 }
 

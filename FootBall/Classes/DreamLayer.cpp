@@ -6,8 +6,6 @@
 #include "DreamSecond.h"
 USING_NS_CC;
 
-//二次情况下只有复活和神秘礼包
-
 DreamLayer* DreamLayer::create(int dreamId) {
 	auto dre = new DreamLayer();
 	if (dre && dre->init(dreamId)) {
@@ -25,7 +23,7 @@ bool DreamLayer::init(int dreamId) {
 		return false;
 	}
 	if (Dream::getInstance()->getDreamTimes()) {
-		 loadSecondContent(dreamId);//二次的界面
+		 loadSecondContent(dreamId);
 	}
 	else {
 		loadContent(dreamId);

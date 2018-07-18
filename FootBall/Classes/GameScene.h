@@ -6,5 +6,5 @@ public:
 	virtual bool init();
 	CREATE_FUNC(GameScene);
 private:
-	void startFootBall();//¿ªÊ¼
+	void startFootBall();
 };

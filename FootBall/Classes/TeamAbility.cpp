@@ -97,7 +97,6 @@ std::string TeamAbility::getFileNameByType(TeamAbilityType type) {
 }
 
 int TeamAbility::getLevelByType(TeamAbilityType type) {
-	//玩家购买的能力等级
 	int level = 0;
 	if (type == TeamAbilityType::speed) {
 		level = UserData::getInstance()->getTeamSpeedLevel();

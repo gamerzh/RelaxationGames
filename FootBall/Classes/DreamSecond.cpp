@@ -59,11 +59,9 @@ void DreamSecond::confirmDream(Ref* ref) {
 	int id = tem->getTag();
 	Dream::getInstance()->requestEvent(id);
 	if (id == 6) {
-		//ÎÞµÐ
 //        GameStatus::getInstance()->setInvincible(true);
 	}
 	else if (id == 7) {
-		//¸´»î
 //        GameStatus::getInstance()->setResurgence(true);
 	}
 	getParent()->removeFromParent();
@@ -73,7 +71,6 @@ void DreamSecond::closeView(Ref* ref) {
 	MenuItem* tem = (MenuItem*)ref;
 	int id = tem->getTag();
 	if (id == 7) {
-		//¸´»î
 //        ((GameLayer*)getParent()->getParent())->showGameOver();
 	}
 	getParent()->removeFromParent();
