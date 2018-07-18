@@ -25,7 +25,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
     this->addChild(playerCsb);
     playFootManStand();
     scheduleUpdate();
-//    showDebugInfo();
+    showDebugInfo();
     return true;
 }
 
@@ -151,6 +151,14 @@ void FootMan::changeFootManState(FootManState state){
     }else if(state == FootManState::running){
         playFootManRun();
     }
+}
+
+void FootMan::setFootManTeamId(int id){
+    this->belongTeamId = id;
+}
+
+int FootMan::getFootManTeamId(){
+    return this->belongTeamId;
 }
 
 void FootMan::update(float dt) {

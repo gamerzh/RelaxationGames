@@ -95,10 +95,12 @@ void GameLayer::loadGameLayerUI() {
 
 
 void GameLayer::passAndTackle() {
-	//if(footBall->getOwerMan() == )
-	//if (NULL != currentFootMan) {
-	//	currentFootMan->doSlideTackle();
-	//}
+    //传球和铲球
+    if(currentControlFootMan == footBall->getOwerMan()){
+        //玩家在控球,传出：离自己最近的己方球员
+    }else{
+        //铲球
+    }
 }
 
 void GameLayer::shoot() {
@@ -109,7 +111,17 @@ void GameLayer::shoot() {
 }
 
 void GameLayer::speedMan() {
+    //控制的球员短距离加速
+}
 
+
+bool GameLayer::checkFootManInShootArea(FootMan* man){
+    if(playerTeam->getFootBallTeamId() == man->getFootManTeamId()){
+        return playerTeam->getAttackShootRect().containsPoint(man->getPosition());
+    }else if(computerTeam->getFootBallTeamId() == man->getFootManTeamId()){
+         return computerTeam->getAttackShootRect().containsPoint(man->getPosition());
+    }
+    return false;
 }
 
 void GameLayer::manLootBall() {

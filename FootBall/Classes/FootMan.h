@@ -19,6 +19,8 @@ class FootMan : public cocos2d::Node {
 public:
 	static FootMan* create(FootManProperty property,cocos2d::Camera* camera = nullptr);
 	virtual bool init(FootManProperty property, cocos2d::Camera* camera);
+    int getFootManTeamId();
+    void setFootManTeamId(int id);
 	void setFootManAngle(float angle);
     void doSlideTackle();
 	void doShoot();
@@ -34,6 +36,7 @@ private:
 	cocos2d::Node* playerCsb;
 	cocos2d::Camera* ball_camera = nullptr;
     FootManState manState;
+    int belongTeamId = 0;
 	float runSpeed = 0;
 	std::string foot_man_img;
 	int foot_man_skill_type = 0;

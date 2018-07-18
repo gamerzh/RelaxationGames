@@ -23,7 +23,6 @@ private:
 	FootballTeam* playerTeam;
 	FootballTeam* computerTeam;
     FootMan* currentControlFootMan;
-//    FootMan* currentFootMan;
 	void onEnter();
 	void onExit();
 	float calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2);
@@ -34,5 +33,6 @@ private:
 	void loadGameLayerUI();
 	void addCustomEvent();
 	void removeCustomEvent();
+    bool checkFootManInShootArea(FootMan* man);//检查球员是否进入射门区域
 	void update(float dt);
 };

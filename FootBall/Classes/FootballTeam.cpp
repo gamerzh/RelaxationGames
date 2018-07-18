@@ -55,34 +55,13 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
         energy_timer_1->setPosition(850, 610);
     }
     
-    
-    //    auto score2 = LabelAtlas::create("00", "num_gold.png", 71, 81, '0');
-    //    score2->setAnchorPoint(Point::ANCHOR_MIDDLE);
-    //
-    //    addChild(score2);
-    //
-    //    auto energy_bg_2 = Sprite::create("energy_bg.png");
-    //
-    //    addChild(energy_bg_2);
-    //    auto energy_content_2 = Sprite::create("energy_pro.png");
-    //    auto energy_timer_2 = ProgressTimer::create(energy_content_2);
-    //
-    //    energy_timer_2->setMidpoint(Vec2(0, 1));
-    //    energy_timer_2->setBarChangeRate(Point(1, 0));
-    //    energy_timer_2->setType(ProgressTimer::Type::BAR);
-    //    addChild(energy_timer_2);
-    //    energy_timer_2->setPercentage(50);
-    //
-    //    auto teamIcon2 = Sprite::create("team_icon_1.png");
-    //
-    //    addChild(teamIcon2);
-    
     return true;
 }
 
 
 std::vector<FootMan*> FootballTeam::getFootManVector() {
     auto currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(this->teamId);
+    this->teamId = currentPlayerTeamProperty.teamId;
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
         auto foot1 = FootMan::create(var1);
@@ -92,9 +71,14 @@ std::vector<FootMan*> FootballTeam::getFootManVector() {
             foot1->setPosition(getRightFieldVec2().at(i));
             foot1->moveLeft();
         }
+        foot1->setFootManTeamId(currentPlayerTeamProperty.teamId);
         footManVector.push_back(foot1);
     }
     return footManVector;
+}
+
+int FootballTeam::getFootBallTeamId(){
+    return this->teamId;
 }
 
 void FootballTeam::setTeamInLeftField(bool b) {
@@ -117,4 +101,21 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
     right.push_back(Vec2(1500,350));
     //    right.push_back(Vec2(1700,675));
     return right;
+}
+
+Rect FootballTeam::getAttackShootRect(){
+    if(teamInLeftField){
+        return Rect(240,200,500,900);
+    }else{
+        return Rect(1400,200,500,900);
+    }
+}
+
+FootMan* FootballTeam::getClosestFootMan(){
+    
+}
+
+void FootballTeam::logicUpdate(float dt){
+    //先获得离球最近的球员
+    
 }
