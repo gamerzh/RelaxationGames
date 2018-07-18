@@ -5,7 +5,8 @@
 //球队状态
 enum TeamStatus{
     attack,
-    defend
+    defend,
+    wait
 };
 
 class FootballTeam : public cocos2d::Node {
@@ -17,7 +18,11 @@ public:
     cocos2d::Rect getAttackShootRect();
     int getFootBallTeamId();
     FootMan* getClosestFootMan();
+    TeamStatus getTeamStatus();
+    void setTeamStatus(TeamStatus s);
+    void setControllingMan(FootMan* man);
 private:
+    TeamStatus teamState;
     int teamId = 0;
 	bool teamInLeftField = true;
 	FootMan* m_pControllingPlayer;

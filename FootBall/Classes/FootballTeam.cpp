@@ -115,7 +115,26 @@ FootMan* FootballTeam::getClosestFootMan(){
     
 }
 
+TeamStatus FootballTeam::getTeamStatus(){
+    return this->teamState;
+}
+
+void FootballTeam::setTeamStatus(TeamStatus s){
+    this->teamState = s;
+}
+
+void FootballTeam::setControllingMan(FootMan* man){
+    this->m_pControllingPlayer = man;
+}
+
 void FootballTeam::logicUpdate(float dt){
+    //判断队伍是否有人持球
+    if(m_pControllingPlayer != NULL){
+        this->teamState = attack;
+    }else{
+        
+        
+    }
     //先获得离球最近的球员
     
 }
