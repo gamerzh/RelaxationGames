@@ -28,6 +28,7 @@ public:
 	float getShootSpeed();
     void moveRight();
     void moveLeft();
+    void runToTargetPosition(cocos2d::Vec2 vec);
     FootManState getFootManState();
     void changeFootManState(FootManState state);
 private:
@@ -35,6 +36,7 @@ private:
 	cocos2d::Point targetPosition;
 	cocos2d::Node* playerCsb;
 	cocos2d::Camera* ball_camera = nullptr;
+    cocos2d::Vec2 runTargetPos;
     FootManState manState;
     int belongTeamId = 0;
 	float runSpeed = 0;

@@ -161,6 +161,11 @@ int FootMan::getFootManTeamId(){
     return this->belongTeamId;
 }
 
+void FootMan::runToTargetPosition(cocos2d::Vec2 vec){
+    this->runTargetPos = vec;
+    // 跑动到目标位置去接应
+}
+
 void FootMan::update(float dt) {
     /*if (nullptr != this->footBall) {
      auto set = football_offset_x;

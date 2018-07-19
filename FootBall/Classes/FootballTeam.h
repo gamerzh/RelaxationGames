@@ -22,7 +22,9 @@ public:
     void setTeamStatus(TeamStatus s);
     void setControllingMan(FootMan* man);
     void passBallToTeammate(FootMan* controlMan,FootMan* supportMan);//队员之间相互传球
+    void setRobotAI(bool f);
 private:
+    bool robotAI;
     TeamStatus teamState;
     int teamId = 0;
 	bool teamInLeftField = true;
