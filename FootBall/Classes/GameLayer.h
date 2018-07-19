@@ -22,10 +22,9 @@ private:
 	std::vector<FootMan*> currentComputerTeam;
 	FootballTeam* playerTeam;
 	FootballTeam* computerTeam;
-    FootMan* currentControlFootMan;
+    FootMan* currentControlFootMan;//玩家队伍目前的控球人员
 	void onEnter();
 	void onExit();
-	float calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2);
 	void passAndTackle();
 	void shoot();
 	void manLootBall();

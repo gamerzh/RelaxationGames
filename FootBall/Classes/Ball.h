@@ -4,8 +4,13 @@
 
 #define ball_is_free 0
 #define ball_is_ower 1
+#define ball_is_pass 2
 #define owner_ball_max_dis 50
 
+struct BallSpeed{
+    float speedx;
+    float speedy;
+};
 
 class Ball : public cocos2d::Sprite
 {
@@ -13,14 +18,19 @@ public:
 	static Ball* create(cocos2d::Camera* camera);
 	virtual bool init(cocos2d::Camera* camera); 
 	int getBallState();
-	void setBallShoot(int  speed);
+	void setBallShoot(cocos2d::Vec2 vec);
+    void setBallPass(cocos2d::Vec2 vec);
 	void setOwnerMan(FootMan* owern);
+    BallSpeed getBallSpeedToTarget();
 	FootMan* getOwerMan();
+    bool droppointInCorrect(cocos2d::Vec2 tar,cocos2d::Vec2 cor);
 private:
+    cocos2d::Vec2 targetPosition;
 	const  cocos2d::Rect goalLeft = cocos2d::Rect(115, 520, 100, 330);
 	const  cocos2d::Rect goalRight = cocos2d::Rect(1920, 520, 100, 330);
 	cocos2d::Camera* myCamera = nullptr;
 	FootMan* ballOwner = nullptr;
+    float speed_fly = 10;
 	void update(float dt);
 	void setBallState(int state);
 	int ballState = ball_is_free;

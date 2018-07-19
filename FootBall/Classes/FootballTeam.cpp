@@ -1,5 +1,6 @@
 #include "FootballTeam.h"
 #include "GameStatus.h"
+#include "GeometryTools.h"
 USING_NS_CC;
 
 
@@ -54,7 +55,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
         
         energy_timer_1->setPosition(850, 610);
     }
-    
+    schedule(schedule_selector(FootballTeam::logicUpdate), 1);
     return true;
 }
 
@@ -111,8 +112,8 @@ Rect FootballTeam::getAttackShootRect(){
     }
 }
 
-FootMan* FootballTeam::getClosestFootMan(){
-    
+FootMan* FootballTeam::getPassBallFootMan(){
+    return m_pSupportingPlayer;
 }
 
 TeamStatus FootballTeam::getTeamStatus(){
@@ -127,14 +128,33 @@ void FootballTeam::setControllingMan(FootMan* man){
     this->m_pControllingPlayer = man;
 }
 
+
+void FootballTeam::passBallToTeammate(FootMan* controlMan,FootMan* supportMan){
+    //当前有队员在控球
+//    if(m_pControllingPlayer != NULL){
+//        Vec2 pos = m_pSupportingPlayer->getPosition();//传球的目标点
+//        m_pControllingPlayer->doShoot();
+//    }
+    
+}
+
 void FootballTeam::logicUpdate(float dt){
-    //判断队伍是否有人持球
+    //判断队伍目前的状态
     if(m_pControllingPlayer != NULL){
         this->teamState = attack;
+         //attack 进攻状态,简单判断,离自己最近的球员为最佳接应队员
+        Vec2 a = m_pControllingPlayer->getPosition();
+        float max = 10000;
+        for (auto  var : footManVector) {
+            Vec2 b = var->getPosition();
+            if(GeometryTools::calculateDistance(a, b)<max && var != m_pControllingPlayer){
+                m_pSupportingPlayer = var;
+            }
+        }
     }else{
         
         
     }
-    //先获得离球最近的球员
+   
     
 }

@@ -98,20 +98,26 @@ void GameLayer::passAndTackle() {
     //传球和铲球
     if(currentControlFootMan == footBall->getOwerMan()){
         //玩家在控球,传出：离自己最近的己方球员
+        //传球动作由球队来进行,
+        auto mate = playerTeam->getPassBallFootMan();
+        if(NULL != mate){
+            footBall->setBallPass(mate->getPosition());
+        }
+        playerTeam->passBallToTeammate(currentControlFootMan,mate);
     }else{
         //铲球
     }
 }
 
 void GameLayer::shoot() {
-    currentControlFootMan->doShoot();
-    if(currentControlFootMan == footBall->getOwerMan()){
-         footBall->setBallShoot(currentControlFootMan->getShootSpeed());
-    }
+//    currentControlFootMan->doShoot();
+//    if(currentControlFootMan == footBall->getOwerMan()){
+//         footBall->setBallShoot();
+//    }
 }
 
 void GameLayer::speedMan() {
-    //控制的球员短距离加速
+    //球队的控球队员短距离加速
 }
 
 
@@ -126,31 +132,32 @@ bool GameLayer::checkFootManInShootArea(FootMan* man){
 
 void GameLayer::manLootBall() {
 	std::vector<FootMan*> alternativeMan;
-//     log("AAAAAAAAAAA %f,%f",footBall->getPosition().x,footBall->getPosition().y);
 	for (auto var1 : currentPlayerTeam) {
-		float dis = calculateDistance(var1->getPosition(),footBall->getPosition());
+        float dis = GeometryTools::calculateDistance(var1->getPosition(),footBall->getPosition());
 		if (dis < owner_ball_max_dis) {
 			alternativeMan.push_back(var1);
 		}
 	}
-	//for (auto var2 : currentComputerTeam) {
-	//	float dis = calculateDistance(var2->getPosition(), footBall->getPosition());
-	//	if (dis < owner_ball_max_dis) {
-	//		alternativeMan.push_back(var2);
-	//	}
-	//}
+    for (auto var2 : currentComputerTeam) {
+        float dis = GeometryTools::calculateDistance(var2->getPosition(),footBall->getPosition());
+        if (dis < owner_ball_max_dis) {
+            alternativeMan.push_back(var2);
+        }
+    }
 	if (alternativeMan.size() == 0) {
 		return;
 	}
 	int area = alternativeMan.size();
 	auto man = alternativeMan.at(random(0, area - 1));
 	footBall->setOwnerMan(man);
-    currentControlFootMan = man;
+    if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){
+        playerTeam->setControllingMan(man);
+        currentControlFootMan = man;
+    }else{
+        computerTeam->setControllingMan(man);
+    }
 }
 
-float GameLayer::calculateDistance(Vec2 p1, Vec2 p2) {  
-	return sqrt(pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2));
-}
 
 void GameLayer::update(float dt) {
 	if (footBall->getBallState() == ball_is_free) {
@@ -159,7 +166,7 @@ void GameLayer::update(float dt) {
 	FootMan* controlMan = nullptr;
 	int min = INT_FAST32_MAX;
 	for (auto mine : currentPlayerTeam) {
-		auto dis = calculateDistance(footBall->getPosition(), mine->getPosition());
+        auto dis = GeometryTools::calculateDistance(footBall->getPosition(), mine->getPosition());
 		if (dis < min) {
 			controlMan = mine;
 			min = dis;

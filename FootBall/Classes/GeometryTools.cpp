@@ -27,3 +27,7 @@ DrawNode* GeometryTools::drawCollisionCircle(cocos2d::Vec2 point, float radius) 
 	drawNode->setScale(scaleX, scaleY);
 	return drawNode;
 }
+
+float GeometryTools::calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2){
+    return sqrt(pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2));
+}
