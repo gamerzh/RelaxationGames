@@ -18,7 +18,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
         return false;
     }
     this->manState = FootManState::waiting;
-    this->goalkeeper = property.goalkeeper;
+//    this->goalkeeper = property.goalkeeper;
     playerCsb = CSLoader::createNode("rw1.csb");
     playerCsb->setScale(ANIMATION_SCALE_RATE);
     playerCsb->setPosition(0, 0);
@@ -85,9 +85,9 @@ void FootMan::doShoot() {
     playFootManShoot();
 }
 
-bool FootMan::isGoalkeeper() {
-    return goalkeeper;
-}
+//bool FootMan::isGoalkeeper() {
+//    return goalkeeper;
+//}
 
 
 void FootMan::playFootManRun() {

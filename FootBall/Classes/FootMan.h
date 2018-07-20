@@ -22,9 +22,9 @@ public:
     int getFootManTeamId();
     void setFootManTeamId(int id);
 	void setFootManAngle(float angle);
-    void doSlideTackle();
-	void doShoot();
-	bool isGoalkeeper();
+    void doSlideTackle();//滑铲
+	void doShoot();//射门
+//    bool isGoalkeeper();
 	float getShootSpeed();
     void moveRight();
     void moveLeft();
@@ -45,7 +45,7 @@ private:
 	cocos2d::Point moveInSafeRect(cocos2d::Point pos);
 	float getPositionXByYLeft(float y);
 	float getPositionXByYRight(float y);
-	bool goalkeeper = false;
+//    bool goalkeeper = false;
 	void updateFootManZorder();
 	void showDebugInfo();
 	void update(float dt);
