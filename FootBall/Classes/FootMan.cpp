@@ -166,6 +166,10 @@ void FootMan::runToTargetPosition(cocos2d::Vec2 vec){
     // 跑动到目标位置去接应
 }
 
+void FootMan::setRobotAI(bool f){
+    this->robotAI = f;
+}
+
 void FootMan::update(float dt) {
     /*if (nullptr != this->footBall) {
      auto set = football_offset_x;

@@ -149,7 +149,7 @@ void GameLayer::manLootBall() {
     if (alternativeMan.size() == 0) {
         return;
     }
-    int area = alternativeMan.size();
+    int area = (int)alternativeMan.size();
     auto man = alternativeMan.at(random(0, area - 1));
     footBall->setOwnerMan(man);
     if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){

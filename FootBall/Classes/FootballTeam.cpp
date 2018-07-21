@@ -128,10 +128,6 @@ void FootballTeam::setControllingMan(FootMan* man){
     this->m_pControllingPlayer = man;
 }
 
-void FootballTeam::setRobotAI(bool f){
-    this->robotAI = f;
-}
-
 void FootballTeam::passBallToTeammate(FootMan* controlMan,FootMan* supportMan){
     //当前有队员在控球
 //    if(m_pControllingPlayer != NULL){
