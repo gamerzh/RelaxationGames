@@ -42,7 +42,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     energy_timer_1->setBarChangeRate(Point(1, 0));
     energy_timer_1->setType(ProgressTimer::Type::BAR);
     addChild(energy_timer_1);
-    energy_timer_1->setPercentage(50);
+    energy_timer_1->setPercentage(0);
     if(teamInLeftField){
         teamIcon1->setPosition(220,655);
         score1->setPosition(430, 660);
