@@ -23,3 +23,11 @@ int GameStatus::getComputerTeamId() {
 void GameStatus::setComputerTeamId(int id) {
 	this->computerTeamId = id;
 }
+
+Ball* GameStatus::getGameBall(){
+    return this->current_ball;
+}
+
+void GameStatus::setGameBall(Ball* ball){
+    this->current_ball = ball;
+}

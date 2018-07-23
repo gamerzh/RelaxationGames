@@ -62,7 +62,6 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
 
 std::vector<FootMan*> FootballTeam::getFootManVector() {
     auto currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(this->teamId);
-    this->teamId = currentPlayerTeamProperty.teamId;
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
         auto foot1 = FootMan::create(var1);
@@ -72,7 +71,7 @@ std::vector<FootMan*> FootballTeam::getFootManVector() {
             foot1->setPosition(getRightFieldVec2().at(i));
             foot1->moveLeft();
         }
-        foot1->setFootManTeamId(currentPlayerTeamProperty.teamId);
+        foot1->setFootManTeamId(this->teamId);
         footManVector.push_back(foot1);
     }
     return footManVector;

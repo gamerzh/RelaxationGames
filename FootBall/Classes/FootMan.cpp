@@ -1,5 +1,7 @@
 #include "FootMan.h"
+#include "GameStatus.h"
 #include "GlobalProperty.h"
+#include "GeometryTools.h"
 USING_NS_CC;
 
 FootMan* FootMan :: create(FootManProperty property, cocos2d::Camera* camera) {
@@ -18,7 +20,6 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
         return false;
     }
     this->manState = FootManState::waiting;
-//    this->goalkeeper = property.goalkeeper;
     playerCsb = CSLoader::createNode("rw1.csb");
     playerCsb->setScale(ANIMATION_SCALE_RATE);
     playerCsb->setPosition(0, 0);
@@ -81,14 +82,8 @@ void FootMan::doSlideTackle() {
 
 
 void FootMan::doShoot() {
-    //this->footBall = nullptr;
     playFootManShoot();
 }
-
-//bool FootMan::isGoalkeeper() {
-//    return goalkeeper;
-//}
-
 
 void FootMan::playFootManRun() {
     this->manState = FootManState::running;
@@ -99,6 +94,7 @@ void FootMan::playFootManRun() {
 }
 
 void FootMan::playFootManTackle() {
+    log("AAAAAAAAAAAA");
     this->manState = FootManState::tackle;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
@@ -170,14 +166,47 @@ void FootMan::setRobotAI(bool f){
     this->robotAI = f;
 }
 
+float FootMan::getBallDistance(){
+    auto pos = GameStatus::getInstance()->getGameBall()->getPosition();
+    return GeometryTools::calculateDistance(pos, this->getPosition());
+}
+
+void FootMan::runToPositon(Vec2 pos){
+    //跑向球
+    auto vec = this->getPosition();
+    float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
+    float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
+//    log("AAAAAAAAA %f,%f",GeometryTools::calculateDistance(pos, vec),speedy);
+
+    this->setPosition(vec.x+speedx,vec.y+speedy);
+}
+
 void FootMan::update(float dt) {
-    /*if (nullptr != this->footBall) {
-     auto set = football_offset_x;
-     if (playerCsb->getScaleX() < 0) {                         
-     set = set * -1;
-     }
-     footBall->setPosition(this->getPositionX() + set,this->getPositionY()+ football_offset_y);
-     } */
+    //检查球离自己的距离，切换球员的状态
+    if(getBallDistance()<DEFEND_RADIUS){
+        if(manState == FootManState::waiting){
+            playFootManRun();
+        }
+        //判断有无人持球,是否是己方队员
+        auto man = GameStatus::getInstance()->getGameBall()->getOwerMan();
+        if(NULL != man && this->belongTeamId != man->getFootManTeamId()){
+            //对方人员,开始追球,追到最近的距离后铲球
+            if(getBallDistance()<TACKLE_DISTANCE){
+                if(manState != FootManState::tackle){
+                    playFootManTackle();
+                }
+            }else{
+                 runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());
+            }
+        }
+    }else{
+        if(manState != FootManState::waiting){
+            playFootManStand();
+        }else{
+            manState = FootManState::waiting;
+        }
+    }
+    
     updateFootManZorder();
     if (NULL != getChildByTag(1000)) {
         ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));
@@ -190,3 +219,5 @@ void FootMan::showDebugInfo() {
     lable->setPosition(0,0);
     addChild(lable);
 }
+
+

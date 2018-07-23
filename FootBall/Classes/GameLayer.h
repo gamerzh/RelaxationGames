@@ -18,8 +18,6 @@ private:
 	Ball* footBall = nullptr;
 	Rocker* heroRocker = nullptr;
 	cocos2d::Camera* playerCamera;
-	std::vector<FootMan*> currentPlayerTeam;
-	std::vector<FootMan*> currentComputerTeam;
 	FootballTeam* playerTeam;
 	FootballTeam* computerTeam;
     FootMan* currentControlFootMan;//玩家队伍目前的控球人员

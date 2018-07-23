@@ -7,7 +7,7 @@
 #define ANIMATION_SCALE_RATE 0.4
 #define FOOTBALL_MAN_ZORDER 5000
 //简单AI的逻辑,进入距离500内开始靠近对方,距离小于100发动铲球，最多只有2名球员去防守
-#define DEFEND_RADIUS  500 //球员的防守半径
+#define DEFEND_RADIUS  300 //球员的防守半径
 #define TACKLE_DISTANCE 100//发动铲球的距离
 
 //foot man state
@@ -27,7 +27,6 @@ public:
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲
     void doShoot();//射门
-    //    bool isGoalkeeper();
     float getShootSpeed();
     void moveRight();
     void moveLeft();
@@ -38,7 +37,7 @@ public:
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;
-    float runSpeed = 0;
+    float runSpeed = 5;
     bool robotAI;
     std::string foot_man_img;
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
@@ -50,7 +49,9 @@ private:
     cocos2d::Point moveInSafeRect(cocos2d::Point pos);
     float getPositionXByYLeft(float y);
     float getPositionXByYRight(float y);
+    float getBallDistance();//获取和球的距离
     void updateFootManZorder();
+    void runToPositon(cocos2d::Vec2 pos);
     void showDebugInfo();
     void update(float dt);
     void playFootManRun();
