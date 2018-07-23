@@ -26,7 +26,7 @@ bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
     this->addChild(playerCsb);
     playFootManStand();
     scheduleUpdate();
-    showDebugInfo();
+//    showDebugInfo();
     return true;
 }
 
@@ -157,10 +157,10 @@ int FootMan::getFootManTeamId(){
     return this->belongTeamId;
 }
 
-void FootMan::runToTargetPosition(cocos2d::Vec2 vec){
-    this->runTargetPos = vec;
-    // 跑动到目标位置去接应
-}
+//void FootMan::runToTargetPosition(cocos2d::Vec2 vec){
+//    this->runTargetPos = vec;
+//    // 跑动到目标位置去接应
+//}
 
 void FootMan::setRobotAI(bool f){
     this->robotAI = f;
@@ -183,6 +183,17 @@ void FootMan::runToPositon(Vec2 pos){
         moveLeft();
     }
     this->setPosition(vec.x+speedx,vec.y+speedy);
+}
+
+void FootMan::supportPosition(cocos2d::Vec2 pos){
+    auto vec = this->getPosition();
+    float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
+    if(speedx>0){
+        moveRight();
+    }else{
+        moveLeft();
+    }
+    this->setPosition(vec.x+speedx,vec.y);
 }
 
 void FootMan::update(float dt) {

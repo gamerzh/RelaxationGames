@@ -31,7 +31,7 @@ public:
     float getShootSpeed();
     void moveRight();
     void moveLeft();
-    void runToTargetPosition(cocos2d::Vec2 vec);
+//    void runToTargetPosition(cocos2d::Vec2 vec);
     FootManState getFootManState();
     void changeFootManState(FootManState state);
     void setRobotAI(bool f);
@@ -52,7 +52,8 @@ private:
     float getPositionXByYRight(float y);
     float getBallDistance();//获取和球的距离
     void updateFootManZorder();
-    void runToPositon(cocos2d::Vec2 pos);
+    void runToPositon(cocos2d::Vec2 pos);//跑向目标
+    void supportPosition(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
     void showDebugInfo();
     void update(float dt);
     void playFootManRun();
