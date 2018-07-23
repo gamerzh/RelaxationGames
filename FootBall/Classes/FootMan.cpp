@@ -129,7 +129,7 @@ void FootMan::moveRight() {
 
 
 void FootMan::moveLeft() {
-    playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1); 
+    playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1);
 }
 
 void FootMan::updateFootManZorder() {
@@ -176,7 +176,7 @@ void FootMan::runToPositon(Vec2 pos){
     auto vec = this->getPosition();
     float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
     float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
-//    log("AAAAAAAAA %f,%f",GeometryTools::calculateDistance(pos, vec),speedy);
+    //    log("AAAAAAAAA %f,%f",GeometryTools::calculateDistance(pos, vec),speedy);
     if(speedx>0){
         moveRight();
     }else{
@@ -186,31 +186,36 @@ void FootMan::runToPositon(Vec2 pos){
 }
 
 void FootMan::update(float dt) {
-    //检查球离自己的距离，切换球员的状态
-    if(getBallDistance()<DEFEND_RADIUS){
-        if(manState == FootManState::waiting){
-            playFootManRun();
-        }
-        //判断有无人持球,是否是己方队员
-        auto man = GameStatus::getInstance()->getGameBall()->getOwerMan();
-        if(NULL != man && this->belongTeamId != man->getFootManTeamId()){
-            //对方人员,开始追球,追到最近的距离后铲球
-            if(getBallDistance()<TACKLE_DISTANCE){
-                if(manState != FootManState::tackle){
-                    playFootManTackle();
+    //判断持球的是否是己方球员或者没有人持球
+    auto ball = GameStatus::getInstance()->getGameBall();
+    auto man =ball->getOwerMan();
+    if(NULL != man){
+        if(this->belongTeamId != man->getFootManTeamId()){
+            //地方队员,防守
+            if(getBallDistance()<DEFEND_RADIUS){
+                if(manState == FootManState::waiting){
+                    playFootManRun();
+                }
+                if(getBallDistance()<TACKLE_DISTANCE){
+                    if(manState != FootManState::tackle){
+                        playFootManTackle();
+                    }
+                }else{
+                    runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());
                 }
             }else{
-                 runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());
+                if(manState != FootManState::waiting){
+                    playFootManStand();
+                }else{
+                    manState = FootManState::waiting;
+                }
             }
+        }else{
+          //己方队友,去支援
         }
     }else{
-        if(manState != FootManState::waiting){
-            playFootManStand();
-        }else{
-            manState = FootManState::waiting;
-        }
+        //无人持球,通知最近的队员去抢球
     }
-    
     updateFootManZorder();
     if (NULL != getChildByTag(1000)) {
         ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));
