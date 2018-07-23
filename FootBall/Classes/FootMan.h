@@ -9,6 +9,7 @@
 //简单AI的逻辑,进入距离500内开始靠近对方,距离小于100发动铲球，最多只有2名球员去防守
 #define DEFEND_RADIUS  300 //球员的防守半径
 #define TACKLE_DISTANCE 100//发动铲球的距离
+#define SUPPORT_DISTANCE 600//友方支援队员的距离
 
 //foot man state
 enum FootManState{

@@ -212,9 +212,15 @@ void FootMan::update(float dt) {
             }
         }else{
           //己方队友,去支援
+            if(GeometryTools::calculateDistance(this->getPosition(), man->getPosition())>SUPPORT_DISTANCE){
+                runToPositon(man->getPosition());
+            }
         }
     }else{
         //无人持球,通知最近的队员去抢球
+//        if(GameStatus::getInstance()->getPlayerTeamId() == man->getFootManTeamId()){
+//        }else if(GameStatus::getInstance()->getComputerTeamId() == man->getFootManTeamId()){
+//        }
     }
     updateFootManZorder();
     if (NULL != getChildByTag(1000)) {
