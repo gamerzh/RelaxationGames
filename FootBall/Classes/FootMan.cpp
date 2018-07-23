@@ -149,6 +149,17 @@ void FootMan::changeFootManState(FootManState state){
     }
 }
 
+void FootMan::setOriginPosition(cocos2d::Vec2 vec){
+    this->originVec2 = vec;
+}
+
+void FootMan::replacement(){
+    this->setPosition(this->originVec2);
+    if(originVec2.x>1200){
+        moveLeft();
+    }
+}
+
 void FootMan::setFootManTeamId(int id){
     this->belongTeamId = id;
 }

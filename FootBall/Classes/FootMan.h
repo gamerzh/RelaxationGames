@@ -31,6 +31,8 @@ public:
     float getShootSpeed();
     void moveRight();
     void moveLeft();
+    void replacement();
+    void setOriginPosition(cocos2d::Vec2 vec);
     FootManState getFootManState();
     void changeFootManState(FootManState state);
     void setRobotAI(bool f);
@@ -45,6 +47,7 @@ private:
     cocos2d::Node* playerCsb;
     cocos2d::Camera* ball_camera = nullptr;
     cocos2d::Vec2 runTargetPos;
+    cocos2d::Vec2 originVec2;//球员的默认位置
     FootManState manState;
     cocos2d::Point moveInSafeRect(cocos2d::Point pos);
     float getPositionXByYLeft(float y);

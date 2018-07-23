@@ -66,8 +66,10 @@ std::vector<FootMan*> FootballTeam::getFootManVector() {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
         auto foot1 = FootMan::create(var1);
         if(teamInLeftField){
+            foot1->setOriginPosition(getLeftFieldVec2().at(i));
             foot1->setPosition(getLeftFieldVec2().at(i));
         }else{
+             foot1->setOriginPosition(getRightFieldVec2().at(i));
             foot1->setPosition(getRightFieldVec2().at(i));
             foot1->moveLeft();
         }

@@ -213,7 +213,15 @@ void GameLayer::addCustomEvent() {
              computerTeam->teamScore +=1;
         }
         //延迟2秒,2秒后重置场景,球员和球回到初始位置 TODO
-        
+        schedule([=](float dt){
+            footBall->replacement();
+            for (auto var1 : GameStatus::getInstance()->currentPlayerTeam) {
+                var1->replacement();
+            }
+            for (auto var2 : GameStatus::getInstance()->currentComputerTeam) {
+                var2->replacement();
+            }
+        }, 0, 1, 2,"rest_game");
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
 }
