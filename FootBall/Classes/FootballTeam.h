@@ -11,9 +11,11 @@ enum TeamStatus{
 
 class FootballTeam : public cocos2d::Node {
 public:
+    int teamScore =0;
 	static FootballTeam* create(int teamId,bool teamInLeftField = true);
 	virtual bool init(int teamid,bool teamInLeftField);
     int getFootBallTeamId();
+    std::string getTeamAttackDirection();
 	std::vector<FootMan*> getFootManVector();
     cocos2d::Rect getAttackShootRect();
     cocos2d::Vec2 getTeamShootPoint();//射门坐标
@@ -26,11 +28,12 @@ public:
 private:
     TeamStatus teamState;
     int teamId = 0;
-	bool teamInLeftField = true;//队伍目前在左半场
+    bool teamInLeftField = true;//队伍目前在左半场
 	FootMan* m_pControllingPlayer;//当前控球的球员
 	FootMan* m_pSupportingPlayer;//最佳接球人员
 	std::vector<FootMan*> footManVector;
 	std::vector<cocos2d::Vec2> getLeftFieldVec2();
 	std::vector<cocos2d::Vec2> getRightFieldVec2();
     void logicUpdate(float dt);
+    void update(float dt);
 };

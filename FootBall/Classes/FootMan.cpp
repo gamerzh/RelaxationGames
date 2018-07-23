@@ -157,11 +157,6 @@ int FootMan::getFootManTeamId(){
     return this->belongTeamId;
 }
 
-//void FootMan::runToTargetPosition(cocos2d::Vec2 vec){
-//    this->runTargetPos = vec;
-//    // 跑动到目标位置去接应
-//}
-
 void FootMan::setRobotAI(bool f){
     this->robotAI = f;
 }
@@ -176,7 +171,6 @@ void FootMan::runToPositon(Vec2 pos){
     auto vec = this->getPosition();
     float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
     float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
-    //    log("AAAAAAAAA %f,%f",GeometryTools::calculateDistance(pos, vec),speedy);
     if(speedx>0){
         moveRight();
     }else{
@@ -228,10 +222,7 @@ void FootMan::update(float dt) {
             }
         }
     }else{
-        //无人持球,通知最近的队员去抢球
-//        if(GameStatus::getInstance()->getPlayerTeamId() == man->getFootManTeamId()){
-//        }else if(GameStatus::getInstance()->getComputerTeamId() == man->getFootManTeamId()){
-//        }
+        //TODO 无人持球,通知最近的队员去抢球
     }
     updateFootManZorder();
     if (NULL != getChildByTag(1000)) {

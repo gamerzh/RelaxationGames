@@ -31,7 +31,6 @@ public:
     float getShootSpeed();
     void moveRight();
     void moveLeft();
-//    void runToTargetPosition(cocos2d::Vec2 vec);
     FootManState getFootManState();
     void changeFootManState(FootManState state);
     void setRobotAI(bool f);

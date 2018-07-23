@@ -79,13 +79,19 @@ Point Ball::cameraMoveInRect(Point pos) {
 
 bool Ball::checkBallInGoal() {
     if (goalLeft.containsPoint(this->getPosition()) ) {
-        char* buf = const_cast<char*>("left");
-        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+        if(!sendGoalMsg){
+            sendGoalMsg = true;
+            char* buf = const_cast<char*>("left");
+            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+        }
         return true;
     }
     else if (goalRight.containsPoint(this->getPosition())) {
-        char* buf = const_cast<char*>("right");
-        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+        if(!sendGoalMsg){
+            sendGoalMsg = true;
+            char* buf = const_cast<char*>("right");
+            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+        }
         return true;
     }
     else {
@@ -103,12 +109,17 @@ BallSpeed Ball::getBallSpeedToTarget(){
 }
 
 bool Ball::droppointInCorrect(cocos2d::Vec2 tar,cocos2d::Vec2 cor){
-    //直径50的落地全
+    //直径50的落点圈
     if(GeometryTools::calculateDistance(tar, cor)<50){
         return  true;
     }else{
         return false;
     }
+}
+
+void Ball::replacement(){
+    sendGoalMsg = false;
+    this->setPosition(1080, 680);
 }
 
 void Ball::update(float dt) {
@@ -121,7 +132,5 @@ void Ball::update(float dt) {
         this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
     }
     this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
-//    if (checkBallInGoal()) {
-//        this->setPosition(1200, 700);
-//    }
+    checkBallInGoal();
 }

@@ -20,20 +20,19 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     if (!Node::init()) {
         return false;
     }
-    //    Size visibleSize = Director::getInstance()->getVisibleSize();
     this->teamInLeftField = teamInLeftField;
     this->teamId = teamid;
     
     auto teamIcon1 = Sprite::create("team_icon_1.png");
-    
     addChild(teamIcon1);
     
-    auto score1 = LabelAtlas::create("00","num_gold.png",71,81,'0');
+    auto score1 = LabelAtlas::create(StringUtils::format("0%d",teamScore),"num_gold.png",71,81,'0');
+    score1->setTag(1000);
     score1->setAnchorPoint(Point::ANCHOR_MIDDLE);
     addChild(score1);
+    
     //engery
     auto energy_bg_1 = Sprite::create("energy_bg.png");
-    
     addChild(energy_bg_1);
     auto energy_content_1 = Sprite::create("energy_pro.png");
     auto energy_timer_1 = ProgressTimer::create(energy_content_1);
@@ -56,6 +55,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
         energy_timer_1->setPosition(850, 610);
     }
     schedule(schedule_selector(FootballTeam::logicUpdate), 1);
+    scheduleUpdate();
     return true;
 }
 
@@ -138,11 +138,14 @@ void FootballTeam::setControllingMan(FootMan* man){
 
 void FootballTeam::passBallToTeammate(FootMan* controlMan,FootMan* supportMan){
     //当前有队员在控球
-//    if(m_pControllingPlayer != NULL){
-//        Vec2 pos = m_pSupportingPlayer->getPosition();//传球的目标点
-//        m_pControllingPlayer->doShoot();
-//    }
-    
+}
+
+std::string FootballTeam::getTeamAttackDirection(){
+    if(this->teamInLeftField){
+        return "right";
+    }else{
+        return "left";
+    }
 }
 
 void FootballTeam::logicUpdate(float dt){
@@ -161,5 +164,11 @@ void FootballTeam::logicUpdate(float dt){
     }else{
         
         
+    }
+}
+
+void FootballTeam::update(float dt){
+    if(NULL != getChildByTag(1000)){
+        ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
 }

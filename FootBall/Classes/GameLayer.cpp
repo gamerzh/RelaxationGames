@@ -205,6 +205,15 @@ void GameLayer::onExit() {
 void GameLayer::addCustomEvent() {
     auto footballInGoal = EventListenerCustom::create(foot_ball_in_goal, [=](EventCustom* event) {
         //收到足球进门的消息
+        auto result = static_cast<char*>(event->getUserData());
+        if(playerTeam->getTeamAttackDirection() == result){
+            playerTeam->teamScore +=1;
+        }
+        if(computerTeam->getTeamAttackDirection() == result){
+             computerTeam->teamScore +=1;
+        }
+        //延迟2秒,2秒后重置场景,球员和球回到初始位置 TODO
+        
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
 }

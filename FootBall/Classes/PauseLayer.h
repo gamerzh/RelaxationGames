@@ -6,5 +6,5 @@ public:
 	virtual bool init();
 	CREATE_FUNC(PauseLayer);
 private:
-
+    void gobackLobby();
 };

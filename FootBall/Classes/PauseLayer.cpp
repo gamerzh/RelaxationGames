@@ -1,4 +1,5 @@
 #include "PauseLayer.h"
+#include "LobbyScene.h"
 USING_NS_CC;
 
 bool PauseLayer::init(){
@@ -13,10 +14,15 @@ bool PauseLayer::init(){
 
 	auto img1 = MenuItemImage::create("pause_con.png", "pause_con.png");
 	auto img2 = MenuItemImage::create("pause_re.png", "pause_re.png");
-	auto img3 = MenuItemImage::create("pause_lobby.png", "pause_lobby.png");
+	auto img3 = MenuItemImage::create("pause_lobby.png", "pause_lobby.png",CC_CALLBACK_0(PauseLayer::gobackLobby, this));
 	auto menu = Menu::create(img1, img2, img3,NULL);
 	menu->alignItemsVerticallyWithPadding(15);
 	menu->setPosition(visibleSize.width / 2, visibleSize.height / 2-20);
 	addChild(menu);
 	return true;
+}
+
+
+void PauseLayer::gobackLobby(){
+    Director::getInstance()->replaceScene(LobbyScene::create());
 }
