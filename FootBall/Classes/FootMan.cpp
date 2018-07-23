@@ -86,20 +86,26 @@ void FootMan::doShoot() {
 }
 
 void FootMan::playFootManRun() {
-    this->manState = FootManState::running;
-    playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
-    heroTimeLine->play("animation0", true);
-    playerCsb->runAction(heroTimeLine);
+    if(canUpdateStae){
+        canUpdateStae = false;
+        this->manState = FootManState::running;
+        playerCsb->stopAllActions();
+        auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+        heroTimeLine->play("animation0", true);
+        playerCsb->runAction(heroTimeLine);
+    }
 }
 
 void FootMan::playFootManTackle() {
-    log("AAAAAAAAAAAA");
     this->manState = FootManState::tackle;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
     heroTimeLine->play("animation4", false);
     playerCsb->runAction(heroTimeLine);
+    heroTimeLine->setAnimationEndCallFunc("animation4",[=](){
+        //TODO 射门动画结束后允许其他动画
+        canUpdateStae = true;
+    });
 }
 
 
@@ -109,6 +115,10 @@ void FootMan::playFootManShoot() {
     auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
     heroTimeLine->play("animation1", false);
     playerCsb->runAction(heroTimeLine);
+    heroTimeLine->setAnimationEndCallFunc("animation1",[=](){
+        //TODO 射门动画结束后允许其他动画
+        canUpdateStae = true;
+    });
 }
 
 void FootMan::playFootManStand() {

@@ -112,8 +112,9 @@ void GameLayer::passAndTackle() {
 }
 
 void GameLayer::shoot() {
-    currentControlFootMan->doShoot();
-    if(currentControlFootMan == footBall->getOwerMan()){
+    
+    if(NULL != currentControlFootMan && currentControlFootMan == footBall->getOwerMan()){
+        currentControlFootMan->doShoot();
         //设置射门的目标点
         if(playerTeam->getFootBallTeamId() == currentControlFootMan->getFootManTeamId()){
             footBall->setBallShoot(playerTeam->getTeamShootPoint());
