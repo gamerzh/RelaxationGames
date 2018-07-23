@@ -13,19 +13,20 @@ class FootballTeam : public cocos2d::Node {
 public:
 	static FootballTeam* create(int teamId,bool teamInLeftField = true);
 	virtual bool init(int teamid,bool teamInLeftField);
-	std::vector<FootMan*> getFootManVector();
-	void setTeamInLeftField(bool b);
-    cocos2d::Rect getAttackShootRect();
     int getFootBallTeamId();
+	std::vector<FootMan*> getFootManVector();
+    cocos2d::Rect getAttackShootRect();
+    cocos2d::Vec2 getTeamShootPoint();//射门坐标
     FootMan* getPassBallFootMan();//传球的目标
     TeamStatus getTeamStatus();
     void setTeamStatus(TeamStatus s);
     void setControllingMan(FootMan* man);
+    void setTeamInLeftField(bool b);
     void passBallToTeammate(FootMan* controlMan,FootMan* supportMan);//队员之间相互传球
 private:
     TeamStatus teamState;
     int teamId = 0;
-	bool teamInLeftField = true;
+	bool teamInLeftField = true;//队伍目前在左半场
 	FootMan* m_pControllingPlayer;//当前控球的球员
 	FootMan* m_pSupportingPlayer;//最佳接球人员
 	std::vector<FootMan*> footManVector;

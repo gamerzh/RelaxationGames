@@ -121,7 +121,7 @@ void Ball::update(float dt) {
         this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
     }
     this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
-    if (checkBallInGoal()) {
-        this->setPosition(100, 700);
-    }
+//    if (checkBallInGoal()) {
+//        this->setPosition(1200, 700);
+//    }
 }

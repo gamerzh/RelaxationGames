@@ -115,7 +115,11 @@ void GameLayer::shoot() {
     currentControlFootMan->doShoot();
     if(currentControlFootMan == footBall->getOwerMan()){
         //设置射门的目标点
-        //         footBall->setBallShoot();
+        if(playerTeam->getFootBallTeamId() == currentControlFootMan->getFootManTeamId()){
+            footBall->setBallShoot(playerTeam->getTeamShootPoint());
+        }else{
+            footBall->setBallShoot(computerTeam->getTeamShootPoint());
+        }
     }
 }
 

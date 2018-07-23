@@ -177,7 +177,11 @@ void FootMan::runToPositon(Vec2 pos){
     float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
     float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
 //    log("AAAAAAAAA %f,%f",GeometryTools::calculateDistance(pos, vec),speedy);
-
+    if(speedx>0){
+        moveRight();
+    }else{
+        moveLeft();
+    }
     this->setPosition(vec.x+speedx,vec.y+speedy);
 }
 
