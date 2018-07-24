@@ -22,7 +22,7 @@ bool Ball::init(Camera* camera) {
     }
     this->myCamera = camera;
     initWithFile("ball.png");
-    setScale(0.2);
+    setScale(ANIMATION_SCALE_RATE);
     scheduleUpdate();
     return true;
 }

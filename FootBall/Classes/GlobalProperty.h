@@ -7,6 +7,7 @@
 #define football_field_offset_top 160
 #define football_offset_x 60
 #define football_offset_y 20
+#define ANIMATION_SCALE_RATE 0.15
 
 #define foot_ball_in_goal "foot_ball_in_goal"
 

@@ -4,11 +4,11 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
-#define ANIMATION_SCALE_RATE 0.2
+
 #define FOOTBALL_MAN_ZORDER 5000
 //简单AI的逻辑,进入距离500内开始靠近对方,距离小于100发动铲球，最多只有2名球员去防守
-#define DEFEND_RADIUS  300 //球员的防守半径
-#define TACKLE_DISTANCE 100//发动铲球的距离
+#define DEFEND_RADIUS  200 //球员的防守半径
+#define TACKLE_DISTANCE 40//发动铲球的距离
 #define SUPPORT_DISTANCE 600//友方支援队员的距离
 
 //foot man state
@@ -21,21 +21,21 @@ enum FootManState{
 
 class FootMan : public cocos2d::Node {
 public:
-    static FootMan* create(FootManProperty property,cocos2d::Camera* camera = nullptr);
-    virtual bool init(FootManProperty property, cocos2d::Camera* camera);
+    static FootMan* create(int teamId,FootManProperty property,cocos2d::Camera* camera = nullptr);
+    virtual bool init(int teamId,FootManProperty property, cocos2d::Camera* camera);
     int getFootManTeamId();
-    void setFootManTeamId(int id);
+    float getShootSpeed();
+    std::string getFileNameByTeamId(int d);
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲
     void doShoot();//射门
-    float getShootSpeed();
     void moveRight();
     void moveLeft();
     void replacement();
     void setOriginPosition(cocos2d::Vec2 vec);
-    FootManState getFootManState();
     void changeFootManState(FootManState state);
     void setRobotAI(bool f);
+    FootManState getFootManState();
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;

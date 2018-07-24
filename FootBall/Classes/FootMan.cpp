@@ -4,9 +4,9 @@
 #include "GeometryTools.h"
 USING_NS_CC;
 
-FootMan* FootMan :: create(FootManProperty property, cocos2d::Camera* camera) {
+FootMan* FootMan :: create(int teamId,FootManProperty property, cocos2d::Camera* camera) {
     FootMan *ret = new FootMan();
-    if (ret && ret->init(property,camera))
+    if (ret && ret->init(teamId,property,camera))
     {
         ret->autorelease();
         return ret;
@@ -15,12 +15,13 @@ FootMan* FootMan :: create(FootManProperty property, cocos2d::Camera* camera) {
     return nullptr;
 }
 
-bool FootMan::init(FootManProperty property, cocos2d::Camera* camera) {
+bool FootMan::init(int teamId,FootManProperty property, cocos2d::Camera* camera) {
     if (!Node::init()) {
         return false;
     }
+    this->belongTeamId = teamId;
     this->manState = FootManState::waiting;
-    playerCsb = CSLoader::createNode("rw1.csb");
+    playerCsb = CSLoader::createNode(getFileNameByTeamId(teamId));
     playerCsb->setScale(ANIMATION_SCALE_RATE);
     playerCsb->setPosition(0, 0);
     this->addChild(playerCsb);
@@ -170,9 +171,6 @@ void FootMan::replacement(){
     }
 }
 
-void FootMan::setFootManTeamId(int id){
-    this->belongTeamId = id;
-}
 
 int FootMan::getFootManTeamId(){
     return this->belongTeamId;
@@ -209,6 +207,13 @@ void FootMan::supportPosition(cocos2d::Vec2 pos){
         moveLeft();
     }
     this->setPosition(vec.x+speedx,vec.y);
+}
+
+std::string FootMan::getFileNameByTeamId(int d){
+    if(d == 1){
+        return StringUtils::format("team_1_%d.csb",random(1,2));
+    }
+    return "rw1.csb";
 }
 
 void FootMan::update(float dt) {
