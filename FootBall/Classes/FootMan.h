@@ -21,11 +21,11 @@ enum FootManState{
 
 class FootMan : public cocos2d::Node {
 public:
-    static FootMan* create(int teamId,FootManProperty property,cocos2d::Camera* camera = nullptr);
-    virtual bool init(int teamId,FootManProperty property, cocos2d::Camera* camera);
+    static FootMan* create(int teamId,FootManProperty property,bool goalkeeper = false,cocos2d::Camera* camera = nullptr);
+    virtual bool init(int teamId,FootManProperty property, bool goalkeeper,cocos2d::Camera* camera);
     int getFootManTeamId();
     float getShootSpeed();
-    std::string getFileNameByTeamId(int d);
+    std::string getFileNameByTeamId(int d,bool goalkeeper);
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲
     void doShoot();//射门

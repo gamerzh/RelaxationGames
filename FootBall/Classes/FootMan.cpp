@@ -4,9 +4,9 @@
 #include "GeometryTools.h"
 USING_NS_CC;
 
-FootMan* FootMan :: create(int teamId,FootManProperty property, cocos2d::Camera* camera) {
+FootMan* FootMan :: create(int teamId,FootManProperty property, bool goalkeeper,cocos2d::Camera* camera) {
     FootMan *ret = new FootMan();
-    if (ret && ret->init(teamId,property,camera))
+    if (ret && ret->init(teamId,property,goalkeeper,camera))
     {
         ret->autorelease();
         return ret;
@@ -15,13 +15,13 @@ FootMan* FootMan :: create(int teamId,FootManProperty property, cocos2d::Camera*
     return nullptr;
 }
 
-bool FootMan::init(int teamId,FootManProperty property, cocos2d::Camera* camera) {
+bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d::Camera* camera) {
     if (!Node::init()) {
         return false;
     }
     this->belongTeamId = teamId;
     this->manState = FootManState::waiting;
-    playerCsb = CSLoader::createNode(getFileNameByTeamId(teamId));
+    playerCsb = CSLoader::createNode(getFileNameByTeamId(teamId,goalkeeper));
     playerCsb->setScale(ANIMATION_SCALE_RATE);
     playerCsb->setPosition(0, 0);
     this->addChild(playerCsb);
@@ -209,9 +209,13 @@ void FootMan::supportPosition(cocos2d::Vec2 pos){
     this->setPosition(vec.x+speedx,vec.y);
 }
 
-std::string FootMan::getFileNameByTeamId(int d){
+std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
     if(d == 1){
-        return StringUtils::format("team_1_%d.csb",random(1,2));
+        if(goalkeeper){
+            return "team_1_3.csb";
+        }else{
+             return StringUtils::format("team_1_%d.csb",random(1,2));
+        }
     }
     return "rw1.csb";
 }

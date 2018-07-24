@@ -31,6 +31,7 @@ private:
     bool teamInLeftField = true;//队伍目前在左半场
 	FootMan* m_pControllingPlayer;//当前控球的球员
 	FootMan* m_pSupportingPlayer;//最佳接球人员
+    FootMan* goalkeeper;//守门员
 	std::vector<FootMan*> footManVector;
 	std::vector<cocos2d::Vec2> getLeftFieldVec2();
 	std::vector<cocos2d::Vec2> getRightFieldVec2();

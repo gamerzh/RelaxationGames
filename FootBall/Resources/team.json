@@ -3,22 +3,27 @@
             {"teamId":1,"teamName":"a","teamBanner":"",
             "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
                           {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
-                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false}]
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":true}
+                        ]
             },
             {"teamId":2,"teamName":"a","teamBanner":"",
             "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
                           {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
-                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false}]
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":true}]
             },
             {"teamId":3,"teamName":"a","teamBanner":"",
             "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
                           {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
-                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false}]
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":true}]
             },
             {"teamId":4,"teamName":"a","teamBanner":"",
             "footManVec":[{"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
                           {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
-                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false}]
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":false},
+                          {"footImage":"","name":"","runSpeed":10,"skillType":0,"goalkeeper":true}]
             }
             ]
 }
