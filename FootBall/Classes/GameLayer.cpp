@@ -163,6 +163,21 @@ void GameLayer::speedMan() {
     //球队的控球队员短距离加速
 }
 
+void GameLayer::replacementAll(){
+    footBall->replacement();
+    for (auto var1 : GameStatus::getInstance()->currentPlayerTeam) {
+        var1->replacement();
+    }
+    for (auto var2 : GameStatus::getInstance()->currentComputerTeam) {
+        var2->replacement();
+    }
+}
+
+//void GameLayer::opponentHaveBall(){
+//    replacementAll();
+//    footBall->setPositionX(1200);
+////    footBall->setOwnerMan(<#FootMan *owern#>)
+//}
 
 bool GameLayer::checkFootManInShootArea(FootMan* man){
     if(playerTeam->getFootBallTeamId() == man->getFootManTeamId()){
@@ -250,12 +265,12 @@ void GameLayer::addCustomEvent() {
         }
         //延迟2秒,2秒后重置场景,球员和球回到初始位置 TODO
         schedule([=](float dt){
-            footBall->replacement();
-            for (auto var1 : GameStatus::getInstance()->currentPlayerTeam) {
-                var1->replacement();
+            replacementAll();
+            if(playerTeam->getTeamAttackDirection() == result){
+                footBall->setPositionX(1200);
             }
-            for (auto var2 : GameStatus::getInstance()->currentComputerTeam) {
-                var2->replacement();
+            if(computerTeam->getTeamAttackDirection() == result){
+                footBall->setPositionX(1000);
             }
         }, 0, 1, 2,"rest_game");
     });
