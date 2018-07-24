@@ -4,7 +4,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
-#define ANIMATION_SCALE_RATE 0.4
+#define ANIMATION_SCALE_RATE 0.2
 #define FOOTBALL_MAN_ZORDER 5000
 //简单AI的逻辑,进入距离500内开始靠近对方,距离小于100发动铲球，最多只有2名球员去防守
 #define DEFEND_RADIUS  300 //球员的防守半径

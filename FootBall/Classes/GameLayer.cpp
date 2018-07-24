@@ -37,8 +37,42 @@ bool GameLayer::init() {
     loadGameLayerUI();
     
     scheduleUpdate();
+    
+//    auto listener = EventListenerTouchAllAtOnce::create();
+//    listener->onTouchesBegan = CC_CALLBACK_2(GameLayer::onTouchesBegan, this);
+//    listener->onTouchesMoved = CC_CALLBACK_2(GameLayer::onTouchesMoved, this);
+//    listener->onTouchesEnded = CC_CALLBACK_2(GameLayer::onTouchesEnded, this);
+//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    
     return true;
 }
+
+//void GameLayer::onTouchesBegan(const std::vector<Touch*>& touches, Event  *event)
+//{
+//    for ( auto &item: touches )
+//    {
+//        auto touch = item;
+//        auto location = touch->getLocation();
+//    }
+//}
+//
+//void GameLayer::onTouchesMoved(const std::vector<Touch*>& touches, Event  *event)
+//{
+//    for( auto &item: touches)
+//    {
+//        auto touch = item;
+//         auto location = touch->getLocation();
+//    }
+//}
+//
+//void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, Event  *event)
+//{
+//    for ( auto &item: touches )
+//    {
+//        auto touch = item;
+//         auto location = touch->getLocation();
+//    }
+//}
 
 void GameLayer::createFootballFild() {
     auto black = Sprite::create("green.jpg");
