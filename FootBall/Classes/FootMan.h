@@ -41,6 +41,7 @@ private:
     int foot_man_skill_type = 0;
     float runSpeed = 5;
     bool robotAI;
+    bool isGoalkeeper = false;
     bool canUpdateStae = true;//想允许切换动画
     std::string foot_man_img;
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();

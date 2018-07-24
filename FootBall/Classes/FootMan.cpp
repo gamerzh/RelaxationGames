@@ -19,6 +19,7 @@ bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d:
     if (!Node::init()) {
         return false;
     }
+    this->isGoalkeeper = goalkeeper;
     this->belongTeamId = teamId;
     this->manState = FootManState::waiting;
     playerCsb = CSLoader::createNode(getFileNameByTeamId(teamId,goalkeeper));
@@ -27,7 +28,7 @@ bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d:
     this->addChild(playerCsb);
     playFootManStand();
     scheduleUpdate();
-//    showDebugInfo();
+    //    showDebugInfo();
     return true;
 }
 
@@ -196,6 +197,7 @@ void FootMan::runToPositon(Vec2 pos){
         moveLeft();
     }
     this->setPosition(vec.x+speedx,vec.y+speedy);
+    playFootManRun();
 }
 
 void FootMan::supportPosition(cocos2d::Vec2 pos){
@@ -206,6 +208,9 @@ void FootMan::supportPosition(cocos2d::Vec2 pos){
     }else{
         moveLeft();
     }
+    if(speedx != 0){
+        playFootManRun();
+    }
     this->setPosition(vec.x+speedx,vec.y);
 }
 
@@ -214,7 +219,7 @@ std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
         if(goalkeeper){
             return "team_1_3.csb";
         }else{
-             return StringUtils::format("team_1_%d.csb",random(1,2));
+            return StringUtils::format("team_1_%d.csb",random(1,2));
         }
     }
     return "rw1.csb";
@@ -246,9 +251,9 @@ void FootMan::update(float dt) {
                 }
             }
         }else{
-          //己方队友,去支援
-            if(GeometryTools::calculateDistance(this->getPosition(), man->getPosition())>SUPPORT_DISTANCE){
-                runToPositon(man->getPosition());
+            //己方队友,去支援
+            if(GeometryTools::calculateDistance(this->getPosition(), man->getPosition())>SUPPORT_DISTANCE && !this->isGoalkeeper){
+                supportPosition(man->getPosition());
             }
         }
     }else{
