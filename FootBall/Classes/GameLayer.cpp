@@ -89,9 +89,10 @@ void GameLayer::loadGameLayerUI() {
     btn2->setPosition(1160, 190);
     btn3->setPosition(1190, 320);
     menu->setPosition(0,0);
-    addChild(menu);
+    addChild(menu,50);
     auto set = Setting::create();
     addChild(set, 100);
+//    ui::Button
 }
 
 
