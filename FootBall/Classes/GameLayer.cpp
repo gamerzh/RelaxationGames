@@ -203,14 +203,18 @@ void GameLayer::manLootBall() {
     if (alternativeMan.size() == 0) {
         return;
     }
-    int area = (int)alternativeMan.size();
-    auto man = alternativeMan.at(random(0, area - 1));
-    footBall->setOwnerMan(man);
-    if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){
-        playerTeam->setControllingMan(man);
-        currentControlFootMan = man;
-    }else{
-        computerTeam->setControllingMan(man);
+    //关于球权的获取
+    for(auto man : alternativeMan){
+        if(man->getCanObtainBall()){
+            footBall->setOwnerMan(man);
+            if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){
+                playerTeam->setControllingMan(man);
+                currentControlFootMan = man;
+            }else{
+                computerTeam->setControllingMan(man);
+            }
+            return;
+        }
     }
 }
 
@@ -273,8 +277,17 @@ void GameLayer::addCustomEvent() {
         }, 0, 1, 2,"rest_game");
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
+    
+    auto trackleSuccess = EventListenerCustom::create(foot_man_trackle_success, [=](EventCustom* event){
+        //TODO 铲球成功,控球队员摔倒
+        auto man = footBall->getOwerMan();
+        man->doTumble();
+        footBall->setBallFree();
+    });
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(trackleSuccess, 1);
 }
 
 void GameLayer::removeCustomEvent() {
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_in_goal);
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_man_trackle_success);
 }

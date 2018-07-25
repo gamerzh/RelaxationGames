@@ -89,12 +89,17 @@ void FootMan::doShoot() {
     playFootManShoot();
 }
 
+void FootMan::doTumble(){
+    playFootManTumble();
+    canObtainBall = false;
+}
+
 void FootMan::playFootManRun() {
     if(canUpdateStae){
         canUpdateStae = false;
         this->manState = FootManState::running;
         playerCsb->stopAllActions();
-        auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+        auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
         heroTimeLine->play("animation0", true);
         playerCsb->runAction(heroTimeLine);
     }
@@ -103,11 +108,11 @@ void FootMan::playFootManRun() {
 void FootMan::playFootManTackle() {
     this->manState = FootManState::tackle;
     playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
     heroTimeLine->play("animation4", false);
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation4",[=](){
-        //TODO 射门动画结束后允许其他动画
+        //TODO 铲球动画结束后允许其他动画
         canUpdateStae = true;
     });
 }
@@ -116,7 +121,7 @@ void FootMan::playFootManTackle() {
 void FootMan::playFootManShoot() {
     this->manState = FootManState::shoot;
     playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
     heroTimeLine->play("animation1", false);
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation1",[=](){
@@ -128,13 +133,25 @@ void FootMan::playFootManShoot() {
 void FootMan::playFootManStand() {
     this->manState = FootManState::waiting;
     playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline("rw1.csb");
+    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
     heroTimeLine->play("animation2", true);
+    playerCsb->runAction(heroTimeLine);
+}
+
+void FootMan::playFootManTumble(){
+    this->manState = FootManState::tumble;
+    playerCsb->stopAllActions();
+    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
+    heroTimeLine->play("animation6", false);
     playerCsb->runAction(heroTimeLine);
 }
 
 float FootMan::getShootSpeed() {
     return 10;
+}
+
+bool FootMan::getCanObtainBall(){
+    return canObtainBall;
 }
 
 void FootMan::moveRight() {
@@ -248,6 +265,14 @@ void FootMan::update(float dt) {
             canFootmanTackle = true;
         }
     }
+    //球权获得能力恢复
+    if(!canObtainBall){
+        obtainInterval -= dt;
+        if(obtainInterval<0){
+            obtainInterval = 2;
+            canObtainBall = true;
+        }
+    }
     //判断持球的是否是己方球员或者没有人持球
     auto ball = GameStatus::getInstance()->getGameBall();
     if(simpleRobotAI){
@@ -265,6 +290,11 @@ void FootMan::update(float dt) {
                             if(manState != FootManState::tackle && canFootmanTackle){
                                 playFootManTackle();
                                 canFootmanTackle = false;
+                                //判断本次铲球结果
+                                if(random(1,100)<=tacklePercentage*100){
+                                    //success 发出通知,持球队员摔倒,球恢复为自由态
+                                    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_man_trackle_success);
+                                }
                             }
                         }else{
                             runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());

@@ -20,6 +20,7 @@ public:
 	int getBallState();
 	void setBallShoot(cocos2d::Vec2 vec);
     void setBallPass(cocos2d::Vec2 vec);
+    void setBallFree();
 	void setOwnerMan(FootMan* owern);
     void replacement();//重置足球的位置
     BallSpeed getBallSpeedToTarget();

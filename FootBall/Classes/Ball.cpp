@@ -48,6 +48,11 @@ void Ball::setBallPass(cocos2d::Vec2 vec){
     this->targetPosition = vec;
 }
 
+void Ball::setBallFree(){
+    this->ballOwner = NULL;
+     setBallState(ball_is_free);
+}
+
 FootMan* Ball::getOwerMan() {
     return this->ballOwner;
 }

@@ -16,21 +16,25 @@ enum FootManState{
     waiting,
     running,
     shoot,
-    tackle
+    tackle,
+    tumble
 };
 
 class FootMan : public cocos2d::Node {
 public:
+   
     bool isGoalkeeper = false;
     std::string footManId = "";
     static FootMan* create(int teamId,FootManProperty property,bool goalkeeper = false,cocos2d::Camera* camera = nullptr);
     virtual bool init(int teamId,FootManProperty property, bool goalkeeper,cocos2d::Camera* camera);
+    bool getCanObtainBall();
     int getFootManTeamId();
     float getShootSpeed();
     std::string getFileNameByTeamId(int d,bool goalkeeper);
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲
     void doShoot();//射门
+    void doTumble();//摔倒
     void moveRight();
     void moveLeft();
     void replacement();
@@ -47,8 +51,12 @@ private:
     bool simpleRobotAI = false;//简单AI关闭
     bool canUpdateStae = true;//想允许切换动画
     
-    float tackleInterval = 3;//球员铲球间隔
     bool canFootmanTackle = true;//是否允许铲球
+    float tackleInterval = 3;//球员铲球间隔
+    float tacklePercentage = 0.3;//球员的铲球成功率
+    
+    bool canObtainBall = true;//是否可以获取球
+    float obtainInterval = 2;//获取球权间隔
     
     std::string foot_man_img;
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
@@ -70,4 +78,5 @@ private:
     void playFootManTackle();
     void playFootManShoot();
     void playFootManStand();
+    void playFootManTumble();
 };
