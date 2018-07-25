@@ -229,11 +229,25 @@ std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
         }else{
             return StringUtils::format("team_2_%d.csb",random(1,2));
         }
+    }else  if(d == 3){
+        if(goalkeeper){
+            return "team_3_3.csb";
+        }else{
+            return StringUtils::format("team_3_%d.csb",random(1,2));
+        }
     }
     return "rw1.csb";
 }
 
 void FootMan::update(float dt) {
+    //铲球技能的冷却
+    if(!canFootmanTackle){
+        tackleInterval -= dt;
+        if(tackleInterval<0){
+            tackleInterval = 3;
+            canFootmanTackle = true;
+        }
+    }
     //判断持球的是否是己方球员或者没有人持球
     auto ball = GameStatus::getInstance()->getGameBall();
     if(simpleRobotAI){
@@ -248,8 +262,9 @@ void FootMan::update(float dt) {
                             playFootManRun();
                         }
                         if(getBallDistance()<TACKLE_DISTANCE){
-                            if(manState != FootManState::tackle){
+                            if(manState != FootManState::tackle && canFootmanTackle){
                                 playFootManTackle();
+                                canFootmanTackle = false;
                             }
                         }else{
                             runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());

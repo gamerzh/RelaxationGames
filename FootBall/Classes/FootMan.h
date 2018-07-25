@@ -43,8 +43,13 @@ private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;
     float runSpeed = 5;
+    
     bool simpleRobotAI = false;//简单AI关闭
     bool canUpdateStae = true;//想允许切换动画
+    
+    float tackleInterval = 3;//球员铲球间隔
+    bool canFootmanTackle = true;//是否允许铲球
+    
     std::string foot_man_img;
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     cocos2d::Point targetPosition;
