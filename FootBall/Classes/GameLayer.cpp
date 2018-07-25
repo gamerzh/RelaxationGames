@@ -171,12 +171,6 @@ void GameLayer::replacementAll(){
     }
 }
 
-//void GameLayer::opponentHaveBall(){
-//    replacementAll();
-//    footBall->setPositionX(1200);
-////    footBall->setOwnerMan(FootMan *owern)
-//}
-
 bool GameLayer::checkFootManInShootArea(FootMan* man){
     if(playerTeam->getFootBallTeamId() == man->getFootManTeamId()){
         return playerTeam->getAttackShootRect().containsPoint(man->getPosition());
@@ -263,7 +257,7 @@ void GameLayer::addCustomEvent() {
         if(computerTeam->getTeamAttackDirection() == result){
             computerTeam->teamScore +=1;
         }
-        //延迟2秒,2秒后重置场景,球员和球回到初始位置 TODO
+        //延迟2秒,2秒后重置场景,球员和球回到初始位置
         schedule([=](float dt){
             replacementAll();
             if(playerTeam->getTeamAttackDirection() == result){
@@ -277,7 +271,7 @@ void GameLayer::addCustomEvent() {
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
     
     auto trackleSuccess = EventListenerCustom::create(foot_man_trackle_success, [=](EventCustom* event){
-        //TODO 铲球成功,控球队员摔倒
+        //铲球成功,控球队员摔倒
         auto man = footBall->getOwerMan();
         man->doTumble();
         footBall->setBallFree();

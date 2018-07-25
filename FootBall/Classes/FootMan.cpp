@@ -29,7 +29,7 @@ bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d:
     this->addChild(playerCsb);
     playFootManStand();
     scheduleUpdate();
-    //    showDebugInfo();
+    //showDebugInfo();
     return true;
 }
 
@@ -128,7 +128,7 @@ void FootMan::playFootManTackle() {
 
 
 void FootMan::playFootManShoot() {
-     canUpdateState = false;
+    canUpdateState = false;
     this->manState = FootManState::shoot;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline(fileName);
@@ -148,7 +148,7 @@ void FootMan::playFootManTumble(){
     heroTimeLine->play("animation6", false);
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation6",[=](){
-//        log("playFootManTumble playFootManTumble playFootManTumble");
+        //        log("playFootManTumble playFootManTumble playFootManTumble");
         canUpdateState = true;
     });
 }

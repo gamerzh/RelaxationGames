@@ -156,11 +156,9 @@ void FootballTeam::startAttack(){
 
 void FootballTeam::logicUpdate(float dt){
     //判断队伍目前的状态
-    if(m_pControllingPlayer != NULL){
-        this->teamState = attack;
+    if(m_pControllingPlayer != NULL || this->teamState == TeamStatus::attack){
         //带球队员开始跑向对方球门
-        //        log("(%f,%f)",getAttackShootRect().getMidX(),getAttackShootRect().getMidY());
-        //
+        //log("(%f,%f)",getAttackShootRect().getMidX(),getAttackShootRect().getMidY());
         //attack 进攻状态,简单判断,离自己最近的球员为最佳接应队员
         Vec2 a = m_pControllingPlayer->getPosition();
         float max = 10000;
@@ -179,6 +177,10 @@ void FootballTeam::logicUpdate(float dt){
 void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
+    }
+    //发动进攻
+    if(m_pControllingPlayer != NULL || this->teamState == TeamStatus::attack){
+       //TODO 让自己的球队进行进攻
     }
 }
 
