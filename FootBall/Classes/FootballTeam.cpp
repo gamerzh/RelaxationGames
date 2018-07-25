@@ -1,6 +1,7 @@
 #include "FootballTeam.h"
 #include "GameStatus.h"
 #include "GeometryTools.h"
+#include "GlobalProperty.h"
 USING_NS_CC;
 
 
@@ -179,7 +180,22 @@ void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
-    if(this->teamState == TeamStatus::attack && NULL != m_pControllingPlayer){
-        m_pControllingPlayer->runToPositon(Vec2(getAttackShootRect().getMidX()-100,getAttackShootRect().getMidY()));
-    }
+}
+
+void FootballTeam::onEnter(){
+    Node::onEnter();
+    auto gameStart = EventListenerCustom::create(foot_ball_game_start, [=](EventCustom* event) {
+        //收到通知开始开球,除了目前被玩家选中的球员,其余的球员打开AI
+        for(auto var :footManVector ){
+            if(var != m_pControllingPlayer){
+                var->controlSimpleAI(true);
+            }
+        }
+    });
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(gameStart, 1);
+}
+
+void FootballTeam::onExit(){
+    Node::onExit();
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_game_start);
 }

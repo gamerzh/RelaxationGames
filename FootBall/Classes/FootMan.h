@@ -36,14 +36,14 @@ public:
     void replacement();
     void setOriginPosition(cocos2d::Vec2 vec);
     void changeFootManState(FootManState state);
-    void setRobotAI(bool f);
     void runToPositon(cocos2d::Vec2 pos);//跑向目标
+    void controlSimpleAI(bool p);
     FootManState getFootManState();
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;
     float runSpeed = 5;
-    bool robotAI;
+    bool simpleRobotAI = false;//简单AI关闭
     bool canUpdateStae = true;//想允许切换动画
     std::string foot_man_img;
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();

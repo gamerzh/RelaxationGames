@@ -13,8 +13,6 @@ bool GameLayer::init() {
     }
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
-    GameStatus::getInstance()->setPlayerTeamId(1);
-    
     createFootballFild();
     
     createFootBallTeam();
@@ -33,16 +31,18 @@ bool GameLayer::init() {
     footBall->setCameraMask((int)CameraFlag::USER1);
     addChild(footBall, FOOTBALL_LOCAL_ZORDER);
     GameStatus::getInstance()->setGameBall(footBall);//HACK 为了FootMan类可以获取到ball的位置
+    GameStatus::getInstance()->setPlayerTeamId(1);
+    GameStatus::getInstance()->setGameState(GameState::game_start);//游戏等待开始
     
     loadGameLayerUI();
     
     scheduleUpdate();
     
-//    auto listener = EventListenerTouchAllAtOnce::create();
-//    listener->onTouchesBegan = CC_CALLBACK_2(GameLayer::onTouchesBegan, this);
-//    listener->onTouchesMoved = CC_CALLBACK_2(GameLayer::onTouchesMoved, this);
-//    listener->onTouchesEnded = CC_CALLBACK_2(GameLayer::onTouchesEnded, this);
-//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    //    auto listener = EventListenerTouchAllAtOnce::create();
+    //    listener->onTouchesBegan = CC_CALLBACK_2(GameLayer::onTouchesBegan, this);
+    //    listener->onTouchesMoved = CC_CALLBACK_2(GameLayer::onTouchesMoved, this);
+    //    listener->onTouchesEnded = CC_CALLBACK_2(GameLayer::onTouchesEnded, this);
+    //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     
     return true;
 }
@@ -126,7 +126,7 @@ void GameLayer::loadGameLayerUI() {
     addChild(menu,50);
     auto set = Setting::create();
     addChild(set, 100);
-//    ui::Button
+    
 }
 
 
@@ -147,7 +147,6 @@ void GameLayer::passAndTackle() {
 }
 
 void GameLayer::shoot() {
-    
     if(NULL != currentControlFootMan && currentControlFootMan == footBall->getOwerMan()){
         currentControlFootMan->doShoot();
         //设置射门的目标点
@@ -176,7 +175,7 @@ void GameLayer::replacementAll(){
 //void GameLayer::opponentHaveBall(){
 //    replacementAll();
 //    footBall->setPositionX(1200);
-////    footBall->setOwnerMan(<#FootMan *owern#>)
+////    footBall->setOwnerMan(FootMan *owern)
 //}
 
 bool GameLayer::checkFootManInShootArea(FootMan* man){
@@ -250,7 +249,7 @@ void GameLayer::onEnter() {
 
 void GameLayer::onExit() {
     Layer::onExit();
-    
+    removeCustomEvent();
 }
 
 void GameLayer::addCustomEvent() {
@@ -261,7 +260,7 @@ void GameLayer::addCustomEvent() {
             playerTeam->teamScore +=1;
         }
         if(computerTeam->getTeamAttackDirection() == result){
-             computerTeam->teamScore +=1;
+            computerTeam->teamScore +=1;
         }
         //延迟2秒,2秒后重置场景,球员和球回到初始位置 TODO
         schedule([=](float dt){

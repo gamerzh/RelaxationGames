@@ -31,3 +31,11 @@ Ball* GameStatus::getGameBall(){
 void GameStatus::setGameBall(Ball* ball){
     this->current_ball = ball;
 }
+
+GameState GameStatus::getGameState(){
+    return this->gameState;
+}
+
+void GameStatus::setGameState(GameState state){
+    this->gameState = state;
+}

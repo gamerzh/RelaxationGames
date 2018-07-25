@@ -82,7 +82,7 @@ bool Ball::checkBallInGoal() {
         if(!sendGoalMsg){
             sendGoalMsg = true;
             char* buf = const_cast<char*>("left");
-            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_in_goal, buf);
         }
         return true;
     }
@@ -90,7 +90,7 @@ bool Ball::checkBallInGoal() {
         if(!sendGoalMsg){
             sendGoalMsg = true;
             char* buf = const_cast<char*>("right");
-            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("foot_ball_in_goal", buf);
+            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_in_goal, buf);
         }
         return true;
     }

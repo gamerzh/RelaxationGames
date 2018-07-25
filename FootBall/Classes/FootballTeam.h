@@ -14,6 +14,8 @@ public:
     int teamScore =0;
 	static FootballTeam* create(int teamId,bool teamInLeftField = true);
 	virtual bool init(int teamid,bool teamInLeftField);
+    void onEnter();
+    void onExit();
     int getFootBallTeamId();
     std::string getTeamAttackDirection();
 	std::vector<FootMan*> getFootManVector();

@@ -11,9 +11,4 @@
 
 #define foot_ball_in_goal "foot_ball_in_goal"
 
-//class GlobalProperty : public cocos2d::Ref{
-//public:
-//	const  cocos2d::Rect goalLeft = cocos2d::Rect(115, 520, 100, 330);//◊Û±ﬂ«Ú√≈
-//	const  cocos2d::Rect goalRight = cocos2d::Rect(1920, 520, 100, 330);//”“±ﬂ«Ú√≈
-//};
-
+#define foot_ball_game_start "foot_ball_game_start"

@@ -32,6 +32,8 @@ bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d:
     return true;
 }
 
+
+
 float FootMan::getPositionXByYLeft(float y) {
     Vec2 p1 = Vec2(175,90);
     Vec2 p2 = Vec2(245, 1215);
@@ -177,8 +179,8 @@ int FootMan::getFootManTeamId(){
     return this->belongTeamId;
 }
 
-void FootMan::setRobotAI(bool f){
-    this->robotAI = f;
+void FootMan::controlSimpleAI(bool p){
+    this->simpleRobotAI = p;
 }
 
 float FootMan::getBallDistance(){
@@ -228,7 +230,7 @@ std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
 void FootMan::update(float dt) {
     //判断持球的是否是己方球员或者没有人持球
     auto ball = GameStatus::getInstance()->getGameBall();
-    if(robotAI){
+    if(simpleRobotAI){
         auto man = ball->getOwerMan();
         if(NULL != man){
             if(this->belongTeamId != man->getFootManTeamId()){
@@ -266,6 +268,8 @@ void FootMan::update(float dt) {
         ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));
     }
 }
+
+
 
 void FootMan::showDebugInfo() {
     auto lable = Label::createWithSystemFont(StringUtils::format("(%.1f,%.1f)",this->getPositionX(),this->getPositionY()), "arial", 30);

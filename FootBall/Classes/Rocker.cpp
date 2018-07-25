@@ -1,4 +1,6 @@
 #include "Rocker.h"
+#include "GameStatus.h"
+#include "GlobalProperty.h"
 USING_NS_CC;
 
 Rocker* Rocker::create(Vec2 pos)
@@ -72,6 +74,10 @@ bool Rocker::onTouchBegan(Touch* pTouch, Event* pEvent)
     auto rod = (Sprite*)getChildByTag(ROCKER_NACKGROUMD_TAG);
     if (rod->getBoundingBox().containsPoint(point))
     {
+        if(GameStatus::getInstance()->getGameState() == GameState::game_start){
+            GameStatus::getInstance()->setGameState(GameState::game_playing);
+            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
+        }
         return true;
     }
     return false;
