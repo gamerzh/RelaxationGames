@@ -22,7 +22,8 @@ bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d:
     this->isGoalkeeper = goalkeeper;
     this->belongTeamId = teamId;
     this->manState = FootManState::waiting;
-    playerCsb = CSLoader::createNode(getFileNameByTeamId(teamId,goalkeeper));
+    this->fileName = getFileNameByTeamId(teamId,goalkeeper);
+    playerCsb = CSLoader::createNode(fileName);
     playerCsb->setScale(ANIMATION_SCALE_RATE);
     playerCsb->setPosition(0, 0);
     this->addChild(playerCsb);
@@ -66,8 +67,7 @@ Point FootMan::moveInSafeRect(Point pos) {
 }
 
 void FootMan::setFootManAngle(float angle) {
-    if (angle != 0) {
-        //log("setFootManAngle %f,%f,%f", angle, cos(angle), sin(angle));
+    if (angle != 0 && canObtainBall) {
         Vec2 curPos = this->getPosition();
         if (cos(angle) < 0) {
             moveLeft();
@@ -94,56 +94,63 @@ void FootMan::doTumble(){
     canObtainBall = false;
 }
 
+void FootMan::playFootManStand() {
+    this->manState = FootManState::waiting;
+    playerCsb->stopAllActions();
+    auto heroTimeLine = CSLoader::createTimeline(fileName);
+    heroTimeLine->play("animation2", true);
+    playerCsb->runAction(heroTimeLine);
+}
+
 void FootMan::playFootManRun() {
-    if(canUpdateStae){
-        canUpdateStae = false;
+    if(canUpdateState){
         this->manState = FootManState::running;
         playerCsb->stopAllActions();
-        auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
+        auto heroTimeLine = CSLoader::createTimeline(fileName);
         heroTimeLine->play("animation0", true);
         playerCsb->runAction(heroTimeLine);
+        canUpdateState = false;
     }
 }
 
 void FootMan::playFootManTackle() {
+    canUpdateState = false;
     this->manState = FootManState::tackle;
     playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
+    auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation4", false);
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation4",[=](){
-        //TODO 铲球动画结束后允许其他动画
-        canUpdateStae = true;
+        //铲球动画结束后允许其他动画
+        canUpdateState = true;
     });
 }
 
 
 void FootMan::playFootManShoot() {
+     canUpdateState = false;
     this->manState = FootManState::shoot;
     playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
+    auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation1", false);
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation1",[=](){
-        //TODO 射门动画结束后允许其他动画
-        canUpdateStae = true;
+        //射门动画结束后允许其他动画
+        canUpdateState = true;
     });
 }
 
-void FootMan::playFootManStand() {
-    this->manState = FootManState::waiting;
-    playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
-    heroTimeLine->play("animation2", true);
-    playerCsb->runAction(heroTimeLine);
-}
-
 void FootMan::playFootManTumble(){
+    canUpdateState = false;
     this->manState = FootManState::tumble;
     playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(getFileNameByTeamId(belongTeamId,isGoalkeeper));
+    auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation6", false);
     playerCsb->runAction(heroTimeLine);
+    heroTimeLine->setAnimationEndCallFunc("animation6",[=](){
+//        log("playFootManTumble playFootManTumble playFootManTumble");
+        canUpdateState = true;
+    });
 }
 
 float FootMan::getShootSpeed() {
@@ -172,11 +179,14 @@ FootManState FootMan::getFootManState(){
 }
 
 void FootMan::changeFootManState(FootManState state){
-    this->manState = state;
     if(state == FootManState::waiting){
         playFootManStand();
     }else if(state == FootManState::running){
         playFootManRun();
+    }else if(state == FootManState::tackle){
+        playFootManTackle();
+    }else if(state == FootManState::tumble){
+        playFootManTumble();
     }
 }
 

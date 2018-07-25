@@ -34,7 +34,6 @@ private:
     bool checkFootManInShootArea(FootMan* man);//检查球员是否进入射门区域
     void createFootballFild();
     void createFootBallTeam();
-//    void opponentHaveBall();//对手开球
     void replacementAll();
     void update(float dt);
 };
