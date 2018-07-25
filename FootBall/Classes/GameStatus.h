@@ -16,10 +16,6 @@ public:
     static  GameStatus* getInstance();
     std::vector<FootMan*> currentPlayerTeam;
     std::vector<FootMan*> currentComputerTeam;
-    int getPlayerTeamId();
-    void setPlayerTeamId(int id);
-    int getComputerTeamId();
-    void setComputerTeamId(int id);
     Ball* getGameBall();
     void setGameBall(Ball* ball);
     GameState getGameState();

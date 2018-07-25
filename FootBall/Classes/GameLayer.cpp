@@ -31,7 +31,6 @@ bool GameLayer::init() {
     footBall->setCameraMask((int)CameraFlag::USER1);
     addChild(footBall, FOOTBALL_LOCAL_ZORDER);
     GameStatus::getInstance()->setGameBall(footBall);//HACK 为了FootMan类可以获取到ball的位置
-    GameStatus::getInstance()->setPlayerTeamId(1);
     GameStatus::getInstance()->setGameState(GameState::game_start);//游戏等待开始
     
     loadGameLayerUI();
