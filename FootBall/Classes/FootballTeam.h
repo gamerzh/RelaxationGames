@@ -25,6 +25,7 @@ public:
     void setControllingMan(FootMan* man);
     void setTeamInLeftField(bool b);
     void passBallToTeammate(FootMan* controlMan,FootMan* supportMan);//队员之间相互传球
+    void startAttack();//球队进攻
 private:
     TeamStatus teamState;
     int teamId = 0;

@@ -138,8 +138,8 @@ void GameLayer::passAndTackle() {
         auto mate = playerTeam->getPassBallFootMan();
         if(NULL != mate){
             footBall->setBallPass(mate->getPosition());
+            playerTeam->passBallToTeammate(currentControlFootMan,mate);
         }
-        playerTeam->passBallToTeammate(currentControlFootMan,mate);
     }else{
         //铲球
         currentControlFootMan->doSlideTackle();

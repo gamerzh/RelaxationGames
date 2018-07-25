@@ -69,7 +69,7 @@ std::vector<FootMan*> FootballTeam::getFootManVector() {
             foot1->setOriginPosition(getLeftFieldVec2().at(i));
             foot1->setPosition(getLeftFieldVec2().at(i));
         }else{
-             foot1->setOriginPosition(getRightFieldVec2().at(i));
+            foot1->setOriginPosition(getRightFieldVec2().at(i));
             foot1->setPosition(getRightFieldVec2().at(i));
             foot1->moveLeft();
         }
@@ -108,13 +108,13 @@ cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
     if(!teamInLeftField){
         return Vec2(200,650);
     }else{
-         return Vec2(2000,650);
+        return Vec2(2000,650);
     }
 }
 
 
 Rect FootballTeam::getAttackShootRect(){
-    if(teamInLeftField){
+    if(!teamInLeftField){
         return Rect(240,200,500,900);
     }else{
         return Rect(1400,200,500,900);
@@ -149,16 +149,23 @@ std::string FootballTeam::getTeamAttackDirection(){
     }
 }
 
+void FootballTeam::startAttack(){
+    this->teamState = attack;
+}
+
 void FootballTeam::logicUpdate(float dt){
     //判断队伍目前的状态
     if(m_pControllingPlayer != NULL){
         this->teamState = attack;
-         //attack 进攻状态,简单判断,离自己最近的球员为最佳接应队员
+        //带球队员开始跑向对方球门
+        //        log("(%f,%f)",getAttackShootRect().getMidX(),getAttackShootRect().getMidY());
+        //
+        //attack 进攻状态,简单判断,离自己最近的球员为最佳接应队员
         Vec2 a = m_pControllingPlayer->getPosition();
         float max = 10000;
         for (auto  var : footManVector) {
             Vec2 b = var->getPosition();
-            if(GeometryTools::calculateDistance(a, b)<max && var != m_pControllingPlayer){
+            if(GeometryTools::calculateDistance(a, b)<max && var != m_pControllingPlayer && !var->isGoalkeeper){
                 m_pSupportingPlayer = var;
             }
         }
@@ -171,5 +178,8 @@ void FootballTeam::logicUpdate(float dt){
 void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
+    }
+    if(this->teamState == TeamStatus::attack && NULL != m_pControllingPlayer){
+        m_pControllingPlayer->runToPositon(Vec2(getAttackShootRect().getMidX()-100,getAttackShootRect().getMidY()));
     }
 }
