@@ -131,25 +131,25 @@ void GameLayer::loadGameLayerUI() {
 
 void GameLayer::passAndTackle() {
     //传球和铲球
-    if(currentControlFootMan == footBall->getOwerMan()){
+    if(playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
         //玩家在控球,传出：离自己最近的己方球员
         //传球动作由球队来进行,
-        auto mate = playerTeam->getPassBallFootMan();
+        auto mate = playerTeam->m_pSupportingPlayer;
         if(NULL != mate){
             footBall->setBallPass(mate->getPosition());
-            playerTeam->passBallToTeammate(currentControlFootMan,mate);
+            playerTeam->passBallToTeammate(playerTeam->m_pControllingPlayer,mate);
         }
     }else{
         //铲球
-        currentControlFootMan->doSlideTackle();
+        playerTeam->m_pControllingPlayer->doSlideTackle();
     }
 }
 
 void GameLayer::shoot() {
-    if(NULL != currentControlFootMan && currentControlFootMan == footBall->getOwerMan()){
-        currentControlFootMan->doShoot();
+    if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
+        playerTeam->m_pControllingPlayer->doShoot();
         //设置射门的目标点
-        if(playerTeam->getFootBallTeamId() == currentControlFootMan->getFootManTeamId()){
+        if(playerTeam->getFootBallTeamId() == playerTeam->m_pControllingPlayer->getFootManTeamId()){
             footBall->setBallShoot(playerTeam->getTeamShootPoint());
         }else{
             footBall->setBallShoot(computerTeam->getTeamShootPoint());
@@ -203,7 +203,7 @@ void GameLayer::manLootBall() {
             footBall->setOwnerMan(man);
             if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){
                 playerTeam->setControllingMan(man);
-                currentControlFootMan = man;
+//                currentControlFootMan = man;
             }else{
                 computerTeam->setControllingMan(man);
             }

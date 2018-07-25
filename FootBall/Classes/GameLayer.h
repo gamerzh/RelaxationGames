@@ -21,7 +21,7 @@ private:
     cocos2d::Camera* playerCamera;
     FootballTeam* playerTeam;
     FootballTeam* computerTeam;
-    FootMan* currentControlFootMan;//玩家队伍目前的控球人员
+//    FootMan* currentControlFootMan;//玩家队伍目前的控球人员
     void onEnter();
     void onExit();
     void passAndTackle();

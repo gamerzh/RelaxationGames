@@ -122,9 +122,9 @@ Rect FootballTeam::getAttackShootRect(){
     }
 }
 
-FootMan* FootballTeam::getPassBallFootMan(){
-    return m_pSupportingPlayer;
-}
+//FootMan* FootballTeam::getPassBallFootMan(){
+//    return m_pSupportingPlayer;
+//}
 
 TeamStatus FootballTeam::getTeamStatus(){
     return this->teamState;
@@ -156,7 +156,7 @@ void FootballTeam::startAttack(){
 
 void FootballTeam::logicUpdate(float dt){
     //判断队伍目前的状态
-    if(m_pControllingPlayer != NULL || this->teamState == TeamStatus::attack){
+    if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //带球队员开始跑向对方球门
         //log("(%f,%f)",getAttackShootRect().getMidX(),getAttackShootRect().getMidY());
         //attack 进攻状态,简单判断,离自己最近的球员为最佳接应队员
@@ -179,8 +179,10 @@ void FootballTeam::update(float dt){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
     //发动进攻
-    if(m_pControllingPlayer != NULL || this->teamState == TeamStatus::attack){
-       //TODO 让自己的球队进行进攻
+    if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
+        //让自己的球队进行进攻
+        //持球队员跑向去前场，其余队员到中场和前场接应
+//        m_pControllingPlayer->
     }
 }
 

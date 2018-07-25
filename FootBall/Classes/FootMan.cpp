@@ -82,6 +82,11 @@ void FootMan::setFootManAngle(float angle) {
 
 void FootMan::doSlideTackle() {
     playFootManTackle();
+    //判断本次铲球结果
+    if(random(1,100)<=tacklePercentage*100){
+        //success 发出通知,持球队员摔倒,球恢复为自由态
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_man_trackle_success);
+    }
 }
 
 
@@ -298,13 +303,9 @@ void FootMan::update(float dt) {
                         }
                         if(getBallDistance()<TACKLE_DISTANCE){
                             if(manState != FootManState::tackle && canFootmanTackle){
-                                playFootManTackle();
+                                doSlideTackle();
                                 canFootmanTackle = false;
-                                //判断本次铲球结果
-                                if(random(1,100)<=tacklePercentage*100){
-                                    //success 发出通知,持球队员摔倒,球恢复为自由态
-                                    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_man_trackle_success);
-                                }
+                               
                             }
                         }else{
                             runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());
