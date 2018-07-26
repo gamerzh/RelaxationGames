@@ -210,10 +210,10 @@ void FootballTeam::update(float dt){
         if(m_pControllingPlayer->getSimpleAI()){
             m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
-//                m_pControllingPlayer->doShoot();
-//                GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
-//                footManAttackPos = Vec2(0,0);
-//                this->teamState = TeamStatus::neutrality;
+                m_pControllingPlayer->doShoot();
+                GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
+                footManAttackPos = Vec2(0,0);
+                this->teamState = TeamStatus::neutrality;
             }));
         }
     }
