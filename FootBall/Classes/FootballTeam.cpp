@@ -107,7 +107,7 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
 
 cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
     if(!teamInLeftField){
-        return Vec2(200,650);
+        return Vec2(150,650);
     }else{
         return Vec2(2000,650);
     }
