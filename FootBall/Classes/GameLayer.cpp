@@ -205,6 +205,7 @@ void GameLayer::manLootBall() {
                 playerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::attack);
                 computerTeam->setTeamStatus(TeamStatus::defend);
+                playerTeam->setFootballTeamAI(man);
             }else{
                 computerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::defend);
@@ -281,9 +282,17 @@ void GameLayer::addCustomEvent() {
         footBall->setBallFree();
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(trackleSuccess, 1);
+    
+    auto gameStart = EventListenerCustom::create(foot_ball_game_start, [=](EventCustom* event) {
+        //收到通知开始开球,除了目前被玩家选中的球员,其余的球员打开AI
+        playerTeam->setFootballTeamAI(playerTeam->m_pControllingPlayer);
+        computerTeam->setFootballTeamAI();
+    });
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(gameStart, 1);
 }
 
 void GameLayer::removeCustomEvent() {
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_in_goal);
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_man_trackle_success);
+     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_game_start);
 }

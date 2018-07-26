@@ -211,7 +211,11 @@ int FootMan::getFootManTeamId(){
     return this->belongTeamId;
 }
 
-void FootMan::controlSimpleAI(bool p){
+bool FootMan::getSimpleAI(){
+    return this->simpleRobotAI;
+}
+
+void FootMan::openSimpleAI(bool p){
     this->simpleRobotAI = p;
 }
 

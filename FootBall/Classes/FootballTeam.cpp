@@ -146,8 +146,18 @@ std::string FootballTeam::getTeamAttackDirection(){
     }
 }
 
-void FootballTeam::startAttack(){
-    this->teamState = attack;
+//void FootballTeam::startAttack(){
+//    this->teamState = attack;
+//}
+
+void FootballTeam::setFootballTeamAI(FootMan* man){
+    for (auto  var : footManVector) {
+        if(var == man){
+            var->openSimpleAI(false);
+        }else{
+            var->openSimpleAI(true);
+        }
+    }
 }
 
 void FootballTeam::logicUpdate(float dt){
@@ -172,12 +182,6 @@ void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
-    //队伍状态检查
-    if(this->teamState == TeamStatus::defend){
-        for(auto var :footManVector){
-            var->controlSimpleAI(true);
-        }
-    }
     //发动进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //让自己的球队进行进攻
@@ -187,30 +191,24 @@ void FootballTeam::update(float dt){
         if(footManAttackPos == Vec2(0,0)){
             footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
         }
-        m_pControllingPlayer->runToPositon(footManAttackPos,CallFunc::create([=](){
-            //到达指定位置射门
-            m_pControllingPlayer->doShoot();
-            GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
-            footManAttackPos = Vec2(0,0);
-            this->teamState = TeamStatus::neutrality;
-        }));
+        if(m_pControllingPlayer->getSimpleAI()){
+            m_pControllingPlayer->runToPositon(footManAttackPos,CallFunc::create([=](){
+                //到达指定位置射门
+                m_pControllingPlayer->doShoot();
+                GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
+                footManAttackPos = Vec2(0,0);
+                this->teamState = TeamStatus::neutrality;
+            }));
+        }
     }
 }
 
 void FootballTeam::onEnter(){
     Node::onEnter();
-    auto gameStart = EventListenerCustom::create(foot_ball_game_start, [=](EventCustom* event) {
-        //收到通知开始开球,除了目前被玩家选中的球员,其余的球员打开AI
-        for(auto var :footManVector ){
-            if(var != m_pControllingPlayer){
-                var->controlSimpleAI(true);
-            }
-        }
-    });
-    Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(gameStart, 1);
+
 }
 
 void FootballTeam::onExit(){
     Node::onExit();
-    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_game_start);
+   
 }
