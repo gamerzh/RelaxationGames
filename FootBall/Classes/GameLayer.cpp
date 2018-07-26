@@ -203,9 +203,10 @@ void GameLayer::manLootBall() {
             footBall->setOwnerMan(man);
             if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){
                 playerTeam->setControllingMan(man);
-//                currentControlFootMan = man;
+                playerTeam->setTeamStatus(TeamStatus::attack);
             }else{
                 computerTeam->setControllingMan(man);
+                computerTeam->setTeamStatus(TeamStatus::attack);
             }
             return;
         }
@@ -252,10 +253,10 @@ void GameLayer::addCustomEvent() {
         //收到足球进门的消息
         auto result = static_cast<char*>(event->getUserData());
         if(playerTeam->getTeamAttackDirection() == result){
-            playerTeam->teamScore +=1;
+            playerTeam->teamScore += 1;
         }
         if(computerTeam->getTeamAttackDirection() == result){
-            computerTeam->teamScore +=1;
+            computerTeam->teamScore += 1;
         }
         //延迟2秒,2秒后重置场景,球员和球回到初始位置
         schedule([=](float dt){
