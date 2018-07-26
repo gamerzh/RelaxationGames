@@ -220,18 +220,23 @@ float FootMan::getBallDistance(){
     return GeometryTools::calculateDistance(pos, this->getPosition());
 }
 
-void FootMan::runToPositon(Vec2 pos){
+void FootMan::runToPositon(Vec2 pos,CallFunc* callback){
     //跑向球
     auto vec = this->getPosition();
     float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
     float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
     if(speedx>0){
         moveRight();
-    }else{
+    }else if(speedx<0){
         moveLeft();
     }
     this->setPosition(vec.x+speedx,vec.y+speedy);
     playFootManRun();
+    //偏差为距离15
+    if(GeometryTools::calculateDistance(this->getPosition(),pos)<=15){
+        //到达目标
+        this->runAction(callback);
+    }
 }
 
 void FootMan::supportPosition(cocos2d::Vec2 pos){

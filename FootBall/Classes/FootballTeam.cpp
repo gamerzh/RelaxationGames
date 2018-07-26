@@ -122,10 +122,6 @@ Rect FootballTeam::getAttackShootRect(){
     }
 }
 
-//FootMan* FootballTeam::getPassBallFootMan(){
-//    return m_pSupportingPlayer;
-//}
-
 TeamStatus FootballTeam::getTeamStatus(){
     return this->teamState;
 }
@@ -158,7 +154,6 @@ void FootballTeam::logicUpdate(float dt){
     //判断队伍目前的状态
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //带球队员开始跑向对方球门
-        //log("(%f,%f)",getAttackShootRect().getMidX(),getAttackShootRect().getMidY());
         //attack 进攻状态,简单判断,离自己最近的球员为最佳接应队员
         Vec2 a = m_pControllingPlayer->getPosition();
         float max = 10000;
@@ -169,8 +164,7 @@ void FootballTeam::logicUpdate(float dt){
             }
         }
     }else{
-        
-        
+        //TODO
     }
 }
 
@@ -182,7 +176,18 @@ void FootballTeam::update(float dt){
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //让自己的球队进行进攻
         //持球队员跑向去前场，其余队员到中场和前场接应
-//        m_pControllingPlayer->
+        //在射门区域里随机一个位置,持球队员成功跑到位置后射门
+        auto rect = getAttackShootRect();//获得射门区域
+        if(footManAttackPos == Vec2(0,0)){
+            footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
+        }
+        m_pControllingPlayer->runToPositon(footManAttackPos,CallFunc::create([=](){
+            //到达指定位置射门
+            m_pControllingPlayer->doShoot();
+            GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
+            footManAttackPos = Vec2(0,0);
+            this->teamState = TeamStatus::neutrality;
+        }));
     }
 }
 

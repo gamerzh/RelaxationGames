@@ -273,7 +273,8 @@ void GameLayer::addCustomEvent() {
     auto trackleSuccess = EventListenerCustom::create(foot_man_trackle_success, [=](EventCustom* event){
         //铲球成功,控球队员摔倒
         auto man = footBall->getOwerMan();
-        man->doTumble();
+        if(NULL != man)
+            man->doTumble();
         footBall->setBallFree();
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(trackleSuccess, 1);

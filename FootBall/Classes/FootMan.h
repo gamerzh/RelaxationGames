@@ -40,7 +40,7 @@ public:
     void replacement();
     void setOriginPosition(cocos2d::Vec2 vec);
     void changeFootManState(FootManState state);
-    void runToPositon(cocos2d::Vec2 pos);//跑向目标
+    void runToPositon(cocos2d::Vec2 pos,cocos2d::CallFunc* callback = NULL);//跑向目标
     void controlSimpleAI(bool p);
     FootManState getFootManState();
 private:
