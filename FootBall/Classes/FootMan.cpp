@@ -99,6 +99,18 @@ void FootMan::doTumble(){
     canObtainBall = false;
 }
 
+void FootMan::doDefend(cocos2d::Vec2 vec){
+    //球员去追对方持球队员
+    if(GeometryTools::calculateDistance(this->getPosition(),vec)>TACKLE_DISTANCE){
+        footmanRunToTarget(vec,TACKLE_DISTANCE,CallFunc::create([=](){
+            if(manState != FootManState::tackle && canFootmanTackle){
+                doSlideTackle();
+                canFootmanTackle = false;
+            }
+        }));
+    }
+}
+
 void FootMan::playFootManStand() {
     this->manState = FootManState::waiting;
     playerCsb->stopAllActions();
@@ -153,7 +165,6 @@ void FootMan::playFootManTumble(){
     heroTimeLine->play("animation6", false);
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation6",[=](){
-        //        log("playFootManTumble playFootManTumble playFootManTumble");
         canUpdateState = true;
     });
 }
@@ -224,7 +235,7 @@ float FootMan::getBallDistance(){
     return GeometryTools::calculateDistance(pos, this->getPosition());
 }
 
-void FootMan::runToPositon(Vec2 pos,CallFunc* callback){
+void FootMan::footmanRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     //跑向球
     auto vec = this->getPosition();
     float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
@@ -235,9 +246,9 @@ void FootMan::runToPositon(Vec2 pos,CallFunc* callback){
         moveLeft();
     }
     this->setPosition(vec.x+speedx,vec.y+speedy);
+//    log("HHHHHHHH %f,%f",this->getPositionX(),this->getPositionY());
     playFootManRun();
-    //偏差为距离15
-    if(GeometryTools::calculateDistance(this->getPosition(),pos)<=15){
+    if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad){
         //到达目标
         this->runAction(callback);
     }
@@ -298,48 +309,48 @@ void FootMan::update(float dt) {
         }
     }
     //判断持球的是否是己方球员或者没有人持球
-    auto ball = GameStatus::getInstance()->getGameBall();
-    if(simpleRobotAI){
-        //区分正常队员和守门员
-        if(!isGoalkeeper){
-            auto man = ball->getOwerMan();
-            if(NULL != man){
-                if(this->belongTeamId != man->getFootManTeamId()){
-                    //地方队员,防守
-                    if(getBallDistance()<DEFEND_RADIUS){
-                        if(manState == FootManState::waiting){
-                            playFootManRun();
-                        }
-                        if(getBallDistance()<TACKLE_DISTANCE){
-                            if(manState != FootManState::tackle && canFootmanTackle){
-                                doSlideTackle();
-                                canFootmanTackle = false;
-                               
-                            }
-                        }else{
-                            runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());
-                        }
-                    }else{
-                        if(manState != FootManState::waiting){
-                            playFootManStand();
-                        }else{
-                            manState = FootManState::waiting;
-                        }
-                    }
-                }else{
-                    //己方队友,去支援
-                    if(GeometryTools::calculateDistance(this->getPosition(), man->getPosition())>SUPPORT_DISTANCE && !this->isGoalkeeper){
-                        supportPosition(man->getPosition());
-                    }
-                }
-            }else{
-                //TODO 守门员逻辑
-            }
-            
-        }else{
-            //TODO 无人持球,通知最近的队员去抢球
-        }
-    }
+    //    auto ball = GameStatus::getInstance()->getGameBall();
+    //    if(simpleRobotAI){
+    //        //区分正常队员和守门员
+    //        if(!isGoalkeeper){
+    //            auto man = ball->getOwerMan();
+    //            if(NULL != man){
+    //                if(this->belongTeamId != man->getFootManTeamId()){
+    //                    //地方队员,防守
+    //                    if(getBallDistance()<DEFEND_RADIUS){
+    //                        //通知其余队友,已经有人防守了
+    //                        if(manState == FootManState::waiting){
+    //                            playFootManRun();
+    //                        }
+    //                        if(getBallDistance()<TACKLE_DISTANCE){
+    //                            if(manState != FootManState::tackle && canFootmanTackle){
+    //                                doSlideTackle();
+    //                                canFootmanTackle = false;
+    //                            }
+    //                        }else{
+    //                            runToPositon(GameStatus::getInstance()->getGameBall()->getPosition());
+    //                        }
+    //                    }else{
+    //                        if(manState != FootManState::waiting){
+    //                            playFootManStand();
+    //                        }else{
+    //                            manState = FootManState::waiting;
+    //                        }
+    //                    }
+    //                }else{
+    //                    //己方队友,去支援
+    //                    if(GeometryTools::calculateDistance(this->getPosition(), man->getPosition())>SUPPORT_DISTANCE && !this->isGoalkeeper){
+    //                        supportPosition(man->getPosition());
+    //                    }
+    //                }
+    //            }else{
+    //                //TODO 守门员逻辑
+    //            }
+    //
+    //        }else{
+    //            //TODO 无人持球,通知最近的队员去抢球
+    //        }
+    //    }
     updateFootManZorder();
     if (NULL != getChildByTag(1000)) {
         ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));

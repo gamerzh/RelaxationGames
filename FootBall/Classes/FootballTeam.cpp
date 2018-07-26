@@ -178,7 +178,18 @@ void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
-    //发动进攻
+    //防守和进攻的自由切换
+//    if(this->teamState == TeamStatus::attack){
+//        if(NULL == m_pControllingPlayer){
+//            this->teamState = TeamStatus::defend;
+//        }
+//    }
+//    if(this->teamState == TeamStatus::defend){
+//        if(NULL != m_pControllingPlayer){
+//            this->teamState = TeamStatus::attack;
+//        }
+//    }
+    //球队进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //让自己的球队进行进攻
         //持球队员跑向去前场，其余队员到中场和前场接应
@@ -188,13 +199,31 @@ void FootballTeam::update(float dt){
             footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
         }
         if(m_pControllingPlayer->getSimpleAI()){
-            m_pControllingPlayer->runToPositon(footManAttackPos,CallFunc::create([=](){
+            m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
                 m_pControllingPlayer->doShoot();
                 GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
                 footManAttackPos = Vec2(0,0);
                 this->teamState = TeamStatus::neutrality;
             }));
+        }
+    }
+    //球队防守
+    if(this->teamState == TeamStatus::defend){
+        //计算除守门员以外的球员和对方控球队员的距离
+        auto cman = GameStatus::getInstance()->getGameBall()->getOwerMan();//控球队员
+        if(NULL != cman){
+            int max = 10000;
+            FootMan* dman;
+            for(auto var : footManVector){
+                float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
+                if(dis<max && !var->isGoalkeeper){
+                    dman = var;
+                    max = dis;
+                }
+            }
+            //对防守队员下达指令,去追球
+            dman->doDefend(cman->getPosition());
         }
     }
 }
