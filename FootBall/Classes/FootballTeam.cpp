@@ -92,7 +92,7 @@ std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
     left.push_back(Vec2(1000,675));
     left.push_back(Vec2(710,850));
     left.push_back(Vec2(710,350));
-    left.push_back(Vec2(400,675));
+    left.push_back(Vec2(250,675));
     return left;
 }
 
@@ -101,7 +101,7 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
     right.push_back(Vec2(1200,675));
     right.push_back(Vec2(1500,850));
     right.push_back(Vec2(1500,350));
-    right.push_back(Vec2(1700,675));
+    right.push_back(Vec2(1880,675));
     return right;
 }
 
@@ -171,6 +171,12 @@ void FootballTeam::logicUpdate(float dt){
 void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
+    }
+    //队伍状态检查
+    if(this->teamState == TeamStatus::defend){
+        for(auto var :footManVector){
+            var->controlSimpleAI(true);
+        }
     }
     //发动进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){

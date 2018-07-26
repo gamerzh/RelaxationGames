@@ -204,8 +204,10 @@ void GameLayer::manLootBall() {
             if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){
                 playerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::attack);
+                computerTeam->setTeamStatus(TeamStatus::defend);
             }else{
                 computerTeam->setControllingMan(man);
+                playerTeam->setTeamStatus(TeamStatus::defend);
                 computerTeam->setTeamStatus(TeamStatus::attack);
             }
             return;

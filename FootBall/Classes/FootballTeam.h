@@ -6,7 +6,7 @@
 enum TeamStatus{
     attack,
     defend,
-    neutrality
+    neutrality//中立
 };
 
 class FootballTeam : public cocos2d::Node {
