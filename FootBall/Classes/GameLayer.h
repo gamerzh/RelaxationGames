@@ -16,11 +16,14 @@ public:
     //    void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
     //    void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 private:
+    bool canChangeControlMan = true;
+    float changeControlManInterval = 3.0f;
     Ball* footBall = nullptr;
     Rocker* heroRocker = nullptr;
     cocos2d::Camera* playerCamera;
     FootballTeam* playerTeam;
     FootballTeam* computerTeam;
+    FootMan* controlingFootman;//当前被控制的球员
     void onEnter();
     void onExit();
     void passAndTackle();

@@ -187,6 +187,14 @@ void GameLayer::manLootBall() {
 
 
 void GameLayer::update(float dt) {
+    if(!canChangeControlMan){
+        changeControlManInterval -= dt;
+        if(changeControlManInterval<0){
+            canChangeControlMan = true;
+            changeControlManInterval = 3.0f;
+        }
+    }
+    
     if (footBall->getBallState() == ball_is_free) {
         manLootBall();
     }
@@ -194,17 +202,21 @@ void GameLayer::update(float dt) {
     int min = INT_FAST32_MAX;
     for (auto mine :  GameStatus::getInstance()->currentPlayerTeam) {
         auto dis = GeometryTools::calculateDistance(footBall->getPosition(), mine->getPosition());
-        if (dis < min && !mine->isGoalkeeper) {
+        if (dis < min && !mine->isGoalkeeper && canChangeControlMan) {
             controlMan = mine;
             min = dis;
         }
     }
-    if (nullptr != controlMan && nullptr != heroRocker) {
+    if(nullptr != controlMan){
+         controlingFootman = controlMan;
+    }
+    if (nullptr != controlingFootman && nullptr != heroRocker) {
+        canChangeControlMan = false;
         auto angle = heroRocker->getRockerAngle();
         if (angle != 0) {
-            controlMan->changeFootManState(FootManState::running);
-            controlMan->openSimpleAI(false);
-            controlMan->setFootManAngle(angle);
+            controlingFootman->changeFootManState(FootManState::running);
+            controlingFootman->openSimpleAI(false);
+            controlingFootman->setFootManAngle(angle);
         }
     }
     
