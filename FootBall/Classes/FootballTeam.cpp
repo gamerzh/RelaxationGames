@@ -55,7 +55,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
         
         energy_timer_1->setPosition(850, 610);
     }
-    schedule(schedule_selector(FootballTeam::logicUpdate), 1);
+    schedule(schedule_selector(FootballTeam::logicUpdate), 0.5f);
     scheduleUpdate();
     return true;
 }
@@ -148,7 +148,7 @@ std::string FootballTeam::getTeamAttackDirection(){
 
 void FootballTeam::setFootballTeamAI(FootMan* man){
     for (auto  var : footManVector) {
-        if(var == man && !var->isGoalkeeper){
+        if(NULL != man && var == man && !var->isGoalkeeper){
             var->openSimpleAI(false);
         }else{
             var->openSimpleAI(true);
@@ -169,8 +169,17 @@ void FootballTeam::logicUpdate(float dt){
                 m_pSupportingPlayer = var;
             }
         }
-    }else{
-        //TODO
+    }
+    if(this->teamState == TeamStatus::defend){
+        auto ball = GameStatus::getInstance()->getGameBall();
+        int max = 10000;
+        for(auto var : footManVector){
+            float dis = GeometryTools::calculateDistance(ball->getPosition(), var->getPosition());
+            if(dis<max && !var->isGoalkeeper){
+                m_pCloseingPlayer  = var;
+                max = dis;
+            }
+        }
     }
 }
 
@@ -201,10 +210,10 @@ void FootballTeam::update(float dt){
         if(m_pControllingPlayer->getSimpleAI()){
             m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
-                m_pControllingPlayer->doShoot();
-                GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
-                footManAttackPos = Vec2(0,0);
-                this->teamState = TeamStatus::neutrality;
+//                m_pControllingPlayer->doShoot();
+//                GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
+//                footManAttackPos = Vec2(0,0);
+//                this->teamState = TeamStatus::neutrality;
             }));
         }
     }
@@ -214,16 +223,18 @@ void FootballTeam::update(float dt){
         auto cman = GameStatus::getInstance()->getGameBall()->getOwerMan();//控球队员
         if(NULL != cman){
             int max = 10000;
-            FootMan* dman;
+            FootMan* dman = nullptr;
             for(auto var : footManVector){
                 float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
-                if(dis<max && !var->isGoalkeeper){
+                if(dis<max && !var->isGoalkeeper && var->getSimpleAI()){
                     dman = var;
                     max = dis;
                 }
             }
             //对防守队员下达指令,去追球
-            dman->doDefend(cman->getPosition());
+            if(nullptr != dman && dman->getSimpleAI()){
+                 dman->doDefend(cman->getPosition());
+            }
         }
     }
 }

@@ -172,11 +172,13 @@ void GameLayer::manLootBall() {
                 playerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::attack);
                 computerTeam->setTeamStatus(TeamStatus::defend);
-                playerTeam->setFootballTeamAI(man);
+//                playerTeam->setFootballTeamAI(man);
             }else{
                 computerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::defend);
                 computerTeam->setTeamStatus(TeamStatus::attack);
+                //离球最近的球员
+//                playerTeam->setFootballTeamAI(playerTeam->m_pCloseingPlayer);
             }
             return;
         }
@@ -192,7 +194,7 @@ void GameLayer::update(float dt) {
     int min = INT_FAST32_MAX;
     for (auto mine :  GameStatus::getInstance()->currentPlayerTeam) {
         auto dis = GeometryTools::calculateDistance(footBall->getPosition(), mine->getPosition());
-        if (dis < min) {
+        if (dis < min && !mine->isGoalkeeper) {
             controlMan = mine;
             min = dis;
         }
@@ -201,6 +203,7 @@ void GameLayer::update(float dt) {
         auto angle = heroRocker->getRockerAngle();
         if (angle != 0) {
             controlMan->changeFootManState(FootManState::running);
+            controlMan->openSimpleAI(false);
             controlMan->setFootManAngle(angle);
         }
     }
@@ -245,8 +248,9 @@ void GameLayer::addCustomEvent() {
     auto trackleSuccess = EventListenerCustom::create(foot_man_trackle_success, [=](EventCustom* event){
         //铲球成功,控球队员摔倒
         auto man = footBall->getOwerMan();
-        if(NULL != man)
-            man->doTumble();
+        if(NULL != man){
+             man->doTumble();
+        }
         footBall->setBallFree();
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(trackleSuccess, 1);
@@ -262,5 +266,5 @@ void GameLayer::addCustomEvent() {
 void GameLayer::removeCustomEvent() {
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_in_goal);
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_man_trackle_success);
-     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_game_start);
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners(foot_ball_game_start);
 }
