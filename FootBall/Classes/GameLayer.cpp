@@ -230,6 +230,7 @@ void GameLayer::addCustomEvent() {
         }
         //延迟2秒,2秒后重置场景,球员和球回到初始位置
         schedule([=](float dt){
+            GameStatus::getInstance()->setGameState(GameState::game_start);
             replacementAll();
             if(playerTeam->getTeamAttackDirection() == result){
                 footBall->setPositionX(1200);
