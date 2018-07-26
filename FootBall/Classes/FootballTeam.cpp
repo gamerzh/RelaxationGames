@@ -146,13 +146,9 @@ std::string FootballTeam::getTeamAttackDirection(){
     }
 }
 
-//void FootballTeam::startAttack(){
-//    this->teamState = attack;
-//}
-
 void FootballTeam::setFootballTeamAI(FootMan* man){
     for (auto  var : footManVector) {
-        if(var == man){
+        if(var == man && !var->isGoalkeeper){
             var->openSimpleAI(false);
         }else{
             var->openSimpleAI(true);

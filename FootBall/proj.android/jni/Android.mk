@@ -14,21 +14,18 @@ define walk
 $(wildcard $(1)) $(foreach e, $(wildcard $(1)/*), $(call walk, $(e)))
 endef
 
-
 ALLFILES = $(call walk, $(LOCAL_PATH)/../../Classes)
-FILE_LIST := hellocpp/main.cpp 
-FILE_LIST += hellocpp/dreamproxy.cpp
-
+FILE_LIST := hellocpp/main.cpp
 FILE_LIST += $(filter %.cpp, $(ALLFILES))
-FILE_LIST += $(filter %.c, $(ALLFILES))
 
 LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 
-                   
+# _COCOS_HEADER_ANDROID_BEGIN
+# _COCOS_HEADER_ANDROID_END
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static
 
