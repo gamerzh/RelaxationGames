@@ -30,7 +30,6 @@ public:
     void setTeamStatus(TeamStatus s);
     void setControllingMan(FootMan* man);
     void setTeamInLeftField(bool b);
-    void passBallToTeammate(FootMan* controlMan,FootMan* supportMan);//队员之间相互传球
     void setFootballTeamAI(FootMan* man = nullptr);//设置队伍的AI
 private:
     TeamStatus teamState;

@@ -105,7 +105,6 @@ void GameLayer::passAndTackle() {
         auto mate = playerTeam->m_pSupportingPlayer;
         if(NULL != mate){
             footBall->setBallPass(mate->getPosition());
-            playerTeam->passBallToTeammate(playerTeam->m_pControllingPlayer,mate);
         }
     }else{
         //铲球
@@ -121,8 +120,9 @@ void GameLayer::shoot() {
             if(playerTeam->checkShootResult()){
                 footBall->setBallShoot(playerTeam->getTeamShootPoint());
             }else{
-                //TODO:球被守门员拦截
+                //球被守门员拦截
                 footBall->setBallShoot(computerTeam->getGoalkeeperVec2());
+                playerTeam->setTeamStatus(TeamStatus::defend);//转入防守
             }
         }
     }
@@ -176,13 +176,10 @@ void GameLayer::manLootBall() {
                 playerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::attack);
                 computerTeam->setTeamStatus(TeamStatus::defend);
-                //                playerTeam->setFootballTeamAI(man);
             }else{
                 computerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::defend);
                 computerTeam->setTeamStatus(TeamStatus::attack);
-                //离球最近的球员
-                //                playerTeam->setFootballTeamAI(playerTeam->m_pCloseingPlayer);
             }
             return;
         }
