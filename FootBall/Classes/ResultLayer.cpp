@@ -33,12 +33,20 @@ bool ResultLayer::init(bool win) {
 		bg->setTexture("sb.png");
 	}
 
-	auto img1 = MenuItemImage::create("result_lobby.png","result_lobby.png");
-	auto img2 = MenuItemImage::create("result_con.png", "result_con.png");
+	auto img1 = MenuItemImage::create("result_lobby.png","result_lobby.png",CC_CALLBACK_0(ResultLayer::continueGame, this));
+	auto img2 = MenuItemImage::create("result_con.png", "result_con.png",CC_CALLBACK_0(ResultLayer::gotoLobby, this));
 	auto menu = Menu::create(img1, img2,NULL);
 	menu->setPosition(visibleSize.width / 2, visibleSize.height / 2-180);
 	menu->alignItemsHorizontallyWithPadding(50);
 	addChild(menu);
 
 	return true;
+}
+
+void ResultLayer::continueGame(){
+    
+}
+
+void ResultLayer::gotoLobby(){
+    
 }

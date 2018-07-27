@@ -111,8 +111,8 @@ cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
         Rect rect1 = Rect(100,450,60,400);//球门区域1
         return Vec2(random(rect1.getMinX(), rect1.getMaxX()),random(rect1.getMinY(),rect1.getMaxY()));
     }else{
-         Rect rect2 = Rect(2000,450,60,400);//球门区域2
-         return Vec2(random(rect2.getMinX(), rect2.getMaxX()),random(rect2.getMinY(),rect2.getMaxY()));
+        Rect rect2 = Rect(2000,550,60,400);//球门区域2
+        return Vec2(random(rect2.getMinX(), rect2.getMaxX()),random(rect2.getMinY(),rect2.getMaxY()));
     }
 }
 
@@ -159,6 +159,32 @@ void FootballTeam::setFootballTeamAI(FootMan* man){
     }
 }
 
+bool FootballTeam::checkShootResult(){
+    //判断这次射门是否成功
+    //守门员默认为防守队员
+    auto ballPos = GameStatus::getInstance()->getGameBall()->getPosition();
+    float per  = 60;//守门员的防守值默认40，球员为30
+    if(teamId == 1){
+        for(auto var :GameStatus::getInstance()->currentComputerTeam){
+            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
+                per -= 30;
+            }
+        }
+    }else{
+        for(auto var :GameStatus::getInstance()->currentPlayerTeam){
+            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
+                per -= 30;
+            }
+        }
+    }
+    if(per>0){
+        if(random(1, 100)<per){
+            return  true;
+        }
+    }
+    return false;
+}
+
 void FootballTeam::logicUpdate(float dt){
     //判断队伍目前的状态
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
@@ -191,16 +217,16 @@ void FootballTeam::update(float dt){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
     //防守和进攻的自由切换
-//    if(this->teamState == TeamStatus::attack){
-//        if(NULL == m_pControllingPlayer){
-//            this->teamState = TeamStatus::defend;
-//        }
-//    }
-//    if(this->teamState == TeamStatus::defend){
-//        if(NULL != m_pControllingPlayer){
-//            this->teamState = TeamStatus::attack;
-//        }
-//    }
+    //    if(this->teamState == TeamStatus::attack){
+    //        if(NULL == m_pControllingPlayer){
+    //            this->teamState = TeamStatus::defend;
+    //        }
+    //    }
+    //    if(this->teamState == TeamStatus::defend){
+    //        if(NULL != m_pControllingPlayer){
+    //            this->teamState = TeamStatus::attack;
+    //        }
+    //    }
     //球队进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //让自己的球队进行进攻
@@ -214,13 +240,13 @@ void FootballTeam::update(float dt){
             m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
                 m_pControllingPlayer->doShoot();
-                //TODO 判断这次射门是否成功
-                if(true){
+                if(checkShootResult()){
                     GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
                     footManAttackPos = Vec2(0,0);
                     this->teamState = TeamStatus::neutrality;
                 }else{
-                    //TODO 直接转为防守状态
+                    this->teamState = TeamStatus::defend;
+                    //TODO:通知球员回到防守位置，球会给到对方守门员
                 }
             }));
         }
@@ -241,7 +267,7 @@ void FootballTeam::update(float dt){
             }
             //对防守队员下达指令,去追球
             if(nullptr != dman && dman->getSimpleAI()){
-                 dman->doDefend(cman->getPosition());
+                dman->doDefend(cman->getPosition());
             }
         }
     }
@@ -249,10 +275,10 @@ void FootballTeam::update(float dt){
 
 void FootballTeam::onEnter(){
     Node::onEnter();
-
+    
 }
 
 void FootballTeam::onExit(){
     Node::onExit();
-   
+    
 }

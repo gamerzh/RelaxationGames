@@ -23,8 +23,6 @@ public:
 private:
     static  GameStatus* m_instance;
     GameStatus() {}
-    int playerTeamId = 0;
-    int computerTeamId = 0;
     Ball* current_ball = nullptr;
     GameState  gameState;
 };

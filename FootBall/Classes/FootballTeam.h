@@ -17,6 +17,7 @@ public:
     void onEnter();
     void onExit();
     int getFootBallTeamId();
+     bool checkShootResult();
     std::string getTeamAttackDirection();
 	std::vector<FootMan*> getFootManVector();
     cocos2d::Rect getAttackShootRect();
@@ -37,6 +38,7 @@ private:
     cocos2d::Vec2 footManAttackPos =  cocos2d::Vec2(0,0);//一次进攻的目标位置
     FootMan* goalkeeper;//守门员
 	std::vector<FootMan*> footManVector;
+   
 	std::vector<cocos2d::Vec2> getLeftFieldVec2();
 	std::vector<cocos2d::Vec2> getRightFieldVec2();
     void logicUpdate(float dt);

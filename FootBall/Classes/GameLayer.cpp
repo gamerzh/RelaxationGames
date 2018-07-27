@@ -30,7 +30,7 @@ bool GameLayer::init() {
     footBall->setPosition(1000, 680);
     footBall->setCameraMask((int)CameraFlag::USER1);
     addChild(footBall, FOOTBALL_LOCAL_ZORDER);
-    GameStatus::getInstance()->setGameBall(footBall);//HACK 为了FootMan类可以获取到ball的位置
+    GameStatus::getInstance()->setGameBall(footBall);//MARK:为了FootMan类可以获取到ball的位置
     GameStatus::getInstance()->setGameState(GameState::game_start);//游戏等待开始
     
     loadGameLayerUI();
@@ -117,9 +117,11 @@ void GameLayer::shoot() {
         playerTeam->m_pControllingPlayer->doShoot();
         //设置射门的目标点
         if(playerTeam->getFootBallTeamId() == playerTeam->m_pControllingPlayer->getFootManTeamId()){
-            footBall->setBallShoot(playerTeam->getTeamShootPoint());
-        }else{
-            footBall->setBallShoot(computerTeam->getTeamShootPoint());
+            if(playerTeam->checkShootResult()){
+                footBall->setBallShoot(playerTeam->getTeamShootPoint());
+            }else{
+                //TODO:球被守门员拦截
+            }
         }
     }
 }
@@ -172,13 +174,13 @@ void GameLayer::manLootBall() {
                 playerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::attack);
                 computerTeam->setTeamStatus(TeamStatus::defend);
-//                playerTeam->setFootballTeamAI(man);
+                //                playerTeam->setFootballTeamAI(man);
             }else{
                 computerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::defend);
                 computerTeam->setTeamStatus(TeamStatus::attack);
                 //离球最近的球员
-//                playerTeam->setFootballTeamAI(playerTeam->m_pCloseingPlayer);
+                //                playerTeam->setFootballTeamAI(playerTeam->m_pCloseingPlayer);
             }
             return;
         }
@@ -208,7 +210,7 @@ void GameLayer::update(float dt) {
         }
     }
     if(nullptr != controlMan){
-         controlingFootman = controlMan;
+        controlingFootman = controlMan;
     }
     if (nullptr != controlingFootman && nullptr != heroRocker) {
         canChangeControlMan = false;
@@ -261,7 +263,7 @@ void GameLayer::addCustomEvent() {
         //铲球成功,控球队员摔倒
         auto man = footBall->getOwerMan();
         if(NULL != man){
-             man->doTumble();
+            man->doTumble();
         }
         footBall->setBallFree();
     });
