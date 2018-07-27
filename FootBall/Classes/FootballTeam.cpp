@@ -251,6 +251,8 @@ void FootballTeam::update(float dt){
                     this->teamState = TeamStatus::defend;
                     if(this->teamId == 1){
                         GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getGoalkeeperVec2());
+                    }else{
+                          GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getPlayerTeam()->getGoalkeeperVec2());
                     }
                    
                     //TODO:通知球员回到防守位置，球会给到对方守门员

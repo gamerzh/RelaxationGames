@@ -122,6 +122,7 @@ void GameLayer::shoot() {
                 footBall->setBallShoot(playerTeam->getTeamShootPoint());
             }else{
                 //TODO:球被守门员拦截
+                footBall->setBallShoot(computerTeam->getGoalkeeperVec2());
             }
         }
     }

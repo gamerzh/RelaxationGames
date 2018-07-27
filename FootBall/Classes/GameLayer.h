@@ -12,9 +12,6 @@ class GameLayer : public cocos2d::Layer {
 public:
     virtual bool init();
     CREATE_FUNC(GameLayer);
-    //    void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-    //    void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-    //    void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 private:
     bool canChangeControlMan = true;
     float changeControlManInterval = 1.5f;
