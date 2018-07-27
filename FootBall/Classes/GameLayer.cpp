@@ -61,8 +61,9 @@ void GameLayer::createFootballFild() {
 void GameLayer::createFootBallTeam() {
     playerTeam = FootballTeam::create(1,true);
     addChild(playerTeam,FOOTBALL_LOCAL_ZORDER*2);
-    GameStatus::getInstance()->playerTeam = playerTeam;
-    for (auto var:  GameStatus::getInstance()->playerTeam->getFootManVector())
+    GameStatus::getInstance()->setPlayerTeam(playerTeam);
+    
+    for (auto var: playerTeam->getFootManVector())
     {
         var->setCameraMask((int)CameraFlag::USER1);
         var->changeFootManState(FootManState::waiting);
@@ -70,8 +71,8 @@ void GameLayer::createFootBallTeam() {
     }
     computerTeam = FootballTeam::create(2,false);
     addChild(computerTeam,FOOTBALL_LOCAL_ZORDER*2);
-    GameStatus::getInstance()->computerTeam = computerTeam;
-    for (auto var2:  GameStatus::getInstance()->computerTeam->getFootManVector())
+    GameStatus::getInstance()->setComputerTeam(computerTeam);
+    for (auto var2: computerTeam->getFootManVector())
     {
         var2->setCameraMask((int)CameraFlag::USER1);
         var2->changeFootManState(FootManState::waiting);
@@ -132,10 +133,10 @@ void GameLayer::speedMan() {
 
 void GameLayer::replacementAll(){
     footBall->replacement();
-    for (auto var1 : GameStatus::getInstance()->playerTeam->getFootManVector()) {
+    for (auto var1 : GameStatus::getInstance()->getPlayerTeam()->getFootManVector()) {
         var1->replacement();
     }
-    for (auto var2 : GameStatus::getInstance()->computerTeam->getFootManVector()) {
+    for (auto var2 : GameStatus::getInstance()->getComputerTeam()->getFootManVector()) {
         var2->replacement();
     }
 }
@@ -151,13 +152,13 @@ bool GameLayer::checkFootManInShootArea(FootMan* man){
 
 void GameLayer::manLootBall() {
     std::vector<FootMan*> alternativeMan;
-    for (auto var1 :  GameStatus::getInstance()->playerTeam->getFootManVector()) {
+    for (auto var1 :  playerTeam->getFootManVector()) {
         float dis = GeometryTools::calculateDistance(var1->getPosition(),footBall->getPosition());
         if (dis < owner_ball_max_dis) {
             alternativeMan.push_back(var1);
         }
     }
-    for (auto var2 :  GameStatus::getInstance()->computerTeam->getFootManVector()) {
+    for (auto var2 : computerTeam->getFootManVector()) {
         float dis = GeometryTools::calculateDistance(var2->getPosition(),footBall->getPosition());
         if (dis < owner_ball_max_dis) {
             alternativeMan.push_back(var2);
@@ -202,7 +203,7 @@ void GameLayer::update(float dt) {
     }
     FootMan* controlMan = nullptr;
     int min = INT_FAST32_MAX;
-    for (auto mine :  GameStatus::getInstance()->playerTeam->getFootManVector()) {
+    for (auto mine : playerTeam->getFootManVector()) {
         auto dis = GeometryTools::calculateDistance(footBall->getPosition(), mine->getPosition());
         if (dis < min && !mine->isGoalkeeper && canChangeControlMan) {
             controlMan = mine;

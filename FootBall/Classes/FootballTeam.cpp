@@ -174,13 +174,13 @@ bool FootballTeam::checkShootResult(){
     auto ballPos = GameStatus::getInstance()->getGameBall()->getPosition();
     float per  = 60;//守门员的防守值默认40，球员为30
     if(teamId == 1){
-        for(auto var :GameStatus::getInstance()->computerTeam->getFootManVector()){
+        for(auto var :GameStatus::getInstance()->getComputerTeam()->getFootManVector()){
             if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
                 per -= 30;
             }
         }
     }else{
-        for(auto var :GameStatus::getInstance()->playerTeam->getFootManVector()){
+        for(auto var :GameStatus::getInstance()->getPlayerTeam()->getFootManVector()){
             if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
                 per -= 30;
             }
@@ -245,7 +245,7 @@ void FootballTeam::update(float dt){
                 }else{
                     this->teamState = TeamStatus::defend;
                     if(this->teamId == 1){
-                        GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->computerTeam->getGoalkeeperVec2());
+                        GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getGoalkeeperVec2());
                     }
                    
                     //TODO:通知球员回到防守位置，球会给到对方守门员

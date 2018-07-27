@@ -23,3 +23,19 @@ GameState GameStatus::getGameState(){
 void GameStatus::setGameState(GameState state){
     this->gameState = state;
 }
+
+FootballTeam* GameStatus::getPlayerTeam(){
+    return this->playerTeam ;
+}
+
+void GameStatus::setPlayerTeam(FootballTeam* team){
+    this->playerTeam = team;
+}
+
+FootballTeam* GameStatus::getComputerTeam(){
+    return  this->computerTeam;
+}
+
+void GameStatus::setComputerTeam(FootballTeam* team){
+    this->computerTeam = team;
+}
