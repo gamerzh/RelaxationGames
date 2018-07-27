@@ -30,7 +30,7 @@ bool GameLayer::init() {
     footBall->setPosition(1000, 680);
     footBall->setCameraMask((int)CameraFlag::USER1);
     addChild(footBall, FOOTBALL_LOCAL_ZORDER);
-    GameStatus::getInstance()->setGameBall(footBall);//MARK:为了FootMan类可以获取到ball的位置
+    GameStatus::getInstance()->setGameBall(footBall);//HACK:为了FootMan类可以获取到ball的位置
     GameStatus::getInstance()->setGameState(GameState::game_start);//游戏等待开始
     
     loadGameLayerUI();
@@ -98,6 +98,10 @@ void GameLayer::loadGameLayerUI() {
 
 
 void GameLayer::passAndTackle() {
+    if(GameStatus::getInstance()->getGameState() == GameState::game_start){
+        GameStatus::getInstance()->setGameState(GameState::game_playing);
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
+    }
     //传球和铲球
     if(playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
         //玩家在控球,传出：离自己最近的己方球员
@@ -113,6 +117,10 @@ void GameLayer::passAndTackle() {
 }
 
 void GameLayer::shoot() {
+    if(GameStatus::getInstance()->getGameState() == GameState::game_start){
+        GameStatus::getInstance()->setGameState(GameState::game_playing);
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
+    }
     if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
         playerTeam->m_pControllingPlayer->doShoot();
         //设置射门的目标点
@@ -130,6 +138,10 @@ void GameLayer::shoot() {
 
 void GameLayer::speedMan() {
     //球队的控球队员短距离加速
+    if(GameStatus::getInstance()->getGameState() == GameState::game_start){
+        GameStatus::getInstance()->setGameState(GameState::game_playing);
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
+    }
 }
 
 void GameLayer::replacementAll(){

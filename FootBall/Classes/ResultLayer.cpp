@@ -1,4 +1,5 @@
 #include "ResultLayer.h"
+#include "LobbyScene.h"
 USING_NS_CC;
 
 ResultLayer* ResultLayer::create(bool win) {
@@ -33,8 +34,8 @@ bool ResultLayer::init(bool win) {
 		bg->setTexture("sb.png");
 	}
 
-	auto img1 = MenuItemImage::create("result_lobby.png","result_lobby.png",CC_CALLBACK_0(ResultLayer::continueGame, this));
-	auto img2 = MenuItemImage::create("result_con.png", "result_con.png",CC_CALLBACK_0(ResultLayer::gotoLobby, this));
+	auto img1 = MenuItemImage::create("result_lobby.png","result_lobby.png",CC_CALLBACK_0(ResultLayer::gotoLobby, this));
+	auto img2 = MenuItemImage::create("result_con.png", "result_con.png",CC_CALLBACK_0(ResultLayer::continueGame, this));
 	auto menu = Menu::create(img1, img2,NULL);
 	menu->setPosition(visibleSize.width / 2, visibleSize.height / 2-180);
 	menu->alignItemsHorizontallyWithPadding(50);
@@ -44,9 +45,9 @@ bool ResultLayer::init(bool win) {
 }
 
 void ResultLayer::continueGame(){
-    
+    //TODO:继续游戏
 }
 
 void ResultLayer::gotoLobby(){
-    
+    Director::getInstance()->replaceScene(LobbyScene::create());
 }
