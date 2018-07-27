@@ -34,7 +34,7 @@ private:
     TeamStatus teamState;
     int teamId = 0;
     bool teamInLeftField = true;//队伍目前在左半场
-    cocos2d::Vec2 footManAttackPos =  cocos2d::Vec2(0,0);
+    cocos2d::Vec2 footManAttackPos =  cocos2d::Vec2(0,0);//一次进攻的目标位置
     FootMan* goalkeeper;//守门员
 	std::vector<FootMan*> footManVector;
 	std::vector<cocos2d::Vec2> getLeftFieldVec2();

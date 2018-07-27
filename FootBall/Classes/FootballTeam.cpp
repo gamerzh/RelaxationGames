@@ -214,9 +214,14 @@ void FootballTeam::update(float dt){
             m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
                 m_pControllingPlayer->doShoot();
-                GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
-                footManAttackPos = Vec2(0,0);
-                this->teamState = TeamStatus::neutrality;
+                //TODO 判断这次射门是否成功
+                if(true){
+                    GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
+                    footManAttackPos = Vec2(0,0);
+                    this->teamState = TeamStatus::neutrality;
+                }else{
+                    //TODO 直接转为防守状态
+                }
             }));
         }
     }
