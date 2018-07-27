@@ -106,10 +106,13 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
 }
 
 cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
+    // 射门的位置随机
     if(!teamInLeftField){
-        return Vec2(150,650);
+        Rect rect1 = Rect(100,450,60,400);//球门区域1
+        return Vec2(random(rect1.getMinX(), rect1.getMaxX()),random(rect1.getMinY(),rect1.getMaxY()));
     }else{
-        return Vec2(2000,650);
+         Rect rect2 = Rect(2000,450,60,400);//球门区域2
+         return Vec2(random(rect2.getMinX(), rect2.getMaxX()),random(rect2.getMinY(),rect2.getMaxY()));
     }
 }
 

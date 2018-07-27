@@ -17,7 +17,7 @@ public:
     //    void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 private:
     bool canChangeControlMan = true;
-    float changeControlManInterval = 3.0f;
+    float changeControlManInterval = 1.5f;
     Ball* footBall = nullptr;
     Rocker* heroRocker = nullptr;
     cocos2d::Camera* playerCamera;

@@ -191,7 +191,7 @@ void GameLayer::update(float dt) {
         changeControlManInterval -= dt;
         if(changeControlManInterval<0){
             canChangeControlMan = true;
-            changeControlManInterval = 3.0f;
+            changeControlManInterval = 1.5f;
         }
     }
     
