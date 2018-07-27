@@ -133,10 +133,10 @@ void GameLayer::speedMan() {
 
 void GameLayer::replacementAll(){
     footBall->replacement();
-    for (auto var1 : GameStatus::getInstance()->getPlayerTeam()->getFootManVector()) {
+    for (auto var1 : playerTeam->getFootManVector()) {
         var1->replacement();
     }
-    for (auto var2 : GameStatus::getInstance()->getComputerTeam()->getFootManVector()) {
+    for (auto var2 : computerTeam->getFootManVector()) {
         var2->replacement();
     }
 }
