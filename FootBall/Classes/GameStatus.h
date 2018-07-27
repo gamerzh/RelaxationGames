@@ -1,6 +1,6 @@
 #pragma once
 #include"cocos2d.h"
-#include "FootMan.h"
+#include "FootballTeam.h"
 #include "Ball.h"
 USING_NS_CC;
 
@@ -14,8 +14,8 @@ enum GameState{
 class GameStatus {
 public:
     static  GameStatus* getInstance();
-    std::vector<FootMan*> currentPlayerTeam;
-    std::vector<FootMan*> currentComputerTeam;
+    FootballTeam* playerTeam;//玩家操作的队伍
+    FootballTeam* computerTeam;//AI控制的队伍
     Ball* getGameBall();
     void setGameBall(Ball* ball);
     GameState getGameState();

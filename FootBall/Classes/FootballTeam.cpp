@@ -87,6 +87,15 @@ void FootballTeam::setTeamInLeftField(bool b) {
     this->teamInLeftField = b;
 }
 
+cocos2d::Vec2 FootballTeam::getGoalkeeperVec2(){
+    for(auto man:footManVector){
+        if(man->isGoalkeeper){
+            return man->getPosition();
+        }
+    }
+    return Vec2(0,0);
+}
+
 std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
     std::vector<Vec2> left;
     left.push_back(Vec2(1000,675));
@@ -165,13 +174,13 @@ bool FootballTeam::checkShootResult(){
     auto ballPos = GameStatus::getInstance()->getGameBall()->getPosition();
     float per  = 60;//守门员的防守值默认40，球员为30
     if(teamId == 1){
-        for(auto var :GameStatus::getInstance()->currentComputerTeam){
+        for(auto var :GameStatus::getInstance()->computerTeam->getFootManVector()){
             if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
                 per -= 30;
             }
         }
     }else{
-        for(auto var :GameStatus::getInstance()->currentPlayerTeam){
+        for(auto var :GameStatus::getInstance()->playerTeam->getFootManVector()){
             if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
                 per -= 30;
             }
@@ -216,17 +225,6 @@ void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
-    //防守和进攻的自由切换
-    //    if(this->teamState == TeamStatus::attack){
-    //        if(NULL == m_pControllingPlayer){
-    //            this->teamState = TeamStatus::defend;
-    //        }
-    //    }
-    //    if(this->teamState == TeamStatus::defend){
-    //        if(NULL != m_pControllingPlayer){
-    //            this->teamState = TeamStatus::attack;
-    //        }
-    //    }
     //球队进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //让自己的球队进行进攻
@@ -246,6 +244,10 @@ void FootballTeam::update(float dt){
                     this->teamState = TeamStatus::neutrality;
                 }else{
                     this->teamState = TeamStatus::defend;
+                    if(this->teamId == 1){
+                        GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->computerTeam->getGoalkeeperVec2());
+                    }
+                   
                     //TODO:通知球员回到防守位置，球会给到对方守门员
                 }
             }));
