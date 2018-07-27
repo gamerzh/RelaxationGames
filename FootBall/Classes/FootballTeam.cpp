@@ -24,6 +24,8 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     this->teamInLeftField = teamInLeftField;
     this->teamId = teamid;
     
+    generateFootballTeam();
+    
     auto teamIcon1 = Sprite::create("team_icon_1.png");
     addChild(teamIcon1);
     
@@ -60,8 +62,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     return true;
 }
 
-
-std::vector<FootMan*> FootballTeam::getFootManVector() {
+void FootballTeam::generateFootballTeam(){
     auto currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(this->teamId);
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
@@ -76,7 +77,11 @@ std::vector<FootMan*> FootballTeam::getFootManVector() {
         }
         footManVector.push_back(foot1);
     }
-    return footManVector;
+}
+
+
+std::vector<FootMan*> FootballTeam::getFootManVector() {
+    return this->footManVector;
 }
 
 int FootballTeam::getFootBallTeamId(){
