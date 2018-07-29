@@ -89,6 +89,8 @@ void LobbyLayer::worldMenuCallBack(cocos2d::Ref* ref) {
 	worldLayer->setVisible(true);
 	masterLayer->setVisible(false);
 	teamLayer->setVisible(false);
+    //选择上次刚通过的官卡
+    
 }
 
 void LobbyLayer::masterMenuCallBack(cocos2d::Ref* ref) {
@@ -112,11 +114,11 @@ void LobbyLayer::teamMenuCallBack(cocos2d::Ref* ref) {
 void LobbyLayer::loadWorldCupView() {
 	worldLayer = Layer::create();
 	addChild(worldLayer);
-	loadPipeView(worldLayer,0,true);
+    loadPipeView(worldLayer,UserData::getInstance()->getWorldCupLevel(),true);
 }
 
 void LobbyLayer::selectCupLevel(Ref* ref) {
-
+    //TODO:选择关卡
 }
 
 void LobbyLayer::startGame(cocos2d::Ref* ref) {
@@ -128,7 +130,7 @@ void LobbyLayer::loadMasterVupView() {
 	masterLayer = Layer::create();
 	masterLayer->setVisible(false);
 	addChild(masterLayer);
-	loadPipeView(masterLayer, 0,false);
+	loadPipeView(masterLayer,UserData::getInstance()->getMasterCupLevel(),false);
 }
 
 void LobbyLayer::loadTeamView() {
