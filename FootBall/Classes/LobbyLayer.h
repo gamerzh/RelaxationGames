@@ -6,6 +6,7 @@ public:
 	virtual bool init();
 	CREATE_FUNC(LobbyLayer);
 private:
+    int selectLayerIndex = 0;//选择的页面编号
 	cocos2d::Layer * worldLayer;
 	cocos2d::Layer * masterLayer;
 	cocos2d::Layer * teamLayer;

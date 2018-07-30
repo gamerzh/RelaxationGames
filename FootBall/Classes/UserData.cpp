@@ -87,14 +87,14 @@ int UserData::getWorldCupLevel() {
 	return UserDefault::getInstance()->getIntegerForKey("world_level", 0);
 }
 
-void UserData::setWorldCupLevel() {
-	UserDefault::getInstance()->setIntegerForKey("world_level", 0);
+void UserData::setWorldCupLevel(int level) {
+	UserDefault::getInstance()->setIntegerForKey("world_level", level);
 }
 
 int UserData::getMasterCupLevel() {
 	return UserDefault::getInstance()->getIntegerForKey("master_level", 0);
 }
 
-void UserData::setMasterCupLevel() {
-	UserDefault::getInstance()->setIntegerForKey("master_level", 0);
+void UserData::setMasterCupLevel(int level) {
+	UserDefault::getInstance()->setIntegerForKey("master_level", level);
 }

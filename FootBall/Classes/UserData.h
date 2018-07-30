@@ -31,10 +31,10 @@ public:
 	void setTeamEnergyLevel(int level);
 
 	int getWorldCupLevel();
-	void setWorldCupLevel();
+	void setWorldCupLevel(int level);
 
 	int getMasterCupLevel();
-	void setMasterCupLevel();
+	void setMasterCupLevel(int level);
 
 private:
 	static  UserData* m_instance;
