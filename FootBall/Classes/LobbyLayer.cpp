@@ -36,8 +36,8 @@ bool LobbyLayer::init() {
     addChild(number);
     
     loadButtonView();
-    loadWorldCupView();
     loadMasterVupView();
+    loadWorldCupView();
     loadTeamView();
     
     return true;
