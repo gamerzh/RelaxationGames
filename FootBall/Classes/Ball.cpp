@@ -45,7 +45,9 @@ void Ball::setBallShoot(cocos2d::Vec2 vec) {
 void Ball::setBallPass(cocos2d::Vec2 vec){
     setBallState(ball_is_pass);
     this->ballOwner = NULL;
-    this->targetPosition = vec;
+    if(vec != Vec2(0,0)){
+        this->targetPosition = vec;
+    }
 }
 
 void Ball::setBallFree(){

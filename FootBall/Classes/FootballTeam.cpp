@@ -208,6 +208,9 @@ void FootballTeam::logicUpdate(float dt){
                 m_pSupportingPlayer = var;
             }
         }
+        if(!m_pControllingPlayer->isGoalkeeper){
+             goalkeeperReady = true;
+        }
     }
     auto ball = GameStatus::getInstance()->getGameBall();
     int max = 10000;
@@ -235,9 +238,13 @@ void FootballTeam::update(float dt){
         }
         if(m_pControllingPlayer->getSimpleAI()){
             if(m_pControllingPlayer->isGoalkeeper){
-                //HACK:暂时不开大脚,直接传球给最近的队友
-                if(NULL != m_pCloseingPlayer){
-                     GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getPosition());
+                //HACK:暂时不开大脚,直接传球给最近的队友,这个动作由2秒的延迟
+                if(NULL != m_pCloseingPlayer && goalkeeperReady){
+                    goalkeeperReady = false;
+                    schedule([=](float dt){
+                        m_pControllingPlayer->doShoot();
+                         GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getPosition());
+                    },0,1,1,"pass_to_teammate");
                 }
             }else{
                 m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){

@@ -246,7 +246,6 @@ void FootMan::footmanRunToTarget(Vec2 pos,float rad,CallFunc* callback){
         moveLeft();
     }
     this->setPosition(vec.x+speedx,vec.y+speedy);
-//    log("HHHHHHHH %f,%f",this->getPositionX(),this->getPositionY());
     playFootManRun();
     if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad){
         //到达目标
