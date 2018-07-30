@@ -16,6 +16,8 @@
 
 #define MAX_LEVEL_NUM 6//最大关卡的编号
 
+#define PLAYER_TEAM_ID 1//玩家球队的编号
+
 #define foot_ball_in_goal "foot_ball_in_goal"//进球
 #define foot_ball_game_start "foot_ball_game_start"//游戏开始
 #define foot_man_trackle_success "foot_man_trackle_success"//铲球成功

@@ -59,7 +59,7 @@ void GameLayer::createFootballFild() {
 }
 
 void GameLayer::createFootBallTeam() {
-    playerTeam = FootballTeam::create(1,true);
+    playerTeam = FootballTeam::create(PLAYER_TEAM_ID,true);
     addChild(playerTeam,FOOTBALL_LOCAL_ZORDER*2);
     GameStatus::getInstance()->setPlayerTeam(playerTeam);
     
@@ -69,7 +69,7 @@ void GameLayer::createFootBallTeam() {
         var->changeFootManState(FootMan::FootManState::waiting);
         addChild(var);
     }
-    computerTeam = FootballTeam::create(2,false);
+    computerTeam = FootballTeam::create(GameStatus::getInstance()->getCurrentSelectedLevel()+2,false);
     addChild(computerTeam,FOOTBALL_LOCAL_ZORDER*2);
     GameStatus::getInstance()->setComputerTeam(computerTeam);
     for (auto var2: computerTeam->getFootManVector())

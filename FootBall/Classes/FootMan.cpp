@@ -269,26 +269,11 @@ void FootMan::supportPosition(cocos2d::Vec2 pos){
 }
 
 std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
-    if(d == 1){
-        if(goalkeeper){
-            return "team_1_3.csb";
-        }else{
-            return StringUtils::format("team_1_%d.csb",random(1,2));
-        }
-    }else  if(d == 2){
-        if(goalkeeper){
-            return "team_2_3.csb";
-        }else{
-            return StringUtils::format("team_2_%d.csb",random(1,2));
-        }
-    }else  if(d == 3){
-        if(goalkeeper){
-            return "team_3_3.csb";
-        }else{
-            return StringUtils::format("team_3_%d.csb",random(1,2));
-        }
+    if(goalkeeper){
+        return StringUtils::format("team_%d_3.csb",d);
+    }else{
+        return StringUtils::format("team_%d_%d.csb",d,random(1,2));
     }
-    return "rw1.csb";
 }
 
 void FootMan::update(float dt) {

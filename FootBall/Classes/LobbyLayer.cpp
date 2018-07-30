@@ -118,6 +118,7 @@ void LobbyLayer::loadWorldCupView() {
     addChild(worldLayer);
     loadPipeView(worldLayer,UserData::getInstance()->getWorldCupLevel(),true);
     GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::worldCup);
+    GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getWorldCupLevel());
 }
 
 void LobbyLayer::selectCupLevel(Ref* ref) {
@@ -146,6 +147,7 @@ void LobbyLayer::loadMasterVupView() {
     addChild(masterLayer);
     loadPipeView(masterLayer,UserData::getInstance()->getMasterCupLevel(),false);
     GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::masterCup);
+    GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getMasterCupLevel());
 }
 
 void LobbyLayer::loadTeamView() {
