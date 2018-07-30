@@ -39,3 +39,19 @@ FootballTeam* GameStatus::getComputerTeam(){
 void GameStatus::setComputerTeam(FootballTeam* team){
     this->computerTeam = team;
 }
+
+int GameStatus::getCurrentSelectedLevel(){
+    return  this->currentSelectedLevel;
+}
+
+void GameStatus::setCurrentSelectedLevel(int level){
+    this->currentSelectedLevel = level;
+}
+
+GameStatus::GameType GameStatus::getCurrentGameType(){
+    return  this->currentGameType;
+}
+
+void GameStatus::setCurrentGameType(GameType type){
+    this->currentGameType = type;
+}

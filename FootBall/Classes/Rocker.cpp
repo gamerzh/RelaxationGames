@@ -78,7 +78,7 @@ bool Rocker::onTouchBegan(Touch* pTouch, Event* pEvent)
             GameStatus::getInstance()->setGameState(GameState::game_playing);
             Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
         }
-        return true;
+        return false;
     }
     return false;
 }

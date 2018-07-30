@@ -13,8 +13,11 @@ enum GameState{
 
 class GameStatus {
 public:
+    enum GameType{
+        worldCup,
+        masterCup
+    };
     static  GameStatus* getInstance();
-
     Ball* getGameBall();
     void setGameBall(Ball* ball);
     GameState getGameState();
@@ -23,6 +26,10 @@ public:
     void setPlayerTeam(FootballTeam* team);
     FootballTeam* getComputerTeam();
     void setComputerTeam(FootballTeam* team);
+    int getCurrentSelectedLevel();
+    void setCurrentSelectedLevel(int level);
+    GameType getCurrentGameType();
+    void setCurrentGameType(GameType type);
 private:
     static  GameStatus* m_instance;
     GameStatus() {}
@@ -30,6 +37,7 @@ private:
     Ball* current_ball = nullptr;
     FootballTeam* playerTeam;//玩家操作的队伍
     FootballTeam* computerTeam;//AI控制的队伍
-
+    int currentSelectedLevel = 0;//当前游戏官卡
+    GameType currentGameType;
 };
 

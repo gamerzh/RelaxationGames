@@ -1,5 +1,8 @@
 #include "ResultLayer.h"
 #include "LobbyScene.h"
+#include "GameStatus.h"
+#include "UserData.h"
+
 USING_NS_CC;
 
 ResultLayer* ResultLayer::create(bool win) {
@@ -29,6 +32,16 @@ bool ResultLayer::init(bool win) {
 	addChild(bg);
 	if (win) {
 		bg->setTexture("sl.png");
+        //打开新的关卡
+        if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
+            if(UserData::getInstance()->getWorldCupLevel()<GameStatus::getInstance()->getCurrentSelectedLevel()){
+                UserData::getInstance()->setWorldCupLevel(GameStatus::getInstance()->getCurrentSelectedLevel());
+            }
+        }else if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::masterCup){
+            if(UserData::getInstance()->getMasterCupLevel()<GameStatus::getInstance()->getCurrentSelectedLevel()){
+                UserData::getInstance()->setMasterCupLevel(GameStatus::getInstance()->getCurrentSelectedLevel());
+            }
+        }
 	}
 	else {
 		bg->setTexture("sb.png");

@@ -1,6 +1,7 @@
 #include "LobbyLayer.h"
 #include "TeamAbility.h"
 #include "UserData.h"
+#include "GameStatus.h"
 #include "GameScene.h"
 USING_NS_CC;
 
@@ -117,6 +118,7 @@ void LobbyLayer::loadWorldCupView() {
     worldLayer = Layer::create();
     addChild(worldLayer);
     loadPipeView(worldLayer,UserData::getInstance()->getWorldCupLevel(),true);
+    GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::worldCup);
 }
 
 void LobbyLayer::selectCupLevel(Ref* ref) {
@@ -130,6 +132,7 @@ void LobbyLayer::selectCupLevel(Ref* ref) {
             ((MenuItemToggle*)temp->getParent()->getChildByTag(i))->setSelectedIndex(0);
         }
     }
+    GameStatus::getInstance()->setCurrentSelectedLevel(tag-101);
 }
 
 void LobbyLayer::startGame(cocos2d::Ref* ref) {
@@ -143,6 +146,7 @@ void LobbyLayer::loadMasterVupView() {
     masterLayer->setVisible(false);
     addChild(masterLayer);
     loadPipeView(masterLayer,UserData::getInstance()->getMasterCupLevel(),false);
+    GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::masterCup);
 }
 
 void LobbyLayer::loadTeamView() {
