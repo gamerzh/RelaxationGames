@@ -190,7 +190,7 @@ void FootMan::updateFootManZorder() {
     this->setLocalZOrder(FOOTBALL_MAN_ZORDER - (int)this->getPositionY());
 }
 
-FootManState FootMan::getFootManState(){
+FootMan::FootManState FootMan::getFootManState(){
     return this->manState;
 }
 

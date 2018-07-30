@@ -4,18 +4,18 @@
 #include "Ball.h"
 USING_NS_CC;
 
-//游戏场景的状态
-enum GameState{
-    game_start,
-    game_playing,
-    game_end
-};
 
 class GameStatus {
 public:
     enum GameType{
         worldCup,
         masterCup
+    };
+    //游戏场景的状态
+    enum GameState{
+        game_start,
+        game_playing,
+        game_end
     };
     static  GameStatus* getInstance();
     Ball* getGameBall();

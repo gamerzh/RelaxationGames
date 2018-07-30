@@ -74,8 +74,8 @@ bool Rocker::onTouchBegan(Touch* pTouch, Event* pEvent)
     auto rod = (Sprite*)getChildByTag(ROCKER_NACKGROUMD_TAG);
     if (rod->getBoundingBox().containsPoint(point))
     {
-        if(GameStatus::getInstance()->getGameState() == GameState::game_start){
-            GameStatus::getInstance()->setGameState(GameState::game_playing);
+        if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
+            GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
             Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
         }
         return false;

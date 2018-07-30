@@ -4,21 +4,16 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
-
-
-
-//foot man state
-enum FootManState{
-    waiting,
-    running,
-    shoot,
-    tackle,
-    tumble
-};
-
 class FootMan : public cocos2d::Node {
 public:
-   
+    //foot man state
+    enum FootManState{
+        waiting,
+        running,
+        shoot,
+        tackle,
+        tumble
+    };
     bool isGoalkeeper = false;
     std::string footManId = "";
     static FootMan* create(int teamId,FootManProperty property,bool goalkeeper = false,cocos2d::Camera* camera = nullptr);

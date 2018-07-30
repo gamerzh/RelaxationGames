@@ -31,7 +31,7 @@ bool GameLayer::init() {
     footBall->setCameraMask((int)CameraFlag::USER1);
     addChild(footBall, FOOTBALL_LOCAL_ZORDER);
     GameStatus::getInstance()->setGameBall(footBall);//HACK:为了FootMan类可以获取到ball的位置
-    GameStatus::getInstance()->setGameState(GameState::game_start);//游戏等待开始
+    GameStatus::getInstance()->setGameState(GameStatus::GameState::game_start);//游戏等待开始
     
     loadGameLayerUI();
     
@@ -66,7 +66,7 @@ void GameLayer::createFootBallTeam() {
     for (auto var: playerTeam->getFootManVector())
     {
         var->setCameraMask((int)CameraFlag::USER1);
-        var->changeFootManState(FootManState::waiting);
+        var->changeFootManState(FootMan::FootManState::waiting);
         addChild(var);
     }
     computerTeam = FootballTeam::create(2,false);
@@ -75,7 +75,7 @@ void GameLayer::createFootBallTeam() {
     for (auto var2: computerTeam->getFootManVector())
     {
         var2->setCameraMask((int)CameraFlag::USER1);
-        var2->changeFootManState(FootManState::waiting);
+        var2->changeFootManState(FootMan::FootManState::waiting);
         addChild(var2);
     }
 }
@@ -98,8 +98,8 @@ void GameLayer::loadGameLayerUI() {
 
 
 void GameLayer::passAndTackle() {
-    if(GameStatus::getInstance()->getGameState() == GameState::game_start){
-        GameStatus::getInstance()->setGameState(GameState::game_playing);
+    if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
+        GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
     }
     //传球和铲球
@@ -117,8 +117,8 @@ void GameLayer::passAndTackle() {
 }
 
 void GameLayer::shoot() {
-    if(GameStatus::getInstance()->getGameState() == GameState::game_start){
-        GameStatus::getInstance()->setGameState(GameState::game_playing);
+    if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
+        GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
     }
     if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
@@ -138,8 +138,8 @@ void GameLayer::shoot() {
 
 void GameLayer::speedMan() {
     //球队的控球队员短距离加速
-    if(GameStatus::getInstance()->getGameState() == GameState::game_start){
-        GameStatus::getInstance()->setGameState(GameState::game_playing);
+    if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
+        GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
     }
 }
@@ -227,7 +227,7 @@ void GameLayer::update(float dt) {
         canChangeControlMan = false;
         auto angle = heroRocker->getRockerAngle();
         if (angle != 0) {
-            controlingFootman->changeFootManState(FootManState::running);
+            controlingFootman->changeFootManState(FootMan::FootManState::running);
             controlingFootman->openSimpleAI(false);
             controlingFootman->setFootManAngle(angle);
         }
@@ -258,7 +258,7 @@ void GameLayer::addCustomEvent() {
         }
         //延迟2秒,2秒后重置场景,球员和球回到初始位置
         schedule([=](float dt){
-            GameStatus::getInstance()->setGameState(GameState::game_start);
+            GameStatus::getInstance()->setGameState(GameStatus::GameState::game_start);
             replacementAll();
             if(playerTeam->getTeamAttackDirection() == result){
                 footBall->setPositionX(1200);

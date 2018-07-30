@@ -16,7 +16,7 @@ void GameStatus::setGameBall(Ball* ball){
     this->current_ball = ball;
 }
 
-GameState GameStatus::getGameState(){
+GameStatus::GameState GameStatus::getGameState(){
     return this->gameState;
 }
 

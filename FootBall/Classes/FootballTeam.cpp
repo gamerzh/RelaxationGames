@@ -265,7 +265,7 @@ void FootballTeam::update(float dt){
         }
     }
     //球队防守
-    if(this->teamState == TeamStatus::defend && GameStatus::getInstance()->getGameState() == GameState::game_playing){
+    if(this->teamState == TeamStatus::defend && GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_playing){
         //计算除守门员以外的球员和对方控球队员的距离
         auto cman = GameStatus::getInstance()->getGameBall()->getOwerMan();//控球队员
         if(NULL != cman){

@@ -9,7 +9,6 @@ bool LobbyLayer::init() {
     if (!Layer::init()) {
         return false;
     }
-    
     auto visibileSize = Director::getInstance()->getVisibleSize();
     auto bg = Sprite::create("lobby_bg.png");
     bg->setPosition(visibileSize.width / 2, visibileSize.height / 2);
@@ -150,7 +149,7 @@ void LobbyLayer::loadMasterVupView() {
 }
 
 void LobbyLayer::loadTeamView() {
-    selectLayerIndex = 3;
+    selectLayerIndex = 2;
     teamLayer = Layer::create();
     teamLayer->setVisible(false);
     addChild(teamLayer);
@@ -268,15 +267,19 @@ void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
     auto game = MenuItemImage::create("start_game_blue.png","start_game_blue.png", CC_CALLBACK_1(LobbyLayer::startGame,this));
     auto gm = Menu::create(game,NULL);
     gm->setPosition(1100,85);
-    addChild(gm);
-    
-    for (int i = 1; i <= index; i++) {
+     node->addChild(gm);
+
+    //通道的显示
+    for (int i = 1; i <= index; i++){
         ((Sprite*)node->getChildByTag(200 + i))->setTexture(StringUtils::format("pipe_%d_1.png",i));
-        ((MenuItemToggle*)menu->getChildByTag(101 + i))->setEnabled(true);
-        if(i == index){
-            ((MenuItemToggle*)menu->getChildByTag(101 + i))->setSelectedIndex(1);
+    }
+    //按钮的显示
+    for (int j = 0; j <= index; j++) {
+        ((MenuItemToggle*)menu->getChildByTag(101 + j))->setEnabled(true);
+        if(j == index){
+            ((MenuItemToggle*)menu->getChildByTag(101 + j))->setSelectedIndex(1);
         }else{
-            ((MenuItemToggle*)menu->getChildByTag(101 + i))->setSelectedIndex(0);
+            ((MenuItemToggle*)menu->getChildByTag(101 + j))->setSelectedIndex(0);
         }
     }
 }
