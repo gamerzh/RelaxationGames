@@ -267,8 +267,8 @@ void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
     auto game = MenuItemImage::create("start_game_blue.png","start_game_blue.png", CC_CALLBACK_1(LobbyLayer::startGame,this));
     auto gm = Menu::create(game,NULL);
     gm->setPosition(1100,85);
-     node->addChild(gm);
-
+    node->addChild(gm);
+    
     //通道的显示
     for (int i = 1; i <= index; i++){
         ((Sprite*)node->getChildByTag(200 + i))->setTexture(StringUtils::format("pipe_%d_1.png",i));
