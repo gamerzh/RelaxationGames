@@ -14,6 +14,8 @@
 #define TACKLE_DISTANCE 40//发动铲球的距离
 #define SUPPORT_DISTANCE 600//友方支援队员的距离
 
+#define MAX_LEVEL_NUM 6//最大关卡的编号
+
 #define foot_ball_in_goal "foot_ball_in_goal"//进球
 #define foot_ball_game_start "foot_ball_game_start"//游戏开始
 #define foot_man_trackle_success "foot_man_trackle_success"//铲球成功
