@@ -8,7 +8,6 @@ bool LobbyLayer::init() {
     if (!Layer::init()) {
         return false;
     }
-    UserData::getInstance()->setWorldCupLevel(4);
     
     auto visibileSize = Director::getInstance()->getVisibleSize();
     auto bg = Sprite::create("lobby_bg.png");
