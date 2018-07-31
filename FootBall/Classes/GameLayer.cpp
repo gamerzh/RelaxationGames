@@ -108,7 +108,7 @@ void GameLayer::passAndTackle() {
         //传球动作由球队来进行,
         auto mate = playerTeam->m_pSupportingPlayer;
         if(NULL != mate){
-//            log("Pass target pos (%f,%f)",mate->getPositionX(),mate->getPositionY());
+            //            log("Pass target pos (%f,%f)",mate->getPositionX(),mate->getPositionY());
             footBall->setBallPass(mate->getPosition());
         }
     }else{
@@ -123,17 +123,8 @@ void GameLayer::shoot() {
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
     }
     if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
-        playerTeam->m_pControllingPlayer->doShoot();
-        //设置射门的目标点
-        if(playerTeam->getFootBallTeamId() == playerTeam->m_pControllingPlayer->getFootManTeamId()){
-            if(playerTeam->checkShootResult()){
-                footBall->setBallShoot(playerTeam->getTeamShootPoint());
-            }else{
-                //球被守门员拦截
-                footBall->setBallShoot(computerTeam->getGoalkeeperVec2());
-                playerTeam->setTeamStatus(TeamStatus::defend);//转入防守
-            }
-        }
+        auto man = playerTeam->m_pControllingPlayer;
+        man->doShoot();
     }
 }
 
@@ -233,7 +224,7 @@ void GameLayer::update(float dt) {
             controlingFootman->setFootManAngle(angle);
         }
     }
-   
+    
 }
 
 void GameLayer::onEnter() {

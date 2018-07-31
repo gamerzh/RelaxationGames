@@ -35,6 +35,7 @@ public:
     void footmanRunToTarget(cocos2d::Vec2 pos,float rad,cocos2d::CallFunc* callback = NULL);//跑向目标
     bool getSimpleAI();
     void openSimpleAI(bool p);
+    void playFootManShoot();//射门动画
     FootManState getFootManState();
 private:
     int belongTeamId = 0;
@@ -70,7 +71,6 @@ private:
     void update(float dt);
     void playFootManRun();
     void playFootManTackle();
-    void playFootManShoot();
     void playFootManStand();
     void playFootManTumble();
 };

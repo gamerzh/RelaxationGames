@@ -255,14 +255,14 @@ void FootballTeam::update(float dt){
                 if(NULL != m_pCloseingPlayer && goalkeeperReady){
                     goalkeeperReady = false;
                     schedule([=](float dt){
-                        m_pControllingPlayer->doShoot();
+                         m_pControllingPlayer->playFootManShoot();
                          GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getPosition());
                     },0,1,1,"pass_to_teammate");
                 }
             }else{
                 m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                     //到达指定位置射门
-                    m_pControllingPlayer->doShoot();
+                    m_pControllingPlayer->playFootManShoot();
                     if(checkShootResult()){
                         GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
                         footManAttackPos = Vec2(0,0);
