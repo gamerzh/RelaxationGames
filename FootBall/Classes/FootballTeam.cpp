@@ -182,7 +182,7 @@ void FootballTeam::doTeamShoot(){
             this->teamState = TeamStatus::neutrality;
         }else{
             this->teamState = TeamStatus::defend;
-            if(this->teamId == 1){
+            if(this->teamId == PLAYER_TEAM_ID){
                 GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getGoalkeeperVec2());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
