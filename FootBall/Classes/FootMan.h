@@ -39,7 +39,7 @@ public:
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;
-    float runSpeed = 5;
+    float runSpeed = 3.5f;
     
     bool simpleRobotAI = false;//简单AI关闭
     bool canUpdateState = true;//想允许切换动画

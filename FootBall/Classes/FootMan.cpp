@@ -75,7 +75,7 @@ void FootMan::setFootManAngle(float angle) {
         else {
             moveRight();
         }
-        auto vec = Vec2(curPos.x + cos(angle) * 5, curPos.y + sin(angle) * 5);
+        auto vec = Vec2(curPos.x + cos(angle) * runSpeed, curPos.y + sin(angle) * runSpeed);
         this->setPosition(moveInSafeRect(vec));
     }
 }
