@@ -36,6 +36,9 @@ std::vector<FootManTeamProperty> TeamInfoFactory::getFootManTeamPropertyVector()
 						if (tempteam.HasMember("teamBanner")) {
 							property.teamBanner = tempteam["teamBanner"].GetString();
 						}
+                        if (tempteam.HasMember("energyRate")) {
+                            property.energyRate = tempteam["energyRate"].GetFloat();
+                        }
 						if (tempteam.HasMember("footManVec")) {
 							const rapidjson::Value &footVec = tempteam["footManVec"];
 							for (int j = 0; j < footVec.Capacity(); j++)

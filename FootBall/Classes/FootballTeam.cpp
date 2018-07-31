@@ -45,6 +45,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     energy_timer_1->setType(ProgressTimer::Type::BAR);
     addChild(energy_timer_1);
     energy_timer_1->setPercentage(0);
+    energy_timer_1->setTag(2000);
     if(teamInLeftField){
         teamIcon1->setPosition(220,655);
         score1->setPosition(430, 660);
@@ -57,13 +58,14 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
         
         energy_timer_1->setPosition(850, 610);
     }
-    schedule(schedule_selector(FootballTeam::logicUpdate), 0.5f);
+    schedule(schedule_selector(FootballTeam::logicUpdate), 1.0f);
     scheduleUpdate();
     return true;
 }
 
 void FootballTeam::generateFootballTeam(){
     auto currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(this->teamId);
+    this->teamEnergyRate = currentPlayerTeamProperty.energyRate;
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
         auto foot1 = FootMan::create(this->teamId,var1,currentPlayerTeamProperty.footManVec.at(i).goalkeeper);
@@ -196,6 +198,17 @@ bool FootballTeam::checkShootResult(){
 }
 
 void FootballTeam::logicUpdate(float dt){
+    //能量条
+    if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_playing){
+        if(teamEnergy <100){
+            teamEnergy += teamEnergyRate;
+            if(NULL != getChildByTag(2000)){
+                ((ProgressTimer*)getChildByTag(2000))->setPercentage(teamEnergy);
+            }
+        }else{
+            ((ProgressTimer*)getChildByTag(2000))->setPercentage(100);
+        }
+    }
     //判断队伍目前的状态
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //带球队员开始跑向对方球门

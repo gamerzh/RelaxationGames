@@ -11,6 +11,7 @@ struct FootManProperty {
 
 struct FootManTeamProperty {
 	int teamId;
+    float energyRate;//能量美秒增长速率
 	std::string teamName;
 	std::string teamBanner;
 	std::vector<FootManProperty> footManVec;

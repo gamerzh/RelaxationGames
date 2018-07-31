@@ -108,6 +108,7 @@ void GameLayer::passAndTackle() {
         //传球动作由球队来进行,
         auto mate = playerTeam->m_pSupportingPlayer;
         if(NULL != mate){
+//            log("Pass target pos (%f,%f)",mate->getPositionX(),mate->getPositionY());
             footBall->setBallPass(mate->getPosition());
         }
     }else{
@@ -232,7 +233,7 @@ void GameLayer::update(float dt) {
             controlingFootman->setFootManAngle(angle);
         }
     }
-    
+   
 }
 
 void GameLayer::onEnter() {

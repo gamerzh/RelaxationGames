@@ -65,6 +65,7 @@ void Ball::setOwnerMan(FootMan* owern) {
 }
 
 Point Ball::cameraMoveInRect(Point pos) {
+//    log("Ball Ball Ball (%f,%f)",pos.x,pos.y);
     auto size = Director::getInstance()->getVisibleSize();
     pos = Vec2(pos.x - size.width / 2, pos.y - size.height / 2);
     
@@ -80,7 +81,7 @@ Point Ball::cameraMoveInRect(Point pos) {
     else if (pos.y > football_field_height - size.height) {
         pos.y = football_field_height - size.height;
     }
-    
+//    log("Camera Camera Camera (%f,%f)",pos.x,pos.y);
     return pos;
 }
 
@@ -110,8 +111,17 @@ BallSpeed Ball::getBallSpeedToTarget(){
     //获得球的运动速度
     Vec2 curPos = this->getPosition();
     BallSpeed speed;
-    speed.speedx = (targetPosition.x-curPos.x)/GeometryTools::calculateDistance(targetPosition, curPos)* speed_fly;
-    speed.speedy = (targetPosition.y-curPos.y)/GeometryTools::calculateDistance(targetPosition, curPos)* speed_fly;
+    float fenmu = GeometryTools::calculateDistance(targetPosition, curPos);
+    if(fenmu>=1){
+        speed.speedx = (targetPosition.x-curPos.x)/fenmu* speed_fly;
+        speed.speedy = (targetPosition.y-curPos.y)/fenmu* speed_fly;
+    }else{
+        speed.speedx = 0;
+        speed.speedy = 0;
+    }
+//    log("curPos=(%f,%f)",curPos.x,curPos.y);
+//    log("targetPosition=(%f,%f)",targetPosition.x,targetPosition.y);
+//    log("Speed=(%f,%f)",speed.speedx,speed.speedy);
     return speed;
 }
 
@@ -138,6 +148,7 @@ void Ball::update(float dt) {
         }
         this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
     }
+   
     this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
     checkBallInGoal();
 }

@@ -46,7 +46,7 @@ void AppDelegate::initGLContextAttrs()
 static int register_all_packages()
 {
 	FileUtils::getInstance()->addSearchPath("res");
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("zhujue0.plist", "zhujued0.png");
+//    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("zhujue0.plist", "zhujued0.png");
 	return 0; //flag for packages manager
 }
 

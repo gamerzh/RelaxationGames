@@ -36,6 +36,8 @@ private:
     int teamId = 0;
     bool teamInLeftField = true;//队伍目前在左半场
     bool goalkeeperReady = true;//守门员在传球
+    float teamEnergy = 0;//能量计数
+    float teamEnergyRate = 0;//能量增长比率
     cocos2d::Vec2 footManAttackPos =  cocos2d::Vec2(0,0);//一次进攻的目标位置
     FootMan* goalkeeper;//守门员
 	std::vector<FootMan*> footManVector;

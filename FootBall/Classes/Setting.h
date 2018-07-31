@@ -11,7 +11,6 @@ private:
 	float passTime = 0;
 	const float timestep = 1.0f;
 	void loadView();
-	void showTeamScore(int teamId);
 	void soundMenuCallBack(Ref* ref);
 	void pauseGame();
 	void update(float dt);

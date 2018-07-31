@@ -65,12 +65,6 @@ void Setting::soundMenuCallBack(Ref* ref) {
     UserData::getInstance()->setMusicStatus((temp->getSelectedIndex()+1)%2);
 }
 
-
-void Setting::showTeamScore(int teamId) {
-
-
-}
-
 void Setting::pauseGame() {
 	auto pau = PauseLayer::create();
 	addChild(pau);
