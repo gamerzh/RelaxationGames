@@ -17,7 +17,8 @@ public:
     void onEnter();
     void onExit();
     int getFootBallTeamId();
-     bool checkShootResult();
+    bool checkShootResult();
+    void doTeamShoot();//球队射门
     std::string getTeamAttackDirection();
 	std::vector<FootMan*> getFootManVector();
     cocos2d::Rect getAttackShootRect();

@@ -24,7 +24,6 @@ public:
     std::string getFileNameByTeamId(int d,bool goalkeeper);
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲
-    void doShoot();//射门
     void doTumble();//摔倒
     void doDefend(cocos2d::Vec2 vec);//防守
     void moveRight();

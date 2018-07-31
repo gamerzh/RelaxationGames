@@ -90,34 +90,6 @@ void FootMan::doSlideTackle() {
     }
 }
 
-
-void FootMan::doShoot() {
-    playFootManShoot();
-    //确认是否有球
-    auto ball = GameStatus::getInstance()->getGameBall();
-    if(this == ball->getOwerMan()){
-        //可以射门
-        if(belongTeamId == GameStatus::getInstance()->getPlayerTeam()->getFootBallTeamId()){
-            //玩家队射门
-            if(GameStatus::getInstance()->getPlayerTeam()->checkShootResult()){
-                ball->setBallShoot(GameStatus::getInstance()->getPlayerTeam()->getTeamShootPoint());
-            }else{
-                ball->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getGoalkeeperVec2());
-                GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);//转入防守
-                GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
-            }
-        }else{
-            if(GameStatus::getInstance()->getComputerTeam()->checkShootResult()){
-                ball->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getTeamShootPoint());
-            }else{
-                ball->setBallShoot(GameStatus::getInstance()->getPlayerTeam()->getGoalkeeperVec2());
-                GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);//转入防守
-                GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
-            }
-        }
-    }
-}
-
 void FootMan::doTumble(){
     playFootManTumble();
     canObtainBall = false;

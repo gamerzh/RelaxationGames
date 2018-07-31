@@ -171,6 +171,31 @@ void FootballTeam::setFootballTeamAI(FootMan* man){
     }
 }
 
+void FootballTeam::doTeamShoot(){
+    //控球的队员播放射门动画
+    if(NULL != m_pControllingPlayer){
+        m_pControllingPlayer->playFootManShoot();
+        //确认是否有球
+        if(checkShootResult()){
+            GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
+            footManAttackPos = Vec2(0,0);
+            this->teamState = TeamStatus::neutrality;
+        }else{
+            this->teamState = TeamStatus::defend;
+            if(this->teamId == 1){
+                GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getGoalkeeperVec2());
+                GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
+                GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
+            }else{
+                GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getPlayerTeam()->getGoalkeeperVec2());
+                GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
+                GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
+            }
+            //TODO:通知球员回到防守位置，球会给到对方守门员
+        }
+    }
+}
+
 bool FootballTeam::checkShootResult(){
     //判断这次射门是否成功
     //守门员默认为防守队员
@@ -262,24 +287,7 @@ void FootballTeam::update(float dt){
             }else{
                 m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                     //到达指定位置射门
-                    m_pControllingPlayer->playFootManShoot();
-                    if(checkShootResult()){
-                        GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
-                        footManAttackPos = Vec2(0,0);
-                        this->teamState = TeamStatus::neutrality;
-                    }else{
-                        this->teamState = TeamStatus::defend;
-                        if(this->teamId == 1){
-                            GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getGoalkeeperVec2());
-                            GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
-                            GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
-                        }else{
-                            GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getPlayerTeam()->getGoalkeeperVec2());
-                            GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
-                            GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
-                        }
-                        //TODO:通知球员回到防守位置，球会给到对方守门员
-                    }
+                    doTeamShoot();
                 }));
             }
         }

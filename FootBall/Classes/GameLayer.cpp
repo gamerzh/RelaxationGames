@@ -123,8 +123,7 @@ void GameLayer::shoot() {
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
     }
     if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
-        auto man = playerTeam->m_pControllingPlayer;
-        man->doShoot();
+        playerTeam->doTeamShoot();
     }
 }
 
