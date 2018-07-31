@@ -26,6 +26,9 @@ bool LobbyLayer::init() {
     auto soundNormal = MenuItemImage::create("white_sound_off.png", "white_sound_off.png");
     auto sound = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::controlSound, this),
                                                     soundSelected, soundNormal, NULL);
+    if(UserData::getInstance()->getMusicStatus() == 0){
+        sound->setSelectedIndex(1);
+    }
     auto menu = Menu::create(sound,NULL);
     menu->setPosition(1240, 690);
     addChild(menu);
@@ -44,7 +47,8 @@ bool LobbyLayer::init() {
 }
 
 void LobbyLayer::controlSound(cocos2d::Ref* ref) {
-    
+    MenuItemToggle* temp = (MenuItemToggle*)ref;
+    UserData::getInstance()->setMusicStatus((temp->getSelectedIndex()+1)%2);
 }
 
 

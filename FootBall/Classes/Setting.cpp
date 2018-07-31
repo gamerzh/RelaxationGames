@@ -1,6 +1,7 @@
 #include "Setting.h"
 #include "ResultLayer.h"
 #include "PauseLayer.h"
+#include "UserData.h"
 USING_NS_CC;
 
 bool Setting::init() {
@@ -49,9 +50,9 @@ void Setting::loadView() {
 	auto musicOn = MenuItemSprite::create(musicOnSpr, musicOnSpr);
 	auto musicOff = MenuItemSprite::create(musicOffSpr, musicOffSpr);
 	musicItemToggle = MenuItemToggle::createWithCallback(CC_CALLBACK_1(Setting::soundMenuCallBack, this), musicOn, musicOff, NULL);
-	//if (UserData::getInstance()->getMusicStatus() == 0) {
-	//	musicItemToggle->setSelectedIndex(1);
-	//}
+    if (UserData::getInstance()->getMusicStatus() == 0) {
+        musicItemToggle->setSelectedIndex(1);
+    }
 	auto menu = Menu::create(musicItemToggle, NULL);
 	menu->setPosition(visibleSize.width-60, visibleSize.height - 50);
 	this->addChild(menu);
@@ -60,7 +61,8 @@ void Setting::loadView() {
 
 
 void Setting::soundMenuCallBack(Ref* ref) {
-
+    MenuItemToggle* temp = (MenuItemToggle*)ref;
+    UserData::getInstance()->setMusicStatus((temp->getSelectedIndex()+1)%2);
 }
 
 
