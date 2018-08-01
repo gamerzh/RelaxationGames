@@ -21,10 +21,25 @@ bool Ball::init(Camera* camera) {
         return false;
     }
     this->myCamera = camera;
-    initWithFile("ball.png");
-    setScale(ANIMATION_SCALE_RATE);
+    footballCsb = CSLoader::createNode("football.csb");
+    footballCsb->setScale(ANIMATION_SCALE_RATE);
+    footballCsb->setPosition(0, 0);
+    addChild(footballCsb);
+    preLoaction = this->getPosition();
     scheduleUpdate();
+    setFootballRotate(true);
     return true;
+}
+
+void Ball::setFootballRotate(bool ro){
+    if(ro){
+        footballCsb->stopAllActions();
+        auto timeLine = CSLoader::createTimeline("football.csb");
+        timeLine->play("animation0", true);
+        footballCsb->runAction(timeLine);
+    }else{
+        footballCsb->stopAllActions();
+    }
 }
 
 int Ball::getBallState() {
@@ -141,12 +156,12 @@ void Ball::replacement(){
 
 void Ball::update(float dt) {
     if (NULL != this->ballOwner && this->ballState == ball_is_ower) {
-        this->setPosition(this->ballOwner->getPosition());
+        this->setPosition(this->ballOwner->getFootballVec2());
     }else if(this->ballState == ball_is_pass){
         if(droppointInCorrect(this->targetPosition,this->getPosition())){
             this->ballState = ball_is_free;
         }
-        this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
+         this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
     }
    
     this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));

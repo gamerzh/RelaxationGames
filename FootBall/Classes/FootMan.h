@@ -24,6 +24,7 @@ public:
     float getShootSpeed();
     std::string getFileNameByTeamId(int d,bool goalkeeper);
     cocos2d::Vec2 getManDefendVec2();//获取球员的防守位置
+    cocos2d::Vec2 getFootballVec2();//获取足球的坐标
     FootManState getFootManState();
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲

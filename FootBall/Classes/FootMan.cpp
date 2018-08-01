@@ -279,6 +279,15 @@ cocos2d::Vec2 FootMan::getManDefendVec2(){
     return originVec2;
 }
 
+cocos2d::Vec2 FootMan::getFootballVec2(){
+    auto dir = playerCsb->getScaleX();
+    if(dir<0){
+        return Vec2(this->getPositionX()-45,this->getPositionY());
+    }else{
+        return this->getPosition();
+    }
+}
+
 void FootMan::update(float dt) {
     //铲球技能的冷却
     if(!canFootmanTackle){
