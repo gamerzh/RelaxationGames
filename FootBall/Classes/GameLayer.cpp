@@ -214,6 +214,13 @@ void GameLayer::update(float dt) {
     }
     if(nullptr != controlMan){
         controlingFootman = controlMan;
+        for (auto var :playerTeam->getFootManVector()) {
+            if(var == controlingFootman){
+                var->showControlCircle(true);
+            }else{
+                var->showControlCircle(false);
+            }
+        }
     }
     if (nullptr != controlingFootman && nullptr != heroRocker) {
         canChangeControlMan = false;
@@ -222,13 +229,6 @@ void GameLayer::update(float dt) {
             controlingFootman->changeFootManState(FootMan::FootManState::running);
             controlingFootman->openSimpleAI(false);
             controlingFootman->setFootManAngle(angle);
-            for (auto var :playerTeam->getFootManVector()) {
-                if(var == controlingFootman){
-                    var->showControlCircle(true);
-                }else{
-                     var->showControlCircle(false);
-                }
-            }
         }
     }
     
