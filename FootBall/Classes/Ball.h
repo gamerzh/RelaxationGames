@@ -38,6 +38,7 @@ private:
     cocos2d::Camera* myCamera = nullptr;
     FootMan* ballOwner = nullptr;
     float speed_fly;
+     float speed_calm = 3;
     void ballMoveDirect();
     void setBallState(int state);
     int ballState = ball_is_free;

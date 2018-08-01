@@ -82,7 +82,7 @@ void Ball::setOwnerMan(FootMan* owern) {
 }
 
 Point Ball::cameraMoveInRect(Point pos) {
-//    log("Ball Ball Ball (%f,%f)",pos.x,pos.y);
+    //    log("Ball Ball Ball (%f,%f)",pos.x,pos.y);
     auto size = Director::getInstance()->getVisibleSize();
     pos = Vec2(pos.x - size.width / 2, pos.y - size.height / 2);
     
@@ -98,7 +98,7 @@ Point Ball::cameraMoveInRect(Point pos) {
     else if (pos.y > football_field_height - size.height) {
         pos.y = football_field_height - size.height;
     }
-//    log("Camera Camera Camera (%f,%f)",pos.x,pos.y);
+    //    log("Camera Camera Camera (%f,%f)",pos.x,pos.y);
     return pos;
 }
 
@@ -136,9 +136,9 @@ BallSpeed Ball::getBallSpeedToTarget(){
         speed.speedx = 0;
         speed.speedy = 0;
     }
-//    log("curPos=(%f,%f)",curPos.x,curPos.y);
-//    log("targetPosition=(%f,%f)",targetPosition.x,targetPosition.y);
-//    log("Speed=(%f,%f)",speed.speedx,speed.speedy);
+    //    log("curPos=(%f,%f)",curPos.x,curPos.y);
+    //    log("targetPosition=(%f,%f)",targetPosition.x,targetPosition.y);
+    //    log("Speed=(%f,%f)",speed.speedx,speed.speedy);
     return speed;
 }
 
@@ -158,7 +158,7 @@ void Ball::replacement(){
 
 void Ball::update(float dt) {
     if(this->speed_fly >0){
-        this->speed_fly -= 3*dt;
+        this->speed_fly -= speed_calm*dt;
     }
     if (NULL != this->ballOwner && this->ballState == ball_is_ower) {
         this->setPosition(this->ballOwner->getFootballVec2());
@@ -166,9 +166,9 @@ void Ball::update(float dt) {
         if(droppointInCorrect(this->targetPosition,this->getPosition())){
             this->ballState = ball_is_free;
         }
-         this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
+        this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
     }
-   
+    
     this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
     checkBallInGoal();
 }
