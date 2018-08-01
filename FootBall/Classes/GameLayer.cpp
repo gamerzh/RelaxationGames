@@ -6,6 +6,7 @@
 #include "GlobalProperty.h"
 #include "GeometryTools.h"
 #include "UserData.h"
+#include "DreamLayer.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -35,6 +36,9 @@ bool GameLayer::init() {
     GameStatus::getInstance()->setGameState(GameStatus::GameState::game_start);//游戏等待开始
     
     loadGameLayerUI();
+    
+    auto dream = DreamLayer::create(5);
+    addChild(dream);
     
     scheduleUpdate();
     
@@ -259,6 +263,8 @@ void GameLayer::addCustomEvent() {
         auto result = static_cast<char*>(event->getUserData());
         if(playerTeam->getTeamAttackDirection() == result){
             playerTeam->teamScore += 1;
+            auto dream = DreamLayer::create(8);
+            addChild(dream);
         }
         if(computerTeam->getTeamAttackDirection() == result){
             computerTeam->teamScore += 1;
