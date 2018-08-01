@@ -26,18 +26,18 @@ bool DreamSecond::init(int dreamId) {
 	addChild(bg);
 	auto box = Sprite::create();
 	if (dreamId == 7) {
-		box->setTexture("dream/second/second_c2_7.png");
+		box->setTexture("dream/second/dream_second_7_2.png");
 	}
 	else {
-		box->setTexture("dream/second/second_c2_6.png");
+		box->setTexture("dream/second/dream_second_6_2.png");
 	}
 	box->setPosition(visiblieSize.width / 2, visiblieSize.height / 2 + 40);
 	addChild(box);
 
-	auto confirm = MenuItemImage::create("dream/second/second_confirm.png", "dream/second/second_confirm.png",
+	auto confirm = MenuItemImage::create("dream/second/dream_confirm_second.png", "dream/second/dream_confirm_second.png",
 		CC_CALLBACK_1(DreamSecond::confirmDream, this));
 	confirm->setTag(dreamId);
-	auto close = MenuItemImage::create("dream/second/second_cancel.png", "dream/second/second_cancel.png",
+	auto close = MenuItemImage::create("dream/second/dream_close_second.png", "dream/second/dream_close_second.png",
 		CC_CALLBACK_1(DreamSecond::closeView, this));
 	close->setTag(dreamId);
 	auto secondMenu = Menu::create(confirm, close, NULL);
@@ -58,20 +58,12 @@ void DreamSecond::confirmDream(Ref* ref) {
 	MenuItem* tem = (MenuItem*)ref;
 	int id = tem->getTag();
 	Dream::getInstance()->requestEvent(id);
-	if (id == 6) {
-//        GameStatus::getInstance()->setInvincible(true);
-	}
-	else if (id == 7) {
-//        GameStatus::getInstance()->setResurgence(true);
-	}
+    //加速道具加1
 	getParent()->removeFromParent();
 }
 
 void DreamSecond::closeView(Ref* ref) {
-	MenuItem* tem = (MenuItem*)ref;
-	int id = tem->getTag();
-	if (id == 7) {
-//        ((GameLayer*)getParent()->getParent())->showGameOver();
-	}
+//    MenuItem* tem = (MenuItem*)ref;
+//    int id = tem->getTag();
 	getParent()->removeFromParent();
 }

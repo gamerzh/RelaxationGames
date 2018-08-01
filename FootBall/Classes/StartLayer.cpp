@@ -1,4 +1,5 @@
 #include "StartLayer.h"
+#include "DreamLayer.h"
 USING_NS_CC;
 
 bool StartLayer::init() {
@@ -20,6 +21,9 @@ bool StartLayer::init() {
 	menu->setPosition(visibleSize.width / 2, visibleSize.height / 2-260);
 	addChild(menu);
 
+    auto dream1 = DreamLayer::create(1);
+    addChild(dream1);
+    
 	return true;
 }
 
