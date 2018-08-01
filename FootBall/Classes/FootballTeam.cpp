@@ -191,7 +191,6 @@ void FootballTeam::doTeamShoot(){
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
             }
-            //TODO:通知球员回到防守位置，球会给到对方守门员
         }
     }
 }
@@ -265,10 +264,19 @@ void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
+    if(GameStatus::getInstance()->getGameState() != GameStatus::GameState::game_playing){
+        return;
+    }
     //球队进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //让自己的球队进行进攻
-        //持球队员跑向去前场，其余队员到中场和前场接应
+        for(auto att : footManVector){
+            if(att != m_pControllingPlayer && !att->isGoalkeeper){
+                //持球队员跑向去前场，其余队员到中场和前场接应
+                auto pos = GameStatus::getInstance()->getGameBall();
+                att->supportPosition(Vec2(pos->getPosition()));
+            }
+        }
         //在射门区域里随机一个位置,持球队员成功跑到位置后射门
         auto rect = getAttackShootRect();//获得射门区域
         if(footManAttackPos == Vec2(0,0)){
@@ -285,7 +293,7 @@ void FootballTeam::update(float dt){
                     },0,1,1,"pass_to_teammate");
                 }
             }else{
-                m_pControllingPlayer->footmanRunToTarget(footManAttackPos,20,CallFunc::create([=](){
+                m_pControllingPlayer->manRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                     //到达指定位置射门
                     doTeamShoot();
                 }));
@@ -309,7 +317,13 @@ void FootballTeam::update(float dt){
             //对防守队员下达指令,去追球
             if(nullptr != dman && dman->getSimpleAI()){
                 dman->doDefend(cman->getPosition());
+                for(auto var : footManVector){
+                    if(!var->isGoalkeeper && dman != var){
+                        var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET);
+                    }
+                }
             }
+            
         }
     }
 }

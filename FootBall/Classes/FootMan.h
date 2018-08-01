@@ -19,9 +19,12 @@ public:
     static FootMan* create(int teamId,FootManProperty property,bool goalkeeper = false,cocos2d::Camera* camera = nullptr);
     virtual bool init(int teamId,FootManProperty property, bool goalkeeper,cocos2d::Camera* camera);
     bool getCanObtainBall();
+    bool getSimpleAI();
     int getFootManTeamId();
     float getShootSpeed();
     std::string getFileNameByTeamId(int d,bool goalkeeper);
+    cocos2d::Vec2 getManDefendVec2();//获取球员的防守位置
+    FootManState getFootManState();
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲
     void doTumble();//摔倒
@@ -31,11 +34,10 @@ public:
     void replacement();
     void setOriginPosition(cocos2d::Vec2 vec);
     void changeFootManState(FootManState state);
-    void footmanRunToTarget(cocos2d::Vec2 pos,float rad,cocos2d::CallFunc* callback = NULL);//跑向目标
-    bool getSimpleAI();
+    void manRunToTarget(cocos2d::Vec2 pos,float rad,cocos2d::CallFunc* callback = NULL);//跑向目标
+    void supportPosition(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
     void openSimpleAI(bool p);
     void playFootManShoot();//射门动画
-    FootManState getFootManState();
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;
@@ -65,7 +67,6 @@ private:
     float getPositionXByYRight(float y);
     float getBallDistance();//获取和球的距离
     void updateFootManZorder();
-    void supportPosition(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
     void showDebugInfo();
     void update(float dt);
     void playFootManRun();

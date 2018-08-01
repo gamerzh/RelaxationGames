@@ -98,7 +98,7 @@ void FootMan::doTumble(){
 void FootMan::doDefend(cocos2d::Vec2 vec){
     //球员去追对方持球队员
     if(GeometryTools::calculateDistance(this->getPosition(),vec)>TACKLE_DISTANCE){
-        footmanRunToTarget(vec,TACKLE_DISTANCE,CallFunc::create([=](){
+        manRunToTarget(vec,TACKLE_DISTANCE,CallFunc::create([=](){
             if(manState != FootManState::tackle && canFootmanTackle){
                 doSlideTackle();
                 canFootmanTackle = false;
@@ -231,9 +231,12 @@ float FootMan::getBallDistance(){
     return GeometryTools::calculateDistance(pos, this->getPosition());
 }
 
-void FootMan::footmanRunToTarget(Vec2 pos,float rad,CallFunc* callback){
+void FootMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     //跑向球
     auto vec = this->getPosition();
+    if(GeometryTools::calculateDistance(pos, vec) < rad/2){
+        return;
+    }
     float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
     float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
     if(speedx>0){
@@ -243,7 +246,7 @@ void FootMan::footmanRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     }
     this->setPosition(vec.x+speedx,vec.y+speedy);
     playFootManRun();
-    if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad){
+    if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad && nullptr != callback){
         //到达目标
         this->runAction(callback);
     }
@@ -269,6 +272,11 @@ std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
     }else{
         return StringUtils::format("team_%d_%d.csb",d,random(1,2));
     }
+}
+
+cocos2d::Vec2 FootMan::getManDefendVec2(){
+    //球员回去防守时会跑回默认位置附近
+    return originVec2;
 }
 
 void FootMan::update(float dt) {
