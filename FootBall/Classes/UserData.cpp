@@ -98,3 +98,16 @@ int UserData::getMasterCupLevel() {
 void UserData::setMasterCupLevel(int level) {
 	UserDefault::getInstance()->setIntegerForKey("master_level", level);
 }
+
+int UserData::getPlayerSkillNum(){
+    return UserDefault::getInstance()->getIntegerForKey("player_skill_num", 0);
+}
+
+void UserData::setPlayerSkillNum(int num){
+    UserDefault::getInstance()->setIntegerForKey("player_skill_num", num);
+}
+
+
+
+
+

@@ -300,6 +300,8 @@
 		D266D7C92111A5EB00E662A2 /* shadow_man.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7C62111A5EB00E662A2 /* shadow_man.png */; };
 		D266D7CB2111A66F00E662A2 /* footman_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7CA2111A66F00E662A2 /* footman_selected.png */; };
 		D266D7CC2111A66F00E662A2 /* footman_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7CA2111A66F00E662A2 /* footman_selected.png */; };
+		D266D7CE2111C0B900E662A2 /* skill_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7CD2111C0B800E662A2 /* skill_bg.png */; };
+		D266D7CF2111C0B900E662A2 /* skill_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7CD2111C0B800E662A2 /* skill_bg.png */; };
 		D2E3B0C320FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D2E3B0C420FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -547,6 +549,7 @@
 		D246EF1520F62EF600AD0860 /* DreamSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamSecond.h; sourceTree = "<group>"; };
 		D266D7C62111A5EB00E662A2 /* shadow_man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_man.png; sourceTree = "<group>"; };
 		D266D7CA2111A66F00E662A2 /* footman_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footman_selected.png; sourceTree = "<group>"; };
+		D266D7CD2111C0B800E662A2 /* skill_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_bg.png; sourceTree = "<group>"; };
 		D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballTeam.h; sourceTree = "<group>"; };
 		D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FootballTeam.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -687,6 +690,7 @@
 				D246EE4620F629B200AD0860 /* chen.png */,
 				D246EE0020F629AC00AD0860 /* door_left.png */,
 				D246EE3420F629B100AD0860 /* door_right.png */,
+				D266D7CD2111C0B800E662A2 /* skill_bg.png */,
 				D246EE3D20F629B200AD0860 /* dream */,
 				D246EE3220F629B000AD0860 /* energy_bg.png */,
 				D246EDEF20F629AB00AD0860 /* energy_full.png */,
@@ -1191,6 +1195,7 @@
 				D246EEAE20F629B300AD0860 /* master_cup_1.png in Resources */,
 				D246EE6620F629B300AD0860 /* yuxuan_7_2.png in Resources */,
 				D266D7CB2111A66F00E662A2 /* footman_selected.png in Resources */,
+				D266D7CE2111C0B900E662A2 /* skill_bg.png in Resources */,
 				D246EEB220F629B300AD0860 /* sound_off.png in Resources */,
 				D246EE6220F629B300AD0860 /* yuxuan_7_3.png in Resources */,
 				D246EE9420F629B300AD0860 /* pipe_3_2.png in Resources */,
@@ -1253,6 +1258,7 @@
 				D246EE8320F629B300AD0860 /* shoot_ball_2.png in Resources */,
 				D246EE4B20F629B300AD0860 /* pause_con.png in Resources */,
 				D246EE6B20F629B300AD0860 /* time_bg.png in Resources */,
+				D266D7CF2111C0B900E662A2 /* skill_bg.png in Resources */,
 				D246EE9120F629B300AD0860 /* team_icon_1.png in Resources */,
 				D246EE7520F629B300AD0860 /* energy_pro.png in Resources */,
 				D246EEDD20F629B300AD0860 /* rocker_bc.png in Resources */,

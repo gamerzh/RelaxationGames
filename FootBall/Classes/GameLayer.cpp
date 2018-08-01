@@ -5,6 +5,7 @@
 #include "FootballTeam.h"
 #include "GlobalProperty.h"
 #include "GeometryTools.h"
+#include "UserData.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -93,7 +94,14 @@ void GameLayer::loadGameLayerUI() {
     addChild(menu,50);
     auto set = Setting::create();
     addChild(set, 100);
-    
+    auto skillBg = Sprite::create("skill_bg.png");
+    skillBg->setPosition(1220, 280);
+    addChild(skillBg,50);
+    auto num = Label::createWithSystemFont(StringUtils::format("%d",UserData::getInstance()->getPlayerSkillNum()), "arial", 22);
+    num->setColor(Color3B::BLACK);
+    num->setAnchorPoint(Point::ANCHOR_MIDDLE);
+    num->setPosition(1220, 280);
+    addChild(num,50);
 }
 
 

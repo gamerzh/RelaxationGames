@@ -157,9 +157,9 @@ void Ball::replacement(){
 }
 
 void Ball::update(float dt) {
-    if(this->speed_fly >0){
-        this->speed_fly -= speed_calm*dt;
-    }
+//    if(this->speed_fly >0){
+//        this->speed_fly -= speed_calm*dt;
+//    }
     if (NULL != this->ballOwner && this->ballState == ball_is_ower) {
         this->setPosition(this->ballOwner->getFootballVec2());
     }else if(this->ballState == ball_is_pass){

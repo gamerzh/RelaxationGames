@@ -35,6 +35,9 @@ public:
 
 	int getMasterCupLevel();
 	void setMasterCupLevel(int level);
+    
+    int getPlayerSkillNum();
+    void setPlayerSkillNum(int num);
 
 private:
 	static  UserData* m_instance;

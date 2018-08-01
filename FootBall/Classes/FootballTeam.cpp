@@ -124,10 +124,10 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
 cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
     // 射门的位置随机
     if(!teamInLeftField){
-        Rect rect1 = Rect(100,500,60,300);//球门区域1
+        Rect rect1 = Rect(100,550,60,300);//球门区域1
         return Vec2(random(rect1.getMinX(), rect1.getMaxX()),random(rect1.getMinY(),rect1.getMaxY()));
     }else{
-        Rect rect2 = Rect(2000,500,60,300);//球门区域2
+        Rect rect2 = Rect(2000,550,60,300);//球门区域2
         return Vec2(random(rect2.getMinX(), rect2.getMaxX()),random(rect2.getMinY(),rect2.getMaxY()));
     }
 }
@@ -191,7 +191,7 @@ void FootballTeam::doTeamShoot(){
                 schedule([=](float dt){
                     man->playFootManSnap();
                 }, 0, 0, 0.6,"goalkeeper");
-                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getPosition());
+                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
             }else{
@@ -199,7 +199,7 @@ void FootballTeam::doTeamShoot(){
                 schedule([=](float dt){
                     man->playFootManSnap();
                 }, 0, 0, 0.6,"goalkeeper");
-                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getPosition());
+                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
             }
@@ -309,7 +309,7 @@ void FootballTeam::update(float dt){
                     goalkeeperReady = false;
                     schedule([=](float dt){
                          m_pControllingPlayer->playFootManShoot();
-                         GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getPosition());
+                         GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getFootballVec2());
                     },0,1,1,"pass_to_teammate");
                 }
             }else{
