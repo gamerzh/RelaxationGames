@@ -52,12 +52,14 @@ void Ball::setBallState(int state) {
 
 
 void Ball::setBallShoot(cocos2d::Vec2 vec) {
+    this->speed_fly = FOOT_BALL_START_SPEED;
     setBallState(ball_is_pass);
     this->ballOwner = NULL;
     this->targetPosition = vec;
 }
 
 void Ball::setBallPass(cocos2d::Vec2 vec){
+    this->speed_fly = FOOT_BALL_START_SPEED;
     setBallState(ball_is_pass);
     this->ballOwner = NULL;
     if(vec != Vec2(0,0)){
@@ -67,7 +69,7 @@ void Ball::setBallPass(cocos2d::Vec2 vec){
 
 void Ball::setBallFree(){
     this->ballOwner = NULL;
-     setBallState(ball_is_free);
+    setBallState(ball_is_free);
 }
 
 FootMan* Ball::getOwerMan() {
@@ -155,6 +157,9 @@ void Ball::replacement(){
 }
 
 void Ball::update(float dt) {
+    if(this->speed_fly >0){
+        this->speed_fly -= 3*dt;
+    }
     if (NULL != this->ballOwner && this->ballState == ball_is_ower) {
         this->setPosition(this->ballOwner->getFootballVec2());
     }else if(this->ballState == ball_is_pass){

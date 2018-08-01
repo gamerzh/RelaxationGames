@@ -16,6 +16,8 @@
 
 #define DEFEND_BACK_OFFSET 80
 
+#define FOOT_BALL_START_SPEED 10
+
 #define MAX_LEVEL_NUM 6//最大关卡的编号
 
 #define PLAYER_TEAM_ID 1//玩家球队的编号

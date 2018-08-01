@@ -2,6 +2,7 @@
 #include "cocos2d.h"
 #include "FootMan.h"
 
+
 #define ball_is_free 0
 #define ball_is_ower 1
 #define ball_is_pass 2
@@ -36,7 +37,7 @@ private:
     const  cocos2d::Rect goalRight = cocos2d::Rect(1920, 520, 100, 330);
     cocos2d::Camera* myCamera = nullptr;
     FootMan* ballOwner = nullptr;
-    float speed_fly = 10;
+    float speed_fly;
     void ballMoveDirect();
     void setBallState(int state);
     int ballState = ball_is_free;
