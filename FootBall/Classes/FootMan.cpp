@@ -300,6 +300,10 @@ cocos2d::Vec2 FootMan::getFootballVec2(){
     }
 }
 
+void FootMan::speedUp(){
+    this->runSpeed = 6;
+}
+
 void FootMan::update(float dt) {
     //铲球技能的冷却
     if(!canFootmanTackle){
@@ -317,6 +321,11 @@ void FootMan::update(float dt) {
             canObtainBall = true;
         }
     }
+    
+    if(runSpeed>3.5){
+        runSpeed -= dt/4;
+    }
+    
     updateFootManZorder();
     if (NULL != getChildByTag(1000)) {
         ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));

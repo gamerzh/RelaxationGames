@@ -129,6 +129,7 @@ void GameLayer::shoot() {
 
 void GameLayer::speedMan() {
     //球队的控球队员短距离加速
+    playerTeam->manSpeedUp();
     if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
         GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);

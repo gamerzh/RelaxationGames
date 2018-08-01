@@ -233,6 +233,14 @@ bool FootballTeam::checkShootResult(){
     return false;
 }
 
+void FootballTeam::manSpeedUp(){
+    for(auto var : footManVector){
+        if(!var->isGoalkeeper){
+            var->speedUp();
+        }
+    }
+}
+
 void FootballTeam::logicUpdate(float dt){
     //能量条
     if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_playing){
@@ -339,6 +347,8 @@ void FootballTeam::update(float dt){
         }
     }
 }
+
+
 
 void FootballTeam::onEnter(){
     Node::onEnter();

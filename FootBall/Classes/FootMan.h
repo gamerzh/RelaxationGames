@@ -33,6 +33,7 @@ public:
     void moveRight();
     void moveLeft();
     void replacement();
+    void speedUp();//加速
     void setOriginPosition(cocos2d::Vec2 vec);
     void changeFootManState(FootManState state);
     void manRunToTarget(cocos2d::Vec2 pos,float rad,cocos2d::CallFunc* callback = NULL);//跑向目标
