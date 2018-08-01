@@ -41,6 +41,7 @@ public:
     void openSimpleAI(bool p);
     void playFootManShoot();//射门动画
     void playFootManSnap();//守门员扑救
+    void showControlCircle(bool show);
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;

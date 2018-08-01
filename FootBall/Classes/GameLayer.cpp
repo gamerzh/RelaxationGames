@@ -222,6 +222,13 @@ void GameLayer::update(float dt) {
             controlingFootman->changeFootManState(FootMan::FootManState::running);
             controlingFootman->openSimpleAI(false);
             controlingFootman->setFootManAngle(angle);
+            for (auto var :playerTeam->getFootManVector()) {
+                if(var == controlingFootman){
+                    var->showControlCircle(true);
+                }else{
+                     var->showControlCircle(false);
+                }
+            }
         }
     }
     

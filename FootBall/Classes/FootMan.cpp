@@ -23,16 +23,38 @@ bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d:
     this->belongTeamId = teamId;
     this->manState = FootManState::waiting;
     this->fileName = getFileNameByTeamId(teamId,goalkeeper);
+    
+    //添加阴影
+    auto shadow = Sprite::create("shadow_man.png");
+    shadow->setScale(ANIMATION_SCALE_RATE*2);
+    shadow->setPosition(0,0);
+    addChild(shadow);
+    
+    //光圈
+    auto circle = Sprite::create("footman_selected.png");
+    circle->setScale(ANIMATION_SCALE_RATE*3);
+    circle->setPosition(0,0);
+    circle->setTag(3000);
+    circle->setVisible(false);
+    addChild(circle);
+    
     playerCsb = CSLoader::createNode(fileName);
     playerCsb->setScale(ANIMATION_SCALE_RATE);
     playerCsb->setPosition(0, 0);
     this->addChild(playerCsb);
     playFootManStand();
+
+    
     scheduleUpdate();
     //showDebugInfo();
     return true;
 }
 
+void FootMan::showControlCircle(bool show){
+    if(NULL != getChildByTag(3000)){
+        getChildByTag(3000)->setVisible(show);
+    }
+}
 
 
 float FootMan::getPositionXByYLeft(float y) {
