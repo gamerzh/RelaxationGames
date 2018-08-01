@@ -94,13 +94,13 @@ void FootballTeam::setTeamInLeftField(bool b) {
     this->teamInLeftField = b;
 }
 
-cocos2d::Vec2 FootballTeam::getGoalkeeperVec2(){
+FootMan* FootballTeam::getGoalkeeper(){
     for(auto man:footManVector){
         if(man->isGoalkeeper){
-            return man->getPosition();
+            return man;
         }
     }
-    return Vec2(0,0);
+    return nullptr;
 }
 
 std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
@@ -178,16 +178,28 @@ void FootballTeam::doTeamShoot(){
         //确认是否有球
         if(checkShootResult()){
             GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
+            auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
+            schedule([=](float dt){
+                man->playFootManSnap();
+            }, 0, 0, 0.5,"goalkeeper");
             footManAttackPos = Vec2(0,0);
             this->teamState = TeamStatus::neutrality;
         }else{
             this->teamState = TeamStatus::defend;
             if(this->teamId == PLAYER_TEAM_ID){
-                GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getComputerTeam()->getGoalkeeperVec2());
+                auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
+                schedule([=](float dt){
+                    man->playFootManSnap();
+                }, 0, 0, 0.6,"goalkeeper");
+                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getPosition());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
             }else{
-                GameStatus::getInstance()->getGameBall()->setBallShoot(GameStatus::getInstance()->getPlayerTeam()->getGoalkeeperVec2());
+                auto man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
+                schedule([=](float dt){
+                    man->playFootManSnap();
+                }, 0, 0, 0.6,"goalkeeper");
+                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getPosition());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
             }

@@ -165,6 +165,18 @@ void FootMan::playFootManTumble(){
     });
 }
 
+void FootMan::playFootManSnap(){
+    canUpdateState = false;
+    this->manState = FootManState::tumble;
+    playerCsb->stopAllActions();
+    auto heroTimeLine = CSLoader::createTimeline(fileName);
+    heroTimeLine->play("animation7", false);
+    playerCsb->runAction(heroTimeLine);
+    heroTimeLine->setAnimationEndCallFunc("animation7",[=](){
+        canUpdateState = true;
+    });
+}
+
 float FootMan::getShootSpeed() {
     return 10;
 }

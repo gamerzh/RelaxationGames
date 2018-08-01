@@ -39,6 +39,7 @@ public:
     void supportPosition(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
     void openSimpleAI(bool p);
     void playFootManShoot();//射门动画
+    void playFootManSnap();//守门员扑救
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;
