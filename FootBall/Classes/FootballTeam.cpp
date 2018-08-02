@@ -329,7 +329,7 @@ void FootballTeam::update(float dt){
                     schedule([=](float dt){
                          m_pControllingPlayer->playFootManShoot();
                          GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getFootballVec2());
-                    },0,1,1,"pass_to_teammate");
+                    },0,0,2,"pass_to_teammate");
                 }
             }else{
                 m_pControllingPlayer->manRunToTarget(footManAttackPos,20,CallFunc::create([=](){
