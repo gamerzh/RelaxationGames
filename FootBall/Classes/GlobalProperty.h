@@ -28,6 +28,8 @@
 
 #define GAME_TIME 120
 
+#define CAN_CHANGE_FOOTMAN_TIME 1.5
+
 #define foot_ball_in_goal "foot_ball_in_goal"//进球
 #define foot_ball_game_start "foot_ball_game_start"//游戏开始
 #define foot_man_trackle_success "foot_man_trackle_success"//铲球成功

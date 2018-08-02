@@ -43,7 +43,6 @@ bool FootMan::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d:
     playerCsb->setPosition(0, 0);
     this->addChild(playerCsb);
     playFootManStand();
-
     
     scheduleUpdate();
     //showDebugInfo();
@@ -54,6 +53,7 @@ void FootMan::showControlCircle(bool show){
     if(NULL != getChildByTag(3000)){
         getChildByTag(3000)->setVisible(show);
     }
+    this->simpleRobotAI = !show;
 }
 
 
@@ -256,10 +256,6 @@ bool FootMan::getSimpleAI(){
     return this->simpleRobotAI;
 }
 
-void FootMan::openSimpleAI(bool p){
-    this->simpleRobotAI = p;
-}
-
 float FootMan::getBallDistance(){
     auto pos = GameStatus::getInstance()->getGameBall()->getPosition();
     return GeometryTools::calculateDistance(pos, this->getPosition());
@@ -267,37 +263,41 @@ float FootMan::getBallDistance(){
 
 void FootMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     //跑向球
-    auto vec = this->getPosition();
-    if(GeometryTools::calculateDistance(pos, vec) < rad/2){
-        return;
-    }
-    float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
-    float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
-    if(speedx>0){
-        moveRight();
-    }else if(speedx<0){
-        moveLeft();
-    }
-    this->setPosition(vec.x+speedx,vec.y+speedy);
-    playFootManRun();
-    if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad && nullptr != callback){
-        //到达目标
-        this->runAction(callback);
+    if(this->simpleRobotAI){
+        auto vec = this->getPosition();
+        if(GeometryTools::calculateDistance(pos, vec) < rad/2){
+            return;
+        }
+        float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
+        float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
+        if(speedx>0){
+            moveRight();
+        }else if(speedx<0){
+            moveLeft();
+        }
+        this->setPosition(vec.x+speedx,vec.y+speedy);
+        playFootManRun();
+        if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad && nullptr != callback){
+            //到达目标
+            this->runAction(callback);
+        }
     }
 }
 
 void FootMan::supportPosition(cocos2d::Vec2 pos){
-    auto vec = this->getPosition();
-    float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
-    if(speedx>0){
-        moveRight();
-    }else{
-        moveLeft();
+    if(simpleRobotAI){
+        auto vec = this->getPosition();
+        float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
+        if(speedx>0){
+            moveRight();
+        }else{
+            moveLeft();
+        }
+        if(speedx != 0){
+            playFootManRun();
+        }
+        this->setPosition(vec.x+speedx,vec.y);
     }
-    if(speedx != 0){
-        playFootManRun();
-    }
-    this->setPosition(vec.x+speedx,vec.y);
 }
 
 std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
@@ -314,12 +314,7 @@ cocos2d::Vec2 FootMan::getManDefendVec2(){
 }
 
 cocos2d::Vec2 FootMan::getFootballVec2(){
-    auto dir = playerCsb->getScaleX();
-    if(dir<0){
-        return Vec2(this->getPositionX()-40,this->getPositionY());
-    }else{
-        return this->getPosition();
-    }
+    return Vec2(this->getPositionX()-22,this->getPositionY()-12);
 }
 
 void FootMan::speedUp(){
@@ -343,7 +338,7 @@ void FootMan::update(float dt) {
             canObtainBall = true;
         }
     }
-    
+    //速度衰减
     if(runSpeed>3.5){
         runSpeed -= dt/4;
     }
@@ -353,8 +348,6 @@ void FootMan::update(float dt) {
         ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));
     }
 }
-
-
 
 void FootMan::showDebugInfo() {
     auto lable = Label::createWithSystemFont(StringUtils::format("(%.1f,%.1f)",this->getPositionX(),this->getPositionY()), "arial", 30);

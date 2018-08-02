@@ -38,7 +38,6 @@ public:
     void changeFootManState(FootManState state);
     void manRunToTarget(cocos2d::Vec2 pos,float rad,cocos2d::CallFunc* callback = NULL);//跑向目标
     void supportPosition(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
-    void openSimpleAI(bool p);
     void playFootManShoot();//射门动画
     void playFootManSnap();//守门员扑救
     void showControlCircle(bool show);
@@ -47,7 +46,7 @@ private:
     int foot_man_skill_type = 0;
     float runSpeed = 3.5f;
     
-    bool simpleRobotAI = false;//简单AI关闭
+    bool simpleRobotAI = true;//简单AI关闭
     bool canUpdateState = true;//想允许切换动画
     
     bool canFootmanTackle = true;//是否允许铲球
@@ -67,6 +66,7 @@ private:
     cocos2d::Vec2 originVec2;//球员的默认位置
     FootManState manState;
     cocos2d::Point moveInSafeRect(cocos2d::Point pos);
+    
     float getPositionXByYLeft(float y);
     float getPositionXByYRight(float y);
     float getBallDistance();//获取和球的距离

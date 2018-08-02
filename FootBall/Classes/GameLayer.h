@@ -3,8 +3,9 @@
 #include "Ball.h"
 #include "Rocker.h"
 #include "FootMan.h"
-#include "TeamInfoFactory.h"
 #include "FootballTeam.h"
+#include "GlobalProperty.h"
+#include "TeamInfoFactory.h"
 
 #define FOOTBALL_LOCAL_ZORDER 10
 
@@ -14,7 +15,7 @@ public:
     CREATE_FUNC(GameLayer);
 private:
     bool canChangeControlMan = true;
-    float changeControlManInterval = 1.5f;
+    float changeControlManInterval = CAN_CHANGE_FOOTMAN_TIME;
     float special_time = 0;
     Ball* footBall = nullptr;
     Rocker* heroRocker = nullptr;

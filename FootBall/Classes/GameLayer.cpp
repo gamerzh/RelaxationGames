@@ -3,7 +3,6 @@
 #include "math.h"
 #include "Setting.h"
 #include "FootballTeam.h"
-#include "GlobalProperty.h"
 #include "GeometryTools.h"
 #include "UserData.h"
 #include "DreamLayer.h"
@@ -32,7 +31,7 @@ bool GameLayer::init() {
     footBall = Ball::create(playerCamera);
     footBall->setPosition(1000, 680);
     footBall->setCameraMask((int)CameraFlag::USER1);
-    addChild(footBall, FOOTBALL_LOCAL_ZORDER);
+    addChild(footBall, FOOTBALL_LOCAL_ZORDER*200);
     GameStatus::getInstance()->setGameBall(footBall);//HACK:为了FootMan类可以获取到ball的位置
     GameStatus::getInstance()->setGameState(GameStatus::GameState::game_start);//游戏等待开始
     
@@ -129,7 +128,9 @@ void GameLayer::passAndTackle() {
         }
     }else{
         //铲球
-        playerTeam->m_pControllingPlayer->doSlideTackle();
+        if(NULL != controlingFootman){
+            controlingFootman->doSlideTackle();
+        }
     }
 }
 
@@ -236,7 +237,7 @@ void GameLayer::update(float dt) {
         changeControlManInterval -= dt;
         if(changeControlManInterval<0){
             canChangeControlMan = true;
-            changeControlManInterval = 1.5f;
+            changeControlManInterval = CAN_CHANGE_FOOTMAN_TIME;
         }
     }
     
@@ -252,24 +253,23 @@ void GameLayer::update(float dt) {
             min = dis;
         }
     }
-    if(nullptr != controlMan){
+    if(NULL != controlMan){
         controlingFootman = controlMan;
-        for (auto var :playerTeam->getFootManVector()) {
+    }
+    if (nullptr != controlingFootman && nullptr != heroRocker) {
+        for (auto var : playerTeam->getFootManVector()) {
             if(var == controlingFootman){
                 var->showControlCircle(true);
             }else{
                 var->showControlCircle(false);
             }
         }
-    }
-    if (nullptr != controlingFootman && nullptr != heroRocker) {
-        canChangeControlMan = false;
         auto angle = heroRocker->getRockerAngle();
         if (angle != 0) {
             controlingFootman->changeFootManState(FootMan::FootManState::running);
-            controlingFootman->openSimpleAI(false);
             controlingFootman->setFootManAngle(angle);
         }
+        canChangeControlMan = false;
     }
     
 }
@@ -327,8 +327,8 @@ void GameLayer::addCustomEvent() {
     
     auto gameStart = EventListenerCustom::create(foot_ball_game_start, [=](EventCustom* event) {
         //收到通知开始开球,除了目前被玩家选中的球员,其余的球员打开AI
-        playerTeam->setFootballTeamAI(playerTeam->m_pControllingPlayer);
-        computerTeam->setFootballTeamAI();
+        //        playerTeam->setFootballTeamAI(playerTeam->m_pControllingPlayer);
+        //        computerTeam->setFootballTeamAI();
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(gameStart, 1);
 }

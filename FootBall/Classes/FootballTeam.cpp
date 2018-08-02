@@ -173,15 +173,6 @@ std::string FootballTeam::getTeamAttackDirection(){
     }
 }
 
-void FootballTeam::setFootballTeamAI(FootMan* man){
-    for (auto  var : footManVector) {
-        if(NULL != man && var == man && !var->isGoalkeeper){
-            var->openSimpleAI(false);
-        }else{
-            var->openSimpleAI(true);
-        }
-    }
-}
 
 void FootballTeam::doTeamShoot(){
     //控球的队员播放射门动画

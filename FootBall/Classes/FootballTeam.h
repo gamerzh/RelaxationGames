@@ -31,7 +31,7 @@ public:
     void setTeamStatus(TeamStatus s);
     void setControllingMan(FootMan* man);
     void setTeamInLeftField(bool b);
-    void setFootballTeamAI(FootMan* man = nullptr);//设置队伍的AI
+//    void setFootballTeamAI(FootMan* man = nullptr);//设置队伍的AI
     void manSpeedUp();//球队加速
 private:
     TeamStatus teamState;
