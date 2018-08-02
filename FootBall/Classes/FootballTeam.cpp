@@ -221,6 +221,10 @@ void FootballTeam::doTeamShoot(){
 
 bool FootballTeam::checkShootResult(){
     //判断这次射门是否成功
+    if(this->teamEnergy >= 100){
+        this->teamEnergy =0;
+        return true;
+    }
     //守门员默认为防守队员
     auto ballPos = GameStatus::getInstance()->getGameBall()->getPosition();
     float per  = 60;//守门员的防守值默认40，球员为30
