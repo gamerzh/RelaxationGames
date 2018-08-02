@@ -24,6 +24,8 @@
 
 #define DREAM_SPECIAL_TIME 25
 
+#define PROP_DREAM_NUM 500 //道具价格
+
 #define foot_ball_in_goal "foot_ball_in_goal"//进球
 #define foot_ball_game_start "foot_ball_game_start"//游戏开始
 #define foot_man_trackle_success "foot_man_trackle_success"//铲球成功

@@ -8,4 +8,6 @@ public:
 private:
     void continueGame();
     void gotoLobby();
+    bool isWin;
+    void doResultDream();
 };

@@ -1,5 +1,7 @@
 #include "TeamAbility.h"
 #include "UserData.h"
+#include "DreamLayer.h"
+#include "GlobalProperty.h"
 USING_NS_CC;
 
 TeamAbility* TeamAbility::create(TeamAbilityType type) {
@@ -48,31 +50,36 @@ bool TeamAbility::init(TeamAbilityType type) {
 }
 
 void TeamAbility::getPropLevel() {
-	if (teamAbilityType == TeamAbilityType::speed) {
-		int level = UserData::getInstance()->getTeamSpeedLevel();
-		level = level + 1;
-		if (level > 5) {
-			level = 5;
-		}
-		UserData::getInstance()->setTeamSpeedLevel(level);
-	}
-	else if (teamAbilityType == TeamAbilityType::shoot) {
-		int level = UserData::getInstance()->getTeamShootLevel();
-		level = level + 1;
-		if (level > 5) {
-			level = 5;
-		}
-		UserData::getInstance()->setTeamShootLevel(level);
-	}
-	else if (teamAbilityType == TeamAbilityType::energy) {
-		int level = UserData::getInstance()->getTeamEnergyLevel();
-		level = level + 1;
-		if (level > 5) {
-			level = 5;
-		}
-		UserData::getInstance()->setTeamEnergyLevel(level);
-	}
-	updatePropLevel(teamAbilityType);
+    if(UserData::getInstance()->getPlayerGoldNum() >= PROP_DREAM_NUM){
+        if (teamAbilityType == TeamAbilityType::speed) {
+            int level = UserData::getInstance()->getTeamSpeedLevel();
+            level = level + 1;
+            if (level > 5) {
+                level = 5;
+            }
+            UserData::getInstance()->setTeamSpeedLevel(level);
+        }
+        else if (teamAbilityType == TeamAbilityType::shoot) {
+            int level = UserData::getInstance()->getTeamShootLevel();
+            level = level + 1;
+            if (level > 5) {
+                level = 5;
+            }
+            UserData::getInstance()->setTeamShootLevel(level);
+        }
+        else if (teamAbilityType == TeamAbilityType::energy) {
+            int level = UserData::getInstance()->getTeamEnergyLevel();
+            level = level + 1;
+            if (level > 5) {
+                level = 5;
+            }
+            UserData::getInstance()->setTeamEnergyLevel(level);
+        }
+        updatePropLevel(teamAbilityType);
+    }else{
+        auto drem = DreamLayer::create(11);
+        addChild(drem,100);
+    }
 }
 
 void TeamAbility::updatePropLevel(TeamAbilityType type) {

@@ -3,6 +3,8 @@
 #include "LobbyScene.h"
 #include "GameStatus.h"
 #include "UserData.h"
+#include "Dream.h"
+#include "GameScene.h"
 
 USING_NS_CC;
 
@@ -22,7 +24,7 @@ bool ResultLayer::init(bool win) {
 	if (!Layer::init()) {
 		return false;
 	}
-
+    this->isWin = win;
 	auto black = LayerColor::create(Color4B(0, 0, 0, 100), 1280, 720);
 	addChild(black);
 
@@ -61,9 +63,19 @@ bool ResultLayer::init(bool win) {
 }
 
 void ResultLayer::continueGame(){
-    //TODO:继续游戏
+    doResultDream();
+    Director::getInstance()->replaceScene(GameScene::create());
 }
 
 void ResultLayer::gotoLobby(){
+    doResultDream();
     Director::getInstance()->replaceScene(LobbyScene::create());
+}
+
+void ResultLayer::doResultDream(){
+    if(isWin){
+        Dream::getInstance()->requestEvent(9);
+    }else{
+        Dream::getInstance()->requestEvent(10);
+    }
 }
