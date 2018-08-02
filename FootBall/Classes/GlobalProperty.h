@@ -26,7 +26,7 @@
 
 #define PROP_DREAM_NUM 500 //道具价格
 
-#define GAME_TIME 10
+#define GAME_TIME 120
 
 #define foot_ball_in_goal "foot_ball_in_goal"//进球
 #define foot_ball_game_start "foot_ball_game_start"//游戏开始
