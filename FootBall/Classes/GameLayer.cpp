@@ -283,11 +283,13 @@ void GameLayer::addCustomEvent() {
         auto result = static_cast<char*>(event->getUserData());
         if(playerTeam->getTeamAttackDirection() == result){
             playerTeam->teamScore += 1;
+            GameStatus::getInstance()->setPlayerScore(playerTeam->teamScore);
             auto dream = DreamLayer::create(8);
             addChild(dream);
         }
         if(computerTeam->getTeamAttackDirection() == result){
             computerTeam->teamScore += 1;
+            GameStatus::getInstance()->setComputerScore(computerTeam->teamScore);
         }
         //延迟2秒,2秒后重置场景,球员和球回到初始位置
         schedule([=](float dt){

@@ -55,3 +55,22 @@ GameStatus::GameType GameStatus::getCurrentGameType(){
 void GameStatus::setCurrentGameType(GameType type){
     this->currentGameType = type;
 }
+
+int GameStatus::getPlayerScore(){
+    return  playerScore;
+}
+void GameStatus::setPlayerScore(int s){
+    playerScore = s;
+}
+
+int GameStatus::getComputerScore(){
+    return computerScore;
+}
+
+void GameStatus::setComputerScore(int s){
+    computerScore = s;
+}
+
+
+
+

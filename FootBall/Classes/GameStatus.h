@@ -30,6 +30,10 @@ public:
     void setCurrentSelectedLevel(int level);
     GameType getCurrentGameType();
     void setCurrentGameType(GameType type);
+    int getPlayerScore();
+    void setPlayerScore(int s);
+    int getComputerScore();
+    void setComputerScore(int s);
 private:
     static  GameStatus* m_instance;
     GameStatus() {}
@@ -39,5 +43,7 @@ private:
     FootballTeam* computerTeam;//AI控制的队伍
     int currentSelectedLevel = 0;//当前游戏官卡
     GameType currentGameType;
+    int computerScore;
+    int playerScore;
 };
 

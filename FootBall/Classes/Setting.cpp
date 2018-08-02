@@ -3,6 +3,7 @@
 #include "PauseLayer.h"
 #include "UserData.h"
 #include "GlobalProperty.h"
+#include "GameStatus.h"
 USING_NS_CC;
 
 bool Setting::init() {
@@ -95,8 +96,13 @@ void Setting::update(float dt) {
 		}
 		else {
 			this->pause();
-			auto layer = ResultLayer::create(true);
-			addChild(layer);
+            if(GameStatus::getInstance()->getPlayerScore()>GameStatus::getInstance()->getComputerScore()){
+                auto layer = ResultLayer::create(true);
+                addChild(layer);
+            }else{
+                auto layer = ResultLayer::create(false);
+                addChild(layer);
+            }
 		}
 	}
 }
