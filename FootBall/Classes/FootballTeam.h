@@ -45,6 +45,7 @@ private:
 	std::vector<FootMan*> footManVector;
 	std::vector<cocos2d::Vec2> getLeftFieldVec2();
 	std::vector<cocos2d::Vec2> getRightFieldVec2();
+    std::string getTeamIconName(int tid);
     void generateFootballTeam();
     void logicUpdate(float dt);
     void update(float dt);

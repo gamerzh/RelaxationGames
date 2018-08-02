@@ -81,6 +81,11 @@ void TeamAbility::getPropLevel() {
          if(!Dream::getInstance()->getDreamTimes()){
              auto drem = DreamLayer::create(11);
              addChild(drem,100);
+         }else{
+             auto tip = Label::createWithSystemFont("点券不足","Arial",26);
+             tip->setPosition(720,100);
+             getParent()->addChild(tip);
+             tip->runAction(FadeOut::create(2));
          }
     }
 }
@@ -122,5 +127,5 @@ int TeamAbility::getLevelByType(TeamAbilityType type) {
 
 
 int TeamAbility::getPriceByType(TeamAbilityType type) {
-	return 500;
+	return PROP_DREAM_NUM;
 }

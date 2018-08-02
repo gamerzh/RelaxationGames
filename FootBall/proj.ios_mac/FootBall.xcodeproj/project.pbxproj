@@ -50,6 +50,24 @@
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		D22BF38E2112E268002B8D50 /* team_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3842112E267002B8D50 /* team_icon_2.png */; };
+		D22BF38F2112E268002B8D50 /* team_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3842112E267002B8D50 /* team_icon_2.png */; };
+		D22BF3902112E268002B8D50 /* team_icon_5.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3862112E267002B8D50 /* team_icon_5.png */; };
+		D22BF3912112E268002B8D50 /* team_icon_5.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3862112E267002B8D50 /* team_icon_5.png */; };
+		D22BF3922112E268002B8D50 /* team_icon_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3872112E267002B8D50 /* team_icon_1.png */; };
+		D22BF3932112E268002B8D50 /* team_icon_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3872112E267002B8D50 /* team_icon_1.png */; };
+		D22BF3942112E268002B8D50 /* team_icon_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3882112E267002B8D50 /* team_icon_4.png */; };
+		D22BF3952112E268002B8D50 /* team_icon_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3882112E267002B8D50 /* team_icon_4.png */; };
+		D22BF3962112E268002B8D50 /* team_icon_6.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3892112E267002B8D50 /* team_icon_6.png */; };
+		D22BF3972112E268002B8D50 /* team_icon_6.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3892112E267002B8D50 /* team_icon_6.png */; };
+		D22BF3982112E268002B8D50 /* team_icon_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38A2112E268002B8D50 /* team_icon_3.png */; };
+		D22BF3992112E268002B8D50 /* team_icon_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38A2112E268002B8D50 /* team_icon_3.png */; };
+		D22BF39A2112E268002B8D50 /* team_icon_7.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38B2112E268002B8D50 /* team_icon_7.png */; };
+		D22BF39B2112E268002B8D50 /* team_icon_7.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38B2112E268002B8D50 /* team_icon_7.png */; };
+		D22BF39C2112E268002B8D50 /* team_icon_master.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38C2112E268002B8D50 /* team_icon_master.png */; };
+		D22BF39D2112E268002B8D50 /* team_icon_master.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38C2112E268002B8D50 /* team_icon_master.png */; };
+		D22BF39E2112E268002B8D50 /* team_icon_world.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38D2112E268002B8D50 /* team_icon_world.png */; };
+		D22BF39F2112E268002B8D50 /* team_icon_world.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF38D2112E268002B8D50 /* team_icon_world.png */; };
 		D246EDB920F6297B00AD0860 /* TeamInfoFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */; };
 		D246EDBA20F6297B00AD0860 /* TeamInfoFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */; };
 		D246EDBB20F6297B00AD0860 /* StartLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246ED8B20F6297900AD0860 /* StartLayer.cpp */; };
@@ -397,6 +415,15 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D22BF3842112E267002B8D50 /* team_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_2.png; sourceTree = "<group>"; };
+		D22BF3862112E267002B8D50 /* team_icon_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_5.png; sourceTree = "<group>"; };
+		D22BF3872112E267002B8D50 /* team_icon_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_1.png; sourceTree = "<group>"; };
+		D22BF3882112E267002B8D50 /* team_icon_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_4.png; sourceTree = "<group>"; };
+		D22BF3892112E267002B8D50 /* team_icon_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_6.png; sourceTree = "<group>"; };
+		D22BF38A2112E268002B8D50 /* team_icon_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_3.png; sourceTree = "<group>"; };
+		D22BF38B2112E268002B8D50 /* team_icon_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_7.png; sourceTree = "<group>"; };
+		D22BF38C2112E268002B8D50 /* team_icon_master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_master.png; sourceTree = "<group>"; };
+		D22BF38D2112E268002B8D50 /* team_icon_world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_world.png; sourceTree = "<group>"; };
 		D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TeamInfoFactory.cpp; sourceTree = "<group>"; };
 		D246ED8B20F6297900AD0860 /* StartLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartLayer.cpp; sourceTree = "<group>"; };
 		D246ED8C20F6297900AD0860 /* GameStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatus.cpp; sourceTree = "<group>"; };
@@ -730,6 +757,15 @@
 				D246EDF520F629AB00AD0860 /* play-circle-o.png */,
 				D266D7CA2111A66F00E662A2 /* footman_selected.png */,
 				D246EDF720F629AB00AD0860 /* play-square-o.png */,
+				D22BF3872112E267002B8D50 /* team_icon_1.png */,
+				D22BF3842112E267002B8D50 /* team_icon_2.png */,
+				D22BF38A2112E268002B8D50 /* team_icon_3.png */,
+				D22BF3882112E267002B8D50 /* team_icon_4.png */,
+				D22BF3862112E267002B8D50 /* team_icon_5.png */,
+				D22BF3892112E267002B8D50 /* team_icon_6.png */,
+				D22BF38B2112E268002B8D50 /* team_icon_7.png */,
+				D22BF38C2112E268002B8D50 /* team_icon_master.png */,
+				D22BF38D2112E268002B8D50 /* team_icon_world.png */,
 				D246EE2E20F629B000AD0860 /* point_gray.png */,
 				D246EE2D20F629B000AD0860 /* point_green.png */,
 				D246EE0420F629AC00AD0860 /* point_light.png */,
@@ -1140,6 +1176,7 @@
 				D246EEB020F629B300AD0860 /* sl.png in Resources */,
 				D246EEEC20F629B300AD0860 /* pipe_6_1.png in Resources */,
 				D246EEB620F629B300AD0860 /* yuxuan_4_1.png in Resources */,
+				D22BF3902112E268002B8D50 /* team_icon_5.png in Resources */,
 				D246EE5A20F629B300AD0860 /* logo.png in Resources */,
 				D266D7C82111A5EB00E662A2 /* shadow_man.png in Resources */,
 				D246EEE220F629B300AD0860 /* energy_bg.png in Resources */,
@@ -1149,18 +1186,22 @@
 				D246EF0C20F629B300AD0860 /* pipe_1_1.png in Resources */,
 				D246EE6420F629B300AD0860 /* pipe_3_1.png in Resources */,
 				D246EE8620F629B300AD0860 /* point_light.png in Resources */,
+				D22BF39C2112E268002B8D50 /* team_icon_master.png in Resources */,
 				D246EE9A20F629B300AD0860 /* speed_box.png in Resources */,
 				D246EEFC20F629B300AD0860 /* master_cup_2.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				D22BF3942112E268002B8D50 /* team_icon_4.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				D246EE5220F629B300AD0860 /* yuxuan_4_3.png in Resources */,
 				D246EE5C20F629B300AD0860 /* energy_full.png in Resources */,
+				D22BF38E2112E268002B8D50 /* team_icon_2.png in Resources */,
 				D246EF0620F629B300AD0860 /* yuxuan_1_1.png in Resources */,
 				D246EE6A20F629B300AD0860 /* time_bg.png in Resources */,
 				D246EE8820F629B300AD0860 /* shoot_box.png in Resources */,
 				D246EEA220F629B300AD0860 /* box_1.png in Resources */,
 				D246EEEA20F629B300AD0860 /* yuxuan_6_3.png in Resources */,
+				D22BF3982112E268002B8D50 /* team_icon_3.png in Resources */,
 				D246EE7E20F629B300AD0860 /* door_left.png in Resources */,
 				D246EEF020F629B300AD0860 /* yuxuan_5_2.png in Resources */,
 				D246EEBC20F629B300AD0860 /* yuxuan_7_1.png in Resources */,
@@ -1210,6 +1251,7 @@
 				D246EE9820F629B300AD0860 /* rocker_bt.png in Resources */,
 				D246EE7620F629B300AD0860 /* sb.png in Resources */,
 				D246EEAA20F629B300AD0860 /* box_2.png in Resources */,
+				D22BF3922112E268002B8D50 /* team_icon_1.png in Resources */,
 				D246EE9020F629B300AD0860 /* team_icon_1.png in Resources */,
 				D246EE8E20F629B300AD0860 /* green.jpg in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -1219,6 +1261,7 @@
 				D246EE7420F629B300AD0860 /* energy_pro.png in Resources */,
 				D246EE6020F629B300AD0860 /* world_cup_2.png in Resources */,
 				D246EE4A20F629B300AD0860 /* pause_con.png in Resources */,
+				D22BF39A2112E268002B8D50 /* team_icon_7.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				D246EE9620F629B300AD0860 /* num_green.png in Resources */,
 				D246EE5020F629B300AD0860 /* shoot_ball_1.png in Resources */,
@@ -1228,6 +1271,7 @@
 				D246EE8220F629B300AD0860 /* shoot_ball_2.png in Resources */,
 				D246EE4E20F629B300AD0860 /* speed_ball_1.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				D22BF39E2112E268002B8D50 /* team_icon_world.png in Resources */,
 				D246EF0420F629B300AD0860 /* yuxuan_6_1.png in Resources */,
 				D246EED420F629B300AD0860 /* yuxuan_2_3.png in Resources */,
 				D246EED020F629B300AD0860 /* yuxuan_4_2.png in Resources */,
@@ -1237,6 +1281,7 @@
 				D246EE7A20F629B300AD0860 /* speed_ball_2.png in Resources */,
 				D246EECA20F629B300AD0860 /* pipe_1_2.png in Resources */,
 				D246EEBE20F629B300AD0860 /* yuxuan_1_3.png in Resources */,
+				D22BF3962112E268002B8D50 /* team_icon_6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1246,6 +1291,7 @@
 			files = (
 				D246EEA720F629B300AD0860 /* pause_btn.png in Resources */,
 				D246EE9D20F629B300AD0860 /* white_num.png in Resources */,
+				D22BF38F2112E268002B8D50 /* team_icon_2.png in Resources */,
 				D246EEB320F629B300AD0860 /* sound_off.png in Resources */,
 				D246EEA520F629B300AD0860 /* pipe_4_2.png in Resources */,
 				D246EF0920F629B300AD0860 /* start_game_blue.png in Resources */,
@@ -1263,6 +1309,7 @@
 				D246EE7520F629B300AD0860 /* energy_pro.png in Resources */,
 				D246EEDD20F629B300AD0860 /* rocker_bc.png in Resources */,
 				D246EE5320F629B300AD0860 /* yuxuan_4_3.png in Resources */,
+				D22BF3912112E268002B8D50 /* team_icon_5.png in Resources */,
 				D246EF0520F629B300AD0860 /* yuxuan_6_1.png in Resources */,
 				D246EED520F629B300AD0860 /* yuxuan_2_3.png in Resources */,
 				D246EEE920F629B300AD0860 /* pause_lobby.png in Resources */,
@@ -1286,6 +1333,7 @@
 				D246EEB120F629B300AD0860 /* sl.png in Resources */,
 				D246EE8720F629B300AD0860 /* point_light.png in Resources */,
 				D246EED320F629B300AD0860 /* res in Resources */,
+				D22BF3992112E268002B8D50 /* team_icon_3.png in Resources */,
 				D246EF0720F629B300AD0860 /* yuxuan_1_1.png in Resources */,
 				D246EEED20F629B300AD0860 /* pipe_6_1.png in Resources */,
 				D246EEC320F629B300AD0860 /* enger_box.png in Resources */,
@@ -1301,6 +1349,7 @@
 				D246EE4D20F629B300AD0860 /* pipe_5_1.png in Resources */,
 				D246EE7F20F629B300AD0860 /* door_left.png in Resources */,
 				D246EEC520F629B300AD0860 /* world_cup_1.png in Resources */,
+				D22BF39F2112E268002B8D50 /* team_icon_world.png in Resources */,
 				D246EEE520F629B300AD0860 /* yuxuan_1_2.png in Resources */,
 				D246EE5720F629B300AD0860 /* pause_re.png in Resources */,
 				D246EEFD20F629B300AD0860 /* master_cup_2.png in Resources */,
@@ -1309,11 +1358,14 @@
 				D246EE8B20F629B300AD0860 /* yuxuan_2_1.png in Resources */,
 				D246EE4920F629B300AD0860 /* team.json in Resources */,
 				D246EED920F629B300AD0860 /* point_green.png in Resources */,
+				D22BF3932112E268002B8D50 /* team_icon_1.png in Resources */,
 				D246EE9520F629B300AD0860 /* pipe_3_2.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				D246EE5120F629B300AD0860 /* shoot_ball_1.png in Resources */,
+				D22BF3952112E268002B8D50 /* team_icon_4.png in Resources */,
 				D246EEB720F629B300AD0860 /* yuxuan_4_1.png in Resources */,
 				D246EE9720F629B300AD0860 /* num_green.png in Resources */,
+				D22BF3972112E268002B8D50 /* team_icon_6.png in Resources */,
 				D246EF0320F629B300AD0860 /* yuxuan_5_3.png in Resources */,
 				D246EEBB20F629B300AD0860 /* pipe_6_2.png in Resources */,
 				D246EE4F20F629B300AD0860 /* speed_ball_1.png in Resources */,
@@ -1321,6 +1373,7 @@
 				D246EEE720F629B300AD0860 /* door_right.png in Resources */,
 				D246EEFB20F629B300AD0860 /* buy_prop.png in Resources */,
 				D246EEEF20F629B300AD0860 /* white_sound_off.png in Resources */,
+				D22BF39B2112E268002B8D50 /* team_icon_7.png in Resources */,
 				D246EE9B20F629B300AD0860 /* speed_box.png in Resources */,
 				D266D7CC2111A66F00E662A2 /* footman_selected.png in Resources */,
 				D246EE6120F629B300AD0860 /* world_cup_2.png in Resources */,
@@ -1339,6 +1392,7 @@
 				D246EEDF20F629B300AD0860 /* yuxuan_5_1.png in Resources */,
 				D246EE8120F629B300AD0860 /* load_bg.png in Resources */,
 				D246EE9F20F629B300AD0860 /* yuxuan_3_2.png in Resources */,
+				D22BF39D2112E268002B8D50 /* team_icon_master.png in Resources */,
 				D246EE7320F629B300AD0860 /* pass_ball_2.png in Resources */,
 				D246EE6920F629B300AD0860 /* play-circle-o.png in Resources */,
 				D246EE7120F629B300AD0860 /* lobby_bg.png in Resources */,

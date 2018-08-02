@@ -26,7 +26,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     
     generateFootballTeam();
     
-    auto teamIcon1 = Sprite::create("team_icon_1.png");
+    auto teamIcon1 = Sprite::create(getTeamIconName(teamid));
     addChild(teamIcon1);
     
     auto score1 = LabelAtlas::create(StringUtils::format("0%d",teamScore),"num_gold.png",71,81,'0');
@@ -61,6 +61,18 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     schedule(schedule_selector(FootballTeam::logicUpdate), 1.0f);
     scheduleUpdate();
     return true;
+}
+
+std::string FootballTeam::getTeamIconName(int tid){
+    if(tid == 8){
+        if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
+            return "team_icon_world.png";
+        }else{
+             return "team_icon_master.png";
+        }
+    }else{
+       return  StringUtils::format("team_icon_%d.png",tid);
+    }
 }
 
 void FootballTeam::generateFootballTeam(){
