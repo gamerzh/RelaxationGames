@@ -2,13 +2,14 @@
 #include "ResultLayer.h"
 #include "PauseLayer.h"
 #include "UserData.h"
+#include "GlobalProperty.h"
 USING_NS_CC;
 
 bool Setting::init() {
 	if (!Layer::init()) {
 		return false;
 	}
-	
+    gameTime = GAME_TIME;
 	loadView();
 	scheduleUpdate();
 	return true;
@@ -78,7 +79,7 @@ void Setting::update(float dt) {
 	if (passTime > timestep) {
 		gameTime -= timestep;
 		passTime -= timestep;
-		if (gameTime > 0) {
+		if (gameTime >= 0) {
 			if (NULL != getChildByTag(100)) {
 				((LabelAtlas*)getChildByTag(100))->setString(StringUtils::format("0%d", gameTime/60));
 			}

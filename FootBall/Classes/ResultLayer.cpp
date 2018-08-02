@@ -59,6 +59,14 @@ bool ResultLayer::init(bool win) {
 	menu->alignItemsHorizontallyWithPadding(50);
 	addChild(menu);
     
+    auto gold1 = LabelAtlas::create("100","white_num.png",16,23,'0');
+    gold1->setPosition(visibleSize.width / 2+60, visibleSize.height / 2-10);
+    addChild(gold1);
+    
+    auto gold2 = LabelAtlas::create("100","white_num.png",16,23,'0');
+    gold2->setPosition(visibleSize.width / 2+60, visibleSize.height / 2-95);
+    addChild(gold2);
+    
     if(!Dream::getInstance()->getDreamTimes()){
         auto y = Sprite::create("dream/price_twenty.png");
         y->setAnchorPoint(Point::ANCHOR_BOTTOM_RIGHT);
@@ -71,6 +79,7 @@ bool ResultLayer::init(bool win) {
 
 void ResultLayer::continueGame(){
     doResultDream();
+    getParent()->getParent()->getParent()->cleanup();
     Director::getInstance()->replaceScene(GameScene::create());
 }
 
@@ -85,4 +94,5 @@ void ResultLayer::doResultDream(){
     }else{
         Dream::getInstance()->requestEvent(10);
     }
+     UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 200);
 }

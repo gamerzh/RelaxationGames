@@ -1,5 +1,6 @@
 #include "PauseLayer.h"
 #include "LobbyScene.h"
+#include "GameScene.h"
 USING_NS_CC;
 
 bool PauseLayer::init(){
@@ -19,10 +20,22 @@ bool PauseLayer::init(){
 	menu->alignItemsVerticallyWithPadding(15);
 	menu->setPosition(visibleSize.width / 2, visibleSize.height / 2-20);
 	addChild(menu);
+    Director::getInstance()->pause();
 	return true;
 }
 
+void PauseLayer::continuePlay(){
+    Director::getInstance()->resume();
+    removeFromParent();
+}
+
+void PauseLayer::reStartGame(){
+    Director::getInstance()->resume();
+    getParent()->getParent()->getParent()->cleanup();
+    Director::getInstance()->replaceScene(GameScene::create());
+}
 
 void PauseLayer::gobackLobby(){
+    Director::getInstance()->resume();
     Director::getInstance()->replaceScene(LobbyScene::create());
 }

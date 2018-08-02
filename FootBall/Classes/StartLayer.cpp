@@ -27,6 +27,31 @@ bool StartLayer::init() {
         addChild(dream1);
     }
     
+    auto listener = EventListenerKeyboard::create();
+    listener->onKeyReleased = [=](EventKeyboard::KeyCode code, Event * e) {
+        switch (code)
+        {
+            case cocos2d::EventKeyboard::KeyCode::KEY_NONE:
+                break;
+            case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
+                if (!Dream::getInstance()->getDreamTimes()) {
+                    if (NULL == getChildByTag(1025)) {
+                        DreamLayer* nod = DreamLayer::create(12);
+                        nod->setTag(1025);
+                        addChild(nod,10);
+                    }
+                }
+                else {
+                    Dream::getInstance()->quitGame();
+                }
+                break;
+            }
+            default:
+                break;
+        }
+    };
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    
     return true;
 }
 

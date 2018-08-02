@@ -108,6 +108,7 @@ void GameLayer::loadGameLayerUI() {
     num->setColor(Color3B::BLACK);
     num->setAnchorPoint(Point::ANCHOR_MIDDLE);
     num->setPosition(1220, 280);
+    num->setTag(666);
     addChild(num,50);
 }
 
@@ -145,6 +146,10 @@ void GameLayer::shoot() {
 void GameLayer::speedMan() {
     if( UserData::getInstance()->getPlayerSkillNum()>0){
         //球队的控球队员短距离加速
+        UserData::getInstance()->setPlayerSkillNum(UserData::getInstance()->getPlayerSkillNum()-1);
+        if(NULL != getChildByTag(666)){
+            ((Label*)getChildByTag(666))->setString(StringUtils::format("%d",UserData::getInstance()->getPlayerSkillNum()));
+        }
         playerTeam->manSpeedUp();
         if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
             GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);

@@ -6,5 +6,7 @@ public:
 	virtual bool init();
 	CREATE_FUNC(PauseLayer);
 private:
+    void continuePlay();
+    void reStartGame();
     void gobackLobby();
 };
