@@ -58,7 +58,7 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
         
         energy_timer_1->setPosition(850, 610);
     }
-    schedule(schedule_selector(FootballTeam::logicUpdate), 1.0f);
+    schedule(schedule_selector(FootballTeam::logicUpdate), 0.5f);
     scheduleUpdate();
     return true;
 }
@@ -126,7 +126,7 @@ std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
 
 std::vector<Vec2> FootballTeam::getRightFieldVec2() {
     std::vector<Vec2> right;
-    right.push_back(Vec2(1200,675));
+    right.push_back(Vec2(1150,675));
     right.push_back(Vec2(1500,850));
     right.push_back(Vec2(1500,350));
     right.push_back(Vec2(1880,675));
@@ -197,7 +197,6 @@ void FootballTeam::doTeamShoot(){
             footManAttackPos = Vec2(0,0);
             this->teamState = TeamStatus::neutrality;
         }else{
-            this->teamState = TeamStatus::defend;
             if(this->teamId == PLAYER_TEAM_ID){
                 auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
                 schedule([=](float dt){
@@ -222,21 +221,21 @@ void FootballTeam::doTeamShoot(){
 bool FootballTeam::checkShootResult(){
     //判断这次射门是否成功
     if(this->teamEnergy >= 100){
-        this->teamEnergy =0;
+        this->teamEnergy = 0;
         return true;
     }
     //守门员默认为防守队员
     auto ballPos = GameStatus::getInstance()->getGameBall()->getPosition();
     float per  = 60;//守门员的防守值默认40，球员为30
-    if(teamId == 1){
+    if(teamId == PLAYER_TEAM_ID){
         for(auto var :GameStatus::getInstance()->getComputerTeam()->getFootManVector()){
-            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
+            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<200){
                 per -= 30;
             }
         }
     }else{
         for(auto var :GameStatus::getInstance()->getPlayerTeam()->getFootManVector()){
-            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<150){
+            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<200){
                 per -= 30;
             }
         }
@@ -265,7 +264,7 @@ void FootballTeam::logicUpdate(float dt){
             GameStatus::getInstance()->setAddEnergy(false);
         }
         if(teamEnergy <100){
-            teamEnergy += teamEnergyRate;
+            teamEnergy += teamEnergyRate*0.5;
             if(NULL != getChildByTag(2000)){
                 ((ProgressTimer*)getChildByTag(2000))->setPercentage(teamEnergy);
             }

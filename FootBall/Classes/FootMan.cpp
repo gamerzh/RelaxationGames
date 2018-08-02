@@ -316,7 +316,7 @@ cocos2d::Vec2 FootMan::getManDefendVec2(){
 cocos2d::Vec2 FootMan::getFootballVec2(){
     auto dir = playerCsb->getScaleX();
     if(dir<0){
-        return Vec2(this->getPositionX()-45,this->getPositionY());
+        return Vec2(this->getPositionX()-40,this->getPositionY());
     }else{
         return this->getPosition();
     }
