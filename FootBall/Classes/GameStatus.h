@@ -34,6 +34,8 @@ public:
     void setPlayerScore(int s);
     int getComputerScore();
     void setComputerScore(int s);
+    bool getAddEnergy();
+    void setAddEnergy(bool f);
 private:
     static  GameStatus* m_instance;
     GameStatus() {}
@@ -45,5 +47,6 @@ private:
     GameType currentGameType;
     int computerScore;
     int playerScore;
+    bool addEnergy = false;
 };
 

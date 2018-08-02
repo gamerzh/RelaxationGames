@@ -6,7 +6,7 @@
 #define ball_is_free 0
 #define ball_is_ower 1
 #define ball_is_pass 2
-#define owner_ball_max_dis 50
+#define owner_ball_max_dis 70
 
 struct BallSpeed{
     float speedx;

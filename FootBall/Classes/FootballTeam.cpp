@@ -136,7 +136,7 @@ std::vector<Vec2> FootballTeam::getRightFieldVec2() {
 cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
     // 射门的位置随机
     if(!teamInLeftField){
-        Rect rect1 = Rect(100,550,60,300);//球门区域1
+        Rect rect1 = Rect(80,550,50,300);//球门区域1
         return Vec2(random(rect1.getMinX(), rect1.getMaxX()),random(rect1.getMinY(),rect1.getMaxY()));
     }else{
         Rect rect2 = Rect(2000,550,60,300);//球门区域2
@@ -260,6 +260,10 @@ void FootballTeam::manSpeedUp(){
 void FootballTeam::logicUpdate(float dt){
     //能量条
     if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_playing){
+        if(GameStatus::getInstance()->getAddEnergy()){
+            teamEnergy = 100;
+            GameStatus::getInstance()->setAddEnergy(false);
+        }
         if(teamEnergy <100){
             teamEnergy += teamEnergyRate;
             if(NULL != getChildByTag(2000)){

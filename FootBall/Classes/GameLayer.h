@@ -22,6 +22,7 @@ private:
     FootballTeam* playerTeam;
     FootballTeam* computerTeam;
     FootMan* controlingFootman;//当前被控制的球员
+    cocos2d::MenuItemImage* trackOrPassBtn;
     void onEnter();
     void onExit();
     void passAndTackle();

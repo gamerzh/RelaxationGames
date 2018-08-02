@@ -71,6 +71,13 @@ void GameStatus::setComputerScore(int s){
     computerScore = s;
 }
 
+bool GameStatus::getAddEnergy(){
+    return this->addEnergy;
+}
+
+void GameStatus::setAddEnergy(bool f){
+    this->addEnergy = f;
+}
 
 
 

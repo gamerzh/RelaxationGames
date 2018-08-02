@@ -119,6 +119,7 @@ void DreamLayer::doConfirmEvent(Ref* ref) {
     }
 	else if (id == 5 || id == 8) {
         //射门能量加满
+        GameStatus::getInstance()->setAddEnergy(true);
 	}
     Director::getInstance()->resume();//重新启动游戏
 	removeFromParent();

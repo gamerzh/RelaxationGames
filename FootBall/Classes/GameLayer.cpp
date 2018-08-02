@@ -90,11 +90,11 @@ void GameLayer::createFootBallTeam() {
 
 
 void GameLayer::loadGameLayerUI() {
-    auto btn1 = MenuItemImage::create("pass_ball_1.png","pass_ball_2.png",CC_CALLBACK_0(GameLayer::passAndTackle,this));
+    trackOrPassBtn = MenuItemImage::create("pass_ball_1.png","pass_ball_2.png",CC_CALLBACK_0(GameLayer::passAndTackle,this));
     auto btn2 = MenuItemImage::create("shoot_ball_1.png", "shoot_ball_2.png", CC_CALLBACK_0(GameLayer::shoot, this));
     auto btn3 = MenuItemImage::create("speed_ball_1.png", "speed_ball_2.png", CC_CALLBACK_0(GameLayer::speedMan, this));
-    auto menu = Menu::create(btn1, btn2, btn3, NULL);
-    btn1->setPosition(1070, 80);
+    auto menu = Menu::create(trackOrPassBtn, btn2, btn3, NULL);
+    trackOrPassBtn->setPosition(1070, 80);
     btn2->setPosition(1160, 190);
     btn3->setPosition(1190, 320);
     menu->setPosition(0,0);
@@ -217,8 +217,16 @@ void GameLayer::manLootBall() {
 
 
 void GameLayer::update(float dt) {
+    
+    if(footBall->getOwerMan() != NULL && footBall->getOwerMan()->getFootManTeamId() == PLAYER_TEAM_ID){
+        trackOrPassBtn->setNormalImage(Sprite::create("pass_ball_1.png"));
+        trackOrPassBtn->setSelectedImage(Sprite::create("pass_ball_1.png"));
+    }else{
+        trackOrPassBtn->setNormalImage(Sprite::create("trackle_ball_1.png"));
+        trackOrPassBtn->setSelectedImage(Sprite::create("trackle_ball_1.png"));
+    }
     special_time += dt;
-    if(special_time>DREAM_SPECIAL_TIME){
+    if(special_time > DREAM_SPECIAL_TIME){
         auto dream = DreamLayer::create(6);
         addChild(dream,300);
         special_time = 0;
@@ -284,8 +292,10 @@ void GameLayer::addCustomEvent() {
         if(playerTeam->getTeamAttackDirection() == result){
             playerTeam->teamScore += 1;
             GameStatus::getInstance()->setPlayerScore(playerTeam->teamScore);
-            auto dream = DreamLayer::create(8);
-            addChild(dream);
+            if(!Dream::getInstance()->getDreamTimes()){
+                auto dream = DreamLayer::create(8);
+                addChild(dream,300);
+            }
         }
         if(computerTeam->getTeamAttackDirection() == result){
             computerTeam->teamScore += 1;
