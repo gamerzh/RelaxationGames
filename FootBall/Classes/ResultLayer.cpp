@@ -58,6 +58,13 @@ bool ResultLayer::init(bool win) {
 	menu->setPosition(visibleSize.width / 2, visibleSize.height / 2-180);
 	menu->alignItemsHorizontallyWithPadding(50);
 	addChild(menu);
+    
+    if(!Dream::getInstance()->getDreamTimes()){
+        auto y = Sprite::create("dream/price_twenty.png");
+        y->setAnchorPoint(Point::ANCHOR_BOTTOM_RIGHT);
+        y->setPosition(1280 ,5);
+        addChild(y);
+    }
 
 	return true;
 }

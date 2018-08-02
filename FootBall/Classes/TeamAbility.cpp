@@ -2,6 +2,7 @@
 #include "UserData.h"
 #include "DreamLayer.h"
 #include "GlobalProperty.h"
+#include "Dream.h"
 USING_NS_CC;
 
 TeamAbility* TeamAbility::create(TeamAbilityType type) {
@@ -77,8 +78,10 @@ void TeamAbility::getPropLevel() {
         }
         updatePropLevel(teamAbilityType);
     }else{
-        auto drem = DreamLayer::create(11);
-        addChild(drem,100);
+         if(!Dream::getInstance()->getDreamTimes()){
+             auto drem = DreamLayer::create(11);
+             addChild(drem,100);
+         }
     }
 }
 

@@ -7,6 +7,7 @@
 #include "GeometryTools.h"
 #include "UserData.h"
 #include "DreamLayer.h"
+#include "Dream.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -37,8 +38,10 @@ bool GameLayer::init() {
     
     loadGameLayerUI();
     
-    auto dream = DreamLayer::create(5);
-    addChild(dream,300);
+    if(!Dream::getInstance()->getDreamTimes()){
+        auto dream = DreamLayer::create(5);
+        addChild(dream,300);
+    }
     
     scheduleUpdate();
     

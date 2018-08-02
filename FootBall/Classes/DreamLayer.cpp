@@ -134,7 +134,9 @@ void DreamLayer::closeView(Ref* ref) {
 	else if (id == 2) {
 		auto node = DreamLayer::create(3);
 		getParent()->addChild(node);
-	}
+    }else if (id == 12) {
+        Dream::getInstance()->quitGame();
+    }
      Director::getInstance()->resume();//重新启动游戏
 	removeFromParent();
 }
