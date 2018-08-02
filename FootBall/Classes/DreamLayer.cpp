@@ -113,6 +113,7 @@ void DreamLayer::doConfirmEvent(Ref* ref) {
 	}
 	else if (id == 3 || id == 6||id == 7) {
 		//加速道具1次
+        UserData::getInstance()->setPlayerSkillNum(UserData::getInstance()->getPlayerSkillNum()+1);
     }else if (id == 4 ||id == 9 ||id == 10 ||id == 11 ) {
         UserData::getInstance()->setPlayerGoldNum(UserData::getInstance()->getPlayerGoldNum() + 100);
     }

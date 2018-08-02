@@ -3,6 +3,7 @@
 #include "DreamEvent.h"
 #include "GameStatus.h"
 #include "GameLayer.h"
+#include "UserData.h"
 
 DreamSecond* DreamSecond::create(int dreamId) {
     DreamSecond* ret = new DreamSecond();
@@ -59,6 +60,7 @@ void DreamSecond::confirmDream(Ref* ref) {
     int id = tem->getTag();
     Dream::getInstance()->requestEvent(id);
     //加速道具加1
+    UserData::getInstance()->setPlayerSkillNum(UserData::getInstance()->getPlayerSkillNum()+1);
     Director::getInstance()->resume();//重新启动游戏
     getParent()->removeFromParent();
     
