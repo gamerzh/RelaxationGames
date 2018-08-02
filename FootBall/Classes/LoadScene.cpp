@@ -59,5 +59,5 @@ void LoadScene::loadView() {
 }
 
 void LoadScene::gotoGameScene() {
-	Director::getInstance()->replaceScene(TransitionMoveInT::create(0.5f, LobbyScene::create()));
+	Director::getInstance()->replaceScene(LobbyScene::create());
 }

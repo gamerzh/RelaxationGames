@@ -38,7 +38,7 @@ bool GameLayer::init() {
     loadGameLayerUI();
     
     auto dream = DreamLayer::create(5);
-    addChild(dream);
+    addChild(dream,300);
     
     scheduleUpdate();
     
@@ -204,6 +204,13 @@ void GameLayer::manLootBall() {
 
 
 void GameLayer::update(float dt) {
+    special_time += dt;
+    if(special_time>DREAM_SPECIAL_TIME){
+        auto dream = DreamLayer::create(6);
+        addChild(dream,300);
+        special_time = 0;
+    }
+    
     if(!canChangeControlMan){
         changeControlManInterval -= dt;
         if(changeControlManInterval<0){

@@ -34,6 +34,7 @@ bool DreamLayer::init(int dreamId) {
 	};
 	listener->setSwallowTouches(true);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    Director::getInstance()->pause();//暂停游戏
 	return true;
 }
 
@@ -118,6 +119,7 @@ void DreamLayer::doConfirmEvent(Ref* ref) {
 	else if (id == 5 || id == 8) {
         //射门能量加满
 	}
+    Director::getInstance()->resume();//重新启动游戏
 	removeFromParent();
 }
 
@@ -132,6 +134,7 @@ void DreamLayer::closeView(Ref* ref) {
 		auto node = DreamLayer::create(3);
 		getParent()->addChild(node);
 	}
+     Director::getInstance()->resume();//重新启动游戏
 	removeFromParent();
 }
 
@@ -142,7 +145,8 @@ void DreamLayer::doSecondConfirmEvent(Ref* ref) {
 	addChild(sec);
 }
 void DreamLayer::closeSecondView(Ref* ref) {
-	MenuItemImage* tem = (MenuItemImage*)ref;
+//    MenuItemImage* tem = (MenuItemImage*)ref;
+    Director::getInstance()->resume();//重新启动游戏
 	removeFromParent();
 }
 
