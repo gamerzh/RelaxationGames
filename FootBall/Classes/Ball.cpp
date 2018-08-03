@@ -25,7 +25,7 @@ bool Ball::init(Camera* camera) {
     footballCsb->setScale(ANIMATION_SCALE_RATE);
     footballCsb->setPosition(0, 0);
     addChild(footballCsb);
-    preLoaction = this->getPosition();
+//    preLoaction = this->getPosition();
     scheduleUpdate();
     setFootballRotate(true);
     return true;
@@ -157,18 +157,33 @@ void Ball::replacement(){
 }
 
 void Ball::update(float dt) {
-//    if(this->speed_fly >0){
-//        this->speed_fly -= speed_calm*dt;
-//    }
+    //球按规律减速
+    //    if(this->speed_fly >0){
+    //        this->speed_fly -= speed_calm*dt;
+    //    }
+    auto speedCamera =0;
+    auto preLocation = this->getPosition();
+    auto curLocation = preLocation;
     if (NULL != this->ballOwner && this->ballState == ball_is_ower) {
-        this->setPosition(this->ballOwner->getFootballVec2());
+        curLocation = this->ballOwner->getFootballVec2();
+        this->setPosition(curLocation);
+        speedCamera=2;
     }else if(this->ballState == ball_is_pass){
         if(droppointInCorrect(this->targetPosition,this->getPosition())){
             this->ballState = ball_is_free;
         }
-        this->setPosition(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
+        curLocation =Vec2(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
+        this->setPosition(curLocation);
+        speedCamera = 8;
     }
-    
-    this->myCamera->setPosition(cameraMoveInRect(this->getPosition()));
+    auto cameraCurrentVec2 = this->myCamera->getPosition();
+    auto cameraTargetVec2 = cameraMoveInRect(curLocation);
+    float mu = GeometryTools::calculateDistance(cameraCurrentVec2, cameraTargetVec2);
+    if(mu > camera_follow_dis){
+        auto speedx =speedCamera*(cameraTargetVec2.x-cameraCurrentVec2.x)/mu;
+        auto speedy =speedCamera*(cameraTargetVec2.y-cameraCurrentVec2.y)/mu;
+        log("(%f,%f)",speedx,speedy);
+        this->myCamera->setPosition(cameraCurrentVec2.x+speedx,cameraCurrentVec2.y+speedy);
+    }
     checkBallInGoal();
 }

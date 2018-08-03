@@ -2,12 +2,6 @@
 #include "cocos2d.h"
 #include "FootMan.h"
 
-
-#define ball_is_free 0
-#define ball_is_ower 1
-#define ball_is_pass 2
-#define owner_ball_max_dis 80
-
 struct BallSpeed{
     float speedx;
     float speedy;
@@ -31,14 +25,14 @@ public:
 private:
     bool sendGoalMsg = false;//是否发送过进球信息
     cocos2d::Vec2 targetPosition;
-    cocos2d::Vec2 preLoaction;
+//    cocos2d::Vec2 preLoaction;
     cocos2d::Node* footballCsb;
     const  cocos2d::Rect goalLeft = cocos2d::Rect(115, 520, 100, 330);
     const  cocos2d::Rect goalRight = cocos2d::Rect(1920, 520, 100, 330);
     cocos2d::Camera* myCamera = nullptr;
     FootMan* ballOwner = nullptr;
     float speed_fly;
-     float speed_calm = 3;
+    float speed_calm = 3;
     void ballMoveDirect();
     void setBallState(int state);
     int ballState = ball_is_free;

@@ -30,6 +30,12 @@
 
 #define CAN_CHANGE_FOOTMAN_TIME 1.5
 
+#define ball_is_free 0
+#define ball_is_ower 1
+#define ball_is_pass 2
+#define owner_ball_max_dis 80
+#define camera_follow_dis 50
+
 #define foot_ball_in_goal "foot_ball_in_goal"//进球
 #define foot_ball_game_start "foot_ball_game_start"//游戏开始
 #define foot_man_trackle_success "foot_man_trackle_success"//铲球成功
