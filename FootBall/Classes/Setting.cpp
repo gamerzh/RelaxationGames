@@ -36,6 +36,9 @@ void Setting::loadView() {
     
     int timeRight = gameTime%60;
 	auto showtimeRight = LabelAtlas::create(StringUtils::format("%d", timeRight),"num_green.png",29,43,'0');
+    if(timeRight<10){
+        showtimeRight->setString(StringUtils::format("0%d", timeRight));
+    }
 	showtimeRight->setAnchorPoint(Point::ANCHOR_MIDDLE_LEFT);
     showtimeRight->setTag(101);
 	showtimeRight->setPosition(visibleSize.width / 2+10, visibleSize.height - 40);
@@ -85,7 +88,7 @@ void Setting::update(float dt) {
 				((LabelAtlas*)getChildByTag(100))->setString(StringUtils::format("0%d", gameTime/60));
 			}
             if (NULL != getChildByTag(101)) {
-                int t =gameTime%60;
+                int t = gameTime%60;
                 if(t < 10){
                     ((LabelAtlas*)getChildByTag(101))->setString(StringUtils::format("0%d", t));
                 }else{
