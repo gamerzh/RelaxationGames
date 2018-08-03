@@ -199,6 +199,7 @@ void FootballTeam::doTeamShoot(){
             }else{
                 auto man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
                 schedule([=](float dt){
+//                    man->
                     man->playFootManSnap();
                 }, 0, 0, 0.6,"goalkeeper");
                 GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());

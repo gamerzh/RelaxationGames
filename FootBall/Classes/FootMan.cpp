@@ -157,6 +157,7 @@ void FootMan::playFootManTackle() {
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation4",[=](){
         //铲球动画结束后允许其他动画
+        this->manState = running;
         canUpdateState = true;
     });
 }
@@ -275,7 +276,9 @@ void FootMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
         }else if(speedx<0){
             moveLeft();
         }
-        this->setPosition(vec.x+speedx,vec.y+speedy);
+        if(manState != FootManState::tackle || manState != FootManState::tumble){
+           this->setPosition(vec.x+speedx,vec.y+speedy);
+        }
         playFootManRun();
         if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad && nullptr != callback){
             //到达目标
@@ -296,7 +299,9 @@ void FootMan::supportPosition(cocos2d::Vec2 pos){
         if(speedx != 0){
             playFootManRun();
         }
-        this->setPosition(vec.x+speedx,vec.y);
+        if(manState != FootManState::tackle || manState != FootManState::tumble){
+            this->setPosition(vec.x+speedx,vec.y);
+        }
     }
 }
 
