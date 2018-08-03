@@ -128,7 +128,8 @@ void GameLayer::passAndTackle() {
         }
     }else{
         //铲球
-        if(NULL != controlingFootman){
+        if(NULL != controlingFootman && can_track){
+            can_track = false;
             controlingFootman->doSlideTackle();
         }
     }
@@ -218,6 +219,13 @@ void GameLayer::manLootBall() {
 
 
 void GameLayer::update(float dt) {
+    if(!can_track){
+        track_time -= dt;
+        if(track_time<0){
+            can_track = true;
+            track_time = 1.5;
+        }
+    }
     
     if(footBall->getOwerMan() != NULL && footBall->getOwerMan()->getFootManTeamId() == PLAYER_TEAM_ID){
         trackOrPassBtn->setNormalImage(Sprite::create("pass_ball_1.png"));

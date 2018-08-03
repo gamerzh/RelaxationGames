@@ -17,6 +17,8 @@ private:
     bool canChangeControlMan = true;
     float changeControlManInterval = CAN_CHANGE_FOOTMAN_TIME;
     float special_time = 0;
+    float track_time = 1.5;//铲球冷却
+    bool can_track = true;
     Ball* footBall = nullptr;
     Rocker* heroRocker = nullptr;
     cocos2d::Camera* playerCamera;

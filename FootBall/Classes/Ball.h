@@ -24,12 +24,12 @@ public:
     FootMan* getOwerMan();
     bool droppointInCorrect(cocos2d::Vec2 tar,cocos2d::Vec2 cor);
 private:
-    bool sendGoalMsg = false;//是否发送过进球信息
-    cocos2d::Vec2 targetPosition;
-//    cocos2d::Vec2 preLoaction;
-    cocos2d::Node* footballCsb;
     const  cocos2d::Rect goalLeft = cocos2d::Rect(115, 520, 100, 330);
     const  cocos2d::Rect goalRight = cocos2d::Rect(1920, 520, 100, 330);
+    
+    bool sendGoalMsg = false;//是否发送过进球信息
+    cocos2d::Vec2 targetPosition;
+    cocos2d::Node* footballCsb;
     cocos2d::Camera* myCamera = nullptr;
     FootMan* ballOwner = nullptr;
     float speed_fly;
