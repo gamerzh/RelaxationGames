@@ -1,5 +1,4 @@
 #include "Ball.h"
-#include "GlobalProperty.h"
 #include "GeometryTools.h"
 USING_NS_CC;
 

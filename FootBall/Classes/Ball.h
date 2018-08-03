@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "FootMan.h"
+#include "GlobalProperty.h"
 
 struct BallSpeed{
     float speedx;
