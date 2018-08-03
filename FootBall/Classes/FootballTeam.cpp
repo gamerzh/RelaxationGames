@@ -191,6 +191,7 @@ void FootballTeam::doTeamShoot(){
             if(this->teamId == PLAYER_TEAM_ID){
                 auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
                 schedule([=](float dt){
+                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());        
                     man->playFootManSnap();
                 }, 0, 0, 0.1,"goalkeeper");
                 GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
@@ -199,6 +200,7 @@ void FootballTeam::doTeamShoot(){
             }else{
                 auto man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
                 schedule([=](float dt){
+                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
                     man->playFootManSnap();
                 }, 0, 0, 0.1,"goalkeeper");
                 GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
@@ -304,7 +306,7 @@ void FootballTeam::update(float dt){
             if(att != m_pControllingPlayer && !att->isGoalkeeper){
                 //持球队员跑向去前场，其余队员到中场和前场接应
                 auto pos = GameStatus::getInstance()->getGameBall();
-                att->supportPosition(Vec2(pos->getPosition()));
+                att->manRunToTargetX(Vec2(pos->getPosition()));
             }
         }
         //在射门区域里随机一个位置,持球队员成功跑到位置后射门

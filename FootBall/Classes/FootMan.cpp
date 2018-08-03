@@ -287,7 +287,7 @@ void FootMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     }
 }
 
-void FootMan::supportPosition(cocos2d::Vec2 pos){
+void FootMan::manRunToTargetX(cocos2d::Vec2 pos){
     if(simpleRobotAI){
         auto vec = this->getPosition();
         float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
@@ -301,6 +301,19 @@ void FootMan::supportPosition(cocos2d::Vec2 pos){
         }
         if(manState != FootManState::tackle || manState != FootManState::tumble){
             this->setPosition(vec.x+speedx,vec.y);
+        }
+    }
+}
+
+void FootMan::manRunToTargetY(cocos2d::Vec2 pos){
+    if(simpleRobotAI){
+        auto vec = this->getPosition();
+        float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
+        if(speedy != 0){
+            playFootManRun();
+        }
+        if(manState != FootManState::tackle || manState != FootManState::tumble){
+            this->setPosition(vec.x,vec.y+speedy);
         }
     }
 }
