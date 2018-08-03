@@ -192,16 +192,15 @@ void FootballTeam::doTeamShoot(){
                 auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
                 schedule([=](float dt){
                     man->playFootManSnap();
-                }, 0, 0, 0.6,"goalkeeper");
+                }, 0, 0, 0.1,"goalkeeper");
                 GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
             }else{
                 auto man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
                 schedule([=](float dt){
-//                    man->
                     man->playFootManSnap();
-                }, 0, 0, 0.6,"goalkeeper");
+                }, 0, 0, 0.1,"goalkeeper");
                 GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);

@@ -6,7 +6,7 @@
 #define football_field_offset_top 160
 #define football_offset_x 60
 #define football_offset_y 20
-#define ANIMATION_SCALE_RATE 0.15
+#define ANIMATION_SCALE_RATE 0.25
 
 #define FOOTBALL_MAN_ZORDER 5000
 //简单AI的逻辑,进入距离500内开始靠近对方,距离小于100发动铲球，最多只有2名球员去防守
