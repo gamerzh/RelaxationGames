@@ -156,6 +156,12 @@ void Ball::replacement(){
     this->setPosition(1080, 680);
 }
 
+void Ball::showBallEffect(int id){
+//    auto sprite = Sprite::create("effects/team_1_1.png");
+//    sprite->setCameraMask((int)CameraFlag::USER1);
+//    addChild(sprite);
+}
+
 void Ball::update(float dt) {
     //球按规律减速
     //    if(this->speed_fly >0){
