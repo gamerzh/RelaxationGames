@@ -37,7 +37,8 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
     //engery
     auto energy_bg_1 = Sprite::create("energy_bg.png");
     addChild(energy_bg_1);
-    auto energy_content_1 = Sprite::create("energy_pro.png");
+    energy_content_1 = Sprite::create("energy_pro.png");
+    energy_content_1->setTag(100);
     auto energy_timer_1 = ProgressTimer::create(energy_content_1);
     
     energy_timer_1->setMidpoint(Vec2(0, 1));
@@ -258,12 +259,15 @@ void FootballTeam::logicUpdate(float dt){
             GameStatus::getInstance()->setAddEnergy(false);
         }
         if(teamEnergy <100){
-            teamEnergy += teamEnergyRate*0.5;
+            teamEnergy += teamEnergyRate*5;
             if(NULL != getChildByTag(2000)){
                 ((ProgressTimer*)getChildByTag(2000))->setPercentage(teamEnergy);
             }
+            energy_content_1->setTexture("energy_pro.png");
+            
         }else{
             ((ProgressTimer*)getChildByTag(2000))->setPercentage(100);
+            energy_content_1->setTexture("energy_full.png");
         }
     }
     //判断队伍目前的状态

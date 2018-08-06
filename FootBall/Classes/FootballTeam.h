@@ -41,6 +41,7 @@ private:
     float teamEnergy = 0;//能量计数
     float teamEnergyRate = 0;//能量增长比率
     cocos2d::Vec2 footManAttackPos =  cocos2d::Vec2(0,0);//一次进攻的目标位置
+    cocos2d::Sprite* energy_content_1;
     FootMan* goalkeeper;//守门员
 	std::vector<FootMan*> footManVector;
 	std::vector<cocos2d::Vec2> getLeftFieldVec2();
