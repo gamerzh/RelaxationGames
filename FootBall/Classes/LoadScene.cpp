@@ -53,7 +53,6 @@ void LoadScene::loadView() {
 	auto node = Node::create();
 	addChild(node);
 	auto action = Sequence::create(DelayTime::create(delayTime), CallFunc::create([=]() {
-        Audio::getInstance()->playLobbyBackgroundMusic();
 		gotoGameScene();
 	}), NULL);
 	node->runAction(action);

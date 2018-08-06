@@ -69,10 +69,10 @@ std::string FootballTeam::getTeamIconName(int tid){
         if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
             return "team_icon_world.png";
         }else{
-             return "team_icon_master.png";
+            return "team_icon_master.png";
         }
     }else{
-       return  StringUtils::format("team_icon_%d.png",tid);
+        return  StringUtils::format("team_icon_%d.png",tid);
     }
 }
 
@@ -181,6 +181,8 @@ void FootballTeam::doTeamShoot(){
         m_pControllingPlayer->playFootManShoot();
         //确认是否有球
         if(checkShootResult()){
+            this->teamEnergy = 0;
+            GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
             GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
             auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
             schedule([=](float dt){
@@ -215,8 +217,6 @@ void FootballTeam::doTeamShoot(){
 bool FootballTeam::checkShootResult(){
     //判断这次射门是否成功
     if(this->teamEnergy >= 100){
-        this->teamEnergy = 0;
-        GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
         return true;
     }
     //守门员默认为防守队员
@@ -283,7 +283,7 @@ void FootballTeam::logicUpdate(float dt){
             }
         }
         if(!m_pControllingPlayer->isGoalkeeper){
-             goalkeeperReady = true;
+            goalkeeperReady = true;
         }
     }
     auto ball = GameStatus::getInstance()->getGameBall();
@@ -325,8 +325,8 @@ void FootballTeam::update(float dt){
                 if(NULL != m_pCloseingPlayer && goalkeeperReady){
                     goalkeeperReady = false;
                     schedule([=](float dt){
-                         m_pControllingPlayer->playFootManShoot();
-                         GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getFootballVec2());
+                        m_pControllingPlayer->playFootManShoot();
+                        GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getFootballVec2());
                     },0,0,2,"pass_to_teammate");
                 }
             }else{

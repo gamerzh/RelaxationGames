@@ -45,6 +45,8 @@ bool LobbyLayer::init() {
     loadWorldCupView();
     loadTeamView();
     
+    Audio::getInstance()->playLobbyBackgroundMusic();
+    
     return true;
 }
 
