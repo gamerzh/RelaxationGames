@@ -30,7 +30,7 @@ private:
     void onExit();
     void passAndTackle();
     void shoot();
-    void manLootBall();
+    void manLootBall();//球员获得球权
     void speedMan();
     void loadGameLayerUI();
     void addCustomEvent();

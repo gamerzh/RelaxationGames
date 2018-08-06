@@ -33,8 +33,10 @@
 #define ball_is_free 0
 #define ball_is_ower 1
 #define ball_is_pass 2
-#define owner_ball_max_dis 80
-#define camera_follow_dis 50
+#define owner_ball_max_dis 120 //获取球的范围
+#define camera_follow_dis 80 //相机跟随落后的范围
+
+#define FLIED_HALF_DISTANCE  1100
 
 #define foot_ball_in_goal "foot_ball_in_goal"//进球
 #define foot_ball_game_start "foot_ball_game_start"//游戏开始

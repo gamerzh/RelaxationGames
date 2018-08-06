@@ -243,8 +243,11 @@ void FootMan::setOriginPosition(cocos2d::Vec2 vec){
 
 void FootMan::replacement(){
     this->setPosition(this->originVec2);
-    if(originVec2.x>1200){
+    //HACK通过位置来判断球员朝向
+    if(originVec2.x > FLIED_HALF_DISTANCE){
         moveLeft();
+    }else{
+        moveRight();
     }
 }
 
@@ -277,7 +280,7 @@ void FootMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
             moveLeft();
         }
         if(manState != FootManState::tackle || manState != FootManState::tumble){
-           this->setPosition(vec.x+speedx,vec.y+speedy);
+            this->setPosition(vec.x+speedx,vec.y+speedy);
         }
         playFootManRun();
         if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad && nullptr != callback){
