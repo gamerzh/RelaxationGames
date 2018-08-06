@@ -23,7 +23,8 @@ public:
     BallSpeed getBallSpeedToTarget();
     FootMan* getOwerMan();
     bool droppointInCorrect(cocos2d::Vec2 tar,cocos2d::Vec2 cor);
-    void showBallEffect(int id);
+    void showBallEffect(int effectId,bool left);
+    void hideBallEffect();
 private:
     const  cocos2d::Rect goalLeft = cocos2d::Rect(115, 520, 100, 330);
     const  cocos2d::Rect goalRight = cocos2d::Rect(1920, 520, 100, 330);
@@ -31,6 +32,7 @@ private:
     bool sendGoalMsg = false;//是否发送过进球信息
     cocos2d::Vec2 targetPosition;
     cocos2d::Node* footballCsb;
+    cocos2d::Sprite* ballEffect;
     cocos2d::Camera* myCamera = nullptr;
     FootMan* ballOwner = nullptr;
     float speed_fly;

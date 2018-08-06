@@ -216,7 +216,7 @@ bool FootballTeam::checkShootResult(){
     //判断这次射门是否成功
     if(this->teamEnergy >= 100){
         this->teamEnergy = 0;
-        GameStatus::getInstance()->getGameBall()->showBallEffect(1);
+        GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
         return true;
     }
     //守门员默认为防守队员

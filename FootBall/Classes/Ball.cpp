@@ -24,7 +24,10 @@ bool Ball::init(Camera* camera) {
     footballCsb->setScale(ANIMATION_SCALE_RATE);
     footballCsb->setPosition(0, 0);
     addChild(footballCsb);
-//    preLoaction = this->getPosition();
+    ballEffect = Sprite::create("effects/team_1_1.png");
+    ballEffect->setCameraMask((int)CameraFlag::USER1);
+    addChild(ballEffect);
+    ballEffect->setVisible(false);
     scheduleUpdate();
     return true;
 }
@@ -156,31 +159,37 @@ void Ball::replacement(){
     this->setPosition(1080, 680);
 }
 
-void Ball::showBallEffect(int id){
-//    auto sprite = Sprite::create("effects/team_1_1.png");
-//    sprite->setCameraMask((int)CameraFlag::USER1);
-//    addChild(sprite);
+void Ball::showBallEffect(int id,bool left){
+    ballEffect->setVisible(true);
+    if(left){
+       ballEffect->setPosition(100,10);
+        ballEffect->setFlippedX(false);
+    }else{
+        ballEffect->setPosition(-50,10);
+        ballEffect->setFlippedX(true);
+    }
+}
+
+void Ball::hideBallEffect(){
+    ballEffect->setVisible(false);
 }
 
 void Ball::update(float dt) {
-    //球按规律减速
-    //    if(this->speed_fly >0){
-    //        this->speed_fly -= speed_calm*dt;
-    //    }
     auto speedCamera =0;
     auto preLocation = this->getPosition();
     auto curLocation = preLocation;
     if (NULL != this->ballOwner && this->ballState == ball_is_ower) {
         curLocation = this->ballOwner->getFootballVec2();
         this->setPosition(curLocation);
-        speedCamera=2;
+        speedCamera = 1.8;
     }else if(this->ballState == ball_is_pass){
         if(droppointInCorrect(this->targetPosition,this->getPosition())){
             this->ballState = ball_is_free;
+            this->hideBallEffect();
         }
         curLocation =Vec2(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
         this->setPosition(curLocation);
-        speedCamera = 8;
+        speedCamera = 7;
     }
     if(preLocation != curLocation){
         if(!ballRotate){
