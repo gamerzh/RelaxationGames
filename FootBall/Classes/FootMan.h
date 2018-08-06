@@ -67,9 +67,7 @@ private:
     cocos2d::Vec2 originVec2;//球员的默认位置
     FootManState manState;
     cocos2d::Point moveInSafeRect(cocos2d::Point pos);
-    
-    float getPositionXByYLeft(float y);
-    float getPositionXByYRight(float y);
+
     float getBallDistance();//获取和球的距离
     void updateFootManZorder();
     void showDebugInfo();

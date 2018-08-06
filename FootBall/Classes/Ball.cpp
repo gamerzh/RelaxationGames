@@ -174,6 +174,23 @@ void Ball::hideBallEffect(){
     ballEffect->setVisible(false);
 }
 
+bool Ball::ballInSafeRect(Point pos) {
+    if (pos.y < football_field_offset_bottom) {
+        return false;
+    }
+    else if (pos.y > football_field_height- football_field_offset_top) {
+       return false;
+    }
+    
+    if (pos.x < GeometryTools::getPositionXByYLeft(pos.y)) {
+        return false;
+    }
+    else if (pos.x > GeometryTools::getPositionXByYRight(pos.y)) {
+        return false;
+    }
+    return true;
+}
+
 void Ball::update(float dt) {
     auto speedCamera =0;
     auto preLocation = this->getPosition();
@@ -181,7 +198,7 @@ void Ball::update(float dt) {
     if (NULL != this->ballOwner && this->ballState == ball_is_ower) {
         curLocation = this->ballOwner->getFootballVec2();
         this->setPosition(curLocation);
-        speedCamera = 1.8;
+        speedCamera = 2;
     }else if(this->ballState == ball_is_pass){
         if(droppointInCorrect(this->targetPosition,this->getPosition())){
             this->ballState = ball_is_free;

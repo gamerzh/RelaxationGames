@@ -41,6 +41,7 @@ private:
     void setBallState(int state);
     int ballState = ball_is_free;
     bool checkBallInGoal();
+    bool ballInSafeRect(cocos2d::Vec2 pos);
     cocos2d::Point cameraMoveInRect(cocos2d::Point pos);
     void update(float dt);
 };

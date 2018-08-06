@@ -57,19 +57,7 @@ void FootMan::showControlCircle(bool show){
 }
 
 
-float FootMan::getPositionXByYLeft(float y) {
-    Vec2 p1 = Vec2(175,90);
-    Vec2 p2 = Vec2(245, 1215);
-    float k = (p2.y - p1.y) / (p2.x - p1.x);
-    return y / k + p1.x+25;
-}
 
-float FootMan::getPositionXByYRight(float y) {
-    Vec2 p1 = Vec2(1975, 90);
-    Vec2 p2 = Vec2(1875, 1210);
-    float k = (p2.y - p1.y) / (p2.x - p1.x);
-    return y / k + p1.x - 30;
-}
 
 Point FootMan::moveInSafeRect(Point pos) {
     if (pos.y < football_field_offset_bottom) {
@@ -79,11 +67,11 @@ Point FootMan::moveInSafeRect(Point pos) {
         pos.y = football_field_height- football_field_offset_top;
     }
     
-    if (pos.x < getPositionXByYLeft(pos.y)) {
-        pos.x = getPositionXByYLeft(pos.y);
+    if (pos.x < GeometryTools::getPositionXByYLeft(pos.y)) {
+        pos.x = GeometryTools::getPositionXByYLeft(pos.y);
     }
-    else if (pos.x > getPositionXByYRight(pos.y)) {
-        pos.x = getPositionXByYRight(pos.y);
+    else if (pos.x > GeometryTools::getPositionXByYRight(pos.y)) {
+        pos.x = GeometryTools::getPositionXByYRight(pos.y);
     }
     return pos;
 }

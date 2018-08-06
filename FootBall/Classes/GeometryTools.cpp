@@ -31,3 +31,17 @@ DrawNode* GeometryTools::drawCollisionCircle(cocos2d::Vec2 point, float radius) 
 float GeometryTools::calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2){
     return sqrt(pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2));
 }
+
+float GeometryTools::getPositionXByYLeft(float y) {
+    Vec2 p1 = Vec2(175,90);
+    Vec2 p2 = Vec2(245, 1215);
+    float k = (p2.y - p1.y) / (p2.x - p1.x);
+    return y / k + p1.x+25;
+}
+
+float GeometryTools::getPositionXByYRight(float y) {
+    Vec2 p1 = Vec2(1975, 90);
+    Vec2 p2 = Vec2(1875, 1210);
+    float k = (p2.y - p1.y) / (p2.x - p1.x);
+    return y / k + p1.x - 30;
+}
