@@ -26,17 +26,18 @@ bool Ball::init(Camera* camera) {
     addChild(footballCsb);
 //    preLoaction = this->getPosition();
     scheduleUpdate();
-    setFootballRotate(true);
     return true;
 }
 
 void Ball::setFootballRotate(bool ro){
     if(ro){
+        ballRotate = true;
         footballCsb->stopAllActions();
         auto timeLine = CSLoader::createTimeline("football.csb");
         timeLine->play("animation0", true);
         footballCsb->runAction(timeLine);
     }else{
+        ballRotate = false;
         footballCsb->stopAllActions();
     }
 }
@@ -174,6 +175,13 @@ void Ball::update(float dt) {
         curLocation =Vec2(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
         this->setPosition(curLocation);
         speedCamera = 8;
+    }
+    if(preLocation != curLocation){
+        if(!ballRotate){
+            setFootballRotate(true);
+        }
+    }else{
+         setFootballRotate(false);
     }
     auto cameraCurrentVec2 = this->myCamera->getPosition();
     auto cameraTargetVec2 = cameraMoveInRect(curLocation);
