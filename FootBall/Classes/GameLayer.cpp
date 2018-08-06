@@ -7,6 +7,7 @@
 #include "UserData.h"
 #include "DreamLayer.h"
 #include "Dream.h"
+#include "Audio.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -41,7 +42,7 @@ bool GameLayer::init() {
         auto dream = DreamLayer::create(5);
         addChild(dream,300);
     }
-    
+    Audio::getInstance()->playGameBackgroundMusic();
     scheduleUpdate();
     
     return true;

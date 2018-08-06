@@ -1,6 +1,6 @@
 #include "LoadScene.h"
 #include "LobbyScene.h"
-
+#include "Audio.h"
 
 USING_NS_CC;
 
@@ -53,6 +53,7 @@ void LoadScene::loadView() {
 	auto node = Node::create();
 	addChild(node);
 	auto action = Sequence::create(DelayTime::create(delayTime), CallFunc::create([=]() {
+        Audio::getInstance()->playLobbyBackgroundMusic();
 		gotoGameScene();
 	}), NULL);
 	node->runAction(action);

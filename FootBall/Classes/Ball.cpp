@@ -1,5 +1,6 @@
 #include "Ball.h"
 #include "GeometryTools.h"
+#include "Audio.h"
 USING_NS_CC;
 
 
@@ -112,6 +113,7 @@ bool Ball::checkBallInGoal() {
             char* buf = const_cast<char*>("left");
             Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_in_goal, buf);
         }
+        Audio::getInstance()->playEffect(GOAL_BALL);
         return true;
     }
     else if (goalRight.containsPoint(this->getPosition())) {
@@ -120,6 +122,7 @@ bool Ball::checkBallInGoal() {
             char* buf = const_cast<char*>("right");
             Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_in_goal, buf);
         }
+        Audio::getInstance()->playEffect(GOAL_BALL);
         return true;
     }
     else {
@@ -162,7 +165,7 @@ void Ball::replacement(){
 void Ball::showBallEffect(int id,bool left){
     ballEffect->setVisible(true);
     if(left){
-       ballEffect->setPosition(100,10);
+        ballEffect->setPosition(100,10);
         ballEffect->setFlippedX(false);
     }else{
         ballEffect->setPosition(-50,10);
@@ -179,7 +182,7 @@ bool Ball::ballInSafeRect(Point pos) {
         return false;
     }
     else if (pos.y > football_field_height- football_field_offset_top) {
-       return false;
+        return false;
     }
     
     if (pos.x < GeometryTools::getPositionXByYLeft(pos.y)) {
@@ -213,7 +216,7 @@ void Ball::update(float dt) {
             setFootballRotate(true);
         }
     }else{
-         setFootballRotate(false);
+        setFootballRotate(false);
     }
     auto cameraCurrentVec2 = this->myCamera->getPosition();
     auto cameraTargetVec2 = cameraMoveInRect(curLocation);

@@ -3,6 +3,8 @@
 #include "UserData.h"
 #include "GameStatus.h"
 #include "GameScene.h"
+#include "Audio.h"
+
 USING_NS_CC;
 
 bool LobbyLayer::init() {
@@ -140,6 +142,7 @@ void LobbyLayer::selectCupLevel(Ref* ref) {
 }
 
 void LobbyLayer::startGame(cocos2d::Ref* ref) {
+    Audio::getInstance()->playEffect(START_GAME);
     Director::getInstance()->replaceScene(GameScene::create());
 }
 
