@@ -194,7 +194,7 @@ void FootballTeam::doTeamShoot(){
             if(this->teamId == PLAYER_TEAM_ID){
                 auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
                 schedule([=](float dt){
-                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());        
+                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
                     man->playFootManSnap();
                 }, 0, 0, 0.1,"goalkeeper");
                 GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
@@ -259,7 +259,7 @@ void FootballTeam::logicUpdate(float dt){
             GameStatus::getInstance()->setAddEnergy(false);
         }
         if(teamEnergy <100){
-            teamEnergy += teamEnergyRate*5;
+            teamEnergy += teamEnergyRate*0.5;
             if(NULL != getChildByTag(2000)){
                 ((ProgressTimer*)getChildByTag(2000))->setPercentage(teamEnergy);
             }
