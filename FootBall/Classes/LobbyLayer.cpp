@@ -126,7 +126,6 @@ void LobbyLayer::teamMenuCallBack(cocos2d::Ref* ref) {
 }
 
 void LobbyLayer::loadWorldCupView() {
-    UserData::getInstance()->setWorldCupLevel(0);
     selectLayerIndex = 0;
     worldLayer = Layer::create();
     addChild(worldLayer);
