@@ -20,7 +20,10 @@
 
 #define MAX_LEVEL_NUM 6//最大关卡的编号
 
-#define PLAYER_TEAM_ID 1//玩家球队的编号D
+#define PLAYER_TEAM_ID 1//玩家球队的编号
+#define ENEMY_TEAM_1 3//第1个对手编号
+#define ENEMY_TEAM_2 4//第2个对手编号
+#define ENEMY_TEAM_3 7//第3个对手编号
 
 #define DREAM_SPECIAL_TIME 25
 

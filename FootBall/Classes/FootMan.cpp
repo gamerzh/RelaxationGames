@@ -309,11 +309,16 @@ void FootMan::manRunToTargetY(cocos2d::Vec2 pos){
     }
 }
 
-std::string FootMan::getFileNameByTeamId(int d,bool goalkeeper){
+//获取资源名称,为了压包删除过部分资源
+std::string FootMan::getFileNameByTeamId(int id,bool goalkeeper){
     if(goalkeeper){
-        return StringUtils::format("team_%d_3.csb",d);
+        return StringUtils::format("team_%d_3.csb",id);
     }else{
-        return StringUtils::format("team_%d_%d.csb",d,random(1,2));
+        if(id == PLAYER_TEAM_ID){
+            return StringUtils::format("team_%d_%d.csb",id,random(1,2));
+        }else{
+            return StringUtils::format("team_%d_1.csb",id);
+        }
     }
 }
 
