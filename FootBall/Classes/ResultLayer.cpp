@@ -39,7 +39,7 @@ bool ResultLayer::init(bool win) {
         if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
             if(UserData::getInstance()->getWorldCupLevel()==GameStatus::getInstance()->getCurrentSelectedLevel()
                &&GameStatus::getInstance()->getCurrentSelectedLevel()<MAX_LEVEL_NUM){
-                UserData::getInstance()->setWorldCupLevel(GameStatus::getInstance()->getCurrentSelectedLevel()+1);
+                UserData::getInstance()->setWorldCupLevel(UserData::getInstance()->getWorldCupLevel()+1);
             }
         }else if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::masterCup){
             if(UserData::getInstance()->getMasterCupLevel()==GameStatus::getInstance()->getCurrentSelectedLevel()
