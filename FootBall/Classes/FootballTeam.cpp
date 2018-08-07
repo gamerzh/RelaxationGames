@@ -365,8 +365,6 @@ void FootballTeam::update(float dt){
     }
 }
 
-
-
 void FootballTeam::onEnter(){
     Node::onEnter();
     
