@@ -77,7 +77,21 @@ void GameLayer::createFootBallTeam() {
         var->changeFootManState(FootMan::FootManState::waiting);
         addChild(var);
     }
-    computerTeam = FootballTeam::create(GameStatus::getInstance()->getCurrentSelectedLevel()+2,false);
+    if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
+        //世界杯类型的只有3只对手
+        if(UserData::getInstance()->getWorldCupLevel() == 0){
+            computerTeam = FootballTeam::create(ENEMY_TEAM_1,false);
+        }
+        else if(UserData::getInstance()->getWorldCupLevel() == 1){
+            computerTeam = FootballTeam::create(ENEMY_TEAM_2,false);
+        } else {
+            computerTeam = FootballTeam::create(ENEMY_TEAM_3,false);
+        }
+    }else{
+        //锦标赛随机对手
+        computerTeam = FootballTeam::create(GameStatus::getInstance()->getCurrentSelectedLevel() + TEAM_TO_LEVEL,false);
+    }
+    
     addChild(computerTeam,FOOTBALL_LOCAL_ZORDER*2);
     GameStatus::getInstance()->setComputerTeam(computerTeam);
     for (auto var2: computerTeam->getFootManVector())

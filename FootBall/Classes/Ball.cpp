@@ -224,7 +224,7 @@ void Ball::update(float dt) {
     if(mu > camera_follow_dis){
         auto speedx =speedCamera*(cameraTargetVec2.x-cameraCurrentVec2.x)/mu;
         auto speedy =speedCamera*(cameraTargetVec2.y-cameraCurrentVec2.y)/mu;
-        log("(%f,%f)",speedx,speedy);
+//        log("(%f,%f)",speedx,speedy);
         this->myCamera->setPosition(cameraCurrentVec2.x+speedx,cameraCurrentVec2.y+speedy);
     }
     checkBallInGoal();

@@ -45,6 +45,9 @@ bool LobbyLayer::init() {
     loadWorldCupView();
     loadTeamView();
     
+    GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::worldCup);
+    GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getWorldCupLevel());
+    
     Audio::getInstance()->playLobbyBackgroundMusic();
     
     return true;
@@ -98,8 +101,8 @@ void LobbyLayer::worldMenuCallBack(cocos2d::Ref* ref) {
     worldLayer->setVisible(true);
     masterLayer->setVisible(false);
     teamLayer->setVisible(false);
-    //选择上次刚通过的官卡
-    
+    GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::worldCup);
+    GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getWorldCupLevel());
 }
 
 void LobbyLayer::masterMenuCallBack(cocos2d::Ref* ref) {
@@ -109,6 +112,8 @@ void LobbyLayer::masterMenuCallBack(cocos2d::Ref* ref) {
     worldLayer->setVisible(false);
     masterLayer->setVisible(true);
     teamLayer->setVisible(false);
+    GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::masterCup);
+    GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getMasterCupLevel());
 }
 
 void LobbyLayer::teamMenuCallBack(cocos2d::Ref* ref) {
@@ -121,12 +126,12 @@ void LobbyLayer::teamMenuCallBack(cocos2d::Ref* ref) {
 }
 
 void LobbyLayer::loadWorldCupView() {
+    UserData::getInstance()->setWorldCupLevel(0);
     selectLayerIndex = 0;
     worldLayer = Layer::create();
     addChild(worldLayer);
     loadWorldPipeView(worldLayer,UserData::getInstance()->getWorldCupLevel());
-    GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::worldCup);
-    GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getWorldCupLevel());
+   
 }
 
 void LobbyLayer::selectCupLevel(Ref* ref) {
@@ -155,8 +160,6 @@ void LobbyLayer::loadMasterVupView() {
     masterLayer->setVisible(false);
     addChild(masterLayer);
     loadMasterPipeView(masterLayer,UserData::getInstance()->getMasterCupLevel());
-    GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::masterCup);
-    GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getMasterCupLevel());
 }
 
 void LobbyLayer::loadTeamView() {
@@ -306,6 +309,11 @@ void LobbyLayer::loadWorldPipeView(cocos2d::Node* node,int index){
         pipe_7->setVisible(true);
         pipe_8->setVisible(true);
     }
+    
+    auto game = MenuItemImage::create("start_game_blue.png","start_game_blue.png", CC_CALLBACK_1(LobbyLayer::startGame,this));
+    auto gm = Menu::create(game,NULL);
+    gm->setPosition(730,95);
+    node->addChild(gm);
 }
 
 void LobbyLayer::loadMasterPipeView(Node* node, int index) {

@@ -22,8 +22,10 @@
 
 #define PLAYER_TEAM_ID 1//玩家球队的编号
 #define ENEMY_TEAM_1 3//第1个对手编号
-#define ENEMY_TEAM_2 4//第2个对手编号
-#define ENEMY_TEAM_3 7//第3个对手编号
+#define ENEMY_TEAM_2 7//第2个对手编号
+#define ENEMY_TEAM_3 4//第3个对手编号
+
+#define TEAM_TO_LEVEL 2//关卡和球队编号的差值
 
 #define DREAM_SPECIAL_TIME 25
 

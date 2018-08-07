@@ -2,6 +2,7 @@
 #include "GameStatus.h"
 #include "GeometryTools.h"
 #include "GlobalProperty.h"
+#include "UserData.h"
 USING_NS_CC;
 
 
@@ -65,23 +66,38 @@ bool FootballTeam::init(int teamid,bool teamInLeftField) {
 }
 
 std::string FootballTeam::getTeamIconName(int tid){
-    if(tid == 8){
-        if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
-            return "team_icon_world.png";
-        }else{
-            return "team_icon_master.png";
+    if(tid == PLAYER_TEAM_ID){
+        return "team_icon_1.png";
+    }
+    if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
+        if(UserData::getInstance()->getWorldCupLevel() == 0){
+            return "team_icon_3.png";
+        }
+        else if(UserData::getInstance()->getWorldCupLevel() == 1){
+            return "team_icon_7.png";
+        } else {
+            return "team_icon_4.png";
         }
     }else{
-        return  StringUtils::format("team_icon_%d.png",tid);
+        if(tid == 8){
+            return "team_icon_master.png";
+        }else{
+            return  StringUtils::format("team_icon_%d.png",tid);
+        }
     }
 }
 
 void FootballTeam::generateFootballTeam(){
-    auto currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(this->teamId);
+    auto id = this->teamId;
+    auto currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(id);
     this->teamEnergyRate = currentPlayerTeamProperty.energyRate;
+    if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::masterCup && teamId != PLAYER_TEAM_ID){
+        int team[3] = {ENEMY_TEAM_1,ENEMY_TEAM_2,ENEMY_TEAM_3};
+        id = team[random(0, 2)];
+    }
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
-        auto foot1 = FootMan::create(this->teamId,var1,currentPlayerTeamProperty.footManVec.at(i).goalkeeper);
+        auto foot1 = FootMan::create(id,var1,currentPlayerTeamProperty.footManVec.at(i).goalkeeper);
         if(teamInLeftField){
             foot1->setOriginPosition(getLeftFieldVec2().at(i));
             foot1->setPosition(getLeftFieldVec2().at(i));
@@ -364,7 +380,7 @@ void FootballTeam::update(float dt){
         }
     }
 }
- 
+
 void FootballTeam::onEnter(){
     Node::onEnter();
     

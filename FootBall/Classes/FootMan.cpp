@@ -311,6 +311,7 @@ void FootMan::manRunToTargetY(cocos2d::Vec2 pos){
 
 //获取资源名称,为了压包删除过部分资源
 std::string FootMan::getFileNameByTeamId(int id,bool goalkeeper){
+   
     if(goalkeeper){
         return StringUtils::format("team_%d_3.csb",id);
     }else{
