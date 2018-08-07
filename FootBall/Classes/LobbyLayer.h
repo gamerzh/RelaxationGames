@@ -17,7 +17,8 @@ private:
 	void loadWorldCupView();
 	void loadMasterVupView();
 	void loadTeamView();
-	void loadPipeView(cocos2d::Node* node,int index, bool worldcup);
+    void loadWorldPipeView(cocos2d::Node* node,int index);
+	void loadMasterPipeView(cocos2d::Node* node,int index);
 	void worldMenuCallBack(cocos2d::Ref* ref);
 	void masterMenuCallBack(cocos2d::Ref* ref);
 	void teamMenuCallBack(cocos2d::Ref* ref);

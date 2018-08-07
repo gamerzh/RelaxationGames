@@ -124,7 +124,7 @@ void LobbyLayer::loadWorldCupView() {
     selectLayerIndex = 0;
     worldLayer = Layer::create();
     addChild(worldLayer);
-    loadPipeView(worldLayer,UserData::getInstance()->getWorldCupLevel(),true);
+    loadWorldPipeView(worldLayer,UserData::getInstance()->getWorldCupLevel());
     GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::worldCup);
     GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getWorldCupLevel());
 }
@@ -154,7 +154,7 @@ void LobbyLayer::loadMasterVupView() {
     masterLayer = Layer::create();
     masterLayer->setVisible(false);
     addChild(masterLayer);
-    loadPipeView(masterLayer,UserData::getInstance()->getMasterCupLevel(),false);
+    loadMasterPipeView(masterLayer,UserData::getInstance()->getMasterCupLevel());
     GameStatus::getInstance()->setCurrentGameType(GameStatus::GameType::masterCup);
     GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getMasterCupLevel());
 }
@@ -175,7 +175,141 @@ void LobbyLayer::loadTeamView() {
     teamLayer->addChild(box3);
 }
 
-void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
+
+void LobbyLayer::loadWorldPipeView(cocos2d::Node* node,int index){
+
+    auto pipe_bg = Sprite::create("worldcup/luc.png");
+    pipe_bg->setPosition(735,315);
+    node->addChild(pipe_bg);
+    
+    auto team1 = Sprite::create("worldcup/z.png");
+    team1->setPosition(380, 500);
+    node->addChild(team1,2);
+    
+    auto team2 = Sprite::create("worldcup/x1.png");
+    team2->setPosition(380, 370);
+    node->addChild(team2,2);
+    
+    auto team3 = Sprite::create("worldcup/f1.png");
+    team3->setPosition(380, 240);
+    node->addChild(team3,2);
+    
+    auto team4 = Sprite::create("worldcup/b.png");
+    team4->setPosition(380, 120);
+    node->addChild(team4,2);
+    
+    auto team5 = Sprite::create("worldcup/p1.png");
+    team5->setPosition(1100, 500);
+    node->addChild(team5,2);
+    
+    auto team6 = Sprite::create("worldcup/h1.png");
+    team6->setPosition(1100, 370);
+    node->addChild(team6,2);
+    
+    auto team7 = Sprite::create("worldcup/d1.png");
+    team7->setPosition(1100, 240);
+    node->addChild(team7,2);
+    
+    auto team8 = Sprite::create("worldcup/a1.png");
+    team8->setPosition(1100, 120);
+    node->addChild(team8,2);
+    
+    auto four1 = Sprite::create("yuxuan_5_3.png");
+    four1->setPosition(545,435);
+    node->addChild(four1,2);
+    
+    auto four2 = Sprite::create("yuxuan_5_3.png");
+    four2->setPosition(545,180);
+    node->addChild(four2,2);
+    
+    auto four3 = Sprite::create("yuxuan_5_3.png");
+    four3->setPosition(925,435);
+    node->addChild(four3,2);
+    
+    auto four4 = Sprite::create("yuxuan_5_3.png");
+    four4->setPosition(925,180);
+    node->addChild(four4,2);
+    
+    auto finalCup = Sprite::create("worldcup/final_1.png");
+    finalCup->setPosition(735,325);
+    node->addChild(finalCup,2);
+    
+    auto pipe_1 = Sprite::create("worldcup/g2.png");
+    pipe_1->setPosition(460, 475);
+    node->addChild(pipe_1);
+    pipe_1->setVisible(false);
+    
+    auto pipe_2 = Sprite::create("worldcup/g3.png");
+    pipe_2->setPosition(458, 155);
+    node->addChild(pipe_2);
+    pipe_2->setVisible(false);
+    
+    auto pipe_3 = Sprite::create("worldcup/g5.png");
+    pipe_3->setPosition(1010, 475);
+    node->addChild(pipe_3);
+    pipe_3->setVisible(false);
+    
+    auto pipe_4 = Sprite::create("worldcup/g6.png");
+    pipe_4->setPosition(1022, 155);
+    node->addChild(pipe_4);
+    pipe_4->setVisible(false);
+    
+    auto pipe_5 = Sprite::create("worldcup/g1.png");
+    pipe_5->setPosition(605, 315);
+    node->addChild(pipe_5);
+    pipe_5->setVisible(false);
+    
+    auto pipe_6 = Sprite::create("worldcup/g7.png");
+    pipe_6->setPosition(865, 315);
+    node->addChild(pipe_6);
+    pipe_6->setVisible(false);
+    
+    auto pipe_7 = Sprite::create("worldcup/g4.png");
+    pipe_7->setPosition(640, 375);
+    node->addChild(pipe_7);
+    pipe_7->setVisible(false);
+    
+    auto pipe_8 = Sprite::create("worldcup/g4.png");
+    pipe_8->setPosition(857, 250);
+    node->addChild(pipe_8);
+    pipe_8->setVisible(false);
+    
+    if(index == 1){
+        team2->setTexture("worldcup/x2.png");
+        team3->setTexture("worldcup/f2.png");
+        team6->setTexture("worldcup/h2.png");
+        team7->setTexture("worldcup/d2.png");
+        four1->setTexture("worldcup/z3.png");
+        four2->setTexture("worldcup/b2.png");
+        four3->setTexture("worldcup/p2.png");
+        four4->setTexture("worldcup/a2.png");
+        pipe_1->setVisible(true);
+        pipe_2->setVisible(true);
+        pipe_3->setVisible(true);
+        pipe_4->setVisible(true);
+        pipe_5->setVisible(true);
+        pipe_6->setVisible(true);
+    }else if(index >= 2){
+        team2->setTexture("worldcup/x2.png");
+        team3->setTexture("worldcup/f2.png");
+        team6->setTexture("worldcup/h2.png");
+        team7->setTexture("worldcup/d2.png");
+        four1->setTexture("worldcup/z3.png");
+        four2->setTexture("worldcup/b3.png");
+        four3->setTexture("worldcup/p3.png");
+        four4->setTexture("worldcup/a2.png");
+        finalCup->setTexture("worldcup/final_2.png");
+        pipe_1->setVisible(true);
+        pipe_2->setVisible(true);
+        pipe_3->setVisible(true);
+        pipe_4->setVisible(true);
+        pipe_7->setVisible(true);
+        pipe_8->setVisible(true);
+    }
+}
+
+void LobbyLayer::loadMasterPipeView(Node* node, int index) {
+    
     auto pipe1 = Sprite::create("pipe_1_2.png");
     pipe1->setPosition(440,365);
     pipe1->setTag(201);
@@ -215,7 +349,6 @@ void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
     
     auto level2Selected = MenuItemImage::create("yuxuan_2_1.png", "yuxuan_2_1.png", "yuxuan_2_3.png");
     auto level2Normal = MenuItemImage::create("yuxuan_2_2.png", "yuxuan_2_2.png", "yuxuan_2_3.png");
-    //auto level2Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
     auto level2 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
                                                      level2Selected, level2Normal, NULL);
     level2->setTag(102);
@@ -224,7 +357,6 @@ void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
     
     auto level3Selected = MenuItemImage::create("yuxuan_3_1.png", "yuxuan_3_1.png", "yuxuan_3_3.png");
     auto level3Normal = MenuItemImage::create("yuxuan_3_2.png", "yuxuan_3_2.png", "yuxuan_3_3.png");
-    //auto level3Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
     auto level3 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
                                                      level3Selected, level3Normal, NULL);
     level3->setTag(103);
@@ -233,7 +365,6 @@ void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
     
     auto level4Selected = MenuItemImage::create("yuxuan_4_1.png", "yuxuan_4_1.png", "yuxuan_4_3.png");
     auto level4Normal = MenuItemImage::create("yuxuan_4_2.png", "yuxuan_4_2.png", "yuxuan_4_3.png");
-    //auto level4Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
     auto level4 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
                                                      level4Selected, level4Normal, NULL);
     level4->setTag(104);
@@ -242,7 +373,6 @@ void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
     
     auto level5Selected = MenuItemImage::create("yuxuan_5_1.png", "yuxuan_5_1.png", "yuxuan_5_3.png");
     auto level5Normal = MenuItemImage::create("yuxuan_5_2.png", "yuxuan_5_2.png", "yuxuan_5_3.png");
-    //auto level5Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
     auto level5 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
                                                      level5Selected, level5Normal, NULL);
     level5->setTag(105);
@@ -251,26 +381,25 @@ void LobbyLayer::loadPipeView(Node* node, int index, bool worldcup) {
     
     auto level6Selected = MenuItemImage::create("yuxuan_6_1.png", "yuxuan_6_1.png", "yuxuan_6_3.png");
     auto level6Normal = MenuItemImage::create("yuxuan_6_2.png", "yuxuan_6_2.png", "yuxuan_6_3.png");
-    //auto level6Locked = MenuItemImage::create("yuxuan_1_3.png", "yuxuan_1_3.png");
     auto level6 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
                                                      level6Selected, level6Normal, NULL);
     level6->setTag(106);
     level6->setPosition(955, 220);
     level6->setEnabled(false);
     
-    auto level7Selected = MenuItemImage::create("yuxuan_7_1.png", "yuxuan_7_1.png", "yuxuan_7_3.png");
-    auto level7Normal = MenuItemImage::create("yuxuan_7_2.png", "yuxuan_7_2.png", "yuxuan_7_3.png");
-    auto level7 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),
-                                                     level7Selected, level7Normal, NULL);
+    auto level7Selected = MenuItemImage::create("yuxuan_7_1_b.png", "yuxuan_7_1_b.png", "yuxuan_7_3.png");
+    auto level7Normal = MenuItemImage::create("yuxuan_7_2_b.png", "yuxuan_7_2_b.png", "yuxuan_7_3.png");
+    auto level7 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(LobbyLayer::selectCupLevel, this),level7Selected, level7Normal, NULL);
     level7->setTag(107);
-    level7->setPosition(1110, 470);
-    level7->setEnabled(false);
-    if(!worldcup){
-        level7Selected->setNormalImage(Sprite::create("yuxuan_7_1_b.png"));
-        level7Selected->setSelectedImage(Sprite::create("yuxuan_7_1_b.png"));
-        level7Normal->setNormalImage(Sprite::create("yuxuan_7_2_b.png"));
-        level7Normal->setSelectedImage(Sprite::create("yuxuan_7_2_b.png"));
+    
+    if(index ==6){
+        level7->setPosition(1050, 470);
+    }else{
+        level7->setPosition(1090, 470);
     }
+    level7->setEnabled(false);
+    
+    
     auto menu = Menu::create(level1, level2, level3, level4, level5, level6, level7, NULL);
     menu->setPosition(0, 0);
     node->addChild(menu);

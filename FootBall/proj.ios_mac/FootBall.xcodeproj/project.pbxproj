@@ -328,6 +328,10 @@
 		D29B8728211838CB00E6286C /* effects in Resources */ = {isa = PBXBuildFile; fileRef = D29B8725211838CB00E6286C /* effects */; };
 		D29B872A21197A5C00E6286C /* worldcup in Resources */ = {isa = PBXBuildFile; fileRef = D29B872921197A5C00E6286C /* worldcup */; };
 		D29B872B21197A5C00E6286C /* worldcup in Resources */ = {isa = PBXBuildFile; fileRef = D29B872921197A5C00E6286C /* worldcup */; };
+		D29B872E21198FB100E6286C /* yuxuan_7_2_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D29B872C21198FB100E6286C /* yuxuan_7_2_b.png */; };
+		D29B872F21198FB100E6286C /* yuxuan_7_2_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D29B872C21198FB100E6286C /* yuxuan_7_2_b.png */; };
+		D29B873021198FB100E6286C /* yuxuan_7_1_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D29B872D21198FB100E6286C /* yuxuan_7_1_b.png */; };
+		D29B873121198FB100E6286C /* yuxuan_7_1_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D29B872D21198FB100E6286C /* yuxuan_7_1_b.png */; };
 		D2E3B0C320FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D2E3B0C420FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -589,6 +593,8 @@
 		D266D7CD2111C0B800E662A2 /* skill_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_bg.png; sourceTree = "<group>"; };
 		D29B8725211838CB00E6286C /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
 		D29B872921197A5C00E6286C /* worldcup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = worldcup; sourceTree = "<group>"; };
+		D29B872C21198FB100E6286C /* yuxuan_7_2_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuxuan_7_2_b.png; sourceTree = "<group>"; };
+		D29B872D21198FB100E6286C /* yuxuan_7_1_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuxuan_7_1_b.png; sourceTree = "<group>"; };
 		D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballTeam.h; sourceTree = "<group>"; };
 		D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FootballTeam.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -727,6 +733,8 @@
 				D246EE1520F629AE00AD0860 /* fonts */,
 				D246EE2A20F629B000AD0860 /* res */,
 				D246EE0820F629AD00AD0860 /* green.jpg */,
+				D29B872D21198FB100E6286C /* yuxuan_7_1_b.png */,
+				D29B872C21198FB100E6286C /* yuxuan_7_2_b.png */,
 				D246EDE520F629AB00AD0860 /* team.json */,
 				D246EE0A20F629AD00AD0860 /* ball.png */,
 				D246EE1220F629AD00AD0860 /* box_1.png */,
@@ -1178,6 +1186,7 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				D246EEA820F629B300AD0860 /* fonts in Resources */,
 				D246EEF820F629B300AD0860 /* dream in Resources */,
+				D29B873021198FB100E6286C /* yuxuan_7_1_b.png in Resources */,
 				D246EEA420F629B300AD0860 /* pipe_4_2.png in Resources */,
 				D246EE5420F629B300AD0860 /* white_sound_on.png in Resources */,
 				D246EE7820F629B300AD0860 /* yuxuan_3_3.png in Resources */,
@@ -1252,6 +1261,7 @@
 				D246EEDE20F629B300AD0860 /* yuxuan_5_1.png in Resources */,
 				D246EEAE20F629B300AD0860 /* master_cup_1.png in Resources */,
 				D246EE6620F629B300AD0860 /* yuxuan_7_2.png in Resources */,
+				D29B872E21198FB100E6286C /* yuxuan_7_2_b.png in Resources */,
 				D266D7CB2111A66F00E662A2 /* footman_selected.png in Resources */,
 				D266D7CE2111C0B900E662A2 /* skill_bg.png in Resources */,
 				D246EEB220F629B300AD0860 /* sound_off.png in Resources */,
@@ -1345,6 +1355,7 @@
 				D246EED120F629B300AD0860 /* yuxuan_4_2.png in Resources */,
 				D246EF0B20F629B300AD0860 /* chen.png in Resources */,
 				D246EE7720F629B300AD0860 /* sb.png in Resources */,
+				D29B872F21198FB100E6286C /* yuxuan_7_2_b.png in Resources */,
 				D29B872B21197A5C00E6286C /* worldcup in Resources */,
 				D246EEFF20F629B300AD0860 /* pause_bg.png in Resources */,
 				D246EE5B20F629B300AD0860 /* logo.png in Resources */,
@@ -1388,6 +1399,7 @@
 				D22BF3952112E268002B8D50 /* team_icon_4.png in Resources */,
 				D246EEB720F629B300AD0860 /* yuxuan_4_1.png in Resources */,
 				D246EE9720F629B300AD0860 /* num_green.png in Resources */,
+				D29B873121198FB100E6286C /* yuxuan_7_1_b.png in Resources */,
 				D22BF3972112E268002B8D50 /* team_icon_6.png in Resources */,
 				D246EF0320F629B300AD0860 /* yuxuan_5_3.png in Resources */,
 				D246EEBB20F629B300AD0860 /* pipe_6_2.png in Resources */,
