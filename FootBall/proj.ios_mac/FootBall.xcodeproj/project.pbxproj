@@ -326,6 +326,8 @@
 		D266D7CF2111C0B900E662A2 /* skill_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7CD2111C0B800E662A2 /* skill_bg.png */; };
 		D29B8727211838CB00E6286C /* effects in Resources */ = {isa = PBXBuildFile; fileRef = D29B8725211838CB00E6286C /* effects */; };
 		D29B8728211838CB00E6286C /* effects in Resources */ = {isa = PBXBuildFile; fileRef = D29B8725211838CB00E6286C /* effects */; };
+		D29B872A21197A5C00E6286C /* worldcup in Resources */ = {isa = PBXBuildFile; fileRef = D29B872921197A5C00E6286C /* worldcup */; };
+		D29B872B21197A5C00E6286C /* worldcup in Resources */ = {isa = PBXBuildFile; fileRef = D29B872921197A5C00E6286C /* worldcup */; };
 		D2E3B0C320FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D2E3B0C420FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -586,6 +588,7 @@
 		D266D7CA2111A66F00E662A2 /* footman_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footman_selected.png; sourceTree = "<group>"; };
 		D266D7CD2111C0B800E662A2 /* skill_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_bg.png; sourceTree = "<group>"; };
 		D29B8725211838CB00E6286C /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
+		D29B872921197A5C00E6286C /* worldcup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = worldcup; sourceTree = "<group>"; };
 		D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballTeam.h; sourceTree = "<group>"; };
 		D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FootballTeam.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -718,10 +721,14 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D29B872921197A5C00E6286C /* worldcup */,
+				D246EE3D20F629B200AD0860 /* dream */,
 				D29B8725211838CB00E6286C /* effects */,
+				D246EE1520F629AE00AD0860 /* fonts */,
+				D246EE2A20F629B000AD0860 /* res */,
+				D246EE0820F629AD00AD0860 /* green.jpg */,
+				D246EDE520F629AB00AD0860 /* team.json */,
 				D246EE0A20F629AD00AD0860 /* ball.png */,
-				D22BF3A12112FA47002B8D50 /* trackle_ball_1.png */,
-				D22BF3A02112FA47002B8D50 /* trackle_ball_2.png */,
 				D246EE1220F629AD00AD0860 /* box_1.png */,
 				D246EE1620F629AE00AD0860 /* box_2.png */,
 				D246EE4120F629B200AD0860 /* brown_num.png */,
@@ -729,14 +736,11 @@
 				D246EE4620F629B200AD0860 /* chen.png */,
 				D246EE0020F629AC00AD0860 /* door_left.png */,
 				D246EE3420F629B100AD0860 /* door_right.png */,
-				D266D7CD2111C0B800E662A2 /* skill_bg.png */,
-				D246EE3D20F629B200AD0860 /* dream */,
 				D246EE3220F629B000AD0860 /* energy_bg.png */,
 				D246EDEF20F629AB00AD0860 /* energy_full.png */,
 				D246EDFB20F629AC00AD0860 /* energy_pro.png */,
 				D246EE2220F629AF00AD0860 /* enger_box.png */,
-				D246EE1520F629AE00AD0860 /* fonts */,
-				D246EE0820F629AD00AD0860 /* green.jpg */,
+				D266D7CA2111A66F00E662A2 /* footman_selected.png */,
 				D246EE0120F629AC00AD0860 /* load_bg.png */,
 				D246EE3A20F629B100AD0860 /* loading.png */,
 				D246EDF920F629AB00AD0860 /* lobby_bg.png */,
@@ -767,32 +771,22 @@
 				D246EE3720F629B100AD0860 /* pipe_6_1.png */,
 				D246EE1E20F629AF00AD0860 /* pipe_6_2.png */,
 				D246EDF520F629AB00AD0860 /* play-circle-o.png */,
-				D266D7CA2111A66F00E662A2 /* footman_selected.png */,
 				D246EDF720F629AB00AD0860 /* play-square-o.png */,
-				D22BF3872112E267002B8D50 /* team_icon_1.png */,
-				D22BF3842112E267002B8D50 /* team_icon_2.png */,
-				D22BF38A2112E268002B8D50 /* team_icon_3.png */,
-				D22BF3882112E267002B8D50 /* team_icon_4.png */,
-				D22BF3862112E267002B8D50 /* team_icon_5.png */,
-				D22BF3892112E267002B8D50 /* team_icon_6.png */,
-				D22BF38B2112E268002B8D50 /* team_icon_7.png */,
-				D22BF38C2112E268002B8D50 /* team_icon_master.png */,
-				D22BF38D2112E268002B8D50 /* team_icon_world.png */,
 				D246EE2E20F629B000AD0860 /* point_gray.png */,
 				D246EE2D20F629B000AD0860 /* point_green.png */,
 				D246EE0420F629AC00AD0860 /* point_light.png */,
 				D246EE3C20F629B100AD0860 /* progress_bg.png */,
 				D246EE1D20F629AE00AD0860 /* progress.png */,
-				D246EE2A20F629B000AD0860 /* res */,
 				D246EE2420F629AF00AD0860 /* result_con.png */,
-				D266D7C62111A5EB00E662A2 /* shadow_man.png */,
 				D246EE1720F629AE00AD0860 /* result_lobby.png */,
 				D246EE2F20F629B000AD0860 /* rocker_bc.png */,
 				D246EE0D20F629AD00AD0860 /* rocker_bt.png */,
 				D246EDFC20F629AC00AD0860 /* sb.png */,
+				D266D7C62111A5EB00E662A2 /* shadow_man.png */,
 				D246EDE920F629AB00AD0860 /* shoot_ball_1.png */,
 				D246EE0220F629AC00AD0860 /* shoot_ball_2.png */,
 				D246EE0520F629AC00AD0860 /* shoot_box.png */,
+				D266D7CD2111C0B800E662A2 /* skill_bg.png */,
 				D246EE1920F629AE00AD0860 /* sl.png */,
 				D246EE1A20F629AE00AD0860 /* sound_off.png */,
 				D246EE3120F629B000AD0860 /* sound_on.png */,
@@ -803,9 +797,18 @@
 				D246EDFF20F629AC00AD0860 /* start_btn.png */,
 				D246EE4520F629B200AD0860 /* start_game_blue.png */,
 				D246EE0320F629AC00AD0860 /* sz2.png */,
-				D246EE0920F629AD00AD0860 /* team_icon_1.png */,
-				D246EDE520F629AB00AD0860 /* team.json */,
+				D22BF3872112E267002B8D50 /* team_icon_1.png */,
+				D22BF3842112E267002B8D50 /* team_icon_2.png */,
+				D22BF38A2112E268002B8D50 /* team_icon_3.png */,
+				D22BF3882112E267002B8D50 /* team_icon_4.png */,
+				D22BF3862112E267002B8D50 /* team_icon_5.png */,
+				D22BF3892112E267002B8D50 /* team_icon_6.png */,
+				D22BF38B2112E268002B8D50 /* team_icon_7.png */,
+				D22BF38C2112E268002B8D50 /* team_icon_master.png */,
+				D22BF38D2112E268002B8D50 /* team_icon_world.png */,
 				D246EDF620F629AB00AD0860 /* time_bg.png */,
+				D22BF3A12112FA47002B8D50 /* trackle_ball_1.png */,
+				D22BF3A02112FA47002B8D50 /* trackle_ball_2.png */,
 				D246EE0F20F629AD00AD0860 /* white_num.png */,
 				D246EE3820F629B100AD0860 /* white_sound_off.png */,
 				D246EDEB20F629AB00AD0860 /* white_sound_on.png */,
@@ -832,6 +835,7 @@
 				D246EE1F20F629AF00AD0860 /* yuxuan_7_1.png */,
 				D246EDF420F629AB00AD0860 /* yuxuan_7_2.png */,
 				D246EDF220F629AB00AD0860 /* yuxuan_7_3.png */,
+				D246EE0920F629AD00AD0860 /* team_icon_1.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -1261,6 +1265,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				D246EF0820F629B300AD0860 /* start_game_blue.png in Resources */,
 				D246EECE20F629B300AD0860 /* pipe_5_2.png in Resources */,
+				D29B872A21197A5C00E6286C /* worldcup in Resources */,
 				D246EE8C20F629B300AD0860 /* pass_ball_1.png in Resources */,
 				D246EE9820F629B300AD0860 /* rocker_bt.png in Resources */,
 				D246EE7620F629B300AD0860 /* sb.png in Resources */,
@@ -1340,6 +1345,7 @@
 				D246EED120F629B300AD0860 /* yuxuan_4_2.png in Resources */,
 				D246EF0B20F629B300AD0860 /* chen.png in Resources */,
 				D246EE7720F629B300AD0860 /* sb.png in Resources */,
+				D29B872B21197A5C00E6286C /* worldcup in Resources */,
 				D246EEFF20F629B300AD0860 /* pause_bg.png in Resources */,
 				D246EE5B20F629B300AD0860 /* logo.png in Resources */,
 				D246EEF120F629B300AD0860 /* yuxuan_5_2.png in Resources */,
