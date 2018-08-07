@@ -155,7 +155,8 @@ void GameLayer::shoot() {
         GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
     }
-    if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
+    if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()
+       && !playerTeam->m_pControllingPlayer->isGoalkeeper){
         playerTeam->doTeamShoot();
     }
 }

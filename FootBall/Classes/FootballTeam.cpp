@@ -197,8 +197,10 @@ void FootballTeam::doTeamShoot(){
         m_pControllingPlayer->playFootManShoot();
         //确认是否有球
         if(checkShootResult()){
-            this->teamEnergy = 0;
-            GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
+            if(this->teamEnergy>= 100){
+                this->teamEnergy = 0;
+                GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
+            }
             GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
             auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
             schedule([=](float dt){
@@ -335,7 +337,7 @@ void FootballTeam::update(float dt){
         if(footManAttackPos == Vec2(0,0)){
             footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
         }
-        if(m_pControllingPlayer->getSimpleAI()){
+        if(m_pControllingPlayer->getSimpleAI() && GameStatus::getInstance()->getGameBall()->getOwerMan() == m_pControllingPlayer){
             if(m_pControllingPlayer->isGoalkeeper){
                 //HACK:暂时不开大脚,直接传球给最近的队友,这个动作由2秒的延迟
                 if(NULL != m_pCloseingPlayer && goalkeeperReady){
