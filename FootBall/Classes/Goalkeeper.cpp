@@ -4,9 +4,9 @@
 #include "GeometryTools.h"
 USING_NS_CC;
 
-Goalkeeper* Goalkeeper :: create(int teamId,FootManProperty property, bool goalkeeper,cocos2d::Camera* camera) {
+Goalkeeper* Goalkeeper :: create(int teamId,FootManProperty property,cocos2d::Camera* camera) {
     Goalkeeper *ret = new Goalkeeper();
-    if (ret && ret->init(teamId,property,goalkeeper,camera))
+    if (ret && ret->init(teamId,property,camera))
     {
         ret->autorelease();
         return ret;
@@ -15,13 +15,13 @@ Goalkeeper* Goalkeeper :: create(int teamId,FootManProperty property, bool goalk
     return nullptr;
 }
 
-bool Goalkeeper::init(int teamId,FootManProperty property,bool goalkeeper, cocos2d::Camera* camera) {
+bool Goalkeeper::init(int teamId,FootManProperty property,cocos2d::Camera* camera) {
     if (!Node::init()) {
         return false;
     }
     this->belongTeamId = teamId;
     this->manState = FootManState::waiting;
-    this->fileName = getFileNameByTeamId(teamId,goalkeeper);
+    this->fileName = getFileNameByTeamId(teamId);
     
     //添加阴影
     auto shadow = Sprite::create("shadow_man.png");
@@ -309,16 +309,11 @@ void Goalkeeper::manRunToTargetY(cocos2d::Vec2 pos){
 }
 
 //获取资源名称,为了压包删除过部分资源
-std::string Goalkeeper::getFileNameByTeamId(int id,bool goalkeeper){
-   
-    if(goalkeeper){
-        return StringUtils::format("team_%d_3.csb",id);
+std::string Goalkeeper::getFileNameByTeamId(int id){
+    if(id == PLAYER_TEAM_ID){
+        return StringUtils::format("team_%d_%d.csb",id,random(1,2));
     }else{
-        if(id == PLAYER_TEAM_ID){
-            return StringUtils::format("team_%d_%d.csb",id,random(1,2));
-        }else{
-            return StringUtils::format("team_%d_1.csb",id);
-        }
+        return StringUtils::format("team_%d_1.csb",id);
     }
 }
 

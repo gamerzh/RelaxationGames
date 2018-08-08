@@ -14,15 +14,13 @@ public:
         tackle,
         tumble
     };
-    bool isGoalkeeper = false;
-    std::string footManId = "";
-    static FootMan* create(int teamId,FootManProperty property,bool goalkeeper = false,cocos2d::Camera* camera = nullptr);
-    virtual bool init(int teamId,FootManProperty property, bool goalkeeper,cocos2d::Camera* camera);
+    static FootMan* create(int teamId,FootManProperty property,cocos2d::Camera* camera = nullptr);
+    virtual bool init(int teamId,FootManProperty property,cocos2d::Camera* camera);
     bool getCanObtainBall();
     bool getSimpleAI();
     int getFootManTeamId();
     float getShootSpeed();
-    std::string getFileNameByTeamId(int d,bool goalkeeper);
+    std::string getFileNameByTeamId(int d);
     cocos2d::Vec2 getManDefendVec2();//获取球员的防守位置
     cocos2d::Vec2 getFootballVec2();//获取足球的坐标
     FootManState getFootManState();

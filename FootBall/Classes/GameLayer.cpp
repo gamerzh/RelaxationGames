@@ -155,8 +155,7 @@ void GameLayer::shoot() {
         GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
     }
-    if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()
-       && !playerTeam->m_pControllingPlayer->isGoalkeeper){
+    if(NULL != playerTeam->m_pControllingPlayer && playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
         playerTeam->doTeamShoot();
     }
 }
@@ -217,21 +216,21 @@ void GameLayer::manLootBall() {
     }
     //关于球权的获取,守门员优先级最高
     bool haveGoalKeeper = false;
-    for(auto man : alternativeMan){
-        if(man->isGoalkeeper){
-            haveGoalKeeper = true;
-            footBall->setOwnerMan(man);
-            if(man->getFootManTeamId() == PLAYER_TEAM_ID){
-                playerTeam->setControllingMan(man);
-                playerTeam->setTeamStatus(TeamStatus::attack);
-                computerTeam->setTeamStatus(TeamStatus::defend);
-            }else{
-                computerTeam->setControllingMan(man);
-                playerTeam->setTeamStatus(TeamStatus::defend);
-                computerTeam->setTeamStatus(TeamStatus::attack);
-            }
-        }
-    }
+//    for(auto man : alternativeMan){
+//        if(man->isGoalkeeper){
+//            haveGoalKeeper = true;
+//            footBall->setOwnerMan(man);
+//            if(man->getFootManTeamId() == PLAYER_TEAM_ID){
+//                playerTeam->setControllingMan(man);
+//                playerTeam->setTeamStatus(TeamStatus::attack);
+//                computerTeam->setTeamStatus(TeamStatus::defend);
+//            }else{
+//                computerTeam->setControllingMan(man);
+//                playerTeam->setTeamStatus(TeamStatus::defend);
+//                computerTeam->setTeamStatus(TeamStatus::attack);
+//            }
+//        }
+//    }
     if(!haveGoalKeeper){
         for(auto man : alternativeMan){
             footBall->setOwnerMan(man);
@@ -288,7 +287,7 @@ void GameLayer::update(float dt) {
     int min = INT_FAST32_MAX;
     for (auto mine : playerTeam->getFootManVector()) {
         auto dis = GeometryTools::calculateDistance(footBall->getPosition(), mine->getPosition());
-        if (dis < min && !mine->isGoalkeeper && canChangeControlMan) {
+        if (dis < min  && canChangeControlMan) {
             controlMan = mine;
             min = dis;
         }

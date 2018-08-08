@@ -97,7 +97,7 @@ void FootballTeam::generateFootballTeam(){
     }
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
-        auto foot1 = FootMan::create(id,var1,currentPlayerTeamProperty.footManVec.at(i).goalkeeper);
+        auto foot1 = FootMan::create(id,var1);
         if(teamInLeftField){
             foot1->setOriginPosition(getLeftFieldVec2().at(i));
             foot1->setPosition(getLeftFieldVec2().at(i));
@@ -124,11 +124,11 @@ void FootballTeam::setTeamInLeftField(bool b) {
 }
 
 FootMan* FootballTeam::getGoalkeeper(){
-    for(auto man:footManVector){
-        if(man->isGoalkeeper){
-            return man;
-        }
-    }
+//    for(auto man:footManVector){
+//        if(man->isGoalkeeper){
+//            return man;
+//        }
+//    }
     return nullptr;
 }
 
@@ -263,9 +263,7 @@ bool FootballTeam::checkShootResult(){
 
 void FootballTeam::manSpeedUp(){
     for(auto var : footManVector){
-        if(!var->isGoalkeeper){
-            var->speedUp();
-        }
+        var->speedUp();
     }
 }
 
@@ -296,19 +294,19 @@ void FootballTeam::logicUpdate(float dt){
         float max = 10000;
         for (auto  var : footManVector) {
             Vec2 b = var->getPosition();
-            if(GeometryTools::calculateDistance(a, b)<max && var != m_pControllingPlayer && !var->isGoalkeeper){
+            if(GeometryTools::calculateDistance(a, b)<max && var != m_pControllingPlayer){
                 m_pSupportingPlayer = var;
             }
         }
-        if(!m_pControllingPlayer->isGoalkeeper){
-            goalkeeperReady = true;
-        }
+//        if(!m_pControllingPlayer->isGoalkeeper){
+//            goalkeeperReady = true;
+//        }
     }
     auto ball = GameStatus::getInstance()->getGameBall();
     int max = 10000;
     for(auto var : footManVector){
         float dis = GeometryTools::calculateDistance(ball->getPosition(), var->getPosition());
-        if(dis<max && !var->isGoalkeeper){
+        if(dis<max){
             m_pCloseingPlayer  = var;
             max = dis;
         }
@@ -326,7 +324,7 @@ void FootballTeam::update(float dt){
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
         //让自己的球队进行进攻
         for(auto att : footManVector){
-            if(att != m_pControllingPlayer && !att->isGoalkeeper){
+            if(att != m_pControllingPlayer){
                 //持球队员跑向去前场，其余队员到中场和前场接应
                 auto pos = GameStatus::getInstance()->getGameBall();
                 att->manRunToTargetX(Vec2(pos->getPosition()));
@@ -338,21 +336,23 @@ void FootballTeam::update(float dt){
             footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
         }
         if(m_pControllingPlayer->getSimpleAI() && GameStatus::getInstance()->getGameBall()->getOwerMan() == m_pControllingPlayer){
-            if(m_pControllingPlayer->isGoalkeeper){
-                //HACK:暂时不开大脚,直接传球给最近的队友,这个动作由2秒的延迟
-                if(NULL != m_pCloseingPlayer && goalkeeperReady){
-                    goalkeeperReady = false;
-                    schedule([=](float dt){
-                        m_pControllingPlayer->playFootManShoot();
-                        GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getFootballVec2());
-                    },0,0,2,"pass_to_teammate");
-                }
-            }else{
-                m_pControllingPlayer->manRunToTarget(footManAttackPos,20,CallFunc::create([=](){
-                    //到达指定位置射门
-                    doTeamShoot();
-                }));
-            }
+//            if(m_pControllingPlayer->isGoalkeeper){
+//                //HACK:暂时不开大脚,直接传球给最近的队友,这个动作由2秒的延迟
+//                if(NULL != m_pCloseingPlayer && goalkeeperReady){
+//                    goalkeeperReady = false;
+//                    schedule([=](float dt){
+//                        m_pControllingPlayer->playFootManShoot();
+//                        GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getFootballVec2());
+//                    },0,0,2,"pass_to_teammate");
+//                }
+//            }else{
+//
+//            }
+            
+            m_pControllingPlayer->manRunToTarget(footManAttackPos,20,CallFunc::create([=](){
+                //到达指定位置射门
+                doTeamShoot();
+            }));
         }
     }
     //球队防守
@@ -364,7 +364,7 @@ void FootballTeam::update(float dt){
             FootMan* dman = nullptr;
             for(auto var : footManVector){
                 float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
-                if(dis<max && !var->isGoalkeeper && var->getSimpleAI()){
+                if(dis<max && var->getSimpleAI()){
                     dman = var;
                     max = dis;
                 }
@@ -373,7 +373,7 @@ void FootballTeam::update(float dt){
             if(nullptr != dman && dman->getSimpleAI()){
                 dman->doDefend(cman->getPosition());
                 for(auto var : footManVector){
-                    if(!var->isGoalkeeper && dman != var){
+                    if(dman != var){
                         var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET);
                     }
                 }
