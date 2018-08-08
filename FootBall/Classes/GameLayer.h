@@ -19,25 +19,27 @@ private:
     float special_time = 0;
     float track_time = 1.5;//铲球冷却
     bool can_track = true;
+    
+    cocos2d::Camera* playerCamera;
+    cocos2d::MenuItemImage* trackOrPassBtn;
     Ball* footBall = nullptr;
     Rocker* heroRocker = nullptr;
-    cocos2d::Camera* playerCamera;
     FootballTeam* playerTeam;
     FootballTeam* computerTeam;
     FootMan* controlingFootman;//当前被控制的球员
-    cocos2d::MenuItemImage* trackOrPassBtn;
+
     void onEnter();
     void onExit();
-    void passAndTackle();
-    void shoot();
+    void passAndTackle();//传球铲球
+    void shoot();//射门
+    void speedMan();//加速
     void manLootBall();//球员获得球权
-    void speedMan();
-    void loadGameLayerUI();
-    void addCustomEvent();
-    void removeCustomEvent();
     bool checkFootManInShootArea(FootMan* man);//检查球员是否进入射门区域
+    void replacementAll();//重置游戏场景
+    void loadGameLayerUI();
     void createFootballFild();
     void createFootBallTeam();
-    void replacementAll();
+    void addCustomEvent();
+    void removeCustomEvent();
     void update(float dt);
 };

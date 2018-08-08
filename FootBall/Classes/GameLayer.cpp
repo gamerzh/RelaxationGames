@@ -202,24 +202,40 @@ void GameLayer::manLootBall() {
     std::vector<FootMan*> alternativeMan;
     for (auto var1 :  playerTeam->getFootManVector()) {
         float dis = GeometryTools::calculateDistance(var1->getPosition(),footBall->getPosition());
-        if (dis < owner_ball_max_dis) {
+        if (dis < owner_ball_max_dis && var1->getCanObtainBall()) {
             alternativeMan.push_back(var1);
         }
     }
     for (auto var2 : computerTeam->getFootManVector()) {
         float dis = GeometryTools::calculateDistance(var2->getPosition(),footBall->getPosition());
-        if (dis < owner_ball_max_dis) {
+        if (dis < owner_ball_max_dis && var2->getCanObtainBall()) {
             alternativeMan.push_back(var2);
         }
     }
     if (alternativeMan.size() == 0) {
         return;
     }
-    //关于球权的获取
+    //关于球权的获取,守门员优先级最高
+    bool haveGoalKeeper = false;
     for(auto man : alternativeMan){
-        if(man->getCanObtainBall()){
+        if(man->isGoalkeeper){
+            haveGoalKeeper = true;
             footBall->setOwnerMan(man);
-            if(man->getFootManTeamId() == playerTeam->getFootBallTeamId()){
+            if(man->getFootManTeamId() == PLAYER_TEAM_ID){
+                playerTeam->setControllingMan(man);
+                playerTeam->setTeamStatus(TeamStatus::attack);
+                computerTeam->setTeamStatus(TeamStatus::defend);
+            }else{
+                computerTeam->setControllingMan(man);
+                playerTeam->setTeamStatus(TeamStatus::defend);
+                computerTeam->setTeamStatus(TeamStatus::attack);
+            }
+        }
+    }
+    if(!haveGoalKeeper){
+        for(auto man : alternativeMan){
+            footBall->setOwnerMan(man);
+            if(man->getFootManTeamId() == PLAYER_TEAM_ID){
                 playerTeam->setControllingMan(man);
                 playerTeam->setTeamStatus(TeamStatus::attack);
                 computerTeam->setTeamStatus(TeamStatus::defend);
@@ -351,8 +367,6 @@ void GameLayer::addCustomEvent() {
     
     auto gameStart = EventListenerCustom::create(foot_ball_game_start, [=](EventCustom* event) {
         //收到通知开始开球,除了目前被玩家选中的球员,其余的球员打开AI
-        //        playerTeam->setFootballTeamAI(playerTeam->m_pControllingPlayer);
-        //        computerTeam->setFootballTeamAI();
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(gameStart, 1);
 }

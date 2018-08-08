@@ -332,6 +332,8 @@
 		D29B872F21198FB100E6286C /* yuxuan_7_2_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D29B872C21198FB100E6286C /* yuxuan_7_2_b.png */; };
 		D29B873021198FB100E6286C /* yuxuan_7_1_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D29B872D21198FB100E6286C /* yuxuan_7_1_b.png */; };
 		D29B873121198FB100E6286C /* yuxuan_7_1_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D29B872D21198FB100E6286C /* yuxuan_7_1_b.png */; };
+		D29B8734211A897000E6286C /* Goalkeeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D29B8732211A896F00E6286C /* Goalkeeper.cpp */; };
+		D29B8735211A897000E6286C /* Goalkeeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D29B8732211A896F00E6286C /* Goalkeeper.cpp */; };
 		D2E3B0C320FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D2E3B0C420FC39BE00F9A8F3 /* FootballTeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -595,6 +597,8 @@
 		D29B872921197A5C00E6286C /* worldcup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = worldcup; sourceTree = "<group>"; };
 		D29B872C21198FB100E6286C /* yuxuan_7_2_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuxuan_7_2_b.png; sourceTree = "<group>"; };
 		D29B872D21198FB100E6286C /* yuxuan_7_1_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuxuan_7_1_b.png; sourceTree = "<group>"; };
+		D29B8732211A896F00E6286C /* Goalkeeper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Goalkeeper.cpp; sourceTree = "<group>"; };
+		D29B8733211A897000E6286C /* Goalkeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goalkeeper.h; sourceTree = "<group>"; };
 		D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootballTeam.h; sourceTree = "<group>"; };
 		D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FootballTeam.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1059,6 +1063,8 @@
 		D2E3B0C020FC36AF00F9A8F3 /* team */ = {
 			isa = PBXGroup;
 			children = (
+				D29B8732211A896F00E6286C /* Goalkeeper.cpp */,
+				D29B8733211A897000E6286C /* Goalkeeper.h */,
 				D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */,
 				D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */,
 				D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */,
@@ -1464,6 +1470,7 @@
 				D246EF1820F62EF600AD0860 /* DreamLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				D246EDE320F6297B00AD0860 /* GeometryTools.cpp in Sources */,
+				D29B8734211A897000E6286C /* Goalkeeper.cpp in Sources */,
 				D246EDC720F6297B00AD0860 /* PauseLayer.cpp in Sources */,
 				D246EDDF20F6297B00AD0860 /* FootMan.cpp in Sources */,
 				D246EDDB20F6297B00AD0860 /* Rocker.cpp in Sources */,
@@ -1482,6 +1489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29B8735211A897000E6286C /* Goalkeeper.cpp in Sources */,
 				D246EDC820F6297B00AD0860 /* PauseLayer.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				D246EDC020F6297B00AD0860 /* LobbyScene.cpp in Sources */,
