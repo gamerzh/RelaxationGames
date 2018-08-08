@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-#include "Footballer.h"
+#include "FieldMan.h"
 #include "GlobalProperty.h"
 
 struct BallSpeed{
@@ -14,8 +14,8 @@ public:
     static Ball* create(cocos2d::Camera* camera);
     virtual bool init(cocos2d::Camera* camera);
     
-    Footballer* getOwerMan();
-    void setOwnerMan(Footballer* owern);
+    FieldMan* getOwerMan();
+    void setOwnerMan(FieldMan* owern);
     int getBallState();
     void setBallShoot(cocos2d::Vec2 vec);
     void setBallPass(cocos2d::Vec2 vec);
@@ -35,7 +35,7 @@ private:
     cocos2d::Node* footballCsb;
     cocos2d::Sprite* ballEffect;
     cocos2d::Camera* myCamera = nullptr;
-    Footballer* ballOwner = nullptr;
+    FieldMan* ballOwner = nullptr;
     float speed_fly;
     float speed_calm = 3;
     void ballMoveDirect();

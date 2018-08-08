@@ -310,6 +310,7 @@ void FootballTeam::update(float dt){
     if(NULL != getChildByTag(1000)){
         ((LabelAtlas*)getChildByTag(1000))->setString(StringUtils::format("0%d",teamScore));
     }
+    
     if(GameStatus::getInstance()->getGameState() != GameStatus::GameState::game_playing){
         return;
     }
@@ -336,7 +337,7 @@ void FootballTeam::update(float dt){
         }
     }
     //球队防守
-    if(this->teamState == TeamStatus::defend && GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_playing){
+    if(this->teamState == TeamStatus::defend){
         //计算除守门员以外的球员和对方控球队员的距离
         auto cman = GameStatus::getInstance()->getGameBall()->getOwerMan();//控球队员
         if(NULL != cman){
