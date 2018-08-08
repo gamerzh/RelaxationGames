@@ -144,15 +144,13 @@ void GameLayer::passAndTackle() {
     }
     //传球和铲球
     if(playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
-        //玩家在控球,传出：离自己最近的己方球员
-        //传球动作由球队来进行,
+        //玩家在控球,传球:离自己最近的己方球员
         auto mate = playerTeam->m_pSupportingPlayer;
         if(NULL != mate){
-            //            log("Pass target pos (%f,%f)",mate->getPositionX(),mate->getPositionY());
             footBall->setBallPass(mate->getPosition());
         }
     }else{
-        //铲球
+        //铲球,技能冷却2秒
         if(NULL != controlingFootman && can_track){
             can_track = false;
             controlingFootman->doSlideTackle();
@@ -160,6 +158,7 @@ void GameLayer::passAndTackle() {
     }
 }
 
+//射门
 void GameLayer::shoot() {
     if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
         GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
@@ -170,9 +169,10 @@ void GameLayer::shoot() {
     }
 }
 
+//球队加速
 void GameLayer::speedMan() {
     if( UserData::getInstance()->getPlayerSkillNum()>0){
-        //球队的控球队员短距离加速
+        
         UserData::getInstance()->setPlayerSkillNum(UserData::getInstance()->getPlayerSkillNum()-1);
         if(NULL != getChildByTag(666)){
             ((Label*)getChildByTag(666))->setString(StringUtils::format("%d",UserData::getInstance()->getPlayerSkillNum()));
@@ -241,7 +241,20 @@ void GameLayer::manLootBall() {
 }
 
 
+void GameLayer::updateButtonTexture(){
+    if(footBall->getOwerMan() != NULL && footBall->getOwerMan()->getFootManTeamId() == PLAYER_TEAM_ID){
+        trackOrPassBtn->setNormalImage(Sprite::create("pass_ball_1.png"));
+        trackOrPassBtn->setSelectedImage(Sprite::create("pass_ball_1.png"));
+    }else{
+        trackOrPassBtn->setNormalImage(Sprite::create("trackle_ball_1.png"));
+        trackOrPassBtn->setSelectedImage(Sprite::create("trackle_ball_1.png"));
+    }
+}
+
 void GameLayer::update(float dt) {
+    
+    updateButtonTexture();
+    
     if(!can_track){
         track_time -= dt;
         if(track_time<0){
@@ -250,13 +263,6 @@ void GameLayer::update(float dt) {
         }
     }
     
-    if(footBall->getOwerMan() != NULL && footBall->getOwerMan()->getFootManTeamId() == PLAYER_TEAM_ID){
-        trackOrPassBtn->setNormalImage(Sprite::create("pass_ball_1.png"));
-        trackOrPassBtn->setSelectedImage(Sprite::create("pass_ball_1.png"));
-    }else{
-        trackOrPassBtn->setNormalImage(Sprite::create("trackle_ball_1.png"));
-        trackOrPassBtn->setSelectedImage(Sprite::create("trackle_ball_1.png"));
-    }
     special_time += dt;
     if(special_time > DREAM_SPECIAL_TIME){
         auto dream = DreamLayer::create(6);

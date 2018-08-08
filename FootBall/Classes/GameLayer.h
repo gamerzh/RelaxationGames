@@ -12,6 +12,8 @@
 class GameLayer : public cocos2d::Layer {
 public:
     virtual bool init();
+    void onEnter();
+    void onExit();
     CREATE_FUNC(GameLayer);
 private:
     bool canChangeControlMan = true;
@@ -27,9 +29,8 @@ private:
     FootballTeam* playerTeam;
     FootballTeam* computerTeam;
     FootMan* controlingFootman;//当前被控制的球员
-
-    void onEnter();
-    void onExit();
+    
+    void updateButtonTexture();
     void passAndTackle();//传球铲球
     void shoot();//射门
     void speedMan();//加速
