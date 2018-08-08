@@ -72,8 +72,13 @@ void Ball::setBallFree(){
     this->ballState = ball_is_free;
 }
 
-void Ball::setBallKeep(){
+int Ball::getKeeperId(){
+    return this->keeperId;
+}
+
+void Ball::setBallKeep(int teamid){
     //球被守门员持有
+    this->keeperId = teamid;
     this->ballState = ball_is_snap;
     this->ballOwner = nullptr;
 }

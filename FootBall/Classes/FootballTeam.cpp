@@ -314,8 +314,24 @@ void FootballTeam::update(float dt){
     if(GameStatus::getInstance()->getGameState() != GameStatus::GameState::game_playing){
         return;
     }
+    //守门员持球
+    auto ball = GameStatus::getInstance()->getGameBall();
+    if(ball->getBallState() == ball_is_snap){
+        schedule([=](float dt){
+            //守门员传球给队友
+            if(m_pCloseingPlayer->getFootManTeamId() == ball->getKeeperId()){
+                log("KKKKKKKK = %d,%d",m_pCloseingPlayer->getFootManTeamId(),this->teamId);
+                goalkeeper->playFootManShoot();
+                ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
+                this->teamState = TeamStatus::attack;
+                //传球后跑回原位
+                goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
+            }
+        },0,0,1.5f,StringUtils::format("pass_to_team_mate_%d",teamId));
+    }
     //球队进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
+       
         //让自己的球队进行进攻
         for(auto att : footManVector){
             if(att != m_pControllingPlayer){
@@ -338,19 +354,7 @@ void FootballTeam::update(float dt){
     }
     //球队防守
     if(this->teamState == TeamStatus::defend){
-        auto ball = GameStatus::getInstance()->getGameBall();
         //求现在被守门员持有
-        if(ball->getBallState() == ball_is_snap){
-            schedule([=](float dt){
-                //守门员传球给队友
-                goalkeeper->playFootManShoot();
-                log("KKKKKKKK = %d,%d",m_pCloseingPlayer->getFootManTeamId(),this->teamId);
-                ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
-                this->teamState = TeamStatus::attack;
-                //传球后跑回原位
-                goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
-            },0,0,1.5f,StringUtils::format("pass_to_team_mate_%d",teamId));
-        }else{
             goalkeeper->moveDefendBall(GameStatus::getInstance()->getGameBall()->getPosition());
             //计算除守门员以外的球员和对方控球队员的距离
             auto cman = ball->getOwerMan();//控球队员
@@ -375,7 +379,6 @@ void FootballTeam::update(float dt){
                 }
                 
             }
-        }
     }
 }
 

@@ -33,7 +33,7 @@
 
 #define GAME_TIME 120
 
-#define CAN_CHANGE_FOOTMAN_TIME 1.5
+#define CAN_CHANGE_FOOTMAN_TIME 1.0
 
 #define ball_is_free 0
 #define ball_is_ower 1

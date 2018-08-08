@@ -17,10 +17,11 @@ public:
     FieldMan* getOwerMan();
     void setOwnerMan(FieldMan* owern);
     int getBallState();
+    int getKeeperId();
     void setBallShoot(cocos2d::Vec2 vec);
     void setBallPass(cocos2d::Vec2 vec);
     void setBallFree();
-    void setBallKeep();
+    void setBallKeep(int teamid);//持球队伍
     void replacement();//重置足球的位置
     void setFootballRotate(bool ro);
     BallSpeed getBallSpeedToTarget();
@@ -39,6 +40,7 @@ private:
     FieldMan* ballOwner = nullptr;
     float speed_fly;
     float speed_calm = 3;
+    int keeperId;
     void ballMoveDirect();
     int ballState = ball_is_free;
     bool checkBallInGoal();

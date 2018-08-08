@@ -211,13 +211,13 @@ bool GameLayer::checkFootManInShootArea(FieldMan* man){
 void GameLayer::manLootBall() {
     //守门员优先
     if(GeometryTools::calculateDistance(playerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis){
-        footBall->setBallKeep();
+        footBall->setBallKeep(PLAYER_TEAM_ID);
         playerTeam->setTeamStatus(TeamStatus::attack);
         computerTeam->setTeamStatus(TeamStatus::defend);
         return;
     }else if(GeometryTools::calculateDistance(computerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis)
     {
-        footBall->setBallKeep();
+        footBall->setBallKeep(computerTeam->getFootBallTeamId());
         playerTeam->setTeamStatus(TeamStatus::attack);
         computerTeam->setTeamStatus(TeamStatus::defend);
         return;
