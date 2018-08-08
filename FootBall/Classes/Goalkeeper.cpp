@@ -21,62 +21,23 @@ bool Goalkeeper::init(int teamId,cocos2d::Camera* camera) {
     }
     this->belongTeamId = teamId;
     this->fileName = getFileNameByTeamId(teamId);
-    
     //添加阴影
     shadow = Sprite::create("shadow_man.png");
     shadow->setScale(ANIMATION_SCALE_RATE*2);
     shadow->setPosition(0,0);
     addChild(shadow);
     
-    //光圈
-    auto circle = Sprite::create("footman_selected.png");
-    circle->setScale(ANIMATION_SCALE_RATE*3);
-    circle->setPosition(0,0);
-    circle->setTag(3000);
-    circle->setVisible(false);
-    addChild(circle);
-    
     playerCsb = CSLoader::createNode(fileName);
     playerCsb->setScale(ANIMATION_SCALE_RATE);
     playerCsb->setPosition(0, 0);
     this->addChild(playerCsb);
     playFootManStand();
-    
     scheduleUpdate();
-    //showDebugInfo();
     return true;
-}
-
-void Goalkeeper::showControlCircle(bool show){
-    if(NULL != getChildByTag(3000)){
-        getChildByTag(3000)->setVisible(show);
-    }
-    this->simpleRobotAI = !show;
-}
-
-
-
-
-Point Goalkeeper::moveInSafeRect(Point pos) {
-    if (pos.y < football_field_offset_bottom) {
-        pos.y = football_field_offset_bottom;
-    }
-    else if (pos.y > football_field_height- football_field_offset_top) {
-        pos.y = football_field_height- football_field_offset_top;
-    }
-    
-    if (pos.x < GeometryTools::getPositionXByYLeft(pos.y)) {
-        pos.x = GeometryTools::getPositionXByYLeft(pos.y);
-    }
-    else if (pos.x > GeometryTools::getPositionXByYRight(pos.y)) {
-        pos.x = GeometryTools::getPositionXByYRight(pos.y);
-    }
-    return pos;
 }
 
 void Goalkeeper::doTumble(){
     playFootManTumble();
-    canObtainBall = false;
 }
 
 void Goalkeeper::playFootManStand() {
@@ -138,10 +99,6 @@ void Goalkeeper::playFootManSnap(){
 
 float Goalkeeper::getShootSpeed() {
     return 10;
-}
-
-bool Goalkeeper::getCanObtainBall(){
-    return canObtainBall;
 }
 
 void Goalkeeper::moveRight() {
@@ -222,25 +179,8 @@ void Goalkeeper::moveDefendBall(cocos2d::Vec2 pos){
 }
 
 void Goalkeeper::update(float dt) {
-    //球权获得能力恢复
-    if(!canObtainBall){
-        obtainInterval -= dt;
-        if(obtainInterval<0){
-            obtainInterval = 2;
-            canObtainBall = true;
-        }
-    }
     updateFootManZorder();
-    if (NULL != getChildByTag(1000)) {
-        ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));
-    }
 }
 
-void Goalkeeper::showDebugInfo() {
-    auto lable = Label::createWithSystemFont(StringUtils::format("(%.1f,%.1f)",this->getPositionX(),this->getPositionY()), "arial", 30);
-    lable->setTag(1000);
-    lable->setPosition(0,0);
-    addChild(lable);
-}
 
 

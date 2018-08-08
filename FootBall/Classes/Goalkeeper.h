@@ -8,7 +8,7 @@ class Goalkeeper : public Footballer {
 public:
     static Goalkeeper* create(int teamId,cocos2d::Camera* camera = nullptr);
     virtual bool init(int teamId,cocos2d::Camera* camera);
-    bool getCanObtainBall();
+    
     bool getSimpleAI();
     int getFootManTeamId();
     float getShootSpeed();
@@ -23,7 +23,6 @@ public:
     void setOriginPosition(cocos2d::Vec2 vec);
     void playFootManShoot();//射门动画
     void playFootManSnap();//守门员扑救
-    void showControlCircle(bool show);
     void moveDefendBall(cocos2d::Vec2 pos);//更具球的位置移动
 private:
     int belongTeamId = 0;
@@ -31,9 +30,6 @@ private:
     
     bool simpleRobotAI = true;//简单AI关闭
     bool canUpdateState = true;//想允许切换动画
-    
-    bool canObtainBall = true;//是否可以获取球
-    float obtainInterval = 1.4f;//获取球权间隔
     
     std::string fileName = "";
     std::string foot_man_img;
@@ -44,8 +40,6 @@ private:
     cocos2d::Vec2 runTargetPos;
     cocos2d::Vec2 originVec2;//球员的默认位置
     cocos2d::Sprite* shadow;
-    
-    cocos2d::Point moveInSafeRect(cocos2d::Point pos);
     std::string getFileNameByTeamId(int d);
     
     float getBallDistance();//获取和球的距离
@@ -53,6 +47,5 @@ private:
     void playFootManStand();
     void playFootManTumble();
     void updateFootManZorder();
-    void showDebugInfo();
     void update(float dt);
 };

@@ -228,6 +228,7 @@ void FootballTeam::goalkeeperSnapBall(bool shot){
 }
 
 bool FootballTeam::checkShootResult(){
+    return false;
     //判断这次射门是否成功
     if(this->teamEnergy >= 100){
         return true;
@@ -334,7 +335,6 @@ void FootballTeam::update(float dt){
                 doTeamShoot();
             }));
         }
-        goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
     }
     //球队防守
     if(this->teamState == TeamStatus::defend){
@@ -342,9 +342,14 @@ void FootballTeam::update(float dt){
         //求现在被守门员持有
         if(ball->getBallState() == ball_is_snap){
             schedule([=](float dt){
+                //守门员传球给队友
                 goalkeeper->playFootManShoot();
+                log("KKKKKKKK = %d,%d",m_pCloseingPlayer->getFootManTeamId(),this->teamId);
                 ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
-            },0,0,1.5f,"pass_to_teammate");
+                this->teamState = TeamStatus::attack;
+                //传球后跑回原位
+                goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
+            },0,0,1.5f,StringUtils::format("pass_to_team_mate_%d",teamId));
         }else{
             goalkeeper->moveDefendBall(GameStatus::getInstance()->getGameBall()->getPosition());
             //计算除守门员以外的球员和对方控球队员的距离
