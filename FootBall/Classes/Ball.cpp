@@ -50,21 +50,17 @@ int Ball::getBallState() {
     return this->ballState;
 }
 
-void Ball::setBallState(int state) {
-    this->ballState = state;
-}
-
 
 void Ball::setBallShoot(cocos2d::Vec2 vec) {
     this->speed_fly = FOOT_BALL_START_SPEED;
-    setBallState(ball_is_pass);
+    this->ballState = ball_is_fly;
     this->ballOwner = NULL;
     this->targetPosition = vec;
 }
 
 void Ball::setBallPass(cocos2d::Vec2 vec){
     this->speed_fly = FOOT_BALL_START_SPEED;
-    setBallState(ball_is_pass);
+    this->ballState = ball_is_fly;
     this->ballOwner = NULL;
     if(vec != Vec2(0,0)){
         this->targetPosition = vec;
@@ -73,7 +69,12 @@ void Ball::setBallPass(cocos2d::Vec2 vec){
 
 void Ball::setBallFree(){
     this->ballOwner = NULL;
-    setBallState(ball_is_free);
+    this->ballState = ball_is_free;
+}
+
+void Ball::setBallKeep(){
+    //球被守门员持有
+    this->ballState = ball_is_snap;
 }
 
 FieldMan* Ball::getOwerMan() {
@@ -81,7 +82,7 @@ FieldMan* Ball::getOwerMan() {
 }
 
 void Ball::setOwnerMan(FieldMan* owern) {
-    setBallState(ball_is_ower);
+    this->ballState = ball_is_ower;
     this->ballOwner = owern;
 }
 
@@ -202,7 +203,7 @@ void Ball::update(float dt) {
         curLocation = this->ballOwner->getFootballVec2();
         this->setPosition(curLocation);
         speedCamera = 2;
-    }else if(this->ballState == ball_is_pass){
+    }else if(this->ballState == ball_is_fly){
         if(droppointInCorrect(this->targetPosition,this->getPosition())){
             this->ballState = ball_is_free;
             this->hideBallEffect();

@@ -20,6 +20,7 @@ public:
     void setBallShoot(cocos2d::Vec2 vec);
     void setBallPass(cocos2d::Vec2 vec);
     void setBallFree();
+    void setBallKeep();
     void replacement();//重置足球的位置
     void setFootballRotate(bool ro);
     BallSpeed getBallSpeedToTarget();
@@ -39,7 +40,6 @@ private:
     float speed_fly;
     float speed_calm = 3;
     void ballMoveDirect();
-    void setBallState(int state);
     int ballState = ball_is_free;
     bool checkBallInGoal();
     bool ballInSafeRect(cocos2d::Vec2 pos);

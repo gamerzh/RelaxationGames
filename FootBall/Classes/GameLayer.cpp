@@ -212,9 +212,12 @@ void GameLayer::manLootBall() {
     std::vector<FieldMan*> alternativeMan;
     //守门员优先
     if(GeometryTools::calculateDistance(playerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis){
+        footBall->setBallKeep();
         playerTeam->setTeamStatus(TeamStatus::attack);
         computerTeam->setTeamStatus(TeamStatus::defend);
-    }else if(GeometryTools::calculateDistance(computerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis){
+    }else if(GeometryTools::calculateDistance(computerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis)
+    {
+        footBall->setBallKeep();
         playerTeam->setTeamStatus(TeamStatus::attack);
         computerTeam->setTeamStatus(TeamStatus::defend);
     }
