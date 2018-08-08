@@ -202,7 +202,7 @@ void FootballTeam::doTeamShoot(){
         }else{
             //射门失败
             goalkeeperSnapBall(true);
-           
+            
         }
     }
 }
@@ -334,6 +334,7 @@ void FootballTeam::update(float dt){
                 doTeamShoot();
             }));
         }
+        goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
     }
     //球队防守
     if(this->teamState == TeamStatus::defend){

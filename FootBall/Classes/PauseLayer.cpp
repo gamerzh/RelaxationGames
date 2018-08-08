@@ -13,8 +13,8 @@ bool PauseLayer::init(){
 	pause_bg->setPosition(visibleSize.width / 2, visibleSize.height / 2);
 	addChild(pause_bg);
 
-	auto img1 = MenuItemImage::create("pause_con.png", "pause_con.png");
-	auto img2 = MenuItemImage::create("pause_re.png", "pause_re.png");
+	auto img1 = MenuItemImage::create("pause_con.png", "pause_con.png",CC_CALLBACK_0(PauseLayer::continuePlay, this));
+	auto img2 = MenuItemImage::create("pause_re.png", "pause_re.png",CC_CALLBACK_0(PauseLayer::reStartGame, this));
 	auto img3 = MenuItemImage::create("pause_lobby.png", "pause_lobby.png",CC_CALLBACK_0(PauseLayer::gobackLobby, this));
 	auto menu = Menu::create(img1, img2, img3,NULL);
 	menu->alignItemsVerticallyWithPadding(15);

@@ -23,7 +23,7 @@ bool Goalkeeper::init(int teamId,cocos2d::Camera* camera) {
     this->fileName = getFileNameByTeamId(teamId);
     
     //添加阴影
-    auto shadow = Sprite::create("shadow_man.png");
+    shadow = Sprite::create("shadow_man.png");
     shadow->setScale(ANIMATION_SCALE_RATE*2);
     shadow->setPosition(0,0);
     addChild(shadow);
@@ -125,12 +125,14 @@ void Goalkeeper::playFootManTumble(){
 void Goalkeeper::playFootManSnap(){
     canUpdateState = false;
     playerCsb->stopAllActions();
+    shadow->setVisible(false);
     auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation7", false);
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation7",[=](){
         canUpdateState = true;
         playFootManStand();
+        shadow->setVisible(true);
     });
 }
 
@@ -153,6 +155,10 @@ void Goalkeeper::moveLeft() {
 
 void Goalkeeper::updateFootManZorder() {
     this->setLocalZOrder(FOOTBALL_MAN_ZORDER - (int)this->getPositionY());
+}
+
+Vec2 Goalkeeper::getOriginPosition(){
+    return this->originVec2;
 }
 
 void Goalkeeper::setOriginPosition(cocos2d::Vec2 vec){
@@ -197,7 +203,7 @@ cocos2d::Vec2 Goalkeeper::getManDefendVec2(){
 cocos2d::Vec2 Goalkeeper::getFootballVec2(){
     auto dir = playerCsb->getScaleX();
     if(dir<0){
-        return Vec2(this->getPositionX()-65,this->getPositionY());
+        return Vec2(this->getPositionX()-45,this->getPositionY());
     }else{
         return Vec2(this->getPositionX()-10,this->getPositionY()+20);
     }
@@ -205,11 +211,14 @@ cocos2d::Vec2 Goalkeeper::getFootballVec2(){
 
 void Goalkeeper::moveDefendBall(cocos2d::Vec2 pos){
     auto vec = this->getPosition();
-    float speedy = 4 *(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
-    if(speedy != 0){
-        playFootManRun();
+    auto dis = GeometryTools::calculateDistance(pos, vec);
+    if(dis >10){
+        float speedy = 4 *(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
+        if(speedy != 0){
+            playFootManRun();
+        }
+        this->setPosition(vec.x,vec.y+speedy);
     }
-     this->setPosition(vec.x,vec.y+speedy);
 }
 
 void Goalkeeper::update(float dt) {

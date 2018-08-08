@@ -15,6 +15,7 @@ public:
 
     cocos2d::Vec2 getManDefendVec2();//获取球员的防守位置
     cocos2d::Vec2 getFootballVec2();//获取足球的坐标
+    cocos2d::Vec2 getOriginPosition();
     void doTumble();//摔倒
     void moveRight();
     void moveLeft();
@@ -41,9 +42,11 @@ private:
     cocos2d::Node* playerCsb;
     cocos2d::Camera* ball_camera = nullptr;
     cocos2d::Vec2 runTargetPos;
-    cocos2d::Vec2 originVec2;//球员的默认位置    
-    std::string getFileNameByTeamId(int d);
+    cocos2d::Vec2 originVec2;//球员的默认位置
+    cocos2d::Sprite* shadow;
+    
     cocos2d::Point moveInSafeRect(cocos2d::Point pos);
+    std::string getFileNameByTeamId(int d);
     
     float getBallDistance();//获取和球的距离
     void playFootManRun();
