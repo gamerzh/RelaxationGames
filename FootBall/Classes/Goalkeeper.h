@@ -1,10 +1,10 @@
 #pragma once
 #include "cocos2d.h"
-#include "TeamInfoFactory.h"
+#include "Footballer.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
-class Goalkeeper : public cocos2d::Node {
+class Goalkeeper : public Footballer {
 public:
     enum FootManState{
         waiting,

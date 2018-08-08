@@ -76,11 +76,11 @@ void Ball::setBallFree(){
     setBallState(ball_is_free);
 }
 
-FootMan* Ball::getOwerMan() {
+Footballer* Ball::getOwerMan() {
     return this->ballOwner;
 }
 
-void Ball::setOwnerMan(FootMan* owern) {
+void Ball::setOwnerMan(Footballer* owern) {
     setBallState(ball_is_ower);
     this->ballOwner = owern;
 }

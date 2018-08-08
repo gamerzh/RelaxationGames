@@ -1,13 +1,14 @@
 #include "GameLayer.h"
+#include "Footballer.h"
 #include "GameStatus.h"
-#include "math.h"
-#include "Setting.h"
 #include "FootballTeam.h"
 #include "GeometryTools.h"
-#include "UserData.h"
 #include "DreamLayer.h"
+#include "UserData.h"
+#include "Setting.h"
 #include "Dream.h"
 #include "Audio.h"
+#include "math.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -209,6 +210,18 @@ bool GameLayer::checkFootManInShootArea(FootMan* man){
 
 void GameLayer::manLootBall() {
     std::vector<FootMan*> alternativeMan;
+    //守门员优先
+    if(GeometryTools::calculateDistance(playerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis){
+        footBall->setOwnerMan(playerTeam->getGoalkeeper());
+//        playerTeam->setControllingMan(man);
+        playerTeam->setTeamStatus(TeamStatus::attack);
+        computerTeam->setTeamStatus(TeamStatus::defend);
+    }else if(GeometryTools::calculateDistance(computerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis){
+        footBall->setOwnerMan(computerTeam->getGoalkeeper());
+//        playerTeam->setControllingMan(man);
+        playerTeam->setTeamStatus(TeamStatus::attack);
+        computerTeam->setTeamStatus(TeamStatus::defend);
+    }
     for (auto var1 :  playerTeam->getFootManVector()) {
         float dis = GeometryTools::calculateDistance(var1->getPosition(),footBall->getPosition());
         if (dis < owner_ball_max_dis && var1->getCanObtainBall()) {
@@ -224,6 +237,7 @@ void GameLayer::manLootBall() {
     if (alternativeMan.size() == 0) {
         return;
     }
+
     //关于球权的获取
     for(auto man : alternativeMan){
         footBall->setOwnerMan(man);

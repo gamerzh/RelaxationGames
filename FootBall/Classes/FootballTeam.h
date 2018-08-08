@@ -17,22 +17,23 @@ public:
     void onExit();
     
     int teamScore = 0;
+    FootMan* m_pSupportingPlayer;//最佳接球人员
+    FootMan* m_pControllingPlayer;//当前控球的球员
+    FootMan* m_pCloseingPlayer;//离球最近的队员
+    
     bool checkShootResult();//射门判定
     int getFootBallTeamId();
-    void doTeamShoot();//球队射门
     std::string getTeamAttackDirection();//球队进攻方向
 	std::vector<FootMan*> getFootManVector();//获取球员
     Goalkeeper* getGoalkeeper();//获取守门员
     cocos2d::Rect getAttackShootRect();
     cocos2d::Vec2 getTeamShootPoint();//射门坐标
-    FootMan* m_pSupportingPlayer;//最佳接球人员
-    FootMan* m_pControllingPlayer;//当前控球的球员
-    FootMan* m_pCloseingPlayer;//离球最近的队员
     TeamStatus getTeamStatus();
     void setTeamStatus(TeamStatus s);
     void setControllingMan(FootMan* man);
     void setTeamInLeftField(bool b);
     void manSpeedUp();//球队加速
+    void doTeamShoot();//球队射门
 private:
     TeamStatus teamState;
     int teamId = 0;
@@ -47,6 +48,7 @@ private:
 	std::vector<cocos2d::Vec2> getFootmanFieldVec2();
     std::string getTeamIconName(int tid);
     void generateFootballTeam();
+    void goalkeeperSnapBall(bool shot);//守门员扑救
     void logicUpdate(float dt);
     void update(float dt);
 };

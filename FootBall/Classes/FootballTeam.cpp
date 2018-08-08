@@ -108,6 +108,9 @@ void FootballTeam::generateFootballTeam(){
     //创建守门员
     this->goalkeeper = Goalkeeper::create(id);
     this->goalkeeper->setOriginPosition(teamInLeftField?Vec2(250,675):Vec2(1880,675));
+    if(!teamInLeftField){
+        goalkeeper->moveLeft();
+    }
 }
 
 
@@ -193,34 +196,33 @@ void FootballTeam::doTeamShoot(){
                 GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
             }
             GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
-//            auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
-//            schedule([=](float dt){
-//                man->playFootManSnap();
-//            }, 0, 0, 0.5,"goalkeeper");
+            goalkeeperSnapBall(false);
             footManAttackPos = Vec2(0,0);
             this->teamState = TeamStatus::neutrality;
         }else{
+            //射门失败
             if(this->teamId == PLAYER_TEAM_ID){
-//                auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
-//                schedule([=](float dt){
-//                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
-//                    man->playFootManSnap();
-//                }, 0, 0, 0.1,"goalkeeper");
-//                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
+                goalkeeperSnapBall(true);
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
             }else{
-//                auto man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
-//                schedule([=](float dt){
-//                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
-//                    man->playFootManSnap();
-//                }, 0, 0, 0.1,"goalkeeper");
-//                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
+                goalkeeperSnapBall(true);
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
             }
         }
     }
+}
+
+void FootballTeam::goalkeeperSnapBall(bool shot){
+    //射门失败,被守门员扑救成功
+    auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
+    if(shot){
+        GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
+    }
+    schedule([=](float dt){
+        man->playFootManSnap();
+    }, 0, 0, 0.5,"goalkeeper");
 }
 
 bool FootballTeam::checkShootResult(){
@@ -327,19 +329,6 @@ void FootballTeam::update(float dt){
             footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
         }
         if(m_pControllingPlayer->getSimpleAI() && GameStatus::getInstance()->getGameBall()->getOwerMan() == m_pControllingPlayer){
-//            if(m_pControllingPlayer->isGoalkeeper){
-//                //HACK:暂时不开大脚,直接传球给最近的队友,这个动作由2秒的延迟
-//                if(NULL != m_pCloseingPlayer && goalkeeperReady){
-//                    goalkeeperReady = false;
-//                    schedule([=](float dt){
-//                        m_pControllingPlayer->playFootManShoot();
-//                        GameStatus::getInstance()->getGameBall()->setBallPass(m_pCloseingPlayer->getFootballVec2());
-//                    },0,0,2,"pass_to_teammate");
-//                }
-//            }else{
-//
-//            }
-            
             m_pControllingPlayer->manRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
                 doTeamShoot();
