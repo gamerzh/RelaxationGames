@@ -209,18 +209,21 @@ bool GameLayer::checkFootManInShootArea(FieldMan* man){
 }
 
 void GameLayer::manLootBall() {
-    std::vector<FieldMan*> alternativeMan;
     //守门员优先
     if(GeometryTools::calculateDistance(playerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis){
         footBall->setBallKeep();
         playerTeam->setTeamStatus(TeamStatus::attack);
         computerTeam->setTeamStatus(TeamStatus::defend);
+        return;
     }else if(GeometryTools::calculateDistance(computerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis)
     {
         footBall->setBallKeep();
         playerTeam->setTeamStatus(TeamStatus::attack);
         computerTeam->setTeamStatus(TeamStatus::defend);
+        return;
     }
+    //球员获取球权
+    std::vector<FieldMan*> alternativeMan;
     for (auto var1 :  playerTeam->getFootManVector()) {
         float dis = GeometryTools::calculateDistance(var1->getPosition(),footBall->getPosition());
         if (dis < owner_ball_max_dis && var1->getCanObtainBall()) {
@@ -236,7 +239,6 @@ void GameLayer::manLootBall() {
     if (alternativeMan.size() == 0) {
         return;
     }
-
     //关于球权的获取
     for(auto man : alternativeMan){
         footBall->setOwnerMan(man);

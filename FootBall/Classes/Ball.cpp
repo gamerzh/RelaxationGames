@@ -75,6 +75,7 @@ void Ball::setBallFree(){
 void Ball::setBallKeep(){
     //球被守门员持有
     this->ballState = ball_is_snap;
+    this->ballOwner = nullptr;
 }
 
 FieldMan* Ball::getOwerMan() {
