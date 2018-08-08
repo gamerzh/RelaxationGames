@@ -6,13 +6,6 @@
 
 class Goalkeeper : public Footballer {
 public:
-    enum FootManState{
-        waiting,
-        running,
-        shoot,
-        tackle,
-        tumble
-    };
     static Goalkeeper* create(int teamId,cocos2d::Camera* camera = nullptr);
     virtual bool init(int teamId,cocos2d::Camera* camera);
     bool getCanObtainBall();
@@ -22,14 +15,12 @@ public:
 
     cocos2d::Vec2 getManDefendVec2();//获取球员的防守位置
     cocos2d::Vec2 getFootballVec2();//获取足球的坐标
-    FootManState getFootManState();
     void doTumble();//摔倒
     void doDefend(cocos2d::Vec2 vec);//防守
     void moveRight();
     void moveLeft();
     void replacement();
     void setOriginPosition(cocos2d::Vec2 vec);
-    void changeFootManState(FootManState state);
     void playFootManShoot();//射门动画
     void playFootManSnap();//守门员扑救
     void showControlCircle(bool show);
@@ -50,9 +41,7 @@ private:
     cocos2d::Node* playerCsb;
     cocos2d::Camera* ball_camera = nullptr;
     cocos2d::Vec2 runTargetPos;
-    cocos2d::Vec2 originVec2;//球员的默认位置
-    FootManState manState;
-    
+    cocos2d::Vec2 originVec2;//球员的默认位置    
     std::string getFileNameByTeamId(int d);
     cocos2d::Point moveInSafeRect(cocos2d::Point pos);
     

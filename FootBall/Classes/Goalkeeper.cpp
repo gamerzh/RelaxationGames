@@ -16,11 +16,10 @@ Goalkeeper* Goalkeeper :: create(int teamId,cocos2d::Camera* camera) {
 }
 
 bool Goalkeeper::init(int teamId,cocos2d::Camera* camera) {
-    if (!Node::init()) {
+    if (!Footballer::init()) {
         return false;
     }
     this->belongTeamId = teamId;
-    this->manState = FootManState::waiting;
     this->fileName = getFileNameByTeamId(teamId);
     
     //添加阴影
@@ -88,7 +87,6 @@ void Goalkeeper::doDefend(cocos2d::Vec2 vec){
 }
 
 void Goalkeeper::playFootManStand() {
-    this->manState = FootManState::waiting;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation2", true);
@@ -97,7 +95,6 @@ void Goalkeeper::playFootManStand() {
 
 void Goalkeeper::playFootManRun() {
     if(canUpdateState){
-        this->manState = FootManState::running;
         playerCsb->stopAllActions();
         auto heroTimeLine = CSLoader::createTimeline(fileName);
         heroTimeLine->play("animation0", true);
@@ -109,7 +106,6 @@ void Goalkeeper::playFootManRun() {
 
 void Goalkeeper::playFootManShoot() {
     canUpdateState = false;
-    this->manState = FootManState::shoot;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation1", false);
@@ -122,7 +118,6 @@ void Goalkeeper::playFootManShoot() {
 
 void Goalkeeper::playFootManTumble(){
     canUpdateState = false;
-    this->manState = FootManState::tumble;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation6", false);
@@ -134,7 +129,6 @@ void Goalkeeper::playFootManTumble(){
 
 void Goalkeeper::playFootManSnap(){
     canUpdateState = false;
-    this->manState = FootManState::tumble;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline(fileName);
     heroTimeLine->play("animation7", false);
@@ -163,20 +157,6 @@ void Goalkeeper::moveLeft() {
 
 void Goalkeeper::updateFootManZorder() {
     this->setLocalZOrder(FOOTBALL_MAN_ZORDER - (int)this->getPositionY());
-}
-
-Goalkeeper::FootManState Goalkeeper::getFootManState(){
-    return this->manState;
-}
-
-void Goalkeeper::changeFootManState(FootManState state){
-    if(state == FootManState::waiting){
-        playFootManStand();
-    }else if(state == FootManState::running){
-        playFootManRun();
-    }else if(state == FootManState::tumble){
-        playFootManTumble();
-    }
 }
 
 void Goalkeeper::setOriginPosition(cocos2d::Vec2 vec){
