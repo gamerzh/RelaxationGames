@@ -4,9 +4,9 @@
 #include "GeometryTools.h"
 USING_NS_CC;
 
-Goalkeeper* Goalkeeper :: create(int teamId,FootManProperty property,cocos2d::Camera* camera) {
+Goalkeeper* Goalkeeper :: create(int teamId,cocos2d::Camera* camera) {
     Goalkeeper *ret = new Goalkeeper();
-    if (ret && ret->init(teamId,property,camera))
+    if (ret && ret->init(teamId,camera))
     {
         ret->autorelease();
         return ret;
@@ -15,7 +15,7 @@ Goalkeeper* Goalkeeper :: create(int teamId,FootManProperty property,cocos2d::Ca
     return nullptr;
 }
 
-bool Goalkeeper::init(int teamId,FootManProperty property,cocos2d::Camera* camera) {
+bool Goalkeeper::init(int teamId,cocos2d::Camera* camera) {
     if (!Node::init()) {
         return false;
     }
@@ -75,30 +75,6 @@ Point Goalkeeper::moveInSafeRect(Point pos) {
     return pos;
 }
 
-void Goalkeeper::setFootManAngle(float angle) {
-    if (angle != 0 && canObtainBall) {
-        Vec2 curPos = this->getPosition();
-        if (cos(angle) < 0) {
-            moveLeft();
-        }
-        else {
-            moveRight();
-        }
-        auto vec = Vec2(curPos.x + cos(angle) * runSpeed, curPos.y + sin(angle) * runSpeed);
-        this->setPosition(moveInSafeRect(vec));
-    }
-}
-
-void Goalkeeper::doSlideTackle() {
-    playFootManTackle();
-    //判断本次铲球结果,判断求是否在铲球范围内
-    if(GeometryTools::calculateDistance(this->getPosition(),GameStatus::getInstance()->getGameBall()->getPosition())<TACKLE_DISTANCE
-       &&random(1,100)<=tacklePercentage*100){
-        //success 发出通知,持球队员摔倒,球恢复为自由态
-        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_man_trackle_success);
-    }
-}
-
 void Goalkeeper::doTumble(){
     playFootManTumble();
     canObtainBall = false;
@@ -107,12 +83,7 @@ void Goalkeeper::doTumble(){
 void Goalkeeper::doDefend(cocos2d::Vec2 vec){
     //球员去追对方持球队员
     if(GeometryTools::calculateDistance(this->getPosition(),vec)>TACKLE_DISTANCE){
-        manRunToTarget(vec,TACKLE_DISTANCE,CallFunc::create([=](){
-            if(manState != FootManState::tackle && canFootmanTackle){
-                doSlideTackle();
-                canFootmanTackle = false;
-            }
-        }));
+       //TODO:
     }
 }
 
@@ -133,20 +104,6 @@ void Goalkeeper::playFootManRun() {
         playerCsb->runAction(heroTimeLine);
         canUpdateState = false;
     }
-}
-
-void Goalkeeper::playFootManTackle() {
-    canUpdateState = false;
-    this->manState = FootManState::tackle;
-    playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(fileName);
-    heroTimeLine->play("animation4", false);
-    playerCsb->runAction(heroTimeLine);
-    heroTimeLine->setAnimationEndCallFunc("animation4",[=](){
-        //铲球动画结束后允许其他动画
-        this->manState = running;
-        canUpdateState = true;
-    });
 }
 
 
@@ -217,8 +174,6 @@ void Goalkeeper::changeFootManState(FootManState state){
         playFootManStand();
     }else if(state == FootManState::running){
         playFootManRun();
-    }else if(state == FootManState::tackle){
-        playFootManTackle();
     }else if(state == FootManState::tumble){
         playFootManTumble();
     }
@@ -226,6 +181,7 @@ void Goalkeeper::changeFootManState(FootManState state){
 
 void Goalkeeper::setOriginPosition(cocos2d::Vec2 vec){
     this->originVec2 = vec;
+    this->setPosition(vec);
 }
 
 void Goalkeeper::replacement(){
@@ -252,69 +208,9 @@ float Goalkeeper::getBallDistance(){
     return GeometryTools::calculateDistance(pos, this->getPosition());
 }
 
-void Goalkeeper::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
-    //跑向球
-    if(this->simpleRobotAI){
-        auto vec = this->getPosition();
-        if(GeometryTools::calculateDistance(pos, vec) < rad/2){
-            return;
-        }
-        float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
-        float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
-        if(speedx>0){
-            moveRight();
-        }else if(speedx<0){
-            moveLeft();
-        }
-        if(manState != FootManState::tackle || manState != FootManState::tumble){
-            this->setPosition(vec.x+speedx,vec.y+speedy);
-        }
-        playFootManRun();
-        if(GeometryTools::calculateDistance(this->getPosition(),pos) <= rad && nullptr != callback){
-            //到达目标
-            this->runAction(callback);
-        }
-    }
-}
-
-void Goalkeeper::manRunToTargetX(cocos2d::Vec2 pos){
-    if(simpleRobotAI){
-        auto vec = this->getPosition();
-        float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
-        if(speedx>0){
-            moveRight();
-        }else{
-            moveLeft();
-        }
-        if(speedx != 0){
-            playFootManRun();
-        }
-        if(manState != FootManState::tackle || manState != FootManState::tumble){
-            this->setPosition(vec.x+speedx,vec.y);
-        }
-    }
-}
-
-void Goalkeeper::manRunToTargetY(cocos2d::Vec2 pos){
-    if(simpleRobotAI){
-        auto vec = this->getPosition();
-        float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
-        if(speedy != 0){
-            playFootManRun();
-        }
-        if(manState != FootManState::tackle || manState != FootManState::tumble){
-            this->setPosition(vec.x,vec.y+speedy);
-        }
-    }
-}
-
 //获取资源名称,为了压包删除过部分资源
 std::string Goalkeeper::getFileNameByTeamId(int id){
-    if(id == PLAYER_TEAM_ID){
-        return StringUtils::format("team_%d_%d.csb",id,random(1,2));
-    }else{
-        return StringUtils::format("team_%d_1.csb",id);
-    }
+    return StringUtils::format("team_%d_3.csb",id);
 }
 
 cocos2d::Vec2 Goalkeeper::getManDefendVec2(){
@@ -331,19 +227,7 @@ cocos2d::Vec2 Goalkeeper::getFootballVec2(){
     }
 }
 
-void Goalkeeper::speedUp(){
-    this->runSpeed = 6;
-}
-
 void Goalkeeper::update(float dt) {
-    //铲球技能的冷却
-    if(!canFootmanTackle){
-        tackleInterval -= dt;
-        if(tackleInterval<0){
-            tackleInterval = 3;
-            canFootmanTackle = true;
-        }
-    }
     //球权获得能力恢复
     if(!canObtainBall){
         obtainInterval -= dt;
@@ -351,10 +235,6 @@ void Goalkeeper::update(float dt) {
             obtainInterval = 2;
             canObtainBall = true;
         }
-    }
-    //速度衰减
-    if(runSpeed>3.5){
-        runSpeed -= dt/4;
     }
     
     updateFootManZorder();

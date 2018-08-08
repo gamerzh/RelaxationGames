@@ -38,7 +38,6 @@ public:
     void manRunToTargetX(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
     void manRunToTargetY(cocos2d::Vec2 pos);//向目标提供支援,单纯移动Y轴方向
     void playFootManShoot();//射门动画
-    void playFootManSnap();//守门员扑救
     void showControlCircle(bool show);
 private:
     int belongTeamId = 0;

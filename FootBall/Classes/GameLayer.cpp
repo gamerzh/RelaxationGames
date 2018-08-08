@@ -33,18 +33,17 @@ bool GameLayer::init() {
     footBall->setPosition(1000, 680);
     footBall->setCameraMask((int)CameraFlag::USER1);
     addChild(footBall, FOOTBALL_LOCAL_ZORDER);
+    
     GameStatus::getInstance()->setGameBall(footBall);//HACK:为了FootMan类可以获取到ball的位置
     GameStatus::getInstance()->setGameState(GameStatus::GameState::game_start);//游戏等待开始
+    Audio::getInstance()->playGameBackgroundMusic();//打开音乐
     
     loadGameLayerUI();
-    
+    scheduleUpdate();
     if(!Dream::getInstance()->getDreamTimes()){
         auto dream = DreamLayer::create(5);
         addChild(dream,300);
     }
-    Audio::getInstance()->playGameBackgroundMusic();
-    scheduleUpdate();
-    
     return true;
 }
 
@@ -67,39 +66,50 @@ void GameLayer::createFootballFild() {
 }
 
 void GameLayer::createFootBallTeam() {
+    
     playerTeam = FootballTeam::create(PLAYER_TEAM_ID,true);
     addChild(playerTeam,FOOTBALL_LOCAL_ZORDER*2);
     GameStatus::getInstance()->setPlayerTeam(playerTeam);
-    
+    //添加玩家球员到场地
     for (auto var: playerTeam->getFootManVector())
     {
         var->setCameraMask((int)CameraFlag::USER1);
         var->changeFootManState(FootMan::FootManState::waiting);
         addChild(var);
     }
+    //添加玩家守门员
+    auto goalMan1 = playerTeam->getGoalkeeper();
+    goalMan1->setCameraMask((int)CameraFlag::USER1);
+    addChild(goalMan1);
+    
+    //添加AI到场地
     if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::worldCup){
-        //世界杯类型的只有3只对手
+        //世界杯类型的只有3只队伍
         if(UserData::getInstance()->getWorldCupLevel() == 0){
             computerTeam = FootballTeam::create(ENEMY_TEAM_1,false);
         }
         else if(UserData::getInstance()->getWorldCupLevel() == 1){
             computerTeam = FootballTeam::create(ENEMY_TEAM_2,false);
-        } else {
+        }else{
             computerTeam = FootballTeam::create(ENEMY_TEAM_3,false);
         }
     }else{
-        //锦标赛随机对手
+        //锦标赛对手
         computerTeam = FootballTeam::create(GameStatus::getInstance()->getCurrentSelectedLevel() + TEAM_TO_LEVEL,false);
     }
-    
     addChild(computerTeam,FOOTBALL_LOCAL_ZORDER*2);
     GameStatus::getInstance()->setComputerTeam(computerTeam);
+    //AI的球员
     for (auto var2: computerTeam->getFootManVector())
     {
         var2->setCameraMask((int)CameraFlag::USER1);
         var2->changeFootManState(FootMan::FootManState::waiting);
         addChild(var2);
     }
+    //AI的守门员
+    auto goalMan2 = computerTeam->getGoalkeeper();
+    goalMan2->setCameraMask((int)CameraFlag::USER1);
+    addChild(goalMan2);
 }
 
 
@@ -214,37 +224,19 @@ void GameLayer::manLootBall() {
     if (alternativeMan.size() == 0) {
         return;
     }
-    //关于球权的获取,守门员优先级最高
-    bool haveGoalKeeper = false;
-//    for(auto man : alternativeMan){
-//        if(man->isGoalkeeper){
-//            haveGoalKeeper = true;
-//            footBall->setOwnerMan(man);
-//            if(man->getFootManTeamId() == PLAYER_TEAM_ID){
-//                playerTeam->setControllingMan(man);
-//                playerTeam->setTeamStatus(TeamStatus::attack);
-//                computerTeam->setTeamStatus(TeamStatus::defend);
-//            }else{
-//                computerTeam->setControllingMan(man);
-//                playerTeam->setTeamStatus(TeamStatus::defend);
-//                computerTeam->setTeamStatus(TeamStatus::attack);
-//            }
-//        }
-//    }
-    if(!haveGoalKeeper){
-        for(auto man : alternativeMan){
-            footBall->setOwnerMan(man);
-            if(man->getFootManTeamId() == PLAYER_TEAM_ID){
-                playerTeam->setControllingMan(man);
-                playerTeam->setTeamStatus(TeamStatus::attack);
-                computerTeam->setTeamStatus(TeamStatus::defend);
-            }else{
-                computerTeam->setControllingMan(man);
-                playerTeam->setTeamStatus(TeamStatus::defend);
-                computerTeam->setTeamStatus(TeamStatus::attack);
-            }
-            return;
+    //关于球权的获取
+    for(auto man : alternativeMan){
+        footBall->setOwnerMan(man);
+        if(man->getFootManTeamId() == PLAYER_TEAM_ID){
+            playerTeam->setControllingMan(man);
+            playerTeam->setTeamStatus(TeamStatus::attack);
+            computerTeam->setTeamStatus(TeamStatus::defend);
+        }else{
+            computerTeam->setControllingMan(man);
+            playerTeam->setTeamStatus(TeamStatus::defend);
+            computerTeam->setTeamStatus(TeamStatus::attack);
         }
+        return;
     }
 }
 

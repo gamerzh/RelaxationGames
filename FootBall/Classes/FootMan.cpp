@@ -2,6 +2,7 @@
 #include "GameStatus.h"
 #include "GlobalProperty.h"
 #include "GeometryTools.h"
+
 USING_NS_CC;
 
 FootMan* FootMan :: create(int teamId,FootManProperty property,cocos2d::Camera* camera) {
@@ -175,18 +176,6 @@ void FootMan::playFootManTumble(){
     });
 }
 
-void FootMan::playFootManSnap(){
-    canUpdateState = false;
-    this->manState = FootManState::tumble;
-    playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(fileName);
-    heroTimeLine->play("animation7", false);
-    playerCsb->runAction(heroTimeLine);
-    heroTimeLine->setAnimationEndCallFunc("animation7",[=](){
-        canUpdateState = true;
-    });
-}
-
 float FootMan::getShootSpeed() {
     return 10;
 }
@@ -226,6 +215,7 @@ void FootMan::changeFootManState(FootManState state){
 
 void FootMan::setOriginPosition(cocos2d::Vec2 vec){
     this->originVec2 = vec;
+    this->setPosition(vec);
 }
 
 void FootMan::replacement(){

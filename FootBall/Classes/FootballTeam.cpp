@@ -91,6 +91,7 @@ void FootballTeam::generateFootballTeam(){
     auto id = this->teamId;
     auto currentPlayerTeamProperty = TeamInfoFactory::getInstance()->getTeamPropertyById(id);
     this->teamEnergyRate = currentPlayerTeamProperty.energyRate;
+    //HACK:球队资源被删减过,给出一个不需要修改资源的方案
     if(GameStatus::getInstance()->getCurrentGameType() == GameStatus::GameType::masterCup && teamId != PLAYER_TEAM_ID){
         int team[3] = {ENEMY_TEAM_1,ENEMY_TEAM_2,ENEMY_TEAM_3};
         id = team[random(0, 2)];
@@ -98,16 +99,15 @@ void FootballTeam::generateFootballTeam(){
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
         auto foot1 = FootMan::create(id,var1);
-        if(teamInLeftField){
-            foot1->setOriginPosition(getLeftFieldVec2().at(i));
-            foot1->setPosition(getLeftFieldVec2().at(i));
-        }else{
-            foot1->setOriginPosition(getRightFieldVec2().at(i));
-            foot1->setPosition(getRightFieldVec2().at(i));
+        foot1->setOriginPosition(getFootmanFieldVec2().at(i));
+        if(!teamInLeftField){
             foot1->moveLeft();
         }
         footManVector.push_back(foot1);
     }
+    //创建守门员
+    this->goalkeeper = Goalkeeper::create(id);
+    this->goalkeeper->setOriginPosition(teamInLeftField?Vec2(250,675):Vec2(1880,675));
 }
 
 
@@ -123,31 +123,22 @@ void FootballTeam::setTeamInLeftField(bool b) {
     this->teamInLeftField = b;
 }
 
-FootMan* FootballTeam::getGoalkeeper(){
-//    for(auto man:footManVector){
-//        if(man->isGoalkeeper){
-//            return man;
-//        }
-//    }
-    return nullptr;
+Goalkeeper* FootballTeam::getGoalkeeper(){
+    return goalkeeper;
 }
 
-std::vector<Vec2> FootballTeam::getLeftFieldVec2() {
-    std::vector<Vec2> left;
-    left.push_back(Vec2(1000,675));
-    left.push_back(Vec2(710,850));
-    left.push_back(Vec2(710,350));
-    left.push_back(Vec2(250,675));
-    return left;
-}
-
-std::vector<Vec2> FootballTeam::getRightFieldVec2() {
-    std::vector<Vec2> right;
-    right.push_back(Vec2(1150,675));
-    right.push_back(Vec2(1500,850));
-    right.push_back(Vec2(1500,350));
-    right.push_back(Vec2(1880,675));
-    return right;
+std::vector<Vec2> FootballTeam::getFootmanFieldVec2() {
+    std::vector<Vec2> pos;
+    if(teamInLeftField){
+        pos.push_back(Vec2(1000,675));
+        pos.push_back(Vec2(710,850));
+        pos.push_back(Vec2(710,350));
+    }else{
+        pos.push_back(Vec2(1150,675));
+        pos.push_back(Vec2(1500,850));
+        pos.push_back(Vec2(1500,350));
+    }
+    return pos;
 }
 
 cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
@@ -202,29 +193,29 @@ void FootballTeam::doTeamShoot(){
                 GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
             }
             GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
-            auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
-            schedule([=](float dt){
-                man->playFootManSnap();
-            }, 0, 0, 0.5,"goalkeeper");
+//            auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
+//            schedule([=](float dt){
+//                man->playFootManSnap();
+//            }, 0, 0, 0.5,"goalkeeper");
             footManAttackPos = Vec2(0,0);
             this->teamState = TeamStatus::neutrality;
         }else{
             if(this->teamId == PLAYER_TEAM_ID){
-                auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
-                schedule([=](float dt){
-                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
-                    man->playFootManSnap();
-                }, 0, 0, 0.1,"goalkeeper");
-                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
+//                auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
+//                schedule([=](float dt){
+//                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
+//                    man->playFootManSnap();
+//                }, 0, 0, 0.1,"goalkeeper");
+//                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
             }else{
-                auto man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
-                schedule([=](float dt){
-                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
-                    man->playFootManSnap();
-                }, 0, 0, 0.1,"goalkeeper");
-                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
+//                auto man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
+//                schedule([=](float dt){
+//                    man->manRunToTargetY(GameStatus::getInstance()->getGameBall()->getPosition());
+//                    man->playFootManSnap();
+//                }, 0, 0, 0.1,"goalkeeper");
+//                GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
                 GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
                 GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
             }
