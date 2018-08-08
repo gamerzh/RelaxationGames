@@ -338,28 +338,37 @@ void FootballTeam::update(float dt){
     }
     //球队防守
     if(this->teamState == TeamStatus::defend){
-        //计算除守门员以外的球员和对方控球队员的距离
-        auto cman = GameStatus::getInstance()->getGameBall()->getOwerMan();//控球队员
-        if(NULL != cman){
-            int max = 10000;
-            FieldMan* dman = nullptr;
-            for(auto var : footManVector){
-                float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
-                if(dis<max && var->getSimpleAI()){
-                    dman = var;
-                    max = dis;
-                }
-            }
-            //对防守队员下达指令,去追球
-            if(nullptr != dman && dman->getSimpleAI()){
-                dman->doDefend(cman->getPosition());
+        auto ball = GameStatus::getInstance()->getGameBall();
+        //求现在被守门员持有
+        if(ball->getBallState() == ball_is_snap){
+            schedule([=](float dt){
+                goalkeeper->playFootManShoot();
+                ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
+            },0,0,2,"pass_to_teammate");
+        }else{
+            //计算除守门员以外的球员和对方控球队员的距离
+            auto cman = ball->getOwerMan();//控球队员
+            if(NULL != cman){
+                int max = 10000;
+                FieldMan* dman = nullptr;
                 for(auto var : footManVector){
-                    if(dman != var){
-                        var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET);
+                    float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
+                    if(dis<max && var->getSimpleAI()){
+                        dman = var;
+                        max = dis;
                     }
                 }
+                //对防守队员下达指令,去追球
+                if(nullptr != dman && dman->getSimpleAI()){
+                    dman->doDefend(cman->getPosition());
+                    for(auto var : footManVector){
+                        if(dman != var){
+                            var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET);
+                        }
+                    }
+                }
+                
             }
-            
         }
     }
 }
