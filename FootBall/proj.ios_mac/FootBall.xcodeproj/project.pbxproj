@@ -110,8 +110,8 @@
 		D246EDDC20F6297B00AD0860 /* Rocker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDAF20F6297B00AD0860 /* Rocker.cpp */; };
 		D246EDDD20F6297B00AD0860 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB020F6297B00AD0860 /* Ball.cpp */; };
 		D246EDDE20F6297B00AD0860 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB020F6297B00AD0860 /* Ball.cpp */; };
-		D246EDDF20F6297B00AD0860 /* FootMan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB120F6297B00AD0860 /* FootMan.cpp */; };
-		D246EDE020F6297B00AD0860 /* FootMan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB120F6297B00AD0860 /* FootMan.cpp */; };
+		D246EDDF20F6297B00AD0860 /* FieldMan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB120F6297B00AD0860 /* FieldMan.cpp */; };
+		D246EDE020F6297B00AD0860 /* FieldMan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB120F6297B00AD0860 /* FieldMan.cpp */; };
 		D246EDE120F6297B00AD0860 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB620F6297B00AD0860 /* LoadScene.cpp */; };
 		D246EDE220F6297B00AD0860 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB620F6297B00AD0860 /* LoadScene.cpp */; };
 		D246EDE320F6297B00AD0860 /* GeometryTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EDB720F6297B00AD0860 /* GeometryTools.cpp */; };
@@ -457,7 +457,7 @@
 		D246ED9620F6297900AD0860 /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseLayer.cpp; sourceTree = "<group>"; };
 		D246ED9720F6297900AD0860 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		D246ED9820F6297900AD0860 /* ResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultLayer.cpp; sourceTree = "<group>"; };
-		D246ED9920F6297900AD0860 /* FootMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootMan.h; sourceTree = "<group>"; };
+		D246ED9920F6297900AD0860 /* FieldMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldMan.h; sourceTree = "<group>"; };
 		D246ED9A20F6297900AD0860 /* Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setting.h; sourceTree = "<group>"; };
 		D246ED9B20F6297900AD0860 /* TeamAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAbility.h; sourceTree = "<group>"; };
 		D246ED9C20F6297900AD0860 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
@@ -481,7 +481,7 @@
 		D246EDAE20F6297B00AD0860 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		D246EDAF20F6297B00AD0860 /* Rocker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rocker.cpp; sourceTree = "<group>"; };
 		D246EDB020F6297B00AD0860 /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
-		D246EDB120F6297B00AD0860 /* FootMan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FootMan.cpp; sourceTree = "<group>"; };
+		D246EDB120F6297B00AD0860 /* FieldMan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FieldMan.cpp; sourceTree = "<group>"; };
 		D246EDB220F6297B00AD0860 /* LobbyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyLayer.h; sourceTree = "<group>"; };
 		D246EDB320F6297B00AD0860 /* GameStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatus.h; sourceTree = "<group>"; };
 		D246EDB420F6297B00AD0860 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
@@ -921,6 +921,15 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		D20117CE211ACBDE00263B04 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				D29B8736211AC43C00E6286C /* Footballer.cpp */,
+				D29B8737211AC43C00E6286C /* Footballer.h */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
 		D2E3B0B220FC357B00F9A8F3 /* audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,16 +1076,15 @@
 		D2E3B0C020FC36AF00F9A8F3 /* team */ = {
 			isa = PBXGroup;
 			children = (
+				D20117CE211ACBDE00263B04 /* base */,
 				D29B8732211A896F00E6286C /* Goalkeeper.cpp */,
 				D29B8733211A897000E6286C /* Goalkeeper.h */,
 				D2E3B0C220FC39BE00F9A8F3 /* FootballTeam.cpp */,
 				D2E3B0C120FC39BD00F9A8F3 /* FootballTeam.h */,
 				D246ED8A20F6297800AD0860 /* TeamInfoFactory.cpp */,
 				D246EDA020F6297A00AD0860 /* TeamInfoFactory.h */,
-				D246EDB120F6297B00AD0860 /* FootMan.cpp */,
-				D246ED9920F6297900AD0860 /* FootMan.h */,
-				D29B8736211AC43C00E6286C /* Footballer.cpp */,
-				D29B8737211AC43C00E6286C /* Footballer.h */,
+				D246EDB120F6297B00AD0860 /* FieldMan.cpp */,
+				D246ED9920F6297900AD0860 /* FieldMan.h */,
 			);
 			name = team;
 			sourceTree = "<group>";
@@ -1479,7 +1487,7 @@
 				D246EDE320F6297B00AD0860 /* GeometryTools.cpp in Sources */,
 				D29B8734211A897000E6286C /* Goalkeeper.cpp in Sources */,
 				D246EDC720F6297B00AD0860 /* PauseLayer.cpp in Sources */,
-				D246EDDF20F6297B00AD0860 /* FootMan.cpp in Sources */,
+				D246EDDF20F6297B00AD0860 /* FieldMan.cpp in Sources */,
 				D246EDDB20F6297B00AD0860 /* Rocker.cpp in Sources */,
 				D246EDBF20F6297B00AD0860 /* LobbyScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -1523,7 +1531,7 @@
 				D246EDCC20F6297B00AD0860 /* UserData.cpp in Sources */,
 				D246EDCE20F6297B00AD0860 /* Dream.cpp in Sources */,
 				D246EDD420F6297B00AD0860 /* Audio.cpp in Sources */,
-				D246EDE020F6297B00AD0860 /* FootMan.cpp in Sources */,
+				D246EDE020F6297B00AD0860 /* FieldMan.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 #include "Footballer.h"
 
 
-class FootMan : public Footballer {
+class FieldMan : public Footballer {
 public:
     //foot man state
     enum FootManState{
@@ -13,7 +13,7 @@ public:
         tackle,
         tumble
     };
-    static FootMan* create(int teamId,FootManProperty property,cocos2d::Camera* camera = nullptr);
+    static FieldMan* create(int teamId,FootManProperty property,cocos2d::Camera* camera = nullptr);
     virtual bool init(int teamId,FootManProperty property,cocos2d::Camera* camera);
     bool getCanObtainBall();
     bool getSimpleAI();

@@ -1,12 +1,12 @@
-#include "FootMan.h"
+#include "FieldMan.h"
 #include "GameStatus.h"
 #include "GlobalProperty.h"
 #include "GeometryTools.h"
 
 USING_NS_CC;
 
-FootMan* FootMan :: create(int teamId,FootManProperty property,cocos2d::Camera* camera) {
-    FootMan *ret = new FootMan();
+FieldMan* FieldMan :: create(int teamId,FootManProperty property,cocos2d::Camera* camera) {
+    FieldMan *ret = new FieldMan();
     if (ret && ret->init(teamId,property,camera))
     {
         ret->autorelease();
@@ -16,7 +16,7 @@ FootMan* FootMan :: create(int teamId,FootManProperty property,cocos2d::Camera* 
     return nullptr;
 }
 
-bool FootMan::init(int teamId,FootManProperty property,cocos2d::Camera* camera) {
+bool FieldMan::init(int teamId,FootManProperty property,cocos2d::Camera* camera) {
     if (!Node::init()) {
         return false;
     }
@@ -49,7 +49,7 @@ bool FootMan::init(int teamId,FootManProperty property,cocos2d::Camera* camera) 
     return true;
 }
 
-void FootMan::showControlCircle(bool show){
+void FieldMan::showControlCircle(bool show){
     if(NULL != getChildByTag(3000)){
         getChildByTag(3000)->setVisible(show);
     }
@@ -59,7 +59,7 @@ void FootMan::showControlCircle(bool show){
 
 
 
-Point FootMan::moveInSafeRect(Point pos) {
+Point FieldMan::moveInSafeRect(Point pos) {
     if (pos.y < football_field_offset_bottom) {
         pos.y = football_field_offset_bottom;
     }
@@ -76,7 +76,7 @@ Point FootMan::moveInSafeRect(Point pos) {
     return pos;
 }
 
-void FootMan::setFootManAngle(float angle) {
+void FieldMan::setFootManAngle(float angle) {
     if (angle != 0 && canObtainBall) {
         Vec2 curPos = this->getPosition();
         if (cos(angle) < 0) {
@@ -90,7 +90,7 @@ void FootMan::setFootManAngle(float angle) {
     }
 }
 
-void FootMan::doSlideTackle() {
+void FieldMan::doSlideTackle() {
     playFootManTackle();
     //判断本次铲球结果,判断求是否在铲球范围内
     if(GeometryTools::calculateDistance(this->getPosition(),GameStatus::getInstance()->getGameBall()->getPosition())<TACKLE_DISTANCE
@@ -100,12 +100,12 @@ void FootMan::doSlideTackle() {
     }
 }
 
-void FootMan::doTumble(){
+void FieldMan::doTumble(){
     playFootManTumble();
     canObtainBall = false;
 }
 
-void FootMan::doDefend(cocos2d::Vec2 vec){
+void FieldMan::doDefend(cocos2d::Vec2 vec){
     //球员去追对方持球队员
     if(GeometryTools::calculateDistance(this->getPosition(),vec)>TACKLE_DISTANCE){
         manRunToTarget(vec,TACKLE_DISTANCE,CallFunc::create([=](){
@@ -117,7 +117,7 @@ void FootMan::doDefend(cocos2d::Vec2 vec){
     }
 }
 
-void FootMan::playFootManStand() {
+void FieldMan::playFootManStand() {
     this->manState = FootManState::waiting;
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline(fileName);
@@ -125,7 +125,7 @@ void FootMan::playFootManStand() {
     playerCsb->runAction(heroTimeLine);
 }
 
-void FootMan::playFootManRun() {
+void FieldMan::playFootManRun() {
     if(canUpdateState){
         this->manState = FootManState::running;
         playerCsb->stopAllActions();
@@ -136,7 +136,7 @@ void FootMan::playFootManRun() {
     }
 }
 
-void FootMan::playFootManTackle() {
+void FieldMan::playFootManTackle() {
     canUpdateState = false;
     this->manState = FootManState::tackle;
     playerCsb->stopAllActions();
@@ -151,7 +151,7 @@ void FootMan::playFootManTackle() {
 }
 
 
-void FootMan::playFootManShoot() {
+void FieldMan::playFootManShoot() {
     canUpdateState = false;
     this->manState = FootManState::shoot;
     playerCsb->stopAllActions();
@@ -164,7 +164,7 @@ void FootMan::playFootManShoot() {
     });
 }
 
-void FootMan::playFootManTumble(){
+void FieldMan::playFootManTumble(){
     canUpdateState = false;
     this->manState = FootManState::tumble;
     playerCsb->stopAllActions();
@@ -176,32 +176,32 @@ void FootMan::playFootManTumble(){
     });
 }
 
-float FootMan::getShootSpeed() {
+float FieldMan::getShootSpeed() {
     return 10;
 }
 
-bool FootMan::getCanObtainBall(){
+bool FieldMan::getCanObtainBall(){
     return canObtainBall;
 }
 
-void FootMan::moveRight() {
+void FieldMan::moveRight() {
     playerCsb->setScaleX(ANIMATION_SCALE_RATE);
 }
 
 
-void FootMan::moveLeft() {
+void FieldMan::moveLeft() {
     playerCsb->setScaleX(ANIMATION_SCALE_RATE*-1);
 }
 
-void FootMan::updateFootManZorder() {
+void FieldMan::updateFootManZorder() {
     this->setLocalZOrder(FOOTBALL_MAN_ZORDER - (int)this->getPositionY());
 }
 
-FootMan::FootManState FootMan::getFootManState(){
+FieldMan::FootManState FieldMan::getFootManState(){
     return this->manState;
 }
 
-void FootMan::changeFootManState(FootManState state){
+void FieldMan::changeFootManState(FootManState state){
     if(state == FootManState::waiting){
         playFootManStand();
     }else if(state == FootManState::running){
@@ -213,12 +213,12 @@ void FootMan::changeFootManState(FootManState state){
     }
 }
 
-void FootMan::setOriginPosition(cocos2d::Vec2 vec){
+void FieldMan::setOriginPosition(cocos2d::Vec2 vec){
     this->originVec2 = vec;
     this->setPosition(vec);
 }
 
-void FootMan::replacement(){
+void FieldMan::replacement(){
     this->setPosition(this->originVec2);
     //HACK通过位置来判断球员朝向
     if(originVec2.x > FLIED_HALF_DISTANCE){
@@ -229,20 +229,20 @@ void FootMan::replacement(){
 }
 
 
-int FootMan::getFootManTeamId(){
+int FieldMan::getFootManTeamId(){
     return this->belongTeamId;
 }
 
-bool FootMan::getSimpleAI(){
+bool FieldMan::getSimpleAI(){
     return this->simpleRobotAI;
 }
 
-float FootMan::getBallDistance(){
+float FieldMan::getBallDistance(){
     auto pos = GameStatus::getInstance()->getGameBall()->getPosition();
     return GeometryTools::calculateDistance(pos, this->getPosition());
 }
 
-void FootMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
+void FieldMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     //跑向球
     if(this->simpleRobotAI){
         auto vec = this->getPosition();
@@ -267,7 +267,7 @@ void FootMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     }
 }
 
-void FootMan::manRunToTargetX(cocos2d::Vec2 pos){
+void FieldMan::manRunToTargetX(cocos2d::Vec2 pos){
     if(simpleRobotAI){
         auto vec = this->getPosition();
         float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
@@ -285,7 +285,7 @@ void FootMan::manRunToTargetX(cocos2d::Vec2 pos){
     }
 }
 
-void FootMan::manRunToTargetY(cocos2d::Vec2 pos){
+void FieldMan::manRunToTargetY(cocos2d::Vec2 pos){
     if(simpleRobotAI){
         auto vec = this->getPosition();
         float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
@@ -299,7 +299,7 @@ void FootMan::manRunToTargetY(cocos2d::Vec2 pos){
 }
 
 //获取资源名称,为了压包删除过部分资源
-std::string FootMan::getFileNameByTeamId(int id){
+std::string FieldMan::getFileNameByTeamId(int id){
     if(id == PLAYER_TEAM_ID){
         return StringUtils::format("team_%d_%d.csb",id,random(1,2));
     }else{
@@ -307,12 +307,12 @@ std::string FootMan::getFileNameByTeamId(int id){
     }
 }
 
-cocos2d::Vec2 FootMan::getManDefendVec2(){
+cocos2d::Vec2 FieldMan::getManDefendVec2(){
     //球员回去防守时会跑回默认位置附近
     return originVec2;
 }
 
-cocos2d::Vec2 FootMan::getFootballVec2(){
+cocos2d::Vec2 FieldMan::getFootballVec2(){
     auto dir = playerCsb->getScaleX();
     if(dir<0){
         return Vec2(this->getPositionX()-65,this->getPositionY());
@@ -321,11 +321,11 @@ cocos2d::Vec2 FootMan::getFootballVec2(){
     }
 }
 
-void FootMan::speedUp(){
+void FieldMan::speedUp(){
     this->runSpeed = 6;
 }
 
-void FootMan::update(float dt) {
+void FieldMan::update(float dt) {
     //铲球技能的冷却
     if(!canFootmanTackle){
         tackleInterval -= dt;
@@ -353,7 +353,7 @@ void FootMan::update(float dt) {
     }
 }
 
-void FootMan::showDebugInfo() {
+void FieldMan::showDebugInfo() {
     auto lable = Label::createWithSystemFont(StringUtils::format("(%.1f,%.1f)",this->getPositionX(),this->getPositionY()), "arial", 30);
     lable->setTag(1000);
     lable->setPosition(0,0);

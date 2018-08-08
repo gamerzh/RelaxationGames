@@ -98,7 +98,7 @@ void FootballTeam::generateFootballTeam(){
     }
     for (int i = 0; i < currentPlayerTeamProperty.footManVec.size(); i++) {
         auto var1 = currentPlayerTeamProperty.footManVec.at(i);
-        auto foot1 = FootMan::create(id,var1);
+        auto foot1 = FieldMan::create(id,var1);
         foot1->setOriginPosition(getFootmanFieldVec2().at(i));
         if(!teamInLeftField){
             foot1->moveLeft();
@@ -114,7 +114,7 @@ void FootballTeam::generateFootballTeam(){
 }
 
 
-std::vector<FootMan*> FootballTeam::getFootManVector() {
+std::vector<FieldMan*> FootballTeam::getFootManVector() {
     return this->footManVector;
 }
 
@@ -172,7 +172,7 @@ void FootballTeam::setTeamStatus(TeamStatus s){
     this->teamState = s;
 }
 
-void FootballTeam::setControllingMan(FootMan* man){
+void FootballTeam::setControllingMan(FieldMan* man){
     this->m_pControllingPlayer = man;
 }
 
@@ -341,7 +341,7 @@ void FootballTeam::update(float dt){
         auto cman = GameStatus::getInstance()->getGameBall()->getOwerMan();//控球队员
         if(NULL != cman){
             int max = 10000;
-            FootMan* dman = nullptr;
+            FieldMan* dman = nullptr;
             for(auto var : footManVector){
                 float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
                 if(dis<max && var->getSimpleAI()){

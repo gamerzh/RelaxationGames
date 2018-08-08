@@ -1,6 +1,6 @@
 //
 //  Footballer.hpp
-//  FootBall
+//  球员基类,守门员和场地球员都是其子类
 //
 
 #ifndef Footballer_h

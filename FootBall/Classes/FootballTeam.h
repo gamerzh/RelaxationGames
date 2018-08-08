@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-#include "FootMan.h"
+#include "FieldMan.h"
 #include "Goalkeeper.h"
 //球队状态
 enum TeamStatus{
@@ -17,20 +17,20 @@ public:
     void onExit();
     
     int teamScore = 0;
-    FootMan* m_pSupportingPlayer;//最佳接球人员
-    FootMan* m_pControllingPlayer;//当前控球的球员
-    FootMan* m_pCloseingPlayer;//离球最近的队员
+    FieldMan* m_pSupportingPlayer;//最佳接球人员
+    FieldMan* m_pControllingPlayer;//当前控球的球员
+    FieldMan* m_pCloseingPlayer;//离球最近的队员
     
     bool checkShootResult();//射门判定
     int getFootBallTeamId();
     std::string getTeamAttackDirection();//球队进攻方向
-	std::vector<FootMan*> getFootManVector();//获取球员
+	std::vector<FieldMan*> getFootManVector();//获取球员
     Goalkeeper* getGoalkeeper();//获取守门员
     cocos2d::Rect getAttackShootRect();
     cocos2d::Vec2 getTeamShootPoint();//射门坐标
     TeamStatus getTeamStatus();
     void setTeamStatus(TeamStatus s);
-    void setControllingMan(FootMan* man);
+    void setControllingMan(FieldMan* man);
     void setTeamInLeftField(bool b);
     void manSpeedUp();//球队加速
     void doTeamShoot();//球队射门
@@ -44,7 +44,7 @@ private:
     cocos2d::Vec2 footManAttackPos =  cocos2d::Vec2(0,0);//一次进攻的目标位置
     cocos2d::Sprite* energy_content_1;
     Goalkeeper* goalkeeper;//守门员
-	std::vector<FootMan*> footManVector;
+	std::vector<FieldMan*> footManVector;
 	std::vector<cocos2d::Vec2> getFootmanFieldVec2();
     std::string getTeamIconName(int tid);
     void generateFootballTeam();

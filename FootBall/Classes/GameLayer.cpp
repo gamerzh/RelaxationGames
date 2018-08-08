@@ -75,7 +75,7 @@ void GameLayer::createFootBallTeam() {
     for (auto var: playerTeam->getFootManVector())
     {
         var->setCameraMask((int)CameraFlag::USER1);
-        var->changeFootManState(FootMan::FootManState::waiting);
+        var->changeFootManState(FieldMan::FootManState::waiting);
         addChild(var);
     }
     //添加玩家守门员
@@ -104,7 +104,7 @@ void GameLayer::createFootBallTeam() {
     for (auto var2: computerTeam->getFootManVector())
     {
         var2->setCameraMask((int)CameraFlag::USER1);
-        var2->changeFootManState(FootMan::FootManState::waiting);
+        var2->changeFootManState(FieldMan::FootManState::waiting);
         addChild(var2);
     }
     //AI的守门员
@@ -199,7 +199,7 @@ void GameLayer::replacementAll(){
     }
 }
 
-bool GameLayer::checkFootManInShootArea(FootMan* man){
+bool GameLayer::checkFootManInShootArea(FieldMan* man){
     if(playerTeam->getFootBallTeamId() == man->getFootManTeamId()){
         return playerTeam->getAttackShootRect().containsPoint(man->getPosition());
     }else if(computerTeam->getFootBallTeamId() == man->getFootManTeamId()){
@@ -209,7 +209,7 @@ bool GameLayer::checkFootManInShootArea(FootMan* man){
 }
 
 void GameLayer::manLootBall() {
-    std::vector<FootMan*> alternativeMan;
+    std::vector<FieldMan*> alternativeMan;
     //守门员优先
     if(GeometryTools::calculateDistance(playerTeam->getGoalkeeper()->getPosition(),footBall->getPosition())<owner_ball_max_dis){
         footBall->setOwnerMan(playerTeam->getGoalkeeper());
@@ -295,7 +295,7 @@ void GameLayer::update(float dt) {
     if (footBall->getBallState() == ball_is_free) {
         manLootBall();
     }
-    FootMan* controlMan = nullptr;
+    FieldMan* controlMan = nullptr;
     int min = INT_FAST32_MAX;
     for (auto mine : playerTeam->getFootManVector()) {
         auto dis = GeometryTools::calculateDistance(footBall->getPosition(), mine->getPosition());
@@ -317,7 +317,7 @@ void GameLayer::update(float dt) {
         }
         auto angle = heroRocker->getRockerAngle();
         if (angle != 0) {
-            controlingFootman->changeFootManState(FootMan::FootManState::running);
+            controlingFootman->changeFootManState(FieldMan::FootManState::running);
             controlingFootman->setFootManAngle(angle);
         }
         canChangeControlMan = false;

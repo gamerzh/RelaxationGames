@@ -2,7 +2,7 @@
 #include "cocos2d.h"
 #include "Ball.h"
 #include "Rocker.h"
-#include "FootMan.h"
+#include "FieldMan.h"
 #include "FootballTeam.h"
 #include "GlobalProperty.h"
 #include "TeamInfoFactory.h"
@@ -28,14 +28,14 @@ private:
     Rocker* heroRocker = nullptr;
     FootballTeam* playerTeam;
     FootballTeam* computerTeam;
-    FootMan* controlingFootman;//当前被控制的球员
+    FieldMan* controlingFootman;//当前被控制的球员
     
     void updateButtonTexture();
     void passAndTackle();//传球铲球
     void shoot();//射门
     void speedMan();//加速
     void manLootBall();//球员获得球权
-    bool checkFootManInShootArea(FootMan* man);//检查球员是否进入射门区域
+    bool checkFootManInShootArea(FieldMan* man);//检查球员是否进入射门区域
     void replacementAll();//重置游戏场景
     void loadGameLayerUI();
     void createFootballFild();
