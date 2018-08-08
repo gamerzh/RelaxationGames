@@ -22,6 +22,7 @@ public:
     std::string getFileNameByTeamId(int d);
     cocos2d::Vec2 getManDefendVec2();//获取球员的防守位置
     cocos2d::Vec2 getFootballVec2();//获取足球的坐标
+    cocos2d::Vec2 getOriginPosition();
     FootManState getFootManState();
     void setFootManAngle(float angle);
     void doSlideTackle();//滑铲
@@ -35,8 +36,8 @@ public:
     void changeFootManState(FootManState state);
     void manRunToTarget(cocos2d::Vec2 pos,float rad,cocos2d::CallFunc* callback = NULL);//跑向目标
     void manRunToTargetX(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
-    void manRunToTargetY(cocos2d::Vec2 pos);//向目标提供支援,单纯移动Y轴方向
     void playFootManShoot();//射门动画
+    void playFootManStand();
     void showControlCircle(bool show);
 private:
     int belongTeamId = 0;
@@ -70,6 +71,5 @@ private:
     void update(float dt);
     void playFootManRun();
     void playFootManTackle();
-    void playFootManStand();
     void playFootManTumble();
 };

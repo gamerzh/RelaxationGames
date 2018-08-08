@@ -344,7 +344,7 @@ void FootballTeam::update(float dt){
             schedule([=](float dt){
                 goalkeeper->playFootManShoot();
                 ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
-            },0,0,2,"pass_to_teammate");
+            },0,0,1.5f,"pass_to_teammate");
         }else{
             goalkeeper->moveDefendBall(GameStatus::getInstance()->getGameBall()->getPosition());
             //计算除守门员以外的球员和对方控球队员的距离

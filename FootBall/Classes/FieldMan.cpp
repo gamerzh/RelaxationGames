@@ -221,6 +221,10 @@ void FieldMan::changeFootManState(FootManState state){
     }
 }
 
+cocos2d::Vec2 FieldMan::getOriginPosition(){
+    return this->originVec2;
+}
+
 void FieldMan::setOriginPosition(cocos2d::Vec2 vec){
     this->originVec2 = vec;
     this->setPosition(vec);
@@ -289,19 +293,6 @@ void FieldMan::manRunToTargetX(cocos2d::Vec2 pos){
         }
         if(manState != FootManState::tackle || manState != FootManState::tumble){
             this->setPosition(vec.x+speedx,vec.y);
-        }
-    }
-}
-
-void FieldMan::manRunToTargetY(cocos2d::Vec2 pos){
-    if(simpleRobotAI){
-        auto vec = this->getPosition();
-        float speedy = runSpeed*(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
-        if(speedy != 0){
-            playFootManRun();
-        }
-        if(manState != FootManState::tackle || manState != FootManState::tumble){
-            this->setPosition(vec.x,vec.y+speedy);
         }
     }
 }
