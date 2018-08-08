@@ -79,13 +79,6 @@ void Goalkeeper::doTumble(){
     canObtainBall = false;
 }
 
-void Goalkeeper::doDefend(cocos2d::Vec2 vec){
-    //球员去追对方持球队员
-    if(GeometryTools::calculateDistance(this->getPosition(),vec)>TACKLE_DISTANCE){
-       //TODO:
-    }
-}
-
 void Goalkeeper::playFootManStand() {
     playerCsb->stopAllActions();
     auto heroTimeLine = CSLoader::createTimeline(fileName);
@@ -113,6 +106,7 @@ void Goalkeeper::playFootManShoot() {
     heroTimeLine->setAnimationEndCallFunc("animation1",[=](){
         //射门动画结束后允许其他动画
         canUpdateState = true;
+        playFootManStand();
     });
 }
 
@@ -124,6 +118,7 @@ void Goalkeeper::playFootManTumble(){
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation6",[=](){
         canUpdateState = true;
+        
     });
 }
 
@@ -135,6 +130,7 @@ void Goalkeeper::playFootManSnap(){
     playerCsb->runAction(heroTimeLine);
     heroTimeLine->setAnimationEndCallFunc("animation7",[=](){
         canUpdateState = true;
+        playFootManStand();
     });
 }
 
@@ -203,7 +199,7 @@ cocos2d::Vec2 Goalkeeper::getFootballVec2(){
     if(dir<0){
         return Vec2(this->getPositionX()-65,this->getPositionY());
     }else{
-        return this->getPosition();
+        return Vec2(this->getPositionX()-10,this->getPositionY()+20);
     }
 }
 

@@ -16,7 +16,6 @@ public:
     cocos2d::Vec2 getManDefendVec2();//获取球员的防守位置
     cocos2d::Vec2 getFootballVec2();//获取足球的坐标
     void doTumble();//摔倒
-    void doDefend(cocos2d::Vec2 vec);//防守
     void moveRight();
     void moveLeft();
     void replacement();

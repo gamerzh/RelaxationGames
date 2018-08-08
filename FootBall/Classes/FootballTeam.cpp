@@ -201,22 +201,24 @@ void FootballTeam::doTeamShoot(){
             this->teamState = TeamStatus::neutrality;
         }else{
             //射门失败
-            if(this->teamId == PLAYER_TEAM_ID){
-                goalkeeperSnapBall(true);
-                GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
-                GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
-            }else{
-                goalkeeperSnapBall(true);
-                GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
-                GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
-            }
+            goalkeeperSnapBall(true);
+           
         }
     }
 }
 
 void FootballTeam::goalkeeperSnapBall(bool shot){
     //射门失败,被守门员扑救成功
-    auto man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
+    Goalkeeper* man = nullptr;
+    if(this->teamId == PLAYER_TEAM_ID){
+        man = GameStatus::getInstance()->getComputerTeam()->getGoalkeeper();
+        GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::defend);
+        GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::attack);
+    }else{
+        man = GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper();
+        GameStatus::getInstance()->getPlayerTeam()->setTeamStatus(TeamStatus::attack);
+        GameStatus::getInstance()->getComputerTeam()->setTeamStatus(TeamStatus::defend);
+    }
     if(shot){
         GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
     }
@@ -291,9 +293,6 @@ void FootballTeam::logicUpdate(float dt){
                 m_pSupportingPlayer = var;
             }
         }
-//        if(!m_pControllingPlayer->isGoalkeeper){
-//            goalkeeperReady = true;
-//        }
     }
     auto ball = GameStatus::getInstance()->getGameBall();
     int max = 10000;
