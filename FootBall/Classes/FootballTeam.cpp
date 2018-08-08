@@ -345,6 +345,7 @@ void FootballTeam::update(float dt){
                 ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
             },0,0,2,"pass_to_teammate");
         }else{
+            goalkeeper->moveDefendBall(GameStatus::getInstance()->getGameBall()->getPosition());
             //计算除守门员以外的球员和对方控球队员的距离
             auto cman = ball->getOwerMan();//控球队员
             if(NULL != cman){

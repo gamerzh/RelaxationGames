@@ -203,6 +203,15 @@ cocos2d::Vec2 Goalkeeper::getFootballVec2(){
     }
 }
 
+void Goalkeeper::moveDefendBall(cocos2d::Vec2 pos){
+    auto vec = this->getPosition();
+    float speedy = 4 *(pos.y-vec.y)/GeometryTools::calculateDistance(pos, vec);
+    if(speedy != 0){
+        playFootManRun();
+    }
+     this->setPosition(vec.x,vec.y+speedy);
+}
+
 void Goalkeeper::update(float dt) {
     //球权获得能力恢复
     if(!canObtainBall){
@@ -212,7 +221,6 @@ void Goalkeeper::update(float dt) {
             canObtainBall = true;
         }
     }
-    
     updateFootManZorder();
     if (NULL != getChildByTag(1000)) {
         ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));

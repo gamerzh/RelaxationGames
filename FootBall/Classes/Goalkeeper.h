@@ -23,6 +23,7 @@ public:
     void playFootManShoot();//射门动画
     void playFootManSnap();//守门员扑救
     void showControlCircle(bool show);
+    void moveDefendBall(cocos2d::Vec2 pos);//更具球的位置移动
 private:
     int belongTeamId = 0;
     int foot_man_skill_type = 0;
