@@ -373,15 +373,20 @@ void GameLayer::addCustomEvent() {
             if(computerTeam->getTeamAttackDirection() == result){
                 footBall->setPositionX(1000);
             }
-            menu->setVisible(false);
-            goSprite->setVisible(false);
-            bg->setVisible(false);
-            playerCamera->setPosition(Vec2(640, 360));
-            if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
-                GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
-                Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
-            }
-        }, 0, 0, 2,"rest_game");
+            auto delay = DelayTime::create(1.0);
+            auto call = CallFunc::create([=](){
+                menu->setVisible(false);
+                goSprite->setVisible(false);
+                bg->setVisible(false);
+                playerCamera->setPosition(Vec2(640, 360));
+                if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
+                    GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
+                    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
+                }
+            });
+            this->runAction(Sequence::create(delay,call,NULL));
+           
+        }, 0, 0, 1,"rest_game");
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
     

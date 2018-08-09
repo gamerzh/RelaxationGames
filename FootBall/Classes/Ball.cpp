@@ -157,7 +157,7 @@ BallSpeed Ball::getBallSpeedToTarget(){
 
 bool Ball::droppointInCorrect(cocos2d::Vec2 tar,cocos2d::Vec2 cor){
     //直径50的落点圈
-    if(GeometryTools::calculateDistance(tar, cor)<50){
+    if(GeometryTools::calculateDistance(tar, cor)<40){
         return  true;
     }else{
         return false;

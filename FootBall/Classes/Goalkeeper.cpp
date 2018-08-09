@@ -171,18 +171,19 @@ void Goalkeeper::moveDefendBall(cocos2d::Vec2 pos){
 }
 
 void Goalkeeper::update(float dt) {
-    
-    auto vec = this->getPosition();
-    auto dis = GeometryTools::calculateDistance(targetPosition, vec);
-    if(dis >10){
-        float speedy = 4 *(targetPosition.y-vec.y)/GeometryTools::calculateDistance(targetPosition, vec);
-        if(speedy != 0){
-            playFootManRun();
+    if(targetPosition != Vec2(0,0)){
+        auto vec = this->getPosition();
+        auto dis = GeometryTools::calculateDistance(targetPosition, vec);
+        if(dis >10){
+            float speedy = 4 *(targetPosition.y-vec.y)/GeometryTools::calculateDistance(targetPosition, vec);
+            if(speedy != 0){
+                playFootManRun();
+            }
+            if(this->getPositionY()>500 && this->getPositionY()<900){
+                this->setPosition(vec.x,vec.y+speedy);
+            }
+            
         }
-        if(this->getPositionY()>500 && this->getPositionY()<900){
-            this->setPosition(vec.x,vec.y+speedy);
-        }
-        
     }
     updateFootManZorder();
 }

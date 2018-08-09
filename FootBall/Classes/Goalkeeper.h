@@ -34,7 +34,7 @@ private:
     std::string fileName = "";
     std::string foot_man_img;
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
-    cocos2d::Point targetPosition;
+    cocos2d::Point targetPosition = cocos2d::Vec2(0,0);
     cocos2d::Node* playerCsb;
     cocos2d::Camera* ball_camera = nullptr;
     cocos2d::Vec2 originVec2;//球员的默认位置

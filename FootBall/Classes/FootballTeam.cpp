@@ -313,8 +313,20 @@ void FootballTeam::update(float dt){
     if(GameStatus::getInstance()->getGameState() != GameStatus::GameState::game_playing){
         return;
     }
-    //守门员持球
+    
     auto ball = GameStatus::getInstance()->getGameBall();
+    bool keepball = false;
+    for(auto tm : footManVector){
+        if(tm == ball->getOwerMan()){
+            keepball = true;
+        }
+    }
+    if(keepball){
+        this->teamState = attack;
+    }else{
+        this->teamState = defend;
+    }
+    //守门员持球
     if(ball->getBallState() == ball_is_snap && can_kick_ball){
         can_kick_ball = false;
         auto delay = DelayTime::create(1.5);
@@ -325,8 +337,6 @@ void FootballTeam::update(float dt){
                 goalkeeper->playFootManShoot();
                 ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
                 this->teamState = TeamStatus::attack;
-                //传球后跑回原位
-                goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
             }
             
         });
@@ -334,7 +344,7 @@ void FootballTeam::update(float dt){
     }
     //球队进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
-        
+        goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
         //让自己的球队进行进攻
         for(auto att : footManVector){
             if(att != m_pControllingPlayer){
