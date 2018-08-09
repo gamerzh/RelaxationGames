@@ -131,6 +131,7 @@ void Goalkeeper::replacement(){
     }else{
         moveRight();
     }
+    playFootManStand();
 }
 
 

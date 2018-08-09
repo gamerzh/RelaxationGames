@@ -142,16 +142,13 @@ BallSpeed Ball::getBallSpeedToTarget(){
     Vec2 curPos = this->getPosition();
     BallSpeed speed;
     float fenmu = GeometryTools::calculateDistance(targetPosition, curPos);
-    if(fenmu>5){
+    if(fenmu>10){
         speed.speedx = (targetPosition.x-curPos.x)/fenmu* speed_fly;
         speed.speedy = (targetPosition.y-curPos.y)/fenmu* speed_fly;
     }else{
         speed.speedx = 0;
         speed.speedy = 0;
     }
-    //    log("curPos=(%f,%f)",curPos.x,curPos.y);
-    //    log("targetPosition=(%f,%f)",targetPosition.x,targetPosition.y);
-    //    log("Speed=(%f,%f)",speed.speedx,speed.speedy);
     return speed;
 }
 
@@ -217,8 +214,6 @@ void Ball::update(float dt) {
         curLocation =Vec2(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
         this->setPosition(curLocation);
         speedCamera = 7;
-    }else if(this->ballState == ball_is_free){
-        preLocation = curLocation;
     }
     if(preLocation != curLocation){
         if(!ballRotate){

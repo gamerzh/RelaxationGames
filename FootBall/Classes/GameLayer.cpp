@@ -194,9 +194,11 @@ void GameLayer::replacementAll(){
     for (auto var1 : playerTeam->getFootManVector()) {
         var1->replacement();
     }
+    playerTeam->getGoalkeeper()->replacement();
     for (auto var2 : computerTeam->getFootManVector()) {
         var2->replacement();
     }
+    computerTeam->getGoalkeeper()->replacement();
 }
 
 bool GameLayer::checkFootManInShootArea(FieldMan* man){
@@ -340,6 +342,7 @@ void GameLayer::onExit() {
 void GameLayer::addCustomEvent() {
     auto footballInGoal = EventListenerCustom::create(foot_ball_in_goal, [=](EventCustom* event) {
         //收到足球进门的消息
+        GameStatus::getInstance()->setGameState(GameStatus::GameState::game_end);
         auto result = static_cast<char*>(event->getUserData());
         if(playerTeam->getTeamAttackDirection() == result){
             playerTeam->teamScore += 1;
@@ -359,7 +362,7 @@ void GameLayer::addCustomEvent() {
         auto menuItem = MenuItem::create();
         menuItem->setContentSize(Size(1280,720));
         auto menu =Menu::create(menuItem,NULL);
-        addChild(menu);
+        addChild(menu,5000);
         auto goSprite = Sprite::create("go.png");
         goSprite->setPosition(640,360);
         addChild(goSprite);
@@ -373,20 +376,17 @@ void GameLayer::addCustomEvent() {
             if(computerTeam->getTeamAttackDirection() == result){
                 footBall->setPositionX(1000);
             }
-            auto delay = DelayTime::create(1.0);
-            auto call = CallFunc::create([=](){
-                menu->setVisible(false);
-                goSprite->setVisible(false);
-                bg->setVisible(false);
-                playerCamera->setPosition(Vec2(640, 360));
-                if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
-                    GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
-                    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
-                }
-            });
-            this->runAction(Sequence::create(delay,call,NULL));
-           
-        }, 0, 0, 1,"rest_game");
+        }, 0, 0, 1,"rest_game_1");
+        schedule([=](float dt){
+            menu->setVisible(false);
+            goSprite->setVisible(false);
+            bg->setVisible(false);
+            playerCamera->setPosition(Vec2(640, 360));
+            if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
+                GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
+                Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
+            }
+        }, 0, 0, 2,"rest_game_2");
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
     
