@@ -364,6 +364,7 @@ void FootballTeam::update(float dt){
         for(auto att : footManVector){
             if(att != m_pControllingPlayer){
                 //持球队员跑向去前场，其余队员到中场和前场接应
+                att->changeFootManState(FieldMan::FootManState::running);
                 att->manRunToTargetX(Vec2(ball->getPosition()));
             }
         }
@@ -373,6 +374,7 @@ void FootballTeam::update(float dt){
             footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
         }
         if(m_pControllingPlayer->getSimpleAI() && ball->getOwerMan() == m_pControllingPlayer){
+            m_pControllingPlayer->changeFootManState(FieldMan::FootManState::running);
             m_pControllingPlayer->manRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
                 doTeamShoot();
@@ -400,7 +402,9 @@ void FootballTeam::update(float dt){
                 dman->doDefend(cman->getPosition());
                 for(auto var : footManVector){
                     if(dman != var){
-                        var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET);
+                        var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET,CallFunc::create([=](){
+                            var->changeFootManState(FieldMan::FootManState::waiting);
+                        }));
                     }
                 }
             }

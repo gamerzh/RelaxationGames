@@ -7,6 +7,7 @@ class FieldMan : public Footballer {
 public:
     //foot man state
     enum FootManState{
+        space,
         waiting,
         running,
         shoot,
@@ -44,8 +45,9 @@ private:
     int foot_man_skill_type = 0;
     float runSpeed = 3.5f;
     
+    float animUpdateInterval =0;
+    
     bool simpleRobotAI = true;//简单AI关闭
-    bool canUpdateState = true;//想允许切换动画
     
     bool canFootmanTackle = true;//是否允许铲球
     float tackleInterval = 3;//球员铲球间隔
