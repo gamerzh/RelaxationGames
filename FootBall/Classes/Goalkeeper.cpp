@@ -182,8 +182,6 @@ void Goalkeeper::update(float dt) {
             if(this->getPositionY()>500 && this->getPositionY()<900){
                 this->setPosition(vec.x,vec.y+speedy);
             }
-        }else{
-            playFootManStand();
         }
     }
     updateFootManZorder();
