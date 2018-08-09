@@ -5,8 +5,7 @@
 //球队状态
 enum TeamStatus{
     attack,
-    defend,
-    neutrality//中立
+    defend
 };
 
 class FootballTeam : public cocos2d::Node {
@@ -37,7 +36,7 @@ public:
 private:
     TeamStatus teamState;
     int teamId = 0;
-    bool can_kick_ball = true;
+    bool can_kick_ball = true;//确保开球动作只执行一次
     bool teamInLeftField = true;//队伍目前在左半场
     float teamEnergy = 0;//能量计数
     float teamEnergyRate = 0;//能量增长比率

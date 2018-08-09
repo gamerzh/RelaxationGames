@@ -158,7 +158,7 @@ cocos2d::Vec2 FootballTeam::getTeamShootPoint(){
 
 Rect FootballTeam::getAttackShootRect(){
     if(!teamInLeftField){
-        return Rect(240,200,500,900);
+        return Rect(300,200,500,900);
     }else{
         return Rect(1400,200,500,900);
     }
@@ -214,7 +214,6 @@ void FootballTeam::doTeamShoot(){
             GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
             goalkeeperSnapBall(false);
             footManAttackPos = Vec2(0,0);
-            this->teamState = TeamStatus::neutrality;
         }else{
             //射门失败
             goalkeeperSnapBall(true);
@@ -328,6 +327,7 @@ void FootballTeam::update(float dt){
     }
     
     auto ball = GameStatus::getInstance()->getGameBall();
+    //通过持球来确认球队的状态
     bool keepball = false;
     for(auto tm : footManVector){
         if(tm == ball->getOwerMan()){
@@ -355,14 +355,16 @@ void FootballTeam::update(float dt){
         this->runAction(Sequence::create(delay,call,NULL));
     }
     //球队进攻
-    if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
+    if(this->teamState == TeamStatus::attack){
         goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
+        if(m_pControllingPlayer == NULL){
+            return;
+        }
         //让自己的球队进行进攻
         for(auto att : footManVector){
             if(att != m_pControllingPlayer){
                 //持球队员跑向去前场，其余队员到中场和前场接应
-                auto pos = GameStatus::getInstance()->getGameBall();
-                att->manRunToTargetX(Vec2(pos->getPosition()));
+                att->manRunToTargetX(Vec2(ball->getPosition()));
             }
         }
         //在射门区域里随机一个位置,持球队员成功跑到位置后射门
@@ -370,7 +372,7 @@ void FootballTeam::update(float dt){
         if(footManAttackPos == Vec2(0,0)){
             footManAttackPos = Vec2(random(rect.getMinX(), rect.getMaxX()),random(rect.getMinY(), rect.getMaxY()));
         }
-        if(m_pControllingPlayer->getSimpleAI() && GameStatus::getInstance()->getGameBall()->getOwerMan() == m_pControllingPlayer){
+        if(m_pControllingPlayer->getSimpleAI() && ball->getOwerMan() == m_pControllingPlayer){
             m_pControllingPlayer->manRunToTarget(footManAttackPos,20,CallFunc::create([=](){
                 //到达指定位置射门
                 doTeamShoot();
@@ -409,10 +411,8 @@ void FootballTeam::update(float dt){
 
 void FootballTeam::onEnter(){
     Node::onEnter();
-    
 }
 
 void FootballTeam::onExit(){
     Node::onExit();
-    
 }
