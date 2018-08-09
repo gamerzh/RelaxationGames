@@ -199,14 +199,14 @@ void FootballTeam::doTeamShoot(){
                     auto dis = GeometryTools::calculateDistance(GameStatus::getInstance()->getGameBall()->getPosition(), GameStatus::getInstance()->getComputerTeam()->getGoalkeeper()->getOriginPosition());
                     auto delay = dis/1280;
                     schedule([=](float dt){
-                        GameStatus::getInstance()->getComputerTeam()->getGoalkeeper()->playFootManSnap();
+                        GameStatus::getInstance()->getComputerTeam()->getGoalkeeper()->changeFootManState(Goalkeeper::GoalkeeperState::snap);
                     }, 0, 0, delay,"goalkeeper");
                     
                 }else{
                     auto dis = GeometryTools::calculateDistance(GameStatus::getInstance()->getGameBall()->getPosition(), GameStatus::getInstance()->getComputerTeam()->getGoalkeeper()->getOriginPosition());
                     auto delay = dis/1280;
                     schedule([=](float dt){
-                        GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper()->playFootManSnap();
+                        GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper()->changeFootManState(Goalkeeper::GoalkeeperState::snap);
                     }, 0, 0, delay,"goalkeeper");
                 }
               
@@ -330,7 +330,7 @@ void FootballTeam::update(float dt){
     //通过持球来确认球队的状态
     bool keepball = false;
     for(auto tm : footManVector){
-        if(tm == ball->getOwerMan()){
+        if(ball->getOwerMan() != nullptr && tm == ball->getOwerMan()){
             keepball = true;
         }
     }
@@ -347,16 +347,15 @@ void FootballTeam::update(float dt){
             //守门员传球给队友
             can_kick_ball = true;
             if(m_pCloseingPlayer->getFootManTeamId() == ball->getKeeperId()){
-                goalkeeper->playFootManShoot();
+                goalkeeper->changeFootManState(Goalkeeper::GoalkeeperState::shoot);
                 ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
-                this->teamState = TeamStatus::attack;
             }
         });
         this->runAction(Sequence::create(delay,call,NULL));
     }
     //球队进攻
     if(this->teamState == TeamStatus::attack){
-        goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
+        this->goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
         if(m_pControllingPlayer == NULL){
             return;
         }

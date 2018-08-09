@@ -104,7 +104,6 @@ void FieldMan::doSlideTackle() {
             Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_man_trackle_success);
         }
     }
-    
 }
 
 void FieldMan::doTumble(){
@@ -281,12 +280,12 @@ void FieldMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
 void FieldMan::manRunToTargetX(cocos2d::Vec2 pos,CallFunc* callback){
     auto vec = this->getPosition();
     auto distance = GeometryTools::calculateDistanceX(pos, vec);
-    if(distance <= DEFEND_BACK_OFFSET && nullptr != callback){
+    if(distance <= DEFEND_BACK_OFFSET*2 && nullptr != callback){
         this->runAction(callback);
         return;
     }
     if(simpleRobotAI){
-        float speedx = runSpeed*0.8;
+        float speedx = runSpeed*0.8*(pos.x-vec.x>0?1:-1);
         if(speedx>0){
             moveRight();
         }else{

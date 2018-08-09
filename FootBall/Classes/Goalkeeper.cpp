@@ -33,68 +33,67 @@ bool Goalkeeper::init(int teamId,cocos2d::Camera* camera) {
     this->addChild(playerCsb);
     playFootManStand();
     scheduleUpdate();
+//    showDebugInfo();
     return true;
 }
 
 void Goalkeeper::doTumble(){
-    playFootManTumble();
+    
+}
+
+void Goalkeeper::changeFootManState(GoalkeeperState state){
+    if(state == GoalkeeperState::waiting){
+        playFootManStand();
+    }else if(state == GoalkeeperState::running){
+        playFootManRun();
+    }else if(state == GoalkeeperState::shoot){
+        playFootManShoot();
+    }else if(state == GoalkeeperState::snap){
+        playFootManShoot();
+    }
 }
 
 void Goalkeeper::playFootManStand() {
-    playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(fileName);
-    heroTimeLine->play("animation2", true);
-    playerCsb->runAction(heroTimeLine);
+    if(animUpdateInterval == 0 &&  this->manState !=  GoalkeeperState::waiting){
+        animUpdateInterval = 20/60;
+        this->manState = GoalkeeperState::waiting;
+        playerCsb->stopAllActions();
+        auto heroTimeLine = CSLoader::createTimeline(fileName);
+        heroTimeLine->play("animation2", true);
+        playerCsb->runAction(heroTimeLine);
+    }
 }
 
 void Goalkeeper::playFootManRun() {
-    if(canUpdateState){
+    if(animUpdateInterval == 0 &&  this->manState !=  GoalkeeperState::running){
+        animUpdateInterval = 117/60;
+        this->manState = GoalkeeperState::running;
         playerCsb->stopAllActions();
         auto heroTimeLine = CSLoader::createTimeline(fileName);
         heroTimeLine->play("animation0", true);
         playerCsb->runAction(heroTimeLine);
-        canUpdateState = false;
     }
 }
 
-
 void Goalkeeper::playFootManShoot() {
-    canUpdateState = false;
-    playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(fileName);
-    heroTimeLine->play("animation1", false);
-    playerCsb->runAction(heroTimeLine);
-    heroTimeLine->setAnimationEndCallFunc("animation1",[=](){
-        //射门动画结束后允许其他动画
-        canUpdateState = true;
-        playFootManStand();
-    });
+    if(animUpdateInterval == 0){
+        animUpdateInterval = 32/60;
+        this->manState = GoalkeeperState::shoot;
+        playerCsb->stopAllActions();
+        auto heroTimeLine = CSLoader::createTimeline(fileName);
+        heroTimeLine->play("animation1", false);
+        playerCsb->runAction(heroTimeLine);
+    }
 }
-
-void Goalkeeper::playFootManTumble(){
-    canUpdateState = false;
-    playerCsb->stopAllActions();
-    auto heroTimeLine = CSLoader::createTimeline(fileName);
-    heroTimeLine->play("animation6", false);
-    playerCsb->runAction(heroTimeLine);
-    heroTimeLine->setAnimationEndCallFunc("animation6",[=](){
-        canUpdateState = true;
-        
-    });
-}
-
 void Goalkeeper::playFootManSnap(){
-    canUpdateState = false;
-    playerCsb->stopAllActions();
-    shadow->setVisible(false);
-    auto heroTimeLine = CSLoader::createTimeline(fileName);
-    heroTimeLine->play("animation7", false);
-    playerCsb->runAction(heroTimeLine);
-    heroTimeLine->setAnimationEndCallFunc("animation7",[=](){
-        canUpdateState = true;
-        playFootManStand();
-        shadow->setVisible(true);
-    });
+    if(animUpdateInterval == 0){
+        animUpdateInterval = 73/60;
+        playerCsb->stopAllActions();
+        shadow->setVisible(false);
+        auto heroTimeLine = CSLoader::createTimeline(fileName);
+        heroTimeLine->play("animation7", false);
+        playerCsb->runAction(heroTimeLine);
+    }
 }
 
 float Goalkeeper::getShootSpeed() {
@@ -168,25 +167,54 @@ cocos2d::Vec2 Goalkeeper::getFootballVec2(){
 }
 
 void Goalkeeper::moveDefendBall(cocos2d::Vec2 pos){
-    this->targetPosition  = pos;
+//    log("AAAAAAAAAAAAA");
+    auto vec = this->getPosition();
+    auto dis = GeometryTools::calculateDistanceY(pos, vec);
+    if(dis<DEFEND_BACK_OFFSET/2){
+        changeFootManState(Goalkeeper::GoalkeeperState::waiting);
+        return;
+    }
+     auto speedy = 5 * (pos.y-vec.y>0?1:-1);
+    if(this->getPositionY()<=500){
+        if(speedy>0){
+            this->setPosition(vec.x,500+speedy);
+        }else{
+            this->setPosition(vec.x,500);
+            changeFootManState(Goalkeeper::GoalkeeperState::waiting);
+        }
+    }else if(this->getPositionY()>500 && this->getPositionY()<900){
+        changeFootManState(Goalkeeper::GoalkeeperState::running);
+        this->setPosition(vec.x,vec.y+speedy);
+    }else if(this->getPositionY()>=900){
+        if(speedy<0){
+            this->setPosition(vec.x,900);
+            changeFootManState(Goalkeeper::GoalkeeperState::waiting);
+        }else{
+            this->setPosition(vec.x,900+speedy);
+        }
+        
+    }
+    
 }
 
 void Goalkeeper::update(float dt) {
-    if(targetPosition != Vec2(0,0)){
-        auto vec = this->getPosition();
-        auto dis = GeometryTools::calculateDistance(targetPosition, vec);
-        if(dis >10){
-            float speedy = 4 *(targetPosition.y-vec.y)/GeometryTools::calculateDistance(targetPosition, vec);
-            if(speedy != 0){
-                playFootManRun();
-            }
-            if(this->getPositionY()>500 && this->getPositionY()<900){
-                this->setPosition(vec.x,vec.y+speedy);
-            }
+    //动作切换的间隔
+    if(animUpdateInterval>0){
+        animUpdateInterval -= dt;
+        if(animUpdateInterval<=0){
+            animUpdateInterval = 0;
         }
     }
     updateFootManZorder();
+    if (NULL != getChildByTag(1000)) {
+        ((Label*)getChildByTag(1000))->setString(StringUtils::format("(%.1f,%.1f)", this->getPositionX(), this->getPositionY()));
+    }
 }
 
-
+void Goalkeeper::showDebugInfo() {
+    auto lable = Label::createWithSystemFont(StringUtils::format("(%.1f,%.1f)",this->getPositionX(),this->getPositionY()), "arial", 30);
+    lable->setTag(1000);
+    lable->setPosition(0,0);
+    addChild(lable);
+}
 
