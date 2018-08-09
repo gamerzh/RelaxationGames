@@ -79,8 +79,8 @@ int Ball::getKeeperId(){
 void Ball::setBallKeep(int teamid){
     //球被守门员持有
     this->keeperId = teamid;
-    this->ballState = ball_is_snap;
     this->ballOwner = nullptr;
+    this->ballState = ball_is_snap;
 }
 
 FieldMan* Ball::getOwerMan() {
@@ -217,6 +217,8 @@ void Ball::update(float dt) {
         curLocation =Vec2(this->getPositionX()+getBallSpeedToTarget().speedx,this->getPositionY()+getBallSpeedToTarget().speedy);
         this->setPosition(curLocation);
         speedCamera = 7;
+    }else if(this->ballState == ball_is_free){
+        preLocation = curLocation;
     }
     if(preLocation != curLocation){
         if(!ballRotate){

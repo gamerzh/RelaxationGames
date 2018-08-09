@@ -37,6 +37,7 @@ public:
 private:
     TeamStatus teamState;
     int teamId = 0;
+    bool can_kick_ball = true;
     bool teamInLeftField = true;//队伍目前在左半场
     float teamEnergy = 0;//能量计数
     float teamEnergyRate = 0;//能量增长比率

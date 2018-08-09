@@ -318,6 +318,8 @@
 		D246EF1720F62EF600AD0860 /* DreamSecond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF0F20F62EF600AD0860 /* DreamSecond.cpp */; };
 		D246EF1820F62EF600AD0860 /* DreamLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF1320F62EF600AD0860 /* DreamLayer.cpp */; };
 		D246EF1920F62EF600AD0860 /* DreamLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D246EF1320F62EF600AD0860 /* DreamLayer.cpp */; };
+		D250CBC7211BD63D00489F11 /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = D250CBC5211BD63C00489F11 /* go.png */; };
+		D250CBC8211BD63D00489F11 /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = D250CBC5211BD63C00489F11 /* go.png */; };
 		D266D7C82111A5EB00E662A2 /* shadow_man.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7C62111A5EB00E662A2 /* shadow_man.png */; };
 		D266D7C92111A5EB00E662A2 /* shadow_man.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7C62111A5EB00E662A2 /* shadow_man.png */; };
 		D266D7CB2111A66F00E662A2 /* footman_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D266D7CA2111A66F00E662A2 /* footman_selected.png */; };
@@ -592,6 +594,7 @@
 		D246EF1320F62EF600AD0860 /* DreamLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DreamLayer.cpp; sourceTree = "<group>"; };
 		D246EF1420F62EF600AD0860 /* DreamLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamLayer.h; sourceTree = "<group>"; };
 		D246EF1520F62EF600AD0860 /* DreamSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamSecond.h; sourceTree = "<group>"; };
+		D250CBC5211BD63C00489F11 /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
 		D266D7C62111A5EB00E662A2 /* shadow_man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_man.png; sourceTree = "<group>"; };
 		D266D7CA2111A66F00E662A2 /* footman_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footman_selected.png; sourceTree = "<group>"; };
 		D266D7CD2111C0B800E662A2 /* skill_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_bg.png; sourceTree = "<group>"; };
@@ -735,6 +738,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D250CBC5211BD63C00489F11 /* go.png */,
 				D29B872921197A5C00E6286C /* worldcup */,
 				D246EE3D20F629B200AD0860 /* dream */,
 				D29B8725211838CB00E6286C /* effects */,
@@ -1204,6 +1208,7 @@
 				D246EECC20F629B300AD0860 /* start_bg.png in Resources */,
 				D246EED820F629B300AD0860 /* point_green.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				D250CBC7211BD63D00489F11 /* go.png in Resources */,
 				D246EEA820F629B300AD0860 /* fonts in Resources */,
 				D246EEF820F629B300AD0860 /* dream in Resources */,
 				D29B873021198FB100E6286C /* yuxuan_7_1_b.png in Resources */,
@@ -1363,6 +1368,7 @@
 				D246EF0520F629B300AD0860 /* yuxuan_6_1.png in Resources */,
 				D246EED520F629B300AD0860 /* yuxuan_2_3.png in Resources */,
 				D246EEE920F629B300AD0860 /* pause_lobby.png in Resources */,
+				D250CBC8211BD63D00489F11 /* go.png in Resources */,
 				D246EEA920F629B300AD0860 /* fonts in Resources */,
 				D246EED720F629B300AD0860 /* yuxuan_6_2.png in Resources */,
 				D246EEF520F629B300AD0860 /* my_team_1.png in Resources */,

@@ -40,7 +40,7 @@
 #define ball_is_fly 2
 #define ball_is_snap 3
 
-#define owner_ball_max_dis 120 //获取球的范围
+#define owner_ball_max_dis 100 //获取球的范围
 #define camera_follow_dis 80 //相机跟随落后的范围
 
 #define FLIED_HALF_DISTANCE  1100

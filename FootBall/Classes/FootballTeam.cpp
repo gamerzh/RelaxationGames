@@ -228,7 +228,6 @@ void FootballTeam::goalkeeperSnapBall(bool shot){
 }
 
 bool FootballTeam::checkShootResult(){
-    return false;
     //判断这次射门是否成功
     if(this->teamEnergy >= 100){
         return true;
@@ -316,22 +315,26 @@ void FootballTeam::update(float dt){
     }
     //守门员持球
     auto ball = GameStatus::getInstance()->getGameBall();
-    if(ball->getBallState() == ball_is_snap){
-        schedule([=](float dt){
+    if(ball->getBallState() == ball_is_snap && can_kick_ball){
+        can_kick_ball = false;
+        auto delay = DelayTime::create(1.5);
+        auto call = CallFunc::create([=](){
             //守门员传球给队友
+            can_kick_ball = true;
             if(m_pCloseingPlayer->getFootManTeamId() == ball->getKeeperId()){
-                log("KKKKKKKK = %d,%d",m_pCloseingPlayer->getFootManTeamId(),this->teamId);
                 goalkeeper->playFootManShoot();
                 ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
                 this->teamState = TeamStatus::attack;
                 //传球后跑回原位
                 goalkeeper->moveDefendBall(goalkeeper->getOriginPosition());
             }
-        },0,0,1.5f,StringUtils::format("pass_to_team_mate_%d",teamId));
+            
+        });
+        this->runAction(Sequence::create(delay,call,NULL));
     }
     //球队进攻
     if(m_pControllingPlayer != NULL && this->teamState == TeamStatus::attack){
-       
+        
         //让自己的球队进行进攻
         for(auto att : footManVector){
             if(att != m_pControllingPlayer){
@@ -355,30 +358,30 @@ void FootballTeam::update(float dt){
     //球队防守
     if(this->teamState == TeamStatus::defend){
         //求现在被守门员持有
-            goalkeeper->moveDefendBall(GameStatus::getInstance()->getGameBall()->getPosition());
-            //计算除守门员以外的球员和对方控球队员的距离
-            auto cman = ball->getOwerMan();//控球队员
-            if(NULL != cman){
-                int max = 10000;
-                FieldMan* dman = nullptr;
-                for(auto var : footManVector){
-                    float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
-                    if(dis<max && var->getSimpleAI()){
-                        dman = var;
-                        max = dis;
-                    }
+        goalkeeper->moveDefendBall(GameStatus::getInstance()->getGameBall()->getPosition());
+        //计算除守门员以外的球员和对方控球队员的距离
+        auto cman = ball->getOwerMan();//控球队员
+        if(NULL != cman){
+            int max = 10000;
+            FieldMan* dman = nullptr;
+            for(auto var : footManVector){
+                float dis = GeometryTools::calculateDistance(cman->getPosition(), var->getPosition());
+                if(dis<max && var->getSimpleAI()){
+                    dman = var;
+                    max = dis;
                 }
-                //对防守队员下达指令,去追球
-                if(nullptr != dman && dman->getSimpleAI()){
-                    dman->doDefend(cman->getPosition());
-                    for(auto var : footManVector){
-                        if(dman != var){
-                            var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET);
-                        }
-                    }
-                }
-                
             }
+            //对防守队员下达指令,去追球
+            if(nullptr != dman && dman->getSimpleAI()){
+                dman->doDefend(cman->getPosition());
+                for(auto var : footManVector){
+                    if(dman != var){
+                        var->manRunToTarget(var->getManDefendVec2(), DEFEND_BACK_OFFSET);
+                    }
+                }
+            }
+            
+        }
     }
 }
 

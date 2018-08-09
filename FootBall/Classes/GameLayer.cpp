@@ -353,6 +353,16 @@ void GameLayer::addCustomEvent() {
             computerTeam->teamScore += 1;
             GameStatus::getInstance()->setComputerScore(computerTeam->teamScore);
         }
+        //展示一个开始图标
+        auto bg = LayerColor::create(Color4B(0,0,0,100), 1280, 720);
+        addChild(bg);
+        auto menuItem = MenuItem::create();
+        menuItem->setContentSize(Size(1280,720));
+        auto menu =Menu::create(menuItem,NULL);
+        addChild(menu);
+        auto goSprite = Sprite::create("go.png");
+        goSprite->setPosition(640,360);
+        addChild(goSprite);
         //延迟2秒,2秒后重置场景,球员和球回到初始位置
         schedule([=](float dt){
             GameStatus::getInstance()->setGameState(GameStatus::GameState::game_start);
@@ -363,7 +373,15 @@ void GameLayer::addCustomEvent() {
             if(computerTeam->getTeamAttackDirection() == result){
                 footBall->setPositionX(1000);
             }
-        }, 0, 1, 2,"rest_game");
+            menu->setVisible(false);
+            goSprite->setVisible(false);
+            bg->setVisible(false);
+            playerCamera->setPosition(Vec2(640, 360));
+            if(GameStatus::getInstance()->getGameState() == GameStatus::GameState::game_start){
+                GameStatus::getInstance()->setGameState(GameStatus::GameState::game_playing);
+                Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_ball_game_start);
+            }
+        }, 0, 0, 2,"rest_game");
     });
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(footballInGoal, 1);
     

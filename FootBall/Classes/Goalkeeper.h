@@ -37,7 +37,6 @@ private:
     cocos2d::Point targetPosition;
     cocos2d::Node* playerCsb;
     cocos2d::Camera* ball_camera = nullptr;
-    cocos2d::Vec2 runTargetPos;
     cocos2d::Vec2 originVec2;//球员的默认位置
     cocos2d::Sprite* shadow;
     std::string getFileNameByTeamId(int d);
