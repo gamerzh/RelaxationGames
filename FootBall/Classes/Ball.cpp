@@ -142,7 +142,7 @@ BallSpeed Ball::getBallSpeedToTarget(){
     Vec2 curPos = this->getPosition();
     BallSpeed speed;
     float fenmu = GeometryTools::calculateDistance(targetPosition, curPos);
-    if(fenmu>=1){
+    if(fenmu>5){
         speed.speedx = (targetPosition.x-curPos.x)/fenmu* speed_fly;
         speed.speedy = (targetPosition.y-curPos.y)/fenmu* speed_fly;
     }else{
@@ -157,7 +157,7 @@ BallSpeed Ball::getBallSpeedToTarget(){
 
 bool Ball::droppointInCorrect(cocos2d::Vec2 tar,cocos2d::Vec2 cor){
     //直径50的落点圈
-    if(GeometryTools::calculateDistance(tar, cor)<40){
+    if(GeometryTools::calculateDistance(tar, cor)<30){
         return  true;
     }else{
         return false;

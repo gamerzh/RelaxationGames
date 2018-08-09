@@ -191,9 +191,25 @@ void FootballTeam::doTeamShoot(){
         m_pControllingPlayer->playFootManShoot();
         //确认是否有球
         if(checkShootResult()){
-            if(this->teamEnergy>= 100){
+            if(this->teamEnergy >= 100){
                 this->teamEnergy = 0;
                 GameStatus::getInstance()->getGameBall()->showBallEffect(1,this->teamId == PLAYER_TEAM_ID ? false:true);
+                if(GameStatus::getInstance()->getPlayerTeam()->getFootBallTeamId() == this->teamId){
+                    //计算距离
+                    auto dis = GeometryTools::calculateDistance(GameStatus::getInstance()->getGameBall()->getPosition(), GameStatus::getInstance()->getComputerTeam()->getGoalkeeper()->getOriginPosition());
+                    auto delay = dis/1280;
+                    schedule([=](float dt){
+                        GameStatus::getInstance()->getComputerTeam()->getGoalkeeper()->playFootManSnap();
+                    }, 0, 0, delay,"goalkeeper");
+                    
+                }else{
+                    auto dis = GeometryTools::calculateDistance(GameStatus::getInstance()->getGameBall()->getPosition(), GameStatus::getInstance()->getComputerTeam()->getGoalkeeper()->getOriginPosition());
+                    auto delay = dis/1280;
+                    schedule([=](float dt){
+                        GameStatus::getInstance()->getPlayerTeam()->getGoalkeeper()->playFootManSnap();
+                    }, 0, 0, delay,"goalkeeper");
+                }
+              
             }
             GameStatus::getInstance()->getGameBall()->setBallShoot(getTeamShootPoint());
             goalkeeperSnapBall(false);
@@ -222,9 +238,6 @@ void FootballTeam::goalkeeperSnapBall(bool shot){
     if(shot){
         GameStatus::getInstance()->getGameBall()->setBallShoot(man->getFootballVec2());
     }
-    schedule([=](float dt){
-        man->playFootManSnap();
-    }, 0, 0, 0.5,"goalkeeper");
 }
 
 bool FootballTeam::checkShootResult(){
@@ -329,7 +342,7 @@ void FootballTeam::update(float dt){
     //守门员持球
     if(ball->getBallState() == ball_is_snap && can_kick_ball){
         can_kick_ball = false;
-        auto delay = DelayTime::create(1.5);
+        auto delay = DelayTime::create(0.5f);
         auto call = CallFunc::create([=](){
             //守门员传球给队友
             can_kick_ball = true;
@@ -338,7 +351,6 @@ void FootballTeam::update(float dt){
                 ball->setBallPass(m_pCloseingPlayer->getFootballVec2());
                 this->teamState = TeamStatus::attack;
             }
-            
         });
         this->runAction(Sequence::create(delay,call,NULL));
     }
