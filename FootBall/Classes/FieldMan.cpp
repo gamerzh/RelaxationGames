@@ -281,7 +281,6 @@ void FieldMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
 void FieldMan::manRunToTargetX(cocos2d::Vec2 pos,CallFunc* callback){
     auto vec = this->getPosition();
     auto distance = GeometryTools::calculateDistanceX(pos, vec);
-    //
     if(distance <= DEFEND_BACK_OFFSET && nullptr != callback){
         this->runAction(callback);
         return;

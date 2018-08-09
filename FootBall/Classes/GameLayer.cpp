@@ -322,6 +322,8 @@ void GameLayer::update(float dt) {
         if (angle != 0) {
             controlingFootman->changeFootManState(FieldMan::FootManState::running);
             controlingFootman->setFootManAngle(angle);
+        }else{
+            controlingFootman->changeFootManState(FieldMan::FootManState::waiting);
         }
         canChangeControlMan = false;
     }
