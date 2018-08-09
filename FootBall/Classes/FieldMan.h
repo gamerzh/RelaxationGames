@@ -36,9 +36,8 @@ public:
     void setOriginPosition(cocos2d::Vec2 vec);
     void changeFootManState(FootManState state);
     void manRunToTarget(cocos2d::Vec2 pos,float rad,cocos2d::CallFunc* callback = NULL);//跑向目标
-    void manRunToTargetX(cocos2d::Vec2 pos);//向目标提供支援,单纯移动X轴方向
-    void playFootManShoot();//射门动画
-    void playFootManStand();
+    void manRunToTargetX(cocos2d::Vec2 pos,cocos2d::CallFunc* callback = NULL);//向目标提供支援,单纯移动X轴方向
+
     void showControlCircle(bool show);
 private:
     int belongTeamId = 0;
@@ -74,4 +73,6 @@ private:
     void playFootManRun();
     void playFootManTackle();
     void playFootManTumble();
+    void playFootManShoot();//射门动画
+    void playFootManStand();
 };

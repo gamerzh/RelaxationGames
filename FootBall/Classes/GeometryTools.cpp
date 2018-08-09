@@ -32,6 +32,14 @@ float GeometryTools::calculateDistance(cocos2d::Vec2 p1, cocos2d::Vec2 p2){
     return sqrt(pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2));
 }
 
+float GeometryTools::calculateDistanceX(cocos2d::Vec2 p1, cocos2d::Vec2 p2){
+    return abs(p1.x-p2.x);
+}
+
+float GeometryTools::calculateDistanceY(cocos2d::Vec2 p1, cocos2d::Vec2 p2){
+    return abs(p1.y-p2.y);
+}
+
 float GeometryTools::getPositionXByYLeft(float y) {
     Vec2 p1 = Vec2(175,90);
     Vec2 p2 = Vec2(245, 1215);

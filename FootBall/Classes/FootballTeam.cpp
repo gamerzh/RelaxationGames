@@ -188,7 +188,7 @@ std::string FootballTeam::getTeamAttackDirection(){
 void FootballTeam::doTeamShoot(){
     //控球的队员播放射门动画
     if(NULL != m_pControllingPlayer){
-        m_pControllingPlayer->playFootManShoot();
+        m_pControllingPlayer->changeFootManState(FieldMan::FootManState::shoot);
         //确认是否有球
         if(checkShootResult()){
             if(this->teamEnergy >= 100){
@@ -364,8 +364,9 @@ void FootballTeam::update(float dt){
         for(auto att : footManVector){
             if(att != m_pControllingPlayer){
                 //持球队员跑向去前场，其余队员到中场和前场接应
-                att->changeFootManState(FieldMan::FootManState::running);
-                att->manRunToTargetX(Vec2(ball->getPosition()));
+                att->manRunToTargetX(Vec2(ball->getPosition()),CallFunc::create([=](){
+                    att->changeFootManState(FieldMan::FootManState::waiting);
+                }));
             }
         }
         //在射门区域里随机一个位置,持球队员成功跑到位置后射门

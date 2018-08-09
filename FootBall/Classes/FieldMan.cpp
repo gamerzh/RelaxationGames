@@ -215,6 +215,8 @@ void FieldMan::changeFootManState(FootManState state){
         playFootManTackle();
     }else if(state == FootManState::tumble){
         playFootManTumble();
+    }else if(state == FootManState::shoot){
+        playFootManShoot();
     }
 }
 
@@ -276,17 +278,23 @@ void FieldMan::manRunToTarget(Vec2 pos,float rad,CallFunc* callback){
     }
 }
 
-void FieldMan::manRunToTargetX(cocos2d::Vec2 pos){
+void FieldMan::manRunToTargetX(cocos2d::Vec2 pos,CallFunc* callback){
+    auto vec = this->getPosition();
+    auto distance = GeometryTools::calculateDistanceX(pos, vec);
+    //
+    if(distance <= DEFEND_BACK_OFFSET && nullptr != callback){
+        this->runAction(callback);
+        return;
+    }
     if(simpleRobotAI){
-        auto vec = this->getPosition();
-        float speedx = runSpeed*(pos.x-vec.x)/GeometryTools::calculateDistance(pos, vec);
+        float speedx = runSpeed*0.8;
         if(speedx>0){
             moveRight();
         }else{
             moveLeft();
         }
         if(speedx != 0){
-            playFootManRun();
+            changeFootManState(FieldMan::FootManState::running);
         }
         if(manState != FootManState::tackle || manState != FootManState::tumble){
             this->setPosition(vec.x+speedx,vec.y);
