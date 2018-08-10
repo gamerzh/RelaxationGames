@@ -3,6 +3,7 @@
 #include "UserData.h"
 #include "GameStatus.h"
 #include "GameScene.h"
+#include "StartLayer.h"
 #include "Audio.h"
 
 USING_NS_CC;
@@ -49,6 +50,23 @@ bool LobbyLayer::init() {
     GameStatus::getInstance()->setCurrentSelectedLevel(UserData::getInstance()->getWorldCupLevel());
     
     Audio::getInstance()->playLobbyBackgroundMusic();
+    
+    auto listener = EventListenerKeyboard::create();
+    listener->onKeyReleased = [=](EventKeyboard::KeyCode code, Event * e) {
+        switch (code)
+        {
+            case cocos2d::EventKeyboard::KeyCode::KEY_NONE:
+                break;
+            case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
+                auto start = StartLayer::create();
+                addChild(start,1000);
+                break;
+            }
+            default:
+                break;
+        }
+    };
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     
     return true;
 }

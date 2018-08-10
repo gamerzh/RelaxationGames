@@ -53,11 +53,16 @@ void DreamLayer::loadContent(int id) {
 	addChild(confirmSprite);
 	auto confirm = MenuItem::create(CC_CALLBACK_1(DreamLayer::doConfirmEvent,this));
 	confirm->setTag(id);
+    auto cancel = MenuItemImage::create("qx.png","qx.png",CC_CALLBACK_1(DreamLayer::doConfirmEvent,this));
+    cancel->setVisible(false);
+    if(id == 12){
+        cancel->setVisible(true);
+    }
 	confirm->setContentSize(Size(visiblieSize.width,visiblieSize.height));
-	auto confirmMenu = Menu::create(confirm, NULL);
+	auto confirmMenu = Menu::create(confirm,cancel,NULL);
 	confirmMenu->setPosition(visiblieSize.width/2, visiblieSize.height / 2);
 	addChild(confirmMenu);
-
+    
 	auto y = Sprite::create("dream/price_twenty.png");
 	y->setAnchorPoint(Point::ANCHOR_BOTTOM_RIGHT);
 	y->setPosition(visiblieSize.width ,5);
@@ -65,6 +70,7 @@ void DreamLayer::loadContent(int id) {
 
 	auto close = MenuItemImage::create("dream/dream_close.png", "dream/dream_close.png", CC_CALLBACK_1(DreamLayer::closeView, this));
 	close->setTag(id);
+    close->setOpacity(50);
 	auto closeMenu = Menu::create(close, NULL);
 	closeMenu->setPosition(visiblieSize.width / 2 + 200, visiblieSize.height / 2 + 220);
 	addChild(closeMenu);
