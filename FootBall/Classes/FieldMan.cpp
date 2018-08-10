@@ -137,7 +137,7 @@ void FieldMan::playFootManStand() {
 
 void FieldMan::playFootManRun() {
     if(animUpdateInterval == 0 &&  this->manState !=  FootManState::running){
-        animUpdateInterval = 39/60;//一组奔跑动画要0.67秒
+        animUpdateInterval = 78/60;//一组奔跑动画要0.67秒
         this->manState = FootManState::running;
         playerCsb->stopAllActions();
         auto heroTimeLine = CSLoader::createTimeline(fileName);
