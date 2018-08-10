@@ -98,7 +98,6 @@ void LobbyLayer::controlSound(cocos2d::Ref* ref) {
         Audio::getInstance()->playLobbyBackgroundMusic();
        
     }
-   
 }
 
 
