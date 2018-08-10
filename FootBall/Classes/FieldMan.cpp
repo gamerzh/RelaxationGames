@@ -328,6 +328,12 @@ void FieldMan::speedUp(){
 }
 
 void FieldMan::update(float dt) {
+    if(GameStatus::getInstance()->getGameBall()->getOwerMan() == this){
+        runSpeed = 3;
+    }else{
+        runSpeed = 3.5;
+    }
+    
     //动作切换的间隔
     if(animUpdateInterval>0){
         animUpdateInterval -= dt;
