@@ -94,7 +94,7 @@ void FieldMan::doSlideTackle() {
     //判断本次铲球结果,判断求是否在铲球范围内
     if(this->belongTeamId == PLAYER_TEAM_ID){
         //加大玩家铲球的距离
-        if(GeometryTools::calculateDistance(this->getPosition(),GameStatus::getInstance()->getGameBall()->getPosition())<TACKLE_DISTANCE*2 && random(1,100)<=tacklePercentage*100){
+        if(GeometryTools::calculateDistance(this->getPosition(),GameStatus::getInstance()->getGameBall()->getPosition())<TACKLE_DISTANCE*2.5 && random(1,100)<=tacklePercentage*100*2){
             //success 发出通知,持球队员摔倒,球恢复为自由态
             Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(foot_man_trackle_success);
         }

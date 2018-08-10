@@ -50,7 +50,7 @@ private:
     
     bool canFootmanTackle = true;//是否允许铲球
     float tackleInterval = 3;//球员铲球间隔
-    float tacklePercentage = 0.3;//球员的铲球成功率
+    float tacklePercentage = 0.25;//球员的铲球成功率
     
     bool canObtainBall = true;//是否可以获取球
     float obtainInterval = 1.4f;//获取球权间隔

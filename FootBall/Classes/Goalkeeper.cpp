@@ -187,10 +187,10 @@ void Goalkeeper::moveDefendBall(cocos2d::Vec2 pos){
         this->setPosition(vec.x,vec.y+speedy);
     }else if(this->getPositionY()>=900){
         if(speedy<0){
+            this->setPosition(vec.x,900+speedy);
+        }else{
             this->setPosition(vec.x,900);
             changeFootManState(Goalkeeper::GoalkeeperState::waiting);
-        }else{
-            this->setPosition(vec.x,900+speedy);
         }
         
     }

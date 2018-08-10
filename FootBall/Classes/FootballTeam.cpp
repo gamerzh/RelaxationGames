@@ -310,7 +310,7 @@ void FootballTeam::logicUpdate(float dt){
     int max = 10000;
     for(auto var : footManVector){
         float dis = GeometryTools::calculateDistance(ball->getPosition(), var->getPosition());
-        if(dis<max){
+        if(dis<max && var->getSimpleAI()){
             m_pCloseingPlayer  = var;
             max = dis;
         }
@@ -342,7 +342,7 @@ void FootballTeam::update(float dt){
     //守门员持球
     if(ball->getBallState() == ball_is_snap && can_kick_ball){
         can_kick_ball = false;
-        auto delay = DelayTime::create(0.2f);
+        auto delay = DelayTime::create(0.3f);
         auto call = CallFunc::create([=](){
             //守门员传球给队友
             can_kick_ball = true;
