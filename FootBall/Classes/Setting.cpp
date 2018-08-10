@@ -102,9 +102,11 @@ void Setting::update(float dt) {
             if(GameStatus::getInstance()->getPlayerScore()>GameStatus::getInstance()->getComputerScore()){
                 auto layer = ResultLayer::create(true);
                 addChild(layer);
+                Director::getInstance()->pause();
             }else{
                 auto layer = ResultLayer::create(false);
                 addChild(layer);
+                Director::getInstance()->pause();
             }
 		}
 	}

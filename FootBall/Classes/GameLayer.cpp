@@ -147,7 +147,7 @@ void GameLayer::passAndTackle() {
     if(playerTeam->m_pControllingPlayer == footBall->getOwerMan()){
         //玩家在控球,传球:离自己最近的己方球员
         auto mate = playerTeam->m_pSupportingPlayer;
-        if(NULL != mate){
+        if(NULL != mate && can_track){
             footBall->setBallPass(mate->getPosition());
         }
     }else{
