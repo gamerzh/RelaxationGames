@@ -1,11 +1,13 @@
 #pragma once
 #include "cocos2d.h"
+#include "StartLayer.h"
 
 class LobbyLayer :public cocos2d::Layer {
 public:
 	virtual bool init();
 	CREATE_FUNC(LobbyLayer);
 private:
+    StartLayer* startLayer;
     int selectLayerIndex = 0;//选择的页面编号
 	cocos2d::Layer * worldLayer;
 	cocos2d::Layer * masterLayer;

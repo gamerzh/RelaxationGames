@@ -53,12 +53,15 @@ void DreamLayer::loadContent(int id) {
 	addChild(confirmSprite);
 	auto confirm = MenuItem::create(CC_CALLBACK_1(DreamLayer::doConfirmEvent,this));
 	confirm->setTag(id);
-    auto cancel = MenuItemImage::create("qx.png","qx.png",CC_CALLBACK_1(DreamLayer::doConfirmEvent,this));
+    confirm->setContentSize(Size(visiblieSize.width,visiblieSize.height));
+    
+    auto cancel = MenuItemImage::create("dream/qx.png","dream/qx.png",CC_CALLBACK_1(DreamLayer::doConfirmEvent,this));
+    cancel->setPosition(120, -200);
     cancel->setVisible(false);
     if(id == 12){
+        confirmSprite->setPosition(visiblieSize.width / 2-120, visiblieSize.height / 2 - 200);
         cancel->setVisible(true);
     }
-	confirm->setContentSize(Size(visiblieSize.width,visiblieSize.height));
 	auto confirmMenu = Menu::create(confirm,cancel,NULL);
 	confirmMenu->setPosition(visiblieSize.width/2, visiblieSize.height / 2);
 	addChild(confirmMenu);

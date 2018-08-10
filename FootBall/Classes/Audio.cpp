@@ -27,6 +27,11 @@ void Audio::playGameBackgroundMusic(){
     gameMusicId = AudioEngine::play2d(MUSIC_BGM_2,true, UserData::getInstance()->getMusicStatus());
 }
 
+void Audio::pauseBackgroundMusic(){
+     AudioEngine::stop(gameMusicId);
+     AudioEngine::stop(lobbyMusicId);
+}
+
 void Audio::playEffect(std::string name){
     
 }

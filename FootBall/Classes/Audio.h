@@ -8,6 +8,7 @@ class Audio{
 public:
     static Audio* getInstance();
     void init();
+    void pauseBackgroundMusic();
     void playLobbyBackgroundMusic();
     void playGameBackgroundMusic();
     void playEffect(std::string name);

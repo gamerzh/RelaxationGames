@@ -10,8 +10,5 @@ bool LobbyScene::init() {
 	auto lobby = LobbyLayer::create();
 	addChild(lobby);
 
-	auto start = StartLayer::create();
-	addChild(start);
-
 	return true;
 }

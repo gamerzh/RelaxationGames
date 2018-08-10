@@ -4,6 +4,8 @@
 #include "UserData.h"
 #include "GlobalProperty.h"
 #include "GameStatus.h"
+#include "Audio.h"
+
 USING_NS_CC;
 
 bool Setting::init() {
@@ -66,8 +68,13 @@ void Setting::loadView() {
 
 
 void Setting::soundMenuCallBack(Ref* ref) {
-    MenuItemToggle* temp = (MenuItemToggle*)ref;
-    UserData::getInstance()->setMusicStatus((temp->getSelectedIndex()+1)%2);
+    if( UserData::getInstance()->getMusicStatus() == 1.0){
+        Audio::getInstance()->pauseBackgroundMusic();
+        UserData::getInstance()->setMusicStatus(0);
+    }else{
+        UserData::getInstance()->setMusicStatus(1);
+        Audio::getInstance()->playGameBackgroundMusic();
+    }
 }
 
 void Setting::pauseGame() {

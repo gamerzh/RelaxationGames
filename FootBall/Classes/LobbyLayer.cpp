@@ -3,7 +3,8 @@
 #include "UserData.h"
 #include "GameStatus.h"
 #include "GameScene.h"
-#include "StartLayer.h"
+#include "DreamLayer.h"
+#include "Dream.h"
 #include "Audio.h"
 
 USING_NS_CC;
@@ -51,6 +52,10 @@ bool LobbyLayer::init() {
     
     Audio::getInstance()->playLobbyBackgroundMusic();
     
+    
+    startLayer = StartLayer::create();
+    addChild(startLayer);
+    
     auto listener = EventListenerKeyboard::create();
     listener->onKeyReleased = [=](EventKeyboard::KeyCode code, Event * e) {
         switch (code)
@@ -58,8 +63,20 @@ bool LobbyLayer::init() {
             case cocos2d::EventKeyboard::KeyCode::KEY_NONE:
                 break;
             case cocos2d::EventKeyboard::KeyCode::KEY_BACK: {
-                auto start = StartLayer::create();
-                addChild(start,1000);
+                if(startLayer->isVisible()){
+                    if (!Dream::getInstance()->getDreamTimes()) {
+                        if (NULL == getChildByTag(1025)) {
+                            DreamLayer* nod = DreamLayer::create(12);
+                            nod->setTag(1025);
+                            addChild(nod,10);
+                        }
+                    }
+                    else {
+                        Dream::getInstance()->quitGame();
+                    }
+                }else{
+                    startLayer->setVisible(true);
+                }
                 break;
             }
             default:
@@ -72,8 +89,16 @@ bool LobbyLayer::init() {
 }
 
 void LobbyLayer::controlSound(cocos2d::Ref* ref) {
-    MenuItemToggle* temp = (MenuItemToggle*)ref;
-    UserData::getInstance()->setMusicStatus((temp->getSelectedIndex()+1)%2);
+//    MenuItemToggle* temp = (MenuItemToggle*)ref;
+    if( UserData::getInstance()->getMusicStatus() == 1.0){
+        Audio::getInstance()->pauseBackgroundMusic();
+        UserData::getInstance()->setMusicStatus(0);
+    }else{
+        UserData::getInstance()->setMusicStatus(1);
+        Audio::getInstance()->playLobbyBackgroundMusic();
+       
+    }
+   
 }
 
 
@@ -148,7 +173,7 @@ void LobbyLayer::loadWorldCupView() {
     worldLayer = Layer::create();
     addChild(worldLayer);
     loadWorldPipeView(worldLayer,UserData::getInstance()->getWorldCupLevel());
-   
+    
 }
 
 void LobbyLayer::selectCupLevel(Ref* ref) {
@@ -197,7 +222,7 @@ void LobbyLayer::loadTeamView() {
 
 
 void LobbyLayer::loadWorldPipeView(cocos2d::Node* node,int index){
-
+    
     auto pipe_bg = Sprite::create("worldcup/luc.png");
     pipe_bg->setPosition(735,315);
     node->addChild(pipe_bg);
