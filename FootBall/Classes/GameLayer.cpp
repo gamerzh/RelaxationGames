@@ -242,18 +242,17 @@ void GameLayer::manLootBall() {
         return;
     }
     //关于球权的获取
-    for(auto man : alternativeMan){
-        footBall->setOwnerMan(man);
-        if(man->getFootManTeamId() == PLAYER_TEAM_ID){
-            playerTeam->setControllingMan(man);
-            playerTeam->setTeamStatus(TeamStatus::attack);
-            computerTeam->setTeamStatus(TeamStatus::defend);
-        }else{
-            computerTeam->setControllingMan(man);
-            playerTeam->setTeamStatus(TeamStatus::defend);
-            computerTeam->setTeamStatus(TeamStatus::attack);
-        }
-        return;
+    auto index = random(0,(int)alternativeMan.size()-1);
+    auto man = alternativeMan.at(index);
+    footBall->setOwnerMan(man);
+    if(man->getFootManTeamId() == PLAYER_TEAM_ID){
+        playerTeam->setControllingMan(man);
+        playerTeam->setTeamStatus(TeamStatus::attack);
+        computerTeam->setTeamStatus(TeamStatus::defend);
+    }else{
+        computerTeam->setControllingMan(man);
+        playerTeam->setTeamStatus(TeamStatus::defend);
+        computerTeam->setTeamStatus(TeamStatus::attack);
     }
 }
 
