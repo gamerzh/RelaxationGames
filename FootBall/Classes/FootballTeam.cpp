@@ -342,7 +342,7 @@ void FootballTeam::update(float dt){
     //守门员持球
     if(ball->getBallState() == ball_is_snap && can_kick_ball){
         can_kick_ball = false;
-        auto delay = DelayTime::create(0.5f);
+        auto delay = DelayTime::create(0.2f);
         auto call = CallFunc::create([=](){
             //守门员传球给队友
             can_kick_ball = true;

@@ -363,7 +363,7 @@ void GameLayer::addCustomEvent() {
         auto menuItem = MenuItem::create();
         menuItem->setContentSize(Size(1280,720));
         auto menu =Menu::create(menuItem,NULL);
-        addChild(menu,5000);
+        addChild(menu,260);
         auto goSprite = Sprite::create("go.png");
         goSprite->setPosition(640,360);
         addChild(goSprite);
