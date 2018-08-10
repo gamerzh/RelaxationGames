@@ -13,6 +13,7 @@
 #define DEFEND_RADIUS  200 //球员的防守半径
 #define TACKLE_DISTANCE 60//发动铲球的距离
 #define SUPPORT_DISTANCE 600//友方支援队员的距离
+#define DEFEND_MAN_DISTACE 200//防守球员的干扰范围
 
 #define DEFEND_BACK_OFFSET 80
 

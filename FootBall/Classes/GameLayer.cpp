@@ -43,7 +43,7 @@ bool GameLayer::init() {
     scheduleUpdate();
     if(!Dream::getInstance()->getDreamTimes()){
         auto dream = DreamLayer::create(5);
-        addChild(dream,300);
+        addChild(dream,5000);
     }
     return true;
 }
@@ -282,7 +282,7 @@ void GameLayer::update(float dt) {
     special_time += dt;
     if(special_time > DREAM_SPECIAL_TIME){
         auto dream = DreamLayer::create(6);
-        addChild(dream,300);
+        addChild(dream,5000);
         special_time = 0;
     }
     
@@ -350,7 +350,7 @@ void GameLayer::addCustomEvent() {
             GameStatus::getInstance()->setPlayerScore(playerTeam->teamScore);
             if(!Dream::getInstance()->getDreamTimes()){
                 auto dream = DreamLayer::create(8);
-                addChild(dream,300);
+                addChild(dream,5000);
             }
         }
         if(computerTeam->getTeamAttackDirection() == result){
@@ -363,7 +363,7 @@ void GameLayer::addCustomEvent() {
         auto menuItem = MenuItem::create();
         menuItem->setContentSize(Size(1280,720));
         auto menu =Menu::create(menuItem,NULL);
-        addChild(menu,260);
+        addChild(menu,4000);
         auto goSprite = Sprite::create("go.png");
         goSprite->setPosition(640,360);
         addChild(goSprite);

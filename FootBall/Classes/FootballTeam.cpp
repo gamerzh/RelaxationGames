@@ -249,14 +249,14 @@ bool FootballTeam::checkShootResult(){
     float per  = 60;//守门员的防守值默认40，球员为30
     if(teamId == PLAYER_TEAM_ID){
         for(auto var :GameStatus::getInstance()->getComputerTeam()->getFootManVector()){
-            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<200){
-                per -= 30;
+            if(GeometryTools::calculateDistance(ballPos, var->getPosition()) < DEFEND_MAN_DISTACE){
+                per -= 20;
             }
         }
     }else{
         for(auto var :GameStatus::getInstance()->getPlayerTeam()->getFootManVector()){
-            if(GeometryTools::calculateDistance(ballPos, var->getPosition())<200){
-                per -= 30;
+            if(GeometryTools::calculateDistance(ballPos, var->getPosition()) < DEFEND_MAN_DISTACE){
+                per -= 35;
             }
         }
     }
