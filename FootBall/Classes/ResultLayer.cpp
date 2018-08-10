@@ -76,14 +76,19 @@ bool ResultLayer::init(bool win) {
 
 void ResultLayer::continueGame(){
     Director::getInstance()->resume();
-    doResultDream();
+    if(!Dream::getInstance()->getDreamTimes()){
+           doResultDream();
+    }
     getParent()->getParent()->getParent()->cleanup();
     Director::getInstance()->replaceScene(GameScene::create());
 }
 
 void ResultLayer::gotoLobby(){
     Director::getInstance()->resume();
-    doResultDream();
+     if(!Dream::getInstance()->getDreamTimes()){
+         doResultDream();
+         
+     }
     Director::getInstance()->replaceScene(LobbyScene::create());
 }
 

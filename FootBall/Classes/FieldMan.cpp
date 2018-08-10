@@ -328,6 +328,7 @@ void FieldMan::speedUp(){
 }
 
 void FieldMan::update(float dt) {
+    //持球后球员速度下降
     if(GameStatus::getInstance()->getGameBall()->getOwerMan() == this){
         runSpeed = 3;
     }else{
