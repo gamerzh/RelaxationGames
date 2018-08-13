@@ -50,6 +50,8 @@
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		D2232145211D9623003E61BF /* Goal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2232143211D9623003E61BF /* Goal.cpp */; };
+		D2232146211D9623003E61BF /* Goal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2232143211D9623003E61BF /* Goal.cpp */; };
 		D22BF38E2112E268002B8D50 /* team_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3842112E267002B8D50 /* team_icon_2.png */; };
 		D22BF38F2112E268002B8D50 /* team_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3842112E267002B8D50 /* team_icon_2.png */; };
 		D22BF3902112E268002B8D50 /* team_icon_5.png in Resources */ = {isa = PBXBuildFile; fileRef = D22BF3862112E267002B8D50 /* team_icon_5.png */; };
@@ -433,6 +435,8 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D2232143211D9623003E61BF /* Goal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Goal.cpp; sourceTree = "<group>"; };
+		D2232144211D9623003E61BF /* Goal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
 		D22BF3842112E267002B8D50 /* team_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_2.png; sourceTree = "<group>"; };
 		D22BF3862112E267002B8D50 /* team_icon_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_5.png; sourceTree = "<group>"; };
 		D22BF3872112E267002B8D50 /* team_icon_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team_icon_1.png; sourceTree = "<group>"; };
@@ -934,6 +938,15 @@
 			name = base;
 			sourceTree = "<group>";
 		};
+		D2232141211D9601003E61BF /* goal */ = {
+			isa = PBXGroup;
+			children = (
+				D2232143211D9623003E61BF /* Goal.cpp */,
+				D2232144211D9623003E61BF /* Goal.h */,
+			);
+			name = goal;
+			sourceTree = "<group>";
+		};
 		D2E3B0B220FC357B00F9A8F3 /* audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,6 +976,7 @@
 		D2E3B0B420FC358D00F9A8F3 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				D2232141211D9601003E61BF /* goal */,
 				D2E3B0BC20FC368F00F9A8F3 /* result */,
 				D2E3B0C020FC36AF00F9A8F3 /* team */,
 				D2E3B0BF20FC36A700F9A8F3 /* status */,
@@ -1487,6 +1501,7 @@
 				D246EDC520F6297B00AD0860 /* Setting.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				D246EDDD20F6297B00AD0860 /* Ball.cpp in Sources */,
+				D2232145211D9623003E61BF /* Goal.cpp in Sources */,
 				D246EF1820F62EF600AD0860 /* DreamLayer.cpp in Sources */,
 				D29B8738211AC43C00E6286C /* Footballer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -1533,6 +1548,7 @@
 				D246EDC220F6297B00AD0860 /* GameScene.cpp in Sources */,
 				D29B8739211AC43C00E6286C /* Footballer.cpp in Sources */,
 				D246EDE220F6297B00AD0860 /* LoadScene.cpp in Sources */,
+				D2232146211D9623003E61BF /* Goal.cpp in Sources */,
 				D246EDBA20F6297B00AD0860 /* TeamInfoFactory.cpp in Sources */,
 				D246EDCC20F6297B00AD0860 /* UserData.cpp in Sources */,
 				D246EDCE20F6297B00AD0860 /* Dream.cpp in Sources */,
