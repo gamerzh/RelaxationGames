@@ -1,0 +1,236 @@
+{
+  "team": [
+    {
+      "teamId": 1,
+      "energyRate":2,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    },
+    {
+      "teamId": 2,
+      "energyRate":2.2,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    },
+    {
+      "teamId": 3,
+      "energyRate":2.4,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    },
+    {
+      "teamId": 4,
+      "energyRate":2.6,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    },    
+    {
+      "teamId": 5,
+      "energyRate":2.6,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    },
+    {
+      "teamId": 6,
+      "energyRate":2.6,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    },
+    {
+      "teamId": 7,
+      "energyRate":2.6,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    },
+    {
+      "teamId": 8,
+      "energyRate":3,
+      "teamName": "a",
+      "teamBanner": "",
+      "footManVec": [
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        },
+        {
+          "footImage": "",
+          "name": "",
+          "runSpeed": 10,
+          "skillType": 0,
+          "goalkeeper": false
+        }
+      ]
+    }
+  ]
+}

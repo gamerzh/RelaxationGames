@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\load">
+      <UniqueIdentifier>{66ff7202-680b-46b3-83f2-4353e8462628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{a0307be2-dadd-416c-992d-878033ffb0ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tools">
+      <UniqueIdentifier>{5ead5932-69b2-4053-b03b-eb36d16fbe6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\dream">
+      <UniqueIdentifier>{364093a3-298f-4716-898e-0f300cc3d93b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\user">
+      <UniqueIdentifier>{46616614-34b1-4cd5-83c1-dff35673ad94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audio">
+      <UniqueIdentifier>{1d1db8a1-eedf-4131-ac47-6f6e9cbbbded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\team">
+      <UniqueIdentifier>{c98854dc-6d65-4def-a48c-61050febdf2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ball">
+      <UniqueIdentifier>{5c43f5f7-4b58-4c95-96a4-8508eb9bad3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\rocker">
+      <UniqueIdentifier>{235874c5-db16-43c1-acdd-85dc5e15c725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\setting">
+      <UniqueIdentifier>{3da3f012-034f-4597-b6ee-9dccbe76c16a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\pause">
+      <UniqueIdentifier>{82567e4e-2418-43eb-a196-4136a6308ea9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\result">
+      <UniqueIdentifier>{7ef451df-4ba5-4c3b-bf99-a35dbedeca18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\status">
+      <UniqueIdentifier>{ec8be674-ec85-4833-a2c7-a53d0b62a88e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby">
+      <UniqueIdentifier>{dce3c814-a625-494e-bfda-d6119583a7ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoadScene.cpp">
+      <Filter>src\load</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameScene.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StringTools.cpp">
+      <Filter>src\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dream.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamCallback.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UserData.cpp">
+      <Filter>src\user</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Audio.cpp">
+      <Filter>src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Ball.cpp">
+      <Filter>src\game\ball</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Rocker.cpp">
+      <Filter>src\game\rocker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FootMan.cpp">
+      <Filter>src\game\team</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TeamInfoFactory.cpp">
+      <Filter>src\game\team</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Setting.cpp">
+      <Filter>src\game\setting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PauseLayer.cpp">
+      <Filter>src\game\pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResultLayer.cpp">
+      <Filter>src\game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStatus.cpp">
+      <Filter>src\game\status</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LobbyScene.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StartLayer.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LobbyLayer.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TeamAbility.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GeometryTools.cpp">
+      <Filter>src\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamLayer.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamSecond.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FootballTeam.cpp">
+      <Filter>src\game\team</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoadScene.h">
+      <Filter>src\load</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLayer.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameScene.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StringTools.h">
+      <Filter>src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dream.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamCallback.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamEvent.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Audio.h">
+      <Filter>src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AudioConfig.h">
+      <Filter>src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UserData.h">
+      <Filter>src\user</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Ball.h">
+      <Filter>src\game\ball</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Rocker.h">
+      <Filter>src\game\rocker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FootMan.h">
+      <Filter>src\game\team</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TeamInfoFactory.h">
+      <Filter>src\game\team</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Setting.h">
+      <Filter>src\game\setting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GlobalProperty.h">
+      <Filter>src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PauseLayer.h">
+      <Filter>src\game\pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResultLayer.h">
+      <Filter>src\game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStatus.h">
+      <Filter>src\game\status</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LobbyScene.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StartLayer.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LobbyLayer.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TeamAbility.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GeometryTools.h">
+      <Filter>src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamLayer.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamSecond.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FootballTeam.h">
+      <Filter>src\game\team</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
