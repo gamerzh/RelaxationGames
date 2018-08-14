@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\load">
+      <UniqueIdentifier>{9612d8c8-4ad4-44cd-9970-4fb0e378ad8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{9638ce83-689d-4fb7-a9d4-7aa7b5bd8c4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audio">
+      <UniqueIdentifier>{091c2fde-96bf-4438-81e6-82241797fc69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\user">
+      <UniqueIdentifier>{4718adb1-581a-473d-bca9-85fba5e7b3dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{b507c274-911a-41c3-b8d4-8a4a38307af2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\dream">
+      <UniqueIdentifier>{c72f665b-240f-44e7-8773-bbb17783d5ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\main">
+      <UniqueIdentifier>{3c1946f0-8a08-47fe-bfd9-358a1b721a3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\skin">
+      <UniqueIdentifier>{6d0d463e-fa3b-4059-ab8e-6860cb2e395e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\pause">
+      <UniqueIdentifier>{bbd28e5e-f738-4554-a23f-4c3f8c93369b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\hud">
+      <UniqueIdentifier>{2d982fd1-4ad7-40db-a7b7-1ca57d76c88e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\result">
+      <UniqueIdentifier>{1173a716-a53e-43a8-8a2e-e2c4af62a6da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\yun">
+      <UniqueIdentifier>{d71c1df5-2c28-4a44-9ad1-4fd51365cfcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\guide">
+      <UniqueIdentifier>{1fa1afa0-987a-4a1e-bc17-f85e89001dbc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoadScene.cpp">
+      <Filter>src\load</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameScene.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Audio.cpp">
+      <Filter>src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UserData.cpp">
+      <Filter>src\user</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StringTools.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStatus.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dream.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamCallback.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Hero.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GeometryTools.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Brick.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Pillar.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainLayer.cpp">
+      <Filter>src\game\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkinLayer.cpp">
+      <Filter>src\game\skin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PauseLayer.cpp">
+      <Filter>src\game\pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SetingLayer.cpp">
+      <Filter>src\game\hud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResultLayer.cpp">
+      <Filter>src\game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamLayer.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DreamSecond.cpp">
+      <Filter>src\dream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Cloud.cpp">
+      <Filter>src\game\yun</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChineseWorld.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GuideLayer.cpp">
+      <Filter>src\game\guide</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoadScene.h">
+      <Filter>src\load</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameScene.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLayer.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Audio.h">
+      <Filter>src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AudioConfig.h">
+      <Filter>src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UserData.h">
+      <Filter>src\user</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StringTools.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStatus.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dream.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamCallback.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamEvent.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Brick.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GeometryTools.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Pillar.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainLayer.h">
+      <Filter>src\game\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkinLayer.h">
+      <Filter>src\game\skin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PauseLayer.h">
+      <Filter>src\game\pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SetingLayer.h">
+      <Filter>src\game\hud</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResultLayer.h">
+      <Filter>src\game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamLayer.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DreamSecond.h">
+      <Filter>src\dream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Cloud.h">
+      <Filter>src\game\yun</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChineseWorld.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GuideLayer.h">
+      <Filter>src\game\guide</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
