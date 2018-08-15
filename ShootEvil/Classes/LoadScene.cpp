@@ -7,7 +7,7 @@ USING_NS_CC;
 Scene* LoadScene::createScene()
 {
 	return LoadScene::create();
-}
+} 
 
 bool LoadScene::init()
 {
