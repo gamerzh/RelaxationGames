@@ -1,18 +1,17 @@
 //
-//  Enemy.cpp
+//  Hero.cpp
 //  ShootEvil
 //
-//
+
+#include "Hero.h"
 USING_NS_CC;
 
-#include "Enemy.h"
-
-bool Enemy::init(){
+bool Hero::init(){
     if(!Sprite::init()){
         return false;
     }
     // init  sprite
-    this->initWithFile(getTextureName());
+    this->initWithFile("");
     // create a static PhysicsBody
     auto size = this->getContentSize();
     auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 1.0f, 0.0f));
@@ -21,17 +20,11 @@ bool Enemy::init(){
     this->addComponent(physicsBody);
     //add contact event listener
     //    auto contactListener = EventListenerPhysicsContact::create();
-    //    contactListener->onContactBegin = CC_CALLBACK_1(Enemy::onContactBegin, this);
+    //    contactListener->onContactBegin = CC_CALLBACK_1(Hero::onContactBegin, this);
     //    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
-    
     return true;
 }
 
-//bool Enemy::onContactBegin(PhysicsContact& contact){
+//bool Hero::onContactBegin(PhysicsContact& contact){
 //    return true;
 //}
-
-std::string Enemy::getTextureName(){
-    return "";
-}
-

@@ -84,6 +84,8 @@
 		D203B5722122D5B6001F056C /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5592122D5B6001F056C /* ResultLayer.cpp */; };
 		D203B5822123BFDF001F056C /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5802123BFDF001F056C /* Enemy.cpp */; };
 		D203B5832123BFDF001F056C /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5802123BFDF001F056C /* Enemy.cpp */; };
+		D203B5872123F407001F056C /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5852123F407001F056C /* Hero.cpp */; };
+		D203B5882123F407001F056C /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5852123F407001F056C /* Hero.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -208,6 +210,8 @@
 		D203B55A2122D5B6001F056C /* StringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringTools.h; sourceTree = "<group>"; };
 		D203B5802123BFDF001F056C /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		D203B5812123BFDF001F056C /* Enemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		D203B5852123F407001F056C /* Hero.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hero.cpp; sourceTree = "<group>"; };
+		D203B5862123F407001F056C /* Hero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -445,6 +449,7 @@
 		D203B5792123B8EF001F056C /* game */ = {
 			isa = PBXGroup;
 			children = (
+				D203B5842123F3E6001F056C /* hero */,
 				D203B57F2123BFB8001F056C /* enemy */,
 				D203B57E2123BF3F001F056C /* scene */,
 				D203B57D2123BF2D001F056C /* status */,
@@ -507,6 +512,15 @@
 				D203B5812123BFDF001F056C /* Enemy.h */,
 			);
 			name = enemy;
+			sourceTree = "<group>";
+		};
+		D203B5842123F3E6001F056C /* hero */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5852123F407001F056C /* Hero.cpp */,
+				D203B5862123F407001F056C /* Hero.h */,
+			);
+			name = hero;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -664,6 +678,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				D203B56B2122D5B6001F056C /* GameLayer.cpp in Sources */,
 				D203B5712122D5B6001F056C /* ResultLayer.cpp in Sources */,
+				D203B5872123F407001F056C /* Hero.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				D203B55F2122D5B6001F056C /* LoadScene.cpp in Sources */,
@@ -682,6 +697,7 @@
 				D203B5682122D5B6001F056C /* DreamCallback.cpp in Sources */,
 				D203B5602122D5B6001F056C /* LoadScene.cpp in Sources */,
 				D203B55C2122D5B6001F056C /* StringTools.cpp in Sources */,
+				D203B5882123F407001F056C /* Hero.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				D203B55E2122D5B6001F056C /* Dream.cpp in Sources */,
 				D203B56C2122D5B6001F056C /* GameLayer.cpp in Sources */,
