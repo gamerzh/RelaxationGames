@@ -1,5 +1,4 @@
 #include "GameLayer.h"
-#include "ResultScene.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -14,7 +13,7 @@ bool GameLayer::init() {
 	auto node = Node::create();
 	addChild(node);
 	auto action = Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
-		Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
+//        Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
 	}), NULL);
 	node->runAction(action);
 

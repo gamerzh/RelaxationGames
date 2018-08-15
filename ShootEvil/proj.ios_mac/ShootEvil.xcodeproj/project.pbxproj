@@ -80,8 +80,6 @@
 		D203B56C2122D5B6001F056C /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5502122D5B5001F056C /* GameLayer.cpp */; };
 		D203B56D2122D5B6001F056C /* GameStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5522122D5B5001F056C /* GameStatus.cpp */; };
 		D203B56E2122D5B6001F056C /* GameStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5522122D5B5001F056C /* GameStatus.cpp */; };
-		D203B56F2122D5B6001F056C /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5552122D5B5001F056C /* ResultScene.cpp */; };
-		D203B5702122D5B6001F056C /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5552122D5B5001F056C /* ResultScene.cpp */; };
 		D203B5712122D5B6001F056C /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5592122D5B6001F056C /* ResultLayer.cpp */; };
 		D203B5722122D5B6001F056C /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B5592122D5B6001F056C /* ResultLayer.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -120,6 +118,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
+		};
+		D203B5752123B8BA001F056C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -193,9 +198,7 @@
 		D203B5502122D5B5001F056C /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		D203B5512122D5B5001F056C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D203B5522122D5B5001F056C /* GameStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatus.cpp; sourceTree = "<group>"; };
-		D203B5532122D5B5001F056C /* ResultScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultScene.h; sourceTree = "<group>"; };
 		D203B5542122D5B5001F056C /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
-		D203B5552122D5B5001F056C /* ResultScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultScene.cpp; sourceTree = "<group>"; };
 		D203B5562122D5B5001F056C /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
 		D203B5572122D5B6001F056C /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		D203B5582122D5B6001F056C /* GameStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatus.h; sourceTree = "<group>"; };
@@ -282,6 +285,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				D203B5762123B8BA001F056C /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,32 +347,14 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D203B57B2123B91A001F056C /* user */,
+				D203B57A2123B90E001F056C /* tools */,
+				D203B5792123B8EF001F056C /* game */,
+				D203B5782123B8E4001F056C /* load */,
+				D203B5772123B8D4001F056C /* dream */,
+				D203B5732123B8BA001F056C /* audio */,
 				D203B54B2122D5B5001F056C /* AppDelegate.cpp */,
 				D203B5512122D5B5001F056C /* AppDelegate.h */,
-				D203B5472122D5B5001F056C /* Audio.cpp */,
-				D203B5572122D5B6001F056C /* Audio.h */,
-				D203B5492122D5B5001F056C /* AudioConfig.h */,
-				D203B5442122D5B5001F056C /* Dream.cpp */,
-				D203B5412122D5B5001F056C /* Dream.h */,
-				D203B54E2122D5B5001F056C /* DreamCallback.cpp */,
-				D203B5452122D5B5001F056C /* DreamCallback.h */,
-				D203B54C2122D5B5001F056C /* DreamEvent.h */,
-				D203B5502122D5B5001F056C /* GameLayer.cpp */,
-				D203B5422122D5B5001F056C /* GameLayer.h */,
-				D203B5482122D5B5001F056C /* GameScene.cpp */,
-				D203B54A2122D5B5001F056C /* GameScene.h */,
-				D203B5522122D5B5001F056C /* GameStatus.cpp */,
-				D203B5582122D5B6001F056C /* GameStatus.h */,
-				D203B5462122D5B5001F056C /* LoadScene.cpp */,
-				D203B54D2122D5B5001F056C /* LoadScene.h */,
-				D203B5592122D5B6001F056C /* ResultLayer.cpp */,
-				D203B5562122D5B5001F056C /* ResultLayer.h */,
-				D203B5552122D5B5001F056C /* ResultScene.cpp */,
-				D203B5532122D5B5001F056C /* ResultScene.h */,
-				D203B5432122D5B5001F056C /* StringTools.cpp */,
-				D203B55A2122D5B6001F056C /* StringTools.h */,
-				D203B54F2122D5B5001F056C /* UserData.cpp */,
-				D203B5542122D5B5001F056C /* UserData.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -420,6 +406,70 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		D203B5732123B8BA001F056C /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5492122D5B5001F056C /* AudioConfig.h */,
+				D203B5472122D5B5001F056C /* Audio.cpp */,
+				D203B5572122D5B6001F056C /* Audio.h */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		D203B5772123B8D4001F056C /* dream */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5442122D5B5001F056C /* Dream.cpp */,
+				D203B5412122D5B5001F056C /* Dream.h */,
+				D203B54E2122D5B5001F056C /* DreamCallback.cpp */,
+				D203B5452122D5B5001F056C /* DreamCallback.h */,
+				D203B54C2122D5B5001F056C /* DreamEvent.h */,
+			);
+			name = dream;
+			sourceTree = "<group>";
+		};
+		D203B5782123B8E4001F056C /* load */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5462122D5B5001F056C /* LoadScene.cpp */,
+				D203B54D2122D5B5001F056C /* LoadScene.h */,
+			);
+			name = load;
+			sourceTree = "<group>";
+		};
+		D203B5792123B8EF001F056C /* game */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5592122D5B6001F056C /* ResultLayer.cpp */,
+				D203B5562122D5B5001F056C /* ResultLayer.h */,
+				D203B5502122D5B5001F056C /* GameLayer.cpp */,
+				D203B5422122D5B5001F056C /* GameLayer.h */,
+				D203B5482122D5B5001F056C /* GameScene.cpp */,
+				D203B54A2122D5B5001F056C /* GameScene.h */,
+				D203B5522122D5B5001F056C /* GameStatus.cpp */,
+				D203B5582122D5B6001F056C /* GameStatus.h */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		D203B57A2123B90E001F056C /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5432122D5B5001F056C /* StringTools.cpp */,
+				D203B55A2122D5B6001F056C /* StringTools.h */,
+			);
+			name = tools;
+			sourceTree = "<group>";
+		};
+		D203B57B2123B91A001F056C /* user */ = {
+			isa = PBXGroup;
+			children = (
+				D203B54F2122D5B5001F056C /* UserData.cpp */,
+				D203B5542122D5B5001F056C /* UserData.h */,
+			);
+			name = user;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -509,6 +559,13 @@
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D203B5762123B8BA001F056C /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = D203B5752123B8BA001F056C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -570,7 +627,6 @@
 				D203B56B2122D5B6001F056C /* GameLayer.cpp in Sources */,
 				D203B5712122D5B6001F056C /* ResultLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				D203B56F2122D5B6001F056C /* ResultScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				D203B55F2122D5B6001F056C /* LoadScene.cpp in Sources */,
 				D203B56D2122D5B6001F056C /* GameStatus.cpp in Sources */,
@@ -589,7 +645,6 @@
 				D203B55C2122D5B6001F056C /* StringTools.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				D203B55E2122D5B6001F056C /* Dream.cpp in Sources */,
-				D203B5702122D5B6001F056C /* ResultScene.cpp in Sources */,
 				D203B56C2122D5B6001F056C /* GameLayer.cpp in Sources */,
 				D203B5662122D5B6001F056C /* AppDelegate.cpp in Sources */,
 				D203B5642122D5B6001F056C /* GameScene.cpp in Sources */,
