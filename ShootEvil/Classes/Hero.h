@@ -9,7 +9,7 @@
 class Hero : public cocos2d::Sprite{
 public:
     virtual bool init();
-    CREATE_FUNC(Enemy);
+    CREATE_FUNC(Hero);
 //    bool onContactBegin(cocos2d::PhysicsContact& contact);
 };
 #endif /* Hero_h */

@@ -11,7 +11,7 @@ bool Hero::init(){
         return false;
     }
     // init  sprite
-    this->initWithFile("");
+    this->initWithFile("hero.png");
     // create a static PhysicsBody
     auto size = this->getContentSize();
     auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 1.0f, 0.0f));

@@ -1,4 +1,5 @@
 #include "GameLayer.h"
+#include "Hero.h"
 USING_NS_CC;
 
 bool GameLayer::init() {
@@ -7,15 +8,13 @@ bool GameLayer::init() {
 	}
 
 
-	auto black = LayerColor::create(Color4B(200, 200, 200, 204), 720, 1280);
+	auto black = LayerColor::create(Color4B(200, 200, 200, 204), 1280, 720);
 	addChild(black);
-
-	auto node = Node::create();
-	addChild(node);
-	auto action = Sequence::create(DelayTime::create(5), CallFunc::create([=]() {
-//        Director::getInstance()->replaceScene(TransitionMoveInT::create(1.0f, ResultScene::create()));
-	}), NULL);
-	node->runAction(action);
+    
+    auto hero = Hero::create();
+    hero->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
+    hero->setPosition(640,0);
+    addChild(hero);
 
 	return true;
 }
