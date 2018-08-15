@@ -16,5 +16,11 @@ bool GameLayer::init() {
     hero->setPosition(640,0);
     addChild(hero);
 
+    loadControlPad();
+    
 	return true;
+}
+
+void GameLayer::loadControlPad(){
+//
 }
