@@ -441,14 +441,9 @@
 		D203B5792123B8EF001F056C /* game */ = {
 			isa = PBXGroup;
 			children = (
-				D203B5592122D5B6001F056C /* ResultLayer.cpp */,
-				D203B5562122D5B5001F056C /* ResultLayer.h */,
-				D203B5502122D5B5001F056C /* GameLayer.cpp */,
-				D203B5422122D5B5001F056C /* GameLayer.h */,
-				D203B5482122D5B5001F056C /* GameScene.cpp */,
-				D203B54A2122D5B5001F056C /* GameScene.h */,
-				D203B5522122D5B5001F056C /* GameStatus.cpp */,
-				D203B5582122D5B6001F056C /* GameStatus.h */,
+				D203B57E2123BF3F001F056C /* scene */,
+				D203B57D2123BF2D001F056C /* status */,
+				D203B57C2123BF1A001F056C /* result */,
 			);
 			name = game;
 			sourceTree = "<group>";
@@ -469,6 +464,35 @@
 				D203B5542122D5B5001F056C /* UserData.h */,
 			);
 			name = user;
+			sourceTree = "<group>";
+		};
+		D203B57C2123BF1A001F056C /* result */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5592122D5B6001F056C /* ResultLayer.cpp */,
+				D203B5562122D5B5001F056C /* ResultLayer.h */,
+			);
+			name = result;
+			sourceTree = "<group>";
+		};
+		D203B57D2123BF2D001F056C /* status */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5522122D5B5001F056C /* GameStatus.cpp */,
+				D203B5582122D5B6001F056C /* GameStatus.h */,
+			);
+			name = status;
+			sourceTree = "<group>";
+		};
+		D203B57E2123BF3F001F056C /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				D203B5502122D5B5001F056C /* GameLayer.cpp */,
+				D203B5422122D5B5001F056C /* GameLayer.h */,
+				D203B5482122D5B5001F056C /* GameScene.cpp */,
+				D203B54A2122D5B5001F056C /* GameScene.h */,
+			);
+			name = scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
