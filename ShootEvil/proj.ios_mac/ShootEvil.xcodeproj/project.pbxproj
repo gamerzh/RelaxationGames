@@ -82,6 +82,12 @@
 		D203B58B2124001E001F056C /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = D203B5892124001E001F056C /* hero.png */; };
 		D203B58D212400D4001F056C /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B58C212400D4001F056C /* AppDelegate.cpp */; };
 		D203B58E212400D4001F056C /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B58C212400D4001F056C /* AppDelegate.cpp */; };
+		D203B5922125167A001F056C /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = D203B5902125167A001F056C /* left.png */; };
+		D203B5932125167A001F056C /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = D203B5902125167A001F056C /* left.png */; };
+		D203B59821252647001F056C /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B59621252647001F056C /* Bullet.cpp */; };
+		D203B59921252647001F056C /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D203B59621252647001F056C /* Bullet.cpp */; };
+		D203B59B212545EB001F056C /* bullet1.png in Resources */ = {isa = PBXBuildFile; fileRef = D203B59A212545EB001F056C /* bullet1.png */; };
+		D203B59C212545EB001F056C /* bullet1.png in Resources */ = {isa = PBXBuildFile; fileRef = D203B59A212545EB001F056C /* bullet1.png */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -206,6 +212,10 @@
 		D203B5862123F407001F056C /* Hero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		D203B5892124001E001F056C /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		D203B58C212400D4001F056C /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		D203B5902125167A001F056C /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		D203B59621252647001F056C /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
+		D203B59721252647001F056C /* Bullet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		D203B59A212545EB001F056C /* bullet1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet1.png; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -336,6 +346,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D203B59A212545EB001F056C /* bullet1.png */,
+				D203B5902125167A001F056C /* left.png */,
 				D203B5892124001E001F056C /* hero.png */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
@@ -441,6 +453,7 @@
 		D203B5792123B8EF001F056C /* game */ = {
 			isa = PBXGroup;
 			children = (
+				D203B59421252625001F056C /* bullet */,
 				D203B5842123F3E6001F056C /* hero */,
 				D203B57F2123BFB8001F056C /* enemy */,
 				D203B57E2123BF3F001F056C /* scene */,
@@ -513,6 +526,15 @@
 				D203B5862123F407001F056C /* Hero.h */,
 			);
 			name = hero;
+			sourceTree = "<group>";
+		};
+		D203B59421252625001F056C /* bullet */ = {
+			isa = PBXGroup;
+			children = (
+				D203B59621252647001F056C /* Bullet.cpp */,
+				D203B59721252647001F056C /* Bullet.h */,
+			);
+			name = bullet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -617,8 +639,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D203B5922125167A001F056C /* left.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				D203B59B212545EB001F056C /* bullet1.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
@@ -646,6 +670,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				D203B59C212545EB001F056C /* bullet1.png in Resources */,
+				D203B5932125167A001F056C /* left.png in Resources */,
 				D203B58B2124001E001F056C /* hero.png in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
@@ -671,6 +697,7 @@
 				D203B55F2122D5B6001F056C /* LoadScene.cpp in Sources */,
 				D203B56D2122D5B6001F056C /* GameStatus.cpp in Sources */,
 				D203B5632122D5B6001F056C /* GameScene.cpp in Sources */,
+				D203B59821252647001F056C /* Bullet.cpp in Sources */,
 				D203B58D212400D4001F056C /* AppDelegate.cpp in Sources */,
 				D203B5822123BFDF001F056C /* Enemy.cpp in Sources */,
 				D203B55D2122D5B6001F056C /* Dream.cpp in Sources */,
@@ -692,6 +719,7 @@
 				D203B56C2122D5B6001F056C /* GameLayer.cpp in Sources */,
 				D203B5832123BFDF001F056C /* Enemy.cpp in Sources */,
 				D203B5642122D5B6001F056C /* GameScene.cpp in Sources */,
+				D203B59921252647001F056C /* Bullet.cpp in Sources */,
 				D203B56A2122D5B6001F056C /* UserData.cpp in Sources */,
 				D203B5622122D5B6001F056C /* Audio.cpp in Sources */,
 				D203B5722122D5B6001F056C /* ResultLayer.cpp in Sources */,
