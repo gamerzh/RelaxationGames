@@ -17,8 +17,8 @@ bool Bullet::init(){
     auto size = this->getContentSize();
     auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 1.0f, 0.0f));
     physicsBody->setDynamic(true);
-    physicsBody->setCategoryBitmask(0x01);
-    physicsBody->setCollisionBitmask(0x02);
+    physicsBody->setCategoryBitmask(0x04);//0100
+    physicsBody->setCollisionBitmask(0x02);//0010
     physicsBody->setGravityEnable(false);
     // sprite will use physicsBody
     this->addComponent(physicsBody);

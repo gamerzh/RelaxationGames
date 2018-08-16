@@ -13,7 +13,7 @@ bool GameLayer::init() {
     superHero = Hero::create();
     superHero->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
     superHero->setPosition(640,0);
-    addChild(superHero);
+    addChild(superHero,10);
 
     loadControlPad();
     
@@ -23,6 +23,7 @@ bool GameLayer::init() {
     listener->onTouchEnded = CC_CALLBACK_2(GameLayer::onTouchEnded, this);
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     
+    schedule(schedule_selector(GameLayer::generateEnemy),2,CC_REPEAT_FOREVER, 0);
 	return true;
 }
 
@@ -42,6 +43,12 @@ void GameLayer::loadControlPad(){
     addChild(right);
 }
 
+void GameLayer::generateEnemy(float dt){
+    auto enemy = Enemy::create();
+    enemy->setPosition(random(100, 1180),700);
+    addChild(enemy);
+}
+
 bool GameLayer::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
     if(leftRect.containsPoint(touch->getLocation())){
         //moveleft
@@ -53,7 +60,7 @@ bool GameLayer::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
         //slide
     }else if(shootRect.containsPoint(touch->getLocation())){
         //shoot
-        superHero->shoot();
+        shoot();
     }
     return true;
 }
@@ -64,4 +71,11 @@ void GameLayer::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event){
 
 void GameLayer::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event){
      superHero->controlHero(false, Hero::Direction::null);
+}
+
+
+void GameLayer::shoot(){
+    auto bul = Bullet::create();
+    bul->setPosition(superHero->getPositionX(),0);
+    addChild(bul);
 }

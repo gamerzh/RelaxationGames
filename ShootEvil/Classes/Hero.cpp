@@ -16,21 +16,14 @@ bool Hero::init(){
     this->initWithFile("hero.png");
     // create a static PhysicsBody
     auto size = this->getContentSize();
-    auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 1.0f, 0.0f));
+    auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(100, 1.0f, 0.0f));
     physicsBody->setDynamic(true);
-    physicsBody->setCategoryBitmask(0x01);
-    physicsBody->setCollisionBitmask(0x02);
+    physicsBody->setCategoryBitmask(0x03);//0011
+    physicsBody->setCollisionBitmask(0x02);//0010
     // sprite will use physicsBody
     this->addComponent(physicsBody);
     scheduleUpdate();
     return true;
-}
-
-
-void Hero::shoot(){
-    auto bul = Bullet::create();
-    bul->setPosition(31,0);
-    addChild(bul,-1);
 }
 
 void Hero::controlHero(bool move,Direction dir){

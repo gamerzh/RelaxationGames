@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "Hero.h"
+#include "Enemy.h"
 
 class GameLayer : public cocos2d::Layer {
 public:
@@ -16,5 +17,6 @@ private:
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     void loadControlPad();
-
+    void generateEnemy(float dt);
+    void shoot();
 };

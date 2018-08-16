@@ -17,7 +17,6 @@ public:
     virtual bool init();
     CREATE_FUNC(Hero);
     void controlHero(bool move,Direction dir);
-    void shoot();
 private:
     Direction moveDir;
     bool isMoveing;
