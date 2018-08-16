@@ -17,7 +17,7 @@ bool Enemy::init(){
     auto size = this->getContentSize();
     auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 1.0f, 0.0f));
     physicsBody->setCategoryBitmask(0x02);//0010
-    physicsBody->setCollisionBitmask(0x07);//0111
+    physicsBody->setCollisionBitmask(0x07 );//0111
     physicsBody->setDynamic(true);
     physicsBody->setGravityEnable(true);
     // sprite will use physicsBody
