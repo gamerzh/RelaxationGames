@@ -32,7 +32,6 @@ bool Bullet::init(){
 
 bool Bullet::onContactBegin(PhysicsContact& contact)
 {
-    log("AAAAAAAAA");
     return true;
 }
 
