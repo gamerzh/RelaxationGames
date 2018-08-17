@@ -31,24 +31,14 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        var physicsManager = cc.director.getPhysicsManager();
-        physicsManager.enabled = true;
-        physicsManager.debugDrawFlags = cc.PhysicsManager.DrawBits.e_aabbBit |
-        cc.PhysicsManager.DrawBits.e_pairBit |
-        cc.PhysicsManager.DrawBits.e_centerOfMassBit |
-        cc.PhysicsManager.DrawBits.e_jointBit |
-        cc.PhysicsManager.DrawBits.e_shapeBit;
-
-        var collisionManager = cc.director.getCollisionManager();
-        collisionManager.enabled = true;
-        collisionManager.enabledDebugDraw = true;
-
-    },
+    // onLoad () {},
 
     start () {
-        // console.log("AAAAAAAAAAAAA");
+
     },
 
-    // update (dt) {},
+    update (dt) {
+        var pos = this.node.getPosition();
+        this.node.setPosition(pos.x,pos.y+4);
+    },
 });
