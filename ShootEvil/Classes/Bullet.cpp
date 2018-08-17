@@ -17,12 +17,22 @@ bool Bullet::init(){
     auto size = this->getContentSize();
     auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 1.0f, 0.0f));
     physicsBody->setDynamic(true);
+    physicsBody->setRotationEnable(false);
+    physicsBody->setContactTestBitmask(0x04);//1111
     physicsBody->setCategoryBitmask(0x04);//0100
     physicsBody->setCollisionBitmask(0x02);//0010
     physicsBody->setGravityEnable(false);
     // sprite will use physicsBody
     this->addComponent(physicsBody);
-    scheduleUpdate();
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(Bullet::onContactBegin, this);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
+    return true;
+}
+
+bool Bullet::onContactBegin(PhysicsContact& contact)
+{
+    log("AAAAAAAAA");
     return true;
 }
 

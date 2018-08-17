@@ -18,11 +18,11 @@ bool Hero::init(){
     auto size = this->getContentSize();
     auto physicsBody = PhysicsBody::createBox(size, PhysicsMaterial(100, 1.0f, 0.0f));
     physicsBody->setDynamic(true);
+//    physicsBody->setContactTestBitmask(0x03);
     physicsBody->setCategoryBitmask(0x03);//0011
     physicsBody->setCollisionBitmask(0x02);//0010
     // sprite will use physicsBody
     this->addComponent(physicsBody);
-    scheduleUpdate();
     return true;
 }
 

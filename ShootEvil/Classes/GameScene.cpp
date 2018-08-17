@@ -6,6 +6,7 @@ bool GameScene::init() {
 	if (!Scene::initWithPhysics()) {
 		return false;
 	}
+    this->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 	addLayerToScene();
 	return true;
 }

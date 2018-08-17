@@ -23,7 +23,8 @@ bool GameLayer::init() {
     listener->onTouchEnded = CC_CALLBACK_2(GameLayer::onTouchEnded, this);
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     
-    schedule(schedule_selector(GameLayer::generateEnemy),2,CC_REPEAT_FOREVER, 0);
+    generateEnemy(0);
+//    schedule(schedule_selector(GameLayer::generateEnemy),10);
 	return true;
 }
 
@@ -47,6 +48,13 @@ void GameLayer::generateEnemy(float dt){
     auto enemy = Enemy::create();
     enemy->setPosition(random(100, 1180),700);
     addChild(enemy);
+}
+
+void GameLayer::shoot(){
+    auto bul = Bullet::create();
+    bul->setPosition(superHero->getPositionX(),0);
+    bul->setName("bullet");
+    addChild(bul);
 }
 
 bool GameLayer::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event){
@@ -74,8 +82,3 @@ void GameLayer::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event){
 }
 
 
-void GameLayer::shoot(){
-    auto bul = Bullet::create();
-    bul->setPosition(superHero->getPositionX(),0);
-    addChild(bul);
-}

@@ -13,5 +13,6 @@ public:
     CREATE_FUNC(Bullet);
 private:
     void update(float dt);
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
 };
 #endif /* Bullet_hpp */

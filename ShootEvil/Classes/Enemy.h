@@ -11,7 +11,8 @@ class Enemy : public cocos2d::Sprite{
 public:
     virtual bool init();
     CREATE_FUNC(Enemy);
-//    bool onContactBegin(cocos2d::PhysicsContact& contact);
     std::string getTextureName();
+private:
+      bool onContactBegin(cocos2d::PhysicsContact& contact);
 };
 #endif /* Enemy_h */
