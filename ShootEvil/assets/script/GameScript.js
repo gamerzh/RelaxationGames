@@ -12,21 +12,7 @@ cc.Class({
   extends: cc.Component,
 
   properties: {
-    // foo: {
-    //     // ATTRIBUTES:
-    //     default: null,        // The default value will be used only when the component attaching
-    //                           // to a node for the first time
-    //     type: cc.SpriteFrame, // optional, default is typeof default
-    //     serializable: true,   // optional, default is true
-    // },
-    // bar: {
-    //     get () {
-    //         return this._bar;
-    //     },
-    //     set (value) {
-    //         this._bar = value;
-    //     }
-    // },
+    hero: cc.Node
   },
 
   // LIFE-CYCLE CALLBACKS:
@@ -51,24 +37,63 @@ cc.Class({
     //TODO:
   },
 
-  update(dt) {},
+  update(dt) {
+    if (this.moveLeft) {
+      this.hero.x -= 2;
+    }else if(this.moveRight){
+      this.hero.x += 2;
+    }
+  },
 
   touchEvent() {
     // 使用枚举类型来注册
     this.node.on(
       cc.Node.EventType.TOUCH_START,
       function(event) {
-        console.log("Mouse down");
+        console.log("Touch down");
+        var temp = event.getLocation();
+        if(temp.x<=200){
+          this.moveLeft = true;
+        }else if(temp.x<=400){
+          this.moveRight = true;
+        }else if(temp.x>=880 && temp.x<1080){
+          //TODO:
+        }else if(temp.x>1080){
+            this.shoot();
+        }
+        console.log("x = ", temp.x);
+        console.log("y = ", temp.y);
       },
       this
     );
-    //
     this.node.on(
-      cc.Node.EventType.MOUSE_DOWN,
+      cc.Node.EventType.TOUCH_END,
       function(event) {
-        console.log("Mouse down ...");
+        this.moveLeft = false;
+        this.moveRight = false;
       },
       this
     );
-  }
+    // this.node.on(
+    //   cc.Node.EventType.MOUSE_DOWN,
+    //   function(event) {
+    //     console.log("Mouse down ...");
+    //   },
+    //   this
+    // );
+    // this.node.on(
+    //   cc.Node.EventType.MOUSE_UP,
+    //   function(event) {
+    //     console.log("Mouse down ...");
+    //     this.moveLeft = false;
+    //   },
+    //   this
+    // );
+  },
+
+  shoot(){
+
+
+  },
+
 });
