@@ -21,17 +21,20 @@ cc.Class({
 
   start() {},
 
-  init() {},
+  init(gameScript) {
+     
+      this.game = gameScript;
+  },
 
   update(dt) {
     var pos = this.node.getPosition();
     this.node.setPosition(pos.x, pos.y + 4);
   },
 
-  // 只在两个碰撞体开始接触时被调用一次
+//   // 只在两个碰撞体开始接触时被调用一次
   onBeginContact: function(contact, selfCollider, otherCollider) {
     console.log("onBeginContact onBeginContact onBeginContact");
-    // Game.recycleBullet(this);
+    this.game.recycleBullet(this.node);
   },
 
   // 只在两个碰撞体结束接触时被调用一次

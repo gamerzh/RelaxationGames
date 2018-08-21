@@ -8,8 +8,6 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-const Bullet = require("BulletScript");
-
 cc.Class({
   extends: cc.Component,
 
@@ -67,11 +65,13 @@ initBulletPool(){
     bullet.setPosition(pos.x,pos.y);
     // this.node.addChild(bullet);
     bullet.parent = this.node.parent; 
-    bullet.getComponent('BulletScript').init(); //接下来就可以调用 bullet 身上的脚本进行初始化
+    console.log(this);
+    bullet.getComponent('BulletScript').init(this); //接下来就可以调用 bullet 身上的脚本进行初始化
 
   },
 
   recycleBullet:function(bullet){
+    console.log("HHHHHHHH");
     this.bulletPool.put(bullet);
   },
 
@@ -134,5 +134,26 @@ initBulletPool(){
     //   this
     // );
   },
+
+    // // 只在两个碰撞体开始接触时被调用一次
+    // onBeginContact: function(contact, selfCollider, otherCollider) {
+    //   console.log("onBeginContact onBeginContact onBeginContact");
+    //   // Game.recycleBullet(this);
+    // },
+  
+    // // 只在两个碰撞体结束接触时被调用一次
+    // onEndContact: function(contact, selfCollider, otherCollider) {
+    //   console.log("onEndContact onEndContact onEndContact");
+    // },
+  
+    // // 每次将要处理碰撞体接触逻辑时被调用
+    // onPreSolve: function(contact, selfCollider, otherCollider) {
+    //   // console.log("onPreSolve onPreSolve onPreSolve");
+    // },
+  
+    // // 每次处理完碰撞体接触逻辑时被调用
+    // onPostSolve: function(contact, selfCollider, otherCollider) {
+    //   // console.log("onPostSolve onPostSolve onPostSolve");
+    // }
 
 });
