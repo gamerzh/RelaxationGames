@@ -8,11 +8,20 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
+const Bullet = require("BulletScript");
+
 cc.Class({
   extends: cc.Component,
 
   properties: {
-    hero: cc.Node
+    bulletPrefab: {
+      default: null,
+      type: cc.Prefab
+    },
+    hero: {
+      default: null,
+      type: cc.Node
+    }
   },
 
   // LIFE-CYCLE CALLBACKS:
@@ -31,16 +40,39 @@ cc.Class({
     collisionManager.enabled = true;
     collisionManager.enabledDebugDraw = true;
     this.touchEvent();
+    this.initBulletPool();
   },
 
   start() {
     //TODO:
   },
 
+initBulletPool(){
+  this.bulletPool = new cc.NodePool("Bullet");
+    let initCount = 20;
+    for (let i = 0; i < initCount; ++i) {
+        let bullet = cc.instantiate(this.bulletPrefab); // 创建节点
+        this.bulletPool.put(bullet); // 通过 putInPool 接口放入对象池
+    }
+},
+
+  preGenerateBullet(pos) {
+    let bullet = null;
+    if (this.bulletPool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
+      bullet = this.bulletPool.get();
+    } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
+      bullet = cc.instantiate(this.bulletPrefab);
+    }
+    this.node.addChild(bullet);
+    bullet.setPosition(pos);
+    // bullet.getComponent('BulletScript').init(); //接下来就可以调用 bullet 身上的脚本进行初始化
+
+  },
+
   update(dt) {
     if (this.moveLeft) {
       this.hero.x -= 2;
-    }else if(this.moveRight){
+    } else if (this.moveRight) {
       this.hero.x += 2;
     }
   },
@@ -52,14 +84,14 @@ cc.Class({
       function(event) {
         console.log("Touch down");
         var temp = event.getLocation();
-        if(temp.x<=200){
+        if (temp.x <= 200) {
           this.moveLeft = true;
-        }else if(temp.x<=400){
+        } else if (temp.x <= 400) {
           this.moveRight = true;
-        }else if(temp.x>=880 && temp.x<1080){
+        } else if (temp.x >= 880 && temp.x < 1080) {
           //TODO:
-        }else if(temp.x>1080){
-            this.shoot();
+        } else if (temp.x > 1080) {
+          this.shoot();
         }
         console.log("x = ", temp.x);
         console.log("y = ", temp.y);
@@ -91,9 +123,5 @@ cc.Class({
     // );
   },
 
-  shoot(){
-
-
-  },
-
+  shoot() {}
 });
