@@ -36,9 +36,9 @@ cc.Class({
       cc.PhysicsManager.DrawBits.e_jointBit |
       cc.PhysicsManager.DrawBits.e_shapeBit;
 
-    var collisionManager = cc.director.getCollisionManager();
-    collisionManager.enabled = true;
-    collisionManager.enabledDebugDraw = true;
+    // var collisionManager = cc.director.getCollisionManager();
+    // collisionManager.enabled = true;
+    // collisionManager.enabledDebugDraw = true;
     this.touchEvent();
     this.initBulletPool();
   },
@@ -63,7 +63,7 @@ initBulletPool(){
     } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
       bullet = cc.instantiate(this.bulletPrefab);
     }
-    console.log("AAAAAA = "+pos.x);
+    // console.log("AAAAAA = "+pos.x);
     bullet.setPosition(pos.x,pos.y);
     // this.node.addChild(bullet);
     bullet.parent = this.node.parent; 
@@ -71,8 +71,12 @@ initBulletPool(){
 
   },
 
+  recycleBullet:function(bullet){
+    this.bulletPool.put(bullet);
+  },
+
   shoot() {
-    console.log("HAHAHA"+this.hero.x);
+    // console.log("HAHAHA"+this.hero.x);
     this.generateBullet(cc.v2(this.hero.x,this.hero.y));
   },
 
