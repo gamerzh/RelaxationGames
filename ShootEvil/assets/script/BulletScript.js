@@ -37,6 +37,10 @@ cc.Class({
 
     },
 
+    init: function () {
+
+    },
+
     update (dt) {
         var pos = this.node.getPosition();
         this.node.setPosition(pos.x,pos.y+4);

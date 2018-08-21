@@ -56,17 +56,24 @@ initBulletPool(){
     }
 },
 
-  preGenerateBullet(pos) {
+  generateBullet(pos) {
     let bullet = null;
     if (this.bulletPool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
       bullet = this.bulletPool.get();
     } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
       bullet = cc.instantiate(this.bulletPrefab);
     }
-    this.node.addChild(bullet);
-    bullet.setPosition(pos);
-    // bullet.getComponent('BulletScript').init(); //接下来就可以调用 bullet 身上的脚本进行初始化
+    console.log("AAAAAA = "+pos.x);
+    bullet.setPosition(pos.x,pos.y);
+    // this.node.addChild(bullet);
+    bullet.parent = this.node.parent; 
+    bullet.getComponent('BulletScript').init(); //接下来就可以调用 bullet 身上的脚本进行初始化
 
+  },
+
+  shoot() {
+    console.log("HAHAHA"+this.hero.x);
+    this.generateBullet(cc.v2(this.hero.x,this.hero.y));
   },
 
   update(dt) {
@@ -75,6 +82,7 @@ initBulletPool(){
     } else if (this.moveRight) {
       this.hero.x += 2;
     }
+    // console.log("Hero pos = ",this.hero.x);
   },
 
   touchEvent() {
@@ -123,5 +131,4 @@ initBulletPool(){
     // );
   },
 
-  shoot() {}
 });
