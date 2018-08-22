@@ -119,9 +119,9 @@ cc.Class({
 
   update(dt) {
     if (this.moveLeft) {
-      this.hero.x -= 2;
+      this.hero.x -= this.hero.getComponent("HeroScript").getSpeed();
     } else if (this.moveRight) {
-      this.hero.x += 2;
+      this.hero.x += this.hero.getComponent("HeroScript").getSpeed();
     }
   },
 
