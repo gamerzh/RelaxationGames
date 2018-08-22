@@ -16,6 +16,10 @@ cc.Class({
       default: null,
       type: cc.Prefab
     },
+    enemyPrefab: {
+      default: null,
+      type: cc.Prefab
+    },
     hero: {
       default: null,
       type: cc.Node
@@ -38,46 +42,79 @@ cc.Class({
     // collisionManager.enabled = true;
     // collisionManager.enabledDebugDraw = true;
     this.touchEvent();
-    this.initBulletPool();
   },
 
   start() {
-    //TODO:
+    this.initBulletPool();
+    this.initEnemyPool();
+    this.schedule(function() {
+      this.generateEnemy();
+    }, 5);
   },
 
-initBulletPool(){
-  this.bulletPool = new cc.NodePool("Bullet");
+  initBulletPool() {
+    this.bulletPool = new cc.NodePool("Bullet");
     let initCount = 20;
     for (let i = 0; i < initCount; ++i) {
-        let bullet = cc.instantiate(this.bulletPrefab); // 创建节点
-        this.bulletPool.put(bullet); // 通过 putInPool 接口放入对象池
+      let bullet = cc.instantiate(this.bulletPrefab); // 创建节点
+      this.bulletPool.put(bullet); // 通过 putInPool 接口放入对象池
     }
-},
+  },
+
+  initEnemyPool() {
+    this.enemyPool = new cc.NodePool("Enemy");
+    let initCount = 10;
+    for (let i = 0; i < initCount; ++i) {
+      let enemy = cc.instantiate(this.enemyPrefab); // 创建节点
+      this.enemyPool.put(enemy); // 通过 putInPool 接口放入对象池
+    }
+  },
 
   generateBullet(pos) {
     let bullet = null;
-    if (this.bulletPool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
+    if (this.bulletPool.size() > 0) {
+      // 通过 size 接口判断对象池中是否有空闲的对象
       bullet = this.bulletPool.get();
-    } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
+    } else {
+      // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
       bullet = cc.instantiate(this.bulletPrefab);
     }
     // console.log("AAAAAA = "+pos.x);
-    bullet.setPosition(pos.x,pos.y);
+    bullet.setPosition(pos.x, pos.y);
     // this.node.addChild(bullet);
     var scene = cc.director.getScene();
-    bullet.parent = scene; 
+    bullet.parent = scene;
     console.log(this);
-    bullet.getComponent('BulletScript').init(this); //接下来就可以调用 bullet 身上的脚本进行初始化
-
+    bullet.getComponent("BulletScript").init(this); //接下来就可以调用 bullet 身上的脚本进行初始化
   },
 
-  recycleBullet:function(bullet){
+  recycleBullet: function(bullet) {
     this.bulletPool.put(bullet);
+  },
+
+  generateEnemy() {
+    let enemy = null;
+    if (this.enemyPool.size() > 0) {
+      // 通过 size 接口判断对象池中是否有空闲的对象
+      enemy = this.enemyPool.get();
+    } else {
+      // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
+      enemy = cc.instantiate(this.enemyPrefab);
+    }
+    enemy.setPosition(Math.random() * 1280, 680);
+    var scene = cc.director.getScene();
+    enemy.parent = scene;
+    console.log(this);
+    enemy.getComponent("EnemyScript").init(this); //接下来就可以调用 bullet 身上的脚本进行初始化
+  },
+
+  recycleEnemy: function(enemy) {
+    this.enemyPool.put(enemy);
   },
 
   shoot() {
     // console.log("HAHAHA"+this.hero.x);
-    this.generateBullet(cc.v2(this.hero.x,this.hero.y));
+    this.generateBullet(cc.v2(this.hero.x, this.hero.y));
   },
 
   update(dt) {
@@ -86,7 +123,6 @@ initBulletPool(){
     } else if (this.moveRight) {
       this.hero.x += 2;
     }
-    // console.log("Hero pos = ",this.hero.x);
   },
 
   touchEvent() {
@@ -118,42 +154,5 @@ initBulletPool(){
       },
       this
     );
-    // this.node.on(
-    //   cc.Node.EventType.MOUSE_DOWN,
-    //   function(event) {
-    //     console.log("Mouse down ...");
-    //   },
-    //   this
-    // );
-    // this.node.on(
-    //   cc.Node.EventType.MOUSE_UP,
-    //   function(event) {
-    //     console.log("Mouse down ...");
-    //     this.moveLeft = false;
-    //   },
-    //   this
-    // );
-  },
-
-    // // 只在两个碰撞体开始接触时被调用一次
-    // onBeginContact: function(contact, selfCollider, otherCollider) {
-    //   console.log("onBeginContact onBeginContact onBeginContact");
-    //   // Game.recycleBullet(this);
-    // },
-  
-    // // 只在两个碰撞体结束接触时被调用一次
-    // onEndContact: function(contact, selfCollider, otherCollider) {
-    //   console.log("onEndContact onEndContact onEndContact");
-    // },
-  
-    // // 每次将要处理碰撞体接触逻辑时被调用
-    // onPreSolve: function(contact, selfCollider, otherCollider) {
-    //   // console.log("onPreSolve onPreSolve onPreSolve");
-    // },
-  
-    // // 每次处理完碰撞体接触逻辑时被调用
-    // onPostSolve: function(contact, selfCollider, otherCollider) {
-    //   // console.log("onPostSolve onPostSolve onPostSolve");
-    // }
-
+  }
 });
