@@ -19,12 +19,20 @@
       false,
       true,
       true,
+      true,
       true
     ],
     [
       false,
       false,
       true,
+      false
+    ],
+    [
+      false,
+      false,
+      true,
+      false,
       false
     ]
   ],
@@ -37,7 +45,8 @@
     "default",
     "hero",
     "enemy",
-    "bullet"
+    "bullet",
+    "ground"
   ],
   "simulator-orientation": false,
   "simulator-resolution": {
@@ -45,6 +54,5 @@
     "width": 960
   },
   "use-customize-simulator": false,
-  "use-project-simulator-setting": false,
-  "start-scene": "current"
+  "use-project-simulator-setting": false
 }
