@@ -71,7 +71,6 @@ initBulletPool(){
   },
 
   recycleBullet:function(bullet){
-    console.log("HHHHHHHH");
     this.bulletPool.put(bullet);
   },
 

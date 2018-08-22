@@ -9,37 +9,30 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
-  extends: cc.Component,
+    extends: cc.Component,
 
-  properties: {
+    properties: {
 
-  },
+    },
 
-  // LIFE-CYCLE CALLBACKS:
+    // LIFE-CYCLE CALLBACKS:
 
-  onLoad () {},
+    onLoad () {
 
-  start() {},
+    },
 
-  init(gameScript) {
-     
-      this.game = gameScript;
-  },
+    start () {
 
-  update(dt) {
-    var pos = this.node.getPosition();
-    this.node.setPosition(pos.x, pos.y + 4);
-  },
+    },
 
-//   // 只在两个碰撞体开始接触时被调用一次
+    //   // 只在两个碰撞体开始接触时被调用一次
   onBeginContact: function(contact, selfCollider, otherCollider) {
-    console.log("Bullet onBeginContact");
-    this.game.recycleBullet(this.node);
+    console.log("ball onBeginContact");
   },
 
   // 只在两个碰撞体结束接触时被调用一次
   onEndContact: function(contact, selfCollider, otherCollider) {
-    console.log("Bullet onEndContact");
+    console.log("ball onEndContact");
   },
 
   // 每次将要处理碰撞体接触逻辑时被调用
@@ -52,4 +45,5 @@ cc.Class({
     // console.log("onPostSolve onPostSolve onPostSolve");
   }
 
+    // update (dt) {},
 });
