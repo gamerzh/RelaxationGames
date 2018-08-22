@@ -64,7 +64,8 @@ initBulletPool(){
     // console.log("AAAAAA = "+pos.x);
     bullet.setPosition(pos.x,pos.y);
     // this.node.addChild(bullet);
-    bullet.parent = this.node.parent; 
+    var scene = cc.director.getScene();
+    bullet.parent = scene; 
     console.log(this);
     bullet.getComponent('BulletScript').init(this); //接下来就可以调用 bullet 身上的脚本进行初始化
 

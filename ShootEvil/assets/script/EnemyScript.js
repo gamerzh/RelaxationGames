@@ -22,12 +22,16 @@ cc.Class({
     },
 
     start () {
-
+      this.blood = 5;
     },
 
     //   // 只在两个碰撞体开始接触时被调用一次
   onBeginContact: function(contact, selfCollider, otherCollider) {
     console.log("ball onBeginContact");
+    console.log(otherCollider);
+    if(otherCollider.node.name == "bullet"){
+        this.blood -= 1;
+    }
   },
 
   // 只在两个碰撞体结束接触时被调用一次
@@ -43,7 +47,11 @@ cc.Class({
   // 每次处理完碰撞体接触逻辑时被调用
   onPostSolve: function(contact, selfCollider, otherCollider) {
     // console.log("onPostSolve onPostSolve onPostSolve");
-  }
+  },
 
-    // update (dt) {},
+    update (dt) {
+      if(this.blood <= 0){
+        this.node.removeFromParent();
+      }
+    },
 });
