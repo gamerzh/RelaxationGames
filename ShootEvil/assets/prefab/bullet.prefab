@@ -76,7 +76,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 11,
+    "_localZOrder": 77,
     "groupIndex": 3,
     "_id": ""
   },
@@ -106,7 +106,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "5eAUj0pzFIXY3Bt3fBFybY"
+    "_id": "09D93wcdRHoLa1qvGZds2c"
   },
   {
     "__type__": "e1806ZUOyRKgY29peyVhxEQ",
@@ -116,7 +116,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_id": "a1Pv2JKLtOrJqIVZ4J889G"
+    "_id": "28JE0YdXFAN7tFWLMBD3gZ"
   },
   {
     "__type__": "cc.RigidBody",
@@ -140,7 +140,7 @@
     "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": true,
-    "_id": "011k2JT25FgqnuyOxvUCAA"
+    "_id": "cc3tGPpBpFzK4GVyFL1ATZ"
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -151,7 +151,7 @@
     },
     "_enabled": true,
     "tag": 0,
-    "_density": 0.2,
+    "_density": 100,
     "_sensor": false,
     "_friction": 1,
     "_restitution": 0.2,
@@ -166,7 +166,7 @@
       "width": 9,
       "height": 21
     },
-    "_id": "22W2/Aoo1Gf7JXzdk/Doep"
+    "_id": "f1mjxt1etJarWpROR0Mwlg"
   },
   {
     "__type__": "cc.PrefabInfo",
