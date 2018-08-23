@@ -47,7 +47,7 @@ cc.Class({
         var button = event.detail;
         //do whatever you want with button
         //另外，注意这种方式注册的事件，也无法传递 customEventData
-        cc.director.loadScene("GameScene");
+        cc.director.loadScene("MainScene");
      },
 
     // update (dt) {},
