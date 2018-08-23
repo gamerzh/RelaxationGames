@@ -31,7 +31,7 @@ cc.Class({
     this.node.setPosition(pos.x, pos.y + 4);
   },
 
-//   // 只在两个碰撞体开始接触时被调用一次
+  // 只在两个碰撞体开始接触时被调用一次
   onBeginContact: function(contact, selfCollider, otherCollider) {
     console.log("Bullet onBeginContact");
     this.game.recycleBullet(this.node);
