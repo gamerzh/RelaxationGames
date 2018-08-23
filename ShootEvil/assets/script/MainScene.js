@@ -31,24 +31,27 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        cc.director.preloadScene("GameScene", function () {
-            cc.log("Next scene preloaded");
-        });
-        // this.node.on('click', this.callback, this);
-    },
+    // onLoad () {},
 
     start () {
-      
+
     },
 
-    callback: function (event) {
+    // update (dt) {},
+
+    selectLevelOne: function (event) {
         //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 Button 组件
         var button = event.detail;
         //do whatever you want with button
         //另外，注意这种方式注册的事件，也无法传递 customEventData
-        cc.director.loadScene("GameScene");
+        console.log("select level one");
      },
 
-    // update (dt) {},
+     selectLevelTwo:function (event){
+        console.log("select level two");
+     },
+
+     selectLevelThree:function (event){
+        console.log("select level three");
+    }
 });
