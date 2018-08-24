@@ -12,43 +12,31 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        progressBar:cc.ProgressBar
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        cc.director.preloadScene("GameScene", function () {
+        cc.director.preloadScene("MainScene", function () {
             cc.log("Next scene preloaded");
         });
-        // this.node.on('click', this.callback, this);
+       this.progressBar.progress = 0;
     },
 
     start () {
-      
+        this.schedule(function() {
+            this.progressUp();
+          },0.1);
     },
 
-    callback: function (event) {
-        //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 Button 组件
-        var button = event.detail;
-        //do whatever you want with button
-        //另外，注意这种方式注册的事件，也无法传递 customEventData
-        cc.director.loadScene("MainScene");
-     },
+    progressUp(){
+        if(this.progressBar.progress<1){
+            this.progressBar.progress += 0.05;
+        }else{
+            cc.director.loadScene("MainScene");
+        }
+    },
 
     // update (dt) {},
 });

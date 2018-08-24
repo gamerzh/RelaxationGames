@@ -31,6 +31,8 @@ cc.Class({
     console.log(otherCollider);
     if (otherCollider.node.name == "bullet") {
       this.blood -= 1;
+    }else if(otherCollider.node.name == "ground"){
+      console.log("KKKKKKKKKK");
     }
   },
 
@@ -46,7 +48,7 @@ cc.Class({
 
   // 每次处理完碰撞体接触逻辑时被调用
   onPostSolve: function(contact, selfCollider, otherCollider) {
-    // console.log("onPostSolve onPostSolve onPostSolve");
+    // console.log("onPostSolve onPostSolve on  PostSolve");
   },
 
   update(dt) {

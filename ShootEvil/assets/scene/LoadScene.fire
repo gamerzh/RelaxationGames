@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5,
-      "y": 0.5,
+      "x": 0.4005201516982455,
+      "y": 0.4005201516982455,
       "z": 1
     },
     "_quat": {
@@ -52,7 +52,7 @@
       "z": 0,
       "w": 1
     },
-    "_localZOrder": 80,
+    "_localZOrder": 130,
     "groupIndex": 0,
     "autoReleaseAssets": false,
     "_id": "ce344d48-2094-41a6-92df-d708ebd5918a"
@@ -79,10 +79,10 @@
     "_level": 0,
     "_components": [
       {
-        "__id__": 13
+        "__id__": 12
       },
       {
-        "__id__": 14
+        "__id__": 13
       }
     ],
     "_prefab": null,
@@ -127,7 +127,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 81,
+    "_localZOrder": 131,
     "groupIndex": 0,
     "_id": "8215iCrmRGTLX2IDw5VwIl"
   },
@@ -188,7 +188,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 89,
+    "_localZOrder": 132,
     "groupIndex": 0,
     "_id": "ebuq92M79Jd71bh+c9vjl/"
   },
@@ -216,7 +216,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "background",
+    "_name": "Background",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -271,7 +271,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 90,
+    "_localZOrder": 133,
     "groupIndex": 0,
     "_id": "d7Lj/nKLRPW4y0IaTbIPEM"
   },
@@ -286,7 +286,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "7d998ef3-4258-4154-bfd1-eb38f9cd92da"
+      "__uuid__": "8afeb700-7c0a-429a-bca0-6abcd06d31ab"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -305,7 +305,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Start",
+    "_name": "ProgressBar",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -336,8 +336,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 797,
+      "height": 49
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -347,7 +347,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": -288,
       "z": 0
     },
     "_scale": {
@@ -367,13 +367,13 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 91,
+    "_localZOrder": 136,
     "groupIndex": 0,
-    "_id": "d6PpEcEzZG3YaU31Qjf8Ez"
+    "_id": "faTzX3W11LMozNHs/SOkUq"
   },
   {
     "__type__": "cc.Node",
-    "_name": "Label",
+    "_name": "bar",
     "_objFlags": 0,
     "_parent": {
       "__id__": 7
@@ -397,18 +397,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 766,
+      "height": 27
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -383,
+      "y": 5,
       "z": 0
     },
     "_scale": {
@@ -428,47 +428,22 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 84,
+    "_localZOrder": 0,
     "groupIndex": 0,
-    "_id": "29+s+lap1J6puuUFeLS92F"
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 8
-    },
-    "_enabled": true,
-    "_srcBlendFactor": 1,
-    "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
-    "_string": "start",
-    "_N$string": "start",
-    "_fontSize": 20,
-    "_lineHeight": 40,
-    "_enableWrapText": false,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 1,
-    "_id": "86GhEmUW9BPpm1Zl9W04fQ"
+    "_id": "54EQflI15EirqU+btM1/yn"
   },
   {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 7
+      "__id__": 8
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "91c5123b-4857-4b0d-9225-0bbdca0e7193"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -483,73 +458,52 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "7aHm29tr5BGLMEhDzFG6V/"
+    "_id": "7f/Z3kR1dLOJxvPfllMgWH"
   },
   {
-    "__type__": "cc.Button",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 7
     },
     "_enabled": true,
-    "transition": 0,
-    "pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "638da7e0-f10b-4b37-9c70-de6f7e3d5994"
     },
-    "hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
+    "_type": 1,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
     },
-    "duration": 0.1,
-    "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 12
-      }
-    ],
-    "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$normalColor": {
-      "__type__": "cc.Color",
-      "r": 214,
-      "g": 214,
-      "b": 214,
-      "a": 255
-    },
-    "_N$disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_N$normalSprite": null,
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
-    "_N$target": {
-      "__id__": 2
-    },
-    "_id": "daLE0eSERA0qQpvnFSQ3/n"
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_state": 0,
+    "_atlas": null,
+    "_id": "3cgXnsQnZOZocRYolXwr7A"
   },
   {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 2
+    "__type__": "cc.ProgressBar",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 7
     },
-    "component": "LoadScene",
-    "handler": "callback",
-    "customEventData": ""
+    "_enabled": true,
+    "_N$totalLength": 766,
+    "_N$barSprite": {
+      "__id__": 9
+    },
+    "_N$mode": 0,
+    "_N$progress": 1,
+    "_N$reverse": false,
+    "_id": "c69F9E+G5MYpCsKAxQ1jsI"
   },
   {
     "__type__": "cc.Canvas",
@@ -576,6 +530,9 @@
       "__id__": 2
     },
     "_enabled": true,
+    "progressBar": {
+      "__id__": 11
+    },
     "_id": "1892uuxrRDH7eNsMaOaGQE"
   }
 ]
