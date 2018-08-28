@@ -37,9 +37,13 @@ cc.Class({
 
      selectLevelTwo:function (event){
         console.log("select level two");
+        this.levelLayer.active = true;
+        this.levelLayer.getComponent("LevelLayer").init(2);
      },
 
      selectLevelThree:function (event){
         console.log("select level three");
+        this.levelLayer.active = true;
+        this.levelLayer.getComponent("LevelLayer").init(3);
     }
 });

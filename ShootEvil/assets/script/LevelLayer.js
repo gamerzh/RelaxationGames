@@ -19,8 +19,24 @@ cc.Class({
   },
 
   // LIFE-CYCLE CALLBACKS:
-  init(level){
-       console.log("HHHHHHHHHH" + level);
+  init(level) {
+    this.level = this.getCountNumber(level);
+    this.itemPool = new cc.NodePool("Item");
+    let initCount = this.level;
+    for (let i = 0; i < initCount; ++i) {
+      let item = cc.instantiate(this.itemPrefab); // 创建节点
+      item.setPosition(-450+i%4*300,200-Math.floor(i/4)*300);
+      this.node.addChild(item);
+    }
+    console.log(this);
+  },
+
+  getCountNumber(level) {
+    if (level === 1) {
+      return 8;
+    } else {
+      return 10;
+    }
   },
 
   onLoad() {
