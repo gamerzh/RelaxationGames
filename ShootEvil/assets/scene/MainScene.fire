@@ -1165,7 +1165,9 @@
       "__id__": 7
     },
     "_enabled": true,
-    "levelLayer": null,
+    "levelLayer": {
+      "__id__": 27
+    },
     "_id": "f4gN017+BNjrHoYsimRqYn"
   },
   {
@@ -1180,7 +1182,7 @@
         "__id__": 28
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 1,
     "_components": [
       {

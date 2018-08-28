@@ -31,6 +31,8 @@ cc.Class({
         //do whatever you want with button
         //另外，注意这种方式注册的事件，也无法传递 customEventData
         console.log("select level one");
+        this.levelLayer.active = true;
+        this.levelLayer.getComponent("LevelLayer").init(1);
      },
 
      selectLevelTwo:function (event){

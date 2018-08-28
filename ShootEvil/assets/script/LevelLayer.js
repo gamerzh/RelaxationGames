@@ -19,6 +19,9 @@ cc.Class({
   },
 
   // LIFE-CYCLE CALLBACKS:
+  init(level){
+       console.log("HHHHHHHHHH" + level);
+  },
 
   onLoad() {
     // this.node.active = true;
