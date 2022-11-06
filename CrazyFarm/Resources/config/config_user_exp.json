@@ -1,0 +1,582 @@
+{
+	"describe": "用户经验配置;" ,
+	"version" : 1,
+	"item_list": [
+		{
+			"level_id"	:	1,
+			"require_exp"	:	0,
+			"reward_list" : [
+				{
+					"item_id"	: 1013,
+					"num"		: 100
+				},
+				{
+					"item_id"	: 1001,
+					"num"		: 200
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				}
+			]
+		},
+		{
+			"level_id"	:	2,
+			"require_exp"	:	378,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	3,
+			"require_exp"	:	998,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	4,
+			"require_exp"	:	1388,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	5,
+			"require_exp"	:	3188,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	6,
+			"require_exp"	:	5588,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	7,
+			"require_exp"	:	6888,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	8,
+			"require_exp"	:	9500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	9,
+			"require_exp"	:	19000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	10,
+			"require_exp"	:	25000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	11,
+			"require_exp"	:	35000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	12,
+			"require_exp"	:	50000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	13,
+			"require_exp"	:	60500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	14,
+			"require_exp"	:	77000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	15,
+			"require_exp"	:	99500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	16,
+			"require_exp"	:	117500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	17,
+			"require_exp"	:	144500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	18,
+			"require_exp"	:	182000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	19,
+			"require_exp"	:	207500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	20,
+			"require_exp"	:	249500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	21,
+			"require_exp"	:	300500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	22,
+			"require_exp"	:	339500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	23,
+			"require_exp"	:	396500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	24,
+			"require_exp"	:	494000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	25,
+			"require_exp"	:	567500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	26,
+			"require_exp"	:	684500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	27,
+			"require_exp"	:	818000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	28,
+			"require_exp"	:	941000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	29,
+			"require_exp"	:	1088000,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	30,
+			"require_exp"	:	1275500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	31,
+			"require_exp"	:	1440500,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		},
+		{
+			"level_id"	:	32,
+			"require_exp"	:	9999999,
+			"reward_list" : [
+				{
+					"item_id"	: 1002,
+					"num"		: 3
+				},
+				{
+					"item_id"	: 1004,
+					"num"		: 2
+				},
+				{
+					"item_id"	: 1003,
+					"num"		: 1
+				}
+			]
+		}
+	]
+}

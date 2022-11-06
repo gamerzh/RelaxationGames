@@ -1,0 +1,24 @@
+{
+  "describe": "vip炮台配置" ,
+  "version" : 1,
+  "item_list": [
+    {
+      "normal_turrent_id" :	1,
+      "turrent_ui_id"     : 1,
+      "unlock_turrent_level" : 1, 
+      "net_per"	          :	1.0,  
+      "catch_per"         :	1.0, 
+      "ui_type"           : 1,    
+      "net_type"          : 1   
+    },
+    {
+      "normal_turrent_id"    : 2,
+      "turrent_ui_id"     : 2,
+      "unlock_turrent_level" : 30, 
+      "net_per"           : 1.5,
+      "catch_per"         : 1.0,
+      "ui_type"           : 1,  
+      "net_type"          : 2   
+    }
+  ]
+}

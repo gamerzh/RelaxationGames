@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.goodgirlclothes.miss.zimon"
+    android:installLocation="auto"
+    android:versionCode="20"
+    android:versionName="2.3.0" >
+
+    <uses-sdk android:minSdkVersion="9" />
+
+    <uses-feature android:glEsVersion="0x00020000" />
+
+    <application
+        android:name="org.cocos2dx.cpp.GameApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+
+        <!-- Tell Cocos2dxActivity the name of our .so -->
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="cocos2dcpp" />
+
+        <activity
+            android:name="org.cocos2dx.cpp.AppActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="org.cocos2dx.cpp.FullscreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="Channel ID"
+            android:value="88_zhiyifu_" />
+        <meta-data
+            android:name="tbu_id"
+            android:value="201533" />
+        <meta-data
+            android:name="debug_model"
+            android:value="false" />
+
+        <!-- zimon config start -->
+        <activity
+            android:name="com.skymobi.pay.sdk.normal.zimon.EpsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <service android:name="com.skymobi.pay.sdk.normal.zimon.EpsService" />
+        <service android:name="com.skymobi.pay.sdk.normal.zimon.sms.PayCtrlService" />
+        <service android:name="com.skymobi.pay.sdk.normal.zimon.sms.SkyPayRemoteService" />
+
+        <receiver
+            android:name="com.skymobi.pay.sdk.normal.zimon.EpsReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.skymobi.pay.plugin.advert" />
+                <action android:name="com.skymobi.pay.plugin.recordupload" />
+                <action android:name="com.skymobi.pay.plugin.push" />
+                <action android:name="com.skymobi.pay.action.plugin" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.unicom.wostore.unipay.paysecurity.SecurityActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+        </activity>
+
+        <service android:name="com.unicom.wostore.unipay.paysecurity.SecurityServiceFramework" />
+
+        <meta-data
+            android:name="ZMMerchantId"
+            android:value="10642" />
+        <meta-data
+            android:name="ZMAppId"
+            android:value="7012339" />
+        <meta-data
+            android:name="ZMOtherEnv"
+            android:value="false" />
+        <!-- zimon config end -->
+
+    </application>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <!-- zimon permission start -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+
+    <!-- zimon permission end -->
+
+</manifest>

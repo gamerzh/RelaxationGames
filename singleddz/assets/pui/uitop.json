@@ -1,0 +1,90 @@
+{
+	"uipoints":[
+				{ "uipoint": 1, "type": "px", "ppoint": 22 },
+				{ "uipoint": 2, "type": "px", "ppoint": 23 },
+				{ "uipoint": 6, "type": "px", "ppoint": 25 },
+				{ "uipoint": 7, "type": "px", "ppoint": 27 },
+				{ "uipoint": 10, "type": "px", "ppoint": 26 },
+				{ "uipoint": 11, "type": "px", "ppoint": 24 },
+				{ "uipoint": 1, "type": "free", "ppoint": 22 },
+				{ "uipoint": 2, "type": "free", "ppoint": 23 },
+				{ "uipoint": 6, "type": "free", "ppoint": 25 },
+				{ "uipoint": 7, "type": "free", "ppoint": 27 },
+				{ "uipoint": 10, "type": "free", "ppoint": 26 },
+				{ "uipoint": 11, "type": "free", "ppoint": 24 },
+				
+				
+				{ "uipoint": 21, "type": "lt", "ppoint": 22 },
+				{ "uipoint": 22, "type": "lt", "ppoint": 23 },
+				{ "uipoint": 26, "type": "lt", "ppoint": 25 },
+				{ "uipoint": 27, "type": "lt", "ppoint": 27 },
+				{ "uipoint": 30, "type": "lt", "ppoint": 26 },
+				{ "uipoint": 28, "type": "lt", "ppoint": 24 },
+				
+				
+				
+				
+				
+				{ "uipoint": 31, "type": "s", "ppoint": 22 },
+				{ "uipoint": 32, "type": "s", "ppoint": 23 },
+				{ "uipoint": 33, "type": "s", "ppoint": 24 },
+				{ "uipoint": 34, "type": "s", "ppoint": 25 },
+				{ "uipoint": 35, "type": "s", "ppoint": 26 },
+				{ "uipoint": 36, "type": "s", "ppoint": 27 },
+				
+				
+				
+				{ "uipoint": 41, "type": "free", "ppoint": 14 },
+				{ "uipoint": 42, "type": "free", "ppoint": 15 },
+				
+				{ "uipoint": 43, "type": "z", "ppoint": 22 },
+				{ "uipoint": 44, "type": "z", "ppoint": 23 },
+				{ "uipoint": 47, "type": "z", "ppoint": 25 },
+				{ "uipoint": 48, "type": "z", "ppoint": 27 },
+				{ "uipoint": 49, "type": "z", "ppoint": 26 },
+				{ "uipoint": 50, "type": "z", "ppoint": 24 },
+				
+				{ "uipoint": 43, "type": "wechat", "ppoint": 22 },
+				{ "uipoint": 44, "type": "wechat", "ppoint": 23 },
+				{ "uipoint": 47, "type": "wechat", "ppoint": 25 },
+				{ "uipoint": 48, "type": "wechat", "ppoint": 27 },
+				{ "uipoint": 49, "type": "wechat", "ppoint": 26 },
+				{ "uipoint": 50, "type": "wechat", "ppoint": 24 },
+				
+				{ "uipoint": 51, "type": "blackpx", "ppoint": 22 },
+				{ "uipoint": 52, "type": "blackpx", "ppoint": 23 },
+				{ "uipoint": 53, "type": "blackpx", "ppoint": 25 },
+				{ "uipoint": 54, "type": "blackpx", "ppoint": 27 },
+				{ "uipoint": 55, "type": "blackpx", "ppoint": 26 },
+				{ "uipoint": 56, "type": "blackpx", "ppoint": 24 },
+				
+				{ "uipoint": 57, "type": "blacklt", "ppoint": 22 },
+				{ "uipoint": 58, "type": "blacklt", "ppoint": 23 },
+				{ "uipoint": 59, "type": "blacklt", "ppoint": 25 },
+				{ "uipoint": 60, "type": "blacklt", "ppoint": 27 },
+				{ "uipoint": 61, "type": "blacklt", "ppoint": 26 },
+				{ "uipoint": 62, "type": "blacklt", "ppoint": 24 },
+				
+				{ "uipoint": 63, "type": "blacks", "ppoint": 22 },
+				{ "uipoint": 64, "type": "blacks", "ppoint": 23 },
+				{ "uipoint": 65, "type": "blacks", "ppoint": 24 },
+				{ "uipoint": 66, "type": "blacks", "ppoint": 25 },
+				{ "uipoint": 67, "type": "blacks", "ppoint": 26 },
+				{ "uipoint": 68, "type": "blacks", "ppoint": 27 },
+				
+				{ "uipoint": 69, "type": "blackz", "ppoint": 22 },
+				{ "uipoint": 70, "type": "blackz", "ppoint": 23 },
+				{ "uipoint": 71, "type": "blackz", "ppoint": 25 },
+				{ "uipoint": 72, "type": "blackz", "ppoint": 27 },
+				{ "uipoint": 73, "type": "blackz", "ppoint": 26 },
+				{ "uipoint": 74, "type": "blackz", "ppoint": 24 },
+				
+				{ "uipoint": 75, "type": "second", "ppoint": 22 },
+				{ "uipoint": 76, "type": "second", "ppoint": 23 },
+				{ "uipoint": 77, "type": "second", "ppoint": 25 },
+				{ "uipoint": 78, "type": "second", "ppoint": 27 },
+				{ "uipoint": 79, "type": "second", "ppoint": 26 },
+				{ "uipoint": 80, "type": "second", "ppoint": 24 }																			
+				
+	]
+}

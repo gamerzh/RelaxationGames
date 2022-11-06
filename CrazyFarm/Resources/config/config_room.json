@@ -1,0 +1,26 @@
+{
+	"describe": "房间配置信息;" ,
+	"version" : 1,
+	"item_list": [
+		{
+			"room_id"	:	1,
+			"ui_id"	:	1,
+			"unlock_turrent_level"	:	1
+		},
+		{
+			"room_id"	:	2,
+			"ui_id"	:	2,
+			"unlock_turrent_level"	:	30
+		},
+		{
+			"room_id"	:	3,
+			"ui_id"	:	3,
+			"unlock_turrent_level"	:	100
+		},
+		{
+			"room_id"	:	4,
+			"ui_id"	:	4,
+			"unlock_turrent_level"	:	300
+		}
+	]
+}

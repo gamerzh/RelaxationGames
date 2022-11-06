@@ -1,0 +1,24 @@
+{
+	uipoints:[
+				{ "uipoint": 1, "type": "px", "ppoint": 1 },
+				{ "uipoint": 2, "type": "px", "ppoint": 2 },
+				{ "uipoint": 3, "type": "lt", "ppoint": 1 },
+				{ "uipoint": 4, "type": "lt", "ppoint": 2 },
+				{ "uipoint": 5, "type": "s", "ppoint": 1 },
+				{ "uipoint": 6, "type": "s", "ppoint": 2 },
+				{ "uipoint": 7, "type": "z", "ppoint": 1 },
+				{ "uipoint": 8, "type": "z", "ppoint": 2 },
+				{ "uipoint": 7, "type": "wechat", "ppoint": 1 },
+				{ "uipoint": 8, "type": "wechat", "ppoint": 2 },
+				{ "uipoint": 9, "type": "blackpx", "ppoint": 1 },
+				{ "uipoint": 10, "type": "blackpx", "ppoint": 2 },
+				{ "uipoint": 11, "type": "blacklt", "ppoint": 1 },
+				{ "uipoint": 12, "type": "blacklt", "ppoint": 2 },
+				{ "uipoint": 13, "type": "blacks", "ppoint": 1 },
+				{ "uipoint": 14, "type": "blacks", "ppoint": 2 },
+				{ "uipoint": 15, "type": "blackz", "ppoint": 1 },
+				{ "uipoint": 16, "type": "blackz", "ppoint": 2 },
+				{ "uipoint": 17, "type": "second", "ppoint": 1 },
+				{ "uipoint": 18, "type": "second", "ppoint": 2 }
+	]
+}

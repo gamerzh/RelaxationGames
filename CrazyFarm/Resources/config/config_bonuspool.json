@@ -1,0 +1,227 @@
+{
+  "describe": "奖金池配置;" ,
+  "version" : 1,
+  "allow_draw_fish_counts" : 5,
+  "fistLuckyDraw":
+  {
+    "item_id" : 1013
+  },
+  "item_list": [
+    {
+      "start_coins"  :  0,
+      "end_coins"    : 19999,
+      "reward_list"  : [
+        {
+          "item_id" : 1013,
+          "num"     : 2,
+          "per"     : 0
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 5,
+          "per"     : 29
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 10,
+          "per"     : 30
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 100,
+          "per"     : 20
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 300,
+          "per"     : 20
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 600,
+          "per"     : 1
+        }
+      ]
+    }, 
+    {
+      "start_coins"  : 20000,
+      "end_coins"    : 99999,
+      "reward_list"  : [
+        {
+          "item_id" : 1013,
+          "num"     : 25,
+          "per"     : 0
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 50,
+          "per"     : 35
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 100,
+          "per"     : 35
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 8000,
+          "per"     : 15
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 20000,
+          "per"     : 14.9
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 48000,
+          "per"     : 0.1
+        }
+      ]
+    }, 
+    {
+      "start_coins"  : 100000,
+      "end_coins"    : 199999,
+      "reward_list"  : [
+        {
+          "item_id" : 1013,
+          "num"     : 50,
+          "per"     : 0
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 200,
+          "per"     : 35
+        },
+        {
+          "item_id" : 1006,
+          "num"     : 1,
+          "per"     : 31
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 40000,
+          "per"     : 21
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 100000,
+          "per"     : 11.9
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 200000,
+          "per"     : 1.1
+        }
+      ]
+    }, 
+    {
+      "start_coins"  : 200000,
+      "end_coins"    : 399999,
+      "reward_list"  : [
+        {
+          "item_id" : 1013,
+          "num"     : 100,
+          "per"     : 0
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 400,
+          "per"     : 36
+        },
+        {
+          "item_id" : 1009,
+          "num"     : 1,
+          "per"     : 21
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 80000,
+          "per"     : 26
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 200000,
+          "per"     : 16.9
+        },
+        {
+          "item_id" : 10001,
+          "num"     : 400000,
+          "per"     : 0.1
+        }
+      ]
+    }, 
+    {
+      "start_coins"  : 400000,
+      "end_coins"    : 1199999,
+      "reward_list"  : [
+        {
+          "item_id" : 1013,
+          "num"     : 200,
+          "per"     : 0
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 800,
+          "per"     : 35
+        },
+        {
+          "item_id" : 1010,
+          "num"     : 1,
+          "per"     : 21
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 160000,
+          "per"     : 29
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 400000,
+          "per"     : 14.9
+        },
+        {
+          "item_id" : 1010,
+          "num"     : 800000,
+          "per"     : 0.1
+        }
+      ]
+    }, 
+    {
+      "start_coins"  : 1200000,
+      "end_coins"    : 999999999,
+      "reward_list"  : [
+        {
+          "item_id" : 1013,
+          "num"     : 400,
+          "per"     : 0
+        },
+        {
+          "item_id" : 1002,
+          "num"     : 2400,
+          "per"     : 35
+        },
+        {
+          "item_id" : 1011,
+          "num"     : 1,
+          "per"     : 15
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 480000,
+          "per"     : 35
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 1200000,
+          "per"     : 14.9
+        },
+        {
+          "item_id" : 1001,
+          "num"     : 2400000,
+          "per"     : 0.1
+        }
+        ]
+    }
+  ]
+}

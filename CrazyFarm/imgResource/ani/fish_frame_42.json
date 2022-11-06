@@ -1,0 +1,19 @@
+{	
+	"describe": "鱼动画配置" ,
+	"fishID":   42,
+	"ani_list": [
+		{
+			"ani_name"	:	"swim",
+			"ani_img"		:	["42_0.png","42_1.png","42_2.png","42_3.png","42_4.png","42_5.png","42_6.png","42_7.png","42_8.png","42_9.png","42_10.png","42_11.png"],
+			"ani_time"	:	1.4
+		},
+		{
+			"ani_name"	:	"dead",
+			"ani_img"		:	["42_d0.png","42_d1.png"],
+			"ani_time"	:	0.2
+		}			
+	]
+}
+
+
+

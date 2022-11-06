@@ -1,0 +1,18 @@
+{
+  "describe": "破产配置" ,
+  "version" : 1,
+  "item_list": [
+    {
+      "coins"  :    1000,
+      "wait_time" :	0
+    },
+    {
+      "coins"  :    2000,
+      "wait_time" : 0
+    },
+    {
+      "coins"  :    3000,
+      "wait_time" : 0
+    }
+  ]
+}

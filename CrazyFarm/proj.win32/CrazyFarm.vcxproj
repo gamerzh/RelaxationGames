@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
+    <RootNamespace>test_win32</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;$(EngineRoot);D:\vld\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>vld.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>D:\vld\Visual Leak Detector\lib\Win32;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl_imp.lib;websockets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\bullet\Bullet.cpp" />
+    <ClCompile Include="..\Classes\bullet\BulletManage.cpp" />
+    <ClCompile Include="..\Classes\bullet\Laster.cpp" />
+    <ClCompile Include="..\Classes\config\BaseCoinfig.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigBankrupt.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigBonuspool.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigBox.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigChest.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigDebugTest.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigExp.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigFish.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigFishCollisionOBB.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigItem.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigMagnate.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigManager.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigMomentEight.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigNewbieFishCatch.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigNormalTurrent.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigRoom.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigSign.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigSkill.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigTurrent.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigVipLevel.cpp" />
+    <ClCompile Include="..\Classes\config\ConfigVipTurrent.cpp" />
+    <ClCompile Include="..\Classes\core\GameGuiLayer.cpp" />
+    <ClCompile Include="..\Classes\core\GameLayer.cpp" />
+    <ClCompile Include="..\Classes\core\GameScene.cpp" />
+    <ClCompile Include="..\Classes\core\GetRewardNode.cpp" />
+    <ClCompile Include="..\Classes\core\GuizuGiftDialog.cpp" />
+    <ClCompile Include="..\Classes\core\maridTaskPlane.cpp" />
+    <ClCompile Include="..\Classes\core\NotarizeExitDialog.cpp" />
+    <ClCompile Include="..\Classes\core\SettingDialog.cpp" />
+    <ClCompile Include="..\Classes\core\showFishLayer.cpp" />
+    <ClCompile Include="..\Classes\core\showLockTurretLayer.cpp" />
+    <ClCompile Include="..\Classes\core\showTurretCell.cpp" />
+    <ClCompile Include="..\Classes\core\showTurretLayer.cpp" />
+    <ClCompile Include="..\Classes\core\UpgradeSureDialog.cpp" />
+    <ClCompile Include="..\Classes\data\GameData.cpp" />
+    <ClCompile Include="..\Classes\data\GameState.cpp" />
+    <ClCompile Include="..\Classes\domain\ai\AI.cpp" />
+    <ClCompile Include="..\Classes\domain\ai\AIHu.cpp" />
+    <ClCompile Include="..\Classes\domain\ai\AIJun.cpp" />
+    <ClCompile Include="..\Classes\domain\ai\AIManager.cpp" />
+    <ClCompile Include="..\Classes\domain\ai\AIMolo.cpp" />
+    <ClCompile Include="..\Classes\domain\ai\PlayerWork.cpp" />
+    <ClCompile Include="..\Classes\domain\bag\BagItem.cpp" />
+    <ClCompile Include="..\Classes\domain\bag\BagManager.cpp" />
+    <ClCompile Include="..\Classes\domain\bankrupt\BankruptManager.cpp" />
+    <ClCompile Include="..\Classes\domain\bonuspool\BonusPoolManager.cpp" />
+    <ClCompile Include="..\Classes\domain\coinBox\CoinBox.cpp" />
+    <ClCompile Include="..\Classes\domain\gameConfig\gameConfig.cpp" />
+    <ClCompile Include="..\Classes\domain\game\GameManage.cpp" />
+    <ClCompile Include="..\Classes\domain\globalschedule\GlobalSchedule.cpp" />
+    <ClCompile Include="..\Classes\domain\loading\LoadingScene.cpp" />
+    <ClCompile Include="..\Classes\domain\loading\LoadingSceneLbToGm.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventBankrupt.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventConsume.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventFish.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventMagnate.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventMannger.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventMermaid.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventPageChange.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventSpcEvent.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventTurnTable.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventTurrentUpgrade.cpp" />
+    <ClCompile Include="..\Classes\domain\logevent\LogEventUseSkill.cpp" />
+    <ClCompile Include="..\Classes\domain\login\LoginMannger.cpp" />
+    <ClCompile Include="..\Classes\domain\magnate\MagnateManager.cpp" />
+    <ClCompile Include="..\Classes\domain\marquee\MarqueeManager.cpp" />
+    <ClCompile Include="..\Classes\domain\mermaid\MermaidTask.cpp" />
+    <ClCompile Include="..\Classes\domain\Newbie\NewbieFirstGetRewardLayer.cpp" />
+    <ClCompile Include="..\Classes\domain\Newbie\NewbieMannger.cpp" />
+    <ClCompile Include="..\Classes\domain\Newbie\NewbieSureDialog.cpp" />
+    <ClCompile Include="..\Classes\domain\nobility\NobilityManager.cpp" />
+    <ClCompile Include="..\Classes\domain\pay\Pay.cpp" />
+    <ClCompile Include="..\Classes\domain\pay\PayEventPointConfig.cpp" />
+    <ClCompile Include="..\Classes\domain\pay\PayingDialog.cpp" />
+    <ClCompile Include="..\Classes\domain\pay\PayPointConfig.cpp" />
+    <ClCompile Include="..\Classes\domain\pay\WaitCircle.cpp" />
+    <ClCompile Include="..\Classes\domain\ranklist\RanklistCell.cpp" />
+    <ClCompile Include="..\Classes\domain\ranklist\RanklistLayer.cpp" />
+    <ClCompile Include="..\Classes\domain\ranklist\RanklistManager.cpp" />
+    <ClCompile Include="..\Classes\domain\room\RoomManager.cpp" />
+    <ClCompile Include="..\Classes\domain\room\RoomPlayer.cpp" />
+    <ClCompile Include="..\Classes\domain\skill\SkillBombButton.cpp" />
+    <ClCompile Include="..\Classes\domain\skill\SkillFreezeButton.cpp" />
+    <ClCompile Include="..\Classes\domain\skill\SkillLightButton.cpp" />
+    <ClCompile Include="..\Classes\domain\skill\SkillLockButton.cpp" />
+    <ClCompile Include="..\Classes\domain\skill\skillManager.cpp" />
+    <ClCompile Include="..\Classes\domain\skill\SkillSummonButton.cpp" />
+    <ClCompile Include="..\Classes\domain\ToolTip\ToolTipMannger.cpp" />
+    <ClCompile Include="..\Classes\domain\ToolTip\TwiceSkillSureDialog.cpp" />
+    <ClCompile Include="..\Classes\domain\ToolTip\TwiceSureDialog.cpp" />
+    <ClCompile Include="..\Classes\domain\turntable\CTurntable.cpp" />
+    <ClCompile Include="..\Classes\domain\turntable\TurntableCell.cpp" />
+    <ClCompile Include="..\Classes\domain\turntable\TurnTableDialog.cpp" />
+    <ClCompile Include="..\Classes\domain\user\DeviceInfo.cpp" />
+    <ClCompile Include="..\Classes\domain\user\User.cpp" />
+    <ClCompile Include="..\Classes\fish\Fish.cpp" />
+    <ClCompile Include="..\Classes\fish\FishAniMannage.cpp" />
+    <ClCompile Include="..\Classes\fish\FishArrange.cpp" />
+    <ClCompile Include="..\Classes\fish\FishArrangeFourh.cpp" />
+    <ClCompile Include="..\Classes\fish\FishArrangeOne.cpp" />
+    <ClCompile Include="..\Classes\fish\FishArrangeThree.cpp" />
+    <ClCompile Include="..\Classes\fish\FishArrangeTwo.cpp" />
+    <ClCompile Include="..\Classes\fish\FishGroupData.cpp" />
+    <ClCompile Include="..\Classes\fish\FishManage.cpp" />
+    <ClCompile Include="..\Classes\fish\FishOfAllKilled.cpp" />
+    <ClCompile Include="..\Classes\fish\FishRouteData.cpp" />
+    <ClCompile Include="..\Classes\fish\FishShader.cpp" />
+    <ClCompile Include="..\Classes\lobby\bag\BagCell.cpp" />
+    <ClCompile Include="..\Classes\lobby\bag\bagLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\bag\SetNameLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\bag\ShowBoxLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\bag\ShowGiftLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\bag\ShowSkillLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\bag\TwiceSureBuySkill.cpp" />
+    <ClCompile Include="..\Classes\lobby\changeGift\ChangeGiftCell.cpp" />
+    <ClCompile Include="..\Classes\lobby\changeGift\ChangeGiftLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\FeedbackLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\FirstPayLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\LobbyScene.cpp" />
+    <ClCompile Include="..\Classes\lobby\Nobility\NobilityLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\roomlayer\RoomCell.cpp" />
+    <ClCompile Include="..\Classes\lobby\roomlayer\RoomLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\ScrollText.cpp" />
+    <ClCompile Include="..\Classes\lobby\shop\payCell.cpp" />
+    <ClCompile Include="..\Classes\lobby\shop\payLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\signlayer\SignCell.cpp" />
+    <ClCompile Include="..\Classes\lobby\signlayer\SignInLayer.cpp" />
+    <ClCompile Include="..\Classes\lobby\signlayer\SignMannger.cpp" />
+    <ClCompile Include="..\Classes\lobby\signlayer\SpliceCell.cpp" />
+    <ClCompile Include="..\Classes\lobby\viplayer\VipCell.cpp" />
+    <ClCompile Include="..\Classes\lobby\viplayer\VipGainCoinSureDialog.cpp" />
+    <ClCompile Include="..\Classes\lobby\viplayer\VipLayer.cpp" />
+    <ClCompile Include="..\Classes\moment\Moment.cpp" />
+    <ClCompile Include="..\Classes\moment\MomentEight.cpp" />
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentFive.cpp" />
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentFour.cpp" />
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentIntervalCreate.cpp" />
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentSix.cpp" />
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentThree.cpp" />
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentTwo.cpp" />
+    <ClCompile Include="..\Classes\moment\MomentManager.cpp" />
+    <ClCompile Include="..\Classes\moment\MomentNine.cpp" />
+    <ClCompile Include="..\Classes\moment\MonmetEightRoute.cpp" />
+    <ClCompile Include="..\Classes\net\Net.cpp" />
+    <ClCompile Include="..\Classes\pause\GamePauseLayer.cpp" />
+    <ClCompile Include="..\Classes\result\GameResultLayer.cpp" />
+    <ClCompile Include="..\Classes\result\GameResultScene.cpp" />
+    <ClCompile Include="..\Classes\server\HttpClientUtill.cpp" />
+    <ClCompile Include="..\Classes\server\HttpMannger.cpp" />
+    <ClCompile Include="..\Classes\turret\PlayerTurret.cpp" />
+    <ClCompile Include="..\Classes\turret\Turret.cpp" />
+    <ClCompile Include="..\Classes\utill\AnimationUtil.cpp" />
+    <ClCompile Include="..\Classes\utill\Audio.cpp" />
+    <ClCompile Include="..\Classes\utill\Chinese.cpp" />
+    <ClCompile Include="..\Classes\utill\CircleBy.cpp" />
+    <ClCompile Include="..\Classes\utill\CircleMoveTo.cpp" />
+    <ClCompile Include="..\Classes\utill\CollisionUtill.cpp" />
+    <ClCompile Include="..\Classes\utill\CShake.cpp" />
+    <ClCompile Include="..\Classes\utill\dayUtil.cpp" />
+    <ClCompile Include="..\Classes\utill\FunUtil.cpp" />
+    <ClCompile Include="..\Classes\utill\JniFunUtill.cpp" />
+    <ClCompile Include="..\Classes\utill\MagicEffect.cpp" />
+    <ClCompile Include="..\Classes\utill\OBB.cpp" />
+    <ClCompile Include="..\Classes\utill\SkillButton.cpp" />
+    <ClCompile Include="..\Classes\utill\Toast.cpp" />
+    <ClCompile Include="..\Classes\widget\BaseLayer.cpp" />
+    <ClCompile Include="..\Classes\widget\GiftCell.cpp" />
+    <ClCompile Include="..\Classes\widget\LightEffect.cpp" />
+    <ClCompile Include="..\Classes\widget\MyDialog.cpp" />
+    <ClCompile Include="..\Classes\widget\MyLabelAtlas.cpp" />
+    <ClCompile Include="..\Classes\widget\MyMenuItemGainMoney.cpp" />
+    <ClCompile Include="..\Classes\widget\MyMenuItemUpgrade.cpp" />
+    <ClCompile Include="..\Classes\widget\MyTableView.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\bullet\Bullet.h" />
+    <ClInclude Include="..\Classes\bullet\BulletManage.h" />
+    <ClInclude Include="..\Classes\bullet\Laster.h" />
+    <ClInclude Include="..\Classes\config\BaseCoinfig.h" />
+    <ClInclude Include="..\Classes\config\ConfigBankrupt.h" />
+    <ClInclude Include="..\Classes\config\ConfigBonuspool.h" />
+    <ClInclude Include="..\Classes\config\ConfigBox.h" />
+    <ClInclude Include="..\Classes\config\ConfigChest.h" />
+    <ClInclude Include="..\Classes\config\ConfigDebugTest.h" />
+    <ClInclude Include="..\Classes\config\ConfigDefine.h" />
+    <ClInclude Include="..\Classes\config\ConfigExp.h" />
+    <ClInclude Include="..\Classes\config\ConfigFish.h" />
+    <ClInclude Include="..\Classes\config\ConfigFishCollisionOBB.h" />
+    <ClInclude Include="..\Classes\config\ConfigItem.h" />
+    <ClInclude Include="..\Classes\config\ConfigMagnate.h" />
+    <ClInclude Include="..\Classes\config\ConfigManager.h" />
+    <ClInclude Include="..\Classes\config\ConfigMomentEight.h" />
+    <ClInclude Include="..\Classes\config\ConfigNewbieFishCatch.h" />
+    <ClInclude Include="..\Classes\config\ConfigNormalTurrent.h" />
+    <ClInclude Include="..\Classes\config\ConfigRoom.h" />
+    <ClInclude Include="..\Classes\config\ConfigSign.h" />
+    <ClInclude Include="..\Classes\config\ConfigSkill.h" />
+    <ClInclude Include="..\Classes\config\ConfigTurrent.h" />
+    <ClInclude Include="..\Classes\config\ConfigVipLevel.h" />
+    <ClInclude Include="..\Classes\config\ConfigVipTurrent.h" />
+    <ClInclude Include="..\Classes\core\GameGuiLayer.h" />
+    <ClInclude Include="..\Classes\core\GameLayer.h" />
+    <ClInclude Include="..\Classes\core\GameScene.h" />
+    <ClInclude Include="..\Classes\core\GetRewardNode.h" />
+    <ClInclude Include="..\Classes\core\GuizuGiftDialog.h" />
+    <ClInclude Include="..\Classes\core\maridTaskPlane.h" />
+    <ClInclude Include="..\Classes\core\NotarizeExitDialog.h" />
+    <ClInclude Include="..\Classes\core\SettingDialog.h" />
+    <ClInclude Include="..\Classes\core\showFishLayer.h" />
+    <ClInclude Include="..\Classes\core\showLockTurretLayer.h" />
+    <ClInclude Include="..\Classes\core\showTurretCell.h" />
+    <ClInclude Include="..\Classes\core\showTurretLayer.h" />
+    <ClInclude Include="..\Classes\core\UpgradeSureDialog.h" />
+    <ClInclude Include="..\Classes\data\GameData.h" />
+    <ClInclude Include="..\Classes\data\GameState.h" />
+    <ClInclude Include="..\Classes\domain\ai\AI.h" />
+    <ClInclude Include="..\Classes\domain\ai\AIHu.h" />
+    <ClInclude Include="..\Classes\domain\ai\AIJun.h" />
+    <ClInclude Include="..\Classes\domain\ai\AIManager.h" />
+    <ClInclude Include="..\Classes\domain\ai\AIMolo.h" />
+    <ClInclude Include="..\Classes\domain\ai\PlayerWork.h" />
+    <ClInclude Include="..\Classes\domain\bag\BagItem.h" />
+    <ClInclude Include="..\Classes\domain\bag\BagManager.h" />
+    <ClInclude Include="..\Classes\domain\bankrupt\BankruptManager.h" />
+    <ClInclude Include="..\Classes\domain\bonuspool\BonusPoolManager.h" />
+    <ClInclude Include="..\Classes\domain\coinBox\CoinBox.h" />
+    <ClInclude Include="..\Classes\domain\gameConfig\gameConfig.h" />
+    <ClInclude Include="..\Classes\domain\game\GameManage.h" />
+    <ClInclude Include="..\Classes\domain\globalschedule\GlobalSchedule.h" />
+    <ClInclude Include="..\Classes\domain\loading\LoadingScene.h" />
+    <ClInclude Include="..\Classes\domain\loading\LoadingSceneLbToGm.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventBankrupt.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventConsume.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventFish.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventMagnate.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventMannger.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventMermaid.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventPageChange.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventSpcEvent.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventTurnTable.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventTurrentUpgrade.h" />
+    <ClInclude Include="..\Classes\domain\logevent\LogEventUseSkill.h" />
+    <ClInclude Include="..\Classes\domain\login\LoginMannger.h" />
+    <ClInclude Include="..\Classes\domain\magnate\MagnateManager.h" />
+    <ClInclude Include="..\Classes\domain\marquee\MarqueeManager.h" />
+    <ClInclude Include="..\Classes\domain\mermaid\MermaidTask.h" />
+    <ClInclude Include="..\Classes\domain\Newbie\NewbieFirstGetRewardLayer.h" />
+    <ClInclude Include="..\Classes\domain\Newbie\NewbieMannger.h" />
+    <ClInclude Include="..\Classes\domain\Newbie\NewbieSureDialog.h" />
+    <ClInclude Include="..\Classes\domain\nobility\NobilityManager.h" />
+    <ClInclude Include="..\Classes\domain\pay\Pay.h" />
+    <ClInclude Include="..\Classes\domain\pay\PayEventPointConfig.h" />
+    <ClInclude Include="..\Classes\domain\pay\PayingDialog.h" />
+    <ClInclude Include="..\Classes\domain\pay\PayPointConfig.h" />
+    <ClInclude Include="..\Classes\domain\pay\WaitCircle.h" />
+    <ClInclude Include="..\Classes\domain\ranklist\RanklistCell.h" />
+    <ClInclude Include="..\Classes\domain\ranklist\RanklistLayer.h" />
+    <ClInclude Include="..\Classes\domain\ranklist\RanklistManager.h" />
+    <ClInclude Include="..\Classes\domain\room\RoomManager.h" />
+    <ClInclude Include="..\Classes\domain\room\RoomPlayer.h" />
+    <ClInclude Include="..\Classes\domain\skill\SkillBombButton.h" />
+    <ClInclude Include="..\Classes\domain\skill\SkillFreezeButton.h" />
+    <ClInclude Include="..\Classes\domain\skill\SkillLightButton.h" />
+    <ClInclude Include="..\Classes\domain\skill\SkillLockButton.h" />
+    <ClInclude Include="..\Classes\domain\skill\skillManager.h" />
+    <ClInclude Include="..\Classes\domain\skill\SkillSummonButton.h" />
+    <ClInclude Include="..\Classes\domain\ToolTip\ToolTipMannger.h" />
+    <ClInclude Include="..\Classes\domain\ToolTip\TwiceSkillSureDialog.h" />
+    <ClInclude Include="..\Classes\domain\ToolTip\TwiceSureDialog.h" />
+    <ClInclude Include="..\Classes\domain\turntable\CTurntable.h" />
+    <ClInclude Include="..\Classes\domain\turntable\TurntableCell.h" />
+    <ClInclude Include="..\Classes\domain\turntable\TurnTableDialog.h" />
+    <ClInclude Include="..\Classes\domain\user\DeviceInfo.h" />
+    <ClInclude Include="..\Classes\domain\user\User.h" />
+    <ClInclude Include="..\Classes\fish\Fish.h" />
+    <ClInclude Include="..\Classes\fish\FishAniMannage.h" />
+    <ClInclude Include="..\Classes\fish\FishArrange.h" />
+    <ClInclude Include="..\Classes\fish\FishArrangeFourh.h" />
+    <ClInclude Include="..\Classes\fish\FishArrangeOne.h" />
+    <ClInclude Include="..\Classes\fish\FishArrangeThree.h" />
+    <ClInclude Include="..\Classes\fish\FishArrangeTwo.h" />
+    <ClInclude Include="..\Classes\fish\FishGroupData.h" />
+    <ClInclude Include="..\Classes\fish\FishManage.h" />
+    <ClInclude Include="..\Classes\fish\FishOfAllKilled.h" />
+    <ClInclude Include="..\Classes\fish\FishRouteData.h" />
+    <ClInclude Include="..\Classes\fish\FishShader.h" />
+    <ClInclude Include="..\Classes\lobby\bag\BagCell.h" />
+    <ClInclude Include="..\Classes\lobby\bag\bagLayer.h" />
+    <ClInclude Include="..\Classes\lobby\bag\SetNameLayer.h" />
+    <ClInclude Include="..\Classes\lobby\bag\ShowBoxLayer.h" />
+    <ClInclude Include="..\Classes\lobby\bag\ShowGiftLayer.h" />
+    <ClInclude Include="..\Classes\lobby\bag\ShowSkillLayer.h" />
+    <ClInclude Include="..\Classes\lobby\bag\TwiceSureBuySkill.h" />
+    <ClInclude Include="..\Classes\lobby\changeGift\ChangeGiftCell.h" />
+    <ClInclude Include="..\Classes\lobby\changeGift\ChangeGiftLayer.h" />
+    <ClInclude Include="..\Classes\lobby\FeedbackLayer.h" />
+    <ClInclude Include="..\Classes\lobby\FirstPayLayer.h" />
+    <ClInclude Include="..\Classes\lobby\LobbyScene.h" />
+    <ClInclude Include="..\Classes\lobby\Nobility\NobilityLayer.h" />
+    <ClInclude Include="..\Classes\lobby\roomlayer\RoomCell.h" />
+    <ClInclude Include="..\Classes\lobby\roomlayer\RoomLayer.h" />
+    <ClInclude Include="..\Classes\lobby\ScrollText.h" />
+    <ClInclude Include="..\Classes\lobby\shop\payCell.h" />
+    <ClInclude Include="..\Classes\lobby\shop\payLayer.h" />
+    <ClInclude Include="..\Classes\lobby\signlayer\SignCell.h" />
+    <ClInclude Include="..\Classes\lobby\signlayer\SignInLayer.h" />
+    <ClInclude Include="..\Classes\lobby\signlayer\SignMannger.h" />
+    <ClInclude Include="..\Classes\lobby\signlayer\SpliceCell.h" />
+    <ClInclude Include="..\Classes\lobby\viplayer\VipCell.h" />
+    <ClInclude Include="..\Classes\lobby\viplayer\VipGainCoinSureDialog.h" />
+    <ClInclude Include="..\Classes\lobby\viplayer\VipLayer.h" />
+    <ClInclude Include="..\Classes\moment\Moment.h" />
+    <ClInclude Include="..\Classes\moment\MomentEight.h" />
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentFive.h" />
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentFour.h" />
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentIntervalCreate.h" />
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentSix.h" />
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentThree.h" />
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentTwo.h" />
+    <ClInclude Include="..\Classes\moment\MomentManager.h" />
+    <ClInclude Include="..\Classes\moment\MomentNine.h" />
+    <ClInclude Include="..\Classes\moment\MonmetEightRoute.h" />
+    <ClInclude Include="..\Classes\net\Net.h" />
+    <ClInclude Include="..\Classes\pause\GamePauseLayer.h" />
+    <ClInclude Include="..\Classes\result\GameResultLayer.h" />
+    <ClInclude Include="..\Classes\result\GameResultScene.h" />
+    <ClInclude Include="..\Classes\server\HttpClientUtill.h" />
+    <ClInclude Include="..\Classes\server\HttpMannger.h" />
+    <ClInclude Include="..\Classes\turret\PlayerTurret.h" />
+    <ClInclude Include="..\Classes\turret\Turret.h" />
+    <ClInclude Include="..\Classes\utill\AnimationUtil.h" />
+    <ClInclude Include="..\Classes\utill\Audio.h" />
+    <ClInclude Include="..\Classes\utill\Chinese.h" />
+    <ClInclude Include="..\Classes\utill\CircleBy.h" />
+    <ClInclude Include="..\Classes\utill\CircleMoveTo.h" />
+    <ClInclude Include="..\Classes\utill\CollisionUtill.h" />
+    <ClInclude Include="..\Classes\utill\CShake.h" />
+    <ClInclude Include="..\Classes\utill\dayUtil.h" />
+    <ClInclude Include="..\Classes\utill\define.h" />
+    <ClInclude Include="..\Classes\utill\FunUtil.h" />
+    <ClInclude Include="..\Classes\utill\JniFunUtill.h" />
+    <ClInclude Include="..\Classes\utill\MagicEffect.h" />
+    <ClInclude Include="..\Classes\utill\OBB.h" />
+    <ClInclude Include="..\Classes\utill\SkillButton.h" />
+    <ClInclude Include="..\Classes\utill\Toast.h" />
+    <ClInclude Include="..\Classes\widget\BaseLayer.h" />
+    <ClInclude Include="..\Classes\widget\GiftCell.h" />
+    <ClInclude Include="..\Classes\widget\LightEffect.h" />
+    <ClInclude Include="..\Classes\widget\MyDialog.h" />
+    <ClInclude Include="..\Classes\widget\MyLabelAtlas.h" />
+    <ClInclude Include="..\Classes\widget\MyMenuItemGainMoney.h" />
+    <ClInclude Include="..\Classes\widget\MyMenuItemUpgrade.h" />
+    <ClInclude Include="..\Classes\widget\MyTableView.h" />
+    <ClInclude Include="main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cocos2d\cocos\2d\libcocos2d.vcxproj">
+      <Project>{98a51ba8-fc3a-415b-ac8f-8c7bd464e93e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\cocos\editor-support\spine\proj.win32\libSpine.vcxproj">
+      <Project>{b7c2a162-dec9-4418-972e-240ab3cbfcae}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\external\Box2D\proj.win32\libbox2d.vcxproj">
+      <Project>{929480e7-23c0-4df6-8456-096d71547116}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

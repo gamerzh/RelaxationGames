@@ -1,0 +1,19 @@
+{	
+	"describe": "鱼动画配置" ,
+	"fishID":   6,
+	"ani_list": [
+		{
+			"ani_name"	:	"swim",
+			"ani_img"		:	["6_0.png","6_1.png","6_2.png","6_3.png","6_4.png","6_5.png","6_6.png","6_7.png","6_8.png","6_9.png"],
+			"ani_time"	:	1
+		},
+		{
+			"ani_name"	:	"dead",
+			"ani_img"		:	["6_0.png","6_1.png","6_2.png","6_3.png","6_4.png","6_5.png","6_6.png","6_7.png","6_8.png","6_9.png"],
+			"ani_time"	:	0.2
+		}	
+	]
+}
+
+
+

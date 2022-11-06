@@ -1,0 +1,19 @@
+{
+	"paypoint":[
+		{ "id": 1, "name": "包月", "price": 1000, "desc": "恭喜获得特惠礼包,首次获得10个提示道具,次日起每天首次进游戏可额外获得2个提示道具，只需X.XX元/月","describe": [ { "propid": 7, "propnum": 10 } ] },
+		{ "id": 2, "name": "复活", "price": 1000, "desc": "想要分数更高么、继续开始吧！5次复活机会X.XX元马上复活！","describe": [ { "propid": 1, "propnum": 5 } ] },
+		{ "id": 3, "name": "10次提示", "price": 1000, "desc": "恭喜你成为今天的幸运玩家，X.XX元购买5个提示道具将免费再次获得5个！","describe": [ { "propid": 4, "propnum": 10 } ] },
+		{ "id": 4, "name": "10次重排", "price": 1000, "desc": "恭喜你成为今天的幸运玩家，X.XX元购买5个重排道具将免费再次获得5个！","describe": [ { "propid": 2, "propnum": 10 } ] },
+		{ "id": 5, "name": "10次增加10s", "price": 1000, "desc": "恭喜你成为今天的幸运玩家，X.XX元购买5个时间道具将免费再次获得5个！","describe": [ { "propid": 3, "propnum": 10 } ] },
+		{ "id": 6, "name": "加时礼包", "price": 1000, "desc": "恭喜闯关成功！加时60秒，付费X.XX元即刻开始！ ","describe": [ { "propid": 8, "propnum": 60 } ] },
+		{ "id": 7, "name": "特惠礼包", "price": 10, "desc": "特惠礼包","describe": [ { "propid": 4, "propnum": 1 } ] },
+		{ "id": 8, "name": "复活", "price": 0, "desc": "想要分数更高么、继续开始吧！还有4次复活机会，马上复活！","describe": [ { "propid": 1, "propnum": 0 } ] },
+		{ "id": 9, "name": "复活", "price": 0, "desc": "想要分数更高么、继续开始吧！还有3次复活机会，马上复活！","describe": [ { "propid": 1, "propnum": 0 } ] },
+		{ "id": 10, "name": "复活", "price": 0, "desc": "想要分数更高么、继续开始吧！还有2次复活机会，马上复活！","describe": [ { "propid": 1, "propnum": 0 } ] },
+		{ "id": 11, "name": "复活", "price": 0, "desc": "想要分数更高么、继续开始吧！还有1次复活机会，马上复活！","describe": [ { "propid": 1, "propnum": 0 } ] },
+		{ "id": 12, "name": "免费加时20s", "price": 0, "desc": "欢迎进入游戏！加时20秒，付费0.00元即刻开始","describe": [ { "propid": 6, "propnum": 0 } ] },
+		{ "id": 13, "name": "免费加时25s", "price": 0, "desc": "欢迎进入游戏！加时25秒，付费0.00元即刻开始","describe": [ { "propid": 6, "propnum": 0 } ] },
+		{ "id": 14, "name": "免费加时30s", "price": 0, "desc": "欢迎进入游戏！加时30秒，付费0.00元即刻开始","describe": [ { "propid": 6, "propnum": 0 } ] }
+	],
+	"pay_version": 100
+}

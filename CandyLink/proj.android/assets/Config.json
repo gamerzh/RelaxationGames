@@ -1,0 +1,60 @@
+{	
+	 "GameSceneChange": [
+			{
+			  "SceneAToSceneB": "StartToGame",
+				"time":     1.0,
+				"style":    2,
+				"state":    0,
+				"describe": "开始场景切换游戏场景"   
+			},
+			{
+				"SceneAToSceneB": "GameToPause",
+				"time":     1.0,
+				"style":   2,
+				"state":    0,
+				"describe": "游戏场景切换暂停场景"   
+			},
+			{
+			  "SceneAToSceneB": "GameToResult",
+				"time":     1.0,
+				"style":    2,
+				"state":    0,
+				"describe": "游戏场景切换结算场景"   
+			},
+			{
+			  "SceneAToSceneB": "PauseToGame",
+				"time":     1.0,
+				"style":    2,
+				"state":    0,
+				"describe": "暂停场景切换游戏场景"   
+			},
+			{
+				"SceneAToSceneB": "PauseToResult",
+				"time":     1.0,
+				"style":    2,
+				"state":    0,
+				"describe": "暂停场景切换结算场景"   
+			},
+			{
+			  "SceneAToSceneB": "ResultToStart",
+				"time":     1.0,
+				"style":    2,
+				"state":    0,
+				"describe": "结算场景切换开始场景"   
+			},
+			{
+			  "SceneAToSceneB": "ResultToGame",
+				"time":     1.0,
+				"style":    2,
+				"state":    0,
+				"describe": "结算场景切换游戏场景"   
+			},
+			{
+			  "SceneAToSceneB": "GameToStart",
+				"time":     1.0,
+				"style":    2,
+				"state":    0,
+				"describe": "游戏场景切换开始场景"   
+			}
+	]
+}

@@ -1,0 +1,1214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\fish">
+      <UniqueIdentifier>{250bdeb2-f224-4f52-906b-0dade617936f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\bullet">
+      <UniqueIdentifier>{70ab62ff-3f5d-42b6-a583-1c4a3b053abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\turret">
+      <UniqueIdentifier>{b1cb3003-a665-41af-af37-9c761f25c129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby">
+      <UniqueIdentifier>{5df39d18-eef1-4a1f-903b-5df323ea1fcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{9d08e1d8-2d25-4e74-9fa1-a9544cf11f0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pause">
+      <UniqueIdentifier>{33c9feeb-ee80-4b25-a661-727d6b7d5adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\result">
+      <UniqueIdentifier>{b96db02d-0aee-4fe3-a8b7-fb648749b691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net">
+      <UniqueIdentifier>{f6bac813-7be3-4613-9b92-52345b4f9969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utill">
+      <UniqueIdentifier>{3e7aa1be-6ec0-416f-b2a9-8cc69053eda9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data">
+      <UniqueIdentifier>{e69ddaf4-b32d-4701-a94a-5a7e8626646c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface">
+      <UniqueIdentifier>{345f2edd-22db-4925-b3ae-b4af8300efb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface\item">
+      <UniqueIdentifier>{218af3c8-aa56-44b0-95ab-0410ba9a60e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface\playinfo">
+      <UniqueIdentifier>{068aa058-9dd9-4afa-a88e-cf960f135e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface\bag">
+      <UniqueIdentifier>{0e1f7e5f-0df7-4e9a-8d03-6178bfa50fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface\vip">
+      <UniqueIdentifier>{58e47fa3-9657-45d9-8dc1-7da651bd5aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface\turret">
+      <UniqueIdentifier>{f9ea56d4-347a-47a5-96ef-846a062b55df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface\fish">
+      <UniqueIdentifier>{be04d475-8e25-4105-a0dd-0ad39f4582ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\moment">
+      <UniqueIdentifier>{0efef279-d50b-4d5e-9238-b6c796d342c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\widget">
+      <UniqueIdentifier>{0af25dfa-75b1-4a04-bc3b-88c398dd467c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\pay">
+      <UniqueIdentifier>{e5138f8e-fec4-4732-a717-d247670cdab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\sign">
+      <UniqueIdentifier>{a82699f0-fab4-49fa-a8a6-1dc87e115e6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\bag">
+      <UniqueIdentifier>{3e5ad3d3-f14f-42c0-bd64-c889b14bd95a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\viplayer">
+      <UniqueIdentifier>{72392fda-5c1d-484c-a28e-0543f67a92f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\Nobility">
+      <UniqueIdentifier>{5faed638-280b-441b-af10-fbb07ea86d32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mannager">
+      <UniqueIdentifier>{29af085d-e1bd-4ecb-8bb6-dfd34a8695da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\skill">
+      <UniqueIdentifier>{daaf5aca-7a2f-4362-95a9-221c1620160c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\dialog">
+      <UniqueIdentifier>{11e4c131-a430-4730-82b3-93f008ca5b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\moment\group">
+      <UniqueIdentifier>{112aee00-c5fb-4032-8e61-9dd669198c30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\dialog\turntable">
+      <UniqueIdentifier>{1c11a1ba-2968-4081-83c6-adba25c11502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\ranklist">
+      <UniqueIdentifier>{57ef0790-3a10-4b3b-9154-3e817d9aa186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pay">
+      <UniqueIdentifier>{7eef0d04-d9e4-4f7d-96a5-f5f344c2ec31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utill\figure">
+      <UniqueIdentifier>{9f18e8f2-202f-4a46-aade-b30c25faaede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\logevent">
+      <UniqueIdentifier>{be87d6c2-cc47-4f5b-8e37-9215ac201966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\room">
+      <UniqueIdentifier>{c2fa4a29-47c5-44a6-b6ee-679538fb308a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lobby\changeGift">
+      <UniqueIdentifier>{14384839-a6d7-460c-b77c-842240665683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Newbie">
+      <UniqueIdentifier>{8e44575f-f344-4260-904d-e49c6be7dd11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ToolTip">
+      <UniqueIdentifier>{2613e345-58fd-41f2-8b7f-eccc34bc9f2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\login">
+      <UniqueIdentifier>{60fbd3c7-e426-43c4-9378-1d09899bc6ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AI">
+      <UniqueIdentifier>{bc11c115-20d7-4246-b5f2-fed33e1d0c85}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\bullet\Bullet.cpp">
+      <Filter>src\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\bullet\BulletManage.cpp">
+      <Filter>src\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\GameGuiLayer.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\GameLayer.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\GameScene.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\Fish.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishManage.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\LobbyScene.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\net\Net.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\data\GameState.cpp">
+      <Filter>src\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\data\GameData.cpp">
+      <Filter>src\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\Audio.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\Chinese.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\CircleBy.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\FunUtil.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pause\GamePauseLayer.cpp">
+      <Filter>src\pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\result\GameResultLayer.cpp">
+      <Filter>src\result</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\result\GameResultScene.cpp">
+      <Filter>src\result</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\turret\Turret.cpp">
+      <Filter>src\turret</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\turret\PlayerTurret.cpp">
+      <Filter>src\turret</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\AnimationUtil.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\SkillButton.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigVipLevel.cpp">
+      <Filter>src\Interface\vip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigTurrent.cpp">
+      <Filter>src\Interface\turret</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigFish.cpp">
+      <Filter>src\Interface\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishAniMannage.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishRouteData.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\CircleMoveTo.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishGroupData.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\Moment.cpp">
+      <Filter>src\moment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\MomentManager.cpp">
+      <Filter>src\moment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\showFishLayer.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigRoom.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigManager.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigExp.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigDebugTest.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\MyTableView.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigSign.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\dayUtil.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\Toast.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\shop\payLayer.cpp">
+      <Filter>src\lobby\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\shop\payCell.cpp">
+      <Filter>src\lobby\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigNormalTurrent.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigVipTurrent.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\bag\bagLayer.cpp">
+      <Filter>src\lobby\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\bag\BagCell.cpp">
+      <Filter>src\lobby\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\signlayer\SignCell.cpp">
+      <Filter>src\lobby\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\signlayer\SpliceCell.cpp">
+      <Filter>src\lobby\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\viplayer\VipCell.cpp">
+      <Filter>src\lobby\viplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\viplayer\VipLayer.cpp">
+      <Filter>src\lobby\viplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigSkill.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\Nobility\NobilityLayer.cpp">
+      <Filter>src\lobby\Nobility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\nobility\NobilityManager.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigBankrupt.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\bankrupt\BankruptManager.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishArrangeOne.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishArrangeTwo.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\MagicEffect.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\skill\skillManager.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\skill\SkillFreezeButton.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\skill\SkillSummonButton.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigChest.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\MyMenuItemUpgrade.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigMagnate.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\showTurretCell.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\showTurretLayer.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\bonuspool\BonusPoolManager.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishArrangeThree.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishArrangeFourh.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigBonuspool.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\MyDialog.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\GuizuGiftDialog.cpp">
+      <Filter>src\core\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\SettingDialog.cpp">
+      <Filter>src\core\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\NotarizeExitDialog.cpp">
+      <Filter>src\core\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\mermaid\MermaidTask.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\marquee\MarqueeManager.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\ScrollText.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ai\AIManager.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ai\AIMolo.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ai\PlayerWork.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ai\AI.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ai\AIHu.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\bag\BagManager.cpp">
+      <Filter>src\Interface\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\bag\BagItem.cpp">
+      <Filter>src\Interface\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigItem.cpp">
+      <Filter>src\Interface\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\room\RoomManager.cpp">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\room\RoomPlayer.cpp">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\user\User.cpp">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\server\HttpClientUtill.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\skill\SkillLockButton.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\skill\SkillBombButton.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\skill\SkillLightButton.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\MomentEight.cpp">
+      <Filter>src\moment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigMomentEight.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentFour.cpp">
+      <Filter>src\moment\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentIntervalCreate.cpp">
+      <Filter>src\moment\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentSix.cpp">
+      <Filter>src\moment\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentThree.cpp">
+      <Filter>src\moment\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentTwo.cpp">
+      <Filter>src\moment\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\momentFishGroup\MomentFive.cpp">
+      <Filter>src\moment\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\turntable\CTurntable.cpp">
+      <Filter>src\core\dialog\turntable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\MyMenuItemGainMoney.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\maridTaskPlane.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ranklist\RanklistCell.cpp">
+      <Filter>src\lobby\ranklist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ranklist\RanklistManager.cpp">
+      <Filter>src\lobby\ranklist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ranklist\RanklistLayer.cpp">
+      <Filter>src\lobby\ranklist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\gameConfig\gameConfig.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\pay\Pay.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\server\HttpMannger.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\loading\LoadingScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\MonmetEightRoute.cpp">
+      <Filter>src\moment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\user\DeviceInfo.cpp">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\bag\SetNameLayer.cpp">
+      <Filter>src\lobby\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishShader.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\CollisionUtill.cpp">
+      <Filter>src\utill\figure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\moment\MomentNine.cpp">
+      <Filter>src\moment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\FirstPayLayer.cpp">
+      <Filter>src\lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\GetRewardNode.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventFish.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventMermaid.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\magnate\MagnateManager.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventMagnate.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventBankrupt.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventUseSkill.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigBox.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\bag\ShowBoxLayer.cpp">
+      <Filter>src\lobby\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\bag\ShowGiftLayer.cpp">
+      <Filter>src\lobby\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\bag\ShowSkillLayer.cpp">
+      <Filter>src\lobby\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventPageChange.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventTurrentUpgrade.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventSpcEvent.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\bag\TwiceSureBuySkill.cpp">
+      <Filter>src\lobby\bag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\GiftCell.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\JniFunUtill.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\roomlayer\RoomCell.cpp">
+      <Filter>src\lobby\room</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\roomlayer\RoomLayer.cpp">
+      <Filter>src\lobby\room</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\LightEffect.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\game\GameManage.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\globalschedule\GlobalSchedule.cpp">
+      <Filter>src\mannager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventMannger.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\changeGift\ChangeGiftLayer.cpp">
+      <Filter>src\lobby\changeGift</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\changeGift\ChangeGiftCell.cpp">
+      <Filter>src\lobby\changeGift</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\pay\PayPointConfig.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\pay\PayEventPointConfig.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\bullet\Laster.cpp">
+      <Filter>src\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishArrange.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\turntable\TurntableCell.cpp">
+      <Filter>src\core\dialog\turntable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\turntable\TurnTableDialog.cpp">
+      <Filter>src\core\dialog\turntable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fish\FishOfAllKilled.cpp">
+      <Filter>src\fish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\Newbie\NewbieMannger.cpp">
+      <Filter>src\Newbie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\Newbie\NewbieFirstGetRewardLayer.cpp">
+      <Filter>src\Newbie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\Newbie\NewbieSureDialog.cpp">
+      <Filter>src\Newbie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\UpgradeSureDialog.cpp">
+      <Filter>src\core\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventTurnTable.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\logevent\LogEventConsume.cpp">
+      <Filter>src\logevent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\BaseLayer.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\CShake.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigNewbieFishCatch.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ai\AIJun.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ToolTip\ToolTipMannger.cpp">
+      <Filter>src\ToolTip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ToolTip\TwiceSureDialog.cpp">
+      <Filter>src\ToolTip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\ToolTip\TwiceSkillSureDialog.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\login\LoginMannger.cpp">
+      <Filter>src\login</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utill\OBB.cpp">
+      <Filter>src\utill\figure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\ConfigFishCollisionOBB.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\viplayer\VipGainCoinSureDialog.cpp">
+      <Filter>src\lobby\viplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\pay\WaitCircle.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\pay\PayingDialog.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\loading\LoadingSceneLbToGm.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\config\BaseCoinfig.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\domain\coinBox\CoinBox.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\signlayer\SignInLayer.cpp">
+      <Filter>src\lobby\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\signlayer\SignMannger.cpp">
+      <Filter>src\lobby\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lobby\FeedbackLayer.cpp">
+      <Filter>src\lobby\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\core\showLockTurretLayer.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\widget\MyLabelAtlas.cpp">
+      <Filter>src\widget</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bullet\Bullet.h">
+      <Filter>src\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bullet\BulletManage.h">
+      <Filter>src\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\GameGuiLayer.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\GameLayer.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\GameScene.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\Fish.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishManage.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\LobbyScene.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\net\Net.h">
+      <Filter>src\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\data\GameData.h">
+      <Filter>src\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\data\GameState.h">
+      <Filter>src\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\Audio.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\Chinese.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\CircleBy.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\FunUtil.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pause\GamePauseLayer.h">
+      <Filter>src\pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\result\GameResultLayer.h">
+      <Filter>src\result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\result\GameResultScene.h">
+      <Filter>src\result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\turret\Turret.h">
+      <Filter>src\turret</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\turret\PlayerTurret.h">
+      <Filter>src\turret</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\define.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\AnimationUtil.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\SkillButton.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigVipLevel.h">
+      <Filter>src\Interface\vip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigTurrent.h">
+      <Filter>src\Interface\turret</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigFish.h">
+      <Filter>src\Interface\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishAniMannage.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishRouteData.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\CircleMoveTo.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishGroupData.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\Moment.h">
+      <Filter>src\moment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\MomentManager.h">
+      <Filter>src\moment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\showFishLayer.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigManager.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigRoom.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigExp.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigDebugTest.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\MyTableView.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigSign.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\dayUtil.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\Toast.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\shop\payLayer.h">
+      <Filter>src\lobby\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\shop\payCell.h">
+      <Filter>src\lobby\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigNormalTurrent.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigVipTurrent.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\bag\bagLayer.h">
+      <Filter>src\lobby\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\bag\BagCell.h">
+      <Filter>src\lobby\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\signlayer\SignCell.h">
+      <Filter>src\lobby\sign</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\signlayer\SpliceCell.h">
+      <Filter>src\lobby\sign</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\viplayer\VipCell.h">
+      <Filter>src\lobby\viplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\viplayer\VipLayer.h">
+      <Filter>src\lobby\viplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigSkill.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\Nobility\NobilityLayer.h">
+      <Filter>src\lobby\Nobility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\nobility\NobilityManager.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigBankrupt.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\bankrupt\BankruptManager.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishArrangeOne.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishArrangeTwo.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\MagicEffect.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\skill\skillManager.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\skill\SkillFreezeButton.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\skill\SkillSummonButton.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigChest.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\MyMenuItemUpgrade.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigMagnate.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\showTurretCell.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\showTurretLayer.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\bonuspool\BonusPoolManager.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishArrangeThree.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishArrangeFourh.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigBonuspool.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\MyDialog.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\GuizuGiftDialog.h">
+      <Filter>src\core\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\SettingDialog.h">
+      <Filter>src\core\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\NotarizeExitDialog.h">
+      <Filter>src\core\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\mermaid\MermaidTask.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\marquee\MarqueeManager.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\ScrollText.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ai\AIHu.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ai\AIManager.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ai\AIMolo.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ai\PlayerWork.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ai\AI.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\bag\BagItem.h">
+      <Filter>src\Interface\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\bag\BagManager.h">
+      <Filter>src\Interface\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigItem.h">
+      <Filter>src\Interface\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\room\RoomManager.h">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\room\RoomPlayer.h">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\user\User.h">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\server\HttpClientUtill.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\skill\SkillLockButton.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\skill\SkillBombButton.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\skill\SkillLightButton.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\MomentEight.h">
+      <Filter>src\moment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigMomentEight.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentFive.h">
+      <Filter>src\moment\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentFour.h">
+      <Filter>src\moment\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentIntervalCreate.h">
+      <Filter>src\moment\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentSix.h">
+      <Filter>src\moment\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentThree.h">
+      <Filter>src\moment\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\momentFishGroup\MomentTwo.h">
+      <Filter>src\moment\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\turntable\CTurntable.h">
+      <Filter>src\core\dialog\turntable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\MyMenuItemGainMoney.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\maridTaskPlane.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\coinBox\CoinBox.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ranklist\RanklistCell.h">
+      <Filter>src\lobby\ranklist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ranklist\RanklistManager.h">
+      <Filter>src\lobby\ranklist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ranklist\RanklistLayer.h">
+      <Filter>src\lobby\ranklist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\gameConfig\gameConfig.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\pay\Pay.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\server\HttpMannger.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\loading\LoadingScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\MonmetEightRoute.h">
+      <Filter>src\moment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\user\DeviceInfo.h">
+      <Filter>src\Interface\playinfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\bag\SetNameLayer.h">
+      <Filter>src\lobby\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishShader.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\FeedbackLayer.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\CollisionUtill.h">
+      <Filter>src\utill\figure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\moment\MomentNine.h">
+      <Filter>src\moment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\FirstPayLayer.h">
+      <Filter>src\lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\GetRewardNode.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventFish.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventMannger.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventMermaid.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\magnate\MagnateManager.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventMagnate.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventBankrupt.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventUseSkill.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigBox.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\bag\ShowBoxLayer.h">
+      <Filter>src\lobby\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\bag\ShowGiftLayer.h">
+      <Filter>src\lobby\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\bag\ShowSkillLayer.h">
+      <Filter>src\lobby\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventPageChange.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventTurrentUpgrade.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventSpcEvent.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\bag\TwiceSureBuySkill.h">
+      <Filter>src\lobby\bag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\GiftCell.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\JniFunUtill.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\roomlayer\RoomCell.h">
+      <Filter>src\lobby\room</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\roomlayer\RoomLayer.h">
+      <Filter>src\lobby\room</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\LightEffect.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\game\GameManage.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\globalschedule\GlobalSchedule.h">
+      <Filter>src\mannager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\changeGift\ChangeGiftLayer.h">
+      <Filter>src\lobby\changeGift</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\changeGift\ChangeGiftCell.h">
+      <Filter>src\lobby\changeGift</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigDefine.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\pay\PayPointConfig.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\pay\PayEventPointConfig.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bullet\Laster.h">
+      <Filter>src\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishArrange.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\turntable\TurntableCell.h">
+      <Filter>src\core\dialog\turntable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\turntable\TurnTableDialog.h">
+      <Filter>src\core\dialog\turntable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fish\FishOfAllKilled.h">
+      <Filter>src\fish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\Newbie\NewbieMannger.h">
+      <Filter>src\Newbie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\Newbie\NewbieFirstGetRewardLayer.h">
+      <Filter>src\Newbie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\Newbie\NewbieSureDialog.h">
+      <Filter>src\Newbie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\UpgradeSureDialog.h">
+      <Filter>src\core\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventTurnTable.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\logevent\LogEventConsume.h">
+      <Filter>src\logevent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\BaseLayer.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\CShake.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigNewbieFishCatch.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ai\AIJun.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ToolTip\ToolTipMannger.h">
+      <Filter>src\ToolTip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ToolTip\TwiceSureDialog.h">
+      <Filter>src\ToolTip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\ToolTip\TwiceSkillSureDialog.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\login\LoginMannger.h">
+      <Filter>src\login</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utill\OBB.h">
+      <Filter>src\utill\figure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\ConfigFishCollisionOBB.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\viplayer\VipGainCoinSureDialog.h">
+      <Filter>src\lobby\viplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\pay\WaitCircle.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\pay\PayingDialog.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\domain\loading\LoadingSceneLbToGm.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\config\BaseCoinfig.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\signlayer\SignInLayer.h">
+      <Filter>src\lobby\sign</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lobby\signlayer\SignMannger.h">
+      <Filter>src\lobby\sign</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\core\showLockTurretLayer.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\widget\MyLabelAtlas.h">
+      <Filter>src\widget</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

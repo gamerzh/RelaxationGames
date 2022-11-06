@@ -1,0 +1,314 @@
+{
+    "description" :"鱼群配置",
+    "version" : 1,
+    "fishGroupConfig": [
+        {
+            "tag": 1,
+            "fishgroup":
+             [
+                {
+                    "fishID": 4,
+                    "fishRoute": 1,
+                    "fishCount":  18,
+                    "IntervalCreateTime": 1.2,
+                    "startPosX": 1050,
+                    "startPosY": 425
+
+                },
+                {
+                    "fishID": 2 ,
+                    "fishRoute": 1,
+                    "fishCount": 19,
+                    "IntervalCreateTime": 1.1,
+                    "startPosX": 1050,
+                    "startPosY": 380
+                },
+                {
+                    "fishID": 34,
+                    "fishRoute": 1,
+                    "fishCount":  11,
+                    "IntervalCreateTime": 2.3,
+                    "startPosX": 1050,
+                    "startPosY": 350
+
+                },
+                {
+                    "fishID": 34,
+                    "fishRoute": 1,
+                    "fishCount": 11,
+                    "IntervalCreateTime": 2.3,
+                    "startPosX": 1050,
+                    "startPosY": 190
+                },  
+                {
+                    "fishID": 2,
+                    "fishRoute": 1,
+                    "fishCount":  19,
+                    "IntervalCreateTime": 1.1,
+                    "startPosX": 1050,
+                    "startPosY": 160
+
+                },
+                {
+                    "fishID": 4,
+                    "fishRoute": 1,
+                    "fishCount": 18,
+                    "IntervalCreateTime": 1.2,
+                    "startPosX": 1050,
+                    "startPosY": 115
+                },
+                {
+                    "fishID": 1,
+                    "fishRoute": 1,
+                    "fishCount": 18,
+                    "IntervalCreateTime": 1.0,
+                    "startPosX": 1050,
+                    "startPosY": 320
+                }
+                ,
+                {
+                    "fishID": 1,
+                    "fishRoute": 1,
+                    "fishCount": 18,
+                    "IntervalCreateTime": 1.0,
+                    "startPosX": 1050,
+                    "startPosY": 220
+                },
+                {
+                    "fishID": 33,
+                    "fishRoute": 2,
+                    "fishCount": 2,
+                    "IntervalCreateTime": 2.3,
+                    "startPosX": 1100,
+                    "startPosY": 270
+                }
+                ,
+                {
+                    "fishID": 7,
+                    "fishRoute": 3,
+                    "fishCount": 1,
+                    "IntervalCreateTime": 0,
+                    "startPosX": 1050,
+                    "startPosY": 270
+                }
+                ,
+                {
+                    "fishID": 33,
+                    "fishRoute": 4,
+                    "fishCount": 3,
+                    "IntervalCreateTime": 2.3,
+                    "startPosX": 1100,
+                    "startPosY": 270
+                }
+                ,
+                {
+                    "fishID": 43,
+                    "fishRoute": 5,
+                    "fishCount": 1,
+                    "IntervalCreateTime": 0,
+                    "startPosX": 1300,
+                    "startPosY": 270
+                }
+                ,
+                {
+                    "fishID": 41,
+                    "fishRoute": 6,
+                    "fishCount": 1,
+                    "IntervalCreateTime": 0,
+                    "startPosX": 1300,
+                    "startPosY": 270
+                }
+                
+                
+            ]
+        
+            
+        },
+        {
+            "tag": 2,
+            "fishgroup":
+             [
+                {
+                    "fishID": 8,
+                    "fishRoute": 7,
+                    "fishCount":  1,
+                    "IntervalCreateTime": 0,
+                    "startPosX": -50,
+                    "startPosY": 491
+
+                },
+                {
+                    "fishID": 8,
+                    "fishRoute": 7,
+                    "fishCount":  2,
+                    "IntervalCreateTime": 2.2,
+                    "startPosX": -50,
+                    "startPosY": 468
+
+                }
+                ,
+                {
+                    "fishID": 6,
+                    "fishRoute": 9,
+                    "fishCount": 5,
+                    "IntervalCreateTime": 0.9,
+                    "startPosX": -20,
+                    "startPosY": 240
+
+                }
+                ,
+                {
+                    "fishID": 8,
+                    "fishRoute": 7,
+                    "fishCount":  8,
+                    "IntervalCreateTime": 0.7,
+                    "startPosX": -20,
+                    "startPosY": 400
+
+                }
+                ,
+                {
+                    "fishID": 8,
+                    "fishRoute": 7,
+                    "fishCount": 8,
+                    "IntervalCreateTime": 0.7,
+                    "startPosX": -20,
+                    "startPosY": 140
+
+                }
+                           
+            ]     
+        }
+        ,
+        {
+            "tag": 3,
+            "fishgroup":
+             [
+                {
+                    "fishID": 44,
+                    "fishRoute": 7,
+                    "fishCount":  1,
+                    "IntervalCreateTime": 0,
+                    "startPosX": -200,
+                    "startPosY": 270
+
+                },
+                {
+                    "fishID": 44,
+                    "fishRoute": 8,
+                    "fishCount":  1,
+                    "IntervalCreateTime": 0,
+                    "startPosX": 1160,
+                    "startPosY": 270
+
+                }
+                ,
+                {
+                    "fishID": 10,
+                    "fishRoute": 9,
+                    "fishCount": 15,
+                    "IntervalCreateTime": 1.3,
+                    "startPosX": 100,
+                    "startPosY": -30
+
+                }
+                ,
+                {
+                    "fishID": 33,
+                    "fishRoute": 9,
+                    "fishCount":  15,
+                    "IntervalCreateTime": 1.3,
+                    "startPosX": 150,
+                    "startPosY": -30
+
+                }
+                ,
+                 {
+                    "fishID": 10,
+                    "fishRoute": 10,
+                    "fishCount": 15,
+                    "IntervalCreateTime": 1.3,
+                    "startPosX": 860,
+                    "startPosY": -30
+
+                }
+                ,
+                {
+                    "fishID": 33,
+                    "fishRoute": 10,
+                    "fishCount":  15,
+                    "IntervalCreateTime": 1.3,
+                    "startPosX": 810,
+                    "startPosY": -30
+
+                }
+                           
+            ]     
+        },
+        {
+            "tag": 5,
+            "fishgroup":
+             [
+                {
+                    "fishID": 1,
+                    "fishRoute": 10,
+                    "fishCount":  2,
+                    "IntervalCreateTime": 1.2,
+                    "startPosX": 480,
+                    "startPosY": 270
+
+                },
+                {
+                    "fishID": 2,
+                    "fishRoute": 11,
+                    "fishCount":  20,
+                    "IntervalCreateTime": 0.3,
+                    "startPosX": -50,
+                    "startPosY": 270
+
+                }
+                ,
+                {
+                    "fishID": 1,
+                    "fishRoute": 12,
+                    "fishCount": 40,
+                    "IntervalCreateTime": 0.3,
+                    "startPosX": -50,
+                    "startPosY": 270
+
+                }
+                ,
+                {
+                    "fishID": 1,
+                    "fishRoute": 13,
+                    "fishCount":  10,
+                    "IntervalCreateTime": 0.4,
+                    "startPosX": 1010,
+                    "startPosY": 270
+
+                }
+                ,
+                {
+                    "fishID": 1,
+                    "fishRoute": 14,
+                    "fishCount": 20,
+                    "IntervalCreateTime": 0.3,
+                    "startPosX": 1010,
+                    "startPosY": 270
+
+                }
+                ,
+                {
+                    "fishID": 1,
+                    "fishRoute": 15,
+                    "fishCount": 40,
+                    "IntervalCreateTime": 0.3,
+                    "startPosX": 1010,
+                    "startPosY": 270
+
+                }
+                           
+            ]     
+        }
+    ]
+}

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/sign_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/sign_bg" />
+
+    <RelativeLayout
+        android:id="@+id/one_day_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sign_bg"
+        android:layout_alignTop="@+id/sign_bg"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="36dp" >
+
+        <ImageView
+            android:id="@+id/day_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/object_normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/day_one"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3.33dp"
+            android:background="@drawable/day_one" />
+
+        <TextView
+            android:id="@+id/one_day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/day_one"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/gold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/two_day_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/one_day_layout"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/one_day_layout" >
+
+        <ImageView
+            android:id="@+id/day_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/object_normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/day_two"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3.33dp"
+            android:background="@drawable/day_two" />
+
+        <TextView
+            android:id="@+id/two_day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/day_two"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/gold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/three_day_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/two_day_layout"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/two_day_layout" >
+
+        <ImageView
+            android:id="@+id/day_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/object_normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/day_three"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3.33dp"
+            android:background="@drawable/day_three" />
+
+        <TextView
+            android:id="@+id/three_day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/day_three"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/gold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/four_day_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/three_day_layout"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/three_day_layout" >
+
+        <ImageView
+            android:id="@+id/day_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/object_normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/day_four"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3.33dp"
+            android:background="@drawable/day_four" />
+
+        <TextView
+            android:id="@+id/four_day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/day_four"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/gold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/five_day_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sign_bg"
+        android:layout_below="@id/one_day_layout"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="8dp" >
+
+        <ImageView
+            android:id="@+id/day_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/object_normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/day_five"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3.33dp"
+            android:background="@drawable/day_five" />
+
+        <TextView
+            android:id="@+id/five_day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/day_five"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/gold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/six_day_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/five_day_layout"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/five_day_layout" >
+
+        <ImageView
+            android:id="@+id/day_six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/object_normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/day_six"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3.33dp"
+            android:background="@drawable/day_six" />
+
+        <TextView
+            android:id="@+id/six_day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/day_six"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/gold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/seven_day_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/six_day_layout"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/six_day_layout" >
+
+        <ImageView
+            android:id="@+id/day_seven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/object_normal" />
+
+        <ImageView
+            android:id="@+id/day_seven_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/day_seven"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3.33dp"
+            android:background="@drawable/day_seven" />
+
+        <!-- <ImageView -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_below="@id/day_seven_title" -->
+        <!-- android:layout_centerHorizontal="true" -->
+        <!-- android:layout_marginTop="3.33dp" -->
+        <!-- android:background="@drawable/object_boom" /> -->
+
+        <TextView
+            android:id="@+id/seven_day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/day_seven"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/gold" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/sing_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/six_day_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_sign_state" />
+
+</RelativeLayout>

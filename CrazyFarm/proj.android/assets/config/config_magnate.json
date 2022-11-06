@@ -1,0 +1,16 @@
+{
+  "describe": "赠送体系,type1钻石;2道具" ,
+  "version" : 1,
+  "item_list": [
+    {
+      "type"  :	1,
+      "fire_time_from" :	50,
+      "fire_time_to"    : 120
+    },
+    {
+      "type"  : 2,
+      "fire_time_from" :  200,
+      "fire_time_to"    : 300
+    }
+  ]
+}

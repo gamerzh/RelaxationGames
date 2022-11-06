@@ -1,0 +1,1 @@
+{"pv":"2zWPnSlRsRxjqgcU215Uxg==","pc":{},"ps":{"onChat":{"msg":{"option":"required","type":"string","tag":1},"from":{"option":"required","type":"string","tag":2},"target":{"option":"required","type":"string","tag":3},"__messages":{},"__tags":{"1":"msg","2":"from","3":"target"}}}}

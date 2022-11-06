@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/dialog" >
+    
+    <EditText android:id="@+id/etname" 
+        android:layout_height="fill_parent"
+  		android:layout_width="fill_parent" 
+  		android:lines="3"
+  		android:maxLength="100"
+  		android:hint="请输入您的反馈意见(字数100以内)！"/>
+
+</LinearLayout>

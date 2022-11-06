@@ -1,0 +1,5 @@
+{
+	"payconfig":[
+		{ "BCONFIG": "20", "PROP_KEY_TYPEA": "2,0,3", "PROP_KEY_TYPEB": "2,0,3", "PROP_KEY_TYPEC": "2,0,3", "PROP_KEY_TYPED": "2,0,3", "SUPPORT_PLAGINS": "2,3,8" ,"GAMEID":"666","APPID":"7011246"}
+	]
+}

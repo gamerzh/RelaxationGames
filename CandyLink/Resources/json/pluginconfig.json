@@ -1,0 +1,27 @@
+{
+    "applicationImpl": "com.tallbigup.android.base.BApplication",
+    "payImpl": [
+        { "className": "com.tallbigup.android.base.GamePayImpl", "function": "getInstance" }
+    ],
+    "setPayPlginByTypeName": [
+        { "pluginName": "letu", "className": "com.poxiao.pay.xbll.plugin.LetuPayImpl" },
+        { "pluginName": "poxiao", "className": "com.poxiao.pay.xbll.plugin.SmsPayImpl" },
+        { "pluginName": "unicome_zr", "className": "com.poxiao.pay.xbll.plugin.UnicomPayImpl" },
+        { "pluginName": "sky", "className": "com.poxiao.pay.xbll.plugin.SkyPayImpl" },
+        { "pluginName": "iapcmcc", "className": "com.poxiao.pay.xbll.plugin.IapMMPayImpl" },
+        { "pluginName": "cmg", "className": "com.poxiao.pay.b.IapCmgPayImpl" }
+    ],
+    "defaultPluginName": "com.poxiao.pay.xbll.plugin.GamePayDebugImpl",
+    "initPayPlginIfNeedOnApplication": [
+        { "className": "com.poxiao.pay.xbll.plugin.LetuPayImpl", "function": "init" },
+        { "className": "com.poxiao.pay.xbll.plugin.SmsPayImpl", "function": "init" },
+        { "className": "com.poxiao.pay.xbll.plugin.SkyPayImpl", "function": "init" },
+        { "className": "com.poxiao.pay.b.IapInit", "function": "init" }
+    ],
+    "initPayPlginIfNeedOnActivity": [
+        { "className": "com.poxiao.pay.xbll.plugin.IapMMPayImpl", "function": "init" }
+    ],
+    "quitPluginIfNeedOnApplicaton": [
+        { "className": "com.poxiao.pay.xbll.plugin.SkyPayImpl", "function": "quitOnActivity" }
+    ]
+}

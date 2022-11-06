@@ -1,0 +1,101 @@
+{	
+	"describe": "道具配置列表.buy_type,0不支持购买[限金币和钻石两种];1金币;2钻石;" ,
+	"version" : 1,
+	"item_list": [
+		{
+			"item_id"	:	1001,
+			"item_name"	:	"金币",
+			"item_desc"	:	"金币",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		},
+		{
+			"item_id"	:	1002,
+			"item_name"	:	"钻石",
+			"item_desc"	:	"钻石",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		},
+		{
+			"item_id"	:	1003,
+			"item_name"	:	"冰冻",
+			"item_desc"	:	"鱼要逃走了！赶快使用时间静止吧！",
+			"buy_type"	:	2,
+			"buy_price"	:	5
+		},
+		{
+			"item_id"	:	1004,
+			"item_name"	:	"锁定",
+			"item_desc"	:	"看到大鱼别犹豫,立即使用锁定技能!要不就被别人抢光了!",
+			"buy_type"	:	2,
+			"buy_price"	:	2
+		},
+		{
+			"item_id"	:	1005,
+			"item_name"	:	"召唤",
+			"item_desc"	:	"金鱼金鱼快出现!金币金币赚不停!",
+			"buy_type"	:	2,
+			"buy_price"	:	2
+		},
+		{
+			"item_id"	:	1006,
+			"item_name"	:	"核弹",
+			"item_desc"	:	"有打不死的鱼?核弹来灭了它们!",
+			"buy_type"	:	2,
+			"buy_price"	:	200
+		},
+		{
+			"item_id"	:	1007,
+			"item_name"	:	"激光",
+			"item_desc"	:	"发射威力强大的激光!记得对准鱼多的地方哦!",
+			"buy_type"	:	2,
+			"buy_price"	:	10
+		},
+		{
+			"item_id"	:	1008,
+			"item_name"	:	"金币宝箱",
+			"item_desc"	:	"",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		},
+		{
+			"item_id"	:	1009,
+			"item_name"	:	"青铜宝箱",
+			"item_desc"	:	"",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		},
+		{
+			"item_id"	:	1010,
+			"item_name"	:	"白银宝箱",
+			"item_desc"	:	"",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		},
+		{
+			"item_id"	:	1011,
+			"item_name"	:	"黄金宝箱",
+			"item_desc"	:	"",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		},
+		{
+			"item_id"	:	1012,
+			"item_name"	:	"礼包%d级开启",
+			"item_desc"	:	"",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		},
+		{
+			"item_id"	:	1013,
+			"item_name"	:	"勋章",
+			"item_desc"	:	"",
+			"buy_type"	:	0,
+			"buy_price"	:	0
+		}
+			
+	]
+}
+
+
+

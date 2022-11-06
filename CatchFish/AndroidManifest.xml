@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kx.byno"
+    android:installLocation="preferExternal"
+    android:versionCode="23"
+    android:versionName="2.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+	<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>  
+	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/> 
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> 
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/> 
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application
+        android:name="com.xiao.fish.FishCatchApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name="com.unicom.wostore.unipay.paysecurity.SecurityActivity"
+            android:configChanges="orientation"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+        </activity>
+
+        <service android:name="com.unicom.wostore.unipay.paysecurity.SecurityServiceFramework" />
+
+        <activity
+            android:name="com.xiao.fish.activity.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.xiao.fish.game.GameActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+
+        <!-- 音乐播放服务 -->
+        <service android:name="com.hifreshday.android.setting.service.MusicPlayService" >
+            <intent-filter>
+                <action android:name="com.poxiao.fish.setting.service.MusicPlayService.AIDLAction" />
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="Channel ID"
+            android:value="daiji_push_1" />
+        <meta-data
+            android:name="tbu_id"
+            android:value="201503" />
+        <meta-data
+            android:name="debug_model"
+            android:value="false" />
+    </application>
+
+</manifest>

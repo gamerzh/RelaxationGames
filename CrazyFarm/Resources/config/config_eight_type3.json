@@ -1,0 +1,325 @@
+{
+    "describe": "鱼路线产生时间配置   fishRoute ：-1或者不填，随机运动 -2：随机S曲线运动 -3：随机圆运动  1-16曲线运动 17-20 圆运动  21-24 对角直线运动  fishid：   300-600  x0y  表示条数为x，fishid为y的队列鱼",
+    "version": 1,
+    "life_time": 300,
+    "launching_points": [
+        {
+            "interval_time_start": 35,
+            "interval_time_end": 40,
+            "item_list": [
+                {
+                    "fish_id": [7013],
+                    "fishRoute": [9,10,11,12,13,14,15,16],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 22,
+            "interval_time_end": 26,
+            "item_list": [
+                {
+                    "fish_id": [2],
+                    "fishRoute": [-2,-3],
+                    "count_start": 1,
+           			"count_end": 2,
+           		    "wait_time_start": 0,
+           		    "wait_time_end": 0
+                },
+                {
+                    "fish_id": [2],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 3,
+                    "wait_time_end": 6
+                }
+            ]
+        },
+        {
+            "interval_time_start": 45,
+            "interval_time_end": 55,
+            "item_list": [
+                {
+                    "fish_id": [8032],
+                    "fishRoute": [1,2,3,4,5,6,7,8],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 55,
+            "interval_time_end": 65,
+            "item_list": [
+                {
+                    "fish_id": [304,404,504],
+                    "fishRoute": [-2,-3],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                },
+                {
+                    "fish_id": [404,504],
+                    "fishRoute": [-2,-3],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 15,
+                    "wait_time_end": 18
+                }
+            ]
+        },
+        {
+            "interval_time_start": 35,
+            "interval_time_end": 40,
+            "item_list": [
+                {
+                    "fish_id": [5,10],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                },
+                {
+                    "fish_id": [5,10],
+                    "count_start": 1,
+                    "count_end": 2,
+                    "wait_time_start": 5,
+                    "wait_time_end": 8
+                }
+            ]
+        },
+        {
+            "interval_time_start": 60,
+            "interval_time_end": 70,
+            "item_list": [
+                {
+                    "fish_id": [6064],
+                    "fishRoute": [1,2,3,4,5,6,7,8],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 28,
+            "interval_time_end": 32,
+            "item_list": [
+                {
+                    "fish_id": [7,9],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                },
+                {
+                    "fish_id": [7,9],
+                    "fishRoute":[-3],
+                    "count_start": 1,
+                    "count_end": 2,
+                    "wait_time_start": 3,
+                    "wait_time_end": 9
+                }
+            ]
+        },
+        {
+            "interval_time_start": 40,
+            "interval_time_end": 50,
+            "item_list": [
+                {
+                    "fish_id": [4085],
+                    "fishRoute":[-2,-3],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 30,
+            "interval_time_end": 40,
+            "item_list": [
+                {
+                    "fish_id":[30],
+                    "count_start": 1,
+                    "count_end": 2,
+                     "wait_time_start": 0,
+           		      "wait_time_end": 0
+                },
+                 {
+                    "fish_id":[30],
+                    "fishRoute": [-2,-3],
+                    "count_start": 1,
+                    "count_end": 2,
+                     "wait_time_start": 4,
+           		      "wait_time_end": 6
+                }
+            ]
+        },
+        {
+            "interval_time_start": 50,
+            "interval_time_end": 60,
+            "item_list": [
+                {
+                    "fish_id":[6315],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+           		    "wait_time_end": 0
+                }
+            ]
+        },
+         {
+            "interval_time_start": 19,
+            "interval_time_end": 25,
+            "item_list": [
+                {
+                    "fish_id": [32,33],
+                    "count_start": 1,
+                    "count_end": 2,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 40,
+            "interval_time_end": 45,
+            "item_list": [
+                {
+                    "fish_id": [34],
+                    "count_start": 1,
+                    "count_end": 2,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 40,
+            "interval_time_end": 42,
+            "item_list": [
+                {
+                    "fish_id": [35],
+                    "fishRoute": [-2,-3],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+           		      "wait_time_end": 0
+                },
+                {
+                    "fish_id": [35],
+                    "fishRoute": [-2,-3],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 6,
+                      "wait_time_end": 7
+                }
+            ]
+        },
+        {
+            "interval_time_start": 45,
+            "interval_time_end": 48,
+            "item_list": [
+                {
+                    "fish_id": [36],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+           		      "wait_time_end": 0
+                },
+                {
+                    "fish_id": [37],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 10,
+                      "wait_time_end": 12
+                }
+            ]
+        },
+        {
+            "interval_time_start": 25,
+            "interval_time_end": 28,
+            "item_list": [
+                {
+                    "fish_id": [40,41],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+           		      "wait_time_end": 0
+                },
+                {
+                    "fish_id": [42,43],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 15,
+                      "wait_time_end": 17
+                }
+            ]
+        },
+        {
+            "interval_time_start": 60,
+            "interval_time_end": 70,
+            "item_list": [
+                {
+                    "fish_id": [44],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+           		     "wait_time_end": 0
+                }
+
+            ]
+        },
+        {
+            "interval_time_start": 200,
+            "interval_time_end": 240,
+            "item_list": [
+                {
+                    "fish_id": [50,51,201],
+                    "fishRoute": [21,22,23,24],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+                    "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 80,
+            "interval_time_end": 90,
+            "item_list": [
+                {
+                    "fish_id":[101,102,103,104],
+                    "fishRoute": [21,22,23,24],
+                    "count_start": 1,
+                    "count_end": 1,
+                    "wait_time_start": 0,
+           		      "wait_time_end": 0
+                }
+            ]
+        },
+        {
+            "interval_time_start": 110,
+            "interval_time_end": 130,
+            "item_list": [
+                {
+                    "fish_id": [202],
+                    "count_start": 3,
+                     "count_end": 5,
+                     "wait_time_start": 0,
+                      "wait_time_end": 0
+                }
+            ]
+        }
+
+    ]
+}

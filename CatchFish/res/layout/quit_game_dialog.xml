@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <RelativeLayout
+        android:id="@+id/pay_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <ImageView
+            android:id="@+id/quit_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/game_quit_bg" />
+
+        <TextView
+            android:id="@+id/quit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/quit_text"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/quit_bg"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="55dp" >
+
+            <ImageView
+                android:id="@+id/game_1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/game_1_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/game_1"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp" >
+
+            <ImageView
+                android:id="@+id/game_2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/game_2_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/game_2"
+                android:layout_centerInParent="true"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/quit_bg"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="55dp" >
+
+            <ImageView
+                android:id="@+id/game_3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/game_3_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/game_3"
+                android:layout_centerInParent="true"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/quit_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/quit_bg"
+            android:layout_alignLeft="@+id/quit_bg"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="35dp"
+            android:background="@drawable/dialog_btn_quit_state"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/quit_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/quit_bg"
+            android:layout_alignRight="@+id/quit_bg"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/dialog_btn_continue_state"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/quit_bg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/quit_game_title" />
+    </RelativeLayout>
+
+</RelativeLayout>

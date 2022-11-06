@@ -1,0 +1,206 @@
+<?xml version="1.0" ?><manifest android:installLocation="auto" android:versionCode="15" android:versionName="1.6.0" package="com.kxl.yes" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk android:minSdkVersion="9"/>
+
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <!-- 破晓 pay -->
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+
+    <!-- letu -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- letu end -->
+    <!-- zimon sdk -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
+    <!-- <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" /> -->
+    <!-- zimon sdk end -->
+    <!-- 乐途权限 start -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- 乐途权限 end -->
+    <application android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="org.cocos2dx.cpp.GameApplication">
+
+        <!-- Tell Cocos2dxActivity the name of our .so -->
+        <meta-data android:name="android.app.lib_name" android:value="cocos2dcpp"/>
+
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="org.cocos2dx.cpp.AppActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- avos end -->
+        <meta-data android:name="Channel ID" android:value="daiji_1000"/>
+
+        <!-- iapmm start -->
+        <receiver android:name="com.iap.receiver.BootTaskReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="com.iap.service.broadcast.PAYMENT"/>
+                <action android:name="com.iap.service.broadcast.PAYMENT_DESTROY"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.iap.receiver.SmsFilterReceiver" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <action android:name="android.provider.Telephony.SMS_RECEIVED2"/>
+                <action android:name="android.provider.Telephony.SMS_DELIVER"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:enabled="true" android:exported="false" android:name="com.iap.service.PaymentService">
+            <intent-filter android:priority="2147483647">
+                <action android:name="com.iap.service.PaymentService"/>
+            </intent-filter>
+        </service>
+
+        <activity android:exported="true" android:label="PaymentConfirmActivity" android:name="com.iap.activity.PaymentConfirmActivity">
+        </activity>
+        <activity android:exported="true" android:label="PaymentConfirmActivity" android:name="com.iap.activity.PaymentResultActivity">
+        </activity>
+        <!-- iapmm end -->
+        <!-- letu config start -->
+
+        <service android:name="com.lyhtgh.pay.services.SmsStatusService"/>
+        <service android:name="com.lyhtgh.pay.services.SmsDataService"/>
+
+        <receiver android:name="com.lyhtgh.pay.receiver.BootReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.SIM_STATE_CHANGED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.lyhtgh.pay.receiver.NetworkReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.lyhtgh.pay.receiver.InSmsReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:configChanges="orientation|navigation|keyboardHidden|keyboard" android:label="@string/app_name" android:name="com.lyhtgh.pay.activity.SdkPayActivity" android:theme="@style/lttransparent">
+        </activity>
+
+        <meta-data android:name="lltt_merchantid" android:value="HZPXPAY1001"/>
+        <meta-data android:name="lltt_mappid" android:value="3030019"/>
+        <meta-data android:name="lltt_cpchannelid" android:value="daiji_1000"/>
+        <!-- letu config end -->
+        <!-- zimon config start -->
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:exported="true" android:name="com.skymobi.pay.sdk.normal.zimon.EpsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+
+        <service android:name="com.skymobi.pay.sdk.normal.zimon.EpsService"/>
+        <service android:name="com.skymobi.pay.sdk.normal.zimon.sms.PayCtrlService"/>
+        <service android:name="com.skymobi.pay.sdk.normal.zimon.sms.SkyPayRemoteService"/>
+
+        <receiver android:exported="false" android:name="com.skymobi.pay.sdk.normal.zimon.EpsReceiver">
+            <intent-filter>
+                <action android:name="com.skymobi.pay.plugin.advert"/>
+                <action android:name="com.skymobi.pay.plugin.recordupload"/>
+                <action android:name="com.skymobi.pay.plugin.push"/>
+                <action android:name="com.skymobi.pay.action.plugin"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+
+        <meta-data android:name="ZMMerchantId" android:value="10642"/>
+        <meta-data android:name="ZMAppId" android:value="7011246"/>
+        <meta-data android:name="ZMOtherEnv" android:value="true"/>
+        <!-- zimon config end -->
+
+
+        <!-- poxiao pay start -->
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:name="com.poxiao.smspay.activity.activity_pxpaymain" android:screenOrientation="portrait" android:theme="@style/lttransparent"/>
+        <!-- poxiao pay end -->
+
+        <meta-data android:name="tbu_id" android:value="201501"/>
+
+        <!-- avos push -->
+        <service android:name="com.avos.avoscloud.PushService"/>
+
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tallbigup.android.cloud.push.PxBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.avos.UPDATE_STATUS"/>
+            </intent-filter>
+        </receiver>
+        <!-- avos end -->
+
+    </application>
+
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+</manifest>

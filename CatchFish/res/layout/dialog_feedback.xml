@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@android:style/Theme.NoTitleBar.Fullscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/feedback_body"
+        android:layout_width="320dp"
+        android:layout_height="210dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/feedback_bg" >		
+        
+        <ImageView
+	        android:layout_width="76dp"
+	        android:layout_height="20dp"
+	        android:id="@+id/feedback_title"
+	        android:background="@drawable/feedback_title"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginRight="-2dp"
+	        android:layout_marginTop="8dp"/>
+        
+        <EditText 
+            android:id="@+id/feedback_advice"
+            android:layout_width="276dp"
+            android:layout_height="76dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
+            android:hint="不超过50个字符"/>
+                    
+	    <ImageButton
+	        android:layout_width="16dp"
+	        android:layout_height="15dp"
+	        android:id="@+id/feedback_cancle"
+	        android:background="@drawable/feedback_close_btn_state"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="6dp"
+	        android:layout_marginTop="8dp"/>
+
+       <ImageButton
+	        android:layout_width="113dp"
+	        android:layout_height="46dp"
+	        android:id="@+id/feedback_confirm"
+	        android:background="@drawable/feedback_confirm_btn_state"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="11dp"/>
+    </RelativeLayout>
+</RelativeLayout>

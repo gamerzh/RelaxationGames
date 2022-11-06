@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+  <dict>
+  <key>post</key>
+  <string>在游戏中获得五元话费</string>
+
+  <key>payVIPdes</key>
+  <string>再充值%d元，即可升级到VIP%d</string>
+  
+  <key>VIPdes</key>
+  <string>再充值       元，即可升级到           高级VIP可同时享受低级特权</string>
+  
+  <key>payCoinFirst</key>
+  <string>首次充值任意金额赠送</string>
+  
+  
+  <key>priceVIPdes</key>
+  <string>累计充值%d元</string>
+  
+  
+    <key>haveCoin</key>
+  <string>拥有金币</string>
+  
+  <key>haveExp</key>
+  <string>累计经验</string>
+     <key>wopaizaiXXming</key>
+  <string>我排在                      名</string>
+  
+     <key>nichengTip</key>
+  <string>昵称最多不能超过八个字</string>
+  
+   <key>feedbackTip</key>
+  <string>输入你对游戏的看法，最多不能超过140个字</string>
+  
+  
+    <key>itemDanJia</key>
+  <string> 单价：%d钻石/个</string>
+  
+  <key>jiangliwupin</key>
+  <string>角色等级不够，无法领取</string>
+  
+  
+     <key>bySkillNeedVIP</key>
+  <string>购买条件：需要VIP%d级</string>
+  
+     <key>bySkillNoNeedVIP</key>
+  <string>购买条件：需要炮塔解锁等级达到300级</string>
+  
+   <key>bySkillNoNeedVIPTIP</key>
+  <string>对不起,该技能购买需要VIP%d级才能购买，是否充值成为VIP%d</string>
+  
+  <key>bySkillNoNeedTurrentTIP</key>
+  <string>请先用钻石解锁300级炮才可使用钻石购买</string>
+  
+  <key>bySkillNoNeedTurrentTIPEx</key>
+  <string>请先用钻石解锁%d级炮才可使用钻石购买</string>
+  
+  
+  <key>lackOfdiamond</key>
+  <string>您的钻石不足200（%s 200钻石%d个），是否充值</string>
+  
+   <key>propName_1003</key>
+  <string>道具名称：冰冻</string>
+    <key>propName_1004</key>
+  <string>道具名称：锁定</string>
+    <key>propName_1005</key>
+  <string>道具名称：召唤</string>
+    <key>propName_1006</key>
+  <string>道具名称：核弹</string>
+  <key>propName_1007</key>
+  <string>道具名称：激光炮</string>
+  <key>buyPropNum</key>
+  <string>道具数量：%d个</string>
+  
+  <key>propPrice</key>
+  <string>道具价格：%d钻石</string>
+  
+  
+  <key>TXTBox_1009</key>
+  <string>青铜圣衣加身,捕鱼概率提升%f％</string>
+  <key>TXTBox_1010</key>
+  <string>白银圣衣加身,捕鱼概率提升%f％</string>
+  <key>TXTBox_1011</key>
+  <string>黄金圣衣加身,捕鱼概率提升%f％</string>
+  
+  
+  
+  <key>nextBox</key>
+  <string>获得%d万金币</string>
+  
+    <key>coinBox</key>
+  <string>获得?万金币数量</string>
+  
+    <key>enterRoomTip</key>
+  <string>您当前的最大解锁炮塔等级不够，请到低等级房间进行磨练</string>
+  
+    <key>onExitTip1</key>
+  <string>今天你还没捕过鱼哦，进入房间游戏吧！</string>
+   <key>onExitTip2</key>
+  <string>还有%d秒就可以获得%d金币哦！我们舍不得你走！确定和X</string>
+   <key>onExitTip3</key>
+  <string>每天都有免费奖励领取哦！明天再来吧！</string>
+  
+  
+    <key>onRanklistTip</key>
+  <string>请您打开WIFI或移动网络查看排行榜</string>
+  
+  
+  <key>ChangeGiftTxt</key>
+  <string>已拥有话费           元，请选择你要兑换的商品</string>
+  
+  <key>paySuccess</key>
+  <string>恭喜你充值成功!</string>
+   <key>payFailed</key>
+  <string>充值失败!</string>
+    <key>choujiangSure</key>
+  <string>你离下一级更多话费抽奖仅差%d金币了，确定现在抽奖吗!</string>
+  
+   <key>netTimeOut</key>
+  <string>网络连接失败</string>
+  
+  <key>changeGiftLackMedal</key>
+  <string>您的话费不足30元，游戏中捕获黄金鱼，累计奖池抽奖，可以获得话费！</string>
+  
+  <key>changeGiftOverMedal</key>
+  <string>捕获黄金鱼累计奖池可以抽奖，获得更多勋章，官方有权对作弊行为进行处罚</string>
+  
+  
+    <key>havenoSkillIsToBuy</key>
+  <string>没有免费技能次数，是否消耗钻石使用道具？</string>
+   <key>nextWithOutRemind</key>
+  <string>以后不再提醒</string>
+    <key>havanoDmToUseskill</key>
+  <string>您的钻石不足，请充值钻石</string>
+  <key>UpdataMaxTurrent</key>
+  <string>您已经升级到最大等级炮</string>
+   <key>getXXcoin</key>
+  <string>恭喜你，获得%d金币</string>
+  <key>LockNewRoom</key>
+  <string>您已解锁新的渔场，是否进入？</string>
+   <key>VIPGainTheCoins</key>
+  <string>尊贵的        用户，每日补足金币已为您准备好，点击确定领取</string>
+  
+  
+  <key>LoadingTip1</key>
+  <string>  小提示：击杀黄金鱼获得抽奖机会赢话费！</string>
+  <key>LoadingTip2</key>
+  <string>  小提示：成为贵族有专属炮台哦！</string>
+  <key>LoadingTip3</key>
+  <string> 小技巧：按住屏幕可以进行连续攻击，能更快速的捕获更多鱼哦！</string>
+  <key>LoadingTip4</key>
+  <string> 小技巧：使用瞄准技能可以大大的提高捕获鱼群的几率哦！</string>
+  <key>LoadingTip5</key>
+  <string> 小技巧：当黄金鱼经过身边时，别犹豫，立即使用冰冻技能，冻结鱼群捕获它们吧！</string>
+  <key>LoadingTip6</key>
+  <string> 小技巧：召唤出来的黄金鱼捕获几率更高哦！还有几率能出出现BOSS。</string>
+  <key>LoadingTip7</key>
+  <string>  小技巧：当出现BOSS或美人鱼时，可以使用激光攻击，来将极大提高捕获成功率。</string>
+  <key>LoadingTip8</key>
+  <string> 小技巧：当出现大量鱼群时，可以使用核弹进行大面积捕获。</string>
+    <key>LoadingTip9</key>
+  <string>小技巧：捕获黄金鱼不仅可以获得更多奖励，还能进行累计抽奖</string>
+  <key>LoadingTip10</key>
+  <string>小技巧：成为VIP可提升击杀概率！</string>
+  
+   <key>LoadingTip0</key>
+  <string>正在为您准备话费兑换券，请稍后！</string>
+  
+  
+   <key>nowxpaytip</key>
+  <string>对不起，请先安装微信，再进行付款</string>
+  
+  </dict> 
+</array>
+</plist>

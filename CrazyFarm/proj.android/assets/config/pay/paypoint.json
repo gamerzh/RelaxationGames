@@ -1,0 +1,20 @@
+{
+	"paypoint":[
+		{ "id": 1, "name": "金币", "price": 800, "desc": "8元金币宝箱。","describe": [ { "propid": 1, "propnum": 40000 } ] },
+		{ "id": 2, "name": "金币", "price": 1800, "desc": "18元金币宝箱","describe": [ { "propid": 1, "propnum": 180000 } ] },
+		{ "id": 3, "name": "金币", "price": 3800, "desc": "38元3金币宝箱","describe": [ { "propid": 1, "propnum": 380000 } ] },
+		{ "id": 4, "name": "金币", "price": 5800, "desc": "58元金币宝箱","describe": [ { "propid": 1, "propnum": 580000 } ] },
+		{ "id": 5, "name": "金币", "price": 10800, "desc": "108元金币宝箱","describe": [ { "propid": 1, "propnum": 1080000 } ] },
+		{ "id": 6, "name": "金币", "price": 38800, "desc": "388元金币宝箱","describe": [ { "propid": 1, "propnum": 3880000 } ] },
+		{ "id": 7, "name": "金币", "price": 68800, "desc": "688元金币宝箱","describe": [ { "propid": 1, "propnum": 6880000 } ] },
+		{ "id": 8, "name": "钻石", "price": 1800, "desc": "18元钻石礼包","describe": [ { "propid": 2, "propnum": 180 } ] },
+		{ "id": 9, "name": "钻石", "price": 3800, "desc": "38元钻石礼包","describe": [ { "propid": 2, "propnum": 418 } ] },
+		{ "id": 10, "name": "钻石", "price": 5800, "desc": "58元钻石礼包","describe": [ { "propid": 2, "propnum": 638 } ] },
+		{ "id": 11, "name": "钻石", "price": 10800, "desc": "108元钻石礼包","describe": [ { "propid": 2, "propnum": 1188 } ] },
+		{ "id": 12, "name": "钻石", "price":38800, "desc": "388元钻石礼包","describe": [ { "propid": 2, "propnum": 4268 } ] },
+		{ "id": 13, "name": "贵族礼包", "price": 3800, "desc": "贵族礼包","describe": [ { "propid": 3, "propnum": 1 } ] },
+		{ "id": 14, "name": "首冲礼包", "price": 1, "desc": "隐藏大礼包","describe": [ { "propid": 1, "propnum": 1 }, { "propid": 2, "propnum": 1 }] },
+		{ "id": 15, "name": "首冲礼包（新）", "price": 1000, "desc": "首冲礼包","describe": [ { "propid": 1, "propnum": 20000 }, { "propid": 2, "propnum": 118 }] }				
+	],
+	"pay_version": 102
+}

@@ -1,0 +1,78 @@
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!method/removal/*
+-keepattributes *Annotation*,Signature
+-keepattributes EnclosingMethod
+
+-dontwarn android.support.v4.**    
+-keep class android.support.v4.** { *; }  
+-keep interface android.support.v4.app.** { *; }  
+-keep public class * extends android.support.v4.**  
+-keep public class * extends android.app.Fragment
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.view.View{*;}
+-keep public class com.android.vending.licensing.ILicensingService
+-keep class * implements java.io.Serializable
+
+
+-keepclassmembers class *{
+	public void *(android.view.View);
+}
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembernames class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembernames class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keep class com.skymobi.pay.**{*;}
+-keep public class com.skymobi.payment.android.model.*.*{*;}
+
+
+-keep class com.come.** {*;}
+-keep class com.doudoudou.** {*;}
+-keep class org.** {*;}
+-keep class com.avos.** {*;}
+-keep class com.poxiao.** {*;}
+-keep class com.loopj.** {*;}
+-keep class com.alibaba.** {*;}
+
+
+-dontwarn com.**
+-dontwarn org.**
+
+-keep class com.lyhtgh.pay.** { *; }
+-keep class com.unicom.dcLoader.** { *; }
+-keep class com.android.said.adapter.** { *; }
+-keep class com.n0stop.n0base.** { *; }
+-keep class com.popgame.popcentersdk.** { *; }
+-keep class com.popgame.view.** { *; }
+
+-keep class com.a.b.c.d.** {*;}
+-keep class com.b.a.** {*;}
+-keep class com.d.** {*;}

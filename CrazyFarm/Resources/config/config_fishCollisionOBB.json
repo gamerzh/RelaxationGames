@@ -1,0 +1,211 @@
+{
+    "describe": "鱼碰撞范围",
+    "version": 1,
+    "item_list": [
+        {
+            "fish_UiId": 1,
+            "figures": [
+                { "leftBottom": { "x": 11, "y": 0 }, "rightBottom": { "x": 45, "y": 0 }, "rightTop": { "x": 45, "y": 21 }, "leftTop": { "x": 11, "y": 21 } }
+            ]
+        },
+        {
+            "fish_UiId": 2,
+            "figures": [
+                { "leftBottom": { "x": 14, "y": 0 }, "rightBottom": { "x": 54, "y": 0 }, "rightTop": { "x": 54, "y": 26 }, "leftTop": { "x": 14, "y": 26 } }
+            ]
+        },
+        {
+            "fish_UiId": 3,
+            "figures": [
+                { "leftBottom": { "x": 12, "y": 6 }, "rightBottom": { "x": 43, "y": 6 }, "rightTop": { "x": 43, "y": 27 }, "leftTop": { "x": 12, "y": 27 } }
+            ]
+        },
+        {
+            "fish_UiId": 4,
+            "figures": [
+                { "leftBottom": { "x": 13, "y": 0 }, "rightBottom": { "x": 56, "y": 0 }, "rightTop": { "x": 56, "y": 37 }, "leftTop": { "x": 13, "y": 37 } }
+            ]
+        },
+        {
+            "fish_UiId": 5,
+            "figures": [
+                { "leftBottom": { "x": 18, "y": 23 }, "rightBottom": { "x": 53, "y": 23 }, "rightTop": { "x": 53, "y": 49 }, "leftTop": { "x": 18, "y": 49 } }
+            ]
+        },
+        {
+            "fish_UiId": 6,
+            "figures": [
+                { "leftBottom": { "x": 5, "y": 5 }, "rightBottom": { "x": 55, "y": 5 }, "rightTop": { "x": 55, "y": 35 }, "leftTop": { "x": 5, "y": 35 } }
+            ]
+        },
+        {
+            "fish_UiId": 7,
+            "figures": [
+                { "leftBottom": { "x": 20, "y": 3 }, "rightBottom": { "x": 46, "y": 3 }, "rightTop": { "x": 46, "y": 50 }, "leftTop": { "x": 20, "y": 50 } }
+            ]
+        },
+        {
+            "fish_UiId": 8,
+            "figures": [
+                { "leftBottom": { "x": 23, "y": 13 }, "rightBottom": { "x": 69, "y": 13 }, "rightTop": { "x": 69, "y": 42 }, "leftTop": { "x": 23, "y": 42 } }
+            ]
+        },
+        {
+            "fish_UiId": 9,
+            "figures": [
+                { "leftBottom": { "x": 17, "y": 11 }, "rightBottom": { "x": 78, "y": 11 }, "rightTop": { "x": 78, "y": 35 }, "leftTop": { "x": 17, "y": 35 } }
+            ]
+        },
+        {
+            "fish_UiId": 10,
+            "figures": [
+                { "leftBottom": { "x": 6, "y": 11 }, "rightBottom": { "x": 69, "y": 11 }, "rightTop": { "x": 69, "y": 68 }, "leftTop": { "x": 6, "y": 68 } }
+            ]
+        },
+        {
+            "fish_UiId": 30,
+            "figures": [
+                { "leftBottom": { "x": 30, "y": 23 }, "rightBottom": { "x": 99, "y": 23 }, "rightTop": { "x": 99, "y": 50 }, "leftTop": { "x": 30, "y": 50 } }
+            ]
+        },
+        {
+            "fish_UiId": 31,
+            "figures": [
+                { "leftBottom": { "x": 0, "y": 1 }, "rightBottom": { "x": 49, "y": 1 }, "rightTop": { "x": 49, "y": 35 }, "leftTop": { "x": 0, "y": 35 } },
+                { "leftBottom": { "x": 49, "y": 12 }, "rightBottom": { "x": 95, "y": 12 }, "rightTop": { "x": 95, "y": 32 }, "leftTop": { "x": 49, "y": 32 } }
+            ]
+        },
+        {
+            "fish_UiId": 32,
+            "figures": [
+                { "leftBottom": { "x": 10, "y": 25 }, "rightBottom": { "x": 73, "y": 25 }, "rightTop": { "x": 73, "y": 69 }, "leftTop": { "x": 10, "y": 69 } }
+            ]
+        },
+        {
+            "fish_UiId": 33,
+            "figures": [
+                { "leftBottom": { "x": 21, "y": 23 }, "rightBottom": { "x": 75, "y": 23 }, "rightTop": { "x": 75, "y": 58 }, "leftTop": { "x": 21, "y": 58 } }
+            ]
+        },
+        {
+            "fish_UiId": 34,
+            "figures": [
+                { "leftBottom": { "x": 29, "y": 3 }, "rightBottom": { "x": 90, "y": 3 }, "rightTop": { "x": 90, "y": 92 }, "leftTop": { "x": 29, "y": 92 } }
+            ]
+        },
+        {
+            "fish_UiId": 35,
+            "figures": [
+                { "leftBottom": { "x": 32, "y": 0 }, "rightBottom": { "x": 108, "y": 0 }, "rightTop": { "x": 108, "y": 134 }, "leftTop": { "x": 32, "y": 134 } }
+            ]
+        },
+        {
+            "fish_UiId": 36,
+            "figures": [
+                { "leftBottom": { "x": 41, "y": 53 }, "rightBottom": { "x": 168, "y": 53 }, "rightTop": { "x": 168, "y": 111 }, "leftTop": { "x": 41, "y": 111 } }
+            ]
+        },
+        {
+            "fish_UiId": 37,
+            "figures": [
+                { "leftBottom": { "x": 52, "y": 0 }, "rightBottom": { "x": 226, "y": 0 }, "rightTop": { "x": 226, "y": 120 }, "leftTop": { "x": 52, "y": 120 } }
+            ]
+        },
+        {
+            "fish_UiId": 40,
+            "figures": [
+                { "leftBottom": { "x": 46, "y": 0 }, "rightBottom": { "x": 160, "y": 0 }, "rightTop": { "x": 160, "y": 201 }, "leftTop": { "x": 46, "y": 201 } }
+            ]
+        },
+        {
+            "fish_UiId": 41,
+            "figures": [
+                { "leftBottom": { "x": 0, "y": 77 }, "rightBottom": { "x": 77, "y": 77 }, "rightTop": { "x": 77, "y": 92 }, "leftTop": { "x": 0, "y": 92 } },
+                { "leftBottom": { "x": 77, "y": 20 }, "rightBottom": { "x": 271, "y": 20 }, "rightTop": { "x": 271, "y": 145 }, "leftTop": { "x": 77, "y": 145 } }
+            ]
+        },
+        {
+            "fish_UiId": 42,
+            "figures": [
+                { "leftBottom": { "x": 32, "y": 36 }, "rightBottom": { "x": 223, "y": 36 }, "rightTop": { "x": 223, "y": 192 }, "leftTop": { "x": 32, "y": 192 } }
+            ]
+        },
+        {
+            "fish_UiId": 43,
+            "figures": [
+                { "leftBottom": { "x": 74, "y": 76 }, "rightBottom": { "x": 212, "y": 76 }, "rightTop": { "x": 212, "y": 125 }, "leftTop": { "x": 74, "y": 125 } }
+            ]
+        },
+        {
+            "fish_UiId": 44,
+            "figures": [
+                { "leftBottom": { "x": 27, "y": 34 }, "rightBottom": { "x": 155, "y": 34 }, "rightTop": { "x": 155, "y": 169 }, "leftTop": { "x": 27, "y": 169 } }
+            ]
+        },
+        {
+            "fish_UiId": 50,
+            "figures": [
+                { "leftBottom": { "x": 0, "y": 43 }, "rightBottom": { "x": 306, "y": 43 }, "rightTop": { "x": 306, "y": 166 }, "leftTop": { "x": 0, "y": 166 } },
+                { "leftBottom": { "x": 175, "y": 0 }, "rightBottom": { "x": 227, "y": 0 }, "rightTop": { "x": 227, "y": 216 }, "leftTop": { "x": 175, "y": 216 } }
+            ]
+        },
+        {
+            "fish_UiId": 51,
+            "figures": [
+                { "leftBottom": { "x": 108, "y": 48 }, "rightBottom": { "x": 485, "y": 48 }, "rightTop": { "x": 485, "y": 175 }, "leftTop": { "x": 108, "y": 175 } }
+            ]
+        },
+        {
+            "fish_UiId": 52,
+            "figures": [
+                { "leftBottom": { "x": 30, "y": 28.5 }, "rightBottom": { "x": 364, "y": 28.5 }, "rightTop": { "x": 364, "y": 144.5 }, "leftTop": { "x": 30, "y": 144.5 } }
+            ]
+        },
+        {
+            "fish_UiId": 60,
+            "figures": [
+                { "leftBottom": { "x": 50, "y": 53 }, "rightBottom": { "x": 130, "y": 53 }, "rightTop": { "x": 130, "y": 133 }, "leftTop": { "x": 50, "y": 133 } }
+            ]
+        }
+        ,
+        {
+            "fish_UiId": 101,
+            "figures": [
+                { "leftBottom": { "x": 10, "y": 10 }, "rightBottom": { "x": 92, "y": 10 }, "rightTop": { "x": 92, "y": 92 }, "leftTop": { "x": 10, "y": 92 } },
+                 { "leftBottom": { "x": -66.5, "y": 19.5 }, "rightBottom": { "x": -3.5, "y": 19.5 }, "rightTop": { "x": -3.5, "y": 82.5 }, "leftTop": { "x": -66.5, "y": 82.5 } },
+                 { "leftBottom": { "x": 105.5, "y": 19.5 }, "rightBottom": { "x": 168.5, "y": 19.5 }, "rightTop": { "x": 168.5, "y": 82.5 }, "leftTop": { "x": 105.5, "y": 82.5 } }
+            ]
+        }
+        ,
+        {
+            "fish_UiId": 102,
+            "figures": [
+                { "leftBottom": { "x": 10, "y": 10 }, "rightBottom": { "x": 92, "y": 10 }, "rightTop": { "x": 92, "y": 92 }, "leftTop": { "x": 10, "y": 92 } },
+                 { "leftBottom": { "x": -43, "y": -43 }, "rightBottom": { "x": 10, "y":-43  }, "rightTop": { "x": 10, "y": 10 }, "leftTop": { "x": -43, "y": 10 } },
+                { "leftBottom": { "x": -43, "y": 89 }, "rightBottom": { "x": 10, "y":89  }, "rightTop": { "x": 10, "y": 142 }, "leftTop": { "x": -43, "y": 142 } },
+                { "leftBottom": { "x": 89, "y": -43 }, "rightBottom": { "x": 142, "y":-43  }, "rightTop": { "x": 142, "y": 10 }, "leftTop": { "x": 89, "y": 10 } },
+                 { "leftBottom": { "x": 89, "y": 89 }, "rightBottom": { "x": 142, "y":89  }, "rightTop": { "x": 142, "y": 142 }, "leftTop": { "x": 89, "y": 142 } }
+            ]
+        }
+        ,
+        {
+            "fish_UiId": 103,
+            "figures": [
+                { "leftBottom": { "x": 10, "y": 10 }, "rightBottom": { "x": 117, "y": 10 }, "rightTop": { "x": 117, "y": 117 }, "leftTop": { "x": 10, "y": 117 } },
+                 { "leftBottom": { "x": -7, "y": -40 }, "rightBottom": { "x": 57, "y":-40  }, "rightTop": { "x": 57, "y": 24 }, "leftTop": { "x": -7, "y": 24 } },
+                 { "leftBottom": { "x": -7, "y": 103 }, "rightBottom": { "x": 57, "y":103  }, "rightTop": { "x": 57, "y": 164 }, "leftTop": { "x": -7, "y": 164 } },
+                { "leftBottom": { "x": 113, "y": 31.5 }, "rightBottom": { "x": 177, "y":31.5  }, "rightTop": { "x": 177, "y": 95.5 }, "leftTop": { "x": 113, "y": 95.5 } }
+            ]
+        }
+        ,
+        {
+            "fish_UiId": 104,
+            "figures": [
+                { "leftBottom": { "x": 5, "y": 5 }, "rightBottom": { "x": 69, "y": 5 }, "rightTop": { "x": 69, "y": 69 }, "leftTop": { "x": 5, "y": 69 } },
+                 { "leftBottom": { "x": 76, "y": 0 }, "rightBottom": { "x": 140, "y":0  }, "rightTop": { "x": 140, "y": 64 }, "leftTop": { "x": 76, "y": 64 } },
+                 { "leftBottom": { "x": 98, "y": -52 }, "rightBottom": { "x": 162, "y":-52  }, "rightTop": { "x": 162, "y": 12 }, "leftTop": { "x": 98, "y": 12 } },
+                { "leftBottom": { "x": 170, "y": -52 }, "rightBottom": { "x": 234, "y":-52  }, "rightTop": { "x": 234, "y": 12 }, "leftTop": { "x": 170, "y": 12 } }
+            ]
+        }
+    ]
+}

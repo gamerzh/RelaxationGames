@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="skypush_myProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/skypush_progress_mini</item>
+        <item name="android:indeterminateDrawable">@drawable/skypush_progress_mini</item>
+        <item name="android:minHeight">8dip</item>
+        <item name="android:maxHeight">8dip</item>
+    </style>
+
+</resources>

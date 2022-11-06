@@ -1,0 +1,17 @@
+{
+	uipoints:[
+				{ "uipoint": 1, "type": "poxiao", "paypoint": 1 },
+				{ "uipoint": 2, "type": "poxiao", "paypoint": 2 },
+				{ "uipoint": 3, "type": "poxiao", "paypoint": 3 },
+				{ "uipoint": 4, "type": "poxiao", "paypoint": 4 },
+				{ "uipoint": 5, "type": "poxiao", "paypoint": 5 },
+				{ "uipoint": 6, "type": "poxiao", "paypoint": 6 },
+				{ "uipoint": 7, "type": "free", "paypoint": 8 },
+				{ "uipoint": 8, "type": "free", "paypoint": 9 },
+				{ "uipoint": 9, "type": "free", "paypoint": 10 },
+				{ "uipoint": 10, "type": "free", "paypoint": 11 },
+				{ "uipoint": 11, "type": "free", "paypoint": 12 },
+				{ "uipoint": 12, "type": "free", "paypoint": 13 },
+				{ "uipoint": 13, "type": "free", "paypoint": 14 }
+	]
+}

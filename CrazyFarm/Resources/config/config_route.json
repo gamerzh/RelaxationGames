@@ -1,0 +1,304 @@
+{
+    "description" :"1：表示按照轨迹点运动，tension表示运行轨迹柔和嶿为最柔和ﺿ位曲縿2：圆周运动：需填写参数运动圆心，圆周次数，缩放系数(无缩放填0) 3：播放动画：需填写动画名称",
+    "version" : 1,
+    "MotionConfig": [
+        {
+            "tag": 1,
+            "routePoint": [
+                {
+                     "moveState": 1,
+                    "MoveByPos":{"x":-1500,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 30
+                }
+            ]
+        },
+        {
+            "tag": 2,
+            "routePoint": [
+                {
+                    "moveState": 1,
+                    "MoveByPos":{"x":-1500,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 30
+                }
+            ]
+        },
+        {
+            "tag": 3,
+            "routePoint": [
+                {
+                    "moveState": 1,
+                    "MoveByPos":{"x":-1500,"y":0},
+                    "isRepet": 0,   
+                    "delay": 7,
+                    "time": 30
+                }
+            ]
+        },
+        {
+            "tag": 4,
+            "routePoint": [
+                {
+                    "moveState": 1,
+                    "MoveByPos":{"x":-1500,"y":0},
+                    "isRepet": 0,   
+                    "delay": 8,
+                    "time": 30
+                }
+            ]
+        },
+        {
+            "tag": 5,
+            "routePoint": [
+                {
+                    "moveState": 1,
+                    "MoveByPos":{"x":-1800,"y":0},
+                    "isRepet": 0,   
+                    "delay": 13,
+                    "time": 35
+                }
+            ]
+        },
+        {
+            "tag": 6,
+            "routePoint": [
+                {
+                    "moveState": 1,
+                    "MoveByPos":{"x":-1800,"y":0},
+                    "isRepet": 0,   
+                    "delay": 23,
+                    "time": 35
+                }
+            ]
+        }
+        ,
+        {
+            "tag": 7,
+            "routePoint": [
+                {
+                     "moveState": 1,
+                   "MoveByPos":{"x":470,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 12
+                },
+                {
+                     "moveState": 1,
+                   "MoveByPos":{"x":800,"y":0},
+                    "isRepet": 0,   
+                    "delay": 25,
+                    "time": 15
+                }
+            ]
+        
+        },
+        {
+            "tag": 8,
+            "routePoint":[
+                {
+                     "moveState": 1,
+                   "MoveByPos":{"x":-470,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 12
+                },
+                {
+                     "moveState": 1,
+                   "MoveByPos":{"x":-800,"y":0},
+                    "isRepet": 0,   
+                    "delay": 25,
+                    "time": 15
+                }
+            ]
+        
+        },
+        {
+            "tag": 9,
+            "routePoint": [
+ 		{
+                     "moveState": 1,
+                   "MoveByPos":{"x":0,"y":300},
+                    "isRepet": 0,   
+                    "delay": 8,
+                    "time":  4
+                },
+                {
+                     "moveState": 2,
+                    "circleX":  270, 
+                    "circleY":  270,
+                     "ScaleDiff":  0, 
+                    "circleAngle": 360, 
+                    "isClockwise": true,
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 10
+                }, 
+	      {
+                     "moveState": 1,
+                   "MoveByPos":{"x":0,"y":400},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time":  7
+                }
+            ]
+        
+        },
+        {
+            "tag": 10,
+            "routePoint":[
+ 		{
+                     "moveState": 1,
+                   "MoveByPos":{"x":0,"y":300},
+                    "isRepet": 0,   
+                    "delay": 8,
+                    "time":  4
+                },
+                {
+                     "moveState": 2,
+                    "circleX":  690, 
+                    "circleY":  270,
+                     "ScaleDiff":  0, 
+                    "circleAngle": 360, 
+                    "isClockwise": false,
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 10
+                }, 
+	      {
+                     "moveState": 1,
+                   "MoveByPos":{"x":0,"y":400},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time":  7
+                }
+            ]
+
+        
+        },
+        {
+            "tag": 11,
+            "routePoint": [
+                {
+                     "moveState": 1,
+                    "MoveByPos":{"x":-1300,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 0.5
+                },
+                {
+                     "moveState": 2,
+                    "circleX":  110, 
+                    "circleY":  270,
+                     "ScaleDiff":  0, 
+                    "circleAngle": 360, 
+                    "isClockwise": true,
+                    "isRepet": 1,   
+                    "delay": 0,
+                    "time": 4
+                }
+            ]
+        
+        },
+        {
+            "tag": 12,
+            "routePoint": [
+                {
+                     "moveState": 1,
+                   "MoveByPos":{"x":-1300,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 0.5
+                },
+                {
+                     "moveState": 2,
+                    "circleX":  230, 
+                    "circleY":  270,
+                     "ScaleDiff":  0, 
+                    "circleAngle": 360, 
+                    "isClockwise": true,
+                    "isRepet": 1,   
+                    "delay": 0,
+                    "time": 4
+                }
+            ]
+        
+        },
+        {
+            "tag": 13,
+            "routePoint": [
+                {
+                     "moveState": 1,
+                    "MoveByPos":{"x":-1300,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 0.5
+                },
+                {
+                     "moveState": 2,
+                    "circleX":  890, 
+                    "circleY":  270,
+                     "ScaleDiff":  0, 
+                    "circleAngle": 360, 
+                    "isClockwise": true,
+                    "isRepet": 1,   
+                    "delay": 0,
+                    "time": 4
+                }
+            ]
+        
+        },
+        {
+            "tag": 14,
+            "routePoint": [
+                {
+                     "moveState": 1,
+                 "MoveByPos":{"x":-1300,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 0.5
+                },
+                {
+                     "moveState": 2,
+                    "circleX":  830, 
+                    "circleY":  270,
+                     "ScaleDiff":  0, 
+                    "circleAngle": 360, 
+                    "isClockwise": true,
+                    "isRepet": 1,   
+                    "delay": 0,
+                    "time": 4
+                }
+            ]
+        
+        }
+        ,
+        {
+            "tag": 15,
+            "routePoint": [
+                {
+                     "moveState": 1,
+                   "MoveByPos":{"x":-1300,"y":0},
+                    "isRepet": 0,   
+                    "delay": 0,
+                    "time": 0.5
+                },
+                {
+                     "moveState": 2,
+                    "circleX":  710, 
+                    "circleY":  270,
+                     "ScaleDiff":  0, 
+                    "circleAngle": 360, 
+                    "isClockwise": true,
+                    "isRepet": 1,   
+                    "delay": 0,
+                    "time": 4
+                }
+            ]
+        
+        }
+        
+    ]
+}

@@ -1,0 +1,10 @@
+# ignore bin folder
+bin/
+
+#ignore debug folder
+debug/
+
+#ignore .DS_Store file
+.DS_Store
+project.properties
+R.java

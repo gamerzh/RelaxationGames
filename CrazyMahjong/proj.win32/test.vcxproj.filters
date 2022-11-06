@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene">
+      <UniqueIdentifier>{944f0c64-dee6-4c88-ac6a-c5913a3da9d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\Mahjong">
+      <UniqueIdentifier>{d65c9961-98db-4a04-af26-8ecd449f5638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\UI">
+      <UniqueIdentifier>{a732eeff-ff62-4077-b1fd-adfa62eadc35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pay">
+      <UniqueIdentifier>{82958e45-b7e9-4705-ab61-4a99a86c44b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utill">
+      <UniqueIdentifier>{0aadb790-abc8-4f3f-a970-f1340cd1fdb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Hall">
+      <UniqueIdentifier>{3421faf4-9823-49b6-83ac-b888bd50cf11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\server">
+      <UniqueIdentifier>{9c6c8c2a-1246-4393-ac45-3e1f9857529a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\UI\setting">
+      <UniqueIdentifier>{96ff936d-ee9a-4a33-a564-666b994a99a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScene\UI\base">
+      <UniqueIdentifier>{6463d3f6-3d76-4cee-94a2-7b5d86b060ab}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameScene.cpp">
+      <Filter>src\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Card.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MahjongDatas.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MahjongDrawer.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HeadPortrait.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>src\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Rules.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PlayMenu.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AccountPanel.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameFlow.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MahjongEvent.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SystemUI.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Room.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MahjongAnim.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AddCoinPanel.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SetPanel.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIRules.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MenuScenePayHandler.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PxPayMannger.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Jniutill.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PayEventMannger.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChineseWorld.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DBManager.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Toast.cpp">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NameMannger.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RanklistManager.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\User.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HallScene.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RulePanel.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SignManager.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SystemTime.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ScrollTextMannger.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ScrollTextEx.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SignInLayer.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ShopPanel.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ShopCell.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RanklistCell.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RanklistPanel.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SetNameLayer.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AnimationUtil.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RolePanel.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RoleShow.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BasePayLayer.cpp">
+      <Filter>src\pay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TwiceSureDialog.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ToolTipMannger.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RedpackPanel.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Audio.cpp">
+      <Filter>src\utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ReadpackNode.cpp">
+      <Filter>src\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TipScene.cpp">
+      <Filter>src\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\server\HttpMannger.cpp">
+      <Filter>src\server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\server\HttpClientUtill.cpp">
+      <Filter>src\server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\server\Server.cpp">
+      <Filter>src\server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\setting\UserSetting.cpp">
+      <Filter>src\GameScene\UI\setting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\base\BaseDialog.cpp">
+      <Filter>src\GameScene\UI\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\setting\GameRuleDialog.cpp">
+      <Filter>src\GameScene\UI\setting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ui\setting\GameFeedDialog.cpp">
+      <Filter>src\GameScene\UI\setting</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameScene.h">
+      <Filter>src\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Card.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MahjongDatas.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MahjongDrawer.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HeadPortrait.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>src\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Rules.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PlayMenu.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AccountPanel.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameFlow.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MahjongEvent.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SystemUI.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Room.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MahjongAnim.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AddCoinPanel.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SetPanel.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIRules.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuScenePayHandler.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PxPayMannger.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Jniutill.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PayEventMannger.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChineseWorld.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DBManager.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Toast.h">
+      <Filter>src\GameScene\Mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NameMannger.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RanklistManager.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\User.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HallScene.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RulePanel.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SignManager.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SystemTime.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ScrollTextMannger.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ScrollTextEx.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SignInLayer.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ShopPanel.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ShopCell.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RanklistCell.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RanklistPanel.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SetNameLayer.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AnimationUtil.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RolePanel.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RoleShow.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BasePayLayer.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TwiceSureDialog.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ToolTipMannger.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RedpackPanel.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Audio.h">
+      <Filter>src\utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PayDefine.h">
+      <Filter>src\pay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ReadpackNode.h">
+      <Filter>src\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TipScene.h">
+      <Filter>src\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\server\HttpClientUtill.h">
+      <Filter>src\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\server\HttpMannger.h">
+      <Filter>src\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\server\HttpMsgDefine.h">
+      <Filter>src\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\server\MsgObserver.h">
+      <Filter>src\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\server\Server.h">
+      <Filter>src\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\setting\UserSetting.h">
+      <Filter>src\GameScene\UI\setting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\base\BaseDialog.h">
+      <Filter>src\GameScene\UI\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\setting\GameRuleDialog.hpp">
+      <Filter>src\GameScene\UI\setting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ui\setting\GameFeedDialog.hpp">
+      <Filter>src\GameScene\UI\setting</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

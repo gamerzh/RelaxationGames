@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <com.candy.futon.view.DdzGameView
+        android:id="@+id/gameView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <ImageView android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/kaixinddz_title"
+	    android:layout_marginRight="86dp"
+	    android:layout_gravity="right"/>
+    
+    <RelativeLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+    	android:background="@drawable/time_bettery_bg"
+    	android:layout_gravity="right"
+    	android:layout_marginRight="6dp"
+    	android:layout_marginTop="-8dp" >
+	    <include layout="@layout/time_and_bettery"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginRight="6dp"/>
+    </RelativeLayout>
+    
+    <ImageView  android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/poxiao_kefu"
+	    android:layout_gravity="left|top"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginTop="10dp"/>
+    
+    
+    <ImageView android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/more_game"
+	    android:id="@+id/image_view_more_game"
+	    android:layout_gravity="right|center_vertical"/>
+    
+</FrameLayout>

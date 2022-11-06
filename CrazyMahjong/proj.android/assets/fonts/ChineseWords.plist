@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+  <dict>
+  <key>NPC_NAME_1</key>
+  <string>神之手</string>
+ <key>NPC_NAME_2</key>
+  <string>美丽王</string>
+   <key>NPC_NAME_3</key>
+  <string>罗猪猪</string>
+   <key>NPC_NAME_4</key>
+  <string>流川枫</string>
+   <key>NPC_NAME_5</key>
+  <string>谜月</string>
+   <key>NPC_NAME_6</key>
+  <string>花月</string>
+   <key>NPC_NAME_7</key>
+  <string>龙泉</string>
+   <key>NPC_NAME_8</key>
+  <string>花开朵朵</string>
+   <key>NPC_NAME_9</key>
+  <string>陌上花开</string>
+   <key>NPC_NAME_10</key>
+   <string>春水初生</string>
+   <key>NPC_NAME_11</key>
+   <string>微微</string>
+   <key>NPC_NAME_12</key>
+   <string>莫不静好</string>
+   <key>NPC_NAME_13</key>
+   <string>sunshine</string>
+  
+  
+   <key>TaskSucess</key>
+  <string>奖励到手啦！</string>
+
+	<key>TaskFailed</key>
+	<string>还不满足条件，继续努力吧！</string>
+    
+  <key>AdayAtime</key>
+  <string>一天只限领取一次，明天再来哦！</string>
+  
+   <key>SetNameWarning</key>
+  <string>名字不得为空</string>
+  
+    <key>ScrollText_0</key>
+  <string>%s充值了%d元。</string>
+  
+  
+    <key>ScrollText_1</key>
+  <string>%s在高级场赢了%d金币。</string>
+  
+    <key>ScrollText_2</key>
+  <string>%s购买了首充礼包。</string>
+  
+ <key>Text_ROOM_0</key>
+  <string>初级场</string>
+   <key>Text_ROOM_1</key>
+  <string>中级场</string>
+   <key>Text_ROOM_2</key>
+  <string>高级场</string>
+  
+  
+    <key>ToolTiptext_1</key>
+  <string>亲,您的金币不够进入%s哦！金币达到%s可以进入!</string>
+  
+      <key>ToolTiptext_2</key>
+  <string>亲,您的金币不足</string>
+  
+  
+    <key>ToolTiptext_3</key>
+  <string>充值成功</string>
+  
+  
+    <key>ToolTiptext_4</key>
+  <string>充值失败</string>
+  
+  <key>ToolTiptext_5</key>
+  <string>您已是尊敬的VIP会员！</string>
+  
+    <key>ToolTiptext_6</key>
+  <string>退出游戏？</string>
+  
+    <key>PlayerGrabCoin</key>
+  <string>玩家%s抢走了</string>
+  
+  </dict>
+  
+  
+
+</array>
+</plist>

@@ -1,0 +1,10 @@
+{
+  "describe": "游戏配置" ,
+  "version" : 1,
+  "shootList": 
+  {
+  	"shootInterval":0.2,
+		"bulletSpeed":1100
+  },
+  "catch_fish_per_coef":1.0
+}

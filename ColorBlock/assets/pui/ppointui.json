@@ -1,0 +1,688 @@
+{
+	"config":{ "screenWidth": 480, "screenHeight": 800, "resolutionPolicy": ""},
+	"ppoints":[
+		{ 
+			"id": 1,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_zhuangpan_bg.png", "specialname": "dialog_zhuangpan_bg.png" },
+				{ "type": "image", "x": 0, "y": 172, "width": 480, "height": 445, "defaultname": "dialog_bg_zhuanpan.png", "specialname": "dialog_bg_zhuanpan.png" },
+				{ "type": "image", "x": 380, "y": 760, "width": 89, "height": 24, "defaultname": "dialog_white_20_2.png", "specialname": "dialog_white_20_2.png" },
+				{ "type": "confirmbutton", "x": 83, "y": 605, "width": 319, "height": 114, "defaultname": "dialog_zhuanpan_confirm_up.png", "specialname": "dialog_zhuanpan_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 22, "y": 0, "width": 38, "height": 38, "defaultname": "dialog_zhuanpan_close.png", "specialname": "dialog_zhuanpan_close.png" },
+				{ "type": "image", "x": 107, "y": 760, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px.png", "specialname": "dialog_zhuangpan_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 2,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 60, "width": 480, "height": 555, "defaultname": "dialog_hb_bg.png", "specialname": "dialog_hb_bg.png" },
+				{ "type": "confirmbutton", "x": 127, "y": 476, "width": 223, "height": 75, "defaultname": "dialog_hb_confirm_up.png", "specialname": "dialog_hb_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 405, "y": 255, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 192, "y": 553, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 156, "y": 468, "width": 153, "height": 14, "defaultname": "dialog_hb_kf_px.png", "specialname": "dialog_hb_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 3,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 0, "y": 516, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_1.png", "specialname": "btn_duihua_charge_1.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b.png", "specialname": "dialog_zhuangpan_kf_px_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 4,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_chuizi.png", "specialname": "dialog_image_daoju_chuizi.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 321, "y": 421, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px.png", "specialname": "dialog_zhuangpan_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 5,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_mobang.png", "specialname": "dialog_image_daoju_mobang.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 321, "y": 421, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px.png", "specialname": "dialog_zhuangpan_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 6,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 0, "y": 516, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_2.png", "specialname": "btn_duihua_charge_2.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b.png", "specialname": "dialog_zhuangpan_kf_px_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 7,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_zhuizi.png", "specialname": "dialog_bg_yindao_zhuizi.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 0, "y": 567, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b.png", "specialname": "dialog_zhuangpan_kf_px_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 8,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_mobang.png", "specialname": "dialog_bg_yindao_mobang.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 0, "y": 567, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b.png", "specialname": "dialog_zhuangpan_kf_px_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 9,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_zhuangpan_bg.png", "specialname": "dialog_zhuangpan_bg.png" },
+				{ "type": "image", "x": 0, "y": 172, "width": 480, "height": 445, "defaultname": "dialog_bg_zhuanpan.png", "specialname": "dialog_bg_zhuanpan.png" },
+				{ "type": "image", "x": 380, "y": 760, "width": 89, "height": 24, "defaultname": "dialog_white_20_2.png", "specialname": "dialog_white_20_2.png" },
+				{ "type": "confirmbutton", "x": 83, "y": 605, "width": 319, "height": 114, "defaultname": "dialog_zhuanpan_confirm_up.png", "specialname": "dialog_zhuanpan_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 22, "y": 0, "width": 38, "height": 38, "defaultname": "dialog_zhuanpan_close.png", "specialname": "dialog_zhuanpan_close.png" },
+				{ "type": "image", "x": 107, "y": 760, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt.png", "specialname": "dialog_zhuangpan_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 10,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 60, "width": 480, "height": 555, "defaultname": "dialog_hb_bg.png", "specialname": "dialog_hb_bg.png" },
+				{ "type": "confirmbutton", "x": 127, "y": 476, "width": 223, "height": 75, "defaultname": "dialog_hb_confirm_up.png", "specialname": "dialog_hb_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 405, "y": 255, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 192, "y": 553, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 156, "y": 468, "width": 153, "height": 14, "defaultname": "dialog_hb_kf_lt.png", "specialname": "dialog_hb_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 11,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 0, "y": 516, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_1.png", "specialname": "btn_duihua_charge_1.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b.png", "specialname": "dialog_zhuangpan_kf_lt_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 12,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_chuizi.png", "specialname": "dialog_image_daoju_chuizi.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 321, "y": 421, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt.png", "specialname": "dialog_zhuangpan_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 13,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_mobang.png", "specialname": "dialog_image_daoju_mobang.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 321, "y": 421, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt.png", "specialname": "dialog_zhuangpan_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 14,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 0, "y": 516, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_2.png", "specialname": "btn_duihua_charge_2.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b.png", "specialname": "dialog_zhuangpan_kf_lt_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 15,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_zhuizi.png", "specialname": "dialog_bg_yindao_zhuizi.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 0, "y": 567, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b.png", "specialname": "dialog_zhuangpan_kf_lt_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 16,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_mobang.png", "specialname": "dialog_bg_yindao_mobang.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 0, "y": 567, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b.png", "specialname": "dialog_zhuangpan_kf_lt_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 17,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_zhuangpan_bg.png", "specialname": "dialog_zhuangpan_bg.png" },
+				{ "type": "image", "x": 0, "y": 172, "width": 480, "height": 445, "defaultname": "dialog_bg_zhuanpan.png", "specialname": "dialog_bg_zhuanpan.png" },
+				{ "type": "image", "x": 380, "y": 760, "width": 89, "height": 24, "defaultname": "dialog_white_20_2.png", "specialname": "dialog_white_20_2.png" },
+				{ "type": "confirmbutton", "x": 83, "y": 605, "width": 319, "height": 114, "defaultname": "dialog_zhuanpan_confirm_up.png", "specialname": "dialog_zhuanpan_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 22, "y": 0, "width": 38, "height": 38, "defaultname": "dialog_zhuanpan_close.png", "specialname": "dialog_zhuanpan_close.png" },
+				{ "type": "image", "x": 107, "y": 760, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky.png", "specialname": "dialog_zhuangpan_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 18,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 60, "width": 480, "height": 555, "defaultname": "dialog_hb_bg.png", "specialname": "dialog_hb_bg.png" },
+				{ "type": "confirmbutton", "x": 127, "y": 476, "width": 223, "height": 75, "defaultname": "dialog_hb_confirm_up.png", "specialname": "dialog_hb_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 405, "y": 255, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 192, "y": 553, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 156, "y": 468, "width": 153, "height": 14, "defaultname": "dialog_hb_kf_sky.png", "specialname": "dialog_hb_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 19,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 0, "y": 516, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_1.png", "specialname": "btn_duihua_charge_1.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b.png", "specialname": "dialog_zhuangpan_kf_sky_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 20,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_chuizi.png", "specialname": "dialog_image_daoju_chuizi.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 321, "y": 421, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky.png", "specialname": "dialog_zhuangpan_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 21,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_mobang.png", "specialname": "dialog_image_daoju_mobang.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 321, "y": 421, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky.png", "specialname": "dialog_zhuangpan_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 22,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 0, "y": 516, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_2.png", "specialname": "btn_duihua_charge_2.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b.png", "specialname": "dialog_zhuangpan_kf_sky_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 23,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_zhuizi.png", "specialname": "dialog_bg_yindao_zhuizi.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 0, "y": 567, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b.png", "specialname": "dialog_zhuangpan_kf_sky_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 24,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_mobang.png", "specialname": "dialog_bg_yindao_mobang.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 0, "y": 567, "width": 89, "height": 24, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b.png", "specialname": "dialog_zhuangpan_kf_sky_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		
+		{ 
+			"id": 25,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_zhuangpan_bg.png", "specialname": "dialog_zhuangpan_bg.png" },
+				{ "type": "image", "x": 0, "y": 172, "width": 480, "height": 445, "defaultname": "dialog_bg_zhuanpan.png", "specialname": "dialog_bg_zhuanpan.png" },
+				{ "type": "image", "x": 0, "y": 340, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "confirmbutton", "x": 83, "y": 605, "width": 319, "height": 114, "defaultname": "dialog_zhuanpan_confirm_up.png", "specialname": "dialog_zhuanpan_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 22, "y": 0, "width": 38, "height": 38, "defaultname": "dialog_zhuanpan_close.png", "specialname": "dialog_zhuanpan_close.png" },
+				{ "type": "image", "x": 107, "y": 760, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px.png", "specialname": "dialog_zhuangpan_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 26,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 60, "width": 480, "height": 555, "defaultname": "dialog_hb_bg.png", "specialname": "dialog_hb_bg.png" },
+				{ "type": "confirmbutton", "x": 127, "y": 476, "width": 223, "height": 75, "defaultname": "dialog_hb_confirm_up.png", "specialname": "dialog_hb_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 405, "y": 255, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 61, "y": 580, "width": 66, "height": 14, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 156, "y": 468, "width": 153, "height": 14, "defaultname": "dialog_hb_kf_px.png", "specialname": "dialog_hb_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 27,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 148, "y": 488, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_1.png", "specialname": "btn_duihua_charge_1.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b_2.png", "specialname": "dialog_zhuangpan_kf_px_b_2.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 28,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_chuizi.png", "specialname": "dialog_image_daoju_chuizi.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 345, "y": 442, "width": 58, "height": 12, "defaultname": "dialog_daoju_20.png", "specialname": "dialog_daoju_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px.png", "specialname": "dialog_zhuangpan_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 29,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_mobang.png", "specialname": "dialog_image_daoju_mobang.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 110, "y": 442, "width": 58, "height": 12, "defaultname": "dialog_daoju_20.png", "specialname": "dialog_daoju_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px.png", "specialname": "dialog_zhuangpan_kf_px.png" }
+			]
+		},
+		{ 
+			"id": 30,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 148, "y": 488, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_2.png", "specialname": "btn_duihua_charge_2.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b_2.png", "specialname": "dialog_zhuangpan_kf_px_b_2.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 31,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_zhuizi.png", "specialname": "dialog_bg_yindao_zhuizi.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 415, "y": 467, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b.png", "specialname": "dialog_zhuangpan_kf_px_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 32,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_mobang.png", "specialname": "dialog_bg_yindao_mobang.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 415, "y": 467, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b.png", "specialname": "dialog_zhuangpan_kf_px_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 33,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_zhuangpan_bg.png", "specialname": "dialog_zhuangpan_bg.png" },
+				{ "type": "image", "x": 0, "y": 172, "width": 480, "height": 445, "defaultname": "dialog_bg_zhuanpan.png", "specialname": "dialog_bg_zhuanpan.png" },
+				{ "type": "image", "x": 0, "y": 340, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "confirmbutton", "x": 83, "y": 605, "width": 319, "height": 114, "defaultname": "dialog_zhuanpan_confirm_up.png", "specialname": "dialog_zhuanpan_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 22, "y": 0, "width": 38, "height": 38, "defaultname": "dialog_zhuanpan_close.png", "specialname": "dialog_zhuanpan_close.png" },
+				{ "type": "image", "x": 107, "y": 760, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt.png", "specialname": "dialog_zhuangpan_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 34,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 60, "width": 480, "height": 555, "defaultname": "dialog_hb_bg.png", "specialname": "dialog_hb_bg.png" },
+				{ "type": "confirmbutton", "x": 127, "y": 476, "width": 223, "height": 75, "defaultname": "dialog_hb_confirm_up.png", "specialname": "dialog_hb_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 405, "y": 255, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 61, "y": 580, "width": 66, "height": 14, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 156, "y": 468, "width": 153, "height": 14, "defaultname": "dialog_hb_kf_lt.png", "specialname": "dialog_hb_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 35,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 148, "y": 488, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_1.png", "specialname": "btn_duihua_charge_1.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b_2.png", "specialname": "dialog_zhuangpan_kf_lt_b_2.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 36,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_chuizi.png", "specialname": "dialog_image_daoju_chuizi.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 345, "y": 442, "width": 58, "height": 12, "defaultname": "dialog_daoju_20.png", "specialname": "dialog_daoju_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt.png", "specialname": "dialog_zhuangpan_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 37,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_mobang.png", "specialname": "dialog_image_daoju_mobang.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 110, "y": 442, "width": 58, "height": 12, "defaultname": "dialog_daoju_20.png", "specialname": "dialog_daoju_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt.png", "specialname": "dialog_zhuangpan_kf_lt.png" }
+			]
+		},
+		{ 
+			"id": 38,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 148, "y": 488, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_2.png", "specialname": "btn_duihua_charge_2.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b_2.png", "specialname": "dialog_zhuangpan_kf_lt_b_2.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 39,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_zhuizi.png", "specialname": "dialog_bg_yindao_zhuizi.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 415, "y": 467, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b.png", "specialname": "dialog_zhuangpan_kf_lt_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 40,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_mobang.png", "specialname": "dialog_bg_yindao_mobang.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 415, "y": 467, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_lt_b.png", "specialname": "dialog_zhuangpan_kf_lt_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 41,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_zhuangpan_bg.png", "specialname": "dialog_zhuangpan_bg.png" },
+				{ "type": "image", "x": 0, "y": 172, "width": 480, "height": 445, "defaultname": "dialog_bg_zhuanpan.png", "specialname": "dialog_bg_zhuanpan.png" },
+				{ "type": "image", "x": 0, "y": 340, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "confirmbutton", "x": 83, "y": 605, "width": 319, "height": 114, "defaultname": "dialog_zhuanpan_confirm_up.png", "specialname": "dialog_zhuanpan_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 22, "y": 0, "width": 38, "height": 38, "defaultname": "dialog_zhuanpan_close.png", "specialname": "dialog_zhuanpan_close.png" },
+				{ "type": "image", "x": 107, "y": 760, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky.png", "specialname": "dialog_zhuangpan_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 42,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 60, "width": 480, "height": 555, "defaultname": "dialog_hb_bg.png", "specialname": "dialog_hb_bg.png" },
+				{ "type": "confirmbutton", "x": 127, "y": 476, "width": 223, "height": 75, "defaultname": "dialog_hb_confirm_up.png", "specialname": "dialog_hb_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 405, "y": 255, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 61, "y": 580, "width": 66, "height": 14, "defaultname": "dialog_white_20.png", "specialname": "dialog_white_20.png" },
+				{ "type": "image", "x": 156, "y": 468, "width": 153, "height": 14, "defaultname": "dialog_hb_kf_sky.png", "specialname": "dialog_hb_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 43,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 148, "y": 488, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_1.png", "specialname": "btn_duihua_charge_1.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b_2.png", "specialname": "dialog_zhuangpan_kf_sky_b_2.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 44,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_chuizi.png", "specialname": "dialog_image_daoju_chuizi.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 345, "y": 442, "width": 58, "height": 12, "defaultname": "dialog_daoju_20.png", "specialname": "dialog_daoju_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky.png", "specialname": "dialog_zhuangpan_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 45,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 610, "defaultname": "dialog_bg_daoju.png", "specialname": "dialog_bg_daoju.png" },
+				{ "type": "image", "x": 124, "y": 205, "width": 238, "height": 259, "defaultname": "dialog_image_daoju_mobang.png", "specialname": "dialog_image_daoju_mobang.png" },
+				{ "type": "confirmbutton", "x": 136, "y": 494, "width": 210, "height": 88, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 30, "y": 160, "width": 40, "height": 40, "defaultname": "dialog_image_daoju_close.png", "specialname": "dialog_image_daoju_close.png" },
+				{ "type": "image", "x": 110, "y": 442, "width": 58, "height": 12, "defaultname": "dialog_daoju_20.png", "specialname": "dialog_daoju_20.png" },
+				{ "type": "image", "x": 105, "y": 466, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky.png", "specialname": "dialog_zhuangpan_kf_sky.png" }
+			]
+		},
+		{ 
+			"id": 46,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 148, "y": 488, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_2.png", "specialname": "btn_duihua_charge_2.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b_2.png", "specialname": "dialog_zhuangpan_kf_sky_b_2.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+		{ 
+			"id": 47,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_zhuizi.png", "specialname": "dialog_bg_yindao_zhuizi.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 415, "y": 467, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b.png", "specialname": "dialog_zhuangpan_kf_sky_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+		{ 
+			"id": 48,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black_2.png", "specialname": "dialog_bg_black_2.png" },
+				{ "type": "image", "x": 0, "y": 250, "width": 480, "height": 330, "defaultname": "dialog_bg_yindao_mobang.png", "specialname": "dialog_bg_yindao_mobang.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 376, "y": 0, "width": 43, "height": 43, "defaultname": "dialog_hb_close.png", "specialname": "dialog_hb_close.png" },
+				{ "type": "image", "x": 415, "y": 467, "width": 58, "height": 12, "defaultname": "dialog_duihua_20.png", "specialname": "dialog_duihua_20.png" },
+				{ "type": "image", "x": 105, "y": 772, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_sky_b.png", "specialname": "dialog_zhuangpan_kf_sky_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		},
+
+
+
+
+		{ 
+			"id": 49,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},
+
+
+
+		{ 
+			"id": 50,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},
+		{ 
+			"id": 51,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},
+		{ 
+			"id": 52,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},
+		{ 
+			"id": 53,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},
+		{ 
+			"id": 54,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},
+		{ 
+			"id": 55,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},		
+		{ 
+			"id": 56,
+			"elements": [
+				{ "type": "image", "x": 18, "y": 226, "width": 441, "height": 312, "defaultname": "second_bg_20.png", "specialname": "second_bg_20.png" },
+				{ "type": "confirmbutton", "x": 297, "y": 461, "width": 132, "height": 57, "defaultname": "pay_confirm_up5.png", "specialname": "pay_confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 52, "y": 461, "width": 132, "height": 57, "defaultname": "pay_cancel_up1.png", "specialname": "pay_cancel_down1.png" }
+			]
+		},
+		{ 
+			"id": 57,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 480, "height": 800, "defaultname": "dialog_bg_black.png", "specialname": "dialog_bg_black.png" },
+				{ "type": "image", "x": 0, "y": 275, "width": 480, "height": 265, "defaultname": "dialog_bg_duihua.png", "specialname": "dialog_bg_duihua.png" },
+				{ "type": "image", "x": 0, "y": 127, "width": 290, "height": 373, "defaultname": "duihua_meinv_2.png", "specialname": "duihua_meinv_2.png" },
+				{ "type": "confirmbutton", "x": 95, "y": 555, "width": 285, "height": 112, "defaultname": "dialog_daiju_confirm_up.png", "specialname": "dialog_daiju_confirm_down.png" },
+				{ "type": "cancelbutton", "x": 75, "y": 204, "width": 36, "height": 36, "defaultname": "dialog_duihua_close.png", "specialname": "dialog_duihua_close.png" },
+				{ "type": "image", "x": 248, "y": 330, "width": 224, "height": 113, "defaultname": "btn_duihua_charge_1.png", "specialname": "btn_duihua_charge_1.png" },
+				{ "type": "image", "x": 256, "y": 475, "width": 271, "height": 28, "defaultname": "dialog_zhuangpan_kf_px_b.png", "specialname": "dialog_zhuangpan_kf_px_b.png" },
+				{ "type": "image", "x": 286, "y": 586, "width": 145, "height": 153, "defaultname": "duihua_xiaoshou.png", "specialname": "duihua_xiaoshou.png" }
+			]
+		}																				
+	]
+}

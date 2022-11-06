@@ -1,0 +1,31 @@
+{
+	"describe": "宝箱基础信息配置;" ,
+	"version" : 1,
+	"item_list": [
+		{
+			"chest_level"		: 1,
+			"chest_name"		: "青铜宝箱",
+			"item_id"			: 1009,
+			"allow_presented"	: true,
+			"catch_per"			: 1.03,
+			"have_get_reward"	: 100000 
+		},
+		{
+			"chest_level"		: 2,
+			"chest_name"		: "白银宝箱",
+			"item_id"			: 1010,
+			"allow_presented"	: true,
+			"catch_per"			: 1.06,
+			"have_get_reward"	: 300000 
+		},
+		{
+			"chest_level"		: 3,
+			"chest_name"		: "黄金宝箱",
+			"item_id"			: 1011,
+			"allow_presented"	: true,
+			"catch_per"			: 1.1,
+			"have_get_reward"	: 500000 
+		}
+		
+	]
+}

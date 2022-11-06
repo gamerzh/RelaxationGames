@@ -1,0 +1,24 @@
+{
+  "describe": "技能配置.unlock_buy_type,0炮台等级;1,vip等级" ,
+  "version" : 1,
+  "item_list": [
+    {
+      "item_id" :	1009,
+      "desc"    : "青铜宝箱",
+      "catch_fish_per"	:	1.03,
+      "money"  :	100000
+    },
+    {
+      "item_id" : 1010,
+      "desc"    : "白银宝箱",
+      "catch_fish_per"  : 1.06,
+      "money"  : 300000
+    },
+    {
+      "item_id" : 1011,
+      "desc"    : "黄金宝箱",
+      "catch_fish_per"  : 1.1,
+      "money"  : 500000
+    }
+  ]
+}

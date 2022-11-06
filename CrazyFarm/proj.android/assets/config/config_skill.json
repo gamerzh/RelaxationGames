@@ -1,0 +1,46 @@
+{
+  "describe": "技能配置.unlock_buy_type,0炮台等级;1,vip等级" ,
+  "version" : 1,
+  "item_list": [
+    {
+      "skill_id"  :	1,
+      "item_id" :	1003,
+      "desc"    : "冰冻",
+      "unlock_buy_turretLv"	:	30,
+      "unlock_buy_vipLv"  :	0,
+      "cd_time" : 10
+    },
+    {
+      "skill_id"  : 2,
+      "item_id" : 1004,
+      "desc"    : "锁定",
+      "unlock_buy_turretLv"  : 30,
+      "unlock_buy_vipLv"  : 0,
+      "cd_time" : 15
+    },
+    {
+      "skill_id"  : 3,
+      "item_id" : 1005,
+      "desc"    : "召唤",
+      "unlock_buy_turretLv"  : 10,
+      "unlock_buy_vipLv"  :  0,
+       "cd_time" : 3
+    },
+    {
+      "skill_id"  : 4,
+      "item_id" : 1006,
+      "desc"    : "核弹",
+      "unlock_buy_turretLv"  : 0,
+      "unlock_buy_vipLv"  : 3,
+      "cd_time" : 3
+    },
+    {
+      "skill_id"  : 5,
+      "item_id" : 1007,
+      "desc"    : "激光炮",
+      "unlock_buy_turretLv"  : 0,
+      "unlock_buy_vipLv"  : 2,
+      "cd_time" : 15
+    }
+  ]
+}

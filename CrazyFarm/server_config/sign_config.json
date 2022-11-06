@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "today": "2016-01-11",
+    "item_lists": [
+        {
+            "item_id": 1001,
+            "num": 500,
+            "probability": 20
+        },
+        {
+            "item_id": 1002,
+            "num": 3,
+            "probability": 20
+        },
+        {
+            "item_id": 1001,
+            "num": 800,
+            "probability": 20
+        },
+        {
+            "item_id": 1002,
+            "num": 5,
+            "probability": 20
+        },
+        {
+            "item_id": 1004,
+            "num": 1,
+            "probability": 10
+        },
+        {
+            "item_id": 1003,
+            "num": 1,
+            "probability": 10
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">开心捕鱼</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="startbtn">Ready\tGo!</string>
+    <string name="quit_text">亲爱的玩家，您确定要离开渔场了么?</string>
+     <string name="g_class_name"></string>
+
+</resources>

@@ -1,0 +1,804 @@
+{
+	"config":{"screenWidth":800,"screenHeight":480,"resolutionPolicy":""},
+	"ppoints":[
+		{ 
+			"id": 1,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2.png", "specialname": "dialog_desc_charge_2.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		{ 
+			"id": 2,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4.png", "specialname": "dialog_desc_charge_4.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		{ 
+			"id": 6,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_good_start.png", "specialname": "dialog_desc_good_start.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		
+		{ 
+			"id": 7,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_prize.png", "specialname": "dialog_desc_prize.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		
+		{ 
+			"id": 10,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_card_remainder.png", "specialname": "dialog_desc_card_remainder.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		{ 
+			"id": 11,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10.png", "specialname": "dialog_desc_charge_10.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		{ 
+			"id": 21,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2.png", "specialname": "dialog_desc_charge_2.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt.png", "specialname": "dialog_hint_with_kefu_lt.png" }
+			]
+		},
+		{ 
+			"id": 22,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4.png", "specialname": "dialog_desc_charge_4.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt.png", "specialname": "dialog_hint_with_kefu_lt.png" }
+			]
+		},
+		{ 
+			"id": 26,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_good_start.png", "specialname": "dialog_desc_good_start.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt.png", "specialname": "dialog_hint_with_kefu_lt.png" }
+			]
+		},
+		
+		{ 
+			"id": 27,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_prize.png", "specialname": "dialog_desc_prize.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt.png", "specialname": "dialog_hint_with_kefu_lt.png" }
+			]
+		},
+		
+		{ 
+			"id": 30,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_card_remainder.png", "specialname": "dialog_desc_card_remainder.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt.png", "specialname": "dialog_hint_with_kefu_lt.png" }
+			]
+		},
+		{ 
+			"id": 28,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10.png", "specialname": "dialog_desc_charge_10.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt.png", "specialname": "dialog_hint_with_kefu_lt.png" }
+			]
+		},
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		{ 
+			"id": 31,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge_2.png", "specialname": "dialog_title_charge_2.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2_.png", "specialname": "dialog_desc_charge_2_.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_.png", "specialname": "dialog_hint_with_kefu_.png" }
+			]
+		},
+		{ 
+			"id": 32,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge_4.png", "specialname": "dialog_title_charge_4.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4_.png", "specialname": "dialog_desc_charge_4_.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_.png", "specialname": "dialog_hint_with_kefu_.png" }
+			]
+		},
+		{ 
+			"id": 33,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge_10.png", "specialname": "dialog_title_charge_10.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_.png", "specialname": "dialog_desc_charge_10_.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_.png", "specialname": "dialog_hint_with_kefu_.png" }
+			]
+		},
+		{ 
+			"id": 34,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_fhp.png", "specialname": "dialog_desc_charge_10_fhp.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_.png", "specialname": "dialog_hint_with_kefu_.png" }
+			]
+		},
+		{ 
+			"id": 35,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_jpq.png", "specialname": "dialog_desc_charge_10_jpq.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_.png", "specialname": "dialog_hint_with_kefu_.png" }
+			]
+		},
+		{ 
+			"id": 36,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_xylb.png", "specialname": "dialog_desc_charge_10_xylb.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_.png", "specialname": "dialog_hint_with_kefu_.png" }
+			]
+		},
+		{ 
+			"id": 41,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1k_coin.png", "specialname": "dialog_text_1k_coin.png" }
+			]
+		}
+		
+		,
+		{ 
+			"id": 42,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_free_good_start.png", "specialname": "dialog_text_free_good_start.png" }	
+			]
+		}
+		
+		,
+		{ 
+			"id": 43,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2.png", "specialname": "dialog_desc_charge_2.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		{ 
+			"id": 44,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4.png", "specialname": "dialog_desc_charge_4.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		{ 
+			"id": 47,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_good_start.png", "specialname": "dialog_desc_good_start.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		
+		{ 
+			"id": 48,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_prize.png", "specialname": "dialog_desc_prize.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		
+		{ 
+			"id": 49,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_card_remainder.png", "specialname": "dialog_desc_card_remainder.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		{ 
+			"id": 50,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 420, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10.png", "specialname": "dialog_desc_charge_10.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 450, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj.png", "specialname": "dialog_hint_with_kefu_mmpj.png" }
+			]
+		},
+		{ 
+			"id": 51,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2_b.png", "specialname": "dialog_desc_charge_2_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		{ 
+			"id": 52,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4_b.png", "specialname": "dialog_desc_charge_4_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		{ 
+			"id": 53,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_good_start_b.png", "specialname": "dialog_desc_good_start_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		
+		{ 
+			"id": 54,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_prize_b.png", "specialname": "dialog_desc_prize_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		
+		{ 
+			"id": 55,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_card_remainder_b.png", "specialname": "dialog_desc_card_remainder_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		{ 
+			"id": 56,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_b.png", "specialname": "dialog_desc_charge_10_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		{ 
+			"id": 57,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2_b.png", "specialname": "dialog_desc_charge_2_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt_b.png", "specialname": "dialog_hint_with_kefu_lt_b.png" }
+			]
+		},
+		{ 
+			"id": 58,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4_b.png", "specialname": "dialog_desc_charge_4_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt_b.png", "specialname": "dialog_hint_with_kefu_lt_b.png" }
+			]
+		},
+		{ 
+			"id": 59,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_good_start_b.png", "specialname": "dialog_desc_good_start_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt_b.png", "specialname": "dialog_hint_with_kefu_lt_b.png" }
+			]
+		},
+		
+		{ 
+			"id": 60,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_prize_b.png", "specialname": "dialog_desc_prize_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt_b.png", "specialname": "dialog_hint_with_kefu_lt_b.png" }
+			]
+		},
+		
+		{ 
+			"id": 61,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_card_remainder_b.png", "specialname": "dialog_desc_card_remainder_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt_b.png", "specialname": "dialog_hint_with_kefu_lt_b.png" }
+			]
+		},
+		{ 
+			"id": 62,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_b.png", "specialname": "dialog_desc_charge_10_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_lt_b.png", "specialname": "dialog_hint_with_kefu_lt_b.png" }
+			]
+		},
+		{ 
+			"id": 63,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge_2.png", "specialname": "dialog_title_charge_2.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2.png", "specialname": "dialog_desc_charge_2.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_b.png", "specialname": "dialog_hint_with_kefu_b.png" }
+			]
+		},
+		{ 
+			"id": 64,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge_4.png", "specialname": "dialog_title_charge_4.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4.png", "specialname": "dialog_desc_charge_4.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_b.png", "specialname": "dialog_hint_with_kefu_b.png" }
+			]
+		},
+		{ 
+			"id": 65,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge_10.png", "specialname": "dialog_title_charge_10.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10.png", "specialname": "dialog_desc_charge_10.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_b.png", "specialname": "dialog_hint_with_kefu_b.png" }
+			]
+		},
+		{ 
+			"id": 66,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_fhp.png", "specialname": "dialog_desc_charge_10_fhp.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_b.png", "specialname": "dialog_hint_with_kefu_b.png" }
+			]
+		},
+		{ 
+			"id": 67,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_jpq.png", "specialname": "dialog_desc_charge_10_jpq.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_b.png", "specialname": "dialog_hint_with_kefu_b.png" }
+			]
+		},
+		{ 
+			"id": 68,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_xylb.png", "specialname": "dialog_desc_charge_10_xylb.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_b.png", "specialname": "dialog_hint_with_kefu_b.png" }
+			]
+		},
+{ 
+			"id": 69,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255, "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_2_b.png", "specialname": "dialog_desc_charge_2_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_2.png", "specialname": "dialog_text_charge_2.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		{ 
+			"id": 70,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_4_b.png", "specialname": "dialog_desc_charge_4_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_4.png", "specialname": "dialog_text_charge_4.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		{ 
+			"id": 71,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_good_start.png", "specialname": "dialog_title_good_start.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_good_start.png", "specialname": "dialog_icon_good_start.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_good_start_b.png", "specialname": "dialog_desc_good_start_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_good_start_50.png", "specialname": "dialog_text_good_start_50.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		
+		{ 
+			"id": 72,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_prize.png", "specialname": "dialog_title_prize.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_prize.png", "specialname": "dialog_icon_prize.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_prize_b.png", "specialname": "dialog_desc_prize_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_1w_coin.png", "specialname": "dialog_text_1w_coin.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		
+		{ 
+			"id": 73,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_card_remainder.png", "specialname": "dialog_title_card_remainder.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_card_remainder.png", "specialname": "dialog_icon_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_card_remainder_b.png", "specialname": "dialog_desc_card_remainder_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_card_remainder.png", "specialname": "dialog_text_card_remainder.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+		{ 
+			"id": 74,
+			"elements": [
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 480, "defaultname": "dialog_bg.png", "specialname": "dialog_bg.png" },
+				{ "type": "confirmbutton", "x": 292, "y": 320, "width": 216, "height": 78, "defaultname": "dialog_confirm.png", "specialname": "dialog_confirm_hover.png" },
+				{ "type": "cancelbutton", "x": 750, "y": 12, "width": 40, "height": 40, "defaultname": "cancel_up.png", "specialname": "cancel_down.png" },
+				{ "type": "image", "x":308, "y": 28, "width": 183, "height": 46, "defaultname": "dialog_title_charge.png", "specialname": "dialog_title_charge.png" },
+				
+				{ "type": "image", "x":254, "y": 70, "width": 292, "height": 255,  "defaultname": "dialog_icon_charge.png", "specialname": "dialog_icon_charge.png" },
+				{ "type": "image", "x": 0, "y": 0, "width": 800, "height": 20, "defaultname": "dialog_desc_charge_10_b.png", "specialname": "dialog_desc_charge_10_b.png" },
+				{ "type": "image", "x": 200, "y": 280, "width": 400, "height": 35, "defaultname": "dialog_text_charge_10.png", "specialname": "dialog_text_charge_10.png" },
+				{ "type": "image", "x": 0, "y": 15, "width": 800, "height": 20, "defaultname": "dialog_hint_with_kefu_mmpj_b.png", "specialname": "dialog_hint_with_kefu_mmpj_b.png" }
+			]
+		},
+{ 
+			"id": 75,
+			"elements": [
+				{ "type": "image", "x": 241, "y": 127, "width": 318, "height": 225, "defaultname": "second_bg_2.png", "specialname": "second_bg_2.png" },
+				{ "type": "confirmbutton", "x": 298, "y": 322, "width": 70, "height": 30, "defaultname": "confirm_up5.png", "specialname": "confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 414, "y": 322, "width": 70, "height": 30, "defaultname": "cancel_up1.png", "specialname": "cancel_down1.png" }
+			]
+		},
+{ 
+			"id": 76,
+			"elements": [
+				{ "type": "image", "x": 241, "y": 127, "width": 318, "height": 225, "defaultname": "second_bg_4.png", "specialname": "second_bg_4.png" },
+				{ "type": "confirmbutton", "x": 298, "y": 322, "width": 70, "height": 30, "defaultname": "confirm_up5.png", "specialname": "confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 414, "y": 322, "width": 70, "height": 30, "defaultname": "cancel_up1.png", "specialname": "cancel_down1.png" }
+			]
+		},
+{ 
+			"id": 77,
+			"elements": [
+				{ "type": "image", "x": 241, "y": 127, "width": 318, "height": 225, "defaultname": "second_bg_10.png", "specialname": "second_bg_10.png" },
+				{ "type": "confirmbutton", "x": 298, "y": 322, "width": 70, "height": 30, "defaultname": "confirm_up5.png", "specialname": "confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 414, "y": 322, "width": 70, "height": 30, "defaultname": "cancel_up1.png", "specialname": "cancel_down1.png" }
+			]
+		},
+{ 
+			"id": 78,
+			"elements": [
+				{ "type": "image", "x": 241, "y": 127, "width": 318, "height": 225, "defaultname": "second_bg_10.png", "specialname": "second_bg_10.png" },
+				{ "type": "confirmbutton", "x": 298, "y": 322, "width": 70, "height": 30, "defaultname": "confirm_up5.png", "specialname": "confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 414, "y": 322, "width": 70, "height": 30, "defaultname": "cancel_up1.png", "specialname": "cancel_down1.png" }
+			]
+		},
+{ 
+			"id": 79,
+			"elements": [
+				{ "type": "image", "x": 241, "y": 127, "width": 318, "height": 225, "defaultname": "second_bg_10.png", "specialname": "second_bg_10.png" },
+				{ "type": "confirmbutton", "x": 298, "y": 322, "width": 70, "height": 30, "defaultname": "confirm_up5.png", "specialname": "confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 414, "y": 322, "width": 70, "height": 30, "defaultname": "cancel_up1.png", "specialname": "cancel_down1.png" }
+			]
+		},
+{ 
+			"id": 80,
+			"elements": [
+				{ "type": "image", "x": 241, "y": 127, "width": 318, "height": 225, "defaultname": "second_bg_10.png", "specialname": "second_bg_10.png" },
+				{ "type": "confirmbutton", "x": 298, "y": 322, "width": 70, "height": 30, "defaultname": "confirm_up5.png", "specialname": "confirm_down5.png" },
+				{ "type": "cancelbutton", "x": 414, "y": 322, "width": 70, "height": 30, "defaultname": "cancel_up1.png", "specialname": "cancel_down1.png" }
+			]
+		}																														
+	]
+}
